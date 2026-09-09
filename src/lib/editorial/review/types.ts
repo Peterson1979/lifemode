@@ -48,6 +48,11 @@ export interface ReviewRequest {
     url?: string;
   }>;
   internalLinks: string[];
+  estimatedWordCount?: {
+    min: number;
+    target: number;
+    max: number;
+  };
   deterministicValidation?: GenerationValidationReport;
 }
 

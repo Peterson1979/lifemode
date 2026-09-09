@@ -87,7 +87,17 @@ export function evaluatePublishingGate(
     reasons.push('Article content body is missing or empty.');
   } else {
     const wordCount = countWords(content);
-    if (wordCount < 80) {
+
+    // Minimum length check against brief context
+    if (context?.estimatedWordCount?.min) {
+      const targetMin = context.estimatedWordCount.min;
+      const lowerBoundary = Math.floor(targetMin * 0.8);
+      if (wordCount < lowerBoundary) {
+        reasons.push(
+          `Article content (${wordCount} words) is substantially below the required minimum target (${targetMin} words, threshold >= ${lowerBoundary} words).`
+        );
+      }
+    } else if (wordCount < 80) {
       reasons.push(`Article content is too short (${wordCount} words, min 80 required for publishing).`);
     }
 

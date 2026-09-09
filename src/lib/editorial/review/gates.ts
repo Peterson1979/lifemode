@@ -69,9 +69,23 @@ export function evaluateReviewGates(request: ReviewRequest): ReviewGateResult {
   if (!content) {
     criticalIssues.push('Article content body is missing or empty.');
   } else {
-    // 2. Minimum length check
     const wordCount = countWords(content);
-    if (wordCount < 80) {
+
+    // 2. Minimum length check against brief target
+    if (request.estimatedWordCount?.min) {
+      const targetMin = request.estimatedWordCount.min;
+      const lowerBoundary = Math.floor(targetMin * 0.8);
+
+      if (wordCount < lowerBoundary) {
+        criticalIssues.push(
+          `Article content is severely undersized (${wordCount} words) compared to brief target minimum of ${targetMin} words (acceptable threshold >= ${lowerBoundary} words).`
+        );
+      } else if (wordCount < targetMin) {
+        warnings.push(
+          `Article content is slightly below brief target minimum (${wordCount} words, target min ${targetMin} words).`
+        );
+      }
+    } else if (wordCount < 80) {
       criticalIssues.push(`Article content is too short for review (${wordCount} words, minimum 80 words required).`);
     }
 
@@ -86,6 +100,14 @@ export function evaluateReviewGates(request: ReviewRequest): ReviewGateResult {
     if (emptySectionPattern.test(content)) {
       warnings.push('Article contains an empty heading section without body content.');
     }
+  }
+
+  // 4b. Generation validation report check
+  if (request.deterministicValidation && !request.deterministicValidation.isValid) {
+    const validationErrors = request.deterministicValidation.issues
+      .filter((i) => i.severity === 'error')
+      .map((i) => `Generation validation failure [${i.field} / ${i.rule}]: ${i.message}`);
+    criticalIssues.push(...validationErrors);
   }
 
   const fullText = `${title} ${description} ${request.excerpt || ''} ${content}`;

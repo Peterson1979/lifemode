@@ -68,6 +68,12 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
     `- Primary Keyword: "${request.searchTargets.primaryKeyword}"`,
   ];
 
+  if (request.estimatedWordCount) {
+    userPromptParts.push(
+      `- Target Word Count: ${request.estimatedWordCount.min}–${request.estimatedWordCount.max} words (Target: ${request.estimatedWordCount.target} words)`
+    );
+  }
+
   if (request.searchTargets.secondaryKeywords?.length) {
     userPromptParts.push(`- Secondary Keywords: ${request.searchTargets.secondaryKeywords.join(', ')}`);
   }

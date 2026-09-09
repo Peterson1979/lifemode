@@ -63,6 +63,11 @@ export function buildReviewPrompt(request: ReviewRequest): ReviewPromptPayload {
     `- Primary Intent: ${request.primaryIntent}${request.secondaryIntent ? ` (Secondary: ${request.secondaryIntent})` : ''}`,
     `- Risk Level: ${request.riskLevel}`,
     `- Affiliate Intent: ${request.affiliateIntent ? 'Yes' : 'No'}`,
+    ...(request.estimatedWordCount
+      ? [
+          `- Target Word Count: ${request.estimatedWordCount.min}–${request.estimatedWordCount.max} words (Target: ${request.estimatedWordCount.target} words)`,
+        ]
+      : []),
     `- Sources Provided: ${request.sources.map((s) => s.name).join(', ') || 'None'}`,
     `- Internal Links: ${request.internalLinks.join(', ') || 'None'}`,
     '',

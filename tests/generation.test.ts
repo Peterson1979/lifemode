@@ -283,3 +283,89 @@ test('13. Brief adapter converts ContentBrief to GenerationRequest seamlessly', 
   assert.ok(request.contentInstructions?.includes('traditional architecture'));
   assert.ok(request.outlineSections && request.outlineSections.length > 0);
 });
+
+test('14. Normal article within brief target range passes generation validation', () => {
+  const req: GenerationRequest = {
+    ...validRequest,
+    estimatedWordCount: { min: 1000, target: 1400, max: 2000 },
+  };
+  const dummyContent = Array(1200).fill('word').join(' ');
+  const article: Partial<GeneratedArticle> = {
+    title: 'Intentional Living in the Modern Age',
+    slug: 'intentional-living-in-the-modern-age',
+    description: 'An editorial guide to mindful everyday routines and calm environments.',
+    excerpt: 'Mindful everyday routines for modern living.',
+    content: `## 1. Core Principles\n\n${dummyContent}\n\n## 2. Practical Framework\n\nMore detailed text here.`,
+  };
+
+  const report = validateGeneratedArticle(article, req);
+  assert.equal(report.isValid, true);
+  assert.equal(report.score, 100);
+  assert.equal(report.issues.some((i) => i.rule === 'BELOW_TARGET_WORD_COUNT'), false);
+  assert.equal(report.issues.some((i) => i.rule === 'NEAR_MINIMUM_WORD_COUNT'), false);
+});
+
+test('15. Article slightly below target but within 80% tolerance passes with warning', () => {
+  const req: GenerationRequest = {
+    ...validRequest,
+    estimatedWordCount: { min: 1000, target: 1400, max: 2000 },
+  };
+  // 850 words is >= 800 (80% of 1000), but < 1000
+  const dummyContent = Array(850).fill('editorial').join(' ');
+  const article: Partial<GeneratedArticle> = {
+    title: 'Intentional Living in the Modern Age',
+    slug: 'intentional-living-in-the-modern-age',
+    description: 'An editorial guide to mindful everyday routines and calm environments.',
+    excerpt: 'Mindful everyday routines for modern living.',
+    content: `## 1. Section One\n\n${dummyContent}\n\n## 2. Section Two\n\nPractical application notes.`,
+  };
+
+  const report = validateGeneratedArticle(article, req);
+  assert.equal(report.isValid, true); // Still valid (warning only)
+  assert.equal(report.issues.some((i) => i.rule === 'NEAR_MINIMUM_WORD_COUNT' && i.severity === 'warning'), true);
+  assert.equal(report.issues.some((i) => i.rule === 'BELOW_TARGET_WORD_COUNT'), false);
+});
+
+test('16. Severely undersized article below 80% boundary fails generation validation', () => {
+  const req: GenerationRequest = {
+    ...validRequest,
+    estimatedWordCount: { min: 1400, target: 2000, max: 2800 },
+  };
+  // 546 words is severely undersized (39% of 1400, threshold is 1120)
+  const dummyContent = Array(540).fill('short').join(' ');
+  const article: Partial<GeneratedArticle> = {
+    title: '10 Simple Ways to Make a Small Bedroom Feel Bigger',
+    slug: '10-simple-ways-to-make-a-small-bedroom-feel-bigger',
+    description: 'A brief guide on small bedroom optimization.',
+    excerpt: 'Short excerpt.',
+    content: `## 1. Vertical Space\n\n${dummyContent}\n\n## 2. Lighting\n\nBrief notes.`,
+  };
+
+  const report = validateGeneratedArticle(article, req);
+  assert.equal(report.isValid, false); // Blocked
+  const belowTargetIssue = report.issues.find((i) => i.rule === 'BELOW_TARGET_WORD_COUNT');
+  assert.ok(belowTargetIssue);
+  assert.equal(belowTargetIssue?.severity, 'error');
+  assert.ok(belowTargetIssue?.message.includes('1400'));
+});
+
+test('17. Missing/invalid target metadata falls back safely to default minimum threshold', () => {
+  const reqWithoutTarget: GenerationRequest = {
+    ...validRequest,
+    estimatedWordCount: undefined,
+  };
+  // 120 words exceeds default 80 words
+  const dummyContent = Array(120).fill('content').join(' ');
+  const article: Partial<GeneratedArticle> = {
+    title: 'Intentional Living Guide',
+    slug: 'intentional-living-guide',
+    description: 'A comprehensive editorial guide to modern lifestyle architecture.',
+    excerpt: 'Editorial guide excerpt.',
+    content: `## 1. Overview\n\n${dummyContent}\n\n## 2. Details\n\nMore text.`,
+  };
+
+  const report = validateGeneratedArticle(article, reqWithoutTarget);
+  assert.equal(report.isValid, true);
+  assert.equal(report.issues.some((i) => i.rule === 'BELOW_TARGET_WORD_COUNT'), false);
+});
+

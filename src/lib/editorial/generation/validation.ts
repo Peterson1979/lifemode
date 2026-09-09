@@ -165,7 +165,27 @@ export function validateGeneratedArticle(
       });
     }
 
-    if (wordCount < (opts.minWordCount || 80)) {
+    // Word count target validation
+    if (request?.estimatedWordCount?.min) {
+      const targetMin = request.estimatedWordCount.min;
+      const lowerBoundary = Math.floor(targetMin * 0.8);
+
+      if (wordCount < lowerBoundary) {
+        issues.push({
+          field: 'content',
+          rule: 'BELOW_TARGET_WORD_COUNT',
+          message: `Article content is substantially below the brief target minimum (${wordCount} words, expected minimum ${targetMin} words, acceptable threshold >= ${lowerBoundary} words).`,
+          severity: 'error',
+        });
+      } else if (wordCount < targetMin) {
+        issues.push({
+          field: 'content',
+          rule: 'NEAR_MINIMUM_WORD_COUNT',
+          message: `Article content is slightly below brief target minimum (${wordCount} words, target min ${targetMin} words).`,
+          severity: 'warning',
+        });
+      }
+    } else if (wordCount < (opts.minWordCount || 80)) {
       issues.push({
         field: 'content',
         rule: 'MIN_WORD_COUNT',

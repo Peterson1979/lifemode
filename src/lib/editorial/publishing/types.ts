@@ -78,6 +78,11 @@ export interface PublishingContext {
     alt?: string;
     visualTheme?: string;
   };
+  estimatedWordCount?: {
+    min: number;
+    target: number;
+    max: number;
+  };
   isAlreadyPublished?: boolean;
 }
 

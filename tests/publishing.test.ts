@@ -404,3 +404,38 @@ test('21. Provider: Fixture provider is deterministic and tracks publication reg
   provider.reset();
   assert.equal(await provider.isPublished(pkg.id), false);
 });
+
+test('22. Publishing Gate blocks article substantially below target minimum word count', () => {
+  const undersizedRequest: PublishingRequest = {
+    ...validPublishingRequest,
+    context: {
+      ...validPublishingRequest.context,
+      estimatedWordCount: { min: 1400, target: 2000, max: 2800 },
+    },
+  };
+
+  const gateResult = evaluatePublishingGate(undersizedRequest);
+  assert.equal(gateResult.eligible, false);
+  assert.ok(gateResult.reasons.some((r) => r.includes('substantially below the required minimum target') && r.includes('1400')));
+});
+
+test('23. Publishing Gate allows article meeting target minimum word count', () => {
+  const dummyContent = Array(1200).fill('editorial').join(' ');
+  const sizedArticle: GeneratedArticle = {
+    ...sampleArticle,
+    content: `## 1. Intro\n\n${dummyContent}\n\n## 2. Conclusion\n\nMore details.`,
+  };
+
+  const sizedRequest: PublishingRequest = {
+    ...validPublishingRequest,
+    article: sizedArticle,
+    context: {
+      ...validPublishingRequest.context,
+      estimatedWordCount: { min: 1000, target: 1400, max: 2000 },
+    },
+  };
+
+  const gateResult = evaluatePublishingGate(sizedRequest);
+  assert.equal(gateResult.eligible, true);
+});
+

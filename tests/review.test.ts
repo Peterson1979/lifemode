@@ -372,3 +372,88 @@ test('24. Prompt builder formats prompt correctly without conversational noise',
   assert.ok(promptPayload.userPrompt.includes(validReviewRequest.title));
   assert.ok(promptPayload.fullPromptText.length > 300);
 });
+
+test('25. Quality review gate passes when article matches or exceeds target minimum word count', () => {
+  const dummyContent = Array(1200).fill('editorial').join(' ');
+  const req: ReviewRequest = {
+    ...validReviewRequest,
+    estimatedWordCount: { min: 1000, target: 1400, max: 2000 },
+    content: `## 1. Section One\n\n${dummyContent}\n\n## 2. Section Two\n\nMore body text.`,
+  };
+
+  const gateResult = evaluateReviewGates(req);
+  assert.equal(gateResult.passed, true);
+  assert.equal(gateResult.criticalIssues.length, 0);
+});
+
+test('26. Quality review gate blocks article when severely undersized (<80% of target min)', () => {
+  // 546 words is severely undersized compared to 1400 min (threshold is 1120)
+  const dummyContent = Array(546).fill('short').join(' ');
+  const req: ReviewRequest = {
+    ...validReviewRequest,
+    estimatedWordCount: { min: 1400, target: 2000, max: 2800 },
+    content: `## 1. Section One\n\n${dummyContent}\n\n## 2. Section Two\n\nShort notes.`,
+  };
+
+  const gateResult = evaluateReviewGates(req);
+  assert.equal(gateResult.passed, false);
+  assert.ok(gateResult.criticalIssues.some((i) => i.includes('severely undersized') && i.includes('1400')));
+});
+
+test('27. High-quality review response cannot receive PASS if gate failed due to severe length mismatch', async () => {
+  const dummyContent = Array(500).fill('article').join(' ');
+  const req: ReviewRequest = {
+    ...validReviewRequest,
+    estimatedWordCount: { min: 1400, target: 2000, max: 2800 },
+    content: `## 1. Section One\n\n${dummyContent}\n\n## 2. Section Two\n\nBody.`,
+  };
+
+  // Even if the review provider returns a 98/100 score with PASS
+  const highScoringProvider = new FixtureReviewProvider({ outcome: 'PASS' });
+  const result = await runReviewPipeline({
+    request: req,
+    provider: highScoringProvider,
+  });
+
+  assert.equal(result.gatePassed, false);
+  assert.notEqual(result.decision, 'PASS');
+  assert.equal(result.decision, 'REJECT');
+  assert.ok(result.criticalIssues.some((i) => i.includes('undersized') || i.includes('1400')));
+});
+
+test('28. Review request without target word count falls back safely to default minimum threshold (80 words)', () => {
+  const req: ReviewRequest = {
+    ...validReviewRequest,
+    estimatedWordCount: undefined,
+  };
+
+  const gateResult = evaluateReviewGates(req);
+  assert.equal(gateResult.passed, true);
+  assert.equal(gateResult.criticalIssues.length, 0);
+});
+
+test('29. Generation validation failure in ReviewRequest deterministically blocks review gate', () => {
+  const req: ReviewRequest = {
+    ...validReviewRequest,
+    deterministicValidation: {
+      isValid: false,
+      score: 40,
+      issues: [
+        {
+          field: 'content',
+          rule: 'BELOW_TARGET_WORD_COUNT',
+          message: 'Substantially below target minimum',
+          severity: 'error',
+        },
+      ],
+      wordCount: 500,
+      headingsCount: 2,
+      validatedAt: new Date().toISOString(),
+    },
+  };
+
+  const gateResult = evaluateReviewGates(req);
+  assert.equal(gateResult.passed, false);
+  assert.ok(gateResult.criticalIssues.some((i) => i.includes('BELOW_TARGET_WORD_COUNT')));
+});
+
