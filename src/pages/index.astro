@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const pillars = [
+  {
+    name: 'Life',
+    slug: 'life',
+    badgeColor: 'var(--pillar-life)',
+    tagline: 'Living & Mindset',
+    description: 'Intentional living, home aesthetics, daily routines, and mindful personal growth.',
+  },
+  {
+    name: 'Travel',
+    slug: 'travel',
+    badgeColor: 'var(--pillar-travel)',
+    tagline: 'Destinations & Journeys',
+    description: 'Curated itineraries, boutique stays, slow travel, and smart destination intelligence.',
+  },
+  {
+    name: 'Tech & AI',
+    slug: 'tech-ai',
+    badgeColor: 'var(--pillar-tech-ai)',
+    tagline: 'Innovation & Tools',
+    description: 'Emerging artificial intelligence, productivity ecosystems, and next-gen gear.',
+  },
+  {
+    name: 'Money',
+    slug: 'money',
+    badgeColor: 'var(--pillar-money)',
+    tagline: 'Wealth & Freedom',
+    description: 'Personal finance frameworks, strategic investing, and digital economy navigation.',
+  },
+  {
+    name: 'Wellbeing',
+    slug: 'wellbeing',
+    badgeColor: 'var(--pillar-wellbeing)',
+    tagline: 'Health & Vitality',
+    description: 'Holistic health, mental clarity, fitness protocols, and longevity insights.',
+  },
+  {
+    name: 'Discover',
+    slug: 'discover',
+    badgeColor: 'var(--pillar-discover)',
+    tagline: 'Culture & Design',
+    description: 'Architectural gems, curated books, art exhibitions, and timeless artifacts.',
+  },
+  {
+    name: 'Now',
+    slug: 'now',
+    badgeColor: 'var(--pillar-now)',
+    tagline: 'Trends & Zeitgeist',
+    description: 'Real-time pulses, seasonal guides, cultural signals, and timely editorial dispatches.',
+  },
+];
+
+// Fetch initial articles across all pillars
+const lifeArticles = await getCollection('life');
+const travelArticles = await getCollection('travel');
+const techAiArticles = await getCollection('tech-ai');
+const moneyArticles = await getCollection('money');
+const wellbeingArticles = await getCollection('wellbeing');
+const discoverArticles = await getCollection('discover');
+const nowArticles = await getCollection('now');
+
+const allPillarsData = [
+  { name: 'Life', slug: 'life', articles: lifeArticles },
+  { name: 'Travel', slug: 'travel', articles: travelArticles },
+  { name: 'Tech & AI', slug: 'tech-ai', articles: techAiArticles },
+  { name: 'Money', slug: 'money', articles: moneyArticles },
+  { name: 'Wellbeing', slug: 'wellbeing', articles: wellbeingArticles },
+  { name: 'Discover', slug: 'discover', articles: discoverArticles },
+  { name: 'Now', slug: 'now', articles: nowArticles },
+];
+---
+
+<BaseLayout
+  title="LifeMode — Curated Modern Lifestyle & Editorial Architecture"
+  description="LifeMode explores life, travel, tech & AI, money, wellbeing, culture, and timely lifestyle insights through a high-performance content architecture."
+>
+  <section class="hero">
+    <div class="container">
+      <p class="hero-tagline">Project Foundation</p>
+      <h1 class="hero-title">
+        Welcome to <span class="hero-title-gradient">LifeMode</span>
+      </h1>
+      <p class="hero-description">
+        A high-performance digital editorial publication built on Astro, TypeScript, and Markdown/MDX content collections.
+      </p>
+    </div>
+  </section>
+
+  <section class="pillars-section">
+    <div class="container">
+      <h2 class="section-title">Editorial Pillars</h2>
+      <p class="section-subtitle">Seven core domains powering LifeMode's curated content architecture.</p>
+
+      <div class="pillar-grid">
+        {pillars.map((pillar) => (
+          <article class="pillar-card">
+            <div
+              class="pillar-badge"
+              style={`background-color: rgba(255,255,255,0.06); color: ${pillar.badgeColor}; border: 1px solid ${pillar.badgeColor}40;`}
+            >
+              {pillar.name}
+            </div>
+            <h3 class="pillar-title">{pillar.tagline}</h3>
+            <p class="pillar-desc">{pillar.description}</p>
+            <a href={`/${pillar.slug}`} class="pillar-link" style={`color: ${pillar.badgeColor};`}>
+              Explore {pillar.name} &rarr;
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="articles-section">
+    <div class="container">
+      <h2 class="section-title">Content Collections Initialized</h2>
+      <p class="section-subtitle">Astro Content Layer active across all 7 pillar repositories.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+        {allPillarsData.map((pillar) => (
+          <div class="article-card">
+            <div class="article-meta">
+              <span><strong>Pillar:</strong> {pillar.name}</span>
+              <span>&bull;</span>
+              <span>{pillar.articles.length} article(s)</span>
+            </div>
+            {pillar.articles.map((entry) => (
+              <div>
+                <h4 style="font-size: 1.05rem; margin-bottom: 0.25rem;">
+                  <a href={`/${pillar.slug}/${entry.id}`}>{entry.data.title}</a>
+                </h4>
+                <p style="font-size: 0.85rem; color: var(--color-text-muted);">
+                  {entry.data.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

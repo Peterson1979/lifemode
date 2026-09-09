@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const pillarSlugs = ['life', 'travel', 'tech-ai', 'money', 'wellbeing', 'discover', 'now'] as const;
+
+  const paths = [];
+  for (const pillar of pillarSlugs) {
+    // @ts-ignore
+    const entries = await getCollection(pillar);
+    for (const entry of entries) {
+      paths.push({
+        params: { pillar, slug: entry.id },
+        props: { entry, pillar },
+      });
+    }
+  }
+  return paths;
+}
+
+const { entry, pillar } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={`${entry.data.title} — LifeMode`} description={entry.data.description}>
+  <article class="prose">
+    <div class="article-meta" style="margin-bottom: 1.5rem;">
+      <a href={`/${pillar}`} style="text-transform: capitalize; font-weight: 600; color: var(--color-primary);">
+        &larr; {pillar}
+      </a>
+      <span>&bull;</span>
+      <span>By {entry.data.author}</span>
+      <span>&bull;</span>
+      <span>{new Date(entry.data.pubDate).toLocaleDateString()}</span>
+    </div>
+
+    <Content />
+
+    <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border-subtle);">
+      <a href={`/${pillar}`}>&larr; Back to {pillar} archive</a>
+    </div>
+  </article>
+</BaseLayout>

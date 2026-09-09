@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const pillars = [
+    { name: 'Life', slug: 'life', description: 'Intentional living, home aesthetics, daily routines, and mindful personal growth.' },
+    { name: 'Travel', slug: 'travel', description: 'Curated itineraries, boutique stays, slow travel, and smart destination intelligence.' },
+    { name: 'Tech & AI', slug: 'tech-ai', description: 'Emerging artificial intelligence, productivity ecosystems, and next-gen gear.' },
+    { name: 'Money', slug: 'money', description: 'Personal finance frameworks, strategic investing, and digital economy navigation.' },
+    { name: 'Wellbeing', slug: 'wellbeing', description: 'Holistic health, mental clarity, fitness protocols, and longevity insights.' },
+    { name: 'Discover', slug: 'discover', description: 'Architectural gems, curated books, art exhibitions, and timeless artifacts.' },
+    { name: 'Now', slug: 'now', description: 'Real-time pulses, seasonal guides, cultural signals, and timely editorial dispatches.' },
+  ];
+
+  const paths = await Promise.all(
+    pillars.map(async (pillar) => {
+      // @ts-ignore
+      const articles = await getCollection(pillar.slug);
+      return {
+        params: { pillar: pillar.slug },
+        props: { pillar, articles },
+      };
+    })
+  );
+
+  return paths;
+}
+
+const { pillar, articles } = Astro.props;
+---
+
+<BaseLayout title={`${pillar.name} — LifeMode`} description={pillar.description}>
+  <div class="container" style="padding-top: 3rem; padding-bottom: 4rem;">
+    <p class="hero-tagline">Pillar Archive</p>
+    <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.75rem;">{pillar.name}</h1>
+    <p style="color: var(--color-text-muted); font-size: 1.1rem; max-width: 600px; margin-bottom: 2.5rem;">
+      {pillar.description}
+    </p>
+
+    <div style="display: grid; gap: 1.5rem;">
+      {articles.map((article: any) => (
+        <article class="article-card">
+          <div class="article-meta">
+            <span>By {article.data.author}</span>
+            <span>&bull;</span>
+            <span>{new Date(article.data.pubDate).toLocaleDateString()}</span>
+          </div>
+          <h2 style="font-size: 1.35rem; margin-bottom: 0.5rem;">
+            <a href={`/${pillar.slug}/${article.id}`}>{article.data.title}</a>
+          </h2>
+          <p style="color: var(--color-text-muted);">{article.data.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

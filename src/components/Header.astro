@@ -1,0 +1,31 @@
+---
+const pillars = [
+  { name: 'Life', slug: 'life' },
+  { name: 'Travel', slug: 'travel' },
+  { name: 'Tech & AI', slug: 'tech-ai' },
+  { name: 'Money', slug: 'money' },
+  { name: 'Wellbeing', slug: 'wellbeing' },
+  { name: 'Discover', slug: 'discover' },
+  { name: 'Now', slug: 'now' },
+];
+---
+
+<header class="site-header">
+  <div class="container nav-container">
+    <a href="/" class="brand-logo" aria-label="LifeMode Home">
+      <span>LifeMode</span>
+      <span class="brand-badge">Editorial</span>
+    </a>
+    <nav aria-label="Main Navigation">
+      <ul class="nav-links">
+        {pillars.map((pillar) => (
+          <li>
+            <a href={`/${pillar.slug}`} class="nav-link">
+              {pillar.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
