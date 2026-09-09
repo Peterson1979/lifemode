@@ -1,4 +1,5 @@
-import type { SignalSourceType, SourceSignal } from '../types.ts';
+import type { SignalSourceType } from '../types.ts';
+import type { DiscoveryResult } from './types.ts';
 
 /**
  * Common configuration options for discovery adapters.
@@ -15,9 +16,9 @@ export interface DiscoveryAdapterOptions {
  * Provider-agnostic interface.
  */
 export interface IDiscoveryAdapter {
-  readonly sourceType: SignalSourceType;
+  readonly sourceType: SignalSourceType | 'FIXTURE' | 'MANUAL';
   readonly name: string;
-  fetchSignals(options?: DiscoveryAdapterOptions): Promise<SourceSignal[]>;
+  fetchSignals(options?: DiscoveryAdapterOptions): Promise<DiscoveryResult>;
 }
 
 /**

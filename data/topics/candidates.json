@@ -37,6 +37,332 @@
     "updatedAt": "2026-09-09T12:00:00.000Z",
     "targetAudience": "Productivity-focused creators and engineers wanting private AI tools.",
     "primaryIntent": "informational",
-    "tags": ["ai", "tech", "productivity", "privacy"]
+    "tags": [
+      "ai",
+      "tech",
+      "productivity",
+      "privacy"
+    ]
+  },
+  {
+    "id": "lm-life-20260909-minimalist-morning-routines-fo",
+    "canonicalTopic": "Minimalist Morning Routines for Creative Clarity",
+    "slug": "minimalist-morning-routines-for-creative-clarity",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "FIXTURE",
+        "sourceId": "fix-life-001",
+        "query": "Minimalist Morning Routines for Creative Clarity",
+        "volumeOrGrowth": 55,
+        "recordedAt": "2026-09-09T10:00:00.000Z",
+        "metadata": {
+          "isFixture": true,
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "routines",
+            "minimalism",
+            "clarity"
+          ]
+        }
+      }
+    ],
+    "queryVariants": [
+      "minimalist morning routines for creative clarity"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-09T10:00:00.000Z",
+    "tags": [
+      "routines",
+      "minimalism",
+      "clarity"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 63,
+      "pinterestPotential": 76,
+      "socialPotential": 64,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 73.6,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "DEFER",
+    "status": "SCORED",
+    "updatedAt": "2026-09-09T14:59:39.535Z",
+    "pinterestScore": 71.9
+  },
+  {
+    "id": "lm-travel-20260909-the-architectural-kyoto-guide-",
+    "canonicalTopic": "The Architectural Kyoto Guide to Slow Tea Houses",
+    "slug": "the-architectural-kyoto-guide-to-slow-tea-houses",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "FIXTURE",
+        "sourceId": "fix-travel-002",
+        "query": "The Architectural Kyoto Guide to Slow Tea Houses",
+        "volumeOrGrowth": 88,
+        "recordedAt": "2026-09-09T10:15:00.000Z",
+        "metadata": {
+          "isFixture": true,
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "kyoto",
+            "architecture",
+            "japan"
+          ]
+        }
+      }
+    ],
+    "queryVariants": [
+      "the architectural kyoto guide to slow tea houses"
+    ],
+    "freshnessScore": 95,
+    "createdAt": "2026-09-09T10:15:00.000Z",
+    "tags": [
+      "travel",
+      "kyoto",
+      "architecture",
+      "japan"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 73,
+      "pinterestPotential": 94,
+      "socialPotential": 89,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 95,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 83.1,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-09T14:59:39.536Z",
+    "pinterestScore": 85.4
+  },
+  {
+    "id": "lm-money-20260909-high-yield-cash-management-and",
+    "canonicalTopic": "High-Yield Cash Management and Modern Treasury Strategies",
+    "slug": "high-yield-cash-management-and-modern-treasury-strategies",
+    "pillar": "money",
+    "sourceSignals": [
+      {
+        "source": "FIXTURE",
+        "sourceId": "fix-money-004",
+        "query": "High-Yield Cash Management and Modern Treasury Strategies",
+        "volumeOrGrowth": 40,
+        "recordedAt": "2026-09-09T10:45:00.000Z",
+        "metadata": {
+          "isFixture": true,
+          "suggestedPillar": "money",
+          "curatedTags": [
+            "money",
+            "finance",
+            "investing",
+            "savings"
+          ]
+        }
+      }
+    ],
+    "queryVariants": [
+      "high-yield cash management and modern treasury strategies"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-09T10:45:00.000Z",
+    "tags": [
+      "money",
+      "finance",
+      "investing",
+      "savings"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 62,
+      "pinterestPotential": 46,
+      "socialPotential": 51,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 67,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "DEFER",
+    "status": "SCORED",
+    "updatedAt": "2026-09-09T14:59:39.537Z"
+  },
+  {
+    "id": "lm-wellbeing-20260909-circadian-rhythm-protocols-for",
+    "canonicalTopic": "Circadian Rhythm Protocols for Deep Sleep and Vitality",
+    "slug": "circadian-rhythm-protocols-for-deep-sleep-and-vitality",
+    "pillar": "wellbeing",
+    "sourceSignals": [
+      {
+        "source": "FIXTURE",
+        "sourceId": "fix-wellbeing-005",
+        "query": "Circadian Rhythm Protocols for Deep Sleep and Vitality",
+        "volumeOrGrowth": 65,
+        "recordedAt": "2026-09-09T11:00:00.000Z",
+        "metadata": {
+          "isFixture": true,
+          "suggestedPillar": "wellbeing",
+          "curatedTags": [
+            "health",
+            "sleep",
+            "longevity",
+            "vitality"
+          ]
+        }
+      }
+    ],
+    "queryVariants": [
+      "circadian rhythm protocols for deep sleep and vitality"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-09T11:00:00.000Z",
+    "tags": [
+      "health",
+      "sleep",
+      "longevity",
+      "vitality"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 75,
+      "pinterestPotential": 75,
+      "socialPotential": 72,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 77.1,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "SCORED",
+    "updatedAt": "2026-09-09T14:59:39.540Z",
+    "pinterestScore": 75.7
+  },
+  {
+    "id": "lm-discover-20260909-mid-century-scandinavian-ceram",
+    "canonicalTopic": "Mid-Century Scandinavian Ceramic Design Masters",
+    "slug": "mid-century-scandinavian-ceramic-design-masters",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "FIXTURE",
+        "sourceId": "fix-discover-006",
+        "query": "Mid-Century Scandinavian Ceramic Design Masters",
+        "volumeOrGrowth": 35,
+        "recordedAt": "2026-09-09T11:15:00.000Z",
+        "metadata": {
+          "isFixture": true,
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "design",
+            "scandinavian",
+            "ceramics",
+            "art"
+          ]
+        }
+      }
+    ],
+    "queryVariants": [
+      "mid-century scandinavian ceramic design masters"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-09T11:15:00.000Z",
+    "tags": [
+      "design",
+      "scandinavian",
+      "ceramics",
+      "art"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 51,
+      "pinterestPotential": 70,
+      "socialPotential": 46,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 67.6,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "DEFER",
+    "status": "SCORED",
+    "updatedAt": "2026-09-09T14:59:39.541Z",
+    "pinterestScore": 64.3
+  },
+  {
+    "id": "lm-now-20260909-the-2026-cultural-shift-toward",
+    "canonicalTopic": "The 2026 Cultural Shift Toward Digital Intentionality",
+    "slug": "the-2026-cultural-shift-toward-digital-intentionality",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "FIXTURE",
+        "sourceId": "fix-now-007",
+        "query": "The 2026 Cultural Shift Toward Digital Intentionality",
+        "volumeOrGrowth": 110,
+        "recordedAt": "2026-09-09T11:30:00.000Z",
+        "metadata": {
+          "isFixture": true,
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "trends",
+            "zeitgeist",
+            "lifestyle",
+            "culture"
+          ]
+        }
+      }
+    ],
+    "queryVariants": [
+      "the 2026 cultural shift toward digital intentionality"
+    ],
+    "freshnessScore": 95,
+    "createdAt": "2026-09-09T11:30:00.000Z",
+    "tags": [
+      "trends",
+      "zeitgeist",
+      "lifestyle",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 90,
+      "pinterestPotential": 93,
+      "socialPotential": 100,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 75,
+      "freshness": 95,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 89.5,
+    "priorityTier": "PRIORITY",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-09T14:59:39.542Z",
+    "pinterestScore": 90.4
   }
 ]
