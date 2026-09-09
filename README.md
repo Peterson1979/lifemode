@@ -110,3 +110,49 @@ LifeMode is designed for zero-config, static-first deployment to **Cloudflare Pa
 * **Node.js Version:** `22` (conforms to `engines` requirement `>=22.12.0`)
 
 When connected to GitHub, Cloudflare Pages will automatically trigger a build and publish the static `dist/` directory upon commits to `master`.
+
+---
+
+## Editorial Automation V1
+
+LifeMode includes a consolidated, end-to-end editorial automation pipeline orchestrating all editorial subsystems into an automated, deterministic publication flow.
+
+### Pipeline Flow
+
+```text
+DISCOVERY           → Ingests signals across Pinterest, Google Trends, and Fixtures
+SELECTION           → Deterministically scores, deduplicates against on-disk content, and selects top opportunities
+BRIEF               → Generates structured editorial brief with strict target word counts and angles
+GENERATION          → Produces structured Markdown article (via Fixture or AI Router)
+VALIDATION          → Deterministic gate checking structure, placeholders, and word-count thresholds
+REVIEW              → Independent AI quality review across 10 dimensions with strict factuality/safety gates
+PUBLISHING_GATE     → Deterministic publishing eligibility validation
+STORAGE             → Persists approved article to canonical Markdown (`src/content/<pillar>/<slug>.md`)
+GIT_PUBLICATION     → Safe dry-run inspection or optional single-file local Git commit
+```
+
+### Safety Defaults & Guarantees
+
+* **Opt-in Execution:** Automation is disabled by default (`EDITORIAL_AUTOMATION_ENABLED=false`).
+* **Dry-Run by Default:** Git publication defaults to dry-run (`EDITORIAL_AUTOMATION_DRY_RUN=true`).
+* **Zero Remote Push:** The automation runner **NEVER** executes `git push` or calls remote GitHub/Cloudflare APIs. Remote deployment occurs exclusively through standard Cloudflare Pages GitHub triggers on push.
+* **Failure Isolation:** Each selected opportunity executes in an isolated error boundary; failures in one candidate do not corrupt the overall pipeline run.
+* **Strict Word-Count Preservation:** Length requirements defined in the Content Brief flow through Generation, Deterministic Validation, Review, and Publishing Gates.
+
+### CLI Execution
+
+Execute the automation runner locally:
+
+```bash
+# Default deterministic fixture dry-run (safe)
+npm run editorial:automation
+
+# Pass custom options
+npx tsx scripts/run-editorial-automation.ts --max=1 --min-score=80
+
+# Execute with managed AI Router (when configured)
+npx tsx scripts/run-editorial-automation.ts --router
+
+# Allow local Git commit (dryRun: false)
+npx tsx scripts/run-editorial-automation.ts --commit
+```

@@ -52,3 +52,5 @@ export * from './git-publisher/git-cli.ts';
 export * from './git-publisher/validator.ts';
 export * from './git-publisher/plan-builder.ts';
 export * from './git-publisher/publisher.ts';
+export * from './automation/index.ts';
+

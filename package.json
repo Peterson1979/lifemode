@@ -12,6 +12,7 @@
     "check": "astro check",
     "test": "node --test",
     "discover": "node scripts/run-discovery.ts",
+    "editorial:automation": "node scripts/run-editorial-automation.ts",
     "astro": "astro"
   },
   "dependencies": {
