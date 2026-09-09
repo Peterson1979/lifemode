@@ -83,8 +83,35 @@ export class InMemoryRateLimiter implements IRateLimiter {
 
     // Check TPM
     if (limitTpm !== undefined && limitTpm > 0 && currentMinuteTokens + estimatedTokens > limitTpm) {
-      const oldestInWindow = tokenList.length > 0 ? tokenList[0].timestamp : now;
-      const retryAfterMs = Math.max(500, 60_000 - (now - oldestInWindow));
+      if (estimatedTokens > limitTpm) {
+        // Request can NEVER fit in this provider's TPM capacity
+        return {
+          allowed: false,
+          retryAfterMs: 0,
+          currentMinuteCount,
+          currentDayCount,
+          currentMinuteTokens,
+          limitMinute: limitRpm,
+          limitDay: limitRpd,
+          limitTpm,
+          reason: 'TPM_EXCEEDED',
+        };
+      }
+
+      // Request can fit once enough old tokens age out of the 60s sliding window
+      const targetRemaining = limitTpm - estimatedTokens;
+      let runningSum = currentMinuteTokens;
+      let safeTimestamp = now;
+
+      for (const entry of tokenList) {
+        runningSum -= entry.tokens;
+        if (runningSum <= targetRemaining) {
+          safeTimestamp = entry.timestamp;
+          break;
+        }
+      }
+
+      const retryAfterMs = Math.max(500, (safeTimestamp + 60_000 + 200) - now);
       return {
         allowed: false,
         retryAfterMs,

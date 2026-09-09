@@ -21,6 +21,8 @@ export interface AIRouterOptions {
   usageTracker?: IUsageTracker;
   rateLimiter?: IRateLimiter;
   telemetryRecorder?: ITelemetryRecorder;
+  sleepFn?: (ms: number) => Promise<void>;
+  logRateLimits?: boolean;
 }
 
 /**
@@ -33,12 +35,16 @@ export class AIRouter {
   private usageTracker: IUsageTracker;
   private rateLimiter: IRateLimiter;
   private telemetryRecorder: ITelemetryRecorder;
+  private sleepFn: (ms: number) => Promise<void>;
+  private logRateLimits: boolean;
 
   constructor(options: AIRouterOptions = {}) {
     this.config = options.config || loadAIConfig();
     this.usageTracker = options.usageTracker || defaultUsageTracker;
     this.rateLimiter = options.rateLimiter || defaultRateLimiter;
     this.telemetryRecorder = options.telemetryRecorder || defaultTelemetryRecorder;
+    this.sleepFn = options.sleepFn || ((ms) => new Promise((res) => setTimeout(res, ms)));
+    this.logRateLimits = options.logRateLimits ?? true;
 
     if (options.providers) {
       this.providers = options.providers;
@@ -81,6 +87,17 @@ export class AIRouter {
     const maxAttempts = Math.min(this.config.router.maxAttempts, providerOrder.length);
     const attempts: RouterAttempt[] = [];
     const attemptedProviders: AIProviderId[] = [];
+
+    const hasAlternativeConfiguredProvider = (currentIdx: number): boolean => {
+      for (let j = currentIdx + 1; j < providerOrder.length; j++) {
+        const nextId = providerOrder[j];
+        const nextP = this.providers.get(nextId);
+        if (nextP && nextP.isConfigured()) {
+          return true;
+        }
+      }
+      return false;
+    };
 
     let lastError: AIProviderError = {
       code: 'UNKNOWN',
@@ -144,7 +161,7 @@ export class AIRouter {
         providerTpmLimit = this.config.gemini.tokensPerMinute ?? 0;
       }
 
-      const rateLimitCheck = this.rateLimiter.checkRateLimit(providerId, {
+      let rateLimitCheck = this.rateLimiter.checkRateLimit(providerId, {
         requestsPerMinute: this.config.router.requestsPerMinute,
         requestsPerDay: this.config.router.requestsPerDay,
         tokensPerMinute: providerTpmLimit,
@@ -152,22 +169,50 @@ export class AIRouter {
       });
 
       if (!rateLimitCheck.allowed) {
-        const error: AIProviderError = {
-          code: 'RATE_LIMIT',
-          message: `Rate limit reached for provider "${providerId}" (${rateLimitCheck.reason}). Retry after ${rateLimitCheck.retryAfterMs}ms.`,
-          provider: providerId,
-          retryable: true,
-          retryAfterMs: rateLimitCheck.retryAfterMs,
-        };
-        lastError = error;
-        attempts.push({
-          provider: providerId,
-          model,
-          durationMs: 0,
-          success: false,
-          error,
-        });
-        continue;
+        const canEverFit = providerTpmLimit <= 0 || estimatedReqTokens <= providerTpmLimit;
+        const hasFallback = hasAlternativeConfiguredProvider(i);
+
+        // If TPM exceeded, request can fit in max budget, and no fallback is available, wait for rolling window
+        if (
+          rateLimitCheck.reason === 'TPM_EXCEEDED' &&
+          canEverFit &&
+          !hasFallback &&
+          rateLimitCheck.retryAfterMs > 0 &&
+          rateLimitCheck.retryAfterMs <= 75_000
+        ) {
+          const waitMs = rateLimitCheck.retryAfterMs;
+          if (this.logRateLimits) {
+            console.log(`[AI Router] Provider "${providerId}" rolling TPM capacity reached. Waiting ${Math.ceil(waitMs / 1000)}s for capacity...`);
+          }
+          await this.sleepFn(waitMs);
+
+          // Re-check after waiting
+          rateLimitCheck = this.rateLimiter.checkRateLimit(providerId, {
+            requestsPerMinute: this.config.router.requestsPerMinute,
+            requestsPerDay: this.config.router.requestsPerDay,
+            tokensPerMinute: providerTpmLimit,
+            estimatedTokens: estimatedReqTokens,
+          });
+        }
+
+        if (!rateLimitCheck.allowed) {
+          const error: AIProviderError = {
+            code: 'RATE_LIMIT',
+            message: `Rate limit reached for provider "${providerId}" (${rateLimitCheck.reason}). Retry after ${rateLimitCheck.retryAfterMs}ms.`,
+            provider: providerId,
+            retryable: true,
+            retryAfterMs: rateLimitCheck.retryAfterMs,
+          };
+          lastError = error;
+          attempts.push({
+            provider: providerId,
+            model,
+            durationMs: 0,
+            success: false,
+            error,
+          });
+          continue;
+        }
       }
 
       // 3. Check Daily Token Budgets
@@ -314,13 +359,109 @@ export class AIRouter {
       } catch (err: any) {
         const durationMs = Math.max(1, Date.now() - startTime);
 
-        const error: AIProviderError = err.code && err.provider ? err : {
+        let error: AIProviderError = err.code && err.provider ? err : {
           code: 'PROVIDER_ERROR',
           message: err.message || 'Unknown error during provider execution',
           provider: providerId,
           retryable: true,
           rawError: err,
         };
+
+        const hasFallback = hasAlternativeConfiguredProvider(i);
+
+        // If provider returned HTTP 429 and no fallback exists, wait and retry once if bounded
+        if (error.code === 'RATE_LIMIT' && error.retryAfterMs && error.retryAfterMs <= 75_000 && !hasFallback) {
+          if (providerTpmLimit > 0) {
+            this.rateLimiter.recordTokens(providerId, providerTpmLimit);
+          }
+          if (this.logRateLimits) {
+            console.log(`[AI Router] Provider "${providerId}" returned HTTP 429. Waiting ${Math.ceil(error.retryAfterMs / 1000)}s before retry...`);
+          }
+          await this.sleepFn(error.retryAfterMs);
+
+          // Retry generation once after wait
+          try {
+            const retryStart = Date.now();
+            const retryResponse = await provider.generate(request);
+            const retryDuration = Math.max(1, Date.now() - retryStart);
+
+            if (request.responseFormat === 'json' || request.validateJson) {
+              let clean = retryResponse.text.trim();
+              if (clean.startsWith('```json')) {
+                clean = clean.replace(/^```json\s*/, '').replace(/```\s*$/, '');
+              } else if (clean.startsWith('```')) {
+                clean = clean.replace(/^```\s*/, '').replace(/```\s*$/, '');
+              }
+              JSON.parse(clean);
+            }
+
+            let inputTokens = retryResponse.inputTokens;
+            let outputTokens = retryResponse.outputTokens;
+            let isTokenEstimate = false;
+
+            if (inputTokens === undefined || outputTokens === undefined) {
+              const estimate = estimateRequestResponseTokens(request.prompt, request.systemPrompt, retryResponse.text);
+              inputTokens = inputTokens ?? estimate.inputTokens;
+              outputTokens = outputTokens ?? estimate.outputTokens;
+              isTokenEstimate = true;
+            }
+
+            const totalTokens = retryResponse.totalTokens ?? inputTokens + outputTokens;
+
+            this.rateLimiter.recordRequest(providerId);
+            this.rateLimiter.recordTokens(providerId, totalTokens);
+            this.usageTracker.recordUsage({
+              provider: providerId,
+              inputTokens,
+              outputTokens,
+              totalTokens,
+              success: true,
+            });
+
+            this.telemetryRecorder.recordEvent({
+              requestId: request.requestId,
+              taskType: request.taskType,
+              provider: providerId,
+              model: retryResponse.model || model,
+              durationMs: retryDuration,
+              success: true,
+              inputTokens,
+              outputTokens,
+              totalTokens,
+              isTokenEstimate,
+              fallbackOccurred: attempts.length > 0,
+              timestamp: new Date().toISOString(),
+            });
+
+            attempts.push({
+              provider: providerId,
+              model: retryResponse.model || model,
+              durationMs: retryDuration,
+              success: true,
+              tokensUsed: { input: inputTokens, output: outputTokens, total: totalTokens },
+            });
+
+            return {
+              success: true,
+              response: {
+                ...retryResponse,
+                inputTokens,
+                outputTokens,
+                totalTokens,
+              },
+              provider: providerId,
+              attempts,
+            };
+          } catch (retryErr: any) {
+            error = retryErr.code && retryErr.provider ? retryErr : {
+              code: 'PROVIDER_ERROR',
+              message: retryErr.message || 'Error on retry after rate limit wait',
+              provider: providerId,
+              retryable: true,
+              rawError: retryErr,
+            };
+          }
+        }
 
         lastError = error;
 
@@ -352,9 +493,6 @@ export class AIRouter {
           success: false,
           error,
         });
-
-        // If error is not retryable (e.g. AUTH or INVALID_REQUEST), do not retry the same provider
-        // but proceed to fallback if another provider exists in the chain
       }
     }
 

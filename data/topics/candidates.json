@@ -146,9 +146,10 @@
     "totalScore": 83.1,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-09T14:59:39.536Z",
-    "pinterestScore": 85.4
+    "status": "REJECTED",
+    "updatedAt": "2026-09-09T18:32:28.065Z",
+    "pinterestScore": 85.4,
+    "rejectionReason": "AI Review decision was REJECT (score: 89)"
   },
   {
     "id": "lm-money-20260909-high-yield-cash-management-and",
@@ -361,8 +362,9 @@
     "totalScore": 89.5,
     "priorityTier": "PRIORITY",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-09T14:59:39.542Z",
-    "pinterestScore": 90.4
+    "status": "REJECTED",
+    "updatedAt": "2026-09-09T18:22:40.369Z",
+    "pinterestScore": 90.4,
+    "rejectionReason": "AI Review decision was REJECT (score: 85)"
   }
 ]

@@ -853,3 +853,143 @@ test('28. GroqProvider correctly includes response_format json_object for struct
   assert.deepEqual(capturedBody.response_format, { type: 'json_object' });
   assert.equal(capturedBody.max_tokens, 6000);
 });
+
+test('29. TPM: Request fits immediately without delay when capacity is available', async () => {
+  let sleepCalled = false;
+  const mockSleep = async () => {
+    sleepCalled = true;
+  };
+
+  const rateLimiter = new InMemoryRateLimiter();
+  const groqMock = new AIRouterFixtureProvider({ id: 'groq' });
+
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['groq'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000, tokensPerMinute: 100000 },
+      groq: { apiKey: 'dummy', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000, tokensPerMinute: 8000 },
+      router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers: new Map([['groq', groqMock]]),
+    rateLimiter,
+    sleepFn: mockSleep,
+  });
+
+  const result = await router.route({
+    prompt: 'Short request',
+    taskType: 'content_generation',
+    maxOutputTokens: 1000,
+  });
+
+  assert.equal(result.success, true);
+  assert.equal(sleepCalled, false, 'sleepFn should not be called when capacity fits immediately');
+});
+
+test('30. TPM: Rolling window exhaustion auto-waits calculated duration and completes successfully', async () => {
+  const rateLimiter = new InMemoryRateLimiter();
+  const pastTime = Date.now() - 15_000; // 15 seconds ago
+  rateLimiter.recordTokens('groq', 6000, pastTime);
+
+  let capturedWaitMs = 0;
+  const mockSleep = async (ms: number) => {
+    capturedWaitMs = ms;
+    // Simulate passage of time by clearing old tokens
+    rateLimiter.reset();
+  };
+
+  const groqMock = new AIRouterFixtureProvider({ id: 'groq' });
+
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['groq'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000, tokensPerMinute: 100000 },
+      groq: { apiKey: 'dummy', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000, tokensPerMinute: 8000 },
+      router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers: new Map([['groq', groqMock]]),
+    rateLimiter,
+    sleepFn: mockSleep,
+  });
+
+  const result = await router.route({
+    prompt: 'A request requiring 3000 tokens',
+    taskType: 'content_generation',
+    maxOutputTokens: 3000,
+  });
+
+  assert.equal(result.success, true);
+  assert.ok(capturedWaitMs >= 40_000 && capturedWaitMs <= 61_000, `Expected wait around 45s, got ${capturedWaitMs}ms`);
+  assert.equal(result.provider, 'groq');
+});
+
+test('31. TPM: Request exceeding total provider TPM capacity fails immediately without waiting', async () => {
+  let sleepCalled = false;
+  const mockSleep = async () => {
+    sleepCalled = true;
+  };
+
+  const rateLimiter = new InMemoryRateLimiter();
+  const groqMock = new AIRouterFixtureProvider({ id: 'groq' });
+
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['groq'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000, tokensPerMinute: 100000 },
+      groq: { apiKey: 'dummy', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000, tokensPerMinute: 8000 },
+      router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers: new Map([['groq', groqMock]]),
+    rateLimiter,
+    sleepFn: mockSleep,
+  });
+
+  // Request estimating 10,000 tokens (limit is 8,000)
+  const result = await router.route({
+    prompt: 'Massive prompt '.repeat(800),
+    taskType: 'content_generation',
+    maxOutputTokens: 9000,
+  });
+
+  assert.equal(result.success, false);
+  assert.equal(sleepCalled, false, 'Should not sleep when request can never fit in total TPM');
+  if (!result.success) {
+    assert.equal(result.error.code, 'RATE_LIMIT');
+  }
+});
+
+test('32. TPM: Auto-wait does not create an unbounded retry loop if capacity remains unavailable', async () => {
+  let sleepCount = 0;
+  const mockSleep = async () => {
+    sleepCount++;
+    // Do NOT clear tokens, so second check still fails
+  };
+
+  const rateLimiter = new InMemoryRateLimiter();
+  rateLimiter.recordTokens('groq', 7000);
+  const groqMock = new AIRouterFixtureProvider({ id: 'groq' });
+
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['groq'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000, tokensPerMinute: 100000 },
+      groq: { apiKey: 'dummy', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000, tokensPerMinute: 8000 },
+      router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers: new Map([['groq', groqMock]]),
+    rateLimiter,
+    sleepFn: mockSleep,
+  });
+
+  const result = await router.route({
+    prompt: 'Request needing 2000 tokens',
+    taskType: 'content_generation',
+    maxOutputTokens: 2000,
+  });
+
+  assert.equal(result.success, false);
+  assert.equal(sleepCount, 1, 'Should sleep exactly once, not loop indefinitely');
+  if (!result.success) {
+    assert.equal(result.error.code, 'RATE_LIMIT');
+  }
+});
+
