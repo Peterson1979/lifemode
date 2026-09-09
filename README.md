@@ -94,3 +94,19 @@ This compiles the static site output into the `dist/` directory.
 ```bash
 npm run preview
 ```
+
+---
+
+## Cloudflare Pages Deployment
+
+LifeMode is designed for zero-config, static-first deployment to **Cloudflare Pages via GitHub**:
+
+* **Connected Repository:** `Peterson1979/lifemode`
+* **Production Branch:** `master`
+* **Framework Preset:** `Astro`
+* **Build Command:** `npm run build`
+* **Build Output Directory:** `dist`
+* **Environment Variables:** None required for static site deployment (optional `PUBLIC_SITE_URL` supported for custom domains)
+* **Node.js Version:** `22` (conforms to `engines` requirement `>=22.12.0`)
+
+When connected to GitHub, Cloudflare Pages will automatically trigger a build and publish the static `dist/` directory upon commits to `master`.
