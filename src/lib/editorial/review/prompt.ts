@@ -23,7 +23,7 @@ export function buildReviewPrompt(request: ReviewRequest): ReviewPromptPayload {
     'You must evaluate, score, and flag issues. YOU MUST NEVER REWRITE THE ARTICLE OR PRODUCE ALTERNATIVE CONTENT.',
     '',
     '### Evaluation Dimensions (Each 0–100):',
-    '1. factuality: Accuracy of claims, appropriate certainty, realistic descriptions, verified sources.',
+    '1. factuality: Accuracy of claims, grounding against the supplied verified evidence package, absence of invented facts/citations, and appropriate certainty.',
     '2. usefulness: Concrete practical value, actionable steps, absence of generic fluff or filler.',
     '3. originality: Distinctive framing, engaging perspective, avoids robotic AI clichés and generic summaries.',
     '4. readability: Short punchy paragraphs (2-4 sentences), smooth transitions, clear prose.',
@@ -68,8 +68,22 @@ export function buildReviewPrompt(request: ReviewRequest): ReviewPromptPayload {
           `- Target Word Count: ${request.estimatedWordCount.min}–${request.estimatedWordCount.max} words (Target: ${request.estimatedWordCount.target} words)`,
         ]
       : []),
-    `- Sources Provided: ${request.sources.map((s) => s.name).join(', ') || 'None'}`,
+    `- Article Sources Listed: ${request.sources.map((s) => s.name).join(', ') || 'None'}`,
     `- Internal Links: ${request.internalLinks.join(', ') || 'None'}`,
+  ];
+
+  if (request.evidence && request.evidence.length > 0) {
+    userPromptParts.push(
+      '',
+      `### Verified Evidence Package (Ground Truth Benchmark):`,
+      ...request.evidence.map(
+        (ev, i) =>
+          `  ${i + 1}. [${ev.sourceType.toUpperCase()} - ${ev.reliability} reliability] "${ev.title}" (${ev.publisher}) - URL: ${ev.url}\n     Verified Claims: ${ev.claimSummary}`
+      )
+    );
+  }
+
+  userPromptParts.push(
     '',
     `### Article Draft Package:`,
     `Title: ${request.title}`,
@@ -80,7 +94,7 @@ export function buildReviewPrompt(request: ReviewRequest): ReviewPromptPayload {
     request.content,
     `--- End of Content Body ---`,
     '',
-    `### Required JSON Output Format:`,
+    `### Required Output Format:`,
     `Return ONLY a valid JSON object matching this schema:`,
     '```json',
     '{',
@@ -101,7 +115,7 @@ export function buildReviewPrompt(request: ReviewRequest): ReviewPromptPayload {
     '  "warnings": []',
     '}',
     '```'
-  ];
+  );
 
   const userPrompt = userPromptParts.join('\n');
   const fullPromptText = `${systemPrompt}\n\n---\n\n${userPrompt}`;

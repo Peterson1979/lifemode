@@ -451,6 +451,7 @@ test('9. Summary formatting produces clear, structured human-readable text', () 
           DISCOVERY: { stage: 'DISCOVERY', status: 'SUCCESS', durationMs: 10 },
           SELECTION: { stage: 'SELECTION', status: 'SUCCESS', durationMs: 5 },
           BRIEF: { stage: 'BRIEF', status: 'SUCCESS', durationMs: 2 },
+          RESEARCH: { stage: 'RESEARCH', status: 'SUCCESS', durationMs: 5 },
           GENERATION: { stage: 'GENERATION', status: 'SUCCESS', durationMs: 50 },
           VALIDATION: { stage: 'VALIDATION', status: 'SUCCESS', durationMs: 1 },
           REVIEW: { stage: 'REVIEW', status: 'SUCCESS', durationMs: 20 },

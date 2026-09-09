@@ -16,6 +16,7 @@ export * from './discovery/runner.ts';
 export * from './discovery/adapters/fixture.ts';
 export * from './discovery/adapters/pinterest.ts';
 export * from './discovery/adapters/google-trends.ts';
+export * from './research/index.ts';
 export * from './generation/types.ts';
 export * from './generation/providers/types.ts';
 export * from './generation/providers/fixture.ts';

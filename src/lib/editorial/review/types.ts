@@ -47,6 +47,7 @@ export interface ReviewRequest {
     name: string;
     url?: string;
   }>;
+  evidence?: import('../research/types.ts').EvidenceItem[];
   internalLinks: string[];
   estimatedWordCount?: {
     min: number;

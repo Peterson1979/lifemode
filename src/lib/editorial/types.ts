@@ -145,6 +145,9 @@ export interface EditorialTopic {
   deferReason?: string;
   revisionCyclesCount?: number;
   revisionAttempted?: boolean;
+  researchRequired?: boolean;
+  researchStatus?: 'SUCCESS' | 'NOT_REQUIRED' | 'NO_EVIDENCE' | 'FAILED';
+  evidence?: import('./research/types.ts').EvidenceItem[];
   tags: string[];
 }
 
@@ -186,6 +189,7 @@ export interface ContentBrief {
     url?: string;
     citationType: 'authority' | 'study' | 'official' | 'benchmark';
   }>;
+  evidence?: import('./research/types.ts').EvidenceItem[];
   riskLevel: RiskLevel;
   estimatedWordCount: {
     min: number;

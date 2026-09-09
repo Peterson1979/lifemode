@@ -36,6 +36,7 @@ export interface GenerationRequest {
     url?: string;
     citationType?: 'authority' | 'study' | 'official' | 'benchmark' | string;
   }>;
+  evidence?: import('../research/types.ts').EvidenceItem[];
   internalLinks?: string[];
   contentInstructions?: string;
   estimatedWordCount?: {

@@ -13,6 +13,9 @@ import type { BriefGenerationOptions } from '../brief.ts';
 import type { ValidationRulesOptions } from '../generation/validation.ts';
 import type { AIRouter } from '../../ai/router.ts';
 
+import type { IEditorialResearchProvider } from '../research/providers/types.ts';
+import type { EvidenceResult } from '../research/types.ts';
+
 /**
  * Distinct sequential stages of the LifeMode Editorial Automation Pipeline.
  */
@@ -20,6 +23,7 @@ export type AutomationStage =
   | 'DISCOVERY'
   | 'SELECTION'
   | 'BRIEF'
+  | 'RESEARCH'
   | 'GENERATION'
   | 'VALIDATION'
   | 'REVIEW'
@@ -63,6 +67,7 @@ export interface OpportunityRunResult {
   pillar: PillarSlug;
   status: 'COMPLETED' | 'FAILED' | 'SKIPPED' | 'DRY_RUN' | 'REJECTED';
   brief?: ContentBrief;
+  research?: EvidenceResult;
   generation?: GenerationResult;
   review?: ReviewResult;
   revisedGeneration?: GenerationResult;
@@ -97,6 +102,7 @@ export interface AutomationRequest {
   
   // Custom provider injections
   discoveryAdapters?: IDiscoveryAdapter[];
+  researchProvider?: IEditorialResearchProvider;
   generationProvider?: IGenerationProvider;
   reviewProvider?: IAIReviewProvider;
   publishingProvider?: IPublishingProvider;

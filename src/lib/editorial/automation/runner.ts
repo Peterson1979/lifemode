@@ -17,6 +17,7 @@ import { briefToGenerationRequest } from '../generation/brief-adapter.ts';
 import { runGenerationPipeline } from '../generation/runner.ts';
 import { FixtureGenerationProvider } from '../generation/providers/fixture.ts';
 import { AIRouterGenerationProvider } from '../generation/providers/ai-router.ts';
+import { runResearchPipeline, FixtureEditorialResearchProvider, WebEditorialResearchProvider } from '../research/index.ts';
 import { runReviewPipeline } from '../review/runner.ts';
 import { FixtureReviewProvider } from '../review/providers/fixture.ts';
 import { AIRouterReviewProvider } from '../review/providers/ai-router.ts';
@@ -38,6 +39,7 @@ function createPendingStageResults(): Record<AutomationStage, AutomationStageRes
     'DISCOVERY',
     'SELECTION',
     'BRIEF',
+    'RESEARCH',
     'GENERATION',
     'VALIDATION',
     'REVIEW',
@@ -87,6 +89,7 @@ export function formatAutomationSummary(result: AutomationResult): string {
 
       const stageKeys: AutomationStage[] = [
         'BRIEF',
+        'RESEARCH',
         'GENERATION',
         'VALIDATION',
         'REVIEW',
@@ -98,7 +101,13 @@ export function formatAutomationSummary(result: AutomationResult): string {
       for (const k of stageKeys) {
         const sr = opp.stageResults[k];
         let label = sr?.status as string || 'PENDING';
-        if (k === 'REVIEW') {
+        if (k === 'RESEARCH') {
+          if (opp.research) {
+            label = opp.research.required
+              ? `SUCCESS (${opp.research.items.length} sources)`
+              : `NOT_REQUIRED`;
+          }
+        } else if (k === 'REVIEW') {
           if (opp.revisionPerformed && opp.revisedReview) {
             label = `${opp.review?.decision} (${opp.review?.overallScore}/100) -> REVISED -> ${opp.revisedReview.decision} (${opp.revisedReview.overallScore}/100)`;
           } else if (opp.review) {
@@ -194,6 +203,12 @@ export async function runEditorialAutomation(
 
   // Provider resolution based on providerMode
   const isRouterModule = config.providerMode === 'router';
+  const researchProvider = request.researchProvider || (
+    isRouterModule
+      ? new WebEditorialResearchProvider()
+      : new FixtureEditorialResearchProvider()
+  );
+
   const genProvider = request.generationProvider || (
     isRouterModule
       ? new AIRouterGenerationProvider(aiRouter)
@@ -423,7 +438,79 @@ export async function runEditorialAutomation(
         data: brief,
       };
 
-      // Convert to Generation Request
+      // Stage 3.5: RESEARCH / EVIDENCE
+      const researchStart = Date.now();
+      const evidenceResult = await runResearchPipeline({
+        topic,
+        brief,
+        provider: researchProvider,
+      });
+
+      oppResult.research = evidenceResult;
+
+      if (evidenceResult.required && (evidenceResult.status === 'FAILED' || evidenceResult.status === 'NO_EVIDENCE' || !evidenceResult.items || evidenceResult.items.length === 0)) {
+        const durationMs = Math.max(1, Date.now() - researchStart);
+        stageResults.RESEARCH = {
+          stage: 'RESEARCH',
+          status: 'FAILED',
+          durationMs,
+          error: {
+            code: 'EVIDENCE_UNAVAILABLE',
+            message: `Required editorial research failed: ${evidenceResult.error || 'No verifiable evidence sources found.'}`,
+          },
+        };
+        oppResult.failedStage = 'RESEARCH';
+        oppResult.status = 'REJECTED';
+        oppResult.error = {
+          stage: 'RESEARCH',
+          code: 'EVIDENCE_UNAVAILABLE',
+          message: `Required editorial research failed: ${evidenceResult.error || 'No verifiable evidence sources found.'}`,
+        };
+        rejectedCount++;
+
+        // Persist rejection to candidate storage
+        try {
+          const rejectedTopic: EditorialTopic = {
+            ...topic,
+            status: 'REJECTED',
+            researchRequired: true,
+            researchStatus: evidenceResult.status,
+            rejectionReason: `Research required but evidence unavailable: ${evidenceResult.error || 'No verifiable sources found'}`,
+            updatedAt: new Date().toISOString(),
+          };
+          const currentCandidates = await loadCandidates(request.storagePath);
+          const { updatedList } = mergeCandidateTopic(rejectedTopic, currentCandidates);
+          await saveCandidates(updatedList, request.storagePath);
+        } catch {
+          // Best-effort storage persistence
+        }
+
+        opportunityResults.push(oppResult);
+        continue;
+      }
+
+      // Research stage succeeded or was not required
+      const researchDurationMs = Math.max(1, Date.now() - researchStart);
+      stageResults.RESEARCH = {
+        stage: 'RESEARCH',
+        status: 'SUCCESS',
+        durationMs: researchDurationMs,
+        data: evidenceResult,
+        warning: !evidenceResult.required ? 'Research optional (proceeding with editorial guidance)' : undefined,
+      };
+
+      // Attach evidence to brief and topic
+      if (evidenceResult.items && evidenceResult.items.length > 0) {
+        brief.evidence = evidenceResult.items;
+        topic.evidence = evidenceResult.items;
+        topic.researchRequired = true;
+        topic.researchStatus = 'SUCCESS';
+      } else {
+        topic.researchRequired = false;
+        topic.researchStatus = 'NOT_REQUIRED';
+      }
+
+      // Convert to Generation Request (includes brief.evidence)
       const generationRequest = briefToGenerationRequest(brief);
 
       // Stage 4: GENERATION
@@ -513,6 +600,7 @@ export async function runEditorialAutomation(
         riskLevel: brief.riskLevel,
         affiliateIntent: brief.affiliateOpportunities.hasAffiliateIntent,
         sources: generationResult.article.sources,
+        evidence: brief.evidence,
         internalLinks: generationResult.article.internalLinks,
         estimatedWordCount: brief.estimatedWordCount,
         deterministicValidation: generationResult.validation,
@@ -566,6 +654,7 @@ export async function runEditorialAutomation(
             excerpt: currentArticle.excerpt,
             content: currentArticle.content,
             sources: currentArticle.sources,
+            evidence: brief.evidence,
             internalLinks: currentArticle.internalLinks,
             deterministicValidation: currentValidation,
           };

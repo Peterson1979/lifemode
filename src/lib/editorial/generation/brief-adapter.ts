@@ -42,6 +42,7 @@ export function briefToGenerationRequest(
     affiliateCategories: brief.affiliateOpportunities.productCategories,
     riskLevel: brief.riskLevel,
     requiredSources: brief.requiredSources,
+    evidence: brief.evidence,
     internalLinks: brief.internalLinkTargets,
     contentInstructions: options.contentInstructions,
     estimatedWordCount: brief.estimatedWordCount,

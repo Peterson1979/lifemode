@@ -93,7 +93,16 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
       userPromptParts.push('', `### Reviewer Warnings & Recommendations:`, ...reviewRes.warnings.map((w) => `- ${w}`));
     }
 
-    if (request.requiredSources && request.requiredSources.length > 0) {
+    if (request.evidence && request.evidence.length > 0) {
+      userPromptParts.push(
+        '',
+        `### Verified Research Evidence (Grounding Sources):`,
+        ...request.evidence.map(
+          (ev, i) =>
+            `  ${i + 1}. [${ev.sourceType.toUpperCase()} - ${ev.reliability} reliability] "${ev.title}" (${ev.publisher})\n     URL: ${ev.url}\n     Verified Facts: ${ev.claimSummary}`
+        )
+      );
+    } else if (request.requiredSources && request.requiredSources.length > 0) {
       userPromptParts.push(
         '',
         `### Supplied Sources (Use only these for citations):`,
@@ -156,7 +165,7 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
     '2. Section-by-Section Depth: Substantively develop every major section under clear Markdown ## (H2) and ### (H3) headings with multiple rich, informative paragraphs (at least 2–4 substantive paragraphs per major section).',
     '3. Substantive Introduction & Conclusion: Craft an engaging, immersive introduction establishing the context and core dilemma, and a thoughtful, actionable conclusion synthesizing long-term lifestyle habits.',
     '4. Natural Editorial Prose & Zero Filler: Write high-signal, engaging prose. Never pad with repetitive filler, circular phrasing, or fluffy platitudes. Expansion must come from deep explanations, concrete steps, and practical nuances.',
-    '5. Factuality & Evidence: Never invent fake facts, statistics, citations, quotations, studies, product claims, external URLs, or personal anecdotes. If required sources are provided, use only those verified sources.',
+    '5. Factuality & Evidence Grounding: Ground all specific facts, statistics, venue details, and technical capabilities in the verified evidence supplied. Never hallucinate fake URLs, citations, or unverified claims. Use the provided evidence sources in your sources array.',
     '6. Search & Reader Intent: Satisfy primary search intent and reader curiosity with practical, high-value takeaways and aesthetic intentionality.',
     '7. JSON Schema Conformance: The full, unabbreviated Markdown article body must be provided in the "content" field. Do not compress or truncate content to fit JSON.',
   ];
@@ -215,6 +224,31 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
     `Important: Do NOT output these planning notes. Execute this mental structure directly into the full Markdown text inside the "content" field.`,
   ];
 
+  if (request.evidence && request.evidence.length > 0) {
+    userPromptParts.push(
+      '',
+      `### Verified Research Evidence & Factual Grounding:`,
+      `The following verified evidence items were retrieved during editorial research. Factual claims, dates, venue specifics, technical specifications, and statistics MUST be grounded in this evidence:`,
+      ...request.evidence.map(
+        (ev, i) =>
+          `  ${i + 1}. [${ev.sourceType.toUpperCase()} - ${ev.reliability} reliability] "${ev.title}" (${ev.publisher})\n     URL: ${ev.url}\n     Verified Facts: ${ev.claimSummary}`
+      ),
+      '',
+      `Evidence Directives:`,
+      `- Use the verified sources above to populate the "sources" array in your JSON output.`,
+      `- Do NOT fabricate citations or external sources not supported by this evidence.`,
+      `- If a specific claim or detail is not supported by the evidence, omit or phrase it cautiously rather than guessing.`
+    );
+  } else if (request.requiredSources && request.requiredSources.length > 0) {
+    userPromptParts.push(
+      '',
+      `### Supplied Sources (Use only these for citations):`,
+      ...request.requiredSources.map(
+        (s) => `- ${s.name}${s.url ? ` (${s.url})` : ''} [${s.citationType || 'authority'}]`
+      )
+    );
+  }
+
   if (request.searchTargets.secondaryKeywords?.length) {
     userPromptParts.push('', `- Secondary Keywords: ${request.searchTargets.secondaryKeywords.join(', ')}`);
   }
@@ -229,16 +263,6 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
   if (request.socialAngle) {
     userPromptParts.push(
       `- Social Hook Concept: ${request.socialAngle.hookAngle || 'Modern perspective'}`
-    );
-  }
-
-  if (request.requiredSources && request.requiredSources.length > 0) {
-    userPromptParts.push(
-      '',
-      `### Supplied Sources (Use only these for citations):`,
-      ...request.requiredSources.map(
-        (s) => `- ${s.name}${s.url ? ` (${s.url})` : ''} [${s.citationType || 'authority'}]`
-      )
     );
   }
 
