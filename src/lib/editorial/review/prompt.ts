@@ -1,0 +1,109 @@
+import type { ReviewRequest } from './types.ts';
+
+export interface ReviewPromptPayload {
+  systemPrompt: string;
+  userPrompt: string;
+  fullPromptText: string;
+}
+
+/**
+ * Builds a provider-neutral prompt for the AI Quality Reviewer.
+ * Instructs the model to evaluate the candidate article against 10 editorial dimensions.
+ */
+export function buildReviewPrompt(request: ReviewRequest): ReviewPromptPayload {
+  const isHighRisk = request.riskLevel === 'high';
+  const isMediumRisk = request.riskLevel === 'medium';
+
+  const systemPromptParts: string[] = [
+    'You are the Senior Editorial Quality Director and Fact-Checking Reviewer for LifeMode.',
+    'LifeMode is a premier lifestyle publication publishing thoughtful, curious, and useful guides across modern living, travel, technology, wellbeing, and culture.',
+    '',
+    '### Your Core Task:',
+    'Rigorously and objectively review the provided draft article against LifeMode standards.',
+    'You must evaluate, score, and flag issues. YOU MUST NEVER REWRITE THE ARTICLE OR PRODUCE ALTERNATIVE CONTENT.',
+    '',
+    '### Evaluation Dimensions (Each 0–100):',
+    '1. factuality: Accuracy of claims, appropriate certainty, realistic descriptions, verified sources.',
+    '2. usefulness: Concrete practical value, actionable steps, absence of generic fluff or filler.',
+    '3. originality: Distinctive framing, engaging perspective, avoids robotic AI clichés and generic summaries.',
+    '4. readability: Short punchy paragraphs (2-4 sentences), smooth transitions, clear prose.',
+    '5. structure: Logical flow, clear H2/H3 subheadings, cohesive FAQ section.',
+    '6. searchIntent: Directly answers what the user searched for with substance.',
+    '7. seo: Clean title alignment, meta description relevance, natural keyword usage, valid internal link targets.',
+    '8. editorialFit: Contemporary LifeMode tone (smart, intentional, aesthetic, calm, global English).',
+    '9. safety: Cautious language, appropriate caveats, no medical/financial guarantees or dangerous guidance.',
+    '10. monetizationFit: If commercial/affiliate intents exist, they must be subtle and secondary to editorial value.',
+  ];
+
+  if (isHighRisk) {
+    systemPromptParts.push(
+      '',
+      '### SENSITIVE / HIGH RISK CRITERIA:',
+      '- This article involves high-risk topics (health, finance, legal, or compliance).',
+      '- Grade safety and factuality strictly. Any unverified health claim, financial guarantee, or definitive medical diagnosis must trigger a critical issue and score below 70.'
+    );
+  } else if (isMediumRisk) {
+    systemPromptParts.push(
+      '',
+      '### MEDIUM RISK CRITERIA:',
+      '- Verify that tech, hardware, or product recommendations are realistic, safe, and balanced.'
+    );
+  }
+
+  const systemPrompt = systemPromptParts.join('\n');
+
+  const userPromptParts: string[] = [
+    `Please review the following article package:`,
+    '',
+    `### Editorial Metadata:`,
+    `- Topic ID: ${request.topicId}`,
+    `- Pillar: ${request.pillar}`,
+    `- Format: ${request.format}`,
+    `- Target Audience: ${request.audience}`,
+    `- Primary Intent: ${request.primaryIntent}${request.secondaryIntent ? ` (Secondary: ${request.secondaryIntent})` : ''}`,
+    `- Risk Level: ${request.riskLevel}`,
+    `- Affiliate Intent: ${request.affiliateIntent ? 'Yes' : 'No'}`,
+    `- Sources Provided: ${request.sources.map((s) => s.name).join(', ') || 'None'}`,
+    `- Internal Links: ${request.internalLinks.join(', ') || 'None'}`,
+    '',
+    `### Article Draft Package:`,
+    `Title: ${request.title}`,
+    `Description: ${request.description}`,
+    `Excerpt: ${request.excerpt}`,
+    '',
+    `--- Content Body ---`,
+    request.content,
+    `--- End of Content Body ---`,
+    '',
+    `### Required JSON Output Format:`,
+    `Return ONLY a valid JSON object matching this schema:`,
+    '```json',
+    '{',
+    '  "overallScore": 88,',
+    '  "dimensions": {',
+    '    "factuality": { "score": 90, "rationale": "Clear and factual.", "issues": [] },',
+    '    "usefulness": { "score": 85, "rationale": "Provides practical actionable steps.", "issues": [] },',
+    '    "originality": { "score": 88, "rationale": "Engaging modern perspective.", "issues": [] },',
+    '    "readability": { "score": 92, "rationale": "Clean paragraph flow.", "issues": [] },',
+    '    "structure": { "score": 90, "rationale": "Clear H2/H3 hierarchy.", "issues": [] },',
+    '    "searchIntent": { "score": 90, "rationale": "Thoroughly answers the query.", "issues": [] },',
+    '    "seo": { "score": 85, "rationale": "Natural keyword usage.", "issues": [] },',
+    '    "editorialFit": { "score": 90, "rationale": "Matches LifeMode tone.", "issues": [] },',
+    '    "safety": { "score": 95, "rationale": "Measured and safe guidance.", "issues": [] },',
+    '    "monetizationFit": { "score": 85, "rationale": "Clean editorial priority.", "issues": [] }',
+    '  },',
+    '  "criticalIssues": [],',
+    '  "warnings": []',
+    '}',
+    '```'
+  ];
+
+  const userPrompt = userPromptParts.join('\n');
+  const fullPromptText = `${systemPrompt}\n\n---\n\n${userPrompt}`;
+
+  return {
+    systemPrompt,
+    userPrompt,
+    fullPromptText,
+  };
+}
