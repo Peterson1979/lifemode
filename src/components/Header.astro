@@ -1,31 +1,195 @@
 ---
-const pillars = [
-  { name: 'Life', slug: 'life' },
-  { name: 'Travel', slug: 'travel' },
-  { name: 'Tech & AI', slug: 'tech-ai' },
-  { name: 'Money', slug: 'money' },
-  { name: 'Wellbeing', slug: 'wellbeing' },
-  { name: 'Discover', slug: 'discover' },
-  { name: 'Now', slug: 'now' },
-];
+import { SITE_CONFIG, PILLARS, type PillarSlug } from '../config/site';
+
+const currentPath = Astro.url.pathname;
+
+function isActive(href: string): boolean {
+  if (href === '/') {
+    return currentPath === '/';
+  }
+  return currentPath.startsWith(href);
+}
+
+const todayFormatted = new Intl.DateTimeFormat('en-US', {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  timeZone: 'UTC',
+}).format(new Date());
 ---
 
+<!-- Topbar -->
+<div class="site-topbar">
+  <div class="container site-topbar-inner">
+    <span>Global Edition &bull; {todayFormatted}</span>
+    <span>Modern Living &bull; Curated Editorial</span>
+  </div>
+</div>
+
+<!-- Main Sticky Header -->
 <header class="site-header">
-  <div class="container nav-container">
-    <a href="/" class="brand-logo" aria-label="LifeMode Home">
-      <span>LifeMode</span>
-      <span class="brand-badge">Editorial</span>
+  <div class="container header-container">
+    <!-- Brand -->
+    <a href="/" class="brand-wrapper" aria-label="LifeMode Home">
+      <span class="brand-logo">
+        LifeMode
+        <span class="brand-accent-dot"></span>
+      </span>
     </a>
-    <nav aria-label="Main Navigation">
-      <ul class="nav-links">
-        {pillars.map((pillar) => (
+
+    <!-- Desktop Navigation -->
+    <nav class="nav-desktop" aria-label="Primary Navigation">
+      {SITE_CONFIG.navLinks.map((link) => {
+        const active = isActive(link.href);
+        const pillarConfig = PILLARS[link.slug as PillarSlug];
+        return (
           <li>
-            <a href={`/${pillar.slug}`} class="nav-link">
-              {pillar.name}
+            <a
+              href={link.href}
+              class={active ? 'active' : ''}
+              style={active && pillarConfig ? `--pillar-active-color: ${pillarConfig.color}` : undefined}
+            >
+              {link.name}
             </a>
           </li>
-        ))}
-      </ul>
+        );
+      })}
     </nav>
+
+    <!-- Mobile Drawer (Accessible CSS toggle with details) -->
+    <details class="mobile-nav-details">
+      <summary class="mobile-nav-summary" aria-label="Toggle navigation menu">
+        <span class="menu-icon-bar"></span>
+        <span class="menu-icon-bar"></span>
+        <span class="menu-icon-bar"></span>
+      </summary>
+      <div class="mobile-drawer-menu">
+        <div class="mobile-drawer-header">
+          <span class="mobile-drawer-title">Editorial Pillars</span>
+        </div>
+        <nav aria-label="Mobile Navigation">
+          <ul class="mobile-nav-list">
+            <li>
+              <a href="/" class={`mobile-nav-link ${currentPath === '/' ? 'active' : ''}`}>
+                <span>Home</span>
+              </a>
+            </li>
+            {SITE_CONFIG.navLinks.map((link) => {
+              const active = isActive(link.href);
+              const pillar = PILLARS[link.slug as PillarSlug];
+              return (
+                <li>
+                  <a
+                    href={link.href}
+                    class={`mobile-nav-link ${active ? 'active' : ''}`}
+                    style={`--mobile-pillar-color: ${pillar?.color || 'var(--color-primary)'}`}
+                  >
+                    <span class="mobile-nav-dot"></span>
+                    <span>{link.name}</span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </div>
+    </details>
   </div>
 </header>
+
+<style>
+  .mobile-nav-details {
+    display: none;
+    position: relative;
+  }
+
+  .mobile-nav-summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-surface);
+  }
+
+  .mobile-nav-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .menu-icon-bar {
+    width: 18px;
+    height: 2px;
+    background-color: var(--color-text-primary);
+    border-radius: 1px;
+  }
+
+  .mobile-drawer-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    width: 260px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-elevated);
+    padding: 1rem;
+    z-index: 200;
+  }
+
+  .mobile-drawer-header {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .mobile-drawer-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+  }
+
+  .mobile-nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  .mobile-nav-link:hover,
+  .mobile-nav-link.active {
+    background-color: var(--color-surface-subtle);
+    color: var(--color-text-primary);
+  }
+
+  .mobile-nav-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--mobile-pillar-color, var(--color-primary));
+  }
+
+  @media (max-width: 768px) {
+    .mobile-nav-details {
+      display: block;
+    }
+  }
+</style>

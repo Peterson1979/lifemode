@@ -1,0 +1,223 @@
+---
+import { formatDate, toISODate } from '../utils/date';
+import PillarBadge from './PillarBadge.astro';
+import type { PillarSlug } from '../config/site';
+
+export interface Props {
+  pillar: PillarSlug | string;
+  slug: string;
+  title: string;
+  description: string;
+  pubDate: Date | string;
+  author?: string;
+  variant?: 'lead' | 'card' | 'compact' | 'horizontal';
+  featured?: boolean;
+}
+
+const {
+  pillar,
+  slug,
+  title,
+  description,
+  pubDate,
+  author = 'LifeMode Editorial',
+  variant = 'card',
+  featured = false,
+} = Astro.props;
+
+const articleUrl = `/${pillar}/${slug}`;
+const formattedDate = formatDate(pubDate);
+const isoDate = toISODate(pubDate);
+---
+
+<article class={`article-card article-card-${variant} ${featured ? 'article-featured' : ''}`}>
+  <div class="card-inner">
+    <div class="card-meta">
+      <PillarBadge pillar={pillar} size={variant === 'lead' ? 'md' : 'sm'} />
+      <span class="meta-separator">&bull;</span>
+      <time datetime={isoDate} class="meta-date">{formattedDate}</time>
+      {author && variant === 'lead' && (
+        <>
+          <span class="meta-separator">&bull;</span>
+          <span class="meta-author">By {author}</span>
+        </>
+      )}
+    </div>
+
+    <h3 class="card-title">
+      <a href={articleUrl} class="card-link">{title}</a>
+    </h3>
+
+    {description && (
+      <p class="card-description">{description}</p>
+    )}
+
+    <div class="card-footer">
+      <a href={articleUrl} class="read-more" aria-label={`Read article: ${title}`}>
+        <span>Read Story</span>
+        <svg class="arrow-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16" aria-hidden="true">
+          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</article>
+
+<style>
+  .article-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+  }
+
+  .article-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-border-hover);
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-inner {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .meta-separator {
+    color: var(--color-text-dim);
+  }
+
+  .meta-date {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  .meta-author {
+    color: var(--color-text-muted);
+  }
+
+  .card-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .card-title a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .card-title a:hover {
+    color: var(--color-primary);
+  }
+
+  .card-description {
+    font-size: 0.925rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .card-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.825rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast), gap var(--transition-fast);
+  }
+
+  .read-more:hover {
+    color: var(--color-primary);
+    gap: 0.5rem;
+  }
+
+  .arrow-icon {
+    transition: transform var(--transition-fast);
+  }
+
+  .read-more:hover .arrow-icon {
+    transform: translateX(2px);
+  }
+
+  /* Lead Variant */
+  .article-card-lead {
+    background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-surface-elevated) 100%);
+    border: 1px solid var(--color-border-hover);
+  }
+
+  .article-card-lead .card-inner {
+    padding: 2.5rem;
+  }
+
+  .article-card-lead .card-title {
+    font-size: clamp(1.65rem, 3.5vw, 2.35rem);
+    margin-bottom: 1rem;
+  }
+
+  .article-card-lead .card-description {
+    font-size: 1.05rem;
+    max-width: 680px;
+  }
+
+  /* Horizontal Variant */
+  .article-card-horizontal .card-inner {
+    padding: 1.5rem;
+  }
+
+  /* Compact Variant */
+  .article-card-compact .card-inner {
+    padding: 1.25rem;
+  }
+
+  .article-card-compact .card-title {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .article-card-compact .card-description {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-card-compact .card-footer {
+    display: none;
+  }
+
+  @media (max-width: 640px) {
+    .card-inner {
+      padding: 1.25rem;
+    }
+    .article-card-lead .card-inner {
+      padding: 1.5rem;
+    }
+  }
+</style>

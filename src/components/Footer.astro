@@ -1,17 +1,53 @@
 ---
-const currentYear = new Date().getFullYear();
+import { SITE_CONFIG } from '../config/site';
+
+const currentYear = new Date().getUTCFullYear();
 ---
 
 <footer class="site-footer">
-  <div class="container footer-content">
-    <div>
-      <p><strong>LifeMode</strong> &copy; {currentYear} &mdash; A modern lifestyle publication.</p>
-      <p style="color: var(--color-text-dim); font-size: 0.8rem; margin-top: 0.25rem;">
-        Pillars: Life &bull; Travel &bull; Tech &amp; AI &bull; Money &bull; Wellbeing &bull; Discover &bull; Now
-      </p>
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand Column -->
+      <div class="footer-brand">
+        <h3>LifeMode</h3>
+        <p>
+          A global digital publication focused on smart living, intentional design, emerging artificial intelligence, personal finance, wellbeing, and culture.
+        </p>
+      </div>
+
+      <!-- Pillar Navigation -->
+      <div class="footer-links-group">
+        <h4>Editorial Pillars</h4>
+        <ul>
+          {SITE_CONFIG.navLinks.map((link) => (
+            <li>
+              <a href={link.href}>{link.name}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- About & Legal -->
+      <div class="footer-links-group">
+        <h4>Publication</h4>
+        <ul>
+          {SITE_CONFIG.footerLinks.map((link) => (
+            <li>
+              <a href={link.href}>{link.name}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
-    <div style="font-size: 0.8rem; color: var(--color-text-dim);">
-      <span>Built with Astro &bull; Markdown-Ready Architecture</span>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <div>
+        <span>&copy; {currentYear} {SITE_CONFIG.name}. All rights reserved.</span>
+      </div>
+      <div>
+        <span>Global Editorial Edition &bull; High-Performance Static Architecture</span>
+      </div>
     </div>
   </div>
 </footer>

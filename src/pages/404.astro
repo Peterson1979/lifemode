@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { PILLARS, PILLAR_SLUGS } from '../config/site';
+---
+
+<BaseLayout
+  title="Page Not Found (404) — LifeMode"
+  description="The requested editorial article or page could not be located."
+>
+  <div class="page-shell container-prose" style="text-align: center; padding-top: var(--space-20); padding-bottom: var(--space-20);">
+    <span class="hero-tag" style="color: var(--pillar-now);">Error 404</span>
+    <h1 class="page-title" style="margin-top: var(--space-2); margin-bottom: var(--space-4);">
+      Dispatch Not Found
+    </h1>
+    <p class="page-lead" style="margin-left: auto; margin-right: auto; max-width: 540px;">
+      The page or article you were looking for does not exist, has been moved, or is temporarily unavailable.
+    </p>
+
+    <div style="margin-bottom: var(--space-12);">
+      <a
+        href="/"
+        class="read-more"
+        style="font-size: 1rem; padding: 0.65rem 1.5rem; background-color: var(--color-surface); border: 1px solid var(--color-border-hover); border-radius: var(--radius-full);"
+      >
+        &larr; Return to Homepage
+      </a>
+    </div>
+
+    <div style="border-top: 1px solid var(--color-border-subtle); padding-top: var(--space-8); text-align: left;">
+      <h2 style="font-size: 1.15rem; margin-bottom: var(--space-4); text-align: center;">
+        Explore Our Editorial Pillars
+      </h2>
+      <div class="pillar-discovery-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-4);">
+        {PILLAR_SLUGS.map((slug) => {
+          const pillar = PILLARS[slug];
+          return (
+            <a
+              href={`/${pillar.slug}`}
+              class="pillar-discovery-card"
+              style="padding: var(--space-4); text-decoration: none;"
+            >
+              <span style={`font-weight: 700; color: ${pillar.color}; font-size: 0.9rem;`}>
+                {pillar.name}
+              </span>
+              <span style="font-size: 0.775rem; color: var(--color-text-muted); margin-top: 0.25rem;">
+                {pillar.tagline}
+              </span>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</BaseLayout>

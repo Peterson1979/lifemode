@@ -1,32 +1,22 @@
 ---
+import SEO, { type Props as SEOProps } from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
-interface Props {
-  title?: string;
-  description?: string;
-}
+export interface Props extends SEOProps {}
 
-const {
-  title = 'LifeMode - Modern Lifestyle & Editorial Architecture',
-  description = 'LifeMode is a curated digital publication exploring life, travel, tech & AI, money, wellbeing, culture, and timely lifestyle insights.',
-} = Astro.props;
+const seoProps = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta name="description" content={description} />
+    <SEO {...seoProps} />
   </head>
   <body>
     <Header />
-    <main>
+    <main id="main-content">
       <slot />
     </main>
     <Footer />

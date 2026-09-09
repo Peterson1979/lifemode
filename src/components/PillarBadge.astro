@@ -1,0 +1,81 @@
+---
+import { PILLARS, type PillarSlug } from '../config/site';
+
+export interface Props {
+  pillar: PillarSlug | string;
+  size?: 'sm' | 'md' | 'lg';
+  asLink?: boolean;
+}
+
+const { pillar, size = 'sm', asLink = true } = Astro.props;
+const pillarConfig = PILLARS[pillar as PillarSlug] || {
+  name: pillar,
+  slug: pillar,
+  color: 'var(--color-primary)',
+  bgLight: 'rgba(56, 189, 248, 0.1)',
+};
+---
+
+{asLink ? (
+  <a
+    href={`/${pillarConfig.slug}`}
+    class={`pillar-badge pillar-badge-${size}`}
+    style={`--badge-color: ${pillarConfig.color}; --badge-bg: ${pillarConfig.bgLight};`}
+  >
+    <span class="badge-dot"></span>
+    <span>{pillarConfig.name}</span>
+  </a>
+) : (
+  <span
+    class={`pillar-badge pillar-badge-${size}`}
+    style={`--badge-color: ${pillarConfig.color}; --badge-bg: ${pillarConfig.bgLight};`}
+  >
+    <span class="badge-dot"></span>
+    <span>{pillarConfig.name}</span>
+  </span>
+)}
+
+<style>
+  .pillar-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-radius: var(--radius-full);
+    background-color: var(--badge-bg, rgba(255, 255, 255, 0.05));
+    color: var(--badge-color, var(--color-primary));
+    border: 1px solid color-mix(in srgb, var(--badge-color) 25%, transparent);
+    text-decoration: none;
+    transition: transform var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
+    line-height: 1;
+  }
+
+  .pillar-badge:hover {
+    transform: translateY(-1px);
+    border-color: var(--badge-color);
+  }
+
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--badge-color);
+  }
+
+  .pillar-badge-sm {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.65rem;
+  }
+
+  .pillar-badge-md {
+    font-size: 0.775rem;
+    padding: 0.35rem 0.8rem;
+  }
+
+  .pillar-badge-lg {
+    font-size: 0.85rem;
+    padding: 0.45rem 1rem;
+  }
+</style>

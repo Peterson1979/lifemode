@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { PILLARS, PILLAR_SLUGS } from '../config/site';
+---
+
+<BaseLayout
+  title="About LifeMode — Editorial Standards & Vision"
+  description="Learn about LifeMode, our seven editorial pillars, and our commitment to insightful, independent modern lifestyle journalism."
+>
+  <div class="page-shell container-prose">
+    <header style="margin-bottom: var(--space-8);">
+      <span class="hero-tag">About The Publication</span>
+      <h1 class="page-title">LifeMode</h1>
+      <p class="page-lead">
+        A contemporary digital publication exploring smart living, emerging artificial intelligence, thoughtful travel, personal finance, wellbeing, and timeless cultural discoveries.
+      </p>
+    </header>
+
+    <div class="prose">
+      <h2>Our Mission</h2>
+      <p>
+        In an era of relentless information noise, LifeMode curates clarity. We examine how technology, aesthetics, and mindful frameworks converge to shape modern lifestyle design. Our goal is to provide actionable intelligence, curious explorations, and lasting cultural perspectives.
+      </p>
+
+      <h2>The Seven Editorial Pillars</h2>
+      <p>
+        LifeMode is organized into seven specialized domains, each exploring a foundational dimension of contemporary life:
+      </p>
+
+      <ul>
+        {PILLAR_SLUGS.map((slug) => {
+          const pillar = PILLARS[slug];
+          return (
+            <li>
+              <strong><a href={`/${pillar.slug}`}>{pillar.name}</a>:</strong> {pillar.description}
+            </li>
+          );
+        })}
+      </ul>
+
+      <h2>Editorial Independence</h2>
+      <p>
+        Our editorial curation is guided by substance, accuracy, and utility. We prioritize well-researched insights, structured frameworks, and enduring ideas over fleeting hype.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

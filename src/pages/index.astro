@@ -1,144 +1,201 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import PillarBadge from '../components/PillarBadge.astro';
 import { getCollection } from 'astro:content';
+import { PILLARS, PILLAR_SLUGS, SITE_CONFIG, type PillarSlug } from '../config/site';
+import { generateWebsiteSchema } from '../utils/seo';
 
-const pillars = [
-  {
-    name: 'Life',
-    slug: 'life',
-    badgeColor: 'var(--pillar-life)',
-    tagline: 'Living & Mindset',
-    description: 'Intentional living, home aesthetics, daily routines, and mindful personal growth.',
-  },
-  {
-    name: 'Travel',
-    slug: 'travel',
-    badgeColor: 'var(--pillar-travel)',
-    tagline: 'Destinations & Journeys',
-    description: 'Curated itineraries, boutique stays, slow travel, and smart destination intelligence.',
-  },
-  {
-    name: 'Tech & AI',
-    slug: 'tech-ai',
-    badgeColor: 'var(--pillar-tech-ai)',
-    tagline: 'Innovation & Tools',
-    description: 'Emerging artificial intelligence, productivity ecosystems, and next-gen gear.',
-  },
-  {
-    name: 'Money',
-    slug: 'money',
-    badgeColor: 'var(--pillar-money)',
-    tagline: 'Wealth & Freedom',
-    description: 'Personal finance frameworks, strategic investing, and digital economy navigation.',
-  },
-  {
-    name: 'Wellbeing',
-    slug: 'wellbeing',
-    badgeColor: 'var(--pillar-wellbeing)',
-    tagline: 'Health & Vitality',
-    description: 'Holistic health, mental clarity, fitness protocols, and longevity insights.',
-  },
-  {
-    name: 'Discover',
-    slug: 'discover',
-    badgeColor: 'var(--pillar-discover)',
-    tagline: 'Culture & Design',
-    description: 'Architectural gems, curated books, art exhibitions, and timeless artifacts.',
-  },
-  {
-    name: 'Now',
-    slug: 'now',
-    badgeColor: 'var(--pillar-now)',
-    tagline: 'Trends & Zeitgeist',
-    description: 'Real-time pulses, seasonal guides, cultural signals, and timely editorial dispatches.',
-  },
-];
+// Fetch articles from all 7 collections
+const [
+  lifeDocs,
+  travelDocs,
+  techAiDocs,
+  moneyDocs,
+  wellbeingDocs,
+  discoverDocs,
+  nowDocs,
+] = await Promise.all([
+  getCollection('life'),
+  getCollection('travel'),
+  getCollection('tech-ai'),
+  getCollection('money'),
+  getCollection('wellbeing'),
+  getCollection('discover'),
+  getCollection('now'),
+]);
 
-// Fetch initial articles across all pillars
-const lifeArticles = await getCollection('life');
-const travelArticles = await getCollection('travel');
-const techAiArticles = await getCollection('tech-ai');
-const moneyArticles = await getCollection('money');
-const wellbeingArticles = await getCollection('wellbeing');
-const discoverArticles = await getCollection('discover');
-const nowArticles = await getCollection('now');
+// Normalize and attach pillar metadata
+interface ArticleEntry {
+  id: string;
+  pillar: PillarSlug;
+  data: {
+    title: string;
+    description: string;
+    pubDate: Date;
+    updatedDate?: Date;
+    author?: string;
+    featured?: boolean;
+  };
+}
 
-const allPillarsData = [
-  { name: 'Life', slug: 'life', articles: lifeArticles },
-  { name: 'Travel', slug: 'travel', articles: travelArticles },
-  { name: 'Tech & AI', slug: 'tech-ai', articles: techAiArticles },
-  { name: 'Money', slug: 'money', articles: moneyArticles },
-  { name: 'Wellbeing', slug: 'wellbeing', articles: wellbeingArticles },
-  { name: 'Discover', slug: 'discover', articles: discoverArticles },
-  { name: 'Now', slug: 'now', articles: nowArticles },
-];
+const allArticles: ArticleEntry[] = [
+  ...lifeDocs.map((doc) => ({ id: doc.id, pillar: 'life' as PillarSlug, data: doc.data })),
+  ...travelDocs.map((doc) => ({ id: doc.id, pillar: 'travel' as PillarSlug, data: doc.data })),
+  ...techAiDocs.map((doc) => ({ id: doc.id, pillar: 'tech-ai' as PillarSlug, data: doc.data })),
+  ...moneyDocs.map((doc) => ({ id: doc.id, pillar: 'money' as PillarSlug, data: doc.data })),
+  ...wellbeingDocs.map((doc) => ({ id: doc.id, pillar: 'wellbeing' as PillarSlug, data: doc.data })),
+  ...discoverDocs.map((doc) => ({ id: doc.id, pillar: 'discover' as PillarSlug, data: doc.data })),
+  ...nowDocs.map((doc) => ({ id: doc.id, pillar: 'now' as PillarSlug, data: doc.data })),
+].sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+
+// Lead article (first featured or latest)
+const leadArticle = allArticles.find((a) => a.data.featured) || allArticles[0];
+// Secondary featured stories
+const secondaryArticles = allArticles.filter((a) => a.id !== leadArticle?.id).slice(0, 4);
+
+const websiteSchema = generateWebsiteSchema();
 ---
 
 <BaseLayout
-  title="LifeMode — Curated Modern Lifestyle & Editorial Architecture"
-  description="LifeMode explores life, travel, tech & AI, money, wellbeing, culture, and timely lifestyle insights through a high-performance content architecture."
+  title="LifeMode — Smart Living, Curated Culture & Timely Editorial"
+  description={SITE_CONFIG.description}
+  jsonLd={websiteSchema}
 >
-  <section class="hero">
+  <!-- Hero Section -->
+  <section class="hero-editorial">
     <div class="container">
-      <p class="hero-tagline">Project Foundation</p>
-      <h1 class="hero-title">
-        Welcome to <span class="hero-title-gradient">LifeMode</span>
+      <span class="hero-tag">Global Editorial Publication</span>
+      <h1 class="hero-heading">
+        Intentional living, intelligent technology, and timely cultural dispatches.
       </h1>
-      <p class="hero-description">
-        A high-performance digital editorial publication built on Astro, TypeScript, and Markdown/MDX content collections.
+      <p class="hero-lead">
+        LifeMode explores the frameworks, tools, and ideas shaping modern lifestyle design across seven curated editorial pillars.
       </p>
-    </div>
-  </section>
 
-  <section class="pillars-section">
-    <div class="container">
-      <h2 class="section-title">Editorial Pillars</h2>
-      <p class="section-subtitle">Seven core domains powering LifeMode's curated content architecture.</p>
-
-      <div class="pillar-grid">
-        {pillars.map((pillar) => (
-          <article class="pillar-card">
-            <div
-              class="pillar-badge"
-              style={`background-color: rgba(255,255,255,0.06); color: ${pillar.badgeColor}; border: 1px solid ${pillar.badgeColor}40;`}
-            >
-              {pillar.name}
-            </div>
-            <h3 class="pillar-title">{pillar.tagline}</h3>
-            <p class="pillar-desc">{pillar.description}</p>
-            <a href={`/${pillar.slug}`} class="pillar-link" style={`color: ${pillar.badgeColor};`}>
-              Explore {pillar.name} &rarr;
-            </a>
-          </article>
+      <!-- Quick Pillar Ribbon -->
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: var(--space-4);">
+        {PILLAR_SLUGS.map((slug) => (
+          <PillarBadge pillar={slug} size="md" />
         ))}
       </div>
     </div>
   </section>
 
-  <section class="articles-section">
-    <div class="container">
-      <h2 class="section-title">Content Collections Initialized</h2>
-      <p class="section-subtitle">Astro Content Layer active across all 7 pillar repositories.</p>
+  <!-- Lead Story & Top Dispatches Grid -->
+  {leadArticle && (
+    <section class="section" style="padding-bottom: var(--space-8);">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Lead Editorial Dispatch</h2>
+            <p class="section-subtitle">Featured curation from our editorial desk</p>
+          </div>
+          <a href={`/${leadArticle.pillar}`} class="section-link">
+            Explore {PILLARS[leadArticle.pillar].name} &rarr;
+          </a>
+        </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
-        {allPillarsData.map((pillar) => (
-          <div class="article-card">
-            <div class="article-meta">
-              <span><strong>Pillar:</strong> {pillar.name}</span>
-              <span>&bull;</span>
-              <span>{pillar.articles.length} article(s)</span>
-            </div>
-            {pillar.articles.map((entry) => (
-              <div>
-                <h4 style="font-size: 1.05rem; margin-bottom: 0.25rem;">
-                  <a href={`/${pillar.slug}/${entry.id}`}>{entry.data.title}</a>
-                </h4>
-                <p style="font-size: 0.85rem; color: var(--color-text-muted);">
-                  {entry.data.description}
-                </p>
-              </div>
+        <div class="grid-lead-secondary">
+          <!-- Lead Big Card -->
+          <div>
+            <ArticleCard
+              pillar={leadArticle.pillar}
+              slug={leadArticle.id}
+              title={leadArticle.data.title}
+              description={leadArticle.data.description}
+              pubDate={leadArticle.data.pubDate}
+              author={leadArticle.data.author}
+              variant="lead"
+              featured={true}
+            />
+          </div>
+
+          <!-- Secondary Column -->
+          <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+            {secondaryArticles.map((article) => (
+              <ArticleCard
+                pillar={article.pillar}
+                slug={article.id}
+                title={article.data.title}
+                description={article.data.description}
+                pubDate={article.data.pubDate}
+                author={article.data.author}
+                variant="horizontal"
+              />
             ))}
           </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Editorial Pillars Discovery Grid -->
+  <section class="section" style="background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">The Seven Pillars</h2>
+          <p class="section-subtitle">Structured domains powering LifeMode's publishing architecture</p>
+        </div>
+      </div>
+
+      <div class="pillar-discovery-grid">
+        {PILLAR_SLUGS.map((slug) => {
+          const pillar = PILLARS[slug];
+          return (
+            <article class="pillar-discovery-card">
+              <div style="margin-bottom: var(--space-3);">
+                <PillarBadge pillar={slug} size="sm" />
+              </div>
+              <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: #ffffff;">
+                {pillar.tagline}
+              </h3>
+              <p style="font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: var(--space-6); flex-grow: 1;">
+                {pillar.description}
+              </p>
+              <div style="margin-top: auto; padding-top: var(--space-3); border-top: 1px solid var(--color-border-subtle);">
+                <a
+                  href={`/${pillar.slug}`}
+                  class="read-more"
+                  style={`color: ${pillar.color}; font-weight: 600; font-size: 0.85rem;`}
+                >
+                  Browse {pillar.name} Archive &rarr;
+                </a>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Real-Time / Now Pulse Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title" style="display: flex; align-items: center; gap: 0.5rem;">
+            <span>Now &bull; Trends &amp; Signals</span>
+          </h2>
+          <p class="section-subtitle">Real-time pulses, seasonal shifts, and timely dispatches</p>
+        </div>
+        <a href="/now" class="section-link" style="color: var(--pillar-now);">
+          View Now Archive &rarr;
+        </a>
+      </div>
+
+      <div class="grid-3">
+        {allArticles.slice(0, 3).map((article) => (
+          <ArticleCard
+            pillar={article.pillar}
+            slug={article.id}
+            title={article.data.title}
+            description={article.data.description}
+            pubDate={article.data.pubDate}
+            author={article.data.author}
+            variant="card"
+          />
         ))}
       </div>
     </div>
