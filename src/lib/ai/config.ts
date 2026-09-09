@@ -4,12 +4,14 @@ export interface GeminiProviderConfig {
   apiKey: string;
   model: string;
   dailyTokenBudget: number;
+  tokensPerMinute?: number;
 }
 
 export interface GroqProviderConfig {
   apiKey: string;
   model: string;
   dailyTokenBudget: number;
+  tokensPerMinute?: number;
 }
 
 export interface RouterLimitsConfig {
@@ -68,11 +70,13 @@ export function loadAIConfig(overrides: Partial<AIConfig> = {}): AIConfig {
       apiKey: getEnv('GEMINI_API_KEY'),
       model: getEnv('GEMINI_MODEL', 'gemini-2.5-flash'),
       dailyTokenBudget: getEnvNumber('GEMINI_DAILY_TOKEN_BUDGET', 1_000_000),
+      tokensPerMinute: getEnvNumber('GEMINI_TPM_LIMIT', 1_000_000),
     },
     groq: {
       apiKey: getEnv('GROQ_API_KEY'),
       model: getEnv('GROQ_MODEL', 'openai/gpt-oss-20b'),
       dailyTokenBudget: getEnvNumber('GROQ_DAILY_TOKEN_BUDGET', 1_000_000),
+      tokensPerMinute: getEnvNumber('GROQ_TPM_LIMIT', 8_000),
     },
     router: {
       timeoutMs: getEnvNumber('AI_REQUEST_TIMEOUT_MS', 30_000),

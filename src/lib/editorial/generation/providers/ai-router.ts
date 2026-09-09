@@ -51,6 +51,9 @@ export class AIRouterGenerationProvider implements IGenerationProvider {
       systemPrompt: promptPayload.systemPrompt,
       taskType: 'content_generation',
       requestId: request.topicId,
+      responseFormat: 'json',
+      validateJson: true,
+      maxOutputTokens: 6000,
     };
 
     const routerResult = await this.router.route(aiRequest);

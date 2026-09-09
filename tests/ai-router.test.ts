@@ -617,3 +617,239 @@ test('21. AIRouterGenerationProvider bridges Content Generation Runner with AI R
     assert.equal(result.validation.isValid, true);
   }
 });
+
+test('22. Preflight TPM protection blocks requests exceeding token budget', async () => {
+  const rateLimiter = new InMemoryRateLimiter();
+  // Record 7,000 tokens consumed in the current minute
+  rateLimiter.recordTokens('groq', 7000);
+
+  // Request requiring ~2,500 tokens with limit 8,000 should exceed 7000 + 2500 = 9500 > 8000
+  const check = rateLimiter.checkRateLimit('groq', {
+    tokensPerMinute: 8000,
+    estimatedTokens: 2500,
+  });
+
+  assert.equal(check.allowed, false);
+  assert.equal(check.reason, 'TPM_EXCEEDED');
+  assert.ok(check.retryAfterMs > 0);
+  assert.equal(check.currentMinuteTokens, 7000);
+});
+
+test('23. Router falls back to next provider when preflight TPM blocks primary', async () => {
+  const rateLimiter = new InMemoryRateLimiter();
+  rateLimiter.recordTokens('groq', 7500);
+
+  const groqMock = new AIRouterFixtureProvider({ id: 'groq' });
+  const geminiMock = new AIRouterFixtureProvider({ id: 'gemini' });
+
+  const providers = new Map<string, IAIProvider>([
+    ['groq', groqMock],
+    ['gemini', geminiMock],
+  ]);
+
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['groq', 'gemini'],
+      gemini: { apiKey: 'dummy', model: 'gemini-2.5-flash', dailyTokenBudget: 100000, tokensPerMinute: 100000 },
+      groq: { apiKey: 'dummy', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000, tokensPerMinute: 8000 },
+      router: { timeoutMs: 5000, maxAttempts: 2, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers,
+    rateLimiter,
+  });
+
+  const result = await router.route({
+    prompt: 'Generate an in-depth article.',
+    taskType: 'content_generation',
+    maxOutputTokens: 2500,
+  });
+
+  assert.equal(result.success, true);
+  if (result.success) {
+    assert.equal(result.provider, 'gemini', 'Should fallback to gemini when groq TPM is saturated');
+    assert.equal(result.attempts.length, 2);
+    assert.equal(result.attempts[0].error?.code, 'RATE_LIMIT');
+  }
+});
+
+test('24. Groq HTTP 429 extracts Retry-After header and backoff seconds', async () => {
+  const mockFetch429 = async () => ({
+    ok: false,
+    status: 429,
+    statusText: 'Too Many Requests',
+    headers: {
+      get: (h: string) => (h.toLowerCase() === 'retry-after' ? '14' : null),
+    },
+    json: async () => ({
+      error: { message: 'Rate limit reached on tokens per minute (TPM). Please try again in 14.0s.' },
+    }),
+  });
+
+  const groq = new GroqProvider({
+    apiKey: 'dummy-key',
+    fetchFn: mockFetch429 as any,
+  });
+
+  await assert.rejects(
+    async () => groq.generate(baseRequest),
+    (err: any) => {
+      assert.equal(err.code, 'RATE_LIMIT');
+      assert.equal(err.retryable, true);
+      assert.equal(err.retryAfterMs, 14000);
+      return true;
+    }
+  );
+});
+
+test('25. Truncated JSON in Groq response is detected and classified as MALFORMED_OUTPUT', async () => {
+  const truncatedJson = '{\n  "title": "Incomplete Article",\n  "content": "This sentence cuts off in the mid';
+  const mockFetchTruncated = async () => ({
+    ok: true,
+    status: 200,
+    headers: { get: () => null },
+    json: async () => ({
+      choices: [{ message: { content: truncatedJson } }],
+      usage: { prompt_tokens: 100, completion_tokens: 50 },
+    }),
+  });
+
+  const groq = new GroqProvider({
+    apiKey: 'dummy-key',
+    fetchFn: mockFetchTruncated as any,
+  });
+
+  await assert.rejects(
+    async () => groq.generate({ ...baseRequest, responseFormat: 'json', validateJson: true }),
+    (err: any) => {
+      assert.equal(err.code, 'MALFORMED_OUTPUT');
+      assert.equal(err.retryable, true);
+      assert.ok(err.message.includes('truncated or malformed JSON'));
+      return true;
+    }
+  );
+});
+
+test('26. Router automatically falls back to secondary provider when primary returns malformed JSON', async () => {
+  const truncatedJson = '{\n  "title": "Incomplete",\n  "content": "unterminated';
+  const mockFetchTruncated = async () => ({
+    ok: true,
+    status: 200,
+    headers: { get: () => null },
+    json: async () => ({
+      choices: [{ message: { content: truncatedJson } }],
+      usage: { prompt_tokens: 100, completion_tokens: 50 },
+    }),
+  });
+
+  const groqTruncating = new GroqProvider({
+    apiKey: 'dummy-key',
+    fetchFn: mockFetchTruncated as any,
+  });
+
+  const validJson = JSON.stringify({
+    title: 'Valid Full Article',
+    slug: 'valid-full-article',
+    description: 'A complete article description.',
+    excerpt: 'An excerpt.',
+    content: '## 1. Introduction\n\nComplete content here.',
+    faq: [],
+    sources: [],
+    internalLinks: [],
+    affiliateIntents: [],
+    socialHooks: [],
+  });
+
+  const backupProvider = new AIRouterFixtureProvider({
+    id: 'gemini',
+    mockResponseText: validJson,
+  });
+
+  const providers = new Map<string, IAIProvider>([
+    ['groq', groqTruncating],
+    ['gemini', backupProvider],
+  ]);
+
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['groq', 'gemini'],
+      gemini: { apiKey: 'dummy', model: 'gemini-2.5-flash', dailyTokenBudget: 100000, tokensPerMinute: 100000 },
+      groq: { apiKey: 'dummy', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000, tokensPerMinute: 8000 },
+      router: { timeoutMs: 5000, maxAttempts: 2, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers,
+  });
+
+  const result = await router.route({
+    prompt: 'Write an article.',
+    taskType: 'content_generation',
+    responseFormat: 'json',
+    validateJson: true,
+  });
+
+  assert.equal(result.success, true);
+  if (result.success) {
+    assert.equal(result.provider, 'gemini');
+    assert.equal(result.attempts.length, 2);
+    assert.equal(result.attempts[0].error?.code, 'MALFORMED_OUTPUT');
+  }
+});
+
+test('27. AIRouterGenerationProvider does not pass partial or malformed article to pipeline', async () => {
+  const failingRouter = new AIRouter({
+    config: {
+      providerOrder: ['failing'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000, tokensPerMinute: 100000 },
+      groq: { apiKey: '', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000, tokensPerMinute: 8000 },
+      router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers: new Map([
+      ['failing', new AIRouterFixtureProvider({ id: 'failing', forcedError: { code: 'MALFORMED_OUTPUT', message: 'Truncated JSON', provider: 'failing', retryable: false } })],
+    ]),
+  });
+
+  const provider = new AIRouterGenerationProvider(failingRouter);
+  await assert.rejects(
+    async () => provider.generate({
+      topicId: 'lm-test-01',
+      titleAngle: 'Test Angle',
+      pillar: 'life',
+      format: 'guide',
+      audience: 'General readers',
+      primaryIntent: 'informational',
+      searchTargets: { primaryKeyword: 'test' },
+      affiliateIntent: false,
+      riskLevel: 'low',
+    }),
+    /AI Router generation failed: \[MALFORMED_OUTPUT\]/
+  );
+});
+
+test('28. GroqProvider correctly includes response_format json_object for structured requests', async () => {
+  let capturedBody: any = null;
+  const mockFetch = async (_url: string, init: any) => {
+    capturedBody = JSON.parse(init.body);
+    return {
+      ok: true,
+      status: 200,
+      headers: { get: () => null },
+      json: async () => ({
+        choices: [{ message: { content: JSON.stringify({ title: 'Mock Article', content: 'Mock Content' }) } }],
+        usage: { prompt_tokens: 50, completion_tokens: 50 },
+      }),
+    };
+  };
+
+  const groq = new GroqProvider({
+    apiKey: 'dummy-key',
+    fetchFn: mockFetch as any,
+  });
+
+  await groq.generate({
+    prompt: 'Write JSON',
+    taskType: 'content_generation',
+    responseFormat: 'json',
+  });
+
+  assert.deepEqual(capturedBody.response_format, { type: 'json_object' });
+  assert.equal(capturedBody.max_tokens, 6000);
+});

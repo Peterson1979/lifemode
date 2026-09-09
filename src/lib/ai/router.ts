@@ -13,7 +13,7 @@ import { AIRouterFixtureProvider } from './providers/fixture.ts';
 import { defaultUsageTracker, type IUsageTracker } from './usage.ts';
 import { defaultRateLimiter, type IRateLimiter } from './rate-limit.ts';
 import { defaultTelemetryRecorder, type ITelemetryRecorder } from './telemetry.ts';
-import { estimateRequestResponseTokens } from './token-estimator.ts';
+import { estimateRequestResponseTokens, estimateRequestTokens } from './token-estimator.ts';
 
 export interface AIRouterOptions {
   config?: AIConfig;
@@ -135,10 +135,20 @@ export class AIRouter {
         continue;
       }
 
-      // 2. Check Rate Limits
+      // 2. Check Rate Limits (RPM, RPD, and TPM)
+      const estimatedReqTokens = estimateRequestTokens(request);
+      let providerTpmLimit = 0;
+      if (providerId === 'groq' || providerId.startsWith('groq')) {
+        providerTpmLimit = this.config.groq.tokensPerMinute ?? 0;
+      } else if (providerId === 'gemini' || providerId.startsWith('gemini')) {
+        providerTpmLimit = this.config.gemini.tokensPerMinute ?? 0;
+      }
+
       const rateLimitCheck = this.rateLimiter.checkRateLimit(providerId, {
         requestsPerMinute: this.config.router.requestsPerMinute,
         requestsPerDay: this.config.router.requestsPerDay,
+        tokensPerMinute: providerTpmLimit,
+        estimatedTokens: estimatedReqTokens,
       });
 
       if (!rateLimitCheck.allowed) {
@@ -147,6 +157,7 @@ export class AIRouter {
           message: `Rate limit reached for provider "${providerId}" (${rateLimitCheck.reason}). Retry after ${rateLimitCheck.retryAfterMs}ms.`,
           provider: providerId,
           retryable: true,
+          retryAfterMs: rateLimitCheck.retryAfterMs,
         };
         lastError = error;
         attempts.push({
@@ -211,6 +222,28 @@ export class AIRouter {
         const response = await provider.generate(request);
         const durationMs = Math.max(1, Date.now() - startTime);
 
+        // Validate JSON structure if expected
+        if (request.responseFormat === 'json' || request.validateJson) {
+          let clean = response.text.trim();
+          if (clean.startsWith('```json')) {
+            clean = clean.replace(/^```json\s*/, '').replace(/```\s*$/, '');
+          } else if (clean.startsWith('```')) {
+            clean = clean.replace(/^```\s*/, '').replace(/```\s*$/, '');
+          }
+          try {
+            JSON.parse(clean);
+          } catch (jsonErr: any) {
+            const malformedError: AIProviderError = {
+              code: 'MALFORMED_OUTPUT',
+              message: `Provider "${providerId}" returned malformed or truncated JSON: ${jsonErr.message}`,
+              provider: providerId,
+              retryable: true,
+              rawError: jsonErr,
+            };
+            throw malformedError;
+          }
+        }
+
         // Calculate / reconcile token usage
         let inputTokens = response.inputTokens;
         let outputTokens = response.outputTokens;
@@ -227,6 +260,7 @@ export class AIRouter {
 
         // Record Rate Limit Request & Token Usage
         this.rateLimiter.recordRequest(providerId);
+        this.rateLimiter.recordTokens(providerId, totalTokens);
         this.usageTracker.recordUsage({
           provider: providerId,
           inputTokens,

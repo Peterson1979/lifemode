@@ -60,13 +60,25 @@ export class GroqProvider implements IAIProvider {
       content: request.prompt,
     });
 
+    const isJsonExpected = request.responseFormat === 'json' ||
+      request.taskType === 'content_generation' ||
+      request.taskType === 'content_review';
+
     const body: any = {
       model,
       messages,
     };
 
-    if (request.maxOutputTokens) {
-      body.max_tokens = request.maxOutputTokens;
+    if (isJsonExpected) {
+      body.response_format = { type: 'json_object' };
+    }
+
+    const maxTokens = request.maxOutputTokens || (
+      request.taskType === 'content_generation' ? 6000 :
+      request.taskType === 'content_review' ? 2000 : undefined
+    );
+    if (maxTokens) {
+      body.max_tokens = maxTokens;
     }
 
     if (request.temperature !== undefined) {
@@ -127,6 +139,7 @@ export class GroqProvider implements IAIProvider {
 
       let code: AIProviderError['code'] = 'PROVIDER_ERROR';
       let retryable = true;
+      let retryAfterMs: number | undefined;
 
       if (status === 401 || status === 403) {
         code = 'AUTH';
@@ -134,6 +147,23 @@ export class GroqProvider implements IAIProvider {
       } else if (status === 429) {
         code = sanitizedMsg.toLowerCase().includes('quota') ? 'QUOTA' : 'RATE_LIMIT';
         retryable = true;
+
+        const retryAfterHeader = response.headers?.get ? response.headers.get('retry-after') : null;
+        if (retryAfterHeader) {
+          const seconds = parseFloat(retryAfterHeader);
+          if (!isNaN(seconds) && seconds > 0) {
+            retryAfterMs = Math.ceil(seconds * 1000);
+          }
+        }
+        if (!retryAfterMs) {
+          const match = sanitizedMsg.match(/try again in ([0-9.]+)s/i);
+          if (match) {
+            const seconds = parseFloat(match[1]);
+            if (!isNaN(seconds) && seconds > 0) {
+              retryAfterMs = Math.ceil(seconds * 1000);
+            }
+          }
+        }
       } else if (status === 400) {
         code = 'INVALID_REQUEST';
         retryable = false;
@@ -148,6 +178,7 @@ export class GroqProvider implements IAIProvider {
         provider: this.id,
         retryable,
         statusCode: status,
+        retryAfterMs,
       };
       throw providerError;
     }
@@ -168,6 +199,29 @@ export class GroqProvider implements IAIProvider {
 
     const choice = data?.choices?.[0];
     const text = choice?.message?.content || '';
+
+    // Validate structured JSON if expected
+    if (isJsonExpected || request.validateJson) {
+      let clean = text.trim();
+      if (clean.startsWith('```json')) {
+        clean = clean.replace(/^```json\s*/, '').replace(/```\s*$/, '');
+      } else if (clean.startsWith('```')) {
+        clean = clean.replace(/^```\s*/, '').replace(/```\s*$/, '');
+      }
+
+      try {
+        JSON.parse(clean);
+      } catch (jsonErr: any) {
+        const error: AIProviderError = {
+          code: 'MALFORMED_OUTPUT',
+          message: `Groq returned truncated or malformed JSON output: ${jsonErr.message}`,
+          provider: this.id,
+          retryable: true,
+          rawError: jsonErr,
+        };
+        throw error;
+      }
+    }
 
     // Extract official Groq usage
     const usage = data?.usage;

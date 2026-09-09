@@ -45,6 +45,9 @@ export class AIRouterReviewProvider implements IAIReviewProvider {
       systemPrompt: promptPayload.systemPrompt,
       taskType: 'content_review',
       requestId: `rev-${request.topicId}`,
+      responseFormat: 'json',
+      validateJson: true,
+      maxOutputTokens: 2500,
     };
 
     const routerResult = await this.router.route(aiRequest);

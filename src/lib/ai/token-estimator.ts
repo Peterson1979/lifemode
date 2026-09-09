@@ -60,3 +60,21 @@ export function estimateRequestResponseTokens(
     isEstimate: true,
   };
 }
+
+/**
+ * Estimates preflight token consumption (input + expected output) for an AIRequest.
+ */
+export function estimateRequestTokens(request: {
+  prompt: string;
+  systemPrompt?: string;
+  maxOutputTokens?: number;
+  taskType?: string;
+}): number {
+  const inputTokens = estimateInputTokens(request.prompt, request.systemPrompt);
+  const expectedOutputTokens = request.maxOutputTokens ?? (
+    request.taskType === 'content_generation' ? 2500 :
+    request.taskType === 'content_review' ? 800 :
+    request.taskType === 'social_generation' ? 400 : 500
+  );
+  return inputTokens + expectedOutputTokens;
+}

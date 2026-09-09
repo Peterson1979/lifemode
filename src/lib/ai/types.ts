@@ -25,6 +25,8 @@ export interface AIRequest {
   requestId?: string;
   taskType: AITaskType;
   timeoutMs?: number;
+  responseFormat?: 'text' | 'json';
+  validateJson?: boolean;
 }
 
 /**
@@ -53,6 +55,7 @@ export type AIErrorCode =
   | 'NETWORK'
   | 'BUDGET_EXCEEDED'
   | 'NOT_CONFIGURED'
+  | 'MALFORMED_OUTPUT'
   | 'UNKNOWN';
 
 /**
@@ -64,6 +67,7 @@ export interface AIProviderError {
   provider: AIProviderId;
   retryable: boolean;
   statusCode?: number;
+  retryAfterMs?: number;
   rawError?: unknown;
 }
 
