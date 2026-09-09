@@ -51,8 +51,12 @@ export function mergeCandidateTopic(
     };
   }
 
-  // Update existing record, preserving published/approved lifecycle status
+  // Update existing record, preserving published/approved/rejected lifecycle status
   const existing = existingList[index];
+  const resolvedStatus = (existing.status === 'REJECTED' || existing.status === 'PUBLISHED')
+    ? existing.status
+    : (newCandidate.status ?? existing.status);
+
   const updatedRecord: EditorialTopic = {
     ...existing,
     canonicalTopic: newCandidate.canonicalTopic,
@@ -61,6 +65,9 @@ export function mergeCandidateTopic(
     pinterestScore: newCandidate.pinterestScore ?? existing.pinterestScore,
     priorityTier: newCandidate.priorityTier,
     opportunityType: newCandidate.opportunityType,
+    status: resolvedStatus,
+    rejectionReason: newCandidate.rejectionReason ?? existing.rejectionReason,
+    deferReason: newCandidate.deferReason ?? existing.deferReason,
     freshnessScore: newCandidate.freshnessScore,
     updatedAt: new Date().toISOString(),
     sourceSignals: [

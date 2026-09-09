@@ -9,7 +9,7 @@ import type {
 import type { EditorialTopic, PriorityTier, OpportunityType } from '../types.ts';
 import { loadAutomationConfig } from './config.ts';
 import { runDiscoveryPipeline } from '../discovery/runner.ts';
-import { loadCandidates } from '../discovery/storage.ts';
+import { loadCandidates, saveCandidates, mergeCandidateTopic } from '../discovery/storage.ts';
 import { selectEditorialCandidates } from '../selection.ts';
 import { slugify } from '../normalization.ts';
 import { buildContentBrief } from '../brief.ts';
@@ -70,6 +70,7 @@ export function formatAutomationSummary(result: AutomationResult): string {
     `Selected:    ${result.selectedCount}`,
     `Processed:   ${result.processedCount}`,
     `Succeeded:   ${result.succeededCount}`,
+    `Rejected:    ${result.rejectedCount ?? 0}`,
     `Failed:      ${result.failedCount}`,
     '',
   ];
@@ -79,7 +80,7 @@ export function formatAutomationSummary(result: AutomationResult): string {
   } else {
     for (const opp of result.opportunities) {
       lines.push(`[${opp.pillar.toUpperCase()}] ${opp.canonicalTopic} (${opp.topicId})`);
-      lines.push(`  Overall: ${opp.status}${opp.failedStage ? ` (Failed at: ${opp.failedStage})` : ''}`);
+      lines.push(`  Overall: ${opp.status}${opp.failedStage ? ` (${opp.status === 'REJECTED' ? 'Rejected at' : 'Failed at'}: ${opp.failedStage})` : ''}`);
 
       const stageKeys: AutomationStage[] = [
         'BRIEF',
@@ -318,6 +319,9 @@ export async function runEditorialAutomation(
 
   const unPublishedCandidates: EditorialTopic[] = [];
   for (const topic of candidateTopics) {
+    if (topic.status === 'REJECTED' || topic.status === 'PUBLISHED' || topic.opportunityType === 'REJECT') {
+      continue;
+    }
     const topicSlug = topic.slug || slugify(topic.canonicalTopic);
     const isTopicIdPublished = existingTopicIds.has(topic.id);
     const isSlugPublished = existingSlugs.has(`${topic.pillar}/${topicSlug}`);
@@ -380,6 +384,7 @@ export async function runEditorialAutomation(
   // 4. PROCESS SELECTED OPPORTUNITIES
   const opportunityResults: OpportunityRunResult[] = [];
   let succeededCount = 0;
+  let rejectedCount = 0;
   let failedCount = 0;
 
   for (const topic of approved) {
@@ -512,21 +517,30 @@ export async function runEditorialAutomation(
       if (reviewResult.decision !== 'PASS') {
         stageResults.REVIEW = {
           stage: 'REVIEW',
-          status: 'FAILED',
-          durationMs: Math.max(1, Date.now() - reviewStart),
-          error: {
-            code: 'REVIEW_REJECTED',
-            message: `Review decision was ${reviewResult.decision} (score: ${reviewResult.overallScore}) with issues: ${reviewResult.criticalIssues.join('; ') || 'Threshold not met'}`,
-          },
+          status: 'SUCCESS',
+          durationMs: reviewResult.metadata?.durationMs || Math.max(1, Date.now() - reviewStart),
+          data: reviewResult,
+          warning: `Review decision was ${reviewResult.decision} (score: ${reviewResult.overallScore})`,
         };
         oppResult.failedStage = 'REVIEW';
-        oppResult.error = {
-          stage: 'REVIEW',
-          code: 'REVIEW_REJECTED',
-          message: `Review decision was ${reviewResult.decision} (score: ${reviewResult.overallScore})`,
-        };
-        oppResult.status = 'FAILED';
-        failedCount++;
+        oppResult.status = 'REJECTED';
+        rejectedCount++;
+
+        // Persist rejection lifecycle state to candidate storage to prevent immediate re-selection
+        try {
+          const rejectedTopic: EditorialTopic = {
+            ...topic,
+            status: 'REJECTED',
+            rejectionReason: `AI Review decision was ${reviewResult.decision} (score: ${reviewResult.overallScore})`,
+            updatedAt: new Date().toISOString(),
+          };
+          const currentCandidates = await loadCandidates(request.storagePath);
+          const { updatedList } = mergeCandidateTopic(rejectedTopic, currentCandidates);
+          await saveCandidates(updatedList, request.storagePath);
+        } catch {
+          // Best-effort storage persistence
+        }
+
         opportunityResults.push(oppResult);
         continue;
       }
@@ -713,7 +727,7 @@ export async function runEditorialAutomation(
   let finalStatus: AutomationResult['status'] = 'SUCCESS';
   if (failedCount > 0 && succeededCount === 0) {
     finalStatus = 'FAILED';
-  } else if (failedCount > 0 && succeededCount > 0) {
+  } else if ((failedCount > 0 || rejectedCount > 0) && succeededCount > 0) {
     finalStatus = 'PARTIAL_SUCCESS';
   }
 
@@ -730,6 +744,7 @@ export async function runEditorialAutomation(
     selectedCount,
     processedCount,
     succeededCount,
+    rejectedCount,
     failedCount,
     skippedCount: candidateCount - processedCount,
     opportunities: opportunityResults,

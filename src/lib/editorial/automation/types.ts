@@ -61,7 +61,7 @@ export interface OpportunityRunResult {
   topicId: string;
   canonicalTopic: string;
   pillar: PillarSlug;
-  status: 'COMPLETED' | 'FAILED' | 'SKIPPED' | 'DRY_RUN';
+  status: 'COMPLETED' | 'FAILED' | 'SKIPPED' | 'DRY_RUN' | 'REJECTED';
   brief?: ContentBrief;
   generation?: GenerationResult;
   review?: ReviewResult;
@@ -126,6 +126,7 @@ export interface AutomationResult {
   selectedCount: number;
   processedCount: number;
   succeededCount: number;
+  rejectedCount?: number;
   failedCount: number;
   skippedCount: number;
   opportunities: OpportunityRunResult[];

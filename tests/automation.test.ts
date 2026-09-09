@@ -181,7 +181,7 @@ test('2. Quality failure: Severely undersized generated content fails validation
   }
 });
 
-test('3. Review rejection: Rejected review prevents publishing, storage, and Git publication', async () => {
+test('3. Review rejection: Rejected review prevents publishing, storage, and Git publication without failing the run', async () => {
   const { repoDir, contentDir, cleanup } = await createTempWorkspace();
   const storagePath = path.join(os.tmpdir(), `auto-cand-${Date.now()}-3.json`);
 
@@ -208,13 +208,15 @@ test('3. Review rejection: Rejected review prevents publishing, storage, and Git
       storagePath,
     });
 
-    assert.equal(result.status, 'FAILED');
-    assert.equal(result.failedCount, 1);
+    assert.equal(result.status, 'SUCCESS');
+    assert.equal(result.rejectedCount, 1);
+    assert.equal(result.failedCount, 0);
+    assert.equal(result.succeededCount, 0);
 
     const opp = result.opportunities[0];
-    assert.equal(opp.status, 'FAILED');
+    assert.equal(opp.status, 'REJECTED');
     assert.equal(opp.failedStage, 'REVIEW');
-    assert.equal(opp.stageResults.REVIEW.status, 'FAILED');
+    assert.equal(opp.stageResults.REVIEW.status, 'SUCCESS');
     assert.equal(opp.stageResults.PUBLISHING_GATE.status, 'PENDING');
     assert.equal(opp.stageResults.STORAGE.status, 'PENDING');
 
@@ -366,7 +368,7 @@ test('7. Safety: Disabled configuration halts execution immediately', async () =
   assert.ok(result.summary.includes('disabled'));
 });
 
-test('8. Multi-opportunity isolation: First failure does not prevent second opportunity from succeeding', async () => {
+test('8. Multi-opportunity isolation: First review rejection allows second opportunity to succeed', async () => {
   const { repoDir, contentDir, cleanup } = await createTempWorkspace();
   const storagePath = path.join(os.tmpdir(), `auto-cand-${Date.now()}-8.json`);
 
@@ -407,10 +409,11 @@ test('8. Multi-opportunity isolation: First failure does not prevent second oppo
 
     assert.equal(result.status, 'PARTIAL_SUCCESS');
     assert.equal(result.processedCount, 2);
-    assert.equal(result.failedCount, 1);
+    assert.equal(result.rejectedCount, 1);
+    assert.equal(result.failedCount, 0);
     assert.equal(result.succeededCount, 1);
 
-    assert.equal(result.opportunities[0].status, 'FAILED');
+    assert.equal(result.opportunities[0].status, 'REJECTED');
     assert.equal(result.opportunities[0].failedStage, 'REVIEW');
 
     assert.equal(result.opportunities[1].status, 'DRY_RUN');
@@ -434,6 +437,7 @@ test('9. Summary formatting produces clear, structured human-readable text', () 
     selectedCount: 1,
     processedCount: 1,
     succeededCount: 1,
+    rejectedCount: 0,
     failedCount: 0,
     skippedCount: 7,
     opportunities: [
@@ -464,4 +468,111 @@ test('9. Summary formatting produces clear, structured human-readable text', () 
   assert.ok(summary.includes('Calm Morning Routines'));
   assert.ok(summary.includes('DRY_RUN (Safe)'));
   assert.ok(summary.includes('Run Result: SUCCESS'));
+});
+
+test('10. Multi-opportunity isolation: First provider generation crash allows second opportunity to succeed', async () => {
+  const { repoDir, contentDir, cleanup } = await createTempWorkspace();
+  const storagePath = path.join(os.tmpdir(), `auto-cand-${Date.now()}-10.json`);
+
+  try {
+    const repository = new FilesystemContentRepository({ contentRoot: contentDir });
+    const gitPublisher = new AstroGitPublisher({
+      gitCli: new GitCli(),
+      defaultOptions: { gitRepoRoot: repoDir, contentRoot: contentDir },
+    });
+
+    const normalGenProvider = new (await import('../src/lib/editorial/generation/providers/fixture.ts')).FixtureGenerationProvider();
+    let genCount = 0;
+    const alternatingGenProvider: IGenerationProvider = {
+      name: 'Alternating Generation Provider',
+      model: 'alt-gen-v1',
+      generate: async (req) => {
+        genCount++;
+        if (genCount === 1) {
+          throw new Error('Simulated upstream network timeout on first candidate');
+        }
+        return normalGenProvider.generate(req);
+      },
+    };
+
+    const result = await runEditorialAutomation({
+      enabled: true,
+      dryRun: true,
+      maxOpportunities: 2,
+      generationProvider: alternatingGenProvider,
+      contentRepository: repository,
+      gitPublisher,
+      contentRoot: contentDir,
+      gitRepoRoot: repoDir,
+      storagePath,
+    });
+
+    assert.equal(result.status, 'PARTIAL_SUCCESS');
+    assert.equal(result.processedCount, 2);
+    assert.equal(result.failedCount, 1);
+    assert.equal(result.succeededCount, 1);
+
+    assert.equal(result.opportunities[0].status, 'FAILED');
+    assert.equal(result.opportunities[0].failedStage, 'GENERATION');
+
+    assert.equal(result.opportunities[1].status, 'DRY_RUN');
+    assert.equal(result.opportunities[1].stageResults.STORAGE.status, 'SUCCESS');
+  } finally {
+    try { await fs.unlink(storagePath); } catch {}
+    await cleanup();
+  }
+});
+
+test('11. Candidate rejection persistence: Rejected candidate is marked in storage and not re-selected', async () => {
+  const { repoDir, contentDir, cleanup } = await createTempWorkspace();
+  const storagePath = path.join(os.tmpdir(), `auto-cand-${Date.now()}-11.json`);
+
+  try {
+    const repository = new FilesystemContentRepository({ contentRoot: contentDir });
+    const gitPublisher = new AstroGitPublisher({
+      gitCli: new GitCli(),
+      defaultOptions: { gitRepoRoot: repoDir, contentRoot: contentDir },
+    });
+
+    const rejectingReviewProvider = new FixtureReviewProvider({ outcome: 'REJECT' });
+
+    // Run 1: Candidate is selected, reviewed, and REJECTED
+    const run1 = await runEditorialAutomation({
+      enabled: true,
+      dryRun: true,
+      maxOpportunities: 1,
+      reviewProvider: rejectingReviewProvider,
+      contentRepository: repository,
+      gitPublisher,
+      contentRoot: contentDir,
+      gitRepoRoot: repoDir,
+      storagePath,
+    });
+
+    assert.equal(run1.status, 'SUCCESS');
+    assert.equal(run1.rejectedCount, 1);
+    const rejectedTopicId = run1.opportunities[0].topicId;
+
+    // Run 2: With passing reviewer, the rejected topic must not be re-selected
+    const passReviewProvider = new FixtureReviewProvider({ outcome: 'PASS' });
+    const run2 = await runEditorialAutomation({
+      enabled: true,
+      dryRun: true,
+      maxOpportunities: 1,
+      reviewProvider: passReviewProvider,
+      contentRepository: repository,
+      gitPublisher,
+      contentRoot: contentDir,
+      gitRepoRoot: repoDir,
+      storagePath,
+    });
+
+    assert.equal(run2.status, 'SUCCESS');
+    assert.equal(run2.succeededCount, 1);
+    const run2TopicId = run2.opportunities[0].topicId;
+    assert.notEqual(run2TopicId, rejectedTopicId, 'Run 2 must select a different candidate than the previously rejected topic');
+  } finally {
+    try { await fs.unlink(storagePath); } catch {}
+    await cleanup();
+  }
 });
