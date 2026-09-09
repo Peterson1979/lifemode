@@ -44,7 +44,7 @@ test('2. Provider ordering works', async () => {
     config: {
       providerOrder: ['provider-b', 'provider-a'],
       gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
-      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000 },
       router: { timeoutMs: 5000, maxAttempts: 2, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
     },
     providers,
@@ -76,7 +76,7 @@ test('3. First provider success prevents unnecessary fallback', async () => {
     config: {
       providerOrder: ['primary-prov', 'backup-prov'],
       gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
-      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000 },
       router: { timeoutMs: 5000, maxAttempts: 2, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
     },
     providers,
@@ -115,7 +115,7 @@ test('4. Retryable provider failure falls back', async () => {
     config: {
       providerOrder: ['failing-primary', 'healthy-backup'],
       gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
-      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000 },
       router: { timeoutMs: 5000, maxAttempts: 2, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
     },
     providers,
@@ -156,7 +156,7 @@ test('5. Non-retryable authentication failure does not unnecessarily retry same 
     config: {
       providerOrder: ['auth-failing', 'healthy-backup'],
       gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
-      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000 },
       router: { timeoutMs: 5000, maxAttempts: 2, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
     },
     providers,
@@ -196,7 +196,7 @@ test('6. Timeout failure falls back', async () => {
     config: {
       providerOrder: ['timeout-prov', 'fast-prov'],
       gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
-      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000 },
       router: { timeoutMs: 5000, maxAttempts: 2, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
     },
     providers,
@@ -223,7 +223,7 @@ test('7. Rate limit blocks request and falls back or reports RATE_LIMIT', async 
     config: {
       providerOrder: ['rl-prov'],
       gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
-      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000 },
       router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 1, requestsPerDay: 100 },
     },
     providers,
@@ -258,7 +258,7 @@ test('8. Daily total token budget blocks request', async () => {
     config: {
       providerOrder: ['fixture'],
       gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 500000 },
-      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 500000 },
+      groq: { apiKey: '', model: 'openai/gpt-oss-20b', dailyTokenBudget: 500000 },
       router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
     },
     providers: new Map([['fixture', new AIRouterFixtureProvider()]]),
@@ -292,7 +292,7 @@ test('9. Provider-specific token budget works', async () => {
     config: {
       providerOrder: ['gemini-prov', 'groq-prov'],
       gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 50000 },
-      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000 },
       router: { timeoutMs: 5000, maxAttempts: 2, retryDelayMs: 10, dailyTotalTokenBudget: 500000, requestsPerMinute: 30, requestsPerDay: 100 },
     },
     providers: new Map([
@@ -324,7 +324,7 @@ test('10. Successful usage is recorded', async () => {
     config: {
       providerOrder: ['fixture-track'],
       gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
-      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000 },
       router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
     },
     providers: new Map([['fixture-track', provider]]),
@@ -363,7 +363,7 @@ test('12. Actual provider usage overrides estimates', async () => {
     config: {
       providerOrder: ['exact-usage-prov'],
       gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
-      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000 },
       router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
     },
     providers: new Map([['exact-usage-prov', provider]]),
@@ -394,7 +394,7 @@ test('13. Maximum attempts is respected', async () => {
     config: {
       providerOrder: ['p1', 'p2', 'p3'],
       gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
-      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000 },
       router: { timeoutMs: 5000, maxAttempts: 2, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
     },
     providers: new Map([
@@ -424,7 +424,7 @@ test('14. All providers failing returns typed failed result', async () => {
     config: {
       providerOrder: ['p1', 'p2'],
       gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
-      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000 },
       router: { timeoutMs: 5000, maxAttempts: 2, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
     },
     providers: new Map([
@@ -567,7 +567,7 @@ test('20. Router can operate entirely with fixture provider', async () => {
     config: {
       providerOrder: ['fixture'],
       gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
-      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000 },
       router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
     },
   });
@@ -585,7 +585,7 @@ test('21. AIRouterGenerationProvider bridges Content Generation Runner with AI R
     config: {
       providerOrder: ['fixture'],
       gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
-      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000 },
       router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
     },
   });

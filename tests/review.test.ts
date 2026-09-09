@@ -347,7 +347,7 @@ test('23. AI-router review adapter maps content_review correctly', async () => {
     config: {
       providerOrder: ['fixture-ai-rev'],
       gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
-      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000 },
       router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
     },
     providers: new Map([['fixture-ai-rev', fixtureAiProvider]]),
