@@ -369,3 +369,68 @@ test('17. Missing/invalid target metadata falls back safely to default minimum t
   assert.equal(report.issues.some((i) => i.rule === 'BELOW_TARGET_WORD_COUNT'), false);
 });
 
+test('18. Generation prompt builder communicates target vs minimum word counts and mental allocation', () => {
+  const payload = buildGenerationPrompt(validRequest);
+
+  // Checks target word count vs minimum distinction
+  assert.ok(payload.userPrompt.includes('TARGET WORD COUNT: Approximately 1200 words'));
+  assert.ok(payload.userPrompt.includes('ABSOLUTE MINIMUM ACCEPTABLE WORD COUNT: 800 words'));
+  assert.ok(payload.userPrompt.includes('Internal Structural & Length Allocation Plan'));
+  assert.ok(payload.userPrompt.includes('Introduction (~15%'));
+  assert.ok(payload.userPrompt.includes('Core Major Sections (~70%'));
+  assert.ok(payload.userPrompt.includes('Conclusion & Practical Takeaways (~15%'));
+  assert.ok(payload.userPrompt.includes('Do NOT output these planning notes'));
+});
+
+test('19. Generation prompt builder enforces depth directives and zero-filler/zero-hallucination rules', () => {
+  const payload = buildGenerationPrompt(validRequest);
+
+  // System prompt guidelines
+  assert.ok(payload.systemPrompt.includes('Complete Article Requirement'));
+  assert.ok(payload.systemPrompt.includes('Section-by-Section Depth'));
+  assert.ok(payload.systemPrompt.includes('Substantive Introduction & Conclusion'));
+  assert.ok(payload.systemPrompt.includes('Natural Editorial Prose & Zero Filler'));
+  assert.ok(payload.systemPrompt.includes('Factuality & Evidence'));
+  assert.ok(payload.systemPrompt.includes('JSON Schema Conformance'));
+});
+
+test('20. Revision prompt communicates depth, hard minimums, target word count, and non-compression', () => {
+  const revRequest: GenerationRequest = {
+    ...validRequest,
+    revisionContext: {
+      originalArticle: {
+        title: 'Original Draft Title',
+        slug: 'original-draft-slug',
+        description: 'Original description of sufficient length for review testing.',
+        excerpt: 'Original excerpt.',
+        content: '## 1. Introduction\n\nOriginal content body.\n\n## 2. Practical Framework\n\nMore original text.',
+        faq: [],
+        sources: [],
+        internalLinks: [],
+        affiliateIntents: [],
+        socialHooks: [],
+      },
+      reviewResult: {
+        decision: 'REVISE',
+        overallScore: 82,
+        dimensions: {
+          factuality: { score: 78, rationale: 'Contains unverified claims.', issues: ['Unsubstantiated trend claim'] },
+        },
+        criticalIssues: ['Remove unsubstantiated trend claims'],
+        warnings: ['Expand section 2 with concrete methodologies'],
+      },
+      revisionAttempt: 1,
+    },
+  };
+
+  const payload = buildGenerationPrompt(revRequest);
+
+  assert.ok(payload.systemPrompt.includes('Maintain Full Article Depth'));
+  assert.ok(payload.systemPrompt.includes('TARGET WORD COUNT (~1200 words)'));
+  assert.ok(payload.systemPrompt.includes('ABSOLUTE MINIMUM ACCEPTABLE WORD COUNT (800 words)'));
+  assert.ok(payload.userPrompt.includes('TARGET WORD COUNT: Approximately 1200 words'));
+  assert.ok(payload.userPrompt.includes('ABSOLUTE MINIMUM ACCEPTABLE WORD COUNT: 800 words'));
+  assert.ok(payload.userPrompt.includes('Critical Issues to Resolve:'));
+  assert.ok(payload.userPrompt.includes('Original Draft Content to Revise:'));
+});
+

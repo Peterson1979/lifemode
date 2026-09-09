@@ -24,6 +24,10 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
     const reviewRes = revCtx.reviewResult;
     const origArt = revCtx.originalArticle;
 
+    const revTargetWords = request.estimatedWordCount?.target || 1200;
+    const revMinWords = request.estimatedWordCount?.min || 800;
+    const revMaxWords = request.estimatedWordCount?.max || 1600;
+
     const systemPromptParts: string[] = [
       'You are a senior editorial writer and editor for LifeMode, a contemporary lifestyle publication.',
       'LifeMode publishes useful, curious, smart, contemporary, and intentional editorial content.',
@@ -32,11 +36,14 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
       '### Editorial Revision Directives:',
       '1. Your mission is to revise and polish an existing draft article based on editorial quality review feedback.',
       '2. Address and resolve all identified review issues, warnings, and dimension weaknesses.',
-      '3. Maintain the core topic angle, audience intent, structural flow, and required word count.',
-      '4. Factuality & Evidence: Remove unverified claims, overconfident assertions, invented facts, or fabricated statistics. Qualify emerging trends with measured, thoughtful phrasing.',
-      '5. Safety & Quality: Ensure all advice is responsible, context-aware, and safe. Do not fabricate sources.',
-      '6. Do NOT blindly rewrite everything from scratch; preserve strong, high-signal sections while surgically repairing weaknesses.',
-      '7. Deliver a complete, publishable article package strictly conforming to the required JSON schema.',
+      '3. Maintain Full Article Depth: Do not compress, abbreviate, or shorten sections into superficial summaries to fix issues. Maintain the complete, substantive article structure.',
+      '4. Word Count Targets: Aim directly for the TARGET WORD COUNT (~' + revTargetWords + ' words). The draft must strictly meet or exceed the ABSOLUTE MINIMUM ACCEPTABLE WORD COUNT (' + revMinWords + ' words).',
+      '5. Section-by-Section Substance: Ensure every major H2 section remains fully developed with 2–4 substantive paragraphs providing practical, high-signal value.',
+      '6. Factuality & Evidence: Remove unverified claims, overconfident assertions, invented facts, or fabricated statistics. Qualify emerging trends with measured, thoughtful phrasing.',
+      '7. Safety & Quality: Ensure all advice is responsible, context-aware, and safe. Do not fabricate sources.',
+      '8. Natural Editorial Prose & Zero Filler: Never use repetitive padding or circular fluff; ensure every sentence provides genuine editorial value.',
+      '9. Do NOT blindly rewrite everything from scratch; preserve strong, high-signal sections while surgically repairing weaknesses.',
+      '10. Deliver a complete, publishable article package strictly conforming to the required JSON schema.',
     ];
 
     if (isHighRisk) {
@@ -61,18 +68,14 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
       `- Target Audience: ${request.audience}`,
       `- Primary Intent: ${request.primaryIntent}${request.secondaryIntent ? ` (Secondary: ${request.secondaryIntent})` : ''}`,
       `- Primary Keyword: "${request.searchTargets.primaryKeyword}"`,
-    ];
-
-    if (request.estimatedWordCount) {
-      userPromptParts.push(
-        `- Target Word Count Range: ${request.estimatedWordCount.min}–${request.estimatedWordCount.max} words (Target: ${request.estimatedWordCount.target} words)`
-      );
-    }
-
-    userPromptParts.push(
       '',
-      `### AI Quality Review Evaluation (Score: ${reviewRes.overallScore}/100 - Decision: ${reviewRes.decision}):`
-    );
+      `### Article Length & Depth Specifications:`,
+      `- TARGET WORD COUNT: Approximately ${revTargetWords} words (Aim directly for this target).`,
+      `- ABSOLUTE MINIMUM ACCEPTABLE WORD COUNT: ${revMinWords} words (A draft below this hard minimum is incomplete and invalid).`,
+      `- Target Word Count Range: ${revMinWords}–${revMaxWords} words.`,
+      '',
+      `### AI Quality Review Evaluation (Score: ${reviewRes.overallScore}/100 - Decision: ${reviewRes.decision}):`,
+    ];
 
     if (reviewRes.dimensions) {
       userPromptParts.push(`- Dimension Scores & Feedback:`);
@@ -149,13 +152,13 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
     'Tone: Editorial, sophisticated yet accessible, human, practical, and highly engaging.',
     '',
     '### Strict Editorial Guidelines:',
-    '1. Write original, insightful, high-signal content with actionable substance.',
-    '2. Avoid generic fluff, corporate jargon, robotic phrasing, and repetitive conclusions.',
-    '3. Structure the article with clear H2 and H3 subheadings for effortless readability.',
-    '4. Use short, focused paragraphs (2-4 sentences max per paragraph).',
-    '5. Satisfy both user search intent and aesthetic curiosity.',
-    '6. Never hallucinate or invent fake URLs, studies, statistics, or external citations.',
-    '7. Only cite real, authoritative sources explicitly provided in the request.',
+    '1. Complete Article Requirement: Deliver a complete, comprehensive, publication-ready article — never a brief summary, outline, or concise overview.',
+    '2. Section-by-Section Depth: Substantively develop every major section under clear Markdown ## (H2) and ### (H3) headings with multiple rich, informative paragraphs (at least 2–4 substantive paragraphs per major section).',
+    '3. Substantive Introduction & Conclusion: Craft an engaging, immersive introduction establishing the context and core dilemma, and a thoughtful, actionable conclusion synthesizing long-term lifestyle habits.',
+    '4. Natural Editorial Prose & Zero Filler: Write high-signal, engaging prose. Never pad with repetitive filler, circular phrasing, or fluffy platitudes. Expansion must come from deep explanations, concrete steps, and practical nuances.',
+    '5. Factuality & Evidence: Never invent fake facts, statistics, citations, quotations, studies, product claims, external URLs, or personal anecdotes. If required sources are provided, use only those verified sources.',
+    '6. Search & Reader Intent: Satisfy primary search intent and reader curiosity with practical, high-value takeaways and aesthetic intentionality.',
+    '7. JSON Schema Conformance: The full, unabbreviated Markdown article body must be provided in the "content" field. Do not compress or truncate content to fit JSON.',
   ];
 
   if (isHighRisk) {
@@ -178,6 +181,13 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
 
   const systemPrompt = systemPromptParts.join('\n');
 
+  const targetWords = request.estimatedWordCount?.target || 1200;
+  const minWords = request.estimatedWordCount?.min || 800;
+  const maxWords = request.estimatedWordCount?.max || 1600;
+  const numOutlineSections = request.outlineSections?.length || 3;
+  const coreWordsTarget = Math.round(targetWords * 0.7);
+  const wordsPerSection = Math.round(coreWordsTarget / Math.max(1, numOutlineSections));
+
   // User instructions detailing the specific topic parameters
   const userPromptParts: string[] = [
     `Generate a complete, publishable editorial article package for the following topic:`,
@@ -190,16 +200,23 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
     `- Target Audience: ${request.audience}`,
     `- Primary Intent: ${request.primaryIntent}${request.secondaryIntent ? ` (Secondary: ${request.secondaryIntent})` : ''}`,
     `- Primary Keyword: "${request.searchTargets.primaryKeyword}"`,
+    '',
+    `### Article Length & Depth Specifications:`,
+    `- TARGET WORD COUNT: Approximately ${targetWords} words (Aim directly for this target word count; do not aim for the lower boundary).`,
+    `- ABSOLUTE MINIMUM ACCEPTABLE WORD COUNT: ${minWords} words (A draft significantly below this hard minimum is incomplete and invalid).`,
+    `- Target Word Count Range: ${minWords}–${maxWords} words.`,
+    '',
+    `### Internal Structural & Length Allocation Plan:`,
+    `Before generating the JSON payload, mentally plan and allocate the ~${targetWords} words across the entire article:`,
+    `- Introduction (~15% / ~${Math.round(targetWords * 0.15)} words): Frame the lifestyle context, the modern dilemma, and the central editorial thesis.`,
+    `- Core Major Sections (~70% / ~${coreWordsTarget} words total across ${numOutlineSections} sections, ~${wordsPerSection} words each): Thoroughly develop each section with multiple detailed paragraphs, concrete methodologies, specific nuances, and practical advice under H2 and H3 headings.`,
+    `- Conclusion & Practical Takeaways (~15% / ~${Math.round(targetWords * 0.15)} words): Synthesize the insights into enduring lifestyle practices and actionable takeaways.`,
+    `- FAQ Section: Include 2–4 detailed, practical Q&As answering high-intent reader questions.`,
+    `Important: Do NOT output these planning notes. Execute this mental structure directly into the full Markdown text inside the "content" field.`,
   ];
 
-  if (request.estimatedWordCount) {
-    userPromptParts.push(
-      `- Target Word Count: ${request.estimatedWordCount.min}–${request.estimatedWordCount.max} words (Target: ${request.estimatedWordCount.target} words)`
-    );
-  }
-
   if (request.searchTargets.secondaryKeywords?.length) {
-    userPromptParts.push(`- Secondary Keywords: ${request.searchTargets.secondaryKeywords.join(', ')}`);
+    userPromptParts.push('', `- Secondary Keywords: ${request.searchTargets.secondaryKeywords.join(', ')}`);
   }
 
   if (request.pinterestAngle) {
@@ -232,9 +249,9 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
   }
 
   if (request.outlineSections && request.outlineSections.length > 0) {
-    userPromptParts.push('', `### Suggested Outline Sections:`);
+    userPromptParts.push('', `### Outline & Major Section Development:`, 'Fully develop each of the following sections with substantive paragraphs and actionable depth:');
     for (const section of request.outlineSections) {
-      userPromptParts.push(`- ${section.heading}`);
+      userPromptParts.push(`- ## ${section.heading}`);
       if (section.keyPoints?.length) {
         for (const kp of section.keyPoints) {
           userPromptParts.push(`  * ${kp}`);
