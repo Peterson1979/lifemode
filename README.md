@@ -156,3 +156,51 @@ npx tsx scripts/run-editorial-automation.ts --router
 # Allow local Git commit (dryRun: false)
 npx tsx scripts/run-editorial-automation.ts --commit
 ```
+
+---
+
+## Scheduled Editorial Automation
+
+LifeMode supports automated scheduled execution designed for CI/CD environments, GitHub Actions, and headless servers.
+
+### Overview
+
+* **Scheduling Frequency:** Once daily at `06:00 UTC` (via `.github/workflows/editorial-automation.yml`).
+* **Atomic Concurrency Lock:** File-based lock (`.automation.lock`) with 30-minute stale recovery to prevent simultaneous executions.
+* **Gated Remote Push:** `git push origin master` is strictly gated—it only executes if at least one article successfully passed all quality gates and produced a valid Git commit.
+* **Idempotency:** Topics already stored or committed are skipped automatically during discovery and selection.
+
+### Execution Command
+
+```bash
+# Safe dry-run (no commits, no pushes)
+npm run editorial:scheduled -- --dry-run
+
+# Production execution with AI Router, local commit, and remote push
+npm run editorial:scheduled -- --router --commit --push
+
+# Structured JSON output for monitoring
+npm run editorial:scheduled -- --json
+```
+
+### Environment Variables
+
+| Variable | Description | Default |
+| :--- | :--- | :--- |
+| `LIFEMODE_AUTOMATION_ENABLED` | Master switch enabling scheduled runner | `false` |
+| `LIFEMODE_AUTOMATION_DRY_RUN` | Dry-run mode (no commits, no pushes) | `true` |
+| `LIFEMODE_AUTOMATION_COMMIT` | Enable local Git commit for published articles | `false` |
+| `LIFEMODE_AUTOMATION_PUSH` | Enable remote Git push to repository master | `false` |
+| `LIFEMODE_AUTOMATION_MAX_OPPORTUNITIES` | Maximum opportunities to process per run | `1` |
+| `LIFEMODE_AUTOMATION_MIN_SCORE` | Minimum discovery score threshold (0-100) | `80` |
+| `LIFEMODE_AUTOMATION_PROVIDER` | AI provider mode (`router` or `fixture`) | `router` |
+| `GROQ_API_KEY` | Groq Cloud API key for AI generation & review | — |
+| `GEMINI_API_KEY` | Google Gemini API key (optional fallback) | — |
+
+### Expected Run Statuses
+
+* **`SUCCESS`** — At least one article passed all quality gates and was published/committed without fatal error.
+* **`PARTIAL_SUCCESS`** — Multiple candidates processed; at least one published, while others were rejected or deferred.
+* **`SUCCESS_NO_PUBLICATION`** — Pipeline executed cleanly, but no candidates met score thresholds or passed review. (Normal outcome, exit code `0`).
+* **`FAILED`** — Fatal infrastructure or configuration failure (exit code `1`).
+

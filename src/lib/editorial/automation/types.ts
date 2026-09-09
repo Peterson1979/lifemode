@@ -160,3 +160,85 @@ export interface AutomationConfig {
   minScoreThreshold: number;
   providerMode: 'fixture' | 'router';
 }
+
+/**
+ * Top-level machine-readable outcome status for Scheduled Editorial Automation runs.
+ */
+export type ScheduledStatus =
+  | 'SUCCESS'
+  | 'PARTIAL_SUCCESS'
+  | 'SUCCESS_NO_PUBLICATION'
+  | 'FAILED';
+
+/**
+ * Options and overrides for Scheduled Editorial Automation.
+ */
+export interface ScheduledAutomationOptions extends AutomationRequest {
+  allowPush?: boolean;
+  lockPath?: string;
+  staleLockTimeoutMs?: number;
+  gitRemote?: string;
+  gitBranch?: string;
+}
+
+/**
+ * Configuration for Scheduled Editorial Automation.
+ */
+export interface ScheduledAutomationConfig extends AutomationConfig {
+  allowCommit: boolean;
+  allowPush: boolean;
+  gitRemote: string;
+  gitBranch: string;
+  lockPath?: string;
+}
+
+/**
+ * Structured machine-readable result of a scheduled editorial automation run.
+ */
+export interface ScheduledAutomationResult {
+  runId: string;
+  startedAt: string;
+  completedAt: string;
+  durationMs: number;
+  status: ScheduledStatus;
+  dryRun: boolean;
+  discoveredCount: number;
+  candidateCount: number;
+  selectedCount: number;
+  processedCount: number;
+  succeededCount: number;
+  rejectedCount: number;
+  failedCount: number;
+  publishedCount: number;
+  pushedToRemote: boolean;
+  researchRequiredCount: number;
+  researchSuccessCount: number;
+  researchFailureCount: number;
+  summary: string;
+  fatalError?: string;
+  automationResult?: AutomationResult;
+  jsonResult: {
+    runId: string;
+    startedAt: string;
+    completedAt: string;
+    durationMs: number;
+    status: ScheduledStatus;
+    dryRun: boolean;
+    counts: {
+      discovered: number;
+      candidates: number;
+      selected: number;
+      processed: number;
+      succeeded: number;
+      rejected: number;
+      failed: number;
+      published: number;
+      researchRequired: number;
+      researchSuccess: number;
+      researchFailure: number;
+    };
+    pushedToRemote: boolean;
+    fatalError?: string;
+  };
+}
+

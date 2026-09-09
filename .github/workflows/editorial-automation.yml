@@ -1,0 +1,73 @@
+name: Scheduled Editorial Automation
+
+on:
+  schedule:
+    # Run once daily at 06:00 UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Execute in safe dry-run mode (no commits, no pushes)'
+        type: boolean
+        default: false
+      max_opportunities:
+        description: 'Maximum opportunities to select and process'
+        type: number
+        default: 1
+      min_score:
+        description: 'Minimum topic score threshold (0-100)'
+        type: number
+        default: 80
+      allow_push:
+        description: 'Allow pushing published content to remote master branch'
+        type: boolean
+        default: true
+
+concurrency:
+  group: editorial-automation
+  cancel-in-progress: false
+
+jobs:
+  run-editorial-automation:
+    name: Run Editorial Automation Pipeline
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Configure Git Identity
+        run: |
+          git config user.name "LifeMode Editorial Automation"
+          git config user.email "automation@lifemode.local"
+
+      - name: Execute Scheduled Editorial Automation
+        env:
+          # AI Router & Provider Credentials (stored in GitHub Secrets)
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+          # Scheduled Automation Runtime Settings
+          LIFEMODE_AUTOMATION_ENABLED: "true"
+          LIFEMODE_AUTOMATION_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run == true && 'true' || 'false' }}
+          LIFEMODE_AUTOMATION_COMMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run == true && 'false' || 'true' }}
+          LIFEMODE_AUTOMATION_PUSH: ${{ github.event_name == 'workflow_dispatch' && inputs.allow_push == false && 'false' || 'true' }}
+          LIFEMODE_AUTOMATION_MAX_OPPORTUNITIES: ${{ github.event_name == 'workflow_dispatch' && inputs.max_opportunities || '1' }}
+          LIFEMODE_AUTOMATION_MIN_SCORE: ${{ github.event_name == 'workflow_dispatch' && inputs.min_score || '80' }}
+          LIFEMODE_AUTOMATION_PROVIDER: "router"
+        run: |
+          npx tsx scripts/run-scheduled-automation.ts

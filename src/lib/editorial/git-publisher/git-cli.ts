@@ -236,9 +236,21 @@ export class GitCli {
   }
 
   /**
+   * Pushes the current branch to a specified remote and branch.
+   * Never force pushes.
+   */
+  async push(repoRoot: string, remote = 'origin', branch = 'master'): Promise<void> {
+    if (!remote || !branch) {
+      throw new Error('Remote and branch must be specified for Git push.');
+    }
+    await this.runGit(['push', remote, branch], repoRoot);
+  }
+
+  /**
    * Normalizes paths to POSIX format for uniform Git comparison.
    */
   normalizeGitPath(p: string): string {
     return normalize(p).replace(/\\/g, '/').replace(/^\/+/, '');
   }
 }
+

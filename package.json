@@ -13,6 +13,7 @@
     "test": "node --test",
     "discover": "node scripts/run-discovery.ts",
     "editorial:automation": "node scripts/run-editorial-automation.ts",
+    "editorial:scheduled": "node scripts/run-scheduled-automation.ts",
     "astro": "astro"
   },
   "dependencies": {
