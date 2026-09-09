@@ -1,0 +1,619 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+
+import { AIRouter } from '../src/lib/ai/router.ts';
+import { AIRouterFixtureProvider } from '../src/lib/ai/providers/fixture.ts';
+import { GeminiProvider } from '../src/lib/ai/providers/gemini.ts';
+import { GroqProvider } from '../src/lib/ai/providers/groq.ts';
+import { InMemoryUsageTracker, getUtcDateKey } from '../src/lib/ai/usage.ts';
+import { InMemoryRateLimiter } from '../src/lib/ai/rate-limit.ts';
+import { InMemoryTelemetryRecorder } from '../src/lib/ai/telemetry.ts';
+import { estimateRequestResponseTokens } from '../src/lib/ai/token-estimator.ts';
+import { AIRouterGenerationProvider } from '../src/lib/editorial/generation/providers/ai-router.ts';
+import { runGenerationPipeline } from '../src/lib/editorial/generation/runner.ts';
+import type { AIRequest, IAIProvider } from '../src/lib/ai/types.ts';
+import type { GenerationRequest } from '../src/lib/editorial/generation/types.ts';
+
+const baseRequest: AIRequest = {
+  prompt: 'Write an editorial guide on intentional digital habits in 2026.',
+  systemPrompt: 'You are LifeMode Editorial Assistant.',
+  taskType: 'content_generation',
+  requestId: 'req-test-001',
+};
+
+test('1. Fixture provider succeeds', async () => {
+  const fixture = new AIRouterFixtureProvider();
+  assert.equal(fixture.isConfigured(), true);
+
+  const response = await fixture.generate(baseRequest);
+  assert.equal(response.provider, 'fixture');
+  assert.ok(response.text.length > 50);
+  assert.ok(response.totalTokens && response.totalTokens > 0);
+});
+
+test('2. Provider ordering works', async () => {
+  const providerA = new AIRouterFixtureProvider({ id: 'provider-a' });
+  const providerB = new AIRouterFixtureProvider({ id: 'provider-b' });
+
+  const providers = new Map<string, IAIProvider>([
+    ['provider-a', providerA],
+    ['provider-b', providerB],
+  ]);
+
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['provider-b', 'provider-a'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      router: { timeoutMs: 5000, maxAttempts: 2, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers,
+    usageTracker: new InMemoryUsageTracker(),
+    rateLimiter: new InMemoryRateLimiter(),
+    telemetryRecorder: new InMemoryTelemetryRecorder(),
+  });
+
+  const result = await router.route(baseRequest);
+  assert.equal(result.success, true);
+  if (result.success) {
+    assert.equal(result.provider, 'provider-b');
+    assert.equal(result.attempts.length, 1);
+  }
+});
+
+test('3. First provider success prevents unnecessary fallback', async () => {
+  const providerA = new AIRouterFixtureProvider({ id: 'primary-prov' });
+  const providerB = new AIRouterFixtureProvider({
+    id: 'backup-prov',
+  });
+
+  const providers = new Map<string, IAIProvider>([
+    ['primary-prov', providerA],
+    ['backup-prov', providerB],
+  ]);
+
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['primary-prov', 'backup-prov'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      router: { timeoutMs: 5000, maxAttempts: 2, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers,
+    usageTracker: new InMemoryUsageTracker(),
+    rateLimiter: new InMemoryRateLimiter(),
+    telemetryRecorder: new InMemoryTelemetryRecorder(),
+  });
+
+  const result = await router.route(baseRequest);
+  assert.equal(result.success, true);
+  if (result.success) {
+    assert.equal(result.provider, 'primary-prov');
+    assert.equal(result.attempts.length, 1);
+  }
+});
+
+test('4. Retryable provider failure falls back', async () => {
+  const failingProvider = new AIRouterFixtureProvider({
+    id: 'failing-primary',
+    forcedError: {
+      code: 'PROVIDER_ERROR',
+      message: 'Temporary upstream 503 service unavailable',
+      provider: 'failing-primary',
+      retryable: true,
+    },
+  });
+
+  const backupProvider = new AIRouterFixtureProvider({ id: 'healthy-backup' });
+
+  const providers = new Map<string, IAIProvider>([
+    ['failing-primary', failingProvider],
+    ['healthy-backup', backupProvider],
+  ]);
+
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['failing-primary', 'healthy-backup'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      router: { timeoutMs: 5000, maxAttempts: 2, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers,
+    usageTracker: new InMemoryUsageTracker(),
+    rateLimiter: new InMemoryRateLimiter(),
+    telemetryRecorder: new InMemoryTelemetryRecorder(),
+  });
+
+  const result = await router.route(baseRequest);
+  assert.equal(result.success, true);
+  if (result.success) {
+    assert.equal(result.provider, 'healthy-backup');
+    assert.equal(result.attempts.length, 2);
+    assert.equal(result.attempts[0].success, false);
+    assert.equal(result.attempts[1].success, true);
+  }
+});
+
+test('5. Non-retryable authentication failure does not unnecessarily retry same provider', async () => {
+  const authFailing = new AIRouterFixtureProvider({
+    id: 'auth-failing',
+    forcedError: {
+      code: 'AUTH',
+      message: 'Invalid API Key',
+      provider: 'auth-failing',
+      retryable: false,
+    },
+  });
+
+  const healthyBackup = new AIRouterFixtureProvider({ id: 'healthy-backup' });
+
+  const providers = new Map<string, IAIProvider>([
+    ['auth-failing', authFailing],
+    ['healthy-backup', healthyBackup],
+  ]);
+
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['auth-failing', 'healthy-backup'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      router: { timeoutMs: 5000, maxAttempts: 2, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers,
+    usageTracker: new InMemoryUsageTracker(),
+    rateLimiter: new InMemoryRateLimiter(),
+    telemetryRecorder: new InMemoryTelemetryRecorder(),
+  });
+
+  const result = await router.route(baseRequest);
+  assert.equal(result.success, true);
+  if (result.success) {
+    assert.equal(result.provider, 'healthy-backup');
+    assert.equal(result.attempts.length, 2);
+    assert.equal(result.attempts[0].error?.code, 'AUTH');
+  }
+});
+
+test('6. Timeout failure falls back', async () => {
+  const timeoutProvider = new AIRouterFixtureProvider({
+    id: 'timeout-prov',
+    forcedError: {
+      code: 'TIMEOUT',
+      message: 'Request timed out after 30000ms',
+      provider: 'timeout-prov',
+      retryable: true,
+    },
+  });
+
+  const fastProvider = new AIRouterFixtureProvider({ id: 'fast-prov' });
+
+  const providers = new Map<string, IAIProvider>([
+    ['timeout-prov', timeoutProvider],
+    ['fast-prov', fastProvider],
+  ]);
+
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['timeout-prov', 'fast-prov'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      router: { timeoutMs: 5000, maxAttempts: 2, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers,
+    usageTracker: new InMemoryUsageTracker(),
+    rateLimiter: new InMemoryRateLimiter(),
+    telemetryRecorder: new InMemoryTelemetryRecorder(),
+  });
+
+  const result = await router.route(baseRequest);
+  assert.equal(result.success, true);
+  if (result.success) {
+    assert.equal(result.provider, 'fast-prov');
+    assert.equal(result.attempts[0].error?.code, 'TIMEOUT');
+  }
+});
+
+test('7. Rate limit blocks request and falls back or reports RATE_LIMIT', async () => {
+  const rateLimiter = new InMemoryRateLimiter();
+  const provider = new AIRouterFixtureProvider({ id: 'rl-prov' });
+
+  const providers = new Map<string, IAIProvider>([['rl-prov', provider]]);
+
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['rl-prov'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 1, requestsPerDay: 100 },
+    },
+    providers,
+    rateLimiter,
+    usageTracker: new InMemoryUsageTracker(),
+    telemetryRecorder: new InMemoryTelemetryRecorder(),
+  });
+
+  // First request succeeds
+  const res1 = await router.route(baseRequest);
+  assert.equal(res1.success, true);
+
+  // Second request within same minute hits RPM limit
+  const res2 = await router.route(baseRequest);
+  assert.equal(res2.success, false);
+  if (!res2.success) {
+    assert.equal(res2.error.code, 'RATE_LIMIT');
+  }
+});
+
+test('8. Daily total token budget blocks request', async () => {
+  const usageTracker = new InMemoryUsageTracker();
+  usageTracker.recordUsage({
+    provider: 'fixture',
+    inputTokens: 100000,
+    outputTokens: 150000,
+    totalTokens: 250000,
+    success: true,
+  });
+
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['fixture'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 500000 },
+      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 500000 },
+      router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers: new Map([['fixture', new AIRouterFixtureProvider()]]),
+    usageTracker,
+    rateLimiter: new InMemoryRateLimiter(),
+    telemetryRecorder: new InMemoryTelemetryRecorder(),
+  });
+
+  const result = await router.route(baseRequest);
+  assert.equal(result.success, false);
+  if (!result.success) {
+    assert.equal(result.error.code, 'BUDGET_EXCEEDED');
+  }
+});
+
+test('9. Provider-specific token budget works', async () => {
+  const usageTracker = new InMemoryUsageTracker();
+  // Exhaust Gemini budget specifically
+  usageTracker.recordUsage({
+    provider: 'gemini-prov',
+    inputTokens: 30000,
+    outputTokens: 30000,
+    totalTokens: 60000,
+    success: true,
+  });
+
+  const geminiProv = new AIRouterFixtureProvider({ id: 'gemini-prov' });
+  const groqProv = new AIRouterFixtureProvider({ id: 'groq-prov' });
+
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['gemini-prov', 'groq-prov'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 50000 },
+      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      router: { timeoutMs: 5000, maxAttempts: 2, retryDelayMs: 10, dailyTotalTokenBudget: 500000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers: new Map([
+      ['gemini-prov', geminiProv],
+      ['groq-prov', groqProv],
+    ]),
+    usageTracker,
+    rateLimiter: new InMemoryRateLimiter(),
+    telemetryRecorder: new InMemoryTelemetryRecorder(),
+  });
+
+  const result = await router.route(baseRequest);
+  assert.equal(result.success, true);
+  if (result.success) {
+    // Falls back to groq-prov because gemini-prov exceeded its budget
+    assert.equal(result.provider, 'groq-prov');
+    assert.equal(result.attempts[0].error?.code, 'BUDGET_EXCEEDED');
+  }
+});
+
+test('10. Successful usage is recorded', async () => {
+  const usageTracker = new InMemoryUsageTracker();
+  const provider = new AIRouterFixtureProvider({
+    id: 'fixture-track',
+    mockUsage: { inputTokens: 120, outputTokens: 350, totalTokens: 470 },
+  });
+
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['fixture-track'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers: new Map([['fixture-track', provider]]),
+    usageTracker,
+    rateLimiter: new InMemoryRateLimiter(),
+    telemetryRecorder: new InMemoryTelemetryRecorder(),
+  });
+
+  const result = await router.route(baseRequest);
+  assert.equal(result.success, true);
+
+  assert.equal(usageTracker.getProviderDailyTokens('fixture-track'), 470);
+  assert.equal(usageTracker.getTotalDailyTokens(), 470);
+  assert.equal(usageTracker.getProviderDailyRequests('fixture-track'), 1);
+});
+
+test('11. Estimated tokens are used when provider usage is unavailable', () => {
+  const prompt = 'Short prompt text here for testing token approximation heuristics.';
+  const responseText = 'A moderately sized generated response containing several sentences of editorial guidance.';
+
+  const estimate = estimateRequestResponseTokens(prompt, undefined, responseText);
+  assert.equal(estimate.isEstimate, true);
+  assert.ok(estimate.inputTokens > 0);
+  assert.ok(estimate.outputTokens > 0);
+  assert.equal(estimate.totalTokens, estimate.inputTokens + estimate.outputTokens);
+});
+
+test('12. Actual provider usage overrides estimates', async () => {
+  const telemetry = new InMemoryTelemetryRecorder();
+  const provider = new AIRouterFixtureProvider({
+    id: 'exact-usage-prov',
+    mockUsage: { inputTokens: 555, outputTokens: 777, totalTokens: 1332 },
+  });
+
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['exact-usage-prov'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers: new Map([['exact-usage-prov', provider]]),
+    usageTracker: new InMemoryUsageTracker(),
+    rateLimiter: new InMemoryRateLimiter(),
+    telemetryRecorder: telemetry,
+  });
+
+  const result = await router.route(baseRequest);
+  assert.equal(result.success, true);
+  if (result.success) {
+    assert.equal(result.response.inputTokens, 555);
+    assert.equal(result.response.outputTokens, 777);
+    assert.equal(result.response.totalTokens, 1332);
+  }
+
+  const events = telemetry.getEvents();
+  assert.equal(events[0].isTokenEstimate, false);
+  assert.equal(events[0].totalTokens, 1332);
+});
+
+test('13. Maximum attempts is respected', async () => {
+  const p1 = new AIRouterFixtureProvider({ id: 'p1', forcedError: { code: 'PROVIDER_ERROR', message: 'err1', provider: 'p1', retryable: true } });
+  const p2 = new AIRouterFixtureProvider({ id: 'p2', forcedError: { code: 'PROVIDER_ERROR', message: 'err2', provider: 'p2', retryable: true } });
+  const p3 = new AIRouterFixtureProvider({ id: 'p3', forcedError: { code: 'PROVIDER_ERROR', message: 'err3', provider: 'p3', retryable: true } });
+
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['p1', 'p2', 'p3'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      router: { timeoutMs: 5000, maxAttempts: 2, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers: new Map([
+      ['p1', p1],
+      ['p2', p2],
+      ['p3', p3],
+    ]),
+    usageTracker: new InMemoryUsageTracker(),
+    rateLimiter: new InMemoryRateLimiter(),
+    telemetryRecorder: new InMemoryTelemetryRecorder(),
+  });
+
+  const result = await router.route(baseRequest);
+  assert.equal(result.success, false);
+  if (!result.success) {
+    // Only 2 attempts should have been made because maxAttempts = 2
+    assert.equal(result.attempts.length, 2);
+    assert.deepEqual(result.attemptedProviders, ['p1', 'p2']);
+  }
+});
+
+test('14. All providers failing returns typed failed result', async () => {
+  const p1 = new AIRouterFixtureProvider({ id: 'p1', forcedError: { code: 'NETWORK', message: 'net err', provider: 'p1', retryable: true } });
+  const p2 = new AIRouterFixtureProvider({ id: 'p2', forcedError: { code: 'TIMEOUT', message: 'timeout err', provider: 'p2', retryable: true } });
+
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['p1', 'p2'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      router: { timeoutMs: 5000, maxAttempts: 2, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers: new Map([
+      ['p1', p1],
+      ['p2', p2],
+    ]),
+    usageTracker: new InMemoryUsageTracker(),
+    rateLimiter: new InMemoryRateLimiter(),
+    telemetryRecorder: new InMemoryTelemetryRecorder(),
+  });
+
+  const result = await router.route(baseRequest);
+  assert.equal(result.success, false);
+  if (!result.success) {
+    assert.equal(result.error.code, 'TIMEOUT');
+    assert.equal(result.attemptedProviders.length, 2);
+  }
+});
+
+test('15. Secrets are never included in telemetry', async () => {
+  const telemetry = new InMemoryTelemetryRecorder();
+  telemetry.recordEvent({
+    taskType: 'content_generation',
+    provider: 'gemini',
+    model: 'gemini-2.5-flash',
+    durationMs: 120,
+    success: false,
+    errorCode: 'AUTH',
+    errorMessage: 'Failed with key=SECRET_KEY_VALUE_12345 and Bearer gsk_ABCDEF123456789',
+    timestamp: new Date().toISOString(),
+  });
+
+  const events = telemetry.getEvents();
+  assert.equal(events.length, 1);
+  assert.ok(!events[0].errorMessage?.includes('SECRET_KEY_VALUE_12345'));
+  assert.ok(!events[0].errorMessage?.includes('gsk_ABCDEF123456789'));
+  assert.ok(events[0].errorMessage?.includes('REDACTED'));
+});
+
+test('16. Fixture provider never performs network access', async () => {
+  const fixture = new AIRouterFixtureProvider();
+  const response = await fixture.generate({
+    prompt: 'Offline test prompt',
+    taskType: 'classification',
+  });
+
+  assert.ok(response.text);
+  assert.equal(response.provider, 'fixture');
+});
+
+test('17. UTC daily counter behavior works', () => {
+  const usageTracker = new InMemoryUsageTracker();
+  const todayKey = getUtcDateKey();
+
+  usageTracker.recordUsage({
+    provider: 'groq',
+    inputTokens: 100,
+    outputTokens: 200,
+    totalTokens: 300,
+    success: true,
+    dateUtc: todayKey,
+  });
+
+  assert.equal(usageTracker.getProviderDailyTokens('groq', todayKey), 300);
+  assert.equal(usageTracker.getProviderDailyTokens('groq', '1999-01-01'), 0);
+});
+
+test('18. Router handles unconfigured Gemini safely with mock fetch error testing', async () => {
+  const unconfiguredGemini = new GeminiProvider({ apiKey: '' });
+  assert.equal(unconfiguredGemini.isConfigured(), false);
+
+  await assert.rejects(
+    async () => unconfiguredGemini.generate(baseRequest),
+    (err: any) => {
+      assert.equal(err.code, 'NOT_CONFIGURED');
+      return true;
+    }
+  );
+
+  // Test with mock offline fetch error response (e.g. 401)
+  const mockFetch401 = async () =>
+    new Response(JSON.stringify({ error: { message: 'API key not valid. Please pass a valid API key.' } }), {
+      status: 401,
+      statusText: 'Unauthorized',
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+  const configuredGeminiMock = new GeminiProvider({
+    apiKey: 'dummy-test-key',
+    fetchFn: mockFetch401 as any,
+  });
+
+  await assert.rejects(
+    async () => configuredGeminiMock.generate(baseRequest),
+    (err: any) => {
+      assert.equal(err.code, 'AUTH');
+      assert.equal(err.retryable, false);
+      return true;
+    }
+  );
+});
+
+test('19. Router handles unconfigured Groq safely with mock fetch error testing', async () => {
+  const unconfiguredGroq = new GroqProvider({ apiKey: '' });
+  assert.equal(unconfiguredGroq.isConfigured(), false);
+
+  await assert.rejects(
+    async () => unconfiguredGroq.generate(baseRequest),
+    (err: any) => {
+      assert.equal(err.code, 'NOT_CONFIGURED');
+      return true;
+    }
+  );
+
+  // Test with mock offline fetch rate limit (429)
+  const mockFetch429 = async () =>
+    new Response(JSON.stringify({ error: { message: 'Rate limit reached for model' } }), {
+      status: 429,
+      statusText: 'Too Many Requests',
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+  const configuredGroqMock = new GroqProvider({
+    apiKey: 'dummy-groq-key',
+    fetchFn: mockFetch429 as any,
+  });
+
+  await assert.rejects(
+    async () => configuredGroqMock.generate(baseRequest),
+    (err: any) => {
+      assert.equal(err.code, 'RATE_LIMIT');
+      assert.equal(err.retryable, true);
+      return true;
+    }
+  );
+});
+
+test('20. Router can operate entirely with fixture provider', async () => {
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['fixture'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+  });
+
+  const result = await router.route(baseRequest);
+  assert.equal(result.success, true);
+  if (result.success) {
+    assert.equal(result.provider, 'fixture');
+    assert.ok(result.response.text.length > 50);
+  }
+});
+
+test('21. AIRouterGenerationProvider bridges Content Generation Runner with AI Router', async () => {
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['fixture'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'llama-3.3-70b-versatile', dailyTokenBudget: 100000 },
+      router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+  });
+
+  const routerGenProvider = new AIRouterGenerationProvider(router);
+
+  const genRequest: GenerationRequest = {
+    topicId: 'lm-tech-test-001',
+    titleAngle: 'Intentional Technology Architecture in 2026',
+    pillar: 'tech-ai',
+    format: 'guide',
+    audience: 'Curious developers and knowledge workers.',
+    primaryIntent: 'informational',
+    searchTargets: { primaryKeyword: 'intentional tech setup' },
+    affiliateIntent: false,
+    riskLevel: 'low',
+  };
+
+  const result = await runGenerationPipeline({
+    request: genRequest,
+    provider: routerGenProvider,
+  });
+
+  assert.equal(result.success, true);
+  if (result.success) {
+    assert.equal(result.article.title, 'Intentional Living in 2026: A Modern Guide');
+    assert.ok(result.article.content.includes('## 1. The Modern Shift'));
+    assert.equal(result.metadata.provider, 'fixture');
+    assert.equal(result.validation.isValid, true);
+  }
+});
