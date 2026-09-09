@@ -1,6 +1,7 @@
-import type { PillarSlug } from '../../config/site.ts';
+import { PILLAR_SLUGS, type PillarSlug } from '../../config/site.ts';
 
 export type { PillarSlug };
+export const VALID_PILLARS = PILLAR_SLUGS;
 
 /**
  * Editorial format classification.

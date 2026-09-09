@@ -53,6 +53,10 @@ export const articleSchema = z.object({
     .default([]),
   image: z.string().optional(),
   readingTime: z.string().optional(),
+  version: z.number().default(1),
+  lifecycleStatus: z
+    .enum(['DRAFT', 'REVIEWED', 'APPROVED', 'STORED', 'PUBLISHED', 'ARCHIVED'])
+    .default('STORED'),
 });
 
 export type ArticleFrontmatter = z.infer<typeof articleSchema>;
