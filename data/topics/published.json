@@ -1,0 +1,28 @@
+[
+  {
+    "id": "lm-life-20260909-welcome-to-life",
+    "canonicalTopic": "Welcome to Life",
+    "slug": "welcome-to-life",
+    "pillar": "life",
+    "sourceSignals": [],
+    "queryVariants": ["life mode foundation", "intentional living introduction"],
+    "scoring": {
+      "searchPotential": 70,
+      "pinterestPotential": 80,
+      "socialPotential": 80,
+      "lifeModeRelevance": 100,
+      "commercialPotential": 50,
+      "freshness": 90,
+      "competitionOpportunity": 80,
+      "originalityPotential": 90
+    },
+    "totalScore": 79.5,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "PUBLISHED",
+    "freshnessScore": 90,
+    "createdAt": "2026-09-09T00:00:00.000Z",
+    "updatedAt": "2026-09-09T00:00:00.000Z",
+    "tags": ["life", "lifestyle", "habits"]
+  }
+]

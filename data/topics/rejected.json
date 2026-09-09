@@ -1,0 +1,36 @@
+[
+  {
+    "id": "lm-money-20260909-guaranteed-crypto-yields",
+    "canonicalTopic": "How to Get Guaranteed 500% Crypto Yields Overnight",
+    "slug": "how-to-get-guaranteed-500-crypto-yields-overnight",
+    "pillar": "money",
+    "sourceSignals": [
+      {
+        "source": "REDDIT_SOCIAL",
+        "query": "guaranteed crypto yield",
+        "volumeOrGrowth": 30,
+        "recordedAt": "2026-09-09T08:00:00.000Z"
+      }
+    ],
+    "queryVariants": ["crypto fast money"],
+    "scoring": {
+      "searchPotential": 30,
+      "pinterestPotential": 10,
+      "socialPotential": 40,
+      "lifeModeRelevance": 10,
+      "commercialPotential": 20,
+      "freshness": 40,
+      "competitionOpportunity": 10,
+      "originalityPotential": 10
+    },
+    "totalScore": 21.0,
+    "priorityTier": "REJECT",
+    "opportunityType": "REJECT",
+    "status": "REJECTED",
+    "freshnessScore": 40,
+    "createdAt": "2026-09-09T08:00:00.000Z",
+    "updatedAt": "2026-09-09T08:30:00.000Z",
+    "rejectionReason": "Violates editorial quality guidelines; low credibility and spam risk.",
+    "tags": ["money", "crypto"]
+  }
+]

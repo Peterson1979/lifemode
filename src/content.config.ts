@@ -2,8 +2,28 @@ import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
+export const ArticleFormatEnum = z.enum([
+  'standard',
+  'guide',
+  'listicle',
+  'deep-dive',
+  'dispatch',
+  'curation',
+]);
+
+export const SearchIntentEnum = z.enum([
+  'informational',
+  'commercial',
+  'navigational',
+  'transactional',
+  'inspirational',
+]);
+
+export const RiskLevelEnum = z.enum(['low', 'medium', 'high']);
+
 /**
  * Standard schema for LifeMode editorial articles across all pillars.
+ * Extensible and backward-compatible with automated Content Engine metadata.
  */
 export const articleSchema = z.object({
   title: z.string(),
@@ -14,6 +34,25 @@ export const articleSchema = z.object({
   tags: z.array(z.string()).default([]),
   featured: z.boolean().default(false),
   draft: z.boolean().default(false),
+
+  // Content Engine metadata (Optional / Defaulted)
+  format: ArticleFormatEnum.default('standard'),
+  topicId: z.string().optional(),
+  audience: z.string().optional(),
+  primaryIntent: SearchIntentEnum.default('informational'),
+  secondaryIntent: z.string().optional(),
+  affiliateIntent: z.boolean().default(false),
+  riskLevel: RiskLevelEnum.default('low'),
+  sources: z
+    .array(
+      z.object({
+        name: z.string(),
+        url: z.string(),
+      })
+    )
+    .default([]),
+  image: z.string().optional(),
+  readingTime: z.string().optional(),
 });
 
 export type ArticleFrontmatter = z.infer<typeof articleSchema>;

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "lm-travel-20260909-kyoto-slow-travel-guide",
+    "canonicalTopic": "The Architectural Kyoto Guide to Slow Travel",
+    "slug": "architectural-kyoto-guide-to-slow-travel",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "PINTEREST_TRENDS",
+        "query": "kyoto architecture slow travel",
+        "volumeOrGrowth": 92,
+        "recordedAt": "2026-09-09T10:00:00.000Z"
+      }
+    ],
+    "queryVariants": [
+      "kyoto modern architecture itinerary",
+      "slow travel kyoto tea houses",
+      "quiet places to stay in kyoto"
+    ],
+    "scoring": {
+      "searchPotential": 90,
+      "pinterestPotential": 95,
+      "socialPotential": 85,
+      "lifeModeRelevance": 95,
+      "commercialPotential": 80,
+      "freshness": 85,
+      "competitionOpportunity": 75,
+      "originalityPotential": 90
+    },
+    "totalScore": 89.5,
+    "pinterestScore": 92.5,
+    "priorityTier": "PRIORITY",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "APPROVED",
+    "freshnessScore": 85,
+    "createdAt": "2026-09-09T10:00:00.000Z",
+    "updatedAt": "2026-09-09T11:00:00.000Z",
+    "targetAudience": "Aesthetic-driven travelers seeking quiet, architectural, and cultural immersion.",
+    "primaryIntent": "informational",
+    "tags": ["travel", "japan", "architecture", "slow-travel"]
+  }
+]

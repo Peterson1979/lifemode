@@ -74,7 +74,10 @@ export const SITE_CONFIG = {
   name: 'LifeMode',
   title: 'LifeMode — Smart Living, Curated Culture & Timely Editorial',
   description: 'A global digital publication exploring modern living, travel, artificial intelligence, wealth, wellbeing, and culture.',
-  siteUrl: import.meta.env.PUBLIC_SITE_URL || 'https://lifemode.com',
+  siteUrl:
+    (typeof import.meta !== 'undefined' && (import.meta as any).env?.PUBLIC_SITE_URL) ||
+    ((globalThis as any).process?.env?.PUBLIC_SITE_URL as string) ||
+    'https://lifemode.com',
   defaultOgImage: '/og-default.svg',
   locale: 'en_US',
   twitterHandle: '@LifeModeMag',

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "lm-tech-ai-20260909-local-llm-workflows",
+    "canonicalTopic": "Local LLM Workflows for Mindful Knowledge Workers",
+    "slug": "local-llm-workflows-for-mindful-knowledge-workers",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "query": "local llm workflow",
+        "volumeOrGrowth": 85,
+        "recordedAt": "2026-09-09T12:00:00.000Z"
+      }
+    ],
+    "queryVariants": [
+      "best local llm setup 2026",
+      "private ai workflows for mac and windows",
+      "offline ai tools for productivity"
+    ],
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 70,
+      "socialPotential": 80,
+      "lifeModeRelevance": 95,
+      "commercialPotential": 75,
+      "freshness": 90,
+      "competitionOpportunity": 65,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.8,
+    "pinterestScore": 72.5,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "freshnessScore": 90,
+    "createdAt": "2026-09-09T12:00:00.000Z",
+    "updatedAt": "2026-09-09T12:00:00.000Z",
+    "targetAudience": "Productivity-focused creators and engineers wanting private AI tools.",
+    "primaryIntent": "informational",
+    "tags": ["ai", "tech", "productivity", "privacy"]
+  }
+]
