@@ -31,10 +31,10 @@
     "pinterestScore": 72.5,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
+    "status": "REJECTED",
     "freshnessScore": 90,
     "createdAt": "2026-09-09T12:00:00.000Z",
-    "updatedAt": "2026-09-09T12:00:00.000Z",
+    "updatedAt": "2026-09-09T18:38:34.128Z",
     "targetAudience": "Productivity-focused creators and engineers wanting private AI tools.",
     "primaryIntent": "informational",
     "tags": [
@@ -42,7 +42,8 @@
       "tech",
       "productivity",
       "privacy"
-    ]
+    ],
+    "rejectionReason": "AI Review decision was REJECT (score: 86)"
   },
   {
     "id": "lm-life-20260909-minimalist-morning-routines-fo",

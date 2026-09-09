@@ -143,6 +143,8 @@ export interface EditorialTopic {
   secondaryIntent?: string;
   rejectionReason?: string;
   deferReason?: string;
+  revisionCyclesCount?: number;
+  revisionAttempted?: boolean;
   tags: string[];
 }
 

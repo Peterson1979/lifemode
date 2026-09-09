@@ -47,6 +47,23 @@ export interface GenerationRequest {
     heading: string;
     keyPoints?: string[];
   }>;
+  revisionContext?: GenerationRevisionContext;
+}
+
+/**
+ * Context provided to an AI Generation Provider when revising an existing draft.
+ */
+export interface GenerationRevisionContext {
+  originalArticle: GeneratedArticle;
+  reviewResult: {
+    decision: string;
+    overallScore: number;
+    dimensions?: Record<string, { score: number; rationale: string; issues?: string[] }>;
+    criticalIssues?: string[];
+    warnings?: string[];
+    gatePassed?: boolean;
+  };
+  revisionAttempt: number;
 }
 
 /**

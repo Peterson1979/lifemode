@@ -53,9 +53,11 @@ export function mergeCandidateTopic(
 
   // Update existing record, preserving published/approved/rejected lifecycle status
   const existing = existingList[index];
-  const resolvedStatus = (existing.status === 'REJECTED' || existing.status === 'PUBLISHED')
-    ? existing.status
-    : (newCandidate.status ?? existing.status);
+  const resolvedStatus = newCandidate.status === 'PUBLISHED'
+    ? 'PUBLISHED'
+    : (existing.status === 'PUBLISHED'
+      ? 'PUBLISHED'
+      : (newCandidate.status ?? existing.status));
 
   const updatedRecord: EditorialTopic = {
     ...existing,
@@ -68,6 +70,8 @@ export function mergeCandidateTopic(
     status: resolvedStatus,
     rejectionReason: newCandidate.rejectionReason ?? existing.rejectionReason,
     deferReason: newCandidate.deferReason ?? existing.deferReason,
+    revisionCyclesCount: newCandidate.revisionCyclesCount ?? existing.revisionCyclesCount,
+    revisionAttempted: newCandidate.revisionAttempted ?? existing.revisionAttempted,
     freshnessScore: newCandidate.freshnessScore,
     updatedAt: new Date().toISOString(),
     sourceSignals: [

@@ -65,6 +65,13 @@ export interface OpportunityRunResult {
   brief?: ContentBrief;
   generation?: GenerationResult;
   review?: ReviewResult;
+  revisedGeneration?: GenerationResult;
+  revisedReview?: ReviewResult;
+  revisionPerformed?: boolean;
+  revisionError?: {
+    code: string;
+    message: string;
+  };
   publishing?: PublishingResult;
   storage?: StorageResult;
   gitPublication?: GitPublisherResult;

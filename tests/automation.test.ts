@@ -388,7 +388,8 @@ test('8. Multi-opportunity isolation: First review rejection allows second oppor
       model: 'alt-v1',
       review: async (req) => {
         callCount++;
-        if (callCount === 1) {
+        // Reject both first-pass and revision for candidate 1
+        if (callCount <= 2) {
           return rejectProvider.review(req);
         }
         return passProvider.review(req);
@@ -576,3 +577,212 @@ test('11. Candidate rejection persistence: Rejected candidate is marked in stora
     await cleanup();
   }
 });
+
+test('12. Bounded quality revision: First-pass PASS does not trigger revision', async () => {
+  const { repoDir, contentDir, cleanup } = await createTempWorkspace();
+  const storagePath = path.join(os.tmpdir(), `auto-cand-${Date.now()}-12.json`);
+
+  try {
+    const repository = new FilesystemContentRepository({ contentRoot: contentDir });
+    const gitPublisher = new AstroGitPublisher({
+      gitCli: new GitCli(),
+      defaultOptions: { gitRepoRoot: repoDir, contentRoot: contentDir },
+    });
+
+    const passReviewProvider = new FixtureReviewProvider({ outcome: 'PASS' });
+    let genCount = 0;
+    const trackingGenProvider: IGenerationProvider = {
+      name: 'Tracking Provider',
+      model: 'track-v1',
+      generate: async (req) => {
+        genCount++;
+        const fixtureGen = new (await import('../src/lib/editorial/generation/providers/fixture.ts')).FixtureGenerationProvider();
+        return fixtureGen.generate(req);
+      },
+    };
+
+    const result = await runEditorialAutomation({
+      enabled: true,
+      dryRun: true,
+      maxOpportunities: 1,
+      generationProvider: trackingGenProvider,
+      reviewProvider: passReviewProvider,
+      contentRepository: repository,
+      gitPublisher,
+      contentRoot: contentDir,
+      gitRepoRoot: repoDir,
+      storagePath,
+    });
+
+    assert.equal(result.status, 'SUCCESS');
+    assert.equal(result.succeededCount, 1);
+    assert.equal(genCount, 1, 'Initial PASS should generate exactly once without revision');
+    assert.equal(result.opportunities[0].revisionPerformed, undefined);
+  } finally {
+    try { await fs.unlink(storagePath); } catch {}
+    await cleanup();
+  }
+});
+
+test('13. Bounded quality revision: First-pass REVISE triggers exactly one revision and publishes on revised PASS', async () => {
+  const { repoDir, contentDir, cleanup } = await createTempWorkspace();
+  const storagePath = path.join(os.tmpdir(), `auto-cand-${Date.now()}-13.json`);
+
+  try {
+    const repository = new FilesystemContentRepository({ contentRoot: contentDir });
+    const gitPublisher = new AstroGitPublisher({
+      gitCli: new GitCli(),
+      defaultOptions: { gitRepoRoot: repoDir, contentRoot: contentDir },
+    });
+
+    // Sequence: First review is REVISE, second review on revised content is PASS
+    const sequenceReviewer = new FixtureReviewProvider({ outcomes: ['REVISE', 'PASS'] });
+    let genCalls = 0;
+    const trackingGenProvider: IGenerationProvider = {
+      name: 'Tracking Provider',
+      model: 'track-v1',
+      generate: async (req) => {
+        genCalls++;
+        if (genCalls === 2) {
+          assert.ok(req.revisionContext, 'Second generation call must include revisionContext');
+          assert.equal(req.revisionContext.revisionAttempt, 1);
+        }
+        const fixtureGen = new (await import('../src/lib/editorial/generation/providers/fixture.ts')).FixtureGenerationProvider();
+        return fixtureGen.generate(req);
+      },
+    };
+
+    const result = await runEditorialAutomation({
+      enabled: true,
+      dryRun: true,
+      maxOpportunities: 1,
+      generationProvider: trackingGenProvider,
+      reviewProvider: sequenceReviewer,
+      contentRepository: repository,
+      gitPublisher,
+      contentRoot: contentDir,
+      gitRepoRoot: repoDir,
+      storagePath,
+    });
+
+    assert.equal(result.status, 'SUCCESS');
+    assert.equal(result.succeededCount, 1);
+    assert.equal(genCalls, 2, 'Must execute exactly 1 revision (total 2 generation calls)');
+    const opp = result.opportunities[0];
+    assert.equal(opp.revisionPerformed, true);
+    assert.equal(opp.review?.decision, 'REVISE');
+    assert.equal(opp.revisedReview?.decision, 'PASS');
+    assert.equal(opp.stageResults.STORAGE.status, 'SUCCESS');
+  } finally {
+    try { await fs.unlink(storagePath); } catch {}
+    await cleanup();
+  }
+});
+
+test('14. Bounded quality revision: Revised article still failing review results in REJECTED outcome without infinite loop', async () => {
+  const { repoDir, contentDir, cleanup } = await createTempWorkspace();
+  const storagePath = path.join(os.tmpdir(), `auto-cand-${Date.now()}-14.json`);
+
+  try {
+    const repository = new FilesystemContentRepository({ contentRoot: contentDir });
+    const gitPublisher = new AstroGitPublisher({
+      gitCli: new GitCli(),
+      defaultOptions: { gitRepoRoot: repoDir, contentRoot: contentDir },
+    });
+
+    // Both first pass and revised pass return REJECT
+    const alwaysRejectReviewer = new FixtureReviewProvider({ outcome: 'REJECT' });
+    let genCalls = 0;
+    const trackingGenProvider: IGenerationProvider = {
+      name: 'Tracking Provider',
+      model: 'track-v1',
+      generate: async (req) => {
+        genCalls++;
+        const fixtureGen = new (await import('../src/lib/editorial/generation/providers/fixture.ts')).FixtureGenerationProvider();
+        return fixtureGen.generate(req);
+      },
+    };
+
+    const result = await runEditorialAutomation({
+      enabled: true,
+      dryRun: true,
+      maxOpportunities: 1,
+      generationProvider: trackingGenProvider,
+      reviewProvider: alwaysRejectReviewer,
+      contentRepository: repository,
+      gitPublisher,
+      contentRoot: contentDir,
+      gitRepoRoot: repoDir,
+      storagePath,
+    });
+
+    assert.equal(result.status, 'SUCCESS');
+    assert.equal(result.rejectedCount, 1);
+    assert.equal(genCalls, 2, 'Must stop at exactly 1 revision attempt and not retry infinitely');
+    const opp = result.opportunities[0];
+    assert.equal(opp.status, 'REJECTED');
+    assert.equal(opp.revisionPerformed, true);
+    assert.equal(opp.failedStage, 'REVIEW');
+  } finally {
+    try { await fs.unlink(storagePath); } catch {}
+    await cleanup();
+  }
+});
+
+test('15. Revision provider error is isolated to candidate and allows remaining batch to continue', async () => {
+  const { repoDir, contentDir, cleanup } = await createTempWorkspace();
+  const storagePath = path.join(os.tmpdir(), `auto-cand-${Date.now()}-15.json`);
+
+  try {
+    const repository = new FilesystemContentRepository({ contentRoot: contentDir });
+    const gitPublisher = new AstroGitPublisher({
+      gitCli: new GitCli(),
+      defaultOptions: { gitRepoRoot: repoDir, contentRoot: contentDir },
+    });
+
+    // Sequence: First candidate reviews REVISE then revision generation crashes.
+    // Second candidate reviews PASS directly.
+    const sequenceReviewer = new FixtureReviewProvider({ outcomes: ['REVISE', 'PASS'] });
+    let genCalls = 0;
+    const normalGen = new (await import('../src/lib/editorial/generation/providers/fixture.ts')).FixtureGenerationProvider();
+    const failingRevisionGenProvider: IGenerationProvider = {
+      name: 'Failing Revision Provider',
+      model: 'fail-rev-v1',
+      generate: async (req) => {
+        genCalls++;
+        if (req.revisionContext) {
+          throw new Error('Revision generation provider timeout');
+        }
+        return normalGen.generate(req);
+      },
+    };
+
+    const result = await runEditorialAutomation({
+      enabled: true,
+      dryRun: true,
+      maxOpportunities: 2,
+      generationProvider: failingRevisionGenProvider,
+      reviewProvider: sequenceReviewer,
+      contentRepository: repository,
+      gitPublisher,
+      contentRoot: contentDir,
+      gitRepoRoot: repoDir,
+      storagePath,
+    });
+
+    assert.equal(result.status, 'PARTIAL_SUCCESS');
+    assert.equal(result.processedCount, 2);
+    assert.equal(result.rejectedCount, 1);
+    assert.equal(result.succeededCount, 1);
+
+    assert.equal(result.opportunities[0].status, 'REJECTED');
+    assert.equal(result.opportunities[0].revisionError?.code, 'PROVIDER_ERROR');
+
+    assert.equal(result.opportunities[1].status, 'DRY_RUN');
+    assert.equal(result.opportunities[1].stageResults.STORAGE.status, 'SUCCESS');
+  } finally {
+    try { await fs.unlink(storagePath); } catch {}
+    await cleanup();
+  }
+});
+

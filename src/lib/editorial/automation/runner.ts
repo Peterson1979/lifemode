@@ -27,8 +27,11 @@ import { storePublishPackage } from '../storage/publishing-adapter.ts';
 import { AstroGitPublisher } from '../git-publisher/publisher.ts';
 import { GitCli } from '../git-publisher/git-cli.ts';
 import { defaultAIRouter } from '../../ai/router.ts';
+import type { GenerationRequest } from '../generation/types.ts';
 import type { ReviewRequest } from '../review/types.ts';
 import type { PublishingRequest } from '../publishing/types.ts';
+
+export const MAX_QUALITY_REVISIONS = 1;
 
 function createPendingStageResults(): Record<AutomationStage, AutomationStageResult> {
   const stages: AutomationStage[] = [
@@ -95,8 +98,12 @@ export function formatAutomationSummary(result: AutomationResult): string {
       for (const k of stageKeys) {
         const sr = opp.stageResults[k];
         let label = sr?.status as string || 'PENDING';
-        if (k === 'REVIEW' && opp.review) {
-          label = `${opp.review.decision} (${opp.review.overallScore}/100)`;
+        if (k === 'REVIEW') {
+          if (opp.revisionPerformed && opp.revisedReview) {
+            label = `${opp.review?.decision} (${opp.review?.overallScore}/100) -> REVISED -> ${opp.revisedReview.decision} (${opp.revisedReview.overallScore}/100)`;
+          } else if (opp.review) {
+            label = `${opp.review.decision} (${opp.review.overallScore}/100)`;
+          }
         } else if (k === 'GIT_PUBLICATION' && sr?.status === 'DRY_RUN') {
           label = 'DRY_RUN (Safe)';
         }
@@ -319,7 +326,11 @@ export async function runEditorialAutomation(
 
   const unPublishedCandidates: EditorialTopic[] = [];
   for (const topic of candidateTopics) {
-    if (topic.status === 'REJECTED' || topic.status === 'PUBLISHED' || topic.opportunityType === 'REJECT') {
+    const hasExhaustedRevisions = topic.revisionAttempted || (topic.revisionCyclesCount ?? 0) >= 1;
+    if (topic.status === 'PUBLISHED' || topic.opportunityType === 'REJECT') {
+      continue;
+    }
+    if (topic.status === 'REJECTED' && hasExhaustedRevisions) {
       continue;
     }
     const topicSlug = topic.slug || slugify(topic.canonicalTopic);
@@ -514,24 +525,89 @@ export async function runEditorialAutomation(
 
       oppResult.review = reviewResult;
 
-      if (reviewResult.decision !== 'PASS') {
+      let currentArticle = generationResult.article;
+      let currentValidation = generationResult.validation;
+      let currentReview = reviewResult;
+      let revisionPerformed = false;
+      let revisionAttempts = 0;
+
+      // Stage 6.1: Bounded AI Quality Revision Loop (Max 1 Revision)
+      if (currentReview.decision !== 'PASS' && revisionAttempts < MAX_QUALITY_REVISIONS) {
+        revisionAttempts++;
+        revisionPerformed = true;
+        oppResult.revisionPerformed = true;
+
+        const revisionGenRequest: GenerationRequest = {
+          ...generationRequest,
+          revisionContext: {
+            originalArticle: currentArticle,
+            reviewResult: currentReview,
+            revisionAttempt: revisionAttempts,
+          },
+        };
+
+        const revisionGenResult = await runGenerationPipeline({
+          request: revisionGenRequest,
+          provider: genProvider,
+          validationOptions: request.validationOptions,
+        });
+
+        oppResult.revisedGeneration = revisionGenResult;
+
+        if (revisionGenResult.success) {
+          currentArticle = revisionGenResult.article;
+          currentValidation = revisionGenResult.validation;
+
+          // Run Quality Review on the revised article draft
+          const revisedReviewRequest: ReviewRequest = {
+            ...reviewRequest,
+            title: currentArticle.title,
+            description: currentArticle.description,
+            excerpt: currentArticle.excerpt,
+            content: currentArticle.content,
+            sources: currentArticle.sources,
+            internalLinks: currentArticle.internalLinks,
+            deterministicValidation: currentValidation,
+          };
+
+          const revisedReviewResult = await runReviewPipeline({
+            request: revisedReviewRequest,
+            provider: reviewProvider,
+          });
+
+          currentReview = revisedReviewResult;
+          oppResult.revisedReview = revisedReviewResult;
+        } else {
+          oppResult.revisionError = {
+            code: revisionGenResult.errorCode || 'REVISION_FAILED',
+            message: revisionGenResult.errorMessage || 'Revision generation failed.',
+          };
+        }
+      }
+
+      if (currentReview.decision !== 'PASS') {
+        const totalReviewDuration = (reviewResult.metadata?.durationMs || Math.max(1, Date.now() - reviewStart)) +
+          (oppResult.revisedReview?.metadata?.durationMs || 0);
+
         stageResults.REVIEW = {
           stage: 'REVIEW',
           status: 'SUCCESS',
-          durationMs: reviewResult.metadata?.durationMs || Math.max(1, Date.now() - reviewStart),
-          data: reviewResult,
-          warning: `Review decision was ${reviewResult.decision} (score: ${reviewResult.overallScore})`,
+          durationMs: totalReviewDuration,
+          data: currentReview,
+          warning: `Review decision was ${currentReview.decision} (score: ${currentReview.overallScore})${revisionPerformed ? ' after 1 quality revision' : ''}`,
         };
         oppResult.failedStage = 'REVIEW';
         oppResult.status = 'REJECTED';
         rejectedCount++;
 
-        // Persist rejection lifecycle state to candidate storage to prevent immediate re-selection
+        // Persist rejection lifecycle state to candidate storage to prevent repeated revision attempts
         try {
           const rejectedTopic: EditorialTopic = {
             ...topic,
             status: 'REJECTED',
-            rejectionReason: `AI Review decision was ${reviewResult.decision} (score: ${reviewResult.overallScore})`,
+            revisionCyclesCount: (topic.revisionCyclesCount ?? 0) + 1,
+            revisionAttempted: true,
+            rejectionReason: `AI Review decision was ${currentReview.decision} (score: ${currentReview.overallScore})${revisionPerformed ? ' after 1 quality revision' : ''}`,
             updatedAt: new Date().toISOString(),
           };
           const currentCandidates = await loadCandidates(request.storagePath);
@@ -545,18 +621,21 @@ export async function runEditorialAutomation(
         continue;
       }
 
+      const totalReviewDuration = (reviewResult.metadata?.durationMs || Math.max(1, Date.now() - reviewStart)) +
+        (oppResult.revisedReview?.metadata?.durationMs || 0);
+
       stageResults.REVIEW = {
         stage: 'REVIEW',
         status: 'SUCCESS',
-        durationMs: reviewResult.metadata.durationMs,
-        data: reviewResult,
+        durationMs: totalReviewDuration,
+        data: currentReview,
       };
 
       // Stage 7: PUBLISHING_GATE
       const pubStart = Date.now();
       const pubRequest: PublishingRequest = {
-        article: generationResult.article,
-        review: reviewResult,
+        article: currentArticle,
+        review: currentReview,
         context: {
           topicId: topic.id,
           pillar: topic.pillar,
@@ -706,6 +785,23 @@ export async function runEditorialAutomation(
 
       oppResult.status = config.dryRun ? 'DRY_RUN' : 'COMPLETED';
       succeededCount++;
+
+      // Persist published status to candidate storage if not dry-run
+      if (!config.dryRun) {
+        try {
+          const publishedTopic: EditorialTopic = {
+            ...topic,
+            status: 'PUBLISHED',
+            updatedAt: new Date().toISOString(),
+          };
+          const currentCandidates = await loadCandidates(request.storagePath);
+          const { updatedList } = mergeCandidateTopic(publishedTopic, currentCandidates);
+          await saveCandidates(updatedList, request.storagePath);
+        } catch {
+          // Best-effort storage persistence
+        }
+      }
+
       opportunityResults.push(oppResult);
     } catch (err: any) {
       // Unhandled stage exception safety boundary

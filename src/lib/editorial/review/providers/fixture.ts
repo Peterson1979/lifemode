@@ -7,6 +7,7 @@ export interface FixtureReviewOptions {
   name?: string;
   model?: string;
   outcome?: FixtureReviewOutcome;
+  outcomes?: FixtureReviewOutcome[];
   customResponse?: Partial<RawAIReviewResponse>;
 }
 
@@ -45,12 +46,14 @@ export class FixtureReviewProvider implements IAIReviewProvider {
   readonly name: string;
   readonly model: string;
   private outcome: FixtureReviewOutcome;
+  private outcomes?: FixtureReviewOutcome[];
   private customResponse?: Partial<RawAIReviewResponse>;
 
   constructor(options: FixtureReviewOptions = {}) {
     this.name = options.name || 'Fixture AI Reviewer';
     this.model = options.model || 'fixture-review-v1';
     this.outcome = options.outcome || 'PASS';
+    this.outcomes = options.outcomes ? [...options.outcomes] : undefined;
     this.customResponse = options.customResponse;
   }
 
@@ -63,11 +66,15 @@ export class FixtureReviewProvider implements IAIReviewProvider {
   }
 
   async review(_request: ReviewRequest): Promise<RawAIReviewResponse> {
-    if (this.outcome === 'FORCED_ERROR') {
+    const currentOutcome = (this.outcomes && this.outcomes.length > 0)
+      ? this.outcomes.shift()!
+      : this.outcome;
+
+    if (currentOutcome === 'FORCED_ERROR') {
       throw new Error('Simulated upstream AI reviewer service outage');
     }
 
-    if (this.outcome === 'MALFORMED') {
+    if (currentOutcome === 'MALFORMED') {
       // Missing required dimensions and invalid score
       return {
         overallScore: 150, // Invalid score > 100
@@ -77,7 +84,7 @@ export class FixtureReviewProvider implements IAIReviewProvider {
       };
     }
 
-    if (this.customResponse) {
+    if (this.customResponse && (!this.outcomes || this.outcomes.length === 0)) {
       const defaultDims = createStandardDimensions(88, 'Good evaluation');
       return {
         overallScore: this.customResponse.overallScore ?? 88,
@@ -95,7 +102,7 @@ export class FixtureReviewProvider implements IAIReviewProvider {
       };
     }
 
-    if (this.outcome === 'REVISE') {
+    if (currentOutcome === 'REVISE') {
       const dims = createStandardDimensions(78, 'Adequate quality with minor gaps');
       dims.usefulness.issues = ['Actionable steps in section 2 could be more concrete.'];
       dims.readability.issues = ['Third paragraph in section 1 is slightly long.'];
@@ -119,7 +126,7 @@ export class FixtureReviewProvider implements IAIReviewProvider {
       };
     }
 
-    if (this.outcome === 'REJECT') {
+    if (currentOutcome === 'REJECT') {
       const dims = createStandardDimensions(54, 'Below acceptable publication standard');
       dims.factuality.score = 45;
       dims.factuality.issues = ['Unverified health claim regarding sleep protocols without scientific citation.'];
