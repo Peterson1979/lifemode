@@ -82,6 +82,10 @@ export function loadScheduledAutomationConfig(overrides: Partial<ScheduledAutoma
   const gitBranch = overrides.gitBranch || process.env.LIFEMODE_AUTOMATION_GIT_BRANCH || DEFAULT_SCHEDULED_CONFIG.gitBranch;
   const lockPath = overrides.lockPath || process.env.LIFEMODE_AUTOMATION_LOCK_PATH;
 
+  const envSocialEnabledRaw = process.env.LIFEMODE_SOCIAL_ENABLED ?? process.env.SOCIAL_AUTOMATION_ENABLED;
+  const socialEnabled = overrides.socialEnabled ?? (envSocialEnabledRaw === 'true');
+  const socialOptions = overrides.socialOptions;
+
   return {
     ...base,
     allowCommit,
@@ -89,5 +93,7 @@ export function loadScheduledAutomationConfig(overrides: Partial<ScheduledAutoma
     gitRemote,
     gitBranch,
     lockPath,
+    socialEnabled,
+    socialOptions,
   };
 }

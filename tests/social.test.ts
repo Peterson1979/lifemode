@@ -31,7 +31,7 @@ import {
   type ISocialPlatformAdapter,
   type SocialPlatform,
 } from '../src/lib/social/index.ts';
-import { runScheduledEditorialAutomation } from '../src/lib/editorial/automation/scheduler.ts';
+import { runScheduledEditorialAutomation, loadScheduledAutomationConfig } from '../src/lib/editorial/automation/index.ts';
 
 function createMockTopic(overrides: Partial<EditorialTopic> = {}): EditorialTopic {
   return {
@@ -1132,5 +1132,39 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     assert.equal(result.status, 'FAILED');
     assert.equal(result.failedCount, 1);
     assert.ok(result.error?.includes('non-HTTPS') || result.error?.includes('HTTPS'));
+  });
+
+  await t.test('39. Scheduled automation loads and propagates LIFEMODE_SOCIAL_ENABLED, LIFEMODE_SOCIAL_PUBLISH, and LIFEMODE_SOCIAL_DRY_RUN from environment variables', async () => {
+    const savedSocialEnabled = process.env.LIFEMODE_SOCIAL_ENABLED;
+    const savedSocialPublish = process.env.LIFEMODE_SOCIAL_PUBLISH;
+    const savedSocialDryRun = process.env.LIFEMODE_SOCIAL_DRY_RUN;
+
+    try {
+      process.env.LIFEMODE_SOCIAL_ENABLED = 'true';
+      process.env.LIFEMODE_SOCIAL_PUBLISH = 'true';
+      process.env.LIFEMODE_SOCIAL_DRY_RUN = 'false';
+
+      // 1. Verify loadScheduledAutomationConfig loads socialEnabled = true from env
+      const schedConfig = loadScheduledAutomationConfig();
+      assert.equal(schedConfig.socialEnabled, true);
+
+      // 2. Verify loadSocialConfig resolves allowPublish = true, dryRun = false
+      const socialConfig = loadSocialConfig({
+        ...schedConfig.socialOptions,
+        enabled: schedConfig.socialEnabled ?? schedConfig.socialOptions?.enabled,
+      });
+      assert.equal(socialConfig.enabled, true);
+      assert.equal(socialConfig.allowPublish, true);
+      assert.equal(socialConfig.dryRun, false);
+    } finally {
+      if (savedSocialEnabled !== undefined) process.env.LIFEMODE_SOCIAL_ENABLED = savedSocialEnabled;
+      else delete process.env.LIFEMODE_SOCIAL_ENABLED;
+
+      if (savedSocialPublish !== undefined) process.env.LIFEMODE_SOCIAL_PUBLISH = savedSocialPublish;
+      else delete process.env.LIFEMODE_SOCIAL_PUBLISH;
+
+      if (savedSocialDryRun !== undefined) process.env.LIFEMODE_SOCIAL_DRY_RUN = savedSocialDryRun;
+      else delete process.env.LIFEMODE_SOCIAL_DRY_RUN;
+    }
   });
 });

@@ -1,4 +1,5 @@
 import { runScheduledEditorialAutomation, loadScheduledAutomationConfig } from '../src/lib/editorial/automation/index.ts';
+import { loadSocialConfig } from '../src/lib/social/index.ts';
 
 async function main() {
   const args = process.argv.slice(2);
@@ -72,18 +73,38 @@ async function main() {
   if (minScore !== undefined) {
     overrides.minScoreThreshold = minScore;
   }
-  if (isSocial || isSocialStorageTest) {
+
+  const socialOverrides: any = {};
+  if (isSocial || isSocialStorageTest || isSocialPublish || isSocialDryRun) {
     overrides.socialEnabled = true;
-    overrides.socialOptions = {
-      enabled: true,
-      storageTest: isSocialStorageTest,
-      allowPublish: isSocialPublish && !isSocialStorageTest,
-      dryRun: isSocialDryRun || isSocialStorageTest || !isSocialPublish,
-      ...(socialMax ? { maxOpportunities: socialMax } : {}),
-    };
+    socialOverrides.enabled = true;
+  }
+  if (isSocialStorageTest) {
+    socialOverrides.storageTest = true;
+    socialOverrides.allowPublish = false;
+    socialOverrides.dryRun = true;
+  } else {
+    if (isSocialPublish) {
+      socialOverrides.allowPublish = true;
+      socialOverrides.dryRun = false;
+    }
+    if (isSocialDryRun) {
+      socialOverrides.dryRun = true;
+      socialOverrides.allowPublish = false;
+    }
+  }
+  if (socialMax !== undefined) {
+    socialOverrides.maxOpportunities = socialMax;
+  }
+  if (Object.keys(socialOverrides).length > 0) {
+    overrides.socialOptions = socialOverrides;
   }
 
   const config = loadScheduledAutomationConfig(overrides);
+  const socialConfig = loadSocialConfig({
+    ...config.socialOptions,
+    enabled: config.socialEnabled ?? config.socialOptions?.enabled,
+  });
 
   if (!isJson) {
     console.log('====================================================');
@@ -96,11 +117,11 @@ async function main() {
     console.log(`* Accelerated:    ${config.accelerationEnabled ? 'YES (Initial Content Build Mode)' : 'NO (Standard Schedule)'}`);
     console.log(`* Max Selection:  ${config.maxOpportunities}`);
     console.log(`* Min Score:      ${config.minScoreThreshold}`);
-    if (overrides.socialEnabled) {
-      if (isSocialStorageTest) {
+    if (socialConfig.enabled) {
+      if (socialConfig.storageTest) {
         console.log(`* Social Pipeline: STORAGE TEST (Real R2, Zero Publishing)`);
       } else {
-        console.log(`* Social Pipeline: ENABLED (Publish: ${isSocialPublish ? 'YES' : 'NO (Dry-Run)'}, Max: ${socialMax || 3})`);
+        console.log(`* Social Pipeline: ENABLED (Publish: ${socialConfig.allowPublish && !socialConfig.dryRun ? 'YES' : 'NO (Dry-Run)'}, Max: ${socialConfig.maxOpportunities})`);
       }
     } else {
       console.log(`* Social Pipeline: DISABLED`);

@@ -268,18 +268,17 @@ export async function runScheduledEditorialAutomation(
 
     // 6. Optional Social Automation Pipeline stage
     let socialResult: SocialAutomationResult | undefined;
+    const isSocialEnabled = options.socialEnabled ?? options.socialOptions?.enabled ?? (process.env.LIFEMODE_SOCIAL_ENABLED === 'true' || process.env.SOCIAL_AUTOMATION_ENABLED === 'true');
+
     const socialConfig = loadSocialConfig({
       ...options.socialOptions,
-      enabled: options.socialEnabled ?? options.socialOptions?.enabled,
+      enabled: isSocialEnabled,
     });
 
     if (socialConfig.enabled) {
       try {
         socialResult = await runSocialPipeline({
-          config: {
-            ...socialConfig,
-            dryRun: options.dryRun !== undefined ? options.dryRun : socialConfig.dryRun,
-          },
+          config: socialConfig,
           storagePath: options.storagePath,
         });
       } catch (socialErr: any) {
