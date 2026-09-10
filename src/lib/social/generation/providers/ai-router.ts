@@ -3,6 +3,7 @@ import type { SocialBrief, GeneratedSocialContent } from '../../types.ts';
 import { buildSocialGenerationPrompt } from '../prompt.ts';
 import { AIRouter, defaultAIRouter } from '../../../ai/router.ts';
 import type { AIRequest } from '../../../ai/types.ts';
+import { extractAndParseJson } from '../../../ai/json-extractor.ts';
 
 export class AIRouterSocialGenerationProvider implements ISocialGenerationProvider {
   readonly name = 'AI Router Social Provider';
@@ -14,14 +15,8 @@ export class AIRouterSocialGenerationProvider implements ISocialGenerationProvid
   }
 
   private parseJsonOutput(rawText: string, brief: SocialBrief): GeneratedSocialContent {
-    let clean = rawText.trim();
-    if (clean.startsWith('```json')) {
-      clean = clean.replace(/^```json\s*/, '').replace(/```\s*$/, '');
-    } else if (clean.startsWith('```')) {
-      clean = clean.replace(/^```\s*/, '').replace(/```\s*$/, '');
-    }
+    const parsed = extractAndParseJson<any>(rawText);
 
-    const parsed = JSON.parse(clean);
 
     return {
       topicId: parsed.topicId || brief.topicId,

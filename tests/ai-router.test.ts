@@ -9,10 +9,14 @@ import { InMemoryUsageTracker, getUtcDateKey } from '../src/lib/ai/usage.ts';
 import { InMemoryRateLimiter } from '../src/lib/ai/rate-limit.ts';
 import { InMemoryTelemetryRecorder } from '../src/lib/ai/telemetry.ts';
 import { estimateRequestResponseTokens } from '../src/lib/ai/token-estimator.ts';
+
+import { extractAndParseJson } from '../src/lib/ai/json-extractor.ts';
 import { AIRouterGenerationProvider } from '../src/lib/editorial/generation/providers/ai-router.ts';
+import { AIRouterReviewProvider } from '../src/lib/editorial/review/providers/ai-router.ts';
 import { runGenerationPipeline } from '../src/lib/editorial/generation/runner.ts';
 import type { AIRequest, IAIProvider } from '../src/lib/ai/types.ts';
 import type { GenerationRequest } from '../src/lib/editorial/generation/types.ts';
+
 
 const baseRequest: AIRequest = {
   prompt: 'Write an editorial guide on intentional digital habits in 2026.',
@@ -992,4 +996,280 @@ test('32. TPM: Auto-wait does not create an unbounded retry loop if capacity rem
     assert.equal(result.error.code, 'RATE_LIMIT');
   }
 });
+
+test('33. extractAndParseJson: Robustly extracts JSON across diverse LLM formatting styles', () => {
+  // Pure JSON
+  const raw1 = '{"title": "Test Title", "count": 42}';
+  assert.deepEqual(extractAndParseJson(raw1), { title: 'Test Title', count: 42 });
+
+  // Markdown codeblock with ```json
+  const raw2 = '```json\n{\n  "title": "Wrapped Title",\n  "active": true\n}\n```';
+  assert.deepEqual(extractAndParseJson(raw2), { title: 'Wrapped Title', active: true });
+
+  // Markdown codeblock without language specifier ```
+  const raw3 = '```\n{\n  "name": "Generic Fence"\n}\n```';
+  assert.deepEqual(extractAndParseJson(raw3), { name: 'Generic Fence' });
+
+  // Conversational preamble + markdown fence + postamble
+  const raw4 = `Here is the requested JSON representation:\n\n\`\`\`json\n{\n  "status": "ready",\n  "score": 95\n}\n\`\`\`\n\nHope this helps your workflow!`;
+  assert.deepEqual(extractAndParseJson(raw4), { status: 'ready', score: 95 });
+
+  // Conversational preamble and postamble around raw JSON object
+  const raw5 = `Sure, here is the object:\n{"key": "value", "items": [1, 2, 3]}\nLet me know if you need changes.`;
+  assert.deepEqual(extractAndParseJson(raw5), { key: 'value', items: [1, 2, 3] });
+
+  // Trailing commas in objects and arrays
+  const raw6 = '{\n  "title": "Trailing Comma",\n  "tags": ["a", "b", ],\n}';
+  assert.deepEqual(extractAndParseJson(raw6), { title: 'Trailing Comma', tags: ['a', 'b'] });
+
+  // Array candidate extraction
+  const raw7 = 'Here is the array:\n[{"id": 1}, {"id": 2}]\nEnjoy!';
+  assert.deepEqual(extractAndParseJson(raw7), [{ id: 1 }, { id: 2 }]);
+});
+
+test('34. extractAndParseJson: Throws clean descriptive error on unrecoverable non-JSON input', () => {
+  assert.throws(
+    () => extractAndParseJson(''),
+    /Cannot parse JSON from empty/
+  );
+  assert.throws(
+    () => extractAndParseJson('This is completely plain prose with no braces or JSON structure at all.'),
+    /Failed to extract valid JSON/
+  );
+});
+
+test('35. GroqProvider: Recovers from HTTP 400 "Failed to generate JSON" via bounded fallback retry without response_format', async () => {
+  let callCount = 0;
+  const requestsMade: any[] = [];
+
+  const mockFetch: typeof fetch = async (_input, init) => {
+    callCount++;
+    const body = JSON.parse(init?.body as string);
+    requestsMade.push(body);
+
+    if (callCount === 1) {
+      // First attempt with response_format fails with Groq's known error
+      return new Response(
+        JSON.stringify({
+          error: {
+            message: 'Failed to generate JSON. Please adjust your prompt.',
+            type: 'invalid_request_error',
+            code: null,
+          },
+        }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Fallback retry without response_format succeeds
+    return new Response(
+      JSON.stringify({
+        choices: [
+          {
+            message: {
+              content: '```json\n{\n  "title": "Recovered Article Title",\n  "slug": "recovered-title"\n}\n```',
+            },
+          },
+        ],
+        usage: { prompt_tokens: 150, completion_tokens: 45, total_tokens: 195 },
+      }),
+      { status: 200, headers: { 'Content-Type': 'application/json' } }
+    );
+  };
+
+  const provider = new GroqProvider({
+    apiKey: 'gsk-mock-key',
+    defaultModel: 'openai/gpt-oss-20b',
+    fetchFn: mockFetch,
+  });
+
+  const response = await provider.generate({
+    prompt: 'Generate an article package in JSON format.',
+    taskType: 'content_generation',
+    responseFormat: 'json',
+  });
+
+  assert.equal(callCount, 2, 'Should have made initial attempt and one fallback retry');
+  assert.deepEqual(requestsMade[0].response_format, { type: 'json_object' });
+  assert.equal(requestsMade[1].response_format, undefined, 'Fallback retry must omit response_format');
+  assert.ok(response.text.includes('Recovered Article Title'));
+  assert.equal(response.inputTokens, 150);
+  assert.equal(response.outputTokens, 45);
+});
+
+test('36. GroqProvider: Unrecoverable JSON error is classified as retryable MALFORMED_OUTPUT', async () => {
+  let callCount = 0;
+
+  const mockFetch: typeof fetch = async () => {
+    callCount++;
+    return new Response(
+      JSON.stringify({
+        error: {
+          message: 'Failed to generate JSON. Please adjust your prompt.',
+          type: 'invalid_request_error',
+        },
+      }),
+      { status: 400, headers: { 'Content-Type': 'application/json' } }
+    );
+  };
+
+  const provider = new GroqProvider({
+    apiKey: 'gsk-mock-key',
+    fetchFn: mockFetch,
+  });
+
+  try {
+    await provider.generate({
+      prompt: 'Invalid prompt structure',
+      taskType: 'content_generation',
+      responseFormat: 'json',
+    });
+    assert.fail('Should have thrown an error');
+  } catch (err: any) {
+    assert.equal(err.code, 'MALFORMED_OUTPUT');
+    assert.equal(err.retryable, true, 'JSON grammar failure must be retryable for AI Router failover');
+    assert.ok(err.message.includes('Failed to generate JSON'));
+  }
+});
+
+test('37. GroqProvider: Standard client errors remain non-retryable INVALID_REQUEST', async () => {
+  const mockFetch: typeof fetch = async () => {
+    return new Response(
+      JSON.stringify({
+        error: {
+          message: 'Model "unknown-model-xyz" does not exist.',
+          type: 'invalid_request_error',
+        },
+      }),
+      { status: 400, headers: { 'Content-Type': 'application/json' } }
+    );
+  };
+
+  const provider = new GroqProvider({
+    apiKey: 'gsk-mock-key',
+    fetchFn: mockFetch,
+  });
+
+  try {
+    await provider.generate({
+      prompt: 'Simple test prompt',
+      taskType: 'content_generation',
+    });
+    assert.fail('Should have thrown an error');
+  } catch (err: any) {
+    assert.equal(err.code, 'INVALID_REQUEST');
+    assert.equal(err.retryable, false);
+  }
+});
+
+test('38. AIRouter: Fails over to fallback provider when primary provider returns unrecoverable JSON error', async () => {
+  const failingGroq = new GroqProvider({
+    apiKey: 'gsk-mock-key',
+    fetchFn: async () => {
+      return new Response(
+        JSON.stringify({
+          error: {
+            message: 'Failed to generate JSON. Please adjust your prompt.',
+          },
+        }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    },
+  });
+
+  const backupGemini = new AIRouterFixtureProvider({
+    id: 'gemini',
+    defaultModel: 'gemini-2.5-flash',
+  });
+
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['groq', 'gemini'],
+      gemini: { apiKey: 'gem-mock', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
+      groq: { apiKey: 'gsk-mock', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000 },
+      router: { timeoutMs: 5000, maxAttempts: 2, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers: new Map<any, any>([
+      ['groq', failingGroq],
+      ['gemini', backupGemini],
+    ]),
+  });
+
+  const result = await router.route({
+    prompt: 'Generate article package',
+    taskType: 'content_generation',
+    responseFormat: 'json',
+    validateJson: true,
+  });
+
+  assert.equal(result.success, true, 'AI Router should failover to Gemini and succeed');
+  if (result.success) {
+    assert.equal(result.provider, 'gemini');
+    assert.equal(result.attempts.length, 2);
+    assert.equal(result.attempts[0].provider, 'groq');
+    assert.equal(result.attempts[0].success, false);
+    assert.equal(result.attempts[0].error?.code, 'MALFORMED_OUTPUT');
+    assert.equal(result.attempts[1].provider, 'gemini');
+    assert.equal(result.attempts[1].success, true);
+  }
+});
+
+test('39. AIRouterReviewProvider: Parses wrapped review JSON and extracts structured dimensions', async () => {
+  const mockReviewResponse = `\`\`\`json
+{
+  "overallScore": 92,
+  "dimensions": {
+    "factuality": { "score": 95, "rationale": "Well cited.", "issues": [] },
+    "usefulness": { "score": 90, "rationale": "Actionable.", "issues": [] }
+  },
+  "criticalIssues": [],
+  "warnings": ["Consider adding 1 more source."]
+}
+\`\`\``;
+
+  const mockProvider = new AIRouterFixtureProvider({
+    id: 'groq',
+    defaultModel: 'openai/gpt-oss-20b',
+  });
+  mockProvider.generate = async () => ({
+    text: mockReviewResponse,
+    provider: 'groq',
+    model: 'openai/gpt-oss-20b',
+    durationMs: 120,
+  });
+
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['groq'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
+      groq: { apiKey: 'gsk-mock', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000 },
+      router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers: new Map([['groq', mockProvider]]),
+  });
+
+  const reviewProvider = new AIRouterReviewProvider(router);
+  const reviewResult = await reviewProvider.review({
+    topicId: 'lm-test-topic',
+    pillar: 'tech-ai',
+    format: 'guide',
+    audience: 'General',
+    primaryIntent: 'informational',
+    riskLevel: 'low',
+    affiliateIntent: false,
+    sources: [],
+    internalLinks: [],
+    title: 'Test Article Title',
+    description: 'Test article description of sufficient length for review testing.',
+    excerpt: 'Test excerpt',
+    content: '## Heading One\n\nSubstantive content paragraph.\n\n## Heading Two\n\nAnother substantive paragraph.',
+  });
+
+  assert.equal(reviewResult.overallScore, 92);
+  assert.equal(reviewResult.dimensions.factuality?.score, 95);
+  assert.deepEqual(reviewResult.warnings, ['Consider adding 1 more source.']);
+  assert.equal(reviewResult.metadata?.provider, 'groq');
+});
+
+
 

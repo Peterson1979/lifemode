@@ -44,6 +44,12 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
       '8. Natural Editorial Prose & Zero Filler: Never use repetitive padding or circular fluff; ensure every sentence provides genuine editorial value.',
       '9. Do NOT blindly rewrite everything from scratch; preserve strong, high-signal sections while surgically repairing weaknesses.',
       '10. Deliver a complete, publishable article package strictly conforming to the required JSON schema.',
+      '',
+      '### Critical JSON Output Rules:',
+      '- Respond ONLY with a single valid JSON object.',
+      '- Do NOT wrap the output in markdown code blocks or backticks (do NOT use ```json or ```).',
+      '- Do NOT include any conversational preamble, commentary, or postamble.',
+      '- Start your response immediately with "{" and end with "}".',
     ];
 
     if (isHighRisk) {
@@ -123,8 +129,7 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
       origArt.content,
       '',
       `### Required Output Format:`,
-      `Provide the complete, revised structured JSON object matching this schema:`,
-      '```json',
+      `Provide the complete, revised structured JSON object matching this schema (do NOT wrap with markdown backticks; start directly with { and end with }):`,
       '{',
       '  "title": "Polished Article Title",',
       '  "slug": "url-friendly-slug",',
@@ -140,8 +145,7 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
       '  "internalLinks": ["/pillar/related-article"],',
       '  "affiliateIntents": ["category or product mention"],',
       '  "socialHooks": ["Short punchy hook for social posts"]',
-      '}',
-      '```'
+      '}'
     );
 
     const userPrompt = userPromptParts.join('\n');
@@ -168,6 +172,12 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
     '5. Factuality & Evidence Grounding: Ground all specific facts, statistics, venue details, and technical capabilities in the verified evidence supplied. Never hallucinate fake URLs, citations, or unverified claims. Use the provided evidence sources in your sources array.',
     '6. Search & Reader Intent: Satisfy primary search intent and reader curiosity with practical, high-value takeaways and aesthetic intentionality.',
     '7. JSON Schema Conformance: The full, unabbreviated Markdown article body must be provided in the "content" field. Do not compress or truncate content to fit JSON.',
+    '',
+    '### Critical JSON Output Rules:',
+    '- Respond ONLY with a single valid JSON object.',
+    '- Do NOT wrap the output in markdown code blocks or backticks (do NOT use ```json or ```).',
+    '- Do NOT include any conversational preamble, commentary, or postamble.',
+    '- Start your response immediately with "{" and end with "}".',
   ];
 
   if (isHighRisk) {
@@ -291,8 +301,7 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
   userPromptParts.push(
     '',
     `### Required Output Format:`,
-    `Provide a structured JSON object conforming to the following structure:`,
-    '```json',
+    `Provide a structured JSON object conforming to the following structure (do NOT wrap with markdown backticks; start directly with { and end with }):`,
     '{',
     '  "title": "Article Title",',
     '  "slug": "url-friendly-slug",',
@@ -308,8 +317,7 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
     '  "internalLinks": ["/pillar/related-article"],',
     '  "affiliateIntents": ["category or product mention"],',
     '  "socialHooks": ["Short punchy hook for social posts"]',
-    '}',
-    '```'
+    '}'
   );
 
   const userPrompt = userPromptParts.join('\n');

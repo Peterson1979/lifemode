@@ -5,6 +5,7 @@ import { AIRouter, defaultAIRouter } from '../../../ai/router.ts';
 import type { AIRequest } from '../../../ai/types.ts';
 
 import { sanitizeArticleContent } from '../../sanitization.ts';
+import { extractAndParseJson } from '../../../ai/json-extractor.ts';
 
 /**
  * Adapter that connects the Editorial Generation Runner to the AI Router.
@@ -20,18 +21,12 @@ export class AIRouterGenerationProvider implements IGenerationProvider {
   }
 
   /**
-   * Cleans JSON markdown fences and parses the response into a structured article package.
+   * Cleans JSON and parses the response into a structured article package.
    */
   private parseGeneratedJson(rawText: string): GeneratedArticle {
-    let clean = rawText.trim();
-    if (clean.startsWith('```json')) {
-      clean = clean.replace(/^```json\s*/, '').replace(/```\s*$/, '');
-    } else if (clean.startsWith('```')) {
-      clean = clean.replace(/^```\s*/, '').replace(/```\s*$/, '');
-    }
-
-    const parsed = JSON.parse(clean);
+    const parsed = extractAndParseJson<any>(rawText);
     const rawContent = parsed.content || '';
+
     const { cleanContent, extractedMetadata } = sanitizeArticleContent(rawContent);
 
     const internalLinks = Array.isArray(parsed.internalLinks) && parsed.internalLinks.length > 0

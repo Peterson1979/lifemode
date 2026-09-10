@@ -3,6 +3,7 @@ import type { ReviewRequest } from '../types.ts';
 import { buildReviewPrompt } from '../prompt.ts';
 import { AIRouter, defaultAIRouter } from '../../../ai/router.ts';
 import type { AIRequest } from '../../../ai/types.ts';
+import { extractAndParseJson } from '../../../ai/json-extractor.ts';
 
 /**
  * Adapter bridging the AI Quality Reviewer to the AI Router subsystem.
@@ -18,20 +19,13 @@ export class AIRouterReviewProvider implements IAIReviewProvider {
   }
 
   /**
-   * Cleans JSON markdown fences and parses the response into a structured raw review package.
+   * Cleans JSON and parses the response into a structured raw review package.
    */
   private parseReviewJson(rawText: string): RawAIReviewResponse {
-    let clean = rawText.trim();
-    if (clean.startsWith('```json')) {
-      clean = clean.replace(/^```json\s*/, '').replace(/```\s*$/, '');
-    } else if (clean.startsWith('```')) {
-      clean = clean.replace(/^```\s*/, '').replace(/```\s*$/, '');
-    }
-
-    const parsed = JSON.parse(clean);
+    const parsed = extractAndParseJson<any>(rawText);
     return {
-      overallScore: parsed.overallScore,
-      dimensions: parsed.dimensions,
+      overallScore: typeof parsed.overallScore === 'number' ? parsed.overallScore : 0,
+      dimensions: parsed.dimensions || {},
       criticalIssues: Array.isArray(parsed.criticalIssues) ? parsed.criticalIssues : [],
       warnings: Array.isArray(parsed.warnings) ? parsed.warnings : [],
     };

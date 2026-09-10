@@ -14,6 +14,8 @@ import { defaultUsageTracker, type IUsageTracker } from './usage.ts';
 import { defaultRateLimiter, type IRateLimiter } from './rate-limit.ts';
 import { defaultTelemetryRecorder, type ITelemetryRecorder } from './telemetry.ts';
 import { estimateRequestResponseTokens, estimateRequestTokens } from './token-estimator.ts';
+import { extractAndParseJson } from './json-extractor.ts';
+
 
 export interface AIRouterOptions {
   config?: AIConfig;
@@ -269,14 +271,8 @@ export class AIRouter {
 
         // Validate JSON structure if expected
         if (request.responseFormat === 'json' || request.validateJson) {
-          let clean = response.text.trim();
-          if (clean.startsWith('```json')) {
-            clean = clean.replace(/^```json\s*/, '').replace(/```\s*$/, '');
-          } else if (clean.startsWith('```')) {
-            clean = clean.replace(/^```\s*/, '').replace(/```\s*$/, '');
-          }
           try {
-            JSON.parse(clean);
+            extractAndParseJson(response.text);
           } catch (jsonErr: any) {
             const malformedError: AIProviderError = {
               code: 'MALFORMED_OUTPUT',
@@ -288,6 +284,7 @@ export class AIRouter {
             throw malformedError;
           }
         }
+
 
         // Calculate / reconcile token usage
         let inputTokens = response.inputTokens;
@@ -386,14 +383,9 @@ export class AIRouter {
             const retryDuration = Math.max(1, Date.now() - retryStart);
 
             if (request.responseFormat === 'json' || request.validateJson) {
-              let clean = retryResponse.text.trim();
-              if (clean.startsWith('```json')) {
-                clean = clean.replace(/^```json\s*/, '').replace(/```\s*$/, '');
-              } else if (clean.startsWith('```')) {
-                clean = clean.replace(/^```\s*/, '').replace(/```\s*$/, '');
-              }
-              JSON.parse(clean);
+              extractAndParseJson(retryResponse.text);
             }
+
 
             let inputTokens = retryResponse.inputTokens;
             let outputTokens = retryResponse.outputTokens;

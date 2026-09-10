@@ -33,6 +33,12 @@ export function buildReviewPrompt(request: ReviewRequest): ReviewPromptPayload {
     '8. editorialFit: Contemporary LifeMode tone (smart, intentional, aesthetic, calm, global English).',
     '9. safety: Cautious language, appropriate caveats, no medical/financial guarantees or dangerous guidance.',
     '10. monetizationFit: If commercial/affiliate intents exist, they must be subtle and secondary to editorial value.',
+    '',
+    '### Critical JSON Output Rules:',
+    '- Respond ONLY with a single valid JSON object.',
+    '- Do NOT wrap the output in markdown code blocks or backticks (do NOT use ```json or ```).',
+    '- Do NOT include conversational text, notes, or Markdown fences outside the JSON object.',
+    '- Start your response immediately with "{" and end with "}".',
   ];
 
   if (isHighRisk) {
@@ -95,8 +101,7 @@ export function buildReviewPrompt(request: ReviewRequest): ReviewPromptPayload {
     `--- End of Content Body ---`,
     '',
     `### Required Output Format:`,
-    `Return ONLY a valid JSON object matching this schema:`,
-    '```json',
+    `Return ONLY a single valid raw JSON object matching this schema (do NOT wrap with markdown backticks; start directly with { and end with }):`,
     '{',
     '  "overallScore": 88,',
     '  "dimensions": {',
@@ -113,8 +118,7 @@ export function buildReviewPrompt(request: ReviewRequest): ReviewPromptPayload {
     '  },',
     '  "criticalIssues": [],',
     '  "warnings": []',
-    '}',
-    '```'
+    '}'
   );
 
   const userPrompt = userPromptParts.join('\n');

@@ -3,6 +3,7 @@ import type { SocialReviewResult } from '../../types.ts';
 import { buildSocialReviewPrompt } from '../prompt.ts';
 import { AIRouter, defaultAIRouter } from '../../../ai/router.ts';
 import type { AIRequest } from '../../../ai/types.ts';
+import { extractAndParseJson } from '../../../ai/json-extractor.ts';
 
 export class AIRouterSocialReviewProvider implements ISocialReviewProvider {
   readonly name = 'AI Router Social Review Provider';
@@ -58,15 +59,9 @@ export class AIRouterSocialReviewProvider implements ISocialReviewProvider {
         };
       }
 
-      let clean = result.response.text.trim();
-      if (clean.startsWith('```json')) {
-        clean = clean.replace(/^```json\s*/, '').replace(/```\s*$/, '');
-      } else if (clean.startsWith('```')) {
-        clean = clean.replace(/^```\s*/, '').replace(/```\s*$/, '');
-      }
-
-      const parsed = JSON.parse(clean);
+      const parsed = extractAndParseJson<any>(result.response.text);
       const score = typeof parsed.score === 'number' ? parsed.score : 80;
+
       const verdict = parsed.verdict || (score >= 80 ? 'PASS' : score >= 60 ? 'REVISE' : 'REJECT');
 
       return {

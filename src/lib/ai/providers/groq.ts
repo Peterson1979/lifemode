@@ -1,5 +1,6 @@
 import type { IAIProvider, AIRequest, AIResponse, AIProviderError } from '../types.ts';
 import { loadAIConfig } from '../config.ts';
+import { extractAndParseJson } from '../json-extractor.ts';
 
 export interface GroqProviderOptions {
   apiKey?: string;
@@ -137,50 +138,86 @@ export class GroqProvider implements IAIProvider {
       // Sanitize Bearer tokens or sensitive headers from error messages
       const sanitizedMsg = rawMsg.replace(/Bearer\s+[A-Za-z0-9._-]+/gi, 'Bearer REDACTED');
 
-      let code: AIProviderError['code'] = 'PROVIDER_ERROR';
-      let retryable = true;
-      let retryAfterMs: number | undefined;
+      // If Groq rejected response_format: { type: 'json_object' } with "Failed to generate JSON. Please adjust your prompt."
+      // attempt a single bounded fallback retry without response_format, allowing prompt-guided JSON generation
+      const isJsonGrammarFailure = status === 400 &&
+        Boolean(body.response_format) &&
+        (sanitizedMsg.toLowerCase().includes('failed to generate json') || sanitizedMsg.toLowerCase().includes('json'));
 
-      if (status === 401 || status === 403) {
-        code = 'AUTH';
-        retryable = false;
-      } else if (status === 429) {
-        code = sanitizedMsg.toLowerCase().includes('quota') ? 'QUOTA' : 'RATE_LIMIT';
-        retryable = true;
+      if (isJsonGrammarFailure && !controller.signal.aborted) {
+        const fallbackBody = { ...body };
+        delete fallbackBody.response_format;
 
-        const retryAfterHeader = response.headers?.get ? response.headers.get('retry-after') : null;
-        if (retryAfterHeader) {
-          const seconds = parseFloat(retryAfterHeader);
-          if (!isNaN(seconds) && seconds > 0) {
-            retryAfterMs = Math.ceil(seconds * 1000);
+        try {
+          const fallbackResponse = await this.fetchFn(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${this.apiKey}`,
+            },
+            body: JSON.stringify(fallbackBody),
+            signal: controller.signal,
+          });
+
+          if (fallbackResponse.ok) {
+            response = fallbackResponse;
           }
+        } catch {
+          // If fallback network/timeout fails, fall through to error handling
         }
-        if (!retryAfterMs) {
-          const match = sanitizedMsg.match(/try again in ([0-9.]+)s/i);
-          if (match) {
-            const seconds = parseFloat(match[1]);
+      }
+
+      if (!response.ok) {
+        let code: AIProviderError['code'] = 'PROVIDER_ERROR';
+        let retryable = true;
+        let retryAfterMs: number | undefined;
+
+        if (status === 401 || status === 403) {
+          code = 'AUTH';
+          retryable = false;
+        } else if (status === 429) {
+          code = sanitizedMsg.toLowerCase().includes('quota') ? 'QUOTA' : 'RATE_LIMIT';
+          retryable = true;
+
+          const retryAfterHeader = response.headers?.get ? response.headers.get('retry-after') : null;
+          if (retryAfterHeader) {
+            const seconds = parseFloat(retryAfterHeader);
             if (!isNaN(seconds) && seconds > 0) {
               retryAfterMs = Math.ceil(seconds * 1000);
             }
           }
+          if (!retryAfterMs) {
+            const match = sanitizedMsg.match(/try again in ([0-9.]+)s/i);
+            if (match) {
+              const seconds = parseFloat(match[1]);
+              if (!isNaN(seconds) && seconds > 0) {
+                retryAfterMs = Math.ceil(seconds * 1000);
+              }
+            }
+          }
+        } else if (status === 400) {
+          if (sanitizedMsg.toLowerCase().includes('failed to generate json') || sanitizedMsg.toLowerCase().includes('json')) {
+            code = 'MALFORMED_OUTPUT';
+            retryable = true;
+          } else {
+            code = 'INVALID_REQUEST';
+            retryable = false;
+          }
+        } else if (status >= 500) {
+          code = 'PROVIDER_ERROR';
+          retryable = true;
         }
-      } else if (status === 400) {
-        code = 'INVALID_REQUEST';
-        retryable = false;
-      } else if (status >= 500) {
-        code = 'PROVIDER_ERROR';
-        retryable = true;
-      }
 
-      const providerError: AIProviderError = {
-        code,
-        message: `Groq API returned HTTP ${status}: ${sanitizedMsg}`,
-        provider: this.id,
-        retryable,
-        statusCode: status,
-        retryAfterMs,
-      };
-      throw providerError;
+        const providerError: AIProviderError = {
+          code,
+          message: `Groq API returned HTTP ${status}: ${sanitizedMsg}`,
+          provider: this.id,
+          retryable,
+          statusCode: status,
+          retryAfterMs,
+        };
+        throw providerError;
+      }
     }
 
     let data: any;
@@ -202,15 +239,8 @@ export class GroqProvider implements IAIProvider {
 
     // Validate structured JSON if expected
     if (isJsonExpected || request.validateJson) {
-      let clean = text.trim();
-      if (clean.startsWith('```json')) {
-        clean = clean.replace(/^```json\s*/, '').replace(/```\s*$/, '');
-      } else if (clean.startsWith('```')) {
-        clean = clean.replace(/^```\s*/, '').replace(/```\s*$/, '');
-      }
-
       try {
-        JSON.parse(clean);
+        extractAndParseJson(text);
       } catch (jsonErr: any) {
         const error: AIProviderError = {
           code: 'MALFORMED_OUTPUT',
@@ -240,3 +270,4 @@ export class GroqProvider implements IAIProvider {
     };
   }
 }
+
