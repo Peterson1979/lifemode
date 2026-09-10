@@ -14,6 +14,7 @@
     "discover": "node scripts/run-discovery.ts",
     "editorial:automation": "node scripts/run-editorial-automation.ts",
     "editorial:scheduled": "node scripts/run-scheduled-automation.ts",
+    "social:automation": "node scripts/run-social-automation.ts",
     "astro": "astro"
   },
   "dependencies": {

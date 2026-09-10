@@ -9,6 +9,7 @@ import type {
 } from './types.ts';
 import { GitCli } from '../git-publisher/git-cli.ts';
 import { loadGitPublisherConfig } from '../git-publisher/config.ts';
+import { loadSocialConfig, runSocialPipeline, type SocialAutomationResult } from '../../social/index.ts';
 
 /**
  * Executes a production-safe Scheduled Editorial Automation run.
@@ -52,7 +53,8 @@ export async function runScheduledEditorialAutomation(
     pushedToRemote: boolean,
     summary: string,
     fatalError?: string,
-    automationResult?: any
+    automationResult?: any,
+    socialResult?: any
   ): ScheduledAutomationResult => {
     const completedAt = new Date().toISOString();
     const durationMs = Math.max(1, Date.now() - startTime);
@@ -79,6 +81,7 @@ export async function runScheduledEditorialAutomation(
       summary,
       fatalError,
       automationResult,
+      socialResult,
       jsonResult: {
         runId,
         startedAt,
@@ -89,6 +92,7 @@ export async function runScheduledEditorialAutomation(
         counts,
         pushedToRemote,
         fatalError,
+        social: socialResult,
       },
     };
   };
@@ -262,7 +266,29 @@ export async function runScheduledEditorialAutomation(
       }
     }
 
-    // 6. Determine top-level ScheduledStatus
+    // 6. Optional Social Automation Pipeline stage
+    let socialResult: SocialAutomationResult | undefined;
+    const socialConfig = loadSocialConfig({
+      ...options.socialOptions,
+      enabled: options.socialEnabled ?? options.socialOptions?.enabled,
+    });
+
+    if (socialConfig.enabled) {
+      try {
+        socialResult = await runSocialPipeline({
+          config: {
+            ...socialConfig,
+            dryRun: options.dryRun !== undefined ? options.dryRun : socialConfig.dryRun,
+          },
+          storagePath: options.storagePath,
+        });
+      } catch (socialErr: any) {
+        // Failure isolation: social exception does not fail the scheduled editorial run
+        console.error('[Social Automation Pipeline Notice]', socialErr?.message || socialErr);
+      }
+    }
+
+    // 7. Determine top-level ScheduledStatus
     let scheduledStatus: ScheduledStatus;
     if (automationResult.status === 'FAILED') {
       scheduledStatus = 'FAILED';
@@ -276,13 +302,19 @@ export async function runScheduledEditorialAutomation(
       scheduledStatus = 'FAILED';
     }
 
-    const summaryText = [
+    const summaryParts = [
       `Scheduled Editorial Run: [${scheduledStatus}]`,
       `Duration: ${Math.max(1, Date.now() - startTime)}ms`,
       `Processed: ${counts.processed} (Succeeded: ${counts.succeeded}, Rejected: ${counts.rejected}, Published: ${counts.published})`,
       `Push to Remote: ${pushedToRemote ? 'COMPLETED' : 'SKIPPED'}`,
       `\nPipeline Details:\n${automationResult.summary}`,
-    ].join('\n');
+    ];
+
+    if (socialResult) {
+      summaryParts.push(`\nSocial Automation Details:\n${socialResult.summary}`);
+    }
+
+    const summaryText = summaryParts.join('\n');
 
     return buildResult(
       scheduledStatus,
@@ -290,10 +322,12 @@ export async function runScheduledEditorialAutomation(
       pushedToRemote,
       summaryText,
       automationResult.error?.message,
-      automationResult
+      automationResult,
+      socialResult
     );
   } finally {
-    // 7. Ensure execution lock is always released
+    // 8. Ensure execution lock is always released
     await lockHandle.release();
   }
 }
+

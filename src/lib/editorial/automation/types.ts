@@ -174,6 +174,8 @@ export type ScheduledStatus =
   | 'SUCCESS_NO_PUBLICATION'
   | 'FAILED';
 
+import type { SocialAutomationResult, SocialAutomationConfig } from '../../social/index.ts';
+
 /**
  * Options and overrides for Scheduled Editorial Automation.
  */
@@ -183,6 +185,8 @@ export interface ScheduledAutomationOptions extends AutomationRequest {
   staleLockTimeoutMs?: number;
   gitRemote?: string;
   gitBranch?: string;
+  socialEnabled?: boolean;
+  socialOptions?: Partial<SocialAutomationConfig>;
 }
 
 /**
@@ -194,6 +198,8 @@ export interface ScheduledAutomationConfig extends AutomationConfig {
   gitRemote: string;
   gitBranch: string;
   lockPath?: string;
+  socialEnabled?: boolean;
+  socialOptions?: Partial<SocialAutomationConfig>;
 }
 
 /**
@@ -221,6 +227,7 @@ export interface ScheduledAutomationResult {
   summary: string;
   fatalError?: string;
   automationResult?: AutomationResult;
+  socialResult?: SocialAutomationResult;
   jsonResult: {
     runId: string;
     startedAt: string;
@@ -243,6 +250,7 @@ export interface ScheduledAutomationResult {
     };
     pushedToRemote: boolean;
     fatalError?: string;
+    social?: SocialAutomationResult;
   };
 }
 
