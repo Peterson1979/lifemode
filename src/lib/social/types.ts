@@ -161,6 +161,20 @@ export interface SocialManifestEntry {
 }
 
 /**
+ * Detailed report for controlled storage-test execution.
+ */
+export interface StorageTestDetails {
+  r2ProviderUsed: 'REAL' | 'FIXTURE';
+  objectKey?: string;
+  publicUrl?: string;
+  facebookPreparation: 'SUCCESS' | 'FAIL';
+  instagramPreparation: 'SUCCESS' | 'FAIL';
+  pinterestPreparation: 'SUCCESS' | 'FAIL';
+  externalPublication: 'SKIPPED';
+  gitCommitPush: 'SKIPPED';
+}
+
+/**
  * Aggregate summary emitted by the social automation pipeline.
  */
 export interface SocialAutomationResult {
@@ -180,4 +194,5 @@ export interface SocialAutomationResult {
   manifestEntries: SocialManifestEntry[];
   summary: string;
   error?: string;
+  storageTestDetails?: StorageTestDetails;
 }

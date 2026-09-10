@@ -10,6 +10,10 @@ async function main() {
   const isFixture = args.includes('--fixture');
   const isExplicitDryRun = args.includes('--dry-run');
   const isAccelerate = args.includes('--accelerate') || args.includes('--acceleration');
+  const isSocial = args.includes('--social') || args.includes('--social-enabled');
+  const isSocialPublish = args.includes('--social-publish');
+  const isSocialDryRun = args.includes('--social-dry-run');
+  const isSocialStorageTest = args.includes('--social-storage-test') || args.includes('--storage-test');
 
   let maxOpportunities: number | undefined;
   const maxArg = args.find((a) => a.startsWith('--max='));
@@ -17,6 +21,15 @@ async function main() {
     const val = parseInt(maxArg.split('=')[1], 10);
     if (!isNaN(val) && val > 0) {
       maxOpportunities = val;
+    }
+  }
+
+  let socialMax: number | undefined;
+  const socialMaxArg = args.find((a) => a.startsWith('--social-max='));
+  if (socialMaxArg) {
+    const val = parseInt(socialMaxArg.split('=')[1], 10);
+    if (!isNaN(val) && val > 0) {
+      socialMax = val;
     }
   }
 
@@ -59,6 +72,16 @@ async function main() {
   if (minScore !== undefined) {
     overrides.minScoreThreshold = minScore;
   }
+  if (isSocial || isSocialStorageTest) {
+    overrides.socialEnabled = true;
+    overrides.socialOptions = {
+      enabled: true,
+      storageTest: isSocialStorageTest,
+      allowPublish: isSocialPublish && !isSocialStorageTest,
+      dryRun: isSocialDryRun || isSocialStorageTest || !isSocialPublish,
+      ...(socialMax ? { maxOpportunities: socialMax } : {}),
+    };
+  }
 
   const config = loadScheduledAutomationConfig(overrides);
 
@@ -73,6 +96,15 @@ async function main() {
     console.log(`* Accelerated:    ${config.accelerationEnabled ? 'YES (Initial Content Build Mode)' : 'NO (Standard Schedule)'}`);
     console.log(`* Max Selection:  ${config.maxOpportunities}`);
     console.log(`* Min Score:      ${config.minScoreThreshold}`);
+    if (overrides.socialEnabled) {
+      if (isSocialStorageTest) {
+        console.log(`* Social Pipeline: STORAGE TEST (Real R2, Zero Publishing)`);
+      } else {
+        console.log(`* Social Pipeline: ENABLED (Publish: ${isSocialPublish ? 'YES' : 'NO (Dry-Run)'}, Max: ${socialMax || 3})`);
+      }
+    } else {
+      console.log(`* Social Pipeline: DISABLED`);
+    }
     console.log('----------------------------------------------------\n');
   }
 

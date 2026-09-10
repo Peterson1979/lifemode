@@ -4,6 +4,7 @@ async function main() {
   const args = process.argv.slice(2);
 
   const isJson = args.includes('--json');
+  const isStorageTest = args.includes('--storage-test');
   const isLivePublish = args.includes('--publish') || args.includes('--live');
   const isRouter = args.includes('--router') || args.includes('--ai-router');
   const isFixture = args.includes('--fixture');
@@ -31,19 +32,33 @@ async function main() {
     enabled: true,
   };
 
-  if (isLivePublish) {
-    overrides.allowPublish = true;
-    overrides.dryRun = false;
-  }
-  if (isExplicitDryRun) {
+  if (isStorageTest) {
+    overrides.storageTest = true;
     overrides.dryRun = true;
     overrides.allowPublish = false;
+    if (!isRouter) {
+      overrides.providerMode = 'fixture';
+    }
+    overrides.imageProviderMode = 'fixture';
+    if (maxOpportunities === undefined) {
+      overrides.maxOpportunities = 1;
+    }
+  } else {
+    if (isLivePublish) {
+      overrides.allowPublish = true;
+      overrides.dryRun = false;
+    }
+    if (isExplicitDryRun) {
+      overrides.dryRun = true;
+      overrides.allowPublish = false;
+    }
+    if (isRouter) {
+      overrides.providerMode = 'router';
+    } else if (isFixture) {
+      overrides.providerMode = 'fixture';
+    }
   }
-  if (isRouter) {
-    overrides.providerMode = 'router';
-  } else if (isFixture) {
-    overrides.providerMode = 'fixture';
-  }
+
   if (maxOpportunities !== undefined) {
     overrides.maxOpportunities = maxOpportunities;
   }
@@ -55,15 +70,24 @@ async function main() {
 
   if (!isJson) {
     console.log('====================================================');
-    console.log(' LifeMode Social Media Automation V1                ');
+    console.log(isStorageTest ? ' LifeMode Social Storage Test (Controlled R2 Path)' : ' LifeMode Social Media Automation V1                ');
     console.log('====================================================\n');
-    console.log(`* Provider Mode:   ${config.providerMode === 'router' ? 'AI Router (Managed Providers)' : 'Deterministic Fixtures (Offline)'}`);
-    console.log(`* Image Mode:      ${config.imageProviderMode}`);
-    console.log(`* Dry-Run:         ${config.dryRun ? 'YES (Safe Mode - No External API Calls)' : 'NO (Live Execution)'}`);
-    console.log(`* Publish Allowed: ${config.allowPublish ? 'YES' : 'NO'}`);
-    console.log(`* Max Selection:   ${config.maxOpportunities}`);
-    console.log(`* Min Score:       ${config.minScoreThreshold}`);
-    console.log(`* Platforms:       Facebook (${config.credentials.facebook.configured ? 'Configured' : 'NOT_CONFIGURED'}), Instagram (${config.credentials.instagram.configured ? 'Configured' : 'NOT_CONFIGURED'}), Pinterest (${config.credentials.pinterest.configured ? 'Configured' : 'NOT_CONFIGURED'})`);
+    if (isStorageTest) {
+      console.log('* Mode:            CONTROLLED STORAGE TEST (Real R2, Zero Publishing)');
+      console.log('* Storage Provider: REAL (Cloudflare R2 Bucket lifemode-assets)');
+      console.log('* Content Provider: Deterministic Fixture (Zero AI Token Cost)');
+      console.log('* Image Provider:   Deterministic Buffer (Zero Image API Cost)');
+      console.log('* External Publish: STRICTLY DISABLED (Bypassed / Skipped)');
+      console.log('* Git Commit/Push:  STRICTLY DISABLED (Skipped)');
+    } else {
+      console.log(`* Provider Mode:   ${config.providerMode === 'router' ? 'AI Router (Managed Providers)' : 'Deterministic Fixtures (Offline)'}`);
+      console.log(`* Image Mode:      ${config.imageProviderMode}`);
+      console.log(`* Dry-Run:         ${config.dryRun ? 'YES (Safe Mode - No External API Calls)' : 'NO (Live Execution)'}`);
+      console.log(`* Publish Allowed: ${config.allowPublish ? 'YES' : 'NO'}`);
+      console.log(`* Max Selection:   ${config.maxOpportunities}`);
+      console.log(`* Min Score:       ${config.minScoreThreshold}`);
+      console.log(`* Platforms:       Facebook (${config.credentials.facebook.configured ? 'Configured' : 'NOT_CONFIGURED'}), Instagram (${config.credentials.instagram.configured ? 'Configured' : 'NOT_CONFIGURED'}), Pinterest (${config.credentials.pinterest.configured ? 'Configured' : 'NOT_CONFIGURED'})`);
+    }
     console.log('----------------------------------------------------\n');
   }
 

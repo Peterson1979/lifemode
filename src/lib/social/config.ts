@@ -51,6 +51,7 @@ export interface SocialAutomationConfig {
   enabled: boolean;
   dryRun: boolean;
   allowPublish: boolean;
+  storageTest?: boolean;
   maxOpportunities: number;
   minScoreThreshold: number;
   providerMode: 'fixture' | 'router';
@@ -64,17 +65,20 @@ export interface SocialAutomationConfig {
 }
 
 export function loadSocialConfig(overrides: Partial<SocialAutomationConfig> = {}): SocialAutomationConfig {
+  const envStorageTestRaw = getEnvVar('LIFEMODE_SOCIAL_STORAGE_TEST') ?? getEnvVar('SOCIAL_STORAGE_TEST');
+  const storageTest = overrides.storageTest ?? (envStorageTestRaw === 'true');
+
   const envEnabledRaw = getEnvVar('LIFEMODE_SOCIAL_ENABLED') ?? getEnvVar('SOCIAL_AUTOMATION_ENABLED');
-  const enabled = overrides.enabled ?? (envEnabledRaw === 'true');
+  const enabled = overrides.enabled ?? (storageTest || envEnabledRaw === 'true');
 
   const envDryRunRaw = getEnvVar('LIFEMODE_SOCIAL_DRY_RUN') ?? getEnvVar('SOCIAL_AUTOMATION_DRY_RUN');
-  const dryRun = overrides.dryRun ?? (envDryRunRaw !== 'false');
+  const dryRun = overrides.dryRun ?? (storageTest ? true : envDryRunRaw !== 'false');
 
   const envPublishRaw = getEnvVar('LIFEMODE_SOCIAL_PUBLISH') ?? getEnvVar('SOCIAL_AUTOMATION_PUBLISH');
-  const allowPublish = overrides.allowPublish ?? (envPublishRaw === 'true');
+  const allowPublish = overrides.allowPublish ?? (storageTest ? false : envPublishRaw === 'true');
 
   const envMaxOppRaw = getEnvVar('LIFEMODE_SOCIAL_MAX_OPPORTUNITIES') ?? getEnvVar('SOCIAL_MAX_OPPORTUNITIES');
-  const maxOpportunities = overrides.maxOpportunities ?? (envMaxOppRaw ? parseInt(envMaxOppRaw, 10) : 3);
+  const maxOpportunities = overrides.maxOpportunities ?? (envMaxOppRaw ? parseInt(envMaxOppRaw, 10) : (storageTest ? 1 : 3));
 
   const envMinScoreRaw = getEnvVar('LIFEMODE_SOCIAL_MIN_SCORE') ?? getEnvVar('SOCIAL_MIN_SCORE');
   const minScoreThreshold = overrides.minScoreThreshold ?? (envMinScoreRaw ? parseInt(envMinScoreRaw, 10) : 80);
@@ -83,7 +87,7 @@ export function loadSocialConfig(overrides: Partial<SocialAutomationConfig> = {}
   const providerMode = overrides.providerMode ?? (envProvider === 'router' ? 'router' : 'fixture');
 
   const envImageProvider = (getEnvVar('LIFEMODE_SOCIAL_IMAGE_PROVIDER') as any) || 'fixture';
-  const imageProviderMode = overrides.imageProviderMode ?? envImageProvider;
+  const imageProviderMode = overrides.imageProviderMode ?? (storageTest ? 'fixture' : envImageProvider);
 
   const baseUrl = getEnvVar('LIFEMODE_BASE_URL') || 'https://lifemode.com';
   const storageDir = overrides.storageDir || getEnvVar('LIFEMODE_SOCIAL_STORAGE_DIR') || 'data/social';
@@ -111,8 +115,8 @@ export function loadSocialConfig(overrides: Partial<SocialAutomationConfig> = {}
   const r2SecretAccessKey = getEnvVar('R2_SECRET_ACCESS_KEY') || getEnvVar('CLOUDFLARE_R2_SECRET_ACCESS_KEY');
   const r2BucketName = getEnvVar('R2_BUCKET_NAME') || getEnvVar('CLOUDFLARE_R2_BUCKET_NAME');
   const r2PublicBaseUrl = getEnvVar('R2_PUBLIC_BASE_URL') || getEnvVar('CLOUDFLARE_R2_PUBLIC_DOMAIN') || getEnvVar('R2_PUBLIC_DOMAIN');
-  const envStorageProvider = (getEnvVar('LIFEMODE_SOCIAL_STORAGE_PROVIDER') as any) || (r2AccessKeyId && r2SecretAccessKey ? 'r2' : 'fixture');
-  const storageProviderMode = overrides.storageConfig?.provider ?? envStorageProvider;
+  const envStorageProvider = (getEnvVar('LIFEMODE_SOCIAL_STORAGE_PROVIDER') as any) || (storageTest || (r2AccessKeyId && r2SecretAccessKey) ? 'r2' : 'fixture');
+  const storageProviderMode = overrides.storageConfig?.provider ?? (storageTest ? 'r2' : envStorageProvider);
 
   const storageConfig: SocialStorageConfig = {
     provider: storageProviderMode,
@@ -159,7 +163,8 @@ export function loadSocialConfig(overrides: Partial<SocialAutomationConfig> = {}
     enabled,
     dryRun,
     allowPublish,
-    maxOpportunities: isNaN(maxOpportunities) ? 3 : maxOpportunities,
+    storageTest,
+    maxOpportunities: isNaN(maxOpportunities) ? (storageTest ? 1 : 3) : maxOpportunities,
     minScoreThreshold: isNaN(minScoreThreshold) ? 80 : minScoreThreshold,
     providerMode,
     imageProviderMode,

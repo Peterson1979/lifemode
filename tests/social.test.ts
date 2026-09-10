@@ -922,4 +922,215 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
       else delete process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
     }
   });
+
+  await t.test('35. Controlled storage-test mode executes real R2 provider upload, verifies HTTPS URL, runs Facebook, Instagram, and Pinterest preparation, and strictly bypasses publish()', async () => {
+    let r2UploadCalled = false;
+    let r2PutEndpoint = '';
+    let r2Headers: Record<string, string> = {};
+
+    const mockR2Fetch = async (url: string, init?: any) => {
+      r2UploadCalled = true;
+      r2PutEndpoint = url;
+      r2Headers = init?.headers || {};
+      return {
+        ok: true,
+        status: 200,
+        text: async () => '',
+      } as any;
+    };
+
+    let fbPublishCalled = false;
+    let igPublishCalled = false;
+    let pinPublishCalled = false;
+
+    const fbAdapter = new FacebookPlatformAdapter();
+    fbAdapter.publish = async () => {
+      fbPublishCalled = true;
+      throw new Error('Facebook publish() should NEVER be called in storage-test mode');
+    };
+
+    const igAdapter = new InstagramPlatformAdapter();
+    igAdapter.publish = async () => {
+      igPublishCalled = true;
+      throw new Error('Instagram publish() should NEVER be called in storage-test mode');
+    };
+
+    const pinAdapter = new PinterestPlatformAdapter();
+    pinAdapter.publish = async () => {
+      pinPublishCalled = true;
+      throw new Error('Pinterest publish() should NEVER be called in storage-test mode');
+    };
+
+    const customR2Provider = new CloudflareR2SocialAssetStorageProvider({
+      accountId: 'mock-account-id',
+      accessKeyId: 'mock-access-key',
+      secretAccessKey: 'mock-secret-key',
+      bucketName: 'lifemode-assets',
+      publicBaseUrl: 'https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev',
+      customFetch: mockR2Fetch as any,
+    });
+
+    const topic = createMockTopic({ id: 'top-storage-test-1' });
+
+    const result = await runSocialPipeline({
+      candidates: [topic],
+      config: {
+        enabled: true,
+        storageTest: true,
+        storageConfig: {
+          provider: 'r2',
+          accountId: 'mock-account-id',
+          accessKeyId: 'mock-access-key',
+          secretAccessKey: 'mock-secret-key',
+          bucketName: 'lifemode-assets',
+          publicBaseUrl: 'https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev',
+          configured: true,
+        },
+      },
+      storageProvider: customR2Provider,
+      platformAdapters: new Map<SocialPlatform, ISocialPlatformAdapter>([
+        ['facebook', fbAdapter],
+        ['instagram', igAdapter],
+        ['pinterest', pinAdapter],
+      ]),
+    });
+
+    // Verify R2 upload was executed via real R2 provider
+    assert.equal(r2UploadCalled, true);
+    assert.ok(r2PutEndpoint.includes('lifemode-assets'));
+    assert.ok(r2PutEndpoint.includes('mock-account-id.r2.cloudflarestorage.com'));
+    assert.ok(r2Headers['Authorization']?.includes('AWS4-HMAC-SHA256'));
+
+    // Verify all 3 platform publish methods were NEVER called
+    assert.equal(fbPublishCalled, false);
+    assert.equal(igPublishCalled, false);
+    assert.equal(pinPublishCalled, false);
+
+    // Verify result details and report
+    assert.equal(result.status, 'SUCCESS');
+    assert.equal(result.publishedCount, 0);
+    assert.equal(result.succeededCount, 1);
+    assert.equal(result.failedCount, 0);
+    assert.ok(result.storageTestDetails);
+    assert.equal(result.storageTestDetails?.r2ProviderUsed, 'REAL');
+    assert.equal(result.storageTestDetails?.facebookPreparation, 'SUCCESS');
+    assert.equal(result.storageTestDetails?.instagramPreparation, 'SUCCESS');
+    assert.equal(result.storageTestDetails?.pinterestPreparation, 'SUCCESS');
+    assert.equal(result.storageTestDetails?.externalPublication, 'SKIPPED');
+    assert.equal(result.storageTestDetails?.gitCommitPush, 'SKIPPED');
+    assert.ok(result.storageTestDetails?.publicUrl?.startsWith('https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev'));
+
+    // Check summary includes exact required lines
+    assert.ok(result.summary.includes('* R2 provider used:       REAL'));
+    assert.ok(result.summary.includes('* Facebook preparation:   SUCCESS'));
+    assert.ok(result.summary.includes('* Instagram preparation:  SUCCESS'));
+    assert.ok(result.summary.includes('* Pinterest preparation:  SUCCESS'));
+    assert.ok(result.summary.includes('* external publication:   SKIPPED'));
+    assert.ok(result.summary.includes('* git commit/push:        SKIPPED'));
+  });
+
+  await t.test('36. Storage-test mode fails fast with structured error when R2 credentials are not configured', async () => {
+    const unconfiguredR2Provider = new CloudflareR2SocialAssetStorageProvider({
+      accountId: undefined,
+      accessKeyId: undefined,
+      secretAccessKey: undefined,
+      bucketName: undefined,
+      publicBaseUrl: undefined,
+    });
+
+    const result = await runSocialPipeline({
+      config: {
+        storageTest: true,
+        storageConfig: {
+          provider: 'r2',
+          configured: false,
+        },
+      },
+      storageProvider: unconfiguredR2Provider,
+    });
+
+    assert.equal(result.status, 'FAILED');
+    assert.equal(result.failedCount, 1);
+    assert.ok(result.error?.includes('R2_ACCOUNT_ID'));
+    assert.ok(result.summary.includes('* Facebook preparation:   FAIL'));
+  });
+
+  await t.test('37. Storage-test mode fails cleanly when R2 bucket upload fails', async () => {
+    const failingR2Fetch = async () => {
+      return {
+        ok: false,
+        status: 403,
+        text: async () => 'Access Denied: Invalid S3 Signature',
+      } as any;
+    };
+
+    const failingR2Provider = new CloudflareR2SocialAssetStorageProvider({
+      accountId: 'mock-acc',
+      accessKeyId: 'bad-key',
+      secretAccessKey: 'bad-sec',
+      bucketName: 'lifemode-assets',
+      publicBaseUrl: 'https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev',
+      customFetch: failingR2Fetch as any,
+    });
+
+    const topic = createMockTopic({ id: 'top-fail-upload' });
+
+    const result = await runSocialPipeline({
+      candidates: [topic],
+      config: {
+        storageTest: true,
+        storageConfig: {
+          provider: 'r2',
+          accountId: 'mock-acc',
+          accessKeyId: 'bad-key',
+          secretAccessKey: 'bad-sec',
+          bucketName: 'lifemode-assets',
+          publicBaseUrl: 'https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev',
+          configured: true,
+        },
+      },
+      storageProvider: failingR2Provider,
+    });
+
+    assert.equal(result.status, 'FAILED');
+    assert.equal(result.failedCount, 1);
+    assert.ok(result.error?.includes('403') || result.error?.includes('upload failed'));
+  });
+
+  await t.test('38. Storage-test mode fails cleanly when storage returns a non-HTTPS URL', async () => {
+    const mockStorageReturningHttp: ISocialAssetStorageProvider = {
+      name: 'Insecure Storage Provider',
+      isConfigured: () => true,
+      getObjectKey: () => 'social/test/img.jpg',
+      uploadAsset: async () => ({
+        success: true,
+        status: 'SUCCESS',
+        publicUrl: 'http://insecure-http-url.com/social/test/img.jpg',
+        objectKey: 'social/test/img.jpg',
+        contentType: 'image/jpeg',
+        sizeBytes: 100,
+        assetHash: 'mockhash123',
+        provider: 'Insecure Storage Provider',
+        durationMs: 2,
+      }),
+    };
+
+    const topic = createMockTopic({ id: 'top-http-insecure' });
+
+    const result = await runSocialPipeline({
+      candidates: [topic],
+      config: {
+        storageTest: true,
+        storageConfig: {
+          provider: 'r2',
+          configured: true,
+        },
+      },
+      storageProvider: mockStorageReturningHttp,
+    });
+
+    assert.equal(result.status, 'FAILED');
+    assert.equal(result.failedCount, 1);
+    assert.ok(result.error?.includes('non-HTTPS') || result.error?.includes('HTTPS'));
+  });
 });
