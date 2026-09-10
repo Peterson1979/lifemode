@@ -22,6 +22,7 @@ import {
   FixtureSocialGenerationProvider,
   FixtureSocialAssetStorageProvider,
   CloudflareR2SocialAssetStorageProvider,
+  loadSocialConfig,
   type ISocialAssetStorageProvider,
   type GeneratedSocialContent,
   type SocialVisualAsset,
@@ -838,5 +839,87 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     assert.equal(result.succeededCount, 0);
 
     await fs.rm(tempDir, { recursive: true, force: true });
+  });
+
+  await t.test('34. Instagram authentication correctly inherits shared FACEBOOK_PAGE_ACCESS_TOKEN when INSTAGRAM_ACCESS_TOKEN is absent', async () => {
+    const savedFbToken = process.env.FACEBOOK_PAGE_ACCESS_TOKEN;
+    const savedIgToken = process.env.INSTAGRAM_ACCESS_TOKEN;
+    const savedIgAccount = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
+
+    try {
+      // 1. Configure shared Meta system-user token & Instagram business account ID, omitting INSTAGRAM_ACCESS_TOKEN
+      const mockSharedToken = 'EAAGmockSystemUserTokenForMetaPortfolio12345';
+      const mockIgAccountId = '17841400123456789';
+
+      process.env.FACEBOOK_PAGE_ACCESS_TOKEN = mockSharedToken;
+      delete process.env.INSTAGRAM_ACCESS_TOKEN;
+      process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID = mockIgAccountId;
+
+      // 2. Verify loadSocialConfig resolves Instagram credentials using the shared token
+      const config = loadSocialConfig();
+      assert.equal(config.credentials.instagram.configured, true);
+      assert.equal(config.credentials.instagram.accessToken, mockSharedToken);
+      assert.equal(config.credentials.instagram.businessAccountId, mockIgAccountId);
+
+      // 3. Verify Instagram adapter isConfigured() reports true
+      const capturedRequests: Array<{ url: string; body: any }> = [];
+      const mockFetch = async (url: string, init?: any) => {
+        const body = JSON.parse(init.body);
+        capturedRequests.push({ url, body });
+        if (url.endsWith('/media')) {
+          return {
+            ok: true,
+            status: 200,
+            json: async () => ({ id: 'mock-creation-id-999' }),
+          } as any;
+        }
+        if (url.endsWith('/media_publish')) {
+          return {
+            ok: true,
+            status: 200,
+            json: async () => ({ id: 'mock-ig-post-id-888' }),
+          } as any;
+        }
+        return { ok: false, status: 404, text: async () => 'Not Found' } as any;
+      };
+
+      const adapter = new InstagramPlatformAdapter(mockFetch as any);
+      assert.equal(adapter.isConfigured(), true);
+
+      // 4. Execute publication and verify both container creation and publication use the shared token
+      const content = createMockValidSocialContent();
+      const asset = createMockValidVisualAsset({
+        url: 'https://media.lifemode.com/social/top-12345/a1b2c3d4e5f60718.jpg',
+      });
+      const pkg = await adapter.prepare(content, asset);
+      const publishResult = await adapter.publish(pkg, { dryRun: false });
+
+      assert.equal(publishResult.status, 'PUBLISHED');
+      assert.equal(publishResult.postId, 'mock-ig-post-id-888');
+      assert.equal(publishResult.postUrl, 'https://instagram.com/p/mock-ig-post-id-888');
+
+      // 5. Assert that both Graph API requests used the shared token and targeted the correct Instagram Business Account
+      assert.equal(capturedRequests.length, 2);
+
+      // Step 1: /media container creation
+      assert.equal(capturedRequests[0].url, `https://graph.facebook.com/v20.0/${mockIgAccountId}/media`);
+      assert.equal(capturedRequests[0].body.access_token, mockSharedToken);
+      assert.equal(capturedRequests[0].body.image_url, 'https://media.lifemode.com/social/top-12345/a1b2c3d4e5f60718.jpg');
+
+      // Step 2: /media_publish container publish
+      assert.equal(capturedRequests[1].url, `https://graph.facebook.com/v20.0/${mockIgAccountId}/media_publish`);
+      assert.equal(capturedRequests[1].body.access_token, mockSharedToken);
+      assert.equal(capturedRequests[1].body.creation_id, 'mock-creation-id-999');
+    } finally {
+      // Restore previous environment
+      if (savedFbToken !== undefined) process.env.FACEBOOK_PAGE_ACCESS_TOKEN = savedFbToken;
+      else delete process.env.FACEBOOK_PAGE_ACCESS_TOKEN;
+
+      if (savedIgToken !== undefined) process.env.INSTAGRAM_ACCESS_TOKEN = savedIgToken;
+      else delete process.env.INSTAGRAM_ACCESS_TOKEN;
+
+      if (savedIgAccount !== undefined) process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID = savedIgAccount;
+      else delete process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
+    }
   });
 });
