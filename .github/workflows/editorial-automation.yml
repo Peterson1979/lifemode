@@ -100,9 +100,9 @@ jobs:
           LIFEMODE_AUTOMATION_PROVIDER: "router"
 
           # Social Automation Runtime Settings
-          LIFEMODE_SOCIAL_ENABLED: ${{ github.event_name == 'workflow_dispatch' && inputs.social_enabled == true && 'true' || 'false' }}
-          LIFEMODE_SOCIAL_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && inputs.social_publish == true && 'true' || 'false' }}
-          LIFEMODE_SOCIAL_DRY_RUN: ${{ (github.event_name == 'workflow_dispatch' && inputs.social_publish == true) && 'false' || 'true' }}
-          LIFEMODE_SOCIAL_MAX_OPPORTUNITIES: ${{ github.event_name == 'workflow_dispatch' && inputs.social_max || '3' }}
+          LIFEMODE_SOCIAL_ENABLED: ${{ inputs.social_enabled }}
+          LIFEMODE_SOCIAL_PUBLISH: ${{ inputs.social_publish }}
+          LIFEMODE_SOCIAL_DRY_RUN: ${{ inputs.social_publish == false }}
+          LIFEMODE_SOCIAL_MAX_OPPORTUNITIES: ${{ inputs.social_max }}
         run: |
           npx tsx scripts/run-scheduled-automation.ts
