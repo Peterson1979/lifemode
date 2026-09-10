@@ -1,13 +1,17 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
-import { dirname, resolve } from 'node:path';
+import { dirname, resolve, join } from 'node:path';
 import type { EditorialTopic } from '../types.ts';
 
-const DEFAULT_CANDIDATES_PATH = resolve(process.cwd(), 'data/topics/candidates.json');
+const DEFAULT_TOPICS_DIR = resolve(process.cwd(), 'data/topics');
+const DEFAULT_CANDIDATES_PATH = join(DEFAULT_TOPICS_DIR, 'candidates.json');
+const DEFAULT_APPROVED_PATH = join(DEFAULT_TOPICS_DIR, 'approved.json');
+const DEFAULT_REJECTED_PATH = join(DEFAULT_TOPICS_DIR, 'rejected.json');
+const DEFAULT_PUBLISHED_PATH = join(DEFAULT_TOPICS_DIR, 'published.json');
 
 /**
- * Loads all candidate topics from storage.
+ * Loads a topics array from a specified JSON file path.
  */
-export async function loadCandidates(filePath: string = DEFAULT_CANDIDATES_PATH): Promise<EditorialTopic[]> {
+async function loadTopicsFromFile(filePath: string): Promise<EditorialTopic[]> {
   try {
     const raw = await readFile(filePath, 'utf-8');
     const parsed = JSON.parse(raw);
@@ -18,6 +22,60 @@ export async function loadCandidates(filePath: string = DEFAULT_CANDIDATES_PATH)
     }
     throw error;
   }
+}
+
+/**
+ * Loads all candidate topics from storage.
+ */
+export async function loadCandidates(filePath: string = DEFAULT_CANDIDATES_PATH): Promise<EditorialTopic[]> {
+  return loadTopicsFromFile(filePath);
+}
+
+/**
+ * Loads all approved topics from storage.
+ */
+export async function loadApproved(filePath: string = DEFAULT_APPROVED_PATH): Promise<EditorialTopic[]> {
+  return loadTopicsFromFile(filePath);
+}
+
+/**
+ * Loads all rejected topics from storage.
+ */
+export async function loadRejected(filePath: string = DEFAULT_REJECTED_PATH): Promise<EditorialTopic[]> {
+  return loadTopicsFromFile(filePath);
+}
+
+/**
+ * Loads all published topics from storage.
+ */
+export async function loadPublished(filePath: string = DEFAULT_PUBLISHED_PATH): Promise<EditorialTopic[]> {
+  return loadTopicsFromFile(filePath);
+}
+
+/**
+ * Loads all topics across all pools (candidates, approved, rejected, published) for comprehensive deduplication.
+ */
+export async function loadAllHistoricalTopics(baseDir: string = DEFAULT_TOPICS_DIR): Promise<{
+  candidates: EditorialTopic[];
+  approved: EditorialTopic[];
+  rejected: EditorialTopic[];
+  published: EditorialTopic[];
+  all: EditorialTopic[];
+}> {
+  const [candidates, approved, rejected, published] = await Promise.all([
+    loadTopicsFromFile(join(baseDir, 'candidates.json')),
+    loadTopicsFromFile(join(baseDir, 'approved.json')),
+    loadTopicsFromFile(join(baseDir, 'rejected.json')),
+    loadTopicsFromFile(join(baseDir, 'published.json')),
+  ]);
+
+  return {
+    candidates,
+    approved,
+    rejected,
+    published,
+    all: [...candidates, ...approved, ...rejected, ...published],
+  };
 }
 
 /**
@@ -39,7 +97,7 @@ export async function saveCandidates(
 export function mergeCandidateTopic(
   newCandidate: EditorialTopic,
   existingList: EditorialTopic[]
-): { updatedList: EditorialTopic[]; isNew: boolean } {
+): { updatedList: EditorialTopic[]; isNew: boolean; mergedTopic: EditorialTopic } {
   const index = existingList.findIndex(
     (item) => item.id === newCandidate.id || item.slug === newCandidate.slug
   );
@@ -48,31 +106,31 @@ export function mergeCandidateTopic(
     return {
       updatedList: [...existingList, newCandidate],
       isNew: true,
+      mergedTopic: newCandidate,
     };
   }
 
   // Update existing record, preserving published/approved/rejected lifecycle status
   const existing = existingList[index];
-  const resolvedStatus = newCandidate.status === 'PUBLISHED'
-    ? 'PUBLISHED'
-    : (existing.status === 'PUBLISHED'
-      ? 'PUBLISHED'
-      : (newCandidate.status ?? existing.status));
+  const isExistingProtected = existing.status === 'PUBLISHED' || existing.status === 'REJECTED';
+  const resolvedStatus = isExistingProtected
+    ? existing.status
+    : (newCandidate.status ?? existing.status);
 
   const updatedRecord: EditorialTopic = {
     ...existing,
     canonicalTopic: newCandidate.canonicalTopic,
     scoring: newCandidate.scoring,
-    totalScore: newCandidate.totalScore,
+    totalScore: Math.max(existing.totalScore, newCandidate.totalScore),
     pinterestScore: newCandidate.pinterestScore ?? existing.pinterestScore,
-    priorityTier: newCandidate.priorityTier,
-    opportunityType: newCandidate.opportunityType,
+    priorityTier: existing.status === 'REJECTED' ? 'REJECT' : newCandidate.priorityTier,
+    opportunityType: existing.status === 'REJECTED' ? 'REJECT' : newCandidate.opportunityType,
     status: resolvedStatus,
-    rejectionReason: newCandidate.rejectionReason ?? existing.rejectionReason,
+    rejectionReason: existing.rejectionReason ?? newCandidate.rejectionReason,
     deferReason: newCandidate.deferReason ?? existing.deferReason,
-    revisionCyclesCount: newCandidate.revisionCyclesCount ?? existing.revisionCyclesCount,
-    revisionAttempted: newCandidate.revisionAttempted ?? existing.revisionAttempted,
-    freshnessScore: newCandidate.freshnessScore,
+    revisionCyclesCount: Math.max(existing.revisionCyclesCount ?? 0, newCandidate.revisionCyclesCount ?? 0),
+    revisionAttempted: existing.revisionAttempted ?? newCandidate.revisionAttempted,
+    freshnessScore: Math.max(existing.freshnessScore, newCandidate.freshnessScore),
     updatedAt: new Date().toISOString(),
     sourceSignals: [
       ...existing.sourceSignals,
@@ -90,5 +148,6 @@ export function mergeCandidateTopic(
   return {
     updatedList,
     isNew: false,
+    mergedTopic: updatedRecord,
   };
 }

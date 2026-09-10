@@ -4,6 +4,8 @@ import { buildGenerationPrompt } from '../prompt.ts';
 import { AIRouter, defaultAIRouter } from '../../../ai/router.ts';
 import type { AIRequest } from '../../../ai/types.ts';
 
+import { sanitizeArticleContent } from '../../sanitization.ts';
+
 /**
  * Adapter that connects the Editorial Generation Runner to the AI Router.
  * Bridges: GenerationRequest -> AIRequest -> AIResponse -> GeneratedArticle.
@@ -29,17 +31,32 @@ export class AIRouterGenerationProvider implements IGenerationProvider {
     }
 
     const parsed = JSON.parse(clean);
+    const rawContent = parsed.content || '';
+    const { cleanContent, extractedMetadata } = sanitizeArticleContent(rawContent);
+
+    const internalLinks = Array.isArray(parsed.internalLinks) && parsed.internalLinks.length > 0
+      ? parsed.internalLinks
+      : extractedMetadata.internalLinks;
+
+    const affiliateIntents = Array.isArray(parsed.affiliateIntents) && parsed.affiliateIntents.length > 0
+      ? parsed.affiliateIntents
+      : extractedMetadata.affiliateIntents;
+
+    const socialHooks = Array.isArray(parsed.socialHooks) && parsed.socialHooks.length > 0
+      ? parsed.socialHooks
+      : extractedMetadata.socialHooks;
+
     return {
       title: parsed.title || '',
       slug: parsed.slug || '',
       description: parsed.description || '',
       excerpt: parsed.excerpt || '',
-      content: parsed.content || '',
+      content: cleanContent,
       faq: Array.isArray(parsed.faq) ? parsed.faq : [],
       sources: Array.isArray(parsed.sources) ? parsed.sources : [],
-      internalLinks: Array.isArray(parsed.internalLinks) ? parsed.internalLinks : [],
-      affiliateIntents: Array.isArray(parsed.affiliateIntents) ? parsed.affiliateIntents : [],
-      socialHooks: Array.isArray(parsed.socialHooks) ? parsed.socialHooks : [],
+      internalLinks,
+      affiliateIntents,
+      socialHooks,
     };
   }
 

@@ -76,9 +76,12 @@ export type SignalSourceType =
   | 'GOOGLE_SEARCH_CONSOLE'
   | 'BING_WEBMASTER'
   | 'REDDIT_SOCIAL'
+  | 'RSS_FEEDS'
   | 'YOUTUBE_TRENDS'
   | 'SEASONAL_CALENDAR'
-  | 'INTERNAL_ANALYTICS';
+  | 'INTERNAL_ANALYTICS'
+  | 'FIXTURE'
+  | 'MANUAL';
 
 /**
  * Normalized external signal attached to a topic.

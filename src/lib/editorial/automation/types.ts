@@ -99,6 +99,8 @@ export interface AutomationRequest {
   maxOpportunities?: number; // default: 1
   minScoreThreshold?: number; // default: 80
   providerMode?: 'fixture' | 'router'; // default: 'fixture'
+  accelerationEnabled?: boolean; // default: false
+  accelerationMaxOpportunities?: number; // default: 5
   
   // Custom provider injections
   discoveryAdapters?: IDiscoveryAdapter[];
@@ -159,6 +161,8 @@ export interface AutomationConfig {
   dryRun: boolean;
   minScoreThreshold: number;
   providerMode: 'fixture' | 'router';
+  accelerationEnabled?: boolean;
+  accelerationMaxOpportunities?: number;
 }
 
 /**

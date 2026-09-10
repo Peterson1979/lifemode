@@ -3,6 +3,15 @@ import type { SignalSourceType, SourceSignal, PillarSlug } from '../types.ts';
 export type { SignalSourceType, SourceSignal };
 
 /**
+ * Origin classification of a discovery signal.
+ */
+export type SignalOriginClassification =
+  | 'REAL_EXTERNAL'
+  | 'STATIC_DETERMINISTIC'
+  | 'CREDENTIAL_DEPENDENT'
+  | 'FIXTURE';
+
+/**
  * Standard Discovery Signal representation ingested by the discovery engine.
  */
 export interface DiscoverySignal {
@@ -41,6 +50,7 @@ export interface DiscoveryResult {
   sourceType: SignalSourceType | 'FIXTURE' | 'MANUAL';
   status: ProviderStatus;
   signals: DiscoverySignal[];
+  classification?: SignalOriginClassification;
   error?: string;
   fetchedAt: string;
 }
@@ -66,6 +76,9 @@ export interface DiscoveryPipelineReport {
   timestamp: string;
   providerResults: DiscoveryResult[];
   totalSignalsReceived: number;
+  realExternalSignalsCount: number;
+  staticDeterministicSignalsCount: number;
+  fixtureSignalsCount: number;
   normalizedCount: number;
   duplicateCount: number;
   newCandidatesStored: number;
@@ -78,5 +91,6 @@ export interface DiscoveryPipelineReport {
     pinterestScore?: number;
     priorityTier: string;
     opportunityType: string;
+    originClassification?: SignalOriginClassification;
   }>;
 }

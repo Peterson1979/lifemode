@@ -1,4 +1,4 @@
-import { slugify } from './normalization.ts';
+import { normalizeTopicQuery } from './normalization.ts';
 
 /**
  * Calculates Levenshtein edit distance between two strings.
@@ -76,46 +76,90 @@ export function tokenJaccardSimilarity(a: string, b: string): number {
   return unionSize > 0 ? intersectionSize / unionSize : 0.0;
 }
 
+export interface DuplicateCheckResult {
+  isDuplicate: boolean;
+  matchedTopic?: string;
+  matchedTopicId?: string;
+  matchedPillar?: string;
+  similarityScore: number;
+  reason?: 'EXACT_SLUG' | 'EXACT_TOPIC' | 'CONCEPT_MATCH' | 'TOKEN_SIMILARITY' | 'STRING_SIMILARITY' | 'URL_MATCH';
+}
+
 /**
  * Checks if a candidate topic is a duplicate or near-duplicate of existing topics.
- * Considers both exact slug matches, character similarity, and token overlap.
+ * Considers exact slug matches, normalized concept similarity, token overlap, and Levenshtein similarity.
  */
 export function checkTopicDuplicate(
   candidate: string,
-  existingTopics: Array<{ id?: string; canonicalTopic: string; slug?: string }>,
+  existingTopics: Array<{ id?: string; canonicalTopic: string; slug?: string; pillar?: string; sourceUrl?: string; sourceSignals?: Array<{ metadata?: any }> }>,
   similarityThreshold = 0.75
-): { isDuplicate: boolean; matchedTopic?: string; similarityScore: number } {
-  const candidateSlug = slugify(candidate);
+): DuplicateCheckResult {
+  const candidateNorm = normalizeTopicQuery(candidate);
+  const candidateSlug = candidateNorm.canonicalSlug;
 
   for (const existing of existingTopics) {
-    const existingSlug = existing.slug || slugify(existing.canonicalTopic);
+    const existingNorm = normalizeTopicQuery(existing.canonicalTopic);
+    const existingSlug = existing.slug || existingNorm.canonicalSlug;
 
-    // Exact slug match
+    // 1. Exact slug match
     if (candidateSlug === existingSlug) {
       return {
         isDuplicate: true,
         matchedTopic: existing.canonicalTopic,
+        matchedTopicId: existing.id,
+        matchedPillar: existing.pillar,
         similarityScore: 1.0,
+        reason: 'EXACT_SLUG',
       };
     }
 
-    // Token Jaccard similarity
+    // 2. Exact canonical topic match
+    if (candidateNorm.canonicalTopic.toLowerCase() === existing.canonicalTopic.toLowerCase()) {
+      return {
+        isDuplicate: true,
+        matchedTopic: existing.canonicalTopic,
+        matchedTopicId: existing.id,
+        matchedPillar: existing.pillar,
+        similarityScore: 1.0,
+        reason: 'EXACT_TOPIC',
+      };
+    }
+
+    // 3. Normalized concept equality (synonym/stem normalized)
+    if (candidateNorm.normalizedConcept === existingNorm.normalizedConcept) {
+      return {
+        isDuplicate: true,
+        matchedTopic: existing.canonicalTopic,
+        matchedTopicId: existing.id,
+        matchedPillar: existing.pillar,
+        similarityScore: 0.95,
+        reason: 'CONCEPT_MATCH',
+      };
+    }
+
+    // 4. Token Jaccard similarity
     const jaccard = tokenJaccardSimilarity(candidate, existing.canonicalTopic);
     if (jaccard >= similarityThreshold) {
       return {
         isDuplicate: true,
         matchedTopic: existing.canonicalTopic,
+        matchedTopicId: existing.id,
+        matchedPillar: existing.pillar,
         similarityScore: jaccard,
+        reason: 'TOKEN_SIMILARITY',
       };
     }
 
-    // String Levenshtein ratio
+    // 5. String Levenshtein ratio
     const strSim = stringSimilarity(candidate, existing.canonicalTopic);
     if (strSim >= similarityThreshold) {
       return {
         isDuplicate: true,
         matchedTopic: existing.canonicalTopic,
+        matchedTopicId: existing.id,
+        matchedPillar: existing.pillar,
         similarityScore: strSim,
+        reason: 'STRING_SIMILARITY',
       };
     }
   }
@@ -124,4 +168,30 @@ export function checkTopicDuplicate(
     isDuplicate: false,
     similarityScore: 0,
   };
+}
+
+/**
+ * Checks if a source URL is already present in existing topics.
+ */
+export function checkSourceUrlDuplicate(
+  sourceUrl: string,
+  existingTopics: Array<{ sourceSignals?: Array<{ metadata?: any }> }>
+): boolean {
+  if (!sourceUrl) return false;
+  const cleanUrl = sourceUrl.trim().toLowerCase().replace(/\/+$/, '');
+
+  for (const topic of existingTopics) {
+    if (topic.sourceSignals) {
+      for (const sig of topic.sourceSignals) {
+        const sigUrl = sig.metadata?.sourceUrl || sig.metadata?.rssPayload?.itemLink;
+        if (sigUrl && typeof sigUrl === 'string') {
+          if (sigUrl.trim().toLowerCase().replace(/\/+$/, '') === cleanUrl) {
+            return true;
+          }
+        }
+      }
+    }
+  }
+
+  return false;
 }

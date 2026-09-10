@@ -1,4 +1,5 @@
 import type { PublishingRequest, PublishingOptions, PublishPackage } from './types.ts';
+import { sanitizeArticleContent } from '../sanitization.ts';
 
 /**
  * Builds a canonical normalized PublishPackage from an eligible article draft,
@@ -16,17 +17,29 @@ export function buildPublishPackage(
   const author = options.author || 'LifeMode Editorial';
   const id = `pub-${context.topicId}-${article.slug}`;
 
+  const { cleanContent, extractedMetadata } = sanitizeArticleContent(article.content || '');
+
   const tags = context.tags && context.tags.length > 0
     ? [...context.tags]
     : [context.pillar];
 
   const affiliateIntent = context.affiliateIntent !== undefined
     ? context.affiliateIntent
-    : (article.affiliateIntents && article.affiliateIntents.length > 0);
+    : ((article.affiliateIntents && article.affiliateIntents.length > 0) || extractedMetadata.affiliateIntents.length > 0);
 
   const affiliateCategories = context.affiliateCategories || (
-    Array.isArray(article.affiliateIntents) ? [...article.affiliateIntents] : undefined
+    Array.isArray(article.affiliateIntents) && article.affiliateIntents.length > 0
+      ? [...article.affiliateIntents]
+      : (extractedMetadata.affiliateIntents.length > 0 ? [...extractedMetadata.affiliateIntents] : undefined)
   );
+
+  const internalLinks = article.internalLinks && article.internalLinks.length > 0
+    ? [...article.internalLinks]
+    : extractedMetadata.internalLinks;
+
+  const socialHooks = article.socialHooks && article.socialHooks.length > 0
+    ? [...article.socialHooks]
+    : extractedMetadata.socialHooks;
 
   return {
     id,
@@ -35,7 +48,7 @@ export function buildPublishPackage(
     title: article.title,
     description: article.description,
     excerpt: article.excerpt,
-    content: article.content,
+    content: cleanContent,
     pillar: context.pillar,
     format: context.format,
     audience: context.audience,
@@ -44,11 +57,11 @@ export function buildPublishPackage(
     riskLevel: context.riskLevel,
     tags,
     sources: article.sources?.map((s) => ({ ...s })) || [],
-    internalLinks: article.internalLinks ? [...article.internalLinks] : [],
+    internalLinks,
     affiliateIntent,
     affiliateCategories,
     faq: article.faq?.map((f) => ({ ...f })) || [],
-    socialHooks: article.socialHooks ? [...article.socialHooks] : [],
+    socialHooks,
     imageMetadata: context.imageMetadata ? { ...context.imageMetadata } : undefined,
     publicationMetadata: {
       targetDate,

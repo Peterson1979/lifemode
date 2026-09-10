@@ -83,3 +83,42 @@ export interface SeasonalCalendarPayload {
   relevanceWindowDays: number;
   historicalSpikeMultiplier: number;
 }
+
+/**
+ * RSS Feeds signal contract payload.
+ */
+export interface RSSFeedsPayload {
+  feedUrl: string;
+  feedTitle: string;
+  itemTitle: string;
+  itemLink: string;
+  publishedDate?: string;
+  contentSnippet?: string;
+  categories?: string[];
+}
+
+/**
+ * YouTube Trends signal contract payload.
+ */
+export interface YouTubeTrendsPayload {
+  videoTitle: string;
+  videoId: string;
+  channelTitle: string;
+  viewCount: number;
+  likeCount?: number;
+  trendingRank?: number;
+  tags?: string[];
+}
+
+/**
+ * Internal Analytics signal contract payload.
+ */
+export interface InternalAnalyticsPayload {
+  topicId: string;
+  slug: string;
+  pillar: string;
+  pageviews: number;
+  timeOnPageAvgSeconds: number;
+  socialShares: number;
+  searchImpressions: number;
+}

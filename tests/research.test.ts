@@ -13,6 +13,7 @@ import { briefToGenerationRequest } from '../src/lib/editorial/generation/brief-
 import { buildGenerationPrompt } from '../src/lib/editorial/generation/prompt.ts';
 import { buildReviewPrompt } from '../src/lib/editorial/review/prompt.ts';
 import { runEditorialAutomation } from '../src/lib/editorial/automation/runner.ts';
+import { FixtureDiscoveryAdapter } from '../src/lib/editorial/discovery/adapters/fixture.ts';
 import type { EditorialTopic } from '../src/lib/editorial/types.ts';
 import type { IEditorialResearchProvider } from '../src/lib/editorial/research/providers/types.ts';
 
@@ -326,6 +327,7 @@ test('9. Automation runner seamlessly advances through RESEARCH -> GENERATION ->
       contentRoot: contentDir,
       gitRepoRoot: repoDir,
       researchProvider: new FixtureEditorialResearchProvider(),
+      discoveryAdapters: [new FixtureDiscoveryAdapter()],
     });
 
     assert.equal(result.processedCount, 1);

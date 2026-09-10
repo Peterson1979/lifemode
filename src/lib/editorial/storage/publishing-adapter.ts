@@ -1,5 +1,6 @@
 import type { PublishPackage, PublishingResult } from '../publishing/types.ts';
 import type { IContentRepository, StoredArticleInput, StorageResult } from './types.ts';
+import { sanitizeArticleContent } from '../sanitization.ts';
 
 /**
  * Converts a validated PublishPackage into a StoredArticleInput ready for persistence.
@@ -11,11 +12,13 @@ export function publishPackageToStoredArticleInput(
     throw new Error('PublishPackage must be a valid non-null object.');
   }
 
+  const { cleanContent } = sanitizeArticleContent(pkg.content || '');
+
   return {
     pillar: pkg.pillar,
     slug: pkg.slug,
     topicId: pkg.topicId,
-    content: pkg.content,
+    content: cleanContent,
     frontmatter: {
       title: pkg.title,
       description: pkg.description,

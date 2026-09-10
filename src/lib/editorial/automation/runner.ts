@@ -6,7 +6,7 @@ import type {
   AutomationStage,
   AutomationStageResult,
 } from './types.ts';
-import type { EditorialTopic, PriorityTier, OpportunityType } from '../types.ts';
+import type { EditorialTopic, PriorityTier, OpportunityType, PillarSlug } from '../types.ts';
 import { loadAutomationConfig } from './config.ts';
 import { runDiscoveryPipeline } from '../discovery/runner.ts';
 import { loadCandidates, saveCandidates, mergeCandidateTopic } from '../discovery/storage.ts';
@@ -377,9 +377,16 @@ export async function runEditorialAutomation(
     }
   }
 
+  const existingPillarDistribution: Partial<Record<PillarSlug, number>> = {};
+  for (const art of existingArticles) {
+    existingPillarDistribution[art.pillar] = (existingPillarDistribution[art.pillar] || 0) + 1;
+  }
+
   const { approved } = selectEditorialCandidates(unPublishedCandidates, {
     minScoreThreshold: config.minScoreThreshold,
     totalLimit: config.maxOpportunities,
+    existingPillarDistribution,
+    enablePillarBalancing: true,
   });
 
   const selectedCount = approved.length;

@@ -6,6 +6,8 @@ const DEFAULT_CONFIG: AutomationConfig = {
   dryRun: true,
   minScoreThreshold: 80,
   providerMode: 'fixture',
+  accelerationEnabled: false,
+  accelerationMaxOpportunities: 5,
 };
 
 const DEFAULT_SCHEDULED_CONFIG: ScheduledAutomationConfig = {
@@ -17,7 +19,7 @@ const DEFAULT_SCHEDULED_CONFIG: ScheduledAutomationConfig = {
 };
 
 /**
- * Loads and validates configuration for Editorial Automation V1.
+ * Loads and validates configuration for Editorial Automation.
  * Supports LIFEMODE_AUTOMATION_* and EDITORIAL_AUTOMATION_* environment variables.
  * Safely defaults to opt-in execution (enabled: false) and dry-run mode (dryRun: true).
  */
@@ -27,10 +29,18 @@ export function loadAutomationConfig(overrides: Partial<AutomationConfig> = {}):
     ? envEnabledRaw === 'true'
     : DEFAULT_CONFIG.enabled;
 
+  const envAccelerationRaw = process.env.LIFEMODE_AUTOMATION_ACCELERATION_ENABLED ?? process.env.EDITORIAL_AUTOMATION_ACCELERATION_ENABLED;
+  const accelerationEnabled = overrides.accelerationEnabled ?? (envAccelerationRaw === 'true');
+
+  const envAccMaxOppRaw = process.env.LIFEMODE_AUTOMATION_ACCELERATION_MAX_OPPORTUNITIES ?? process.env.EDITORIAL_AUTOMATION_ACCELERATION_MAX_OPPORTUNITIES;
+  const accelerationMaxOpportunities = overrides.accelerationMaxOpportunities ?? (envAccMaxOppRaw ? parseInt(envAccMaxOppRaw, 10) : 5);
+
   const envMaxOppRaw = process.env.LIFEMODE_AUTOMATION_MAX_OPPORTUNITIES ?? process.env.EDITORIAL_AUTOMATION_MAX_OPPORTUNITIES;
-  const envMaxOpp = envMaxOppRaw
+  const baseMaxOpp = envMaxOppRaw
     ? parseInt(envMaxOppRaw, 10)
-    : DEFAULT_CONFIG.maxOpportunities;
+    : (accelerationEnabled ? accelerationMaxOpportunities : DEFAULT_CONFIG.maxOpportunities);
+
+  const effectiveMaxOpp = overrides.maxOpportunities ?? baseMaxOpp;
 
   const envDryRunRaw = process.env.LIFEMODE_AUTOMATION_DRY_RUN ?? process.env.EDITORIAL_AUTOMATION_DRY_RUN;
   const envDryRun = envDryRunRaw !== undefined
@@ -47,10 +57,12 @@ export function loadAutomationConfig(overrides: Partial<AutomationConfig> = {}):
 
   return {
     enabled: overrides.enabled ?? envEnabled,
-    maxOpportunities: Math.max(1, overrides.maxOpportunities ?? (isNaN(envMaxOpp) ? DEFAULT_CONFIG.maxOpportunities : envMaxOpp)),
+    maxOpportunities: Math.max(1, isNaN(effectiveMaxOpp) ? DEFAULT_CONFIG.maxOpportunities : effectiveMaxOpp),
     dryRun: overrides.dryRun ?? envDryRun,
     minScoreThreshold: overrides.minScoreThreshold ?? (isNaN(envMinScore) ? DEFAULT_CONFIG.minScoreThreshold : envMinScore),
     providerMode: overrides.providerMode || envProviderMode,
+    accelerationEnabled,
+    accelerationMaxOpportunities,
   };
 }
 
@@ -79,4 +91,3 @@ export function loadScheduledAutomationConfig(overrides: Partial<ScheduledAutoma
     lockPath,
   };
 }
-

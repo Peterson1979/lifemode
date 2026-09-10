@@ -9,6 +9,7 @@ async function main() {
   const isRouter = args.includes('--router') || args.includes('--ai-router');
   const isFixture = args.includes('--fixture');
   const isExplicitDryRun = args.includes('--dry-run');
+  const isAccelerate = args.includes('--accelerate') || args.includes('--acceleration');
 
   let maxOpportunities: number | undefined;
   const maxArg = args.find((a) => a.startsWith('--max='));
@@ -49,6 +50,9 @@ async function main() {
   } else if (isFixture) {
     overrides.providerMode = 'fixture';
   }
+  if (isAccelerate) {
+    overrides.accelerationEnabled = true;
+  }
   if (maxOpportunities !== undefined) {
     overrides.maxOpportunities = maxOpportunities;
   }
@@ -60,12 +64,13 @@ async function main() {
 
   if (!isJson) {
     console.log('====================================================');
-    console.log(' LifeMode Scheduled Editorial Automation V1        ');
+    console.log(' LifeMode Scheduled Editorial Automation            ');
     console.log('====================================================\n');
     console.log(`* Provider Mode:  ${config.providerMode === 'router' ? 'AI Router (Managed Providers)' : 'Deterministic Fixtures (Offline)'}`);
     console.log(`* Dry-Run:        ${config.dryRun ? 'YES (Safe Mode)' : 'NO (Live Execution)'}`);
     console.log(`* Commit Allowed: ${config.allowCommit ? 'YES' : 'NO'}`);
     console.log(`* Push Allowed:   ${config.allowPush ? 'YES' : 'NO'}`);
+    console.log(`* Accelerated:    ${config.accelerationEnabled ? 'YES (Initial Content Build Mode)' : 'NO (Standard Schedule)'}`);
     console.log(`* Max Selection:  ${config.maxOpportunities}`);
     console.log(`* Min Score:      ${config.minScoreThreshold}`);
     console.log('----------------------------------------------------\n');

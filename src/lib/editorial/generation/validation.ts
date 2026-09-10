@@ -1,5 +1,6 @@
 import type { GeneratedArticle, GenerationRequest, GenerationValidationIssue, GenerationValidationReport } from './types.ts';
 import { countWords } from '../quality.ts';
+import { hasLeakedInternalMetadata } from '../sanitization.ts';
 
 export interface ValidationRulesOptions {
   minTitleLength?: number;
@@ -322,6 +323,16 @@ export function validateGeneratedArticle(
         severity: 'error',
       });
     }
+  }
+
+  // Internal Metadata Leak Detection
+  if (hasLeakedInternalMetadata(content)) {
+    issues.push({
+      field: 'content',
+      rule: 'INTERNAL_METADATA_LEAK',
+      message: 'Content contains un-sanitized internal editorial metadata sections (e.g. Internal Links, Affiliate Intents, Social Hooks).',
+      severity: 'error',
+    });
   }
 
   // High-risk request specific checks

@@ -117,14 +117,3 @@ A4: Keep a simple log: note your sleep quality, stress levels, and perceived pro
 - Center for Humane Technology. *Calm Computing and Attention Architecture in Modern Lifestyle Design*. https://centerforhumanetech.com/insights/calm-technology-principles
 - Oxford Internet Institute. *Cognitive Bandwidth and Everyday Rituals: An Empirical Synthesis*. https://ox.ac.uk/research/cognitive-restoration-digital-wellbeing
 
-**Internal Links**
-
-- /now
-
-**Affiliate Intents**
-
-- Digital Wellness
-
-**Social Hooks**
-
-- Why The 2026 Cultural Shift Toward Digital Intentionality is changing how we approach now in 2026.
