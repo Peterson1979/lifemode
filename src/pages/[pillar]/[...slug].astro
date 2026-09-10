@@ -2,8 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PillarBadge from '../../components/PillarBadge.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
+import EcosystemCard from '../../components/EcosystemCard.astro';
 import { getCollection, render } from 'astro:content';
 import { PILLARS, PILLAR_SLUGS, type PillarSlug } from '../../config/site';
+import { ECOSYSTEM_PROJECTS } from '../../config/ecosystem';
 import { formatDate, toISODate } from '../../utils/date';
 import { generateArticleSchema, generateBreadcrumbSchema, getCanonicalUrl } from '../../utils/seo';
 
@@ -31,7 +33,7 @@ export async function getStaticPaths() {
   return paths;
 }
 
-interface Props {
+export interface Props {
   pillar: (typeof PILLARS)[PillarSlug];
   entry: any;
   relatedEntries: any[];
@@ -53,6 +55,16 @@ const updatedDateFormatted = entry.data.updatedDate
       year: 'numeric',
     })
   : null;
+
+const displayReadingTime =
+  entry.data.readingTime || `${Math.max(3, Math.ceil((entry.body?.length || 1500) / 900))} min read`;
+
+const showFormat = entry.data.format && entry.data.format !== 'standard';
+
+// Find relevant ecosystem project for this pillar
+const relevantEcosystem = ECOSYSTEM_PROJECTS.find((p) =>
+  p.relevantPillars.includes(pillar.slug as PillarSlug)
+);
 
 // JSON-LD Structured Data for Article & Breadcrumbs
 const articleJsonLd = generateArticleSchema({
@@ -82,79 +94,129 @@ const combinedJsonLd = [articleJsonLd, breadcrumbJsonLd];
   pubDate={entry.data.pubDate}
   updatedDate={entry.data.updatedDate}
   author={entry.data.author}
+  image={entry.data.image}
   jsonLd={combinedJsonLd}
 >
-  <div class="container-narrow" style="padding-top: var(--space-10); padding-bottom: var(--space-16);">
+  <div class="container-narrow" style="padding-top: var(--space-8); padding-bottom: var(--space-20);">
     <!-- Breadcrumb Navigation -->
-    <nav aria-label="Breadcrumbs" style="margin-bottom: var(--space-6); font-size: 0.8rem; color: var(--color-text-dim);">
-      <ol style="list-style: none; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-        <li><a href="/" style="color: var(--color-text-muted);">Home</a></li>
-        <li aria-hidden="true">&rsaquo;</li>
-        <li><a href={`/${pillar.slug}`} style="color: var(--color-text-muted);">{pillar.name}</a></li>
-        <li aria-hidden="true">&rsaquo;</li>
-        <li style="color: var(--color-text-secondary);" aria-current="page">{entry.data.title}</li>
+    <nav aria-label="Breadcrumbs" class="breadcrumb-nav">
+      <ol class="breadcrumb-list">
+        <li><a href="/">Home</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">&rsaquo;</li>
+        <li><a href={`/${pillar.slug}`}>{pillar.name}</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">&rsaquo;</li>
+        <li class="breadcrumb-current" aria-current="page">{entry.data.title}</li>
       </ol>
     </nav>
 
     <!-- Article Header -->
     <article>
-      <header style="margin-bottom: var(--space-8); border-bottom: 1px solid var(--color-border-subtle); padding-bottom: var(--space-8);">
-        <div style="margin-bottom: var(--space-4);">
+      <header class="article-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: var(--space-4); flex-wrap: wrap;">
           <PillarBadge pillar={pillar.slug} size="md" />
+          {showFormat && (
+            <span class="badge-format">
+              {entry.data.format.replace('-', ' ')}
+            </span>
+          )}
+          <span class="badge-reading-time">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            {displayReadingTime}
+          </span>
         </div>
 
-        <h1 style="font-size: clamp(2.2rem, 4.5vw, 3.25rem); font-weight: 900; line-height: 1.15; letter-spacing: -0.03em; color: #ffffff; margin-bottom: var(--space-4);">
+        <h1 class="article-headline">
           {entry.data.title}
         </h1>
 
-        <p style="font-size: 1.2rem; line-height: 1.6; color: var(--color-text-secondary); margin-bottom: var(--space-6);">
+        <p class="article-lead">
           {entry.data.description}
         </p>
 
-        <!-- Byline & Meta Info -->
-        <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; font-size: 0.875rem; color: var(--color-text-muted); padding-top: var(--space-4); border-top: 1px solid var(--color-border-subtle);">
-          <div>
-            <span>By <strong style="color: var(--color-text-primary);">{entry.data.author}</strong></span>
+        <!-- Byline & Editorial Metadata Bar -->
+        <div class="article-byline-bar">
+          <div class="article-byline-meta">
+            <span>By <strong style="color: var(--color-text-primary); font-family: var(--font-sans);">{entry.data.author || 'LifeMode Editorial'}</strong></span>
+            <span style="color: var(--color-text-dim);">&bull;</span>
+            <span>Published on <time datetime={toISODate(entry.data.pubDate)} style="color: var(--color-text-primary);">{pubDateFormatted}</time></span>
+            {updatedDateFormatted && entry.data.updatedDate && (
+              <>
+                <span style="color: var(--color-text-dim);">&bull;</span>
+                <span>Updated <time datetime={toISODate(entry.data.updatedDate)} style="color: var(--color-text-primary);">{updatedDateFormatted}</time></span>
+              </>
+            )}
           </div>
-          <span style="color: var(--color-text-dim);">&bull;</span>
-          <div>
-            <span>Published on <time datetime={toISODate(entry.data.pubDate)} style="color: var(--color-text-primary); font-family: var(--font-mono);">{pubDateFormatted}</time></span>
+          <div style="font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-olive);">
+            LifeMode &bull; {pillar.name}
           </div>
-          {updatedDateFormatted && (
-            <>
-              <span style="color: var(--color-text-dim);">&bull;</span>
-              <div>
-                <span>Updated on <time datetime={toISODate(entry.data.updatedDate)} style="color: var(--color-text-primary); font-family: var(--font-mono);">{updatedDateFormatted}</time></span>
-              </div>
-            </>
-          )}
         </div>
       </header>
 
-      <!-- Main Prose Body -->
-      <div class="prose">
+      <!-- Hero Photography Banner (Image or Quiet Fallback) -->
+      {entry.data.image ? (
+        <div class="article-hero-media">
+          <img
+            src={entry.data.image}
+            alt={entry.data.title}
+            class="article-hero-img"
+            loading="eager"
+          />
+        </div>
+      ) : (
+        <div class="article-hero-media">
+          <div class="article-hero-fallback">
+            <div style="text-align: center; padding: var(--space-8);">
+              <span style="font-family: var(--font-display); font-size: 2.5rem; font-style: italic; font-weight: 700; color: var(--color-text-muted); display: block; margin-bottom: 0.25rem;">LM</span>
+              <span style="font-family: var(--font-sans); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-text-muted);">
+                {pillar.name} &bull; Editorial Dispatch
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <!-- Main Reading Column (Prose) -->
+      <div class="prose" style="margin-bottom: var(--space-12);">
         <Content />
       </div>
 
-      <!-- Article Footer / Navigation -->
-      <footer style="margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--color-border);">
+      <!-- Article Footer / Return Navigation -->
+      <footer style="margin-top: var(--space-12); padding-top: var(--space-8); border-top: 1px solid var(--color-border);">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-          <a href={`/${pillar.slug}`} class="read-more" style="font-weight: 600;">
-            &larr; Back to all {pillar.name} dispatches
+          <a href={`/${pillar.slug}`} class="btn btn-outline" style="font-size: 0.8125rem;">
+            &larr; More in {pillar.name}
           </a>
-          <a href="/" class="read-more" style="font-weight: 600; color: var(--color-text-muted);">
-            Return to Homepage &rarr;
+          <a href="/" class="btn btn-outline" style="font-size: 0.8125rem; color: var(--color-olive);">
+            Front Page Dispatches &rarr;
           </a>
         </div>
       </footer>
     </article>
 
-    <!-- Related Content Section -->
+    <!-- Relevant Ecosystem Recommendation -->
+    {relevantEcosystem && (
+      <section style="margin-top: var(--space-12); padding-top: var(--space-8); border-top: 1px solid var(--color-border);">
+        <div style="max-width: 640px; margin: 0 auto;">
+          <EcosystemCard project={relevantEcosystem} compact={true} />
+        </div>
+      </section>
+    )}
+
+    <!-- Curated Related Dispatches -->
     {relatedEntries.length > 0 && (
       <section style="margin-top: var(--space-16); padding-top: var(--space-10); border-top: 1px solid var(--color-border);">
-        <h2 style="font-size: 1.35rem; font-weight: 800; margin-bottom: var(--space-6);">
-          More in {pillar.name}
-        </h2>
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">Curated Reading</span>
+            <h2 class="section-title">Related Dispatches in {pillar.name}</h2>
+          </div>
+          <a href={`/${pillar.slug}`} class="section-link">
+            Explore Pillar &rarr;
+          </a>
+        </div>
         <div class="grid-3">
           {relatedEntries.map((related) => (
             <ArticleCard
@@ -164,6 +226,10 @@ const combinedJsonLd = [articleJsonLd, breadcrumbJsonLd];
               description={related.data.description}
               pubDate={related.data.pubDate}
               author={related.data.author}
+              image={related.data.image}
+              readingTime={related.data.readingTime}
+              format={related.data.format}
+              tags={related.data.tags}
               variant="card"
             />
           ))}

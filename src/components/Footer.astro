@@ -1,5 +1,5 @@
 ---
-import { SITE_CONFIG } from '../config/site';
+import { SITE_CONFIG, PILLARS, type PillarSlug } from '../config/site';
 
 const currentYear = new Date().getUTCFullYear();
 ---
@@ -7,29 +7,38 @@ const currentYear = new Date().getUTCFullYear();
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <!-- Brand Column -->
+      <!-- Brand & Manifesto Column -->
       <div class="footer-brand">
-        <h3>LifeMode</h3>
-        <p>
-          A global digital publication focused on smart living, intentional design, emerging artificial intelligence, personal finance, wellbeing, and culture.
+        <h3 class="footer-logo">LifeMode</h3>
+        <p class="footer-tagline">
+          A contemporary editorial publication exploring intentional living, culture, thoughtful technology, sustainable wealth, and mindful design across seven curated pillars.
         </p>
+        <div class="footer-edition-badge">
+          <span>ISSN 2026-LM &bull; Published Globally</span>
+        </div>
       </div>
 
       <!-- Pillar Navigation -->
       <div class="footer-links-group">
         <h4>Editorial Pillars</h4>
         <ul>
-          {SITE_CONFIG.navLinks.map((link) => (
-            <li>
-              <a href={link.href}>{link.name}</a>
-            </li>
-          ))}
+          {SITE_CONFIG.navLinks.map((link) => {
+            const pillar = PILLARS[link.slug as PillarSlug];
+            return (
+              <li>
+                <a href={link.href}>
+                  <span class="footer-bullet" style={pillar ? `color: ${pillar.color}` : undefined}>&bull;</span>
+                  <span>{link.name}</span>
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
-      <!-- About & Legal -->
+      <!-- Publication Links -->
       <div class="footer-links-group">
-        <h4>Publication</h4>
+        <h4>Journal</h4>
         <ul>
           {SITE_CONFIG.footerLinks.map((link) => (
             <li>
@@ -43,11 +52,65 @@ const currentYear = new Date().getUTCFullYear();
     <!-- Bottom Bar -->
     <div class="footer-bottom">
       <div>
-        <span>&copy; {currentYear} {SITE_CONFIG.name}. All rights reserved.</span>
+        <span>&copy; {currentYear} {SITE_CONFIG.name}. Contemporary Editorial Publishing.</span>
       </div>
-      <div>
-        <span>Global Editorial Edition &bull; High-Performance Static Architecture</span>
+      <div class="footer-bottom-meta">
+        <span>Designed with intentional typography &bull; Powered by Astro</span>
       </div>
     </div>
   </div>
 </footer>
+
+<style>
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.925rem;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    max-width: 380px;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-edition-badge {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-olive);
+    padding: 0.3rem 0.65rem;
+    background-color: rgba(72, 92, 75, 0.08);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xs);
+  }
+
+  .footer-links-group a {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    transition: color var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .footer-links-group a:hover {
+    color: var(--color-text-primary);
+  }
+
+  .footer-bullet {
+    font-size: 1em;
+  }
+
+  .footer-bottom-meta {
+    color: var(--color-text-muted);
+  }
+</style>

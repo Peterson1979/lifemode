@@ -22,20 +22,17 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
 <!-- Topbar -->
 <div class="site-topbar">
   <div class="container site-topbar-inner">
-    <span>Global Edition &bull; {todayFormatted}</span>
-    <span>Modern Living &bull; Curated Editorial</span>
+    <span>Volume 2026 &bull; {todayFormatted}</span>
+    <span class="topbar-right">A Journal of Contemporary Living &amp; Culture</span>
   </div>
 </div>
 
 <!-- Main Sticky Header -->
 <header class="site-header">
   <div class="container header-container">
-    <!-- Brand -->
-    <a href="/" class="brand-wrapper" aria-label="LifeMode Home">
-      <span class="brand-logo">
-        LifeMode
-        <span class="brand-accent-dot"></span>
-      </span>
+    <!-- Brand Masthead -->
+    <a href="/" class="brand-wrapper" aria-label="LifeMode Homepage">
+      <span class="brand-logo">LifeMode</span>
     </a>
 
     <!-- Desktop Navigation -->
@@ -48,7 +45,7 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
             <a
               href={link.href}
               class={active ? 'active' : ''}
-              style={active && pillarConfig ? `--pillar-active-color: ${pillarConfig.color}` : undefined}
+              style={pillarConfig ? `--nav-accent: ${pillarConfig.color}` : undefined}
             >
               {link.name}
             </a>
@@ -57,7 +54,7 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
       })}
     </nav>
 
-    <!-- Mobile Drawer (Accessible CSS toggle with details) -->
+    <!-- Mobile Drawer -->
     <details class="mobile-nav-details">
       <summary class="mobile-nav-summary" aria-label="Toggle navigation menu">
         <span class="menu-icon-bar"></span>
@@ -83,9 +80,8 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
                   <a
                     href={link.href}
                     class={`mobile-nav-link ${active ? 'active' : ''}`}
-                    style={`--mobile-pillar-color: ${pillar?.color || 'var(--color-primary)'}`}
                   >
-                    <span class="mobile-nav-dot"></span>
+                    <span class="mobile-nav-bullet" style={pillar ? `color: ${pillar.color}` : undefined}>&bull;</span>
                     <span>{link.name}</span>
                   </a>
                 </li>
@@ -99,6 +95,47 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
 </header>
 
 <style>
+  .topbar-right {
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .brand-logo {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: opacity var(--transition-fast);
+  }
+
+  .brand-logo:hover {
+    opacity: 0.85;
+  }
+
+  .nav-desktop a {
+    font-size: 0.775rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    padding: 0.45rem 0.65rem;
+    border-radius: var(--radius-sm);
+    transition: color var(--transition-fast), background-color var(--transition-fast);
+  }
+
+  .nav-desktop a:hover {
+    color: var(--color-text-primary);
+    background-color: var(--color-surface-subtle);
+  }
+
+  .nav-desktop a.active {
+    color: var(--color-text-primary);
+    background-color: var(--color-surface-subtle);
+    border-bottom: 2px solid var(--nav-accent, var(--color-olive));
+  }
+
   .mobile-nav-details {
     display: none;
     position: relative;
@@ -129,12 +166,12 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
 
   .mobile-drawer-menu {
     position: absolute;
-    top: calc(100% + 12px);
+    top: calc(100% + 8px);
     right: 0;
-    width: 260px;
+    width: 240px;
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-md);
     box-shadow: var(--shadow-elevated);
     padding: 1rem;
     z-index: 200;
@@ -147,10 +184,11 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
   }
 
   .mobile-drawer-title {
-    font-size: 0.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.725rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     color: var(--color-text-muted);
   }
 
@@ -166,7 +204,7 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 0.75rem;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     font-weight: 500;
     color: var(--color-text-secondary);
     border-radius: var(--radius-sm);
@@ -180,16 +218,16 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
     color: var(--color-text-primary);
   }
 
-  .mobile-nav-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--mobile-pillar-color, var(--color-primary));
+  .mobile-nav-bullet {
+    font-size: 1.1em;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 840px) {
     .mobile-nav-details {
       display: block;
+    }
+    .nav-desktop {
+      display: none;
     }
   }
 </style>
