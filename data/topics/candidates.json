@@ -561,8 +561,9 @@
     "totalScore": 91.3,
     "priorityTier": "PRIORITY",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T08:24:16.845Z"
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-10T10:48:52.481Z",
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-travel-20260910-the-rise-of-quiet-workcations-",
@@ -1335,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T08:51:25.039Z",
+    "updatedAt": "2026-09-10T10:47:47.636Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1396,7 +1397,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T08:51:25.041Z",
+    "updatedAt": "2026-09-10T10:47:47.638Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1457,7 +1458,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T08:51:25.043Z",
+    "updatedAt": "2026-09-10T10:47:47.640Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1518,7 +1519,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T08:51:25.044Z",
+    "updatedAt": "2026-09-10T10:47:47.642Z",
     "revisionCyclesCount": 0
   },
   {
@@ -5703,5 +5704,1985 @@
     "status": "SCORED",
     "updatedAt": "2026-09-10T08:51:08.853Z",
     "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-now-20260910-tim-scott",
+    "canonicalTopic": "Tim Scott",
+    "slug": "tim-scott",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-tim20scott",
+        "query": "Tim Scott",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-10T10:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "tim scott",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "tim scott"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T10:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-10T10:47:47.496Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260910-brooks-koepka",
+    "canonicalTopic": "Brooks Koepka",
+    "slug": "brooks-koepka",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-brooks20koepka",
+        "query": "Brooks Koepka",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-10T10:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "brooks koepka",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "brooks koepka"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T10:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-10T10:47:47.501Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260910-wordle-help",
+    "canonicalTopic": "Wordle Help",
+    "slug": "wordle-help",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-wordle20help",
+        "query": "Wordle Help",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-10T10:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "wordle help",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "wordle help"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T10:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-10T10:47:47.504Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260910-pittsburgh-pirates",
+    "canonicalTopic": "Pittsburgh Pirates",
+    "slug": "pittsburgh-pirates",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-pittsburgh20pira",
+        "query": "Pittsburgh Pirates",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-10T10:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "pittsburgh pirates",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "pittsburgh pirates"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T10:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-10T10:47:47.507Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260910-chelsea-gray",
+    "canonicalTopic": "Chelsea Gray",
+    "slug": "chelsea-gray",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-chelsea20gray",
+        "query": "Chelsea Gray",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-10T10:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "chelsea gray",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "chelsea gray"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T10:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-10T10:47:47.510Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260910-albany-county-sheriff",
+    "canonicalTopic": "Albany County Sheriff",
+    "slug": "albany-county-sheriff",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-albany20county20s",
+        "query": "Albany County Sheriff",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-10T10:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "albany county sheriff",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "albany county sheriff"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T10:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-10T10:47:47.515Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260910-bayeux-tapestry",
+    "canonicalTopic": "Bayeux Tapestry",
+    "slug": "bayeux-tapestry",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-bayeux20tapestry",
+        "query": "Bayeux Tapestry",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-10T10:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "bayeux tapestry",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "bayeux tapestry"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T10:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-10T10:47:47.518Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260910-napheesa-collier",
+    "canonicalTopic": "Napheesa Collier",
+    "slug": "napheesa-collier",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-napheesa20collie",
+        "query": "Napheesa Collier",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-10T10:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "napheesa collier",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "napheesa collier"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T10:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-10T10:47:47.520Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260910-kahleah-copper",
+    "canonicalTopic": "Kahleah Copper",
+    "slug": "kahleah-copper",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-kahleah20copper",
+        "query": "Kahleah Copper",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-10T09:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "kahleah copper",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "kahleah copper"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T09:50:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-10T10:47:47.522Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-tech-ai-20260910-the-variable-aperture-isnt-the",
+    "canonicalTopic": "The Variable Aperture Isnt the Cool Part of the Iphone 18 Pros Camera",
+    "slug": "the-variable-aperture-isnt-the-cool-part-of-the-iphone-18-pros-camera",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-The20variable20apertur",
+        "query": "The Variable Aperture Isnt the Cool Part of the Iphone 18 Pros Camera",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "The variable aperture isn’t the cool part of the iPhone 18 Pro’s camera",
+            "itemLink": "https://www.theverge.com/tech/993155/variable-aperture-iphone-18-pro-photography",
+            "publishedDate": "2026-09-10T10:00:00.000Z",
+            "contentSnippet": "Apple always makes a big show of the latest cameras in its phones, and the major talking point of the iPhone 18 Pro is about the new variable aperture. Both the iPhone 18 Pro and Pro Max have an adjustable mechanical iris in their main camera modules to let more or less light into the […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "Analysis",
+              "Apple",
+              "Apple Event 2026",
+              "Cameras",
+              "Gadgets",
+              "iPhone",
+              "Report",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "Analysis",
+            "Apple",
+            "Apple Event 2026",
+            "Cameras",
+            "Gadgets",
+            "iPhone",
+            "Report",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the variable aperture isnt the cool part of the iphone 18 pros camera"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T10:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "Analysis",
+      "Apple",
+      "Apple Event 2026",
+      "Cameras",
+      "Gadgets",
+      "iPhone",
+      "Report",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-10T10:47:47.530Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260910-the-trump-phone-just-got-a-250",
+    "canonicalTopic": "The Trump Phone Just Got a 250 Price Hike",
+    "slug": "the-trump-phone-just-got-a-250-price-hike",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-The20Trump20phone20just",
+        "query": "The Trump Phone Just Got a 250 Price Hike",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T09:13:04.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "The Trump phone just got a $250 price hike",
+            "itemLink": "https://www.theverge.com/gadgets/993242/trump-phone-t1-price-hike",
+            "publishedDate": "2026-09-10T09:13:04.000Z",
+            "contentSnippet": "Bad news if you didn't lock in a Trump phone at launch: It now costs $749, a $250 increase on its price at launch. The T1 Phone itself hasn't changed. Trump Mobile didn't announce the price increase, instead quietly changing its website overnight. This wasn't a total surprise though, especially given the phone ships with […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "Gadgets",
+              "Mobile",
+              "News",
+              "Phones",
+              "Policy",
+              "Politics",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "Gadgets",
+            "Mobile",
+            "News",
+            "Phones",
+            "Policy",
+            "Politics",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the trump phone just got a 250 price hike"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T09:13:04.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "Gadgets",
+      "Mobile",
+      "News",
+      "Phones",
+      "Policy",
+      "Politics",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-10T10:47:47.537Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260910-nintendos-latest-switch-2-upda",
+    "canonicalTopic": "Nintendos Latest Switch 2 Update Adds Vrr Support in Tv Mode",
+    "slug": "nintendos-latest-switch-2-update-adds-vrr-support-in-tv-mode",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-NintendoE28099s20latest20Sw",
+        "query": "Nintendos Latest Switch 2 Update Adds Vrr Support in Tv Mode",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T09:07:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Nintendo’s latest Switch 2 update adds VRR support in TV mode",
+            "itemLink": "https://www.theverge.com/news/993231/nintendo-switch-2-vrr-support-firmware-update",
+            "publishedDate": "2026-09-10T09:07:00.000Z",
+            "contentSnippet": "Nintendo always promised that the Switch 2 would support variable refresh rate (VRR) when docked, but the console launched without this key feature. A new 23.0.0 firmware update now adds VRR support to the Switch 2 when it's docked and in TV mode. VRR adjusts a display's refresh rate to match a game's frame rate, […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "Gaming",
+              "News",
+              "Nintendo"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "Gaming",
+            "News",
+            "Nintendo"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "nintendos latest switch 2 update adds vrr support in tv mode"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T09:07:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "Gaming",
+      "News",
+      "Nintendo"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-10T10:47:47.542Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260910-can-the-us-battery-market-unta",
+    "canonicalTopic": "Can the Us Battery Market Untangle from China",
+    "slug": "can-the-us-battery-market-untangle-from-china",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-1-Can20the20US20battery2",
+        "query": "Can the Us Battery Market Untangle from China",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "Can the US battery market untangle from China?",
+            "itemLink": "https://www.technologyreview.com/2026/09/10/1143791/us-china-batteries/",
+            "publishedDate": "2026-09-10T10:00:00.000Z",
+            "contentSnippet": "The US is hitting records for the rapid growth of its energy storage market. That’ll go a long way to shoring up the grid, increasing reliability and also cutting emissions, since batteries can help store energy from intermittent renewables like wind and solar. Crucially, this is all happening with the help of cheap Chinese batteries,…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "Climate change and energy",
+              "App",
+              "Summary",
+              "The Spark"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "Climate change and energy",
+            "App",
+            "Summary",
+            "The Spark"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "can the us battery market untangle from china"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T10:00:00.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "Climate change and energy",
+      "App",
+      "Summary",
+      "The Spark"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-10T10:47:47.547Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260910-god-told-them-to-sell-crypto-t",
+    "canonicalTopic": "God Told Them to Sell Crypto Their Investors Lost Everything",
+    "slug": "god-told-them-to-sell-crypto-their-investors-lost-everything",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-2-God20told20them20to20s",
+        "query": "God Told Them to Sell Crypto Their Investors Lost Everything",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T09:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "God told them to sell crypto. Their investors lost everything.",
+            "itemLink": "https://www.technologyreview.com/2026/09/10/1143588/indxcoin-god-regalados-sell-crypto-investors-lost-everything/",
+            "publishedDate": "2026-09-10T09:00:00.000Z",
+            "contentSnippet": "This article was produced in partnership with Type Investigations and with support from the Fund for Investigative Journalism. When Eli Regalado first heard God speak to him, he wondered whether he was hallucinating. Now he likens the experience to having “a thought that is not my thought.” Divine words echo in his mind like a…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "Culture",
+              "App",
+              "Features and Investigations",
+              "The Big Story"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "Culture",
+            "App",
+            "Features and Investigations",
+            "The Big Story"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "god told them to sell crypto their investors lost everything"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T09:00:00.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "Culture",
+      "App",
+      "Features and Investigations",
+      "The Big Story"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-10T10:47:47.552Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260910-healthcare-ais-next-test-is-in",
+    "canonicalTopic": "Healthcare Ais Next Test Is Integration",
+    "slug": "healthcare-ais-next-test-is-integration",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-3-Healthcare20AIE28099s2",
+        "query": "Healthcare Ais Next Test Is Integration",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T08:58:01.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "Healthcare AI’s next test is integration",
+            "itemLink": "https://www.technologyreview.com/2026/09/10/1141421/healthcare-ais-next-test-is-integration/",
+            "publishedDate": "2026-09-10T08:58:01.000Z",
+            "contentSnippet": "The entrance of major AI companies into healthcare is a meaningful and welcome development, accelerating the technical foundation available to the industry. Their models are increasingly capable of processing long clinical records, interpreting complex terminology, comparing documentation against evidence and generating coherent summaries from large volumes of information. For clinicians, operators, and administrative teams who…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "Biotechnology and health",
+              "sponsored"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "Biotechnology and health",
+            "sponsored"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "healthcare ais next test is integration"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T08:58:01.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "Biotechnology and health",
+      "sponsored"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-10T10:47:47.556Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260910-watch-is-trumps-5000-election-",
+    "canonicalTopic": "Watch Is Trumps 5000 Election Pledge Legal",
+    "slug": "watch-is-trumps-5000-election-pledge-legal",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-2-Watch3A20Is20Trumps20245",
+        "query": "Watch Is Trumps 5000 Election Pledge Legal",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T07:12:32.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Watch: Is Trump's $5,000 election pledge legal?",
+            "itemLink": "https://www.bbc.co.uk/news/videos/czxzwge59w8o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-10T07:12:32.000Z",
+            "contentSnippet": "The US president has said every American will get $5,000 (£3,700) if the Republican Party wins November's midterms.",
+            "categories": [
+              "travel",
+              "global",
+              "destinations",
+              "culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "global",
+            "destinations",
+            "culture"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "watch is trumps 5000 election pledge legal"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T07:12:32.000Z",
+    "tags": [
+      "travel",
+      "global",
+      "destinations",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-10T10:47:47.561Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260910-royal-family-rift-after-popula",
+    "canonicalTopic": "Royal Family Rift After Popular Tv News Presenter Chosen to Succeed Ugandan King",
+    "slug": "royal-family-rift-after-popular-tv-news-presenter-chosen-to-succeed-ugandan-king",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-5-Royal20family20rift20af",
+        "query": "Royal Family Rift After Popular Tv News Presenter Chosen to Succeed Ugandan King",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T10:46:24.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Royal family rift after popular TV news presenter chosen to succeed Ugandan king",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c8jdpj4ydm2o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-10T10:46:24.000Z",
+            "contentSnippet": "King Oyo's family say he left a will naming his young son as heir to the Tooro kingdom.",
+            "categories": [
+              "travel",
+              "global",
+              "destinations",
+              "culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "global",
+            "destinations",
+            "culture"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "royal family rift after popular tv news presenter chosen to succeed ugandan king"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T10:46:24.000Z",
+    "tags": [
+      "travel",
+      "global",
+      "destinations",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-10T10:47:47.567Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260910-oatelier-draws-on-traditional-",
+    "canonicalTopic": "Oatelier Draws on Traditional Rural Architecture for Timber Home in Slovakia",
+    "slug": "oatelier-draws-on-traditional-rural-architecture-for-timber-home-in-slovakia",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-Oatelier20draws20on20tr",
+        "query": "Oatelier Draws on Traditional Rural Architecture for Timber Home in Slovakia",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T10:30:24.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Oatelier draws on traditional rural architecture for timber home in Slovakia",
+            "itemLink": "https://www.dezeen.com/2026/09/10/oatelier-husarik-hut-timber-home-slovakia/",
+            "publishedDate": "2026-09-10T10:30:24.000Z",
+            "contentSnippet": "Local architecture studio Oatelier has completed Husárik Hut, a barn-like timber home in Slovakia that was designed as a contemporary take on the area's traditional shepherd's huts. Perched on a sloping site overlooking the Javorníky mountain range, the home draws on the typical rural architecture of Slovakia's north-western Kysuce region, including shepherd's huts built from The post Oatelier draws on traditional rural architecture for timber home in Slovakia appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "all",
+              "Architecture",
+              "Exclusives",
+              "Slovakia",
+              "Wooden architecture",
+              "Residential architecture and interiors",
+              "Houses"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "all",
+            "Architecture",
+            "Exclusives",
+            "Slovakia",
+            "Wooden architecture",
+            "Residential architecture and interiors",
+            "Houses"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "oatelier draws on traditional rural architecture for timber home in slovakia"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T10:30:24.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "all",
+      "Architecture",
+      "Exclusives",
+      "Slovakia",
+      "Wooden architecture",
+      "Residential architecture and interiors",
+      "Houses"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-10T10:47:47.574Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260910-in-these-conditions-how-can-we",
+    "canonicalTopic": "In These Conditions How Can We Be Optimistic Asks Anab Jain",
+    "slug": "in-these-conditions-how-can-we-be-optimistic-asks-anab-jain",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-2-22In20these20conditions",
+        "query": "In These Conditions How Can We Be Optimistic Asks Anab Jain",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T10:00:50.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "\"In these conditions, how can we be optimistic?\" asks Anab Jain",
+            "itemLink": "https://www.dezeen.com/2026/09/10/anab-jain-superflux-interview/",
+            "publishedDate": "2026-09-10T10:00:50.000Z",
+            "contentSnippet": "Superflux co-founder Anab Jain has been awarded this year's LDF Design Innovation Medal. In this interview, she argues speculative design can still be a source of hope even in dark times. It's yet another 32-degree day in London's alarming summer of 32-degree days, and Jain has been telling her colleagues about her childhood in India. The post \"In these conditions, how can we be optimistic?\" asks Anab Jain appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "all",
+              "Design",
+              "Interviews",
+              "London Design Festival",
+              "Superflux",
+              "Climate change",
+              "London Design Medal"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "all",
+            "Design",
+            "Interviews",
+            "London Design Festival",
+            "Superflux",
+            "Climate change",
+            "London Design Medal"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "in these conditions how can we be optimistic asks anab jain"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T10:00:50.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "all",
+      "Design",
+      "Interviews",
+      "London Design Festival",
+      "Superflux",
+      "Climate change",
+      "London Design Medal"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-10T10:47:47.580Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260910-jonathan-anderson-and-anab-jai",
+    "canonicalTopic": "Jonathan Anderson and Anab Jain Among Winners of London Design Medal",
+    "slug": "jonathan-anderson-and-anab-jain-among-winners-of-london-design-medal",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-3-Jonathan20Anderson20an",
+        "query": "Jonathan Anderson and Anab Jain Among Winners of London Design Medal",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T09:45:12.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Jonathan Anderson and Anab Jain among winners of London Design Medal",
+            "itemLink": "https://www.dezeen.com/2026/09/10/london-design-medal-2026-jonathan-anderson/",
+            "publishedDate": "2026-09-10T09:45:12.000Z",
+            "contentSnippet": "JW Anderson founder Jonathan Anderson has won this year's London Design Medal for his work \"blending high fashion, art and craft\". While Anderson won the London Design Medal, the award scheme's highest accolade, Superflux co-founder Anab Jain was named winner of the Design Innovation Medal. This year's Emerging Talent Medal was won by Mimica founder Solveiga Pakštaitė, The post Jonathan Anderson and Anab Jain among winners of London Design Medal appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "all",
+              "Design",
+              "London",
+              "London Design Festival",
+              "UK",
+              "England",
+              "London Design Medal"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "all",
+            "Design",
+            "London",
+            "London Design Festival",
+            "UK",
+            "England",
+            "London Design Medal"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "jonathan anderson and anab jain among winners of london design medal"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T09:45:12.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "all",
+      "Design",
+      "London",
+      "London Design Festival",
+      "UK",
+      "England",
+      "London Design Medal"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-10T10:47:47.586Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260910-industry-in-germany-is-no-long",
+    "canonicalTopic": "Industry in Germany Is No Longer Open to What Design Can Do Say Currents Berlin Organisers",
+    "slug": "industry-in-germany-is-no-longer-open-to-what-design-can-do-say-currents-berlin-organisers",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-4-22Industry20in20Germany",
+        "query": "Industry in Germany Is No Longer Open to What Design Can Do Say Currents Berlin Organisers",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T09:30:45.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "\"Industry in Germany is no longer open to what design can do\" say Currents Berlin organisers",
+            "itemLink": "https://www.dezeen.com/2026/09/10/currents-berlin-interview/",
+            "publishedDate": "2026-09-10T09:30:45.000Z",
+            "contentSnippet": "As Currents festival kicks off in Berlin, founders Laura Ewert and Jasmin Jouhar tell Dezeen why they hope the event will finally bring the local design community the recognition it deserves. Running from today until 12 September, Currents was conceived as a \"very Berlin\" event – decentralised and community-curated, with minimal corporate sponsorship. Much like The post \"Industry in Germany is no longer open to what design can do\" say Currents Berlin organisers appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "all",
+              "Design",
+              "News",
+              "Interviews",
+              "Berlin",
+              "Architecture and design events",
+              "Germany"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "all",
+            "Design",
+            "News",
+            "Interviews",
+            "Berlin",
+            "Architecture and design events",
+            "Germany"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "industry in germany is no longer open to what design can do say currents berlin organisers"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T09:30:45.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "all",
+      "Design",
+      "News",
+      "Interviews",
+      "Berlin",
+      "Architecture and design events",
+      "Germany"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-10T10:47:47.594Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260910-orms-plans-to-add-rooftop-swim",
+    "canonicalTopic": "Orms Plans to Add Rooftop Swimming Pool to Londons Bt Tower",
+    "slug": "orms-plans-to-add-rooftop-swimming-pool-to-londons-bt-tower",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-5-Orms20plans20to20add20ro",
+        "query": "Orms Plans to Add Rooftop Swimming Pool to Londons Bt Tower",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T09:00:05.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Orms plans to add rooftop swimming pool to London's BT Tower",
+            "itemLink": "https://www.dezeen.com/2026/09/10/bt-tower-renovation-swimming-pool-orms/",
+            "publishedDate": "2026-09-10T09:00:05.000Z",
+            "contentSnippet": "Architecture studio Orms has submitted a planning application to transform the BT Tower in London into a hotel with a rooftop swimming pool for American hotelier MCR. Orms will restore the Grade II-listed BT Tower, the adjacent podium and 1930s Howland Building, and convert the complex into a hotel with ground-floor shops, bars and restaurants, The post Orms plans to add rooftop swimming pool to London's BT Tower appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "all",
+              "Architecture",
+              "News",
+              "England",
+              "Hotels",
+              "Adaptive reuse",
+              "London",
+              "UK"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "all",
+            "Architecture",
+            "News",
+            "England",
+            "Hotels",
+            "Adaptive reuse",
+            "London",
+            "UK"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "orms plans to add rooftop swimming pool to londons bt tower"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T09:00:05.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "all",
+      "Architecture",
+      "News",
+      "England",
+      "Hotels",
+      "Adaptive reuse",
+      "London",
+      "UK"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-10T10:47:47.599Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-life-20260910-at-last-apple-joins-the-war-ag",
+    "canonicalTopic": "At Last Apple Joins the War Against Fake Ai Images",
+    "slug": "at-last-apple-joins-the-war-against-fake-ai-images",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-1-At20last2C20Apple20joins",
+        "query": "At Last Apple Joins the War Against Fake Ai Images",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T10:15:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "At last, Apple joins the war against fake AI images",
+            "itemLink": "https://www.fastcompany.com/91604555/apple-reference-image-war-against-fake-ai-images",
+            "publishedDate": "2026-09-10T10:15:00.000Z",
+            "contentSnippet": "Reality is crumbling at the hands of generative AI users , to the point where most people don't trust what they see online anymore. Apple has come up with a technology to fix that: Apple Reference Image. It comes with the new iPhone 18 Pro models, and when enabled, it lets the camera's new sensor cryptographically sign \"every pixel it sees\" when you take a photo, according to Apple. When you shoot in the new Reference mode, the iPhone's camera sensor cryptographically signs each pixel in the image—something no other phone or camera on the market does. Apple's secure servers then develop that signed sensor data into what the company calls an \"unalterable reference image\" that lives next to your editable picture, \"like a digital negative,\" in the company's words. It can create the necessary pressure for the entire industry to protect reality at the hardware level rather than guessing at fakes with unreliable AI detectors. And that could be the key to reclaiming our trust in images on a global scale. [Images: Apple] The need to certify reality Back in March, researchers at ETH Zurich built a working prototype of a sensor chip that does the same and then some, stamping a similar cryptographic signature the instant data is captured. The design places the hashing and signing circuitry inside the same piece of silicon as the pixels themselves, so the data carries its signature from the moment it comes into existence—there is no gap in which it can be tampered with. That is the same property Apple now claims for its new sensor. \"If data is signed the moment it is captured, any later manipulation leaves traces,\" explained ETH Zurich researcher Fernando Cardes, when the invention was introduced. He noted that forging it would require a physical attack on the chip so costly that \"the mass generation of manipulated content for social media platforms would be practically impossible.\" ETH Zurich's chip remains a laboratory prototype (a patent application has been filed, but it is not yet commercialized). Meanwhile, Apple's is the first real-world commercial implementation of sensor-level security at this scale, from a company that sells hundreds of millions of cameras every year. When you turn Apple Reference Image on—it is switched off by default and requires a trip to the camera settings, sadly—and shoot in Reference mode, the shutter triggers a cryptographic process that signs the raw sensor data together with unique hardware identifiers tied to the actual camera module. According to analyses of the iOS 27 beta code that revealed the feature, this happens inside the Secure Enclave (the iPhone's dedicated security chip) before the image leaves the camera pipeline. Nothing else touches it. No app. No external process. It all happens in an instant, and it is, in theory, untouchable. The check starts when you tap the badge on an image in Photos or a compatible app: The iPhone sends the raw frame, the sensor signatures, the capture timing, and a file hash to Private Cloud Compute over an encrypted channel. PCC is Apple's secure cloud infrastructure , built on custom Apple silicon, that processes your data and retains nothing once the request is answered. Think of it as a notary. According to the beta analyses, PCC cross-checks the signatures against its database of valid hardware and can reject the authentication if a sensor or key has been flagged as compromised—even retroactively revoking authentications from tampered sensors. If everything checks out, the device gets an all-clear: Yes, this photo came from that camera, and it has not been altered. According to iOS beta testers, an authenticated photo can travel by AirDrop or Messages with its proof attached, and the person receiving it can verify it on their own device. There is no need for a new trip to Apple's servers, and Cupertino never learns which photos are being checked. Apple's APIs across iOS, iPadOS, and macOS 27 will let other apps—newsroom verification tools, for example—display reference images and see how a photo has been manipulated since capture. [Image: Apple] When will everyone do the same? Now compare that to what other phones do. Google's Pixel 10 signs every single photo its stock camera app produces, using C2PA Content Credentials—an open standard also used by Leica, Sony, and Canon—with signing keys stored in the Titan M2 security chip. But under today's C2PA implementations, the cryptographic seal is applied by the device's main processor, after the sensor's data has already crossed its internal wiring to reach it. That seal is a hash covering every pixel, so any later edit breaks it—but the gap before the seal exists is exactly the vulnerability the ETH researchers identified. In theory, a capable attacker could tap that path and substitute an AI-generated feed for the real one, and the processor, with no way to tell the difference, would end up certifying a fabrication as genuine. Apple is betting on sensor-level proof rather than file-level proof. Unfortunately, Apple has not built this on an open standard. The company's C2PA support covers AI-generated and AI-edited images, not this capture proof. (We have sent Apple a note asking about it, and we will report back with any info we receive.) In ETH's design, each sensor's public key would live in a public, append-only register—ETH floats a blockchain as one option—allowing independent verification by anyone, without having to trust any single company. In such a model, \"it is barely of any relevance whether a person or the technology involved in data processing and transmission is trustworthy,\" said Felix Franke, another ETH Zurich researcher who worked on the project. Apple's version routes verification through its own servers. The proof is strong, but Apple is the notary, and the notary sits behind a closed gate in Cupertino. Should we depend on a private company to certify what's real and what's not? Both visions, though, share one big hairy “but”: These signatures will matter only if everyone on the internet can read them. Social networks, messaging apps, browsers, and every photo and video player must surface the badge that tells you, in effect, This is real . Perhaps a small lock icon—the same visual shorthand a browser uses to vouch for a secure connection to your bank—marking a recording as one that a real camera captured and that nothing has altered. Sure, newsrooms will now be able to certify that an image shot in Reference mode by some random person in some random war is real and not AI-generated. That's one step. But we need to wall off the fakes behind a huge barbed-wire-and-titanium barrier of certified imagery. Unless that happens, nothing changes, and every image will stay under permanent suspicion. Let's hope that Apple's new technology, backed by the company's market gravitas, is just the first step toward repairing our shared reality once and for all.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "Design"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "Design"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "at last apple joins the war against fake ai images"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T10:15:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "Design"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-10T10:47:47.608Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260910-were-talking-less-than-ever-it",
+    "canonicalTopic": "Were Talking Less Than Ever Its Damaging Our Health—and How We Work",
+    "slug": "were-talking-less-than-ever-its-damaging-our-health-and-how-we-work",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-2-WeE28099re20talking20less",
+        "query": "Were Talking Less Than Ever Its Damaging Our Health—and How We Work",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T10:10:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "We’re talking less than ever. It’s damaging our health—and how we work",
+            "itemLink": "https://www.fastcompany.com/91600790/were-talking-less-than-ever-its-damaging-our-health-and-how-we-work-workplace-performance-trends",
+            "publishedDate": "2026-09-10T10:10:00.000Z",
+            "contentSnippet": "A quiet but meaningful shift is happening in how people communicate—and most organizations don’t yet recognize its health and business implications. Over the past 15 years, research shows that people are speaking hundreds of fewer words per day, resulting in a sizable decline in regular conversation. What feels incremental at the individual level adds up to something much larger: millions of words, and thousands of interactions, disappearing from daily life. This is not just a linguistic trend. It’s a human health issue. Spoken conversation is one of the primary ways people build relationships, process emotion, align understanding, flag concerns, and deepen connection. When we speak less, we connect less, learn less about each other, and weaken the social fabric that supports well-being and performance. Today, advances in artificial intelligence are making communication faster and more efficient but also, in some cases, thinner and more uniform. Further, AI can short-circuit communications altogether. For companies, this trend has important implications. Fewer spoken interactions lead to weaker team cohesion, lower psychological safety and trust, reduced well-being, and less organizational effectiveness. So much so that social health is increasingly being recognized as a critical part of workforce well-being. What can we do to respond to this shift? Here are five ways to protect workforce health and performance in a world where people are talking less: 1. Treat conversation as a health behavior The quality of our social relationships is built through conversation and drives overall well-being . When microconnections disappear, we see that trust erodes, alignment suffers, and transactional collaboration—with its focus on short-term deliverables over long-term partnerships—increases. Workforces are losing thousands of the small moments that build social health. At a time when many organizations view communication as a \"soft\" skill, leaders should reframe conversation as a health input similar to improving sleep or managing stress. When leaders create more opportunities for meaningful dialogue, employees gain a key mechanism for emotional regulation, connection, and cognitive stimulation. While quality of interaction is more important for well-being than quantity, frequency increases the probability of higher-quality discussions. Reframing conversation as a health behavior also recognizes that more spoken words create more microconnections. Individually, everyday interactions such as quick check-ins, hallway conversations, spontaneous collisions , and informal exchanges may not seem significant. But collectively, they are the infrastructure of workplace culture and social health that leaders need to reinforce daily. 2. Balance communication across all categories Research shows that workplace communication operates across three essential domains : Task‑related communication enables coordination, efficiency, and workflow. Safety‑related communication ensures errors, risks, and concerns are surfaced and addressed. Relationship‑related communication builds trust through informal interaction and social exchange. The loss of everyday interactions can disproportionately erode relationship-related communication. From greetings to informal conversations, relationship-related communication is critical in sustaining workplace cohesion and psychological safety. But it can diminish with less spoken conversation. Moreover, reduced verbal interaction may suppress safety-related communication; fewer conversational entry points make it much less likely that employees will voice concerns, challenge assumptions, or flag risks—including those related to mental health. Leaders should take inventory of which categories of communication are covered more, less, or not at all day-to-day, and ensure there is reasonable representation across each domain. Getting the right mix of task, relationship, and safety-related communications fosters long-term relationships alongside safe, successful execution of workplace tasks and initiatives. 3. Design discussion to complement digital efficiency Much of the decline in speech coincides with the rise of digital communication and remote work. While efficient, written communication often lacks tone, immediacy, and emotional nuance. In comparison, spoken communication provides real-time feedback, emotional context, and faster alignment. Further, research highlights that high-quality conversation and spoken communication carry richer social signals than written ones, influencing understanding, connection, learning, and engagement. Leaders need to intentionally design work to include verbal collaboration during early-stage thinking, live conversations for complex decisions, and fewer text-only workflows for high-stakes interactions. Revive \" managing by walking around \" to spend informal time with colleagues and foster face-to-face communications that yield greater productivity . When people speak less, silence isn’t necessarily neutral. Less speaking can mean fewer dissenting views, reduced idea generation, and lower participation from new employees. It may even signal disengagement. Over time, this weakens decision quality and innovation, so much so that research concludes that communication is strongly related to productivity. 4. Reduce isolation through intentional conversation When people speak less, it can be a signal that they are spending more time alone. Social connection is strongly linked to better mental health outcomes, lower stress and depression, and improved physical health and resilience . And workplaces now play a larger role than they have historically in providing the informal public spaces known as third places and opportunities for social interaction. Leaders can design for structured moments of dialogue outside of traditional formal meetings, small group discussions (rather than large passive forums), and regular opportunities for informal conversation. This could include testing new forms of engagement such as casual, 15-minute \"‘no-work talks\" to help teammates build dialogue and trust. Adopting team norms to favor connection before content can also help. For example, start team meetings with a thoughtful, noninvasive question for attendees to discuss for five minutes that stimulates conversational flow before getting into business. 5. Curate conversation to enhance total well-being In a workforce that is speaking less, leadership responsibility expands. It’s no longer enough to communicate clearly. Leaders must ensure communication actually happens. This means modeling curiosity and active listening about personal and professional topics and creating space for dialogue, not just updates. The evidence is clear; going deeper in conversations improves connection, community-building, and well-being. Encouraging more detailed and frequent conversations will ensure richer, higher-quality interactions to best tap into the health gains of these connections. In addition, conversation activates cognition. It stimulates thinking, reinforces memory, and promotes learning. Enhancing real-time dialogue in companies can create more moments to \"think out loud,\" challenge ideas, and refine reasoning to enhance collective problem-solving and critical thinking capabilities. This is vital for both individual cognitive health and organizational performance. It’s time we talked The impact of declining conversation may seem subtle, but it’s not. It’s a key indicator of workforce health. When people speak less, organizations lose more than conversation. They lose productivity. They miss moments of alignment, opportunities for learning, spontaneous health check-ins, and the informal interactions that sustain a sense of connection, engagement, and well-being. Clearly, the future of personal and organizational well-being will be shaped , in part, by technology. But well-being will be determined by whether organizations protect something more fundamental and valuable: the human act of conversation. And that is something we all need to talk about.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "Work Life"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "Work Life"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "were talking less than ever its damaging our health—and how we work"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T10:10:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "Work Life"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-10T10:47:47.614Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260910-how-arthur-ashe-became-the-noi",
+    "canonicalTopic": "How Arthur Ashe Became the Noisiest Grand Slam Venue",
+    "slug": "how-arthur-ashe-became-the-noisiest-grand-slam-venue",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-3-How20Arthur20Ashe20beca",
+        "query": "How Arthur Ashe Became the Noisiest Grand Slam Venue",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "How Arthur Ashe became the noisiest Grand Slam venue",
+            "itemLink": "https://www.fastcompany.com/91601539/how-arthur-ashe-became-the-noisiest-grand-slam-venue",
+            "publishedDate": "2026-09-10T10:00:00.000Z",
+            "contentSnippet": "At Wimbledon and Roland Garros, you'll find fans swiveling their heads from side to side as they follow the bright green tennis ball darting back and forth. And they're doing so in a hushed stadium, with the only noise coming from the ball hitting the racket, a player's shoes squeaking on the court, and polite applause. Then there’s the US Open. At the final Grand Slam of the season, eyes are on tennis, sure, but they’re also on viral drinks and flashing cameras. Much has been said about the clout-chasing influencers and visitors who increasingly fill Arthur Ashe Stadium, the tournament's main venue, bringing ring lights, fashion-ops and lots of chatter with them—even when it’s time to serve. The lively, albeit disruptive, atmosphere in the 23,000+-seat stadium has become both a staple of the Open and a source of anguish for fans who were used to a game played in pin-drop silence. \"It’s so loud inside Arthur Ashe Stadium that most of the time it’s almost impossible to keep track of the sound of the ball. Almost like putting the TV on mute,\" one user said on X . Another added, \"Arthur Ashe is so unbelievably loud it’s insane. I started chatting with my section usher and he said that the amount of people emailing the @usopen to tell them to tell people to stfu is unprecedented and he’s never heard it this loud before in his 25 years of working there.\" Spectators take a selfie while enjoying a Honey Deuce, the signature cocktail of the US Open, during the women's doubles first-round match pitting Serena Williams and Venus Williams against Maya Joint of Australia and Chan Hao-ching of Taiwan, September 4, 2026. [Photo: Kena Betancur/AFP/Getty Images] But beyond mere annoyance at influencers, the discourse is spotlighting an evolving fan demographic, one that clashes with both the stadium’s design and the sport’s etiquette. With tensions coming together under one roof, the controversy is challenging what a tennis venue for today’s American fanbase can, and should, be. The biggest stage in the world, for tennis Tennis stadiums are structurally different from stadiums built for baseball, football, or soccer. They feature a smaller playing area, which results in steeper seating overhangs versus the expansive arena setup you find in other sports. But it's not necessarily the structure of Arthur Ashe that is causing the noise levels, experts tell Fast Company ; it’s its sheer size and capacity. Arthur Ashe is significantly smaller than nearby stadiums (MetLife Stadium in northern New Jersey seats around 82,500 , for example), but it’s a giant in tennis. It’s the largest Grand Slam stadium in the world, fitting almost 10,000 more spectators than Wimbledon's Centre Court and the Philippe Chatrier Court at Roland Garros, site of the French Open. According to experts, it's the stadium’s scale that influences how noise travels within its walls. A larger venue means longer reverberation time and lower sound absorption—the physics that lead to Arthur Ashe’s signature murmur. \"Acoustically, you've got a lot more vocal energy that you can create in the space because of that larger number of people,\" says Joe Solway, principal and senior member of the acoustics, AV, theater, and experience design team at Arup, the global architectural, engineering, and design firm. But acoustics can explain only so much. How people behave inside the stadium is the biggest factor in determining how loud it gets. \"The concerns that people are raising aren't really about the architecture or the acoustic design of the space,\" Solway says, \"but more . . . a reaction to an expectation of what the sound levels should have been in the first place.\" The issue of expectations New Yorkers—and sports fans in general—are used to a raucous crowd during sporting events. Just this summer, the city was filled with roaring fans during the Knicks' historic NBA Championship win. Not long after, the FIFA World Cup brought together soccer fans from across the world, with stunts like loud chants or Norway's rowing tradition taking over in the stands. Tennis comes with different expectations. Historically, matches are watched in near silence, and from the seats—an etiquette that is being ignored by spectators at the US Open who get up midmatch, talk during serves, and pose for pictures with active play in the background. The complaints raised this year (and in years past , for that matter), have gone beyond social media. So much so that, for instance, the umpire had to ask the talkative public to remain quiet during a game . Aryna Sabalenka, the world's top woman player, complained about the fresh smell of weed during her serve. Following the disturbances, other Grand Slams have updated their policies ; Wimbledon, for instance, will no longer allow ring lights or accredit influencers for next year's tournament. But experts agree that calling out or banning disruptive behavior is not necessarily an effective solution for today’s new tennis fan base. “I think design is always evolving to address the needs of future audiences. So we always have to constantly think, 'What is the kind of experience that people want to have in the future versus in the past?'” says Josh Tooill, principal and senior designer at the architectural firm HKS. Solway and Tooill agree that material and or structural changes can only do so much. Instead, design can be used to optimize the way fans engage with the venue, and could potentially mitigate misbehavior by giving fans other opportunities to get the shot or have a conversation. “There were certainly things around whether you create moments outside of the main [playing area] itself where people can have Instagrammable moments. That's not going to disturb the sport that's happening,” Solway says. This could include providing Instagram-friendly spots for influencers outside the seating area, or setting up photo opportunities during off-game hours. “It’s about getting into the psychology of the behaviors that are creating sound, [whether] it's an Instagrammable moment or a livestream,\" Solway says, \"then thinking through how to create opportunities for that to happen . . . without negatively impacting the players or the people that are there to watch the sport.” In a sense, tennis hasn’t changed, and probably won’t do so anytime soon. But its audience in the U.S. has. And whether longtime fans want it or not, they are meeting loudly at Arthur Ashe.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "Design"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "Design"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how arthur ashe became the noisiest grand slam venue"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T10:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "Design"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-10T10:47:47.619Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260910-apples-new-iphone-duo-turns-th",
+    "canonicalTopic": "Apples New Iphone Duo Turns the Interface on Its Head",
+    "slug": "apples-new-iphone-duo-turns-the-interface-on-its-head",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-4-AppleE28099s20new20iPhone",
+        "query": "Apples New Iphone Duo Turns the Interface on Its Head",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Apple’s new iPhone Duo turns the interface on its head",
+            "itemLink": "https://www.fastcompany.com/91604701/apples-iphone-duo-has-a-new-intuitive-vertical-interface",
+            "publishedDate": "2026-09-10T10:00:00.000Z",
+            "contentSnippet": "Not only is Apple going foldable with its new iPhone Duo , its user interface is going vertical too. The iOS 27 operating system for the iPhone Duo takes advantage of the foldable smartphone's new form factor with user interface changes designed for the phone's larger display. That meant turning parts of the iPhone's longtime UI on its head. [Photo: Apple] The home screen dock that has been positioned horizontally and at the bottom of every operating system since the first iPhone has now been moved to the side, as have other controls. The change not only maximizes screen space, but it puts major controls closer to the user's thumb, helpful for a phone that folds out longer than it is tall. The controls stay in the same location whether the phone is open or closed. Apple said Wednesday at the iPhone Duo's unveiling that it had to adjust every app's layout and reconsider long-standing iPhone design principles because of the new vertical UI. [Image: Apple] The status bar, for example, which displays Wi-Fi, cell signal, and battery life, was redesigned from a standard horizontal display showing these three icons next to each other into a more compact graphic that puts the information in a single circle. [Image: Apple] The larger screen also allows for showing two different home screens at once when it's unfolded, or even two different apps. For an app like Email, full-screen mode shows both the inbox and messages at the same time. The iPhone Duo is also the first iPhone to support the Apple Pencil. Despite the changes, Apple said it designed the new system to feel natural and familiar. The UI for the phone might be on a different axis, but it’s meant to be intuitive for longtime iPhone users.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "Design"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "Design"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "apples new iphone duo turns the interface on its head"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T10:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "Design"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-10T10:47:47.625Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260910-the-18-states-back-above-pre-p",
+    "canonicalTopic": "The 18 States Back Above Pre-pandemic 2019 Housing Market Inventory Levels",
+    "slug": "the-18-states-back-above-pre-pandemic-2019-housing-market-inventory-levels",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-5-The201820states20back20a",
+        "query": "The 18 States Back Above Pre-pandemic 2019 Housing Market Inventory Levels",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "The 18 states back above pre-pandemic 2019 housing market inventory levels",
+            "itemLink": "https://www.fastcompany.com/91604718/housing-market-18-states-back-above-pre-pandemic-2019-inventory-levels",
+            "publishedDate": "2026-09-10T10:00:00.000Z",
+            "contentSnippet": "Want more housing market stories from Lance Lambert’s ResiClub in your inbox? Subscribe to the ResiClub newsletter . Nationally aggregated inventory is up +3.8% on a year-over-year basis between August 31, 2025 and August 31, 2026. While that’s accelerated a tad from the +1.9% year-over-year inventory growth low point in June, it’s decelerated significantly since last year. If you go back 12 months, that year-over-year national inventory growth rate was much higher (+20.8%). After a period of a burst of softening in which leverage shifted more toward homebuyers, the supply-demand balance in the nationally aggregated housing market has been more stable over the past year, settling into what ResiClub considers a \"soft\" market. Again, for that comment, ResiClub is talking about the nationally aggregated market—regionally and locally there’s a lot of nuance. Given that long-term yields and mortgage rates have jumped back up to a 52-week high, we'll keep an eye out to see if that nationally aggregated softening regains momentum as we head into the seasonally soft window. Nationally, we’re still below pre-pandemic 2019 inventory levels (-7.7% below August 2019). August inventory/active listings total, according to Realtor.com : August 2017 -> 1,325,358 August 2018 -> 1,285,666 August 2019 -> 1,235,257 August 2020 -> 779,558 August 2021 -> 574,638 (Pandemic Housing Boom overheating) August 2022 -> 726,779 August 2023 -> 669,750 August 2024 -> 909,344 August 2025 -> 1,098,681 August 2026 -> 1,140,035 Between August 2024 and August 2025, U.S. active inventory across the country rose by +189,337 homes for sale. Between August 2025 and August 2026, U.S. active inventory across the country rose by +41,354 homes for sale. Below is the year-over-year active inventory percentage change by state. While active housing inventory is rising in most markets on a year-over-year basis, the pace of growth is more mild than a year ago (see the side-by-side maps below). In fact, Florida—home to many of the weakest regional housing markets over the past two years—is now seeing active inventory edge down a little year-over-year (-12%). LEFT: Year-over-year active inventory shift between August 2024 and August 2025 RIGHT: Year-over-year active inventory shift between August 2025 and August 2026 And while active housing inventory is rising in most markets on a year-over-year basis, some markets still remain tight-ish. As ResiClub has been documenting, both active resale and new homes for sale remain the most limited across certain parts of the Midwest and Northeast. That’s where home sellers over the past three years were more likely, relatively speaking, to have more power than their peers in many Southern markets. In contrast, active housing inventory for sale has neared or surpassed pre-pandemic 2019 levels in many parts of the Sun Belt and Mountain West, including metro area housing markets such as Punta Gorda and Austin. Many of these areas saw major price surges during the Pandemic Housing Boom, with home prices getting stretched compared to local incomes. As pandemic-driven domestic migration slowed and mortgage rates rose, markets like Punta Gorda and Austin faced challenges, relying on local income levels to support frothy home prices. This softening trend was accelerated further by an abundance of new home supply in the Sun Belt. Builders are often willing to lower prices or offer affordability incentives (if they have the margins to do so) to maintain sales in a shifted market, which also has a cooling effect on the resale market: Some buyers, who would have previously considered existing homes, opting for new homes with more favorable deals over the past couple years—which then put some additional upward pressure on resale inventory. At the end of August 2026, 18 states were above pre-pandemic 2019 active inventory levels: Alabama, Arizona, Arkansas, Colorado, Florida, Georgia, Hawaii, Idaho, Nebraska, Nevada, North Carolina, Oklahoma, Oregon, South Carolina, Tennessee, Texas, Utah, and Washington. (The District of Columbia is also back above pre-pandemic 2019 active inventory levels too.) Big picture: Over the past year the post-boom softening burst hasn’t been as strong as it was in 2024 or 2025, and inventory growth has decelerated on a year-over-year basis. That said, the nationally aggregated housing market remains soft as the market passing through the cyclical cooling window. While home prices are declining in some parts of the Sun Belt , a large share of Northeast and Midwest markets are still eking out mild year-over-year gains. At the national level, home prices are essentially flat year-over-year. Below is another version of the table above—but this one includes every month since January 2017. If you’d like to further examine the monthly state inventory figures, use the interactive below. As ResiClub has been closely documenting, Florida—which has been the epicenter of housing market weakness over the past 2.5 years, particularly in Southwest Florida—is no longer seeing the same upward burst in inventory. Indeed, the intensity of Florida’s housing market correction is easing across many pockets of the state . There are still pockets of weakness in Florida, particularly in certain pockets of Southwest Florida, but the burst of softening has let up. Some builders have also reported that their affordability adjustments have helped them better meet the market in Florida. To really get a sense of the ZIP Code nuances, I recommend using the ResiClub Terminal .",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "News"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "News"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the 18 states back above pre-pandemic 2019 housing market inventory levels"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T10:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "News"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-10T10:47:47.633Z",
+    "pinterestScore": 75.8
   }
 ]
