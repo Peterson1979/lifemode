@@ -1335,7 +1335,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T11:29:54.613Z",
+    "updatedAt": "2026-09-10T11:45:56.244Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1396,7 +1396,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T11:29:54.615Z",
+    "updatedAt": "2026-09-10T11:45:56.246Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1457,7 +1457,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T11:29:54.616Z",
+    "updatedAt": "2026-09-10T11:45:56.248Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1518,7 +1518,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T11:29:54.619Z",
+    "updatedAt": "2026-09-10T11:45:56.250Z",
     "revisionCyclesCount": 0
   },
   {
@@ -5732,12 +5732,35 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-king20charles20le",
+        "query": "king charles letter prince harry",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-10T11:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "king charles letter prince harry",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "king charles letter prince harry"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-10T11:10:00.000Z",
     "tags": [
       "US",
@@ -5747,21 +5770,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T11:29:54.441Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-10T11:45:56.204Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260910-weather-nyc",
@@ -5791,12 +5815,35 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-weather20nyc",
+        "query": "weather nyc",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-10T11:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "weather nyc",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "weather nyc"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-10T11:10:00.000Z",
     "tags": [
       "US",
@@ -5806,21 +5853,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T11:29:54.446Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-10T11:45:56.206Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260910-guillermo-rodriguez-dancing-wi",
@@ -5850,12 +5898,35 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-guillermo20rodri",
+        "query": "guillermo rodriguez dancing with the stars",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-10T11:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "guillermo rodriguez dancing with the stars",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "guillermo rodriguez dancing with the stars"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-10T11:10:00.000Z",
     "tags": [
       "US",
@@ -5865,21 +5936,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T11:29:54.450Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-10T11:45:56.210Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260910-solheim-cup-2026",
@@ -5909,12 +5981,35 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-solheim20cup20202",
+        "query": "solheim cup 2026",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-10T10:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "solheim cup 2026",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "solheim cup 2026"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-10T10:50:00.000Z",
     "tags": [
       "US",
@@ -5924,21 +6019,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T11:29:54.452Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-10T11:45:56.213Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260910-meteor-shower",
@@ -5968,12 +6064,35 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-meteor20shower",
+        "query": "meteor shower",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-10T10:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "meteor shower",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "meteor shower"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-10T10:40:00.000Z",
     "tags": [
       "US",
@@ -5983,21 +6102,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T11:29:54.455Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-10T11:45:56.216Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260910-pakistan-vs-england",
@@ -6027,12 +6147,35 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-pakistan20vs20eng",
+        "query": "pakistan vs england",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-10T10:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "pakistan vs england",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "pakistan vs england"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-10T10:40:00.000Z",
     "tags": [
       "US",
@@ -6042,21 +6185,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T11:29:54.458Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-10T11:45:56.218Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260910-brandon-gill",
@@ -6086,12 +6230,35 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-brandon20gill",
+        "query": "brandon gill",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-10T10:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "brandon gill",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "brandon gill"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-10T10:40:00.000Z",
     "tags": [
       "US",
@@ -6101,21 +6268,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T11:29:54.459Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-10T11:45:56.225Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260910-tim-scott",
@@ -7969,6 +8137,255 @@
     "opportunityType": "ARTICLE",
     "status": "SCORED",
     "updatedAt": "2026-09-10T11:29:54.609Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-now-20260910-celine-dion",
+    "canonicalTopic": "Celine Dion",
+    "slug": "celine-dion",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-celine20dion",
+        "query": "Celine Dion",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-10T11:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "celine dion",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "celine dion"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T11:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-10T11:45:56.191Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260910-playstation-direct",
+    "canonicalTopic": "Playstation Direct",
+    "slug": "playstation-direct",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-playstation20dir",
+        "query": "Playstation Direct",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-10T11:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "playstation direct",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "playstation direct"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T11:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-10T11:45:56.196Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260910-anthropic-researcher-quits",
+    "canonicalTopic": "Anthropic Researcher Quits",
+    "slug": "anthropic-researcher-quits",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-anthropic20resea",
+        "query": "Anthropic Researcher Quits",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-10T10:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "anthropic researcher quits",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "anthropic researcher quits"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T10:40:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-10T11:45:56.222Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-travel-20260910-the-quiet-magic-of-greece-in-t",
+    "canonicalTopic": "The Quiet Magic of Greece in the Off Season",
+    "slug": "the-quiet-magic-of-greece-in-the-off-season",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-5-The20Quiet20Magic20of20G",
+        "query": "The Quiet Magic of Greece in the Off Season",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T06:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "The Quiet Magic of Greece in the Off Season",
+            "itemLink": "https://www.cntraveler.com/story/celebrating-greece-in-the-off-season",
+            "publishedDate": "2026-09-10T06:00:00.000Z",
+            "contentSnippet": "We speak to our favorite local tastemakers about the year-round appeal of Greece—and where there's plenty to discover once the peak summer crowds disappear.",
+            "categories": [
+              "travel",
+              "destinations",
+              "hotels",
+              "culture",
+              "Destinations"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "hotels",
+            "culture",
+            "Destinations"
+          ],
+          "feedName": "Conde Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the quiet magic of greece in the off season"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T06:00:00.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "hotels",
+      "culture",
+      "Destinations"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-10T11:45:56.236Z",
     "pinterestScore": 79.2
   }
 ]
