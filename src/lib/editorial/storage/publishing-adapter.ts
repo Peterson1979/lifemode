@@ -39,6 +39,9 @@ export function publishPackageToStoredArticleInput(
         url: s.url || '',
       })),
       image: pkg.imageMetadata?.url,
+      imageAlt: pkg.imageMetadata?.alt,
+      imagePrompt: pkg.imageMetadata?.prompt,
+      imageSource: pkg.imageMetadata?.source,
       version: pkg.publicationMetadata?.version || 1,
       lifecycleStatus: 'STORED', // Confirmed stored on filesystem (not claiming external publication)
     },

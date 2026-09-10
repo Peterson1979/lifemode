@@ -51,7 +51,13 @@ export const articleSchema = z.object({
       })
     )
     .default([]),
+
+  // Image & Visual Pipeline metadata (Optional)
   image: z.string().optional(),
+  imageAlt: z.string().optional(),
+  imagePrompt: z.string().optional(),
+  imageSource: z.string().optional(),
+
   readingTime: z.string().optional(),
   version: z.number().default(1),
   lifecycleStatus: z

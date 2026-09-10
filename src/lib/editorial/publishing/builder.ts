@@ -1,5 +1,6 @@
 import type { PublishingRequest, PublishingOptions, PublishPackage } from './types.ts';
 import { sanitizeArticleContent } from '../sanitization.ts';
+import { generateEditorialImagePrompt } from '../image-prompt.ts';
 
 /**
  * Builds a canonical normalized PublishPackage from an eligible article draft,
@@ -41,6 +42,24 @@ export function buildPublishPackage(
     ? [...article.socialHooks]
     : extractedMetadata.socialHooks;
 
+  // Generate structured editorial image prompt and readiness metadata
+  const generatedImageInfo = generateEditorialImagePrompt({
+    title: article.title,
+    description: article.description,
+    pillar: context.pillar,
+    tags,
+    format: context.format,
+  });
+
+  const imageMetadata = {
+    url: context.imageMetadata?.url,
+    alt: context.imageMetadata?.alt || generatedImageInfo.altText,
+    prompt: context.imageMetadata?.prompt || generatedImageInfo.prompt,
+    source: context.imageMetadata?.source || (context.imageMetadata?.url ? 'custom' : 'prompt-ready'),
+    visualTheme: context.imageMetadata?.visualTheme || generatedImageInfo.visualTheme,
+    recommendedAspectRatio: context.imageMetadata?.recommendedAspectRatio || generatedImageInfo.recommendedAspectRatio,
+  };
+
   return {
     id,
     topicId: context.topicId,
@@ -62,7 +81,7 @@ export function buildPublishPackage(
     affiliateCategories,
     faq: article.faq?.map((f) => ({ ...f })) || [],
     socialHooks,
-    imageMetadata: context.imageMetadata ? { ...context.imageMetadata } : undefined,
+    imageMetadata,
     publicationMetadata: {
       targetDate,
       version: 1,

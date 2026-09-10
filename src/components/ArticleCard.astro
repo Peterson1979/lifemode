@@ -11,6 +11,7 @@ export interface Props {
   pubDate: Date | string;
   author?: string;
   image?: string;
+  imageAlt?: string;
   readingTime?: string;
   format?: string;
   tags?: string[];
@@ -26,6 +27,7 @@ const {
   pubDate,
   author = 'LifeMode Editorial',
   image,
+  imageAlt,
   readingTime,
   format = 'standard',
   variant = 'card',
@@ -54,7 +56,7 @@ const showFormat = format && format !== 'standard';
       {image ? (
         <img
           src={image}
-          alt={title}
+          alt={imageAlt || title}
           loading={variant === 'lead' ? 'eager' : 'lazy'}
           class="story-img"
         />

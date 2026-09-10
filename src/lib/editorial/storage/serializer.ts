@@ -109,6 +109,18 @@ export function serializeArticle(input: {
     lines.push(`image: ${JSON.stringify(frontmatter.image)}`);
   }
 
+  if (frontmatter.imageAlt) {
+    lines.push(`imageAlt: ${JSON.stringify(frontmatter.imageAlt)}`);
+  }
+
+  if (frontmatter.imagePrompt) {
+    lines.push(`imagePrompt: ${JSON.stringify(frontmatter.imagePrompt)}`);
+  }
+
+  if (frontmatter.imageSource) {
+    lines.push(`imageSource: ${JSON.stringify(frontmatter.imageSource)}`);
+  }
+
   if (frontmatter.readingTime) {
     lines.push(`readingTime: ${JSON.stringify(frontmatter.readingTime)}`);
   }
@@ -223,6 +235,9 @@ export function parseArticle(
         }))
       : [],
     image: parsedData.image,
+    imageAlt: parsedData.imageAlt,
+    imagePrompt: parsedData.imagePrompt,
+    imageSource: parsedData.imageSource,
     readingTime: parsedData.readingTime,
     version: typeof parsedData.version === 'number' ? parsedData.version : 1,
     lifecycleStatus,

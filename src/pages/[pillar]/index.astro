@@ -39,6 +39,7 @@ export interface Props {
       author?: string;
       featured?: boolean;
       image?: string;
+      imageAlt?: string;
       readingTime?: string;
       format?: string;
       tags?: string[];
@@ -119,6 +120,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
                   pubDate={articles[0].data.pubDate}
                   author={articles[0].data.author}
                   image={articles[0].data.image}
+                  imageAlt={articles[0].data.imageAlt}
                   readingTime={articles[0].data.readingTime}
                   format={articles[0].data.format}
                   tags={articles[0].data.tags}
@@ -138,6 +140,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
                     pubDate={article.data.pubDate}
                     author={article.data.author}
                     image={article.data.image}
+                    imageAlt={article.data.imageAlt}
                     readingTime={article.data.readingTime}
                     format={article.data.format}
                     tags={article.data.tags}
@@ -157,6 +160,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
                   pubDate={article.data.pubDate}
                   author={article.data.author}
                   image={article.data.image}
+                  imageAlt={article.data.imageAlt}
                   readingTime={article.data.readingTime}
                   format={article.data.format}
                   tags={article.data.tags}

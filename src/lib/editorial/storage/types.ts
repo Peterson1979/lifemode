@@ -38,6 +38,9 @@ export interface StoredArticleFrontmatter {
     url: string;
   }>;
   image?: string;
+  imageAlt?: string;
+  imagePrompt?: string;
+  imageSource?: string;
   readingTime?: string;
   version: number;
   lifecycleStatus: ArticleLifecycleStatus;

@@ -42,7 +42,10 @@ export interface PublishPackage {
   imageMetadata?: {
     url?: string;
     alt?: string;
+    prompt?: string;
+    source?: string;
     visualTheme?: string;
+    recommendedAspectRatio?: string;
   };
   publicationMetadata: {
     targetDate: string; // ISO 8601
@@ -76,7 +79,10 @@ export interface PublishingContext {
   imageMetadata?: {
     url?: string;
     alt?: string;
+    prompt?: string;
+    source?: string;
     visualTheme?: string;
+    recommendedAspectRatio?: string;
   };
   estimatedWordCount?: {
     min: number;

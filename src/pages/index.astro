@@ -38,6 +38,8 @@ interface ArticleEntry {
     author?: string;
     featured?: boolean;
     image?: string;
+    imageAlt?: string;
+    imagePrompt?: string;
     readingTime?: string;
     format?: string;
     tags?: string[];
@@ -129,6 +131,7 @@ const websiteSchema = generateWebsiteSchema();
               pubDate={leadArticle.data.pubDate}
               author={leadArticle.data.author}
               image={leadArticle.data.image}
+              imageAlt={leadArticle.data.imageAlt}
               readingTime={leadArticle.data.readingTime}
               format={leadArticle.data.format}
               tags={leadArticle.data.tags}
@@ -150,6 +153,7 @@ const websiteSchema = generateWebsiteSchema();
                   pubDate={article.data.pubDate}
                   author={article.data.author}
                   image={article.data.image}
+                  imageAlt={article.data.imageAlt}
                   readingTime={article.data.readingTime}
                   format={article.data.format}
                   tags={article.data.tags}
@@ -197,6 +201,7 @@ const websiteSchema = generateWebsiteSchema();
               pubDate={article.data.pubDate}
               author={article.data.author}
               image={article.data.image}
+              imageAlt={article.data.imageAlt}
               readingTime={article.data.readingTime}
               format={article.data.format}
               tags={article.data.tags}

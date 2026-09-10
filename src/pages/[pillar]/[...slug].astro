@@ -160,7 +160,7 @@ const combinedJsonLd = [articleJsonLd, breadcrumbJsonLd];
         <div class="article-hero-media">
           <img
             src={entry.data.image}
-            alt={entry.data.title}
+            alt={entry.data.imageAlt || entry.data.title}
             class="article-hero-img"
             loading="eager"
           />
