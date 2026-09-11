@@ -683,8 +683,9 @@
     "totalScore": 83.9,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T08:24:16.847Z"
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-11T10:45:50.377Z",
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-money-20260910-automated-treasury-management-",
@@ -1335,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T11:45:56.244Z",
+    "updatedAt": "2026-09-11T10:44:45.062Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1396,7 +1397,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T11:45:56.246Z",
+    "updatedAt": "2026-09-11T10:44:45.064Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1457,7 +1458,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T11:45:56.248Z",
+    "updatedAt": "2026-09-11T10:44:45.066Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1518,7 +1519,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T11:45:56.250Z",
+    "updatedAt": "2026-09-11T10:44:45.067Z",
     "revisionCyclesCount": 0
   },
   {
@@ -6185,7 +6186,7 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 89,
+      "searchPotential": 93,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
@@ -6194,11 +6195,11 @@
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 83.8,
+    "totalScore": 84.6,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T11:45:56.218Z",
+    "updatedAt": "2026-09-11T10:44:44.721Z",
     "pinterestScore": 85.3,
     "revisionCyclesCount": 0
   },
@@ -8386,6 +8387,3810 @@
     "opportunityType": "ARTICLE",
     "status": "SCORED",
     "updatedAt": "2026-09-10T11:45:56.236Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-now-20260911-dc-weather",
+    "canonicalTopic": "Dc Weather",
+    "slug": "dc-weather",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-dc20weather",
+        "query": "Dc Weather",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-11T10:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "dc weather",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dc weather"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T10:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-11T10:44:44.725Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260911-gisele-bndchen",
+    "canonicalTopic": "Gisele Bndchen",
+    "slug": "gisele-bndchen",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-gisele20bC3BCndchen",
+        "query": "Gisele Bndchen",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-11T10:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "gisele bündchen",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "gisele bndchen"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T10:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-11T10:44:44.730Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260911-trump-approval-rating",
+    "canonicalTopic": "Trump Approval Rating",
+    "slug": "trump-approval-rating",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-trump20approval20",
+        "query": "Trump Approval Rating",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-11T10:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "trump approval rating",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "trump approval rating"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T10:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-11T10:44:44.734Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260911-big-brother-spoilers",
+    "canonicalTopic": "Big Brother Spoilers",
+    "slug": "big-brother-spoilers",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-big20brother20spo",
+        "query": "Big Brother Spoilers",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-11T10:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "big brother spoilers",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "big brother spoilers"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T10:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-11T10:44:44.739Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260911-stuart-fails-to-save-the-unive",
+    "canonicalTopic": "Stuart Fails to Save the Universe",
+    "slug": "stuart-fails-to-save-the-universe",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-stuart20fails20to",
+        "query": "Stuart Fails to Save the Universe",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-11T10:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "stuart fails to save the universe",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "stuart fails to save the universe"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T10:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-11T10:44:44.745Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260911-is-9-11-a-federal-holiday",
+    "canonicalTopic": "Is 9/11 a Federal Holiday",
+    "slug": "is-9-11-a-federal-holiday",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-is2092F1120a20feder",
+        "query": "Is 9/11 a Federal Holiday",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-11T10:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "is 9/11 a federal holiday",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "is 9/11 a federal holiday"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T10:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-11T10:44:44.749Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260911-brian-kelly",
+    "canonicalTopic": "Brian Kelly",
+    "slug": "brian-kelly",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-brian20kelly",
+        "query": "Brian Kelly",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-11T10:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "brian kelly",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "brian kelly"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T10:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-11T10:44:44.753Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260911-welles-crowther",
+    "canonicalTopic": "Welles Crowther",
+    "slug": "welles-crowther",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-welles20crowther",
+        "query": "Welles Crowther",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-11T10:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "welles crowther",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "welles crowther"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T10:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-11T10:44:44.757Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260911-criminal-defense-attorney",
+    "canonicalTopic": "Criminal Defense Attorney",
+    "slug": "criminal-defense-attorney",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-criminal20defens",
+        "query": "Criminal Defense Attorney",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-11T09:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "criminal defense attorney",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "criminal defense attorney"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T09:50:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-11T10:44:44.764Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-tech-ai-20260911-boy-developed-toasted-skin-con",
+    "canonicalTopic": "Boy Developed Toasted Skin Condition from Using a Laptop Every Day",
+    "slug": "boy-developed-toasted-skin-condition-from-using-a-laptop-every-day",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-1-Boy20developed2022toast",
+        "query": "Boy Developed Toasted Skin Condition from Using a Laptop Every Day",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T22:16:05.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Boy developed \"toasted skin\" condition from using a laptop every day",
+            "itemLink": "https://arstechnica.com/health/2026/09/boy-developed-toasted-skin-condition-from-using-a-laptop-every-day/",
+            "publishedDate": "2026-09-10T22:16:05.000Z",
+            "contentSnippet": "Laptops don't usually get hot enough to burn—but they can still be harmful.",
+            "categories": [
+              "tech",
+              "ai",
+              "computing",
+              "hardware",
+              "Health",
+              "bmj case reports",
+              "erythema ab igne",
+              "heat",
+              "laptop"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "computing",
+            "hardware",
+            "Health",
+            "bmj case reports",
+            "erythema ab igne",
+            "heat",
+            "laptop"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "boy developed toasted skin condition from using a laptop every day"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T22:16:05.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "computing",
+      "hardware",
+      "Health",
+      "bmj case reports",
+      "erythema ab igne",
+      "heat",
+      "laptop"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.771Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260911-linkedin-beats-browsergate-law",
+    "canonicalTopic": "Linkedin Beats Browsergate Lawsuits over Scanning Users Chrome Extensions",
+    "slug": "linkedin-beats-browsergate-lawsuits-over-scanning-users-chrome-extensions",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-2-LinkedIn20beats2022Brow",
+        "query": "Linkedin Beats Browsergate Lawsuits over Scanning Users Chrome Extensions",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T20:55:29.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "LinkedIn beats \"BrowserGate\" lawsuits over scanning users' Chrome extensions",
+            "itemLink": "https://arstechnica.com/tech-policy/2026/09/linkedin-beats-browsergate-lawsuits-over-scanning-users-chrome-extensions/",
+            "publishedDate": "2026-09-10T20:55:29.000Z",
+            "contentSnippet": "Judge tosses lawsuits, says plaintiffs didn't allege any real privacy violation.",
+            "categories": [
+              "tech",
+              "ai",
+              "computing",
+              "hardware",
+              "Policy",
+              "browsergate",
+              "LinkedIn"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "computing",
+            "hardware",
+            "Policy",
+            "browsergate",
+            "LinkedIn"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "linkedin beats browsergate lawsuits over scanning users chrome extensions"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T20:55:29.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "computing",
+      "hardware",
+      "Policy",
+      "browsergate",
+      "LinkedIn"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.778Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260911-europe-will-go-it-alone-on-ven",
+    "canonicalTopic": "Europe Will Go It Alone on Venus Mission After Nasa Yanks Radar Instrument",
+    "slug": "europe-will-go-it-alone-on-venus-mission-after-nasa-yanks-radar-instrument",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-3-Europe20will20go20it20al",
+        "query": "Europe Will Go It Alone on Venus Mission After Nasa Yanks Radar Instrument",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T19:09:29.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Europe will go it alone on Venus mission after NASA yanks radar instrument",
+            "itemLink": "https://arstechnica.com/space/2026/09/europe-will-go-it-alone-on-venus-mission-after-nasa-yanks-radar-instrument/",
+            "publishedDate": "2026-09-10T19:09:29.000Z",
+            "contentSnippet": "Europe is looking inward, and perhaps to China, as the White House tries to cancel some NASA partnerships.",
+            "categories": [
+              "tech",
+              "ai",
+              "computing",
+              "hardware",
+              "Space",
+              "envision",
+              "europe",
+              "european space agency",
+              "NASA",
+              "planetary science",
+              "Venus",
+              "veritas"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "computing",
+            "hardware",
+            "Space",
+            "envision",
+            "europe",
+            "european space agency",
+            "NASA",
+            "planetary science",
+            "Venus",
+            "veritas"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "europe will go it alone on venus mission after nasa yanks radar instrument"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T19:09:29.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "computing",
+      "hardware",
+      "Space",
+      "envision",
+      "europe",
+      "european space agency",
+      "NASA",
+      "planetary science",
+      "Venus",
+      "veritas"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.786Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260911-android-can-now-securely-migra",
+    "canonicalTopic": "Android Can Now Securely Migrate Your Logins Between Password Managers",
+    "slug": "android-can-now-securely-migrate-your-logins-between-password-managers",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-4-Android20can20now20secu",
+        "query": "Android Can Now Securely Migrate Your Logins Between Password Managers",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T18:41:09.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Android can now securely migrate your logins between password managers",
+            "itemLink": "https://arstechnica.com/gadgets/2026/09/android-can-now-securely-migrate-your-logins-between-password-managers/",
+            "publishedDate": "2026-09-10T18:41:09.000Z",
+            "contentSnippet": "App support is slim right now, but Google says more are coming.",
+            "categories": [
+              "tech",
+              "ai",
+              "computing",
+              "hardware",
+              "Google",
+              "Tech",
+              "android",
+              "google",
+              "passwords",
+              "smartphones"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "computing",
+            "hardware",
+            "Google",
+            "Tech",
+            "android",
+            "google",
+            "passwords",
+            "smartphones"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "android can now securely migrate your logins between password managers"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T18:41:09.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "computing",
+      "hardware",
+      "Google",
+      "Tech",
+      "android",
+      "google",
+      "passwords",
+      "smartphones"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.793Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260911-panic-builds-over-bankrupt-spi",
+    "canonicalTopic": "Panic Builds over Bankrupt Spirits Looming Data Sale to Google",
+    "slug": "panic-builds-over-bankrupt-spirits-looming-data-sale-to-google",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-5-Panic20builds20over20ba",
+        "query": "Panic Builds over Bankrupt Spirits Looming Data Sale to Google",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T18:14:14.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Panic builds over bankrupt Spirit’s looming data sale to Google",
+            "itemLink": "https://arstechnica.com/tech-policy/2026/09/panic-builds-over-bankrupt-spirits-looming-data-sale-to-google/",
+            "publishedDate": "2026-09-10T18:14:14.000Z",
+            "contentSnippet": "\"Bankruptcy cannot become the new land grab for AI.”",
+            "categories": [
+              "tech",
+              "ai",
+              "computing",
+              "hardware",
+              "AI",
+              "Google",
+              "Policy",
+              "Artificial Intelligence",
+              "bankruptcy",
+              "google",
+              "intellectual property",
+              "online privacy",
+              "spirit airlines"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "computing",
+            "hardware",
+            "AI",
+            "Google",
+            "Policy",
+            "Artificial Intelligence",
+            "bankruptcy",
+            "google",
+            "intellectual property",
+            "online privacy",
+            "spirit airlines"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "panic builds over bankrupt spirits looming data sale to google"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T18:14:14.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "computing",
+      "hardware",
+      "AI",
+      "Google",
+      "Policy",
+      "Artificial Intelligence",
+      "bankruptcy",
+      "google",
+      "intellectual property",
+      "online privacy",
+      "spirit airlines"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.799Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260911-apple-addresses-iphone-duo-cop",
+    "canonicalTopic": "Apple Addresses Iphone Duo Copycats",
+    "slug": "apple-addresses-iphone-duo-copycats",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-Apple20addresses20iPho",
+        "query": "Apple Addresses Iphone Duo Copycats",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T10:02:58.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Apple addresses iPhone Duo copycats",
+            "itemLink": "https://www.theverge.com/tech/993795/apple-addresses-iphone-duo-copycats",
+            "publishedDate": "2026-09-11T10:02:58.000Z",
+            "contentSnippet": "Apple was far from the first company to announce a passport-shaped folding phone this year, but that doesn't mean it wasn't copied. As my colleague Dom Preston already explained, it's almost impossible to keep product development secret when Apple and its competitors all share the same global suppliers. Apple's new CEO John Ternus and head […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "Apple",
+              "Apple Event 2026",
+              "iPhone",
+              "News",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "Apple",
+            "Apple Event 2026",
+            "iPhone",
+            "News",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "apple addresses iphone duo copycats"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T10:02:58.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "Apple",
+      "Apple Event 2026",
+      "iPhone",
+      "News",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.803Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260911-slack-can-now-vibe-code-intera",
+    "canonicalTopic": "Slack Can Now Vibe-code Interactive Charts and Reports Inside Chats",
+    "slug": "slack-can-now-vibe-code-interactive-charts-and-reports-inside-chats",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-Slack20can20now20vibe-c",
+        "query": "Slack Can Now Vibe-code Interactive Charts and Reports Inside Chats",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T21:25:21.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Slack can now vibe-code interactive charts and reports inside chats",
+            "itemLink": "https://www.theverge.com/tech/989853/slackforce-surfaces-launch",
+            "publishedDate": "2026-09-10T21:25:21.000Z",
+            "contentSnippet": "A new feature coming to Slack will allow you to build interactive reports, polls, dashboards, presentations, microsites, and other tools directly inside a chat. With Slackforce Surfaces, you can describe to Slackbot what you need, and it will use AI to gather information from relevant conversations and connected apps, like Google Drive or Salesforce, to […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "AI",
+              "Apps",
+              "News",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "AI",
+            "Apps",
+            "News",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "slack can now vibe-code interactive charts and reports inside chats"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T21:25:21.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "AI",
+      "Apps",
+      "News",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.810Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260911-schools-are-catching-on-to-big",
+    "canonicalTopic": "Schools Are Catching on to Big Techs Playbook",
+    "slug": "schools-are-catching-on-to-big-techs-playbook",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-Schools20are20catching",
+        "query": "Schools Are Catching on to Big Techs Playbook",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T19:44:20.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Schools are catching on to Big Tech’s playbook",
+            "itemLink": "https://www.theverge.com/policy/993308/computer-science-ai-education-coding-kids",
+            "publishedDate": "2026-09-10T19:44:20.000Z",
+            "contentSnippet": "It's the hot new thing in tech, and it's where all the jobs are. Students who don't learn to use it fall behind. And to help them catch up in time, its creators are graciously providing the resources and curriculum for learning it, often pro bono. That's the narrative AI companies are pitching schools on […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "AI",
+              "Podcasts",
+              "Policy",
+              "Report",
+              "Vergecast"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "AI",
+            "Podcasts",
+            "Policy",
+            "Report",
+            "Vergecast"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "schools are catching on to big techs playbook"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T19:44:20.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "AI",
+      "Podcasts",
+      "Policy",
+      "Report",
+      "Vergecast"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.816Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260911-amazons-fire-tv-stick-4k-is-ov",
+    "canonicalTopic": "Amazons Fire Tv Stick 4k Is over Half Off at Under 20",
+    "slug": "amazons-fire-tv-stick-4k-is-over-half-off-at-under-20",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-4-AmazonE28099s20Fire20TV20Sti",
+        "query": "Amazons Fire Tv Stick 4k Is over Half Off at Under 20",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T16:58:44.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Amazon’s Fire TV Stick 4K is over half off at under $20",
+            "itemLink": "https://www.theverge.com/gadgets/993455/fire-tv-stick-4k-resident-evil-requiem-deal-sale",
+            "publishedDate": "2026-09-10T16:58:44.000Z",
+            "contentSnippet": "Looking to take full advantage of your 4K television, but your current streaming stick doesn’t have the right features? Through September 13th, you can grab an Amazon Fire TV Stick 4K from Woot for just $16.09 when you use the coupon code FIRE30 at checkout. With support for Wi-Fi 6 and 2GB of memory, it’s […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "Deals",
+              "Gadgets",
+              "Verge Shopping"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "Deals",
+            "Gadgets",
+            "Verge Shopping"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "amazons fire tv stick 4k is over half off at under 20"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T16:58:44.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "Deals",
+      "Gadgets",
+      "Verge Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.822Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260911-electric-air-taxis-get-the-gre",
+    "canonicalTopic": "Electric Air Taxis Get the Green Light for Test Flights in Texas",
+    "slug": "electric-air-taxis-get-the-green-light-for-test-flights-in-texas",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-5-Electric20air20taxis20g",
+        "query": "Electric Air Taxis Get the Green Light for Test Flights in Texas",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T16:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Electric air taxis get the green light for test flights in Texas",
+            "itemLink": "https://www.theverge.com/transportation/993341/evtol-air-taxi-aviation-eipp-texas",
+            "publishedDate": "2026-09-10T16:00:00.000Z",
+            "contentSnippet": "A new federal program to test the feasibility of electric, hybrid-electric, and autonomous aircraft kicks off today in Texas - before the rules governing this new technology have even been finalized. Earlier this year, the Federal Aviation Administration's Advanced Air Mobility and Electric Vertical Takeoff and Landing (eVTOL) Integration Pilot Program (eIPP) selected eight state-led […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "Aviation",
+              "News",
+              "Tech",
+              "Transportation"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "Aviation",
+            "News",
+            "Tech",
+            "Transportation"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "electric air taxis get the green light for test flights in texas"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T16:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "Aviation",
+      "News",
+      "Tech",
+      "Transportation"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.829Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260911-meet-the-under-35s-shaping-the",
+    "canonicalTopic": "Meet the Under-35s Shaping the Future of Biotech",
+    "slug": "meet-the-under-35s-shaping-the-future-of-biotech",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-1-Meet20the20under-35s20",
+        "query": "Meet the Under-35s Shaping the Future of Biotech",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T09:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "Meet the under-35s shaping the future of biotech",
+            "itemLink": "https://www.technologyreview.com/2026/09/11/1143834/meet-the-under-35s-shaping-the-future-of-biotech/",
+            "publishedDate": "2026-09-11T09:00:00.000Z",
+            "contentSnippet": "Every year, MIT Technology Review puts together a list of some of the brightest and best young minds working across science and technology. Our 35 Innovators Under 35 are the ones to watch—people whose research and technical work stands to shape the future of their fields. This year, the list includes nine people who are…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "Biotechnology and health",
+              "App",
+              "Summary",
+              "The Checkup"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "Biotechnology and health",
+            "App",
+            "Summary",
+            "The Checkup"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "meet the under-35s shaping the future of biotech"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T09:00:00.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "Biotechnology and health",
+      "App",
+      "Summary",
+      "The Checkup"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.834Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260911-the-download-a-god-driven-cryp",
+    "canonicalTopic": "The Download a God-driven Cryptocurrency and a Solar Engineering Roadmap",
+    "slug": "the-download-a-god-driven-cryptocurrency-and-a-solar-engineering-roadmap",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-2-The20Download3A20a2022",
+        "query": "The Download a God-driven Cryptocurrency and a Solar Engineering Roadmap",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T12:10:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "The Download: a \"God-driven\" cryptocurrency and a solar engineering roadmap",
+            "itemLink": "https://www.technologyreview.com/2026/09/10/1143828/the-download-christian-cryptocurrency-scandal-solar-engineering-roadmap/",
+            "publishedDate": "2026-09-10T12:10:00.000Z",
+            "contentSnippet": "This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. God told them to sell crypto. Their investors lost everything. When Eli Regalado first heard God speak to him, he wondered whether he was hallucinating. According to Eli and his wife,…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "The Download"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "The Download"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the download a god-driven cryptocurrency and a solar engineering roadmap"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T12:10:00.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "The Download"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.842Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260911-five-killed-and-67-injured-in-",
+    "canonicalTopic": "Five Killed and 67 Injured in Russian Strike on Shopping Centre Ukraine Says",
+    "slug": "five-killed-and-67-injured-in-russian-strike-on-shopping-centre-ukraine-says",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-1-Five20killed20and206720i",
+        "query": "Five Killed and 67 Injured in Russian Strike on Shopping Centre Ukraine Says",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T22:36:02.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Five killed and 67 injured in Russian strike on shopping centre, Ukraine says",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cpvelrmp1vmo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-10T22:36:02.000Z",
+            "contentSnippet": "The attack in Pavlohrad city centre was the third Russian strike on a mall within days, local media report.",
+            "categories": [
+              "travel",
+              "global",
+              "destinations",
+              "culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "global",
+            "destinations",
+            "culture"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "five killed and 67 injured in russian strike on shopping centre ukraine says"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T22:36:02.000Z",
+    "tags": [
+      "travel",
+      "global",
+      "destinations",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.853Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260911-anthropic-blocks-possible-atte",
+    "canonicalTopic": "Anthropic Blocks Possible Attempt to Use Ai to Make Biological Weapons",
+    "slug": "anthropic-blocks-possible-attempt-to-use-ai-to-make-biological-weapons",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-2-Anthropic20blocks20pos",
+        "query": "Anthropic Blocks Possible Attempt to Use Ai to Make Biological Weapons",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T08:15:25.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Anthropic blocks possible attempt to use AI to make biological weapons",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cx2zrrpkx20o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-11T08:15:25.000Z",
+            "contentSnippet": "The revelations in Anthropic's threat intelligence report come after a former top researcher at the company warned of the risks of AI to humanity.",
+            "categories": [
+              "travel",
+              "global",
+              "destinations",
+              "culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "global",
+            "destinations",
+            "culture"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "anthropic blocks possible attempt to use ai to make biological weapons"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T08:15:25.000Z",
+    "tags": [
+      "travel",
+      "global",
+      "destinations",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.861Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260911-hong-kongs-tiananmen-activists",
+    "canonicalTopic": "Hong Kongs Tiananmen Activists Sentenced to Up to Seven Years in Prison",
+    "slug": "hong-kongs-tiananmen-activists-sentenced-to-up-to-seven-years-in-prison",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-3-Hong20Kongs20Tiananme",
+        "query": "Hong Kongs Tiananmen Activists Sentenced to Up to Seven Years in Prison",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T05:41:54.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Hong Kong's Tiananmen activists sentenced to up to seven years in prison",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cvgyvk2djk4o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-11T05:41:54.000Z",
+            "contentSnippet": "Hong Kong used to be one of the only places in Chinese territory where people could gather to mark the 1989 crackdown.",
+            "categories": [
+              "travel",
+              "global",
+              "destinations",
+              "culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "global",
+            "destinations",
+            "culture"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "hong kongs tiananmen activists sentenced to up to seven years in prison"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T05:41:54.000Z",
+    "tags": [
+      "travel",
+      "global",
+      "destinations",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.870Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260911-five-dead-and-dozens-injured-i",
+    "canonicalTopic": "Five Dead and Dozens Injured in Coach Crash in Swiss Alps",
+    "slug": "five-dead-and-dozens-injured-in-coach-crash-in-swiss-alps",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-4-Five20dead20and20dozens",
+        "query": "Five Dead and Dozens Injured in Coach Crash in Swiss Alps",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T08:54:20.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Five dead and dozens injured in coach crash in Swiss Alps",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cx2z70xr0y3o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-11T08:54:20.000Z",
+            "contentSnippet": "The tourist coach was carrying dozens of Dutch passengers when it overturned in the south-eastern Swiss Alps.",
+            "categories": [
+              "travel",
+              "global",
+              "destinations",
+              "culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "global",
+            "destinations",
+            "culture"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "five dead and dozens injured in coach crash in swiss alps"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T08:54:20.000Z",
+    "tags": [
+      "travel",
+      "global",
+      "destinations",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.877Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260911-princess-dianas-revenge-dress-",
+    "canonicalTopic": "Princess Dianas Revenge Dress Goes Up for Auction",
+    "slug": "princess-dianas-revenge-dress-goes-up-for-auction",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-5-Princess20Dianas20re",
+        "query": "Princess Dianas Revenge Dress Goes Up for Auction",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T06:54:46.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Princess Diana's 'revenge dress' goes up for auction",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c0lrk7d7j0no?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-11T06:54:46.000Z",
+            "contentSnippet": "Auction house Sotheby's expects the dress to sell for up to $300,000 (£220,000) when it goes under the hammer on 9 December.",
+            "categories": [
+              "travel",
+              "global",
+              "destinations",
+              "culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "global",
+            "destinations",
+            "culture"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "princess dianas revenge dress goes up for auction"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T06:54:46.000Z",
+    "tags": [
+      "travel",
+      "global",
+      "destinations",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.883Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260911-an-ode-to-gander-airport-25-ye",
+    "canonicalTopic": "An Ode to Gander Airport 25 Years After 9/11",
+    "slug": "an-ode-to-gander-airport-25-years-after-9-11",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-An20Ode20to20Gander20Air",
+        "query": "An Ode to Gander Airport 25 Years After 9/11",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T09:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "An Ode to Gander Airport, 25 Years After 9/11",
+            "itemLink": "https://www.cntraveler.com/story/an-ode-to-gander-airport-25-years-after-9-11",
+            "publishedDate": "2026-09-11T09:00:00.000Z",
+            "contentSnippet": "Gander famously became a refuge for stranded passengers on 9/11, but its reputation as the “crossroads of the world” began long before.",
+            "categories": [
+              "travel",
+              "destinations",
+              "hotels",
+              "culture",
+              "News & Advice"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "hotels",
+            "culture",
+            "News & Advice"
+          ],
+          "feedName": "Conde Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "an ode to gander airport 25 years after 9/11"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T09:00:00.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "hotels",
+      "culture",
+      "News & Advice"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.888Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260911-gap-promo-code-save-60-in-sept",
+    "canonicalTopic": "Gap Promo Code Save 60 in September 2026 Cond Nast Traveler",
+    "slug": "gap-promo-code-save-60-in-september-2026-cond-nast-traveler",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-2-Gap20Promo20Code3A20Save",
+        "query": "Gap Promo Code Save 60 in September 2026 Cond Nast Traveler",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T21:00:37.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Gap Promo Code: Save 60% in September 2026 | Condé Nast Traveler",
+            "itemLink": "https://www.cntraveler.com/story/gap-promo-code",
+            "publishedDate": "2026-09-10T21:00:37.000Z",
+            "contentSnippet": "Discover discounts of up to 60% on sale items, plus up to 20% extra off your favorite styles with a verified Gap coupon code, and other special offers this fall.",
+            "categories": [
+              "travel",
+              "destinations",
+              "hotels",
+              "culture",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "hotels",
+            "culture",
+            "Shopping"
+          ],
+          "feedName": "Conde Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "gap promo code save 60 in september 2026 cond nast traveler"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T21:00:37.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "hotels",
+      "culture",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.895Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260911-in-utahs-mountains-a-self-help",
+    "canonicalTopic": "In Utahs Mountains a Self-help Skeptic Learns to Open Up",
+    "slug": "in-utahs-mountains-a-self-help-skeptic-learns-to-open-up",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-3-In20UtahE28099s20Mountains2",
+        "query": "In Utahs Mountains a Self-help Skeptic Learns to Open Up",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T20:56:56.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "In Utah’s Mountains, a Self-Help Skeptic Learns to Open Up",
+            "itemLink": "https://www.cntraveler.com/story/in-utahs-mountains-a-self-help-skeptic-learns-to-open-up",
+            "publishedDate": "2026-09-10T20:56:56.000Z",
+            "contentSnippet": "At a retreat in The Lodge at Blue Sky, learning that wellbeing comes in all its forms—from unplugging on an afternoon hike to spilling out feelings at a sweat lodge.",
+            "categories": [
+              "travel",
+              "destinations",
+              "hotels",
+              "culture",
+              "Inspiration / Wellness & Spas",
+              "Inspiration / Solo Travel"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "hotels",
+            "culture",
+            "Inspiration / Wellness & Spas",
+            "Inspiration / Solo Travel"
+          ],
+          "feedName": "Conde Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "in utahs mountains a self-help skeptic learns to open up"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T20:56:56.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "hotels",
+      "culture",
+      "Inspiration / Wellness & Spas",
+      "Inspiration / Solo Travel"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.902Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260911-hertz-promo-codes-up-to-30-off",
+    "canonicalTopic": "Hertz Promo Codes Up to 30 Off Rentals Cond Nast Traveler",
+    "slug": "hertz-promo-codes-up-to-30-off-rentals-cond-nast-traveler",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-4-Hertz20Promo20Codes3A20U",
+        "query": "Hertz Promo Codes Up to 30 Off Rentals Cond Nast Traveler",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T20:10:24.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Hertz Promo Codes: Up to 30% Off Rentals | Condé Nast Traveler",
+            "itemLink": "https://www.cntraveler.com/story/hertz-promo-code",
+            "publishedDate": "2026-09-10T20:10:24.000Z",
+            "contentSnippet": "Whether you're planning a weekend getaway or a cross-country trip, save up to 25% on your next vehicle with these Hertz discount codes and member-exclusive offers.",
+            "categories": [
+              "travel",
+              "destinations",
+              "hotels",
+              "culture",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "hotels",
+            "culture",
+            "Shopping"
+          ],
+          "feedName": "Conde Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "hertz promo codes up to 30 off rentals cond nast traveler"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T20:10:24.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "hotels",
+      "culture",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.909Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260911-tsas-new-precheck-perk-allows-",
+    "canonicalTopic": "Tsas New Precheck Perk Allows Non-ticketed Visitors to Accompany Friends and Family at the Gate",
+    "slug": "tsas-new-precheck-perk-allows-non-ticketed-visitors-to-accompany-friends-and-family-at-the-gate",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-5-TSAE28099s20New20PreCheck20",
+        "query": "Tsas New Precheck Perk Allows Non-ticketed Visitors to Accompany Friends and Family at the Gate",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T19:30:51.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "TSA’s New PreCheck Perk Allows Non-Ticketed Visitors to Accompany Friends and Family at the Gate",
+            "itemLink": "https://www.cntraveler.com/story/tsas-new-precheck-perk-allows-non-ticketed-visitors-to-accompany-friends-and-family-at-the-gate",
+            "publishedDate": "2026-09-10T19:30:51.000Z",
+            "contentSnippet": "Gateside by TSA PreCheck is now available at 13 US airports. Here's how the new program works.",
+            "categories": [
+              "travel",
+              "destinations",
+              "hotels",
+              "culture",
+              "News & Advice"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "hotels",
+            "culture",
+            "News & Advice"
+          ],
+          "feedName": "Conde Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "tsas new precheck perk allows non-ticketed visitors to accompany friends and family at the gate"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T19:30:51.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "hotels",
+      "culture",
+      "News & Advice"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.919Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260911-keiji-ashizawa-clads-house-in-",
+    "canonicalTopic": "Keiji Ashizawa Clads House in Yatsugatake in Charred Cedar",
+    "slug": "keiji-ashizawa-clads-house-in-yatsugatake-in-charred-cedar",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-Keiji20Ashizawa20clads",
+        "query": "Keiji Ashizawa Clads House in Yatsugatake in Charred Cedar",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T10:30:01.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Keiji Ashizawa clads House in Yatsugatake in charred cedar",
+            "itemLink": "https://www.dezeen.com/2026/09/11/keiji-ashizawa-house-yatsugatake/",
+            "publishedDate": "2026-09-11T10:30:01.000Z",
+            "contentSnippet": "An \"angled, folded form\" clad in charred cedar defines this holiday home, designed by Japanese studio Keiji Ashizawa Design to embrace the surrounding landscape while maintaining its inhabitants' privacy. The studio designed the 225-square-metre holiday home for a family to use either alone or with guests. Located on the Yatsugatake mountain plateau in central Japan, the The post Keiji Ashizawa clads House in Yatsugatake in charred cedar appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "all",
+              "Architecture",
+              "Exclusives",
+              "Japan",
+              "Residential architecture and interiors",
+              "Cedar",
+              "Holiday homes",
+              "Keiji Ashizawa",
+              "Japanese houses",
+              "Wooden architecture"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "all",
+            "Architecture",
+            "Exclusives",
+            "Japan",
+            "Residential architecture and interiors",
+            "Cedar",
+            "Holiday homes",
+            "Keiji Ashizawa",
+            "Japanese houses",
+            "Wooden architecture"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "keiji ashizawa clads house in yatsugatake in charred cedar"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T10:30:01.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "all",
+      "Architecture",
+      "Exclusives",
+      "Japan",
+      "Residential architecture and interiors",
+      "Cedar",
+      "Holiday homes",
+      "Keiji Ashizawa",
+      "Japanese houses",
+      "Wooden architecture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.926Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260911-how-london-designers-are-makin",
+    "canonicalTopic": "How London Designers Are Making It Work",
+    "slug": "how-london-designers-are-making-it-work",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-2-How20London20designers",
+        "query": "How London Designers Are Making It Work",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T09:42:22.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "How London designers are making it work",
+            "itemLink": "https://www.dezeen.com/2026/09/11/london-designers-making-it-work/",
+            "publishedDate": "2026-09-11T09:42:22.000Z",
+            "contentSnippet": "London may have a lot to shout about design-wise, but is it actually possible to survive as a creative in one of the world's most expensive cities? Ahead of London Design Festival, we spoke to five local designers about the challenges they face. \"I'm willing to live very modestly\" said Tessa Silva \"Financially, I've had The post How London designers are making it work appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "all",
+              "Design",
+              "Interviews",
+              "Tessa Silva",
+              "London",
+              "London Design Festival",
+              "UK",
+              "England"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "all",
+            "Design",
+            "Interviews",
+            "Tessa Silva",
+            "London",
+            "London Design Festival",
+            "UK",
+            "England"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how london designers are making it work"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T09:42:22.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "all",
+      "Design",
+      "Interviews",
+      "Tessa Silva",
+      "London",
+      "London Design Festival",
+      "UK",
+      "England"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.931Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260911-cattle-armchair-by-gibson-karl",
+    "canonicalTopic": "Cattle Armchair by Gibson Karlo for Design by Them",
+    "slug": "cattle-armchair-by-gibson-karlo-for-design-by-them",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-3-Cattle20armchair20by20G",
+        "query": "Cattle Armchair by Gibson Karlo for Design by Them",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T09:30:06.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Cattle armchair by Gibson Karlo for Design By Them",
+            "itemLink": "https://www.dezeen.com/2026/09/11/cattle-chair-gibson-karlo-design-by-them-dezeen-showroom/",
+            "publishedDate": "2026-09-11T09:30:06.000Z",
+            "contentSnippet": "Dezeen Showroom: the rugged aesthetic of the Australian outback meets the sophistication of contemporary design in the Cattle armchair, created by Gibson Karlo for the brand Design By Them. Karlo took inspiration from the industrial metalwork seen on structures such as silos in the Australian rural landscape for the Cattle chair, adapting a style of The post Cattle armchair by Gibson Karlo for Design By Them appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "Furniture",
+              "all",
+              "Chairs",
+              "Lounge chairs",
+              "Design",
+              "Do not show on the Homepage",
+              "Dezeen Showroom",
+              "Design By Them"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "Furniture",
+            "all",
+            "Chairs",
+            "Lounge chairs",
+            "Design",
+            "Do not show on the Homepage",
+            "Dezeen Showroom",
+            "Design By Them"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "cattle armchair by gibson karlo for design by them"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T09:30:06.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "Furniture",
+      "all",
+      "Chairs",
+      "Lounge chairs",
+      "Design",
+      "Do not show on the Homepage",
+      "Dezeen Showroom",
+      "Design By Them"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.937Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260911-our-thoughts-on-the-dyson-came",
+    "canonicalTopic": "Our Thoughts on the Dyson Camerajet Toothbrush",
+    "slug": "our-thoughts-on-the-dyson-camerajet-toothbrush",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-4-Our20thoughts20on20the20",
+        "query": "Our Thoughts on the Dyson Camerajet Toothbrush",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T09:00:28.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Our thoughts on the Dyson CameraJet toothbrush",
+            "itemLink": "https://www.dezeen.com/2026/09/11/dyson-camerajet-toothbrush-petra-heights-stone-building-dezeen-weekly-podcast/",
+            "publishedDate": "2026-09-11T09:00:28.000Z",
+            "contentSnippet": "Dezeen Weekly returns with a conversation about Dyson's eye-catching new product launch, plus a building in north London that aims to kickstart a revival of stone architecture. In this episode, Dezeen features editor Nat Barker and design editor Jennifer Hahn are joined by editor Tom Ravenscroft to discuss the Dyson CameraJet. The team have their The post Our thoughts on the Dyson CameraJet toothbrush appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "Dezeen Weekly",
+              "all",
+              "Architecture",
+              "Design",
+              "Technology",
+              "Podcasts",
+              "Dyson",
+              "Toothbrushes",
+              "Product design",
+              "Stone"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "Dezeen Weekly",
+            "all",
+            "Architecture",
+            "Design",
+            "Technology",
+            "Podcasts",
+            "Dyson",
+            "Toothbrushes",
+            "Product design",
+            "Stone"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "our thoughts on the dyson camerajet toothbrush"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T09:00:28.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "Dezeen Weekly",
+      "all",
+      "Architecture",
+      "Design",
+      "Technology",
+      "Podcasts",
+      "Dyson",
+      "Toothbrushes",
+      "Product design",
+      "Stone"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.943Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260911-read-ldf-edition-of-dezeen-dis",
+    "canonicalTopic": "Read Ldf Edition of Dezeen Dispatch Online Now",
+    "slug": "read-ldf-edition-of-dezeen-dispatch-online-now",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-5-Read20LDF20edition20of20",
+        "query": "Read Ldf Edition of Dezeen Dispatch Online Now",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T08:30:07.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Read LDF edition of Dezeen Dispatch online now!",
+            "itemLink": "https://www.dezeen.com/2026/09/11/dezeen-dispatch-ldf-2026/",
+            "publishedDate": "2026-09-11T08:30:07.000Z",
+            "contentSnippet": "Dezeen is back in print! A special London Design Festival edition of Dezeen Dispatch will be available at locations across the city during the event. Everyone else can read a digital version here. Written by the Dezeen editorial team, the newspaper-style publication contains features and interviews along with an unofficial guide to the best the The post Read LDF edition of Dezeen Dispatch online now! appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "all",
+              "Design",
+              "London Design Festival",
+              "London"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "all",
+            "Design",
+            "London Design Festival",
+            "London"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "read ldf edition of dezeen dispatch online now"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T08:30:07.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "all",
+      "Design",
+      "London Design Festival",
+      "London"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.949Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-life-20260911-hollywood-has-plenty-of-movies",
+    "canonicalTopic": "Hollywood Has Plenty of Movies Why Are Theater Screens Sitting Empty",
+    "slug": "hollywood-has-plenty-of-movies-why-are-theater-screens-sitting-empty",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-1-Hollywood20has20plenty",
+        "query": "Hollywood Has Plenty of Movies Why Are Theater Screens Sitting Empty",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T10:12:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Hollywood has plenty of movies. Why are theater screens sitting empty?",
+            "itemLink": "https://www.fastcompany.com/91604355/hollywood-has-plenty-of-movies-why-are-theater-screens-sitting-empty",
+            "publishedDate": "2026-09-11T10:12:00.000Z",
+            "contentSnippet": "On August 3, AMC announced the highest-revenue weekend in its 106-year history. More than 10.2 million people had gone to AMC and its Odeon subsidiary’s theaters, with Spider-Man: Brand New Day and The Odyssey leading the box office. It was a sign that, financially at least, movie theaters are looking much healthier than they did a few years ago. Still, the recovery is not as straightforward as the box office numbers suggest. This summer brought in $4.76 billion at the North American box office, narrowly surpassing the record set in 2013. But people are still going to the movies much less than they did before the COVID-19 pandemic; theaters sold an estimated 470.9 million tickets through the first 30 weeks of this year, down from 747.3 million over the comparable period in 2019. The money has come back faster than the crowds: Tickets cost more now, especially for IMAX and other premium screenings. Twenty-eight days after its record weekend, AMC announced that it needed more movies. The company is starting Leawood Films, a distributor focused on small and midsized features. “Leawood Films is being created with a straightforward objective, given that substantial excess capacity exists in the movie theatre industry: to bring more movies to theatres,” Adam Aron, AMC's CEO, said in a press release . “Moviegoers consistently demonstrate their appetite for a wide variety of theatrical content, and we believe there are more outstanding films that deserve the opportunity to find audiences on the big screen.” The first Leawood releases are unlikely before 2027 or 2028. The biggest movies are doing fine. But theaters need a steady flow of people coming through their doors. They have to schedule workers, order food and drinks, and keep the building running between blockbusters, and there is no guarantee that the next projected hit will actually land. “This isn’t a business that can sustain itself off blockbusters alone,” Daniel Loria, senior vice president of content strategy at the Boxoffice Company, told me. “That’s a very high-risk proposition.” Loria pointed to Joker: Folie à Deux in 2024 as an example of the risk of relying so heavily on blockbusters. Distributors had largely stayed away from its release date, assuming it would be a hit, leaving October thin when it bombed. “Forget a bad weekend,” Loria says. “You’re talking about a bad month. You might be talking about six weeks if something doesn’t connect.” Studios can afford to make those bets; theaters have to fill their screens every week. Yet by one measure, the supply of movies has nearly recovered. Cinema United, the theater industry trade group, projects 115 movies will open in at least 2,000 North American locations this year, roughly in line with the 120 that did so in 2019. But those releases aren't necessarily spread evenly through the year—this summer had 34 wide releases, compared with 44 in 2019—and much of the old middle of the theatrical business hasn’t returned. Loria mentioned adult dramas, romantic comedies, and R-rated comedies, movies somewhere between an indie breakout and superhero IP. “That seems to be a gap in the marketplace,” he says. The decline in midbudget movies began well before COVID. The Fithian Group, an exhibition consulting firm, found that the number of movies grossing between $50 million and $100 million, one measure of the theatrical middle, fell 40% between 2004 and 2019. The home video market that had once helped studios recoup the cost of these movies was disappearing. Studios increasingly put their money into franchises with the potential for enormous worldwide grosses. Horror survived the shift better than most genres, in part because the movies were generally cheap to make. COVID shut down production, and the 2023 writers’ and actors’ strikes stopped it again. The decline in output from some of the major studios, though, had started earlier. Fox, for instance, had typically released 12 to 17 movies a year before Disney bought the company in 2019, plus the Fox Searchlight slate. Soon after the acquisition, Disney said it expected the core Fox studio to release only five or six a year. AMC describes its dependence on the studios plainly in its annual filing : “We rely on distributors of motion pictures, over whom we have no control, for the films that we exhibit.” In 2025, seven distributors accounted for approximately 83% of AMC’s US admissions revenue. For much of Hollywood’s early history, that separation didn’t exist. Paramount, Loew’s/MGM, Warner Bros., RKO, and Fox produced and distributed movies while also owning large theater circuits. The United States v. Paramount Pictures decision in 1948 and the consent decrees that followed forced the studios to give up their theaters. “If I’m a distributor, I have many avenues for distribution,” says Ross Melnick, a professor of film and media studies at the University of California, Santa Barbara, who specializes in theatrical exhibition. “But if I’m a movie theater, I only have one thing I’m trying to do, which is run a movie theater.” A studio can make fewer movies, spend more on the biggest ones, or send others to streaming. The theater is stuck with its screens and its lease either way. Plenty of the movies the major studios have stopped making are being made elsewhere, says Loria, the Boxoffice Company strategist. Getting them into multiplexes is another matter. Some never find a distributor; others get little marketing or come out at the wrong time. “There’s a whole genre and segment of films which just aren’t being produced by the major studios anymore,” he tells Fast Company . “That doesn’t mean that they’re not being made.” The multiplex gave exhibitors more flexibility. With two screens, a theater could move a poorly performing movie into a smaller auditorium instead of being stuck with it on its only screen. It could also show movies aimed at different audiences. AMC pushed that logic much further in 1995, when it opened the Grand 24 in Dallas, its first megaplex: 24 screens and 5,067 seats. Soon chains were building giant complexes around the country, with stadium seating, bigger screens, and better sound. By 2000, analysts estimated that the industry had borrowed $7 billion for expansion in five years, while the number of screens grew from around 27,000 to 37,000. “There’s simply too many screens, much more supply than demand,” one industry analyst told the Washington Post that year. Several major chains had filed for bankruptcy protection or announced plans to do so. The multiplex remained, even as the ways studios distributed movies began to change. During and after COVID, studios experimented with releasing movies straight to streaming or simultaneously at home and in theaters. Melnick, the film studies professor, thinks that period has largely passed. “There was a sense that theatrical was maybe not going to come first anymore,” he says. “You could just go directly to streaming.” Studios have since rediscovered the value a theatrical run can create for a film in later distribution windows. “There’s a lot of attention that gets paid to a film when it comes out theatrically,” Melnick adds. AMC also warns in its annual report that further consolidation could reduce the supply of films available for theatrical release. David Ellison has sought to reassure theater owners about Paramount’s proposed acquisition of Warner Bros. Discovery by promising that the combined company will release at least 30 movies theatrically each year. The mechanics of getting independent movies into theaters have also changed. When exhibitors converted from 35 mm to digital projection, the studios helped finance the new equipment through virtual print fees. Loria says those agreements could restrict how many movies from outside the studio system participating theaters booked. They have now largely expired, while digital distribution has sharply reduced the cost of getting a movie onto thousands of screens; AMC predicted during the conversion that it would make “alternative content and niche programming” easier to deliver. A24 and Neon, once associated largely with specialty theaters, now routinely put movies into multiplexes. This is not the first time AMC has gone looking for movies outside the major studios. In 2011, it joined Regal to create Open Road Films after major studio releases had declined. Regal told investors that the studios’ “big-budget franchise film strategy” had created a gap for smaller-budget movies that could bring more people into its theaters. Open Road distributed The Grey, Chef, Nightcrawler, Dope , and Spotlight , which won the Academy Award for Best Picture in 2016. The successes weren’t enough to make the business work. By 2017, filings from its two owners showed that Open Road had generated roughly $100 million in losses . AMC and Regal sold it to Tang Media Partners that year. Leawood won’t finance movies the way Open Road did. AMC calls the new company a “disciplined low-risk opportunity” and says it will be “modestly scaled.” The films have to arrive finished or fully financed. Distributors often acquire movies after someone else has paid to make them. Neon, for instance, bought Together after the film premiered at Sundance, then handled its theatrical release. That is the part of the business Leawood wants: choosing movies, marketing them and getting them onto screens. AMC has also distributed event films since Open Road, most successfully Taylor Swift | The Eras Tour , which grossed more than $261 million worldwide. Leawood won’t necessarily need its movies to be hits. On a quiet weekend, even one making $5 million or $10 million can help fill screens. Alamo Drafthouse, owned by Sony Pictures Entertainment, has begun experimenting with another version of the same idea. This summer it launched Alamo Exclusives, giving limited theatrical runs to festival films that haven’t secured distribution. Its first was a documentary about the Butthole Surfers that premiered at the South by Southwest festival. Alamo doesn’t acquire the films; it makes exhibition deals directly with filmmakers. Theater owners have long worried about whether they have enough good movies to show. Part of the problem is simply keeping people in the habit of moviegoing.&nbsp; “You go see a movie, you see the trailers, you have a great experience,” Melnick says. “You say, ‘Oh, I want to go see that next weekend.’ When people break the movie-going habit, they get out of the cycle.” Leawood may amount to very little. Its first release is at least a year away, and Aron has said that if it puts only “a few extra movies” into theaters, that’s “gravy.” AMC isn’t expecting Leawood to transform its business, but after one of the best summers in its history, the country’s largest theater chain still needs movies badly enough to get further into the business of distributing them itself. A record summer, it turns out, can still leave a lot of screens to fill.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "Tech"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "hollywood has plenty of movies why are theater screens sitting empty"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T10:12:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.956Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260911-trump-wanted-to-change-the-des",
+    "canonicalTopic": "Trump Wanted to Change the Design of Mail-in Ballot Envelopes a Court Just Ruled Against Him",
+    "slug": "trump-wanted-to-change-the-design-of-mail-in-ballot-envelopes-a-court-just-ruled-against-him",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-2-Trump20wanted20to20chan",
+        "query": "Trump Wanted to Change the Design of Mail-in Ballot Envelopes a Court Just Ruled Against Him",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Trump wanted to change the design of mail-in ballot envelopes. A court just ruled against him",
+            "itemLink": "https://www.fastcompany.com/91603728/trump-mail-in-ballot-envelope-design-ruling",
+            "publishedDate": "2026-09-11T10:00:00.000Z",
+            "contentSnippet": "A court ruled on Thursday against implementing new rules that would have required local elections officials to redesign mail-in ballot envelopes right before the election. One reason? There's not enough time to make the design changes that were being called for. The U.S. Court of Appeals for the First Circuit said in an opinion Thursday the Trump administration's proposed rules for how the U.S. Postal Service handles mail-in ballots could \"prevent millions of Americans from obtaining and returning their ballots.\" The court said \"it would be impossible for some states to reprint compliant envelopes\" at this point, not to mention \"there is no record evidence of past fraud or a likelihood of impending fraud.\" Though President Donald Trump frequently votes by mail himself , he's long attacked it, and he signed an executive order earlier this year in an attempt to restrict it. Under the rules his administration tried to implement, many local election officials would have to redesign at least one of the envelopes they use, but mail-in ballots for the midterm elections have already started to go out , and many were printed months ago. Under the administration's proposed rules, both outbound and return federal ballot envelopes would have had to meet specific design requirements. The rules would require that they are automation compatible, and feature both the Election Mail logo and a unique postal Intelligent Mail barcode (IMb). The IMb is a barcode that can be found under the destination address on a piece of mail, and it encodes information like mail class and destination routing code. Not all mail has it, and ballot envelopes haven't been required to include it before, though some jurisdictions do. [Image: USPS] While many mail-in ballot envelopes are already designed to be automation compliant and feature the Official Election Mail logo and an IMb, few have that barcode on return envelopes, says Whitney Quesenbery, executive director at the Center for Civic Design, and it's too late to implement changes. Elections are run by more than 10,000 offices nationwide, and they run on timelines of years and months, not weeks. \"Most envelopes were designed months ago,\" Quesenbery tells Fast Company . \"Some may have even been printed earlier in the year. Elections offices often order enough envelopes for an entire election cycle at once.\" Since elections are handled locally, states also have their own rules written into statute for how their ballot envelopes are to be designed. In some cases, redesigning them to be automation compliant, for example, would require a special session of the state legislature, says Tammy Patrick, chief programs officer at the National Association of Election Officials. Most at risk would be small and rural jurisdictions, some of which don't even have a full-time employee and have volunteers literally writing mail-in ballot envelopes by hand. \"They are going to struggle to do any kind of barcode,\" Patrick says. To implement changes of that scale and to test them in time for elections that fall on even-numbered years, they should start in odd-numbered years, she says. In addition to the mail-in ballot envelope design requirements, the new rules called for a yet-to-be-released online portal for local and federal officials to share voter lists. Last week, a whistleblower said work on the portal has been rushed without enough time to test it. If the Trump administration's rules had been upheld, they would have threatened \"chaos on multiple levels,\" says Walter Olson, a senior fellow at the Cato Institute. He says he was worried over the possibility of delayed or undelivered ballots, missed deadlines, or issues with the portal and incomplete voter lists that don't include voters who register later in the fall if they passed. With the court's decision, local elections officials being asked to pull off an envelope redesign in a matter of weeks that typically would take months or longer can rest easy.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "Design"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "Design"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "trump wanted to change the design of mail-in ballot envelopes a court just ruled against him"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T10:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "Design"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.968Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260911-the-iphone-duo-is-the-perfect-",
+    "canonicalTopic": "The Iphone Duo Is the Perfect Screen to Watch the Full Imax Version of Christopher Nolans Odyssey",
+    "slug": "the-iphone-duo-is-the-perfect-screen-to-watch-the-full-imax-version-of-christopher-nolans-odyssey",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-3-The20iPhone20Duo20is20th",
+        "query": "The Iphone Duo Is the Perfect Screen to Watch the Full Imax Version of Christopher Nolans Odyssey",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "The iPhone Duo is the perfect screen to watch the full Imax version of Christopher Nolan’s ‘Odyssey’",
+            "itemLink": "https://www.fastcompany.com/91605302/the-iphone-duo-screen-size",
+            "publishedDate": "2026-09-11T10:00:00.000Z",
+            "contentSnippet": "The Odyssey is so far the biggest movie of the year after Spider-Man : Brand New Day. It was also too big for your friendly neighborhood theater: Most people on the planet missed as much as 40% of the movie because it was filmed in Imax 70 mm’s 1.43:1 aspect ratio , a squarish shape that got cut at the top and bottom in all but 41 Imax theaters around the planet. I know people who flew from Madrid to London just to watch it. That’s money they could have spent on buying an iPhone Duo which, magically, perfectly fits Nolan’s favorite film format. That’s right. Apple’s new thingamajig has an inner-screen ratio of 1.4217:1 in landscape mode. Nolan filmed The Odyssey on a format called \"15-perforation 70 mm Imax,\" which is 1.43:1. Nolan chose these cameras—as he did for Oppenheimer — because \"the sharpness and the clarity and the depth of the image is unparalleled,\" he said. \"You're immersing them in the world of the film.\" Top: a still from The Odyssey . Bottom: an image of an open iPhone Duo. [Images: Apple, Universal Pictures] The gap between the 15-perf 70 mm Imax format and the iPhone Duo’s inner display is just 0.6%. A full-frame 1.43:1 Imax image scaled to the Duo's 2,670-pixel width would need 1,867 pixels of height (the screen is 1,878 pixels tall). That leaves roughly 11 pixels of black bars total—about five on the top, five on the bottom—which is effectively invisible. Nolan wouldn’t object to you watching his movie on the Duo, either. The man believes that phones are perfectly fine to view his films . He would be happy to know that Apple’s foldable phone is such a close match that people will actually be able to see the movie as he originally intended while they are getting their legs numb on the toilet. Heck, the aspect ratio match is so perfect that I’m genuinely surprised that Apple didn’t use The Odyssey in every single iPhone Duo publicity shot. The movie is now almost two months old, but its format snobbery became the object of worldwide mockery , white-people-problem criticism , and faux rage of countless internet whiners everywhere. Cupertino could have easily piggybacked on that, once again saving humanity from the suffering of just seeing the butt of that bloody Trojan horse rather than its full-size body. But maybe, perhaps, most probably, Apple didn’t use The Odyssey because it would associate the iPhone Duo with the film’s most telling indictment : \" The Odyssey is a movie where poor people literally see less.\" At $2,000 a pop (minimum!), that’s still true for Cupertino's latest snobbish extravagance. No worries, kids: Just mask your cheap Android screens with Gorilla tape whenever Nolan’s film gets released online and watch it two inches from your face.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "Design"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "Design"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the iphone duo is the perfect screen to watch the full imax version of christopher nolans odyssey"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T10:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "Design"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.979Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260911-this-powerful-free-tool-is-you",
+    "canonicalTopic": "This Powerful Free Tool Is Your Secret Weapon Against Phone Scams",
+    "slug": "this-powerful-free-tool-is-your-secret-weapon-against-phone-scams",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-4-This20powerful20free20t",
+        "query": "This Powerful Free Tool Is Your Secret Weapon Against Phone Scams",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T09:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "This powerful free tool is your secret weapon against phone scams",
+            "itemLink": "https://www.fastcompany.com/91590641/look-up-scam-phone-numbers",
+            "publishedDate": "2026-09-11T09:00:00.000Z",
+            "contentSnippet": "I don’t know if you’ve noticed—honestly, I hope you haven’t!—but scams are starting to get scarily sophisticated. And that means they’re tougher and tougher to spot, even for the more savvy land mammals among us. That’s in large part thanks to AI​ and all the ways it’s making it easier than ever to imitate people and create convincing calls that sound like someone official—or even someone specific you know. The best way to stay safe, as always, is to stay a step ahead of the scammers—and make sure you’re always both aware and prepared. The tool I’ve got for you today is a powerful new way to do exactly that. This tip originally appeared in the free Cool Tools newsletter from The Intelligence . Get the next issue in your inbox and get ready to discover all sorts of awesome tech treasures! 5 seconds to simple safety So, first things first: Smartphones have gotten increasingly smart about scanning incoming calls for you and alerting you to anything that seems shady. This is especially true on Android and even more so with Pixel devices​ , specifically. But (a) even those systems aren’t 100% effective or anywhere close to foolproof—and (b) the breadth and quality of protection available to you varies widely depending on what type of phone you have. ➜ That’s where a new free site called Scan Number Check​ comes into play. Regardless of what level of on-phone protection you’re already packin’, it adds an invaluable extra layer of assurance anytime you get a call from a number you don’t know. ⌚ It takes literally five seconds to use, too. ✅ Just ​pull up the site​ in any browser, on any device you’re using, and type or paste over the number of the unknown call you’re seeing. Scan Number Check is a simple site with a single box to fill in. In an instant, the site will spit back a simple and easy-to-read report telling you if the number is likely to be related to a scam or not. In a matter of seconds, Scan Number Check will tell you if a number is likely to be shady. The service relies on a robust database of scam attempts maintained by Malwarebytes—a company that sells security software for most every platform. It’s a big enough organization that it has a sprawling series of reports and records indicating when numbers are associated with questionable, scammy activity, so it can easily check whatever number you enter against its data (for almost any country!) and tell you if it’s known to be questionable in any way. It’s still not 100% foolproof, of course—no form of security protection could possibly be, especially with the pace at which scams are constantly evolving—but it’s a powerful extra form of protection to have in your pocket. And when it comes to keeping yourself safe, it’s all about those layers and doing everything you can to stay one step ahead. Scan Number Check is 100% web-based​ , with no apps or installations required. It’s also 100% free to use. You’ll see some Malwarebytes promos sprinkled throughout the site, as you’d expect, but there are no limits involved, and you never have to sign up for any additional services. Malwarebytes says it doesn’t store any searches on the site and logs data only if you actively choose to report a number. Treat yourself to all sorts of brain-boosting goodies like this with the free Cool Tools newsletter —starting with an instant introduction to an incredible audio app that’ll tune up your days in truly delightful ways.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "Tech"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "this powerful free tool is your secret weapon against phone scams"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T09:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.986Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260911-this-common-sleep-habit-could-",
+    "canonicalTopic": "This Common Sleep Habit Could Be Changing the Shape of Your Heart—for the Worse",
+    "slug": "this-common-sleep-habit-could-be-changing-the-shape-of-your-heart-for-the-worse",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-5-This20common20sleep20ha",
+        "query": "This Common Sleep Habit Could Be Changing the Shape of Your Heart—for the Worse",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T09:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "This common sleep habit could be changing the shape of your heart—for the worse",
+            "itemLink": "https://www.fastcompany.com/91605352/this-common-sleep-sleeping-habit-changes-shape-of-your-heart-health-disease-risk-new-research",
+            "publishedDate": "2026-09-11T09:00:00.000Z",
+            "contentSnippet": "Many people sleep with a night-light their whole lives—though as they grow older, small plug-in light fixtures may be replaced by the glow of laptops or phone screens. While sleeping in a low level of light may be commonplace, doing so comes with its own health hazards, including altering the shape of the human heart. A new study, published this week in the European Heart Journal , links exposure to light while sleeping to cardiac remodeling, or changes to the shape and function of the heart. Specifically, light exposure during sleep led to thickening of the wall of the left ventricle, one of the organ’s four chambers, reducing the space inside the heart. That weakens its ability to flex during a heartbeat, setting the stage for cardiac dysfunction. “Light pollution has emerged as a new risk factor for cardiovascular disease,” Dr. Lu Qi, a professor at Tulane University and an author of the study, said in a press release . “Our findings, together with evidence from other studies, suggest that reduction of nighttime light exposure should be considered as one of the potential strategies for preventing heart disease by clinicians and policymakers.” How much light is too much light? To determine how light exposure during sleep impacts cardiovascular health, the study’s researchers analyzed the sleep habits of 11,071 participants. Subjects wore a light sensor on their wrists while sleeping for seven days. Three years later, their hearts were scanned via cardiac MRIs to assess their structure and function. Those who were exposed to more than 3 lux overnight saw significantly more cardiac remodeling compared with those who slept in near complete darkness. Lux, the International System unit for light exposure, measures how much light falls on a given surface area. Three lux, the study’s benchmark for a high level of light exposure, may not seem like much light at all. It’s equivalent to the brightness of deep twilight, or to the amount of light that bleeds under a door from a bright adjacent room. A phone screen, meanwhile, can top out around 80 lux, according to experts . With 58% of U.S. adults saying they use their phone within an hour of bedtime or while in bed as they fall asleep, that’s more than half of Americans who may be unknowingly setting themselves up for heart problems in the future. How to sleep more safely To avoid light exposure during sleep, experts recommend using blackout curtains or sleep masks and covering small standby lights on electronics. Limiting screen time immediately before bed (and especially while falling asleep) is important, too. For the best quality sleep, ambient light should be limited to a maximum of just 1 lux , which is close to total darkness. In an article accompanying the study, cardiologist Thomas Münzel and his colleagues spoke to how its results might inform the future of medicine, including the questions doctors ask their patients during health screenings. “It is time for clinicians, particularly those managing patients with heart failure or atrial fibrillation, to start asking about the sleep environment: how dark the bedroom is, whether the patient works night shifts, and how much screen use occurs after sunset,” Münzel wrote. “Darkness deserves recognition as a vital sign, as essential to cardiovascular health as blood pressure control and clean air.”",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "News"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "News"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "this common sleep habit could be changing the shape of your heart—for the worse"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T09:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "News"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:44.995Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260911-10-hacks-every-libby-user-shou",
+    "canonicalTopic": "10 Hacks Every Libby User Should Know",
+    "slug": "10-hacks-every-libby-user-should-know",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-1-1020Hacks20Every20Libby",
+        "query": "10 Hacks Every Libby User Should Know",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T21:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "10 Hacks Every Libby User Should Know",
+            "itemLink": "https://lifehacker.com/tech/10-hacks-every-libby-user-should-know?utm_medium=RSS",
+            "publishedDate": "2026-09-10T21:00:00.000Z",
+            "contentSnippet": "If you're a reader (or listener), you'll want to take advantage of these Libby hacks for borrowing, organizing, and maximizing your loans.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life",
+            "Tech"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "10 hacks every libby user should know"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T21:00:00.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:45.000Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260911-the-best-sales-on-headphones-a",
+    "canonicalTopic": "The Best Sales on Headphones and Earbuds Right Now",
+    "slug": "the-best-sales-on-headphones-and-earbuds-right-now",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-2-The20Best20Sales20on20He",
+        "query": "The Best Sales on Headphones and Earbuds Right Now",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T21:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "The Best Sales on Headphones and Earbuds Right Now",
+            "itemLink": "https://lifehacker.com/best-deals-on-earbuds-and-headphones-right-now?utm_medium=RSS",
+            "publishedDate": "2026-09-10T21:00:00.000Z",
+            "contentSnippet": "Get great prices on headphones and earbuds from Sony, Beats, Nothing, and more.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life",
+            "Tech"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the best sales on headphones and earbuds right now"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T21:00:00.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:45.007Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260911-10-fitness-hacks-every-apple-w",
+    "canonicalTopic": "10 Fitness Hacks Every Apple Watch User Should Know",
+    "slug": "10-fitness-hacks-every-apple-watch-user-should-know",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-3-1020Fitness20Hacks20Eve",
+        "query": "10 Fitness Hacks Every Apple Watch User Should Know",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T20:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "10 Fitness Hacks Every Apple Watch User Should Know",
+            "itemLink": "https://lifehacker.com/health/fitness-hacks-every-apple-watch-user-should-know?utm_medium=RSS",
+            "publishedDate": "2026-09-10T20:30:00.000Z",
+            "contentSnippet": "These are the essential settings tweaks, lesser-known features, and apps you'll love for workouts.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life",
+              "Fitness"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life",
+            "Fitness"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "10 fitness hacks every apple watch user should know"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T20:30:00.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life",
+      "Fitness"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:45.014Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260911-you-dont-need-the-apple-watch-",
+    "canonicalTopic": "You Dont Need the Apple Watch 12 to Get All the New Health Features",
+    "slug": "you-dont-need-the-apple-watch-12-to-get-all-the-new-health-features",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-4-You20Dont20Need20the20A",
+        "query": "You Dont Need the Apple Watch 12 to Get All the New Health Features",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T20:00:31.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "You Don't Need the Apple Watch 12 to Get All the New Health Features",
+            "itemLink": "https://lifehacker.com/tech/you-dont-need-the-apple-watch-12-to-get-all-the-new-health-features?utm_medium=RSS",
+            "publishedDate": "2026-09-10T20:00:31.000Z",
+            "contentSnippet": "Some features require the newest Apple Watch, but others will work on the watch or phone you already have.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life",
+              "Apple"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life",
+            "Apple"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "you dont need the apple watch 12 to get all the new health features"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T20:00:31.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life",
+      "Apple"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:45.021Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260911-this-bissell-pet-carpet-cleane",
+    "canonicalTopic": "This Bissell Pet Carpet Cleaner Is 50 Off Right Now",
+    "slug": "this-bissell-pet-carpet-cleaner-is-50-off-right-now",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-5-This20Bissell20Pet20Car",
+        "query": "This Bissell Pet Carpet Cleaner Is 50 Off Right Now",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T19:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "This Bissell Pet Carpet Cleaner Is $50 Off Right Now",
+            "itemLink": "https://lifehacker.com/ad/home/this-bissell-pet-carpet-cleaner-deal-september-2026?utm_medium=RSS",
+            "publishedDate": "2026-09-10T19:30:00.000Z",
+            "contentSnippet": "The Bissell Revolution Hydrosteam is a must for pet owners.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life",
+              "Home & Garden"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life",
+            "Home & Garden"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "this bissell pet carpet cleaner is 50 off right now"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T19:30:00.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life",
+      "Home & Garden"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:45.028Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-discover-20260911-lang-architecture-reimagines-a",
+    "canonicalTopic": "Lang Architecture Reimagines Art Deco in an East Village Apartment",
+    "slug": "lang-architecture-reimagines-art-deco-in-an-east-village-apartment",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-design-milk-1-Lang20Architecture20Re",
+        "query": "Lang Architecture Reimagines Art Deco in an East Village Apartment",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T18:18:07.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://design-milk.com/feed/",
+            "feedTitle": "Design MilkDesign Milk",
+            "itemTitle": "Lang Architecture Reimagines Art Deco in an East Village Apartment",
+            "itemLink": "https://design-milk.com/lang-architecture-east-village-apartment/",
+            "publishedDate": "2026-09-10T18:18:07.000Z",
+            "contentSnippet": "Two units inside a 1930s New York City building become one 1,650-square-foot family home, where subtle Art Deco references meet vintage furnishings and personal details",
+            "categories": [
+              "design",
+              "interiors",
+              "home",
+              "art",
+              "Interior Design",
+              "Main",
+              "apartment renovation",
+              "art deco",
+              "blue green works",
+              "Calacatta Panozzo marble",
+              "Drew Lang",
+              "east village",
+              "Estudio Persona",
+              "gut renovation",
+              "Hans Bergström",
+              "interior design",
+              "Jorge Zalszupin",
+              "Lang Architecture",
+              "limewashed walls",
+              "new york city",
+              "residential architecture",
+              "The Future Perfect",
+              "vintage furniture"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "design",
+            "interiors",
+            "home",
+            "art",
+            "Interior Design",
+            "Main",
+            "apartment renovation",
+            "art deco",
+            "blue green works",
+            "Calacatta Panozzo marble",
+            "Drew Lang",
+            "east village",
+            "Estudio Persona",
+            "gut renovation",
+            "Hans Bergström",
+            "interior design",
+            "Jorge Zalszupin",
+            "Lang Architecture",
+            "limewashed walls",
+            "new york city",
+            "residential architecture",
+            "The Future Perfect",
+            "vintage furniture"
+          ],
+          "feedName": "Design Milk",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "lang architecture reimagines art deco in an east village apartment"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T18:18:07.000Z",
+    "tags": [
+      "design",
+      "interiors",
+      "home",
+      "art",
+      "Interior Design",
+      "Main",
+      "apartment renovation",
+      "art deco",
+      "blue green works",
+      "Calacatta Panozzo marble",
+      "Drew Lang",
+      "east village",
+      "Estudio Persona",
+      "gut renovation",
+      "Hans Bergström",
+      "interior design",
+      "Jorge Zalszupin",
+      "Lang Architecture",
+      "limewashed walls",
+      "new york city",
+      "residential architecture",
+      "The Future Perfect",
+      "vintage furniture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:45.036Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260911-emirates-fits-out-a-us-open-su",
+    "canonicalTopic": "Emirates Fits Out a Us Open Suite with the Design Language of Its A380",
+    "slug": "emirates-fits-out-a-us-open-suite-with-the-design-language-of-its-a380",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-design-milk-2-Emirates20Fits20Out20a20",
+        "query": "Emirates Fits Out a Us Open Suite with the Design Language of Its A380",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T15:30:04.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://design-milk.com/feed/",
+            "feedTitle": "Design MilkDesign Milk",
+            "itemTitle": "Emirates Fits Out a U.S. Open Suite With the Design Language of Its A380",
+            "itemLink": "https://design-milk.com/emirates-a380-us-open-suite/",
+            "publishedDate": "2026-09-10T15:30:04.000Z",
+            "contentSnippet": "The airline’s 15th year at the tournament brings cream leather, lacquered woodgrain, and the A380’s onboard bar to a nearly 1,600-square-foot suite inside Arthur Ashe Stadium",
+            "categories": [
+              "design",
+              "interiors",
+              "home",
+              "art",
+              "Commercial",
+              "Interior Design",
+              "Main",
+              "design",
+              "interiors"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "design",
+            "interiors",
+            "home",
+            "art",
+            "Commercial",
+            "Interior Design",
+            "Main",
+            "design",
+            "interiors"
+          ],
+          "feedName": "Design Milk",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "emirates fits out a us open suite with the design language of its a380"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T15:30:04.000Z",
+    "tags": [
+      "design",
+      "interiors",
+      "home",
+      "art",
+      "Commercial",
+      "Interior Design",
+      "Main",
+      "design",
+      "interiors"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:45.045Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260911-outside-in-and-nature-of-thing",
+    "canonicalTopic": "Outside in and Nature of Things Rethink Beauty Retail in Nyc",
+    "slug": "outside-in-and-nature-of-things-rethink-beauty-retail-in-nyc",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-design-milk-3-Outside20In20and20Natur",
+        "query": "Outside in and Nature of Things Rethink Beauty Retail in Nyc",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T14:00:35.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://design-milk.com/feed/",
+            "feedTitle": "Design MilkDesign Milk",
+            "itemTitle": "Outside In and Nature of Things Rethink Beauty Retail in NYC",
+            "itemLink": "https://design-milk.com/outside-in-nature-of-things-soho-fog-architecture/",
+            "publishedDate": "2026-09-10T14:00:35.000Z",
+            "contentSnippet": "Designed by F.O.G. Architecture, the new Crosby Street destination brings beauty, fragrance, hospitality, and a hidden garden together through light and sensory experience",
+            "categories": [
+              "design",
+              "interiors",
+              "home",
+              "art",
+              "Architecture",
+              "Commercial",
+              "Interior Design",
+              "Main",
+              "beauty",
+              "new york city",
+              "retail design"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "design",
+            "interiors",
+            "home",
+            "art",
+            "Architecture",
+            "Commercial",
+            "Interior Design",
+            "Main",
+            "beauty",
+            "new york city",
+            "retail design"
+          ],
+          "feedName": "Design Milk",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "outside in and nature of things rethink beauty retail in nyc"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T14:00:35.000Z",
+    "tags": [
+      "design",
+      "interiors",
+      "home",
+      "art",
+      "Architecture",
+      "Commercial",
+      "Interior Design",
+      "Main",
+      "beauty",
+      "new york city",
+      "retail design"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:45.053Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260911-bvlgaris-golden-serpent-slithe",
+    "canonicalTopic": "Bvlgaris Golden Serpent Slithers Onto New Yorks High Line",
+    "slug": "bvlgaris-golden-serpent-slithers-onto-new-yorks-high-line",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-design-milk-4-BvlgariE28099s20Golden20Se",
+        "query": "Bvlgaris Golden Serpent Slithers Onto New Yorks High Line",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-10T14:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://design-milk.com/feed/",
+            "feedTitle": "Design MilkDesign Milk",
+            "itemTitle": "Bvlgari’s Golden Serpent Slithers Onto New York’s High Line",
+            "itemLink": "https://design-milk.com/bvlgari-auruboros-high-line-new-york/",
+            "publishedDate": "2026-09-10T14:00:00.000Z",
+            "contentSnippet": "A temporary installation by Berlin-based duo Plastique Fantastique turns the jewelry house’s familiar Serpenti motif into a monumental, air-filled intervention in the city",
+            "categories": [
+              "design",
+              "interiors",
+              "home",
+              "art",
+              "Art",
+              "Main",
+              "art sculpture",
+              "new york city"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "design",
+            "interiors",
+            "home",
+            "art",
+            "Art",
+            "Main",
+            "art sculpture",
+            "new york city"
+          ],
+          "feedName": "Design Milk",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "bvlgaris golden serpent slithers onto new yorks high line"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-10T14:00:00.000Z",
+    "tags": [
+      "design",
+      "interiors",
+      "home",
+      "art",
+      "Art",
+      "Main",
+      "art sculpture",
+      "new york city"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-11T10:44:45.060Z",
     "pinterestScore": 79.2
   }
 ]
