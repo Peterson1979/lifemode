@@ -77,7 +77,7 @@ export const SITE_CONFIG = {
   siteUrl:
     (typeof import.meta !== 'undefined' && (import.meta as any).env?.PUBLIC_SITE_URL) ||
     ((globalThis as any).process?.env?.PUBLIC_SITE_URL as string) ||
-    'https://lifemode.com',
+    'https://lifemode.life',
   defaultOgImage: '/og-default.svg',
   locale: 'en_US',
   twitterHandle: '@LifeModeMag',

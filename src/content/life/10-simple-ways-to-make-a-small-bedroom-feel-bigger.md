@@ -15,7 +15,7 @@ affiliateIntent: true
 riskLevel: "low"
 sources:
   - name: "LifeMode Editorial Interior Design Standards"
-    url: "https://lifemode.com/about"
+    url: "https://lifemode.life/about"
 version: 4
 lifecycleStatus: "STORED"
 ---

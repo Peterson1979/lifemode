@@ -4,6 +4,6 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://lifemode.com',
+  site: 'https://lifemode.life',
   integrations: [mdx()],
 });

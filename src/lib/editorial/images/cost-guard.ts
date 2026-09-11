@@ -1,4 +1,4 @@
-import { loadEditorialImageConfig, type EditorialImageCostGuardConfig } from './config.ts';
+import { loadEditorialImageConfig } from './config.ts';
 
 /**
  * Storage interface for image generation quota counters.

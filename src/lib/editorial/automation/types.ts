@@ -58,6 +58,33 @@ export interface AutomationStageResult<T = any> {
   warning?: string;
 }
 
+import type { IEditorialImageProvider } from '../images/contracts.ts';
+import type { EditorialImageConfig } from '../images/config.ts';
+import type { EditorialImageCostGuard } from '../images/cost-guard.ts';
+import type { ISocialAssetStorageProvider } from '../../social/images/storage/contracts.ts';
+
+/**
+ * Structured execution result for an individual article processed during daily automation.
+ */
+export interface DailyArticleExecutionResult {
+  success: boolean;
+  articleId?: string;
+  topicId: string;
+  pillar?: PillarSlug;
+  slug?: string;
+  title?: string;
+  imageGenerated: boolean;
+  imageUrl?: string;
+  imageProvider?: string;
+  skippedReason?: string;
+  durationMs: number;
+  error?: {
+    stage?: string;
+    code: string;
+    message: string;
+  };
+}
+
 /**
  * Detailed execution summary for an individual editorial candidate/topic.
  */
@@ -96,7 +123,8 @@ export interface AutomationRequest {
   enabled?: boolean;
   dryRun?: boolean; // default: true
   allowCommit?: boolean; // default: false
-  maxOpportunities?: number; // default: 1
+  maxOpportunities?: number; // default: 3
+  dailyArticleLimit?: number; // alias for maxOpportunities (default: 3)
   minScoreThreshold?: number; // default: 80
   providerMode?: 'fixture' | 'router'; // default: 'fixture'
   accelerationEnabled?: boolean; // default: false
@@ -111,6 +139,13 @@ export interface AutomationRequest {
   contentRepository?: IContentRepository;
   gitPublisher?: IGitPublisher;
   aiRouter?: AIRouter;
+
+  // Custom image & cost guard injections
+  imageConfig?: EditorialImageConfig;
+  imagePrimaryProvider?: IEditorialImageProvider;
+  imageFallbackProvider?: IEditorialImageProvider;
+  imageStorageProvider?: ISocialAssetStorageProvider;
+  costGuard?: EditorialImageCostGuard;
 
   // Custom paths & options
   storagePath?: string; // discovery candidate storage path
@@ -145,6 +180,7 @@ export interface AutomationResult {
   failedCount: number;
   skippedCount: number;
   opportunities: OpportunityRunResult[];
+  articles?: DailyArticleExecutionResult[];
   summary: string;
   error?: {
     code: string;
@@ -158,6 +194,7 @@ export interface AutomationResult {
 export interface AutomationConfig {
   enabled: boolean;
   maxOpportunities: number;
+  dailyArticleLimit?: number;
   dryRun: boolean;
   minScoreThreshold: number;
   providerMode: 'fixture' | 'router';
@@ -226,6 +263,7 @@ export interface ScheduledAutomationResult {
   researchFailureCount: number;
   summary: string;
   fatalError?: string;
+  articles?: DailyArticleExecutionResult[];
   automationResult?: AutomationResult;
   socialResult?: SocialAutomationResult;
   jsonResult: {
@@ -250,6 +288,7 @@ export interface ScheduledAutomationResult {
     };
     pushedToRemote: boolean;
     fatalError?: string;
+    articles?: DailyArticleExecutionResult[];
     social?: SocialAutomationResult;
   };
 }

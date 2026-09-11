@@ -56,11 +56,11 @@ export class InstagramPlatformAdapter implements ISocialPlatformAdapter {
     asset: SocialVisualAsset,
     options?: PlatformPrepareOptions
   ): Promise<SocialPlatformPackage> {
-    const link = options?.destinationUrl || content.destinationUrl || 'https://lifemode.com';
+    const link = options?.destinationUrl || content.destinationUrl || 'https://lifemode.life';
     const tagString = content.hashtags.slice(0, 10).join(' ');
 
     const bodyParagraph = content.extendedCaption || content.shortCaption;
-    const formattedCaption = `${content.title}\n\n${bodyParagraph}\n\n🔗 ${content.callToAction} Link in bio / visit lifemode.com\n.\n.\n${tagString}`.trim();
+    const formattedCaption = `${content.title}\n\n${bodyParagraph}\n\n🔗 ${content.callToAction} Link in bio / visit lifemode.life\n.\n.\n${tagString}`.trim();
 
     const contentHash = hashString(formattedCaption);
     const idempotencyKey = createIdempotencyKey(content.topicId, this.platform, contentHash);

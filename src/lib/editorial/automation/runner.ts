@@ -3,6 +3,7 @@ import type {
   AutomationRequest,
   AutomationResult,
   OpportunityRunResult,
+  DailyArticleExecutionResult,
   AutomationStage,
   AutomationStageResult,
 } from './types.ts';
@@ -57,6 +58,57 @@ function createPendingStageResults(): Record<AutomationStage, AutomationStageRes
     };
   }
   return results;
+}
+
+/**
+ * Maps an OpportunityRunResult to a clean, structured DailyArticleExecutionResult.
+ */
+export function toDailyArticleResult(
+  opp: OpportunityRunResult,
+  durationMs: number
+): DailyArticleExecutionResult {
+  const isSuccess = opp.status === 'COMPLETED' || opp.status === 'DRY_RUN';
+  const pubPackage = opp.publishing?.publishPackage;
+  const storageArticle = opp.storage?.article;
+  const imageMetadata = pubPackage?.imageMetadata;
+  const imageResult = opp.publishing?.imageResult;
+  const hasImageUrl = Boolean(imageMetadata?.url);
+
+  const genArticle = opp.generation && opp.generation.success ? opp.generation.article : undefined;
+
+  let skippedReason: string | undefined;
+  if (opp.status === 'SKIPPED') {
+    skippedReason = 'skipped';
+  } else if (imageResult?.skipped) {
+    skippedReason = imageResult.reason;
+  } else if (imageResult && !imageResult.success) {
+    skippedReason = imageResult.reason || 'generation-failed';
+  }
+
+  const articleId =
+    pubPackage?.id ||
+    (storageArticle ? `${storageArticle.pillar}/${storageArticle.slug}` : undefined);
+
+  return {
+    success: isSuccess,
+    articleId,
+    topicId: opp.topicId,
+    pillar: opp.pillar,
+    slug: pubPackage?.slug || storageArticle?.slug || genArticle?.slug,
+    title: genArticle?.title || opp.brief?.titleAngle || opp.canonicalTopic,
+    imageGenerated: hasImageUrl,
+    imageUrl: imageMetadata?.url,
+    imageProvider: imageMetadata?.source || imageResult?.provider,
+    skippedReason,
+    durationMs,
+    error: opp.error
+      ? {
+          stage: opp.error.stage,
+          code: opp.error.code,
+          message: opp.error.message,
+        }
+      : undefined,
+  };
 }
 
 /**
@@ -154,7 +206,8 @@ export async function runEditorialAutomation(
   // 1. Load and merge configuration
   const config = loadAutomationConfig({
     enabled: request.enabled,
-    maxOpportunities: request.maxOpportunities,
+    maxOpportunities: request.dailyArticleLimit ?? request.maxOpportunities,
+    dailyArticleLimit: request.dailyArticleLimit ?? request.maxOpportunities,
     dryRun: request.dryRun,
     minScoreThreshold: request.minScoreThreshold,
     providerMode: request.providerMode,
@@ -753,6 +806,11 @@ export async function runEditorialAutomation(
       const publishingResult = await runPublishingPipeline({
         request: pubRequest,
         provider: publishingProvider,
+        imageConfig: request.imageConfig,
+        imagePrimaryProvider: request.imagePrimaryProvider,
+        imageFallbackProvider: request.imageFallbackProvider,
+        imageStorageProvider: request.imageStorageProvider,
+        costGuard: request.costGuard,
       });
 
       oppResult.publishing = publishingResult;
@@ -923,6 +981,15 @@ export async function runEditorialAutomation(
     finalStatus = 'PARTIAL_SUCCESS';
   }
 
+  const articleResults: DailyArticleExecutionResult[] = opportunityResults.map((opp) =>
+    toDailyArticleResult(
+      opp,
+      opp.stageResults
+        ? Object.values(opp.stageResults).reduce((sum, s) => sum + (s.durationMs || 0), 0) || 1
+        : 1
+    )
+  );
+
   const automationResult: AutomationResult = {
     runId,
     status: finalStatus,
@@ -940,9 +1007,28 @@ export async function runEditorialAutomation(
     failedCount,
     skippedCount: candidateCount - processedCount,
     opportunities: opportunityResults,
+    articles: articleResults,
     summary: '',
   };
 
   automationResult.summary = formatAutomationSummary(automationResult);
   return automationResult;
+}
+
+/**
+ * Executes the complete LifeMode Editorial Daily Publishing Pipeline.
+ * Primary high-level runner abstraction for daily scheduled and manual runs.
+ */
+export async function runDailyEditorialAutomation(
+  options: AutomationRequest = {}
+): Promise<AutomationResult> {
+  const envDailyLimit = process.env.LIFEMODE_DAILY_ARTICLE_LIMIT ?? process.env.DAILY_ARTICLE_LIMIT;
+  const defaultDailyLimit = envDailyLimit ? parseInt(envDailyLimit, 10) : 3;
+  const dailyArticleLimit = options.dailyArticleLimit ?? options.maxOpportunities ?? defaultDailyLimit;
+
+  return runEditorialAutomation({
+    ...options,
+    dailyArticleLimit,
+    maxOpportunities: dailyArticleLimit,
+  });
 }

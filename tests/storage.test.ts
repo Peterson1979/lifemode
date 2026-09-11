@@ -48,7 +48,7 @@ const sampleFrontmatter: StoredArticleFrontmatter = {
   affiliateIntent: false,
   riskLevel: 'low',
   sources: [
-    { name: 'LifeMode Standards', url: 'https://lifemode.io/editorial-standards' },
+    { name: 'LifeMode Standards', url: 'https://lifemode.life/editorial-standards' },
     { name: 'Energy Efficiency Report', url: 'https://example.com/energy-report' },
   ],
   image: '/images/workspaces-2026.webp',
@@ -90,7 +90,7 @@ test('LifeMode Article Serializer', async (t) => {
     assert.ok(serialized.includes('lifecycleStatus: "STORED"'));
     assert.ok(serialized.includes('sources:'));
     assert.ok(serialized.includes('- name: "LifeMode Standards"'));
-    assert.ok(serialized.includes('url: "https://lifemode.io/editorial-standards"'));
+    assert.ok(serialized.includes('url: "https://lifemode.life/editorial-standards"'));
     assert.ok(serialized.includes('## 1. Introduction: Calm Workspaces'));
   });
 
@@ -391,7 +391,7 @@ test('Publishing V1 Integration Adapter', async (t) => {
     secondaryIntent: 'commercial',
     riskLevel: 'low',
     tags: ['hardware', 'workspaces', 'ai'],
-    sources: [{ name: 'LifeMode Editorial Standards', url: 'https://lifemode.io/editorial-standards' }],
+    sources: [{ name: 'LifeMode Editorial Standards', url: 'https://lifemode.life/editorial-standards' }],
     internalLinks: ['/tech-ai'],
     affiliateIntent: false,
     faq: [{ question: 'What is mindful hardware?', answer: 'Focusing on energy efficiency and silence.' }],

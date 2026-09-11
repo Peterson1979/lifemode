@@ -55,7 +55,7 @@ const sampleArticle: GeneratedArticle = {
     { question: 'What is mindful hardware?', answer: 'Focusing on energy efficiency, repairability, and quiet performance.' }
   ],
   sources: [
-    { name: 'LifeMode Editorial Standards', url: 'https://lifemode.io/editorial-standards' }
+    { name: 'LifeMode Editorial Standards', url: 'https://lifemode.life/editorial-standards' }
   ],
   internalLinks: ['/tech-ai'],
   affiliateIntents: ['tech', 'hardware'],

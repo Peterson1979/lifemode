@@ -110,23 +110,41 @@ When an article does not possess a rendered image file in `image`:
 
 ---
 
-## 7. Future Automated AI Image Generation Workflow
+## 7. Production Automated AI Image Generation Pipeline
 
-When automated image rendering is enabled (e.g. with Imagen 3, FLUX.1, or Midjourney API):
+The editorial image generation pipeline uses a cost-optimized, dual-provider architecture:
+
+1. **Primary Provider**: **Cloudflare Workers AI** (`@cf/black-forest-labs/flux-1-schnell`). Fast, highly cost-efficient image generation.
+2. **Fallback Provider**: **Black Forest Labs FLUX.2 [pro] / FLUX 1.1 [pro]** (`flux-pro-1.1`). High-fidelity fallback triggered strictly when Cloudflare Workers AI fails.
+3. **Master Asset Storage**: **Cloudflare R2 Storage** (`editorial/{topicId}/{contentHash}.jpg`). Master image uploaded and public HTTPS URL persisted to frontmatter.
 
 ```mermaid
 graph TD
-    A[Editorial Article Generated] --> B[Generate Editorial Image Prompt]
-    B --> C[Store imagePrompt in Frontmatter]
-    C --> D{Image Generator Active?}
-    D -- No --> E[Display Elegant Pillar Fallback]
-    D -- Yes --> F[AI Image API Call]
-    F --> G[R2 / Local Asset Storage WebP Optimization]
-    G --> H[Update frontmatter image & imageAlt]
-    H --> I[Website Hero & Social Media Distribution]
+    A[Editorial Article Approved by Gate] --> B[Check Idempotency & Dry-Run]
+    B -- Has Valid Image or Dry-Run --> C[Skip Provider Call / Reuse Image]
+    B -- Needs New Master Image --> D[Call Cloudflare Workers AI]
+    D -- Success --> G[Upload Master Image to Cloudflare R2]
+    D -- Failed / Timeout --> E{BFL Configured?}
+    E -- Yes --> F[Call Black Forest Labs FLUX.2 pro Fallback]
+    E -- No --> H[Log Failure & Proceed]
+    F -- Success --> G
+    F -- Failed --> H
+    G --> I[Set frontmatter image & imageSource]
+    H --> J[Publish Article Gracefully Without Image]
+    I --> K[Store Article in Content Repository]
+    J --> K
 ```
 
-1. **Prompt Creation**: The editorial engine generates the structured prompt and stores it in the article frontmatter.
-2. **Image Generation**: An automated image worker calls the AI image provider using the stored `imagePrompt` and negative prompt directives.
-3. **Asset Processing**: Generated image is cropped/resized to required aspect ratios (16:9 for hero, 4:3 for card, 9:16 for Pinterest/Story), converted to optimized WebP, and uploaded to Cloudflare R2 / `public/images/`.
-4. **Frontmatter Update**: The `image` and `imageAlt` fields in the article markdown are populated.
+### Key Operational Rules
+
+* **Cost Minimization**: All normal generations route to Cloudflare Workers AI first. BFL is strictly called as a fallback.
+* **Non-blocking Resilience**: Image generation failure will **never** fail or abort article publication. If both providers or R2 fail, the article publishes normally with `imagePrompt` and `imageAlt` preserved for elegant fallback rendering.
+* **Idempotency**: Existing images are preserved. Rerunning publishing for an article with a valid image will never regenerate or re-upload.
+* **Dry-Run & Feature Flagging**: Setting `LIFEMODE_AUTOMATION_DRY_RUN=true` or `LIFEMODE_IMAGE_ENABLED=false` bypasses all external image provider and R2 network calls.
+* **Deterministic Logging**: Machine-readable logging tracking provider execution:
+  - `[IMAGE] article=<id> provider=cloudflare status=success`
+  - `[IMAGE] article=<id> provider=cloudflare status=failed fallback=bfl`
+  - `[IMAGE] article=<id> provider=bfl status=success`
+  - `[IMAGE] article=<id> status=failed publication=continued`
+  - `[IMAGE] article=<id> status=skipped reason=dry-run`
+

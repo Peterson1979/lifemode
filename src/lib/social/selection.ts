@@ -59,7 +59,7 @@ export async function selectSocialOpportunities(
 ): Promise<SocialOpportunity[]> {
   const max = options.maxOpportunities ?? 3;
   const minScore = options.minScoreThreshold ?? 80;
-  const baseUrl = options.baseUrl || 'https://lifemode.com';
+  const baseUrl = options.baseUrl || 'https://lifemode.life';
   const historyRepo = options.historyRepository;
 
   // 1. Filter eligible candidates

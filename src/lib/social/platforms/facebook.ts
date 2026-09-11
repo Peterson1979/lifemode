@@ -48,7 +48,7 @@ export class FacebookPlatformAdapter implements ISocialPlatformAdapter {
     asset: SocialVisualAsset,
     options?: PlatformPrepareOptions
   ): Promise<SocialPlatformPackage> {
-    const link = options?.destinationUrl || content.destinationUrl || 'https://lifemode.com';
+    const link = options?.destinationUrl || content.destinationUrl || 'https://lifemode.life';
     const tagString = content.hashtags.slice(0, 6).join(' ');
 
     const bodyParagraph = content.extendedCaption || content.shortCaption;

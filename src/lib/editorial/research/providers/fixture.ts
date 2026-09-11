@@ -79,7 +79,7 @@ export class FixtureEditorialResearchProvider implements IEditorialResearchProvi
           },
           {
             title: 'Private AI Architecture Guidelines for Knowledge Workers',
-            url: 'https://lifemode.io/editorial-standards/tech-ai',
+            url: 'https://lifemode.life/editorial-standards/tech-ai',
             publisher: 'LifeMode Tech & AI Standards',
             publishedAt: '2026-01-01T00:00:00.000Z',
             accessedAt: now,
@@ -121,7 +121,7 @@ export class FixtureEditorialResearchProvider implements IEditorialResearchProvi
         return [
           {
             title: `${title} - Primary Reference`,
-            url: `https://lifemode.io/editorial-standards/${pillar}`,
+            url: `https://lifemode.life/editorial-standards/${pillar}`,
             publisher: 'LifeMode Editorial Board',
             publishedAt: '2026-01-01T00:00:00.000Z',
             accessedAt: now,

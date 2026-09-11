@@ -65,7 +65,7 @@ export class RSSFeedsDiscoveryAdapter implements IDiscoveryAdapter {
 
         const response = await fetchImpl(feed.url, {
           headers: {
-            'User-Agent': 'LifeMode-Editorial-Bot/1.0 (+https://lifemode.com; editorial@lifemode.com)',
+            'User-Agent': 'LifeMode-Editorial-Bot/1.0 (+https://lifemode.life; editorial@lifemode.life)',
             Accept: 'application/rss+xml, application/atom+xml, application/xml, text/xml;q=0.9, */*;q=0.8',
           },
           signal,

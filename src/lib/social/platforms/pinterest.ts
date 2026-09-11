@@ -60,7 +60,7 @@ export class PinterestPlatformAdapter implements ISocialPlatformAdapter {
     asset: SocialVisualAsset,
     options?: PlatformPrepareOptions
   ): Promise<SocialPlatformPackage> {
-    const link = options?.destinationUrl || content.destinationUrl || 'https://lifemode.com';
+    const link = options?.destinationUrl || content.destinationUrl || 'https://lifemode.life';
     const tagString = content.hashtags.slice(0, 5).join(' ');
 
     // Truncate title to <= 100 characters for Pinterest API

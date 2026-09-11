@@ -80,6 +80,7 @@ export async function runScheduledEditorialAutomation(
       researchFailureCount: counts.researchFailure,
       summary,
       fatalError,
+      articles: automationResult?.articles,
       automationResult,
       socialResult,
       jsonResult: {
@@ -92,6 +93,7 @@ export async function runScheduledEditorialAutomation(
         counts,
         pushedToRemote,
         fatalError,
+        articles: automationResult?.articles,
         social: socialResult,
       },
     };

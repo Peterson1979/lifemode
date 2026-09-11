@@ -36,7 +36,7 @@ class MockStorageProvider implements ISocialAssetStorageProvider {
     return {
       success: true,
       status: 'SUCCESS',
-      publicUrl: `https://cdn.lifemode.io/editorial/${request.topicId}/${request.assetHash}.jpg`,
+      publicUrl: `https://cdn.lifemode.life/editorial/${request.topicId}/${request.assetHash}.jpg`,
       objectKey: request.customKey || `editorial/${request.topicId}/${request.assetHash}.jpg`,
       contentType: request.mimeType,
       sizeBytes: request.buffer.length,

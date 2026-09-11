@@ -59,7 +59,7 @@ export class FixtureSocialImageProvider implements ISocialImageProvider {
   </g>
   
   <!-- Bottom Brand Footer -->
-  <text x="80" y="${height - 120}" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="500" fill="#a1a1aa">Read the complete guide on lifemode.com</text>
+  <text x="80" y="${height - 120}" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="500" fill="#a1a1aa">Read the complete guide on lifemode.life</text>
 </svg>`;
 
     const buffer = Buffer.from(svg, 'utf-8');

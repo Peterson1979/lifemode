@@ -91,7 +91,7 @@ function createMockValidSocialContent(overrides: Partial<GeneratedSocialContent>
       subheadline: 'LifeMode Life Guide',
     },
     targetPlatforms: ['facebook', 'instagram', 'pinterest'],
-    destinationUrl: 'https://lifemode.com/life/calm-workspace-design-principles',
+    destinationUrl: 'https://lifemode.life/life/calm-workspace-design-principles',
     ...overrides,
   };
 }
@@ -107,7 +107,7 @@ function createMockValidVisualAsset(overrides: Partial<SocialVisualAsset> = {}):
     altText: 'Calm Workspace Design Principles visual on LifeMode',
     headlineOverlay: 'The Architecture of Calm Workspaces',
     buffer: Buffer.from('<svg width="1080" height="1350"></svg>'),
-    url: 'https://images.lifemode.com/social/asset-12345.svg',
+    url: 'https://images.lifemode.life/social/asset-12345.svg',
     ...overrides,
   };
 }
@@ -145,7 +145,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
       pinterestPotential: 95,
       opportunityType: 'ARTICLE_AND_SOCIAL' as const,
       targetPlatforms: ['pinterest' as const, 'instagram' as const],
-      destinationUrl: 'https://lifemode.com/travel/slow-architectural-travel-kyoto',
+      destinationUrl: 'https://lifemode.life/travel/slow-architectural-travel-kyoto',
       evidence: [{ title: 'Kyoto Heritage Studies', url: 'https://example.com/kyoto', publisher: 'Travel Institute' }],
       tags: ['kyoto', 'architecture', 'slowtravel'],
     };
@@ -171,7 +171,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
       pinterestPotential: 80,
       opportunityType: 'ARTICLE_AND_SOCIAL',
       targetPlatforms: ['facebook', 'instagram'],
-      destinationUrl: 'https://lifemode.com/tech-ai/calm-computing-interfaces',
+      destinationUrl: 'https://lifemode.life/tech-ai/calm-computing-interfaces',
       tags: ['calmtech', 'interfaces'],
     });
 
@@ -586,7 +586,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
       accessKeyId: 'cf-key-67890',
       secretAccessKey: 'cf-secret-abcdef123456',
       bucketName: 'lifemode-assets',
-      publicBaseUrl: 'https://media.lifemode.com',
+      publicBaseUrl: 'https://media.lifemode.life',
       customFetch: mockFetch as any,
     });
 
@@ -604,7 +604,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
 
     assert.equal(result.success, true);
     assert.equal(result.status, 'SUCCESS');
-    assert.equal(result.publicUrl, 'https://media.lifemode.com/social/calm-desk-principles/a1b2c3d4e5f60718.jpg');
+    assert.equal(result.publicUrl, 'https://media.lifemode.life/social/calm-desk-principles/a1b2c3d4e5f60718.jpg');
     assert.equal(result.objectKey, 'social/calm-desk-principles/a1b2c3d4e5f60718.jpg');
     assert.equal(result.contentType, 'image/jpeg');
     assert.equal(result.sizeBytes, buffer.length);
@@ -653,7 +653,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
       accessKeyId: 'key-1',
       secretAccessKey: 'sec-1',
       bucketName: 'bucket-1',
-      publicBaseUrl: 'https://media.lifemode.com',
+      publicBaseUrl: 'https://media.lifemode.life',
       customFetch: failingFetch as any,
     });
 
@@ -709,7 +709,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
         return {
           success: true,
           status: 'SUCCESS',
-          publicUrl: 'https://media.lifemode.com/social/test/uploaded-123.jpg',
+          publicUrl: 'https://media.lifemode.life/social/test/uploaded-123.jpg',
           objectKey: 'social/test/uploaded-123.jpg',
           contentType: req.mimeType,
           sizeBytes: req.buffer.length,
@@ -742,7 +742,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     });
 
     assert.equal(storageUploadCalled, true);
-    assert.equal(preparedUrlInFb, 'https://media.lifemode.com/social/test/uploaded-123.jpg');
+    assert.equal(preparedUrlInFb, 'https://media.lifemode.life/social/test/uploaded-123.jpg');
     assert.equal(result.succeededCount, 1);
 
     await fs.rm(tempDir, { recursive: true, force: true });
@@ -752,12 +752,12 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     const fb = new FacebookPlatformAdapter();
     const content = createMockValidSocialContent();
     const asset = createMockValidVisualAsset({
-      url: 'https://media.lifemode.com/social/top-1/img-abc.jpg',
+      url: 'https://media.lifemode.life/social/top-1/img-abc.jpg',
     });
 
     const pkg = await fb.prepare(content, asset);
-    assert.equal(pkg.preparedPayload.url, 'https://media.lifemode.com/social/top-1/img-abc.jpg');
-    assert.equal(pkg.mediaAsset.url, 'https://media.lifemode.com/social/top-1/img-abc.jpg');
+    assert.equal(pkg.preparedPayload.url, 'https://media.lifemode.life/social/top-1/img-abc.jpg');
+    assert.equal(pkg.mediaAsset.url, 'https://media.lifemode.life/social/top-1/img-abc.jpg');
     assert.equal(fb.validate(pkg).valid, true);
   });
 
@@ -765,12 +765,12 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     const ig = new InstagramPlatformAdapter();
     const content = createMockValidSocialContent();
     const asset = createMockValidVisualAsset({
-      url: 'https://media.lifemode.com/social/top-1/img-abc.jpg',
+      url: 'https://media.lifemode.life/social/top-1/img-abc.jpg',
     });
 
     const pkg = await ig.prepare(content, asset);
-    assert.equal(pkg.preparedPayload.image_url, 'https://media.lifemode.com/social/top-1/img-abc.jpg');
-    assert.equal(pkg.mediaAsset.url, 'https://media.lifemode.com/social/top-1/img-abc.jpg');
+    assert.equal(pkg.preparedPayload.image_url, 'https://media.lifemode.life/social/top-1/img-abc.jpg');
+    assert.equal(pkg.mediaAsset.url, 'https://media.lifemode.life/social/top-1/img-abc.jpg');
     assert.equal(ig.validate(pkg).valid, true);
   });
 
@@ -778,12 +778,12 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     const pin = new PinterestPlatformAdapter();
     const content = createMockValidSocialContent();
     const asset = createMockValidVisualAsset({
-      url: 'https://media.lifemode.com/social/top-1/img-abc.jpg',
+      url: 'https://media.lifemode.life/social/top-1/img-abc.jpg',
     });
 
     const pkg = await pin.prepare(content, asset);
-    assert.equal(pkg.preparedPayload.media_source.url, 'https://media.lifemode.com/social/top-1/img-abc.jpg');
-    assert.equal(pkg.mediaAsset.url, 'https://media.lifemode.com/social/top-1/img-abc.jpg');
+    assert.equal(pkg.preparedPayload.media_source.url, 'https://media.lifemode.life/social/top-1/img-abc.jpg');
+    assert.equal(pkg.mediaAsset.url, 'https://media.lifemode.life/social/top-1/img-abc.jpg');
     assert.equal(pin.validate(pkg).valid, true);
   });
 
@@ -814,7 +814,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
 
     assert.equal(res.success, true);
     assert.equal(res.status, 'SUCCESS');
-    assert.equal(res.publicUrl, 'https://media.lifemode.com/social/offline-test/fedcba9876543210.svg');
+    assert.equal(res.publicUrl, 'https://media.lifemode.life/social/offline-test/fedcba9876543210.svg');
   });
 
   await t.test('33. No fabricated URL when storage is unavailable in live mode', async () => {
@@ -889,7 +889,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
       // 4. Execute publication and verify both container creation and publication use the shared token
       const content = createMockValidSocialContent();
       const asset = createMockValidVisualAsset({
-        url: 'https://media.lifemode.com/social/top-12345/a1b2c3d4e5f60718.jpg',
+        url: 'https://media.lifemode.life/social/top-12345/a1b2c3d4e5f60718.jpg',
       });
       const pkg = await adapter.prepare(content, asset);
       const publishResult = await adapter.publish(pkg, { dryRun: false });
@@ -904,7 +904,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
       // Step 1: /media container creation
       assert.equal(capturedRequests[0].url, `https://graph.facebook.com/v20.0/${mockIgAccountId}/media`);
       assert.equal(capturedRequests[0].body.access_token, mockSharedToken);
-      assert.equal(capturedRequests[0].body.image_url, 'https://media.lifemode.com/social/top-12345/a1b2c3d4e5f60718.jpg');
+      assert.equal(capturedRequests[0].body.image_url, 'https://media.lifemode.life/social/top-12345/a1b2c3d4e5f60718.jpg');
 
       // Step 2: /media_publish container publish
       assert.equal(capturedRequests[1].url, `https://graph.facebook.com/v20.0/${mockIgAccountId}/media_publish`);

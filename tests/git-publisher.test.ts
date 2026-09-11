@@ -72,7 +72,7 @@ function createSampleStoredArticle(overrides: Partial<StoredArticle> = {}): Stor
       secondaryIntent: 'commercial',
       affiliateIntent: false,
       riskLevel: 'low',
-      sources: [{ name: 'LifeMode Standards', url: 'https://lifemode.io/editorial-standards' }],
+      sources: [{ name: 'LifeMode Standards', url: 'https://lifemode.life/editorial-standards' }],
       version: 1,
       lifecycleStatus: 'STORED',
     },

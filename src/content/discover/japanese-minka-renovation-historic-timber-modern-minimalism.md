@@ -14,7 +14,7 @@ affiliateIntent: true
 riskLevel: "low"
 sources:
   - name: "LifeMode Editorial Standards & Primary Reference"
-    url: "https://lifemode.com/editorial-standards"
+    url: "https://lifemode.life/editorial-standards"
 version: 1
 lifecycleStatus: "STORED"
 ---

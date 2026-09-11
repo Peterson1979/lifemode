@@ -144,6 +144,8 @@ export type PublishingErrorCode =
   | 'DUPLICATE_PUBLICATION'
   | 'UNEXPECTED_FAILURE';
 
+import type { OrchestrationResult } from '../images/orchestrator.ts';
+
 /**
  * Complete structured result from a publishing execution.
  */
@@ -156,6 +158,7 @@ export interface PublishingResult {
   publishedAt?: string;
   publishPackage?: PublishPackage;
   gateResult: PublishingGateResult;
+  imageResult?: OrchestrationResult;
   error?: {
     code: PublishingErrorCode;
     message: string;

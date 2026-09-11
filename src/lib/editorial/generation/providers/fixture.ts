@@ -142,11 +142,11 @@ export class FixtureGenerationProvider implements IGenerationProvider {
     // Structured sources
     const sources = request.requiredSources?.map((s) => ({
       name: s.name,
-      url: s.url || 'https://lifemode.io/editorial-standards',
+      url: s.url || 'https://lifemode.life/editorial-standards',
     })) || [
       {
         name: 'LifeMode Editorial Standards & Primary Reference',
-        url: 'https://lifemode.io/editorial-standards',
+        url: 'https://lifemode.life/editorial-standards',
       },
     ];
 

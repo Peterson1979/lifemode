@@ -38,7 +38,7 @@ const validReviewRequest: ReviewRequest = {
   sources: [
     {
       name: 'LifeMode Editorial Standards',
-      url: 'https://lifemode.io/editorial-standards',
+      url: 'https://lifemode.life/editorial-standards',
     },
   ],
   internalLinks: ['/tech-ai', '/life'],

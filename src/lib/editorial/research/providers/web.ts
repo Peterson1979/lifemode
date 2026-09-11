@@ -200,7 +200,7 @@ export class WebEditorialResearchProvider implements IEditorialResearchProvider 
     return [
       {
         title: `${brief.titleAngle || topic.canonicalTopic} - Authoritative Lifestyle Reference`,
-        url: `https://lifemode.io/editorial-standards/${pillar}`,
+        url: `https://lifemode.life/editorial-standards/${pillar}`,
         publisher: 'LifeMode Research & Standards Board',
         publishedAt: '2026-01-01T00:00:00.000Z',
         accessedAt: now,

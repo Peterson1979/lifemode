@@ -9,11 +9,21 @@ import { FixturePublishingProvider } from './providers/fixture.ts';
 import { evaluatePublishingGate } from './gate.ts';
 import { buildPublishPackage } from './builder.ts';
 import { loadPublishingConfig, type PublishingConfig } from './config.ts';
+import { orchestrateEditorialImage, type OrchestrationResult } from '../images/orchestrator.ts';
+import type { IEditorialImageProvider } from '../images/contracts.ts';
+import type { EditorialImageConfig } from '../images/config.ts';
+import type { EditorialImageCostGuard } from '../images/cost-guard.ts';
+import type { ISocialAssetStorageProvider } from '../../social/images/storage/contracts.ts';
 
 export interface RunPublishingOptions {
   request: PublishingRequest;
   provider?: IPublishingProvider;
   config?: PublishingConfig;
+  imageConfig?: EditorialImageConfig;
+  imagePrimaryProvider?: IEditorialImageProvider;
+  imageFallbackProvider?: IEditorialImageProvider;
+  imageStorageProvider?: ISocialAssetStorageProvider;
+  costGuard?: EditorialImageCostGuard;
 }
 
 /**
@@ -85,7 +95,28 @@ export async function runPublishingPipeline(
     }
   }
 
-  // 4. Invoke Provider
+  // 4. Generate Editorial Master Image (if enabled & not dry-run)
+  let imageResult: OrchestrationResult | undefined;
+  try {
+    imageResult = await orchestrateEditorialImage(publishPackage, {
+      dryRun: isDryRun,
+      config: options.imageConfig,
+      primaryProvider: options.imagePrimaryProvider,
+      fallbackProvider: options.imageFallbackProvider,
+      storageProvider: options.imageStorageProvider,
+      costGuard: options.costGuard,
+    });
+  } catch (err: any) {
+    // Non-blocking resilience: image failure never blocks publication
+    imageResult = {
+      success: false,
+      skipped: false,
+      reason: 'unexpected-exception',
+      error: err?.message || String(err),
+    };
+  }
+
+  // 5. Invoke Provider
   let providerResult;
   try {
     providerResult = await provider.publish(publishPackage, { dryRun: isDryRun });
@@ -98,6 +129,7 @@ export async function runPublishingPipeline(
       provider: provider.name,
       publishPackage,
       gateResult,
+      imageResult,
       error: {
         code: 'UNEXPECTED_FAILURE',
         message: err?.message || 'Unexpected failure during publishing provider execution.',
@@ -114,6 +146,7 @@ export async function runPublishingPipeline(
       provider: provider.name,
       publishPackage,
       gateResult,
+      imageResult,
       error: {
         code: (providerResult.error?.code as any) || 'PROVIDER_REJECTED',
         message: providerResult.error?.message || 'Publishing provider rejected the article package.',
@@ -134,6 +167,7 @@ export async function runPublishingPipeline(
     publishedAt: providerResult.publishedAt,
     publishPackage,
     gateResult,
+    imageResult,
     metadata: providerResult.metadata,
   };
 }

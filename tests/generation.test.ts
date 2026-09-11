@@ -40,7 +40,7 @@ const validRequest: GenerationRequest = {
   requiredSources: [
     {
       name: 'LifeMode Editorial Tech Standards',
-      url: 'https://lifemode.io/editorial-standards',
+      url: 'https://lifemode.life/editorial-standards',
       citationType: 'authority',
     },
   ],

@@ -89,7 +89,7 @@ export function loadSocialConfig(overrides: Partial<SocialAutomationConfig> = {}
   const envImageProvider = (getEnvVar('LIFEMODE_SOCIAL_IMAGE_PROVIDER') as any) || 'fixture';
   const imageProviderMode = overrides.imageProviderMode ?? (storageTest ? 'fixture' : envImageProvider);
 
-  const baseUrl = getEnvVar('LIFEMODE_BASE_URL') || 'https://lifemode.com';
+  const baseUrl = getEnvVar('LIFEMODE_BASE_URL') || 'https://lifemode.life';
   const storageDir = overrides.storageDir || getEnvVar('LIFEMODE_SOCIAL_STORAGE_DIR') || 'data/social';
 
   // Facebook credentials
