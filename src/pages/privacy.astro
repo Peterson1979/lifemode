@@ -1,35 +1,250 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lastUpdated = 'September 11, 2026';
+const canonicalUrl = 'https://lifemode.life/privacy';
 ---
 
 <BaseLayout
   title="Privacy Policy — LifeMode"
-  description="LifeMode Privacy Policy detailing our commitment to reader privacy and data protection standards."
+  description="LifeMode Privacy Policy detailing our data protection standards, Pinterest API integration, and reader privacy commitments."
+  canonicalUrl={canonicalUrl}
 >
-  <div class="page-shell container-prose">
-    <header style="margin-bottom: var(--space-8);">
+  <div class="page-shell container-prose" style="padding-top: var(--space-12); padding-bottom: var(--space-16);">
+    <header style="margin-bottom: var(--space-10); border-bottom: 1px solid var(--color-border); padding-bottom: var(--space-8);">
       <span class="hero-tag">Legal &amp; Transparency</span>
-      <h1 class="page-title">Privacy Policy</h1>
-      <p class="page-lead">
-        Your privacy and trust are paramount. LifeMode is designed with data minimization and transparency at its core.
+      <h1 class="page-title" style="font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 3.5rem); font-weight: 600; line-height: 1.15; margin-top: var(--space-3); margin-bottom: var(--space-4); letter-spacing: -0.02em;">
+        Privacy Policy
+      </h1>
+      <p class="page-lead" style="font-family: var(--font-sans); font-size: 1.15rem; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: var(--space-4);">
+        Your privacy, digital security, and trust are fundamental to LifeMode. This Privacy Policy details how we handle information across our publication and integrated platform services.
       </p>
+      <div style="font-family: var(--font-sans); font-size: 0.8125rem; color: var(--color-text-muted); display: flex; align-items: center; gap: var(--space-2);">
+        <span>Effective Date:</span>
+        <strong style="color: var(--color-text-primary); font-weight: 600;">{lastUpdated}</strong>
+      </div>
     </header>
 
-    <div class="prose">
-      <h2>Information We Collect</h2>
-      <p>
-        LifeMode operates primarily as a static, content-driven editorial publication. We do not require account creation to read articles and we minimize third-party tracking scripts.
-      </p>
+    <article class="prose" style="font-family: var(--font-sans); line-height: 1.85; font-size: 1.0625rem; color: #332f2b;">
+      <section id="introduction">
+        <h2>1. Introduction &amp; Scope</h2>
+        <p>
+          LifeMode (accessible at <a href="https://lifemode.life">https://lifemode.life</a>, referred to as &ldquo;LifeMode&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) is an independent digital publication dedicated to modern living, thoughtful travel, emerging technology, personal finance, wellbeing, design, and cultural insights.
+        </p>
+        <p>
+          This Privacy Policy applies to all visitors, readers, and authorized platform accounts interacting with our website, content feeds, editorial tools, and integrated third-party applications, including our official Pinterest Developer Platform integration.
+        </p>
+      </section>
 
-      <h2>Usage &amp; Performance</h2>
-      <p>
-        Standard server logs and anonymized metrics may be used strictly to ensure platform security, uptime, and high-performance content delivery.
-      </p>
+      <section id="information-collected">
+        <h2>2. Information We Collect Directly from Visitors</h2>
+        <p>
+          LifeMode is engineered with a <strong>privacy-first, data-minimization philosophy</strong>:
+        </p>
+        <ul>
+          <li><strong>No Mandatory Account Registration:</strong> You do not need to register, create a profile, or provide personal credentials to browse, read, search, or share articles on LifeMode.</li>
+          <li><strong>Direct Inquiries &amp; Correspondence:</strong> When you voluntarily contact our editorial or privacy desk by email (such as via <a href="mailto:contact@lifemode.life">contact@lifemode.life</a> or <a href="mailto:privacy@lifemode.life">privacy@lifemode.life</a>), we process your email address, name (if provided), and message contents solely to respond to your inquiry. We do not use inquiry correspondence for unsolicited marketing, and we do not operate an online form database for visitor submissions.</li>
+        </ul>
+      </section>
 
-      <h2>Changes to This Policy</h2>
-      <p>
-        Any updates to our privacy standards will be reflected on this page with an updated timestamp.
-      </p>
-    </div>
+      <section id="technical-data">
+        <h2>3. Automatically Collected Technical Information</h2>
+        <p>
+          When you access LifeMode, our hosting infrastructure and content delivery network (Cloudflare) automatically process standard, non-personally identifiable technical request data to ensure platform uptime and security:
+        </p>
+        <ul>
+          <li>Browser type, version, and operating system (User-Agent string)</li>
+          <li>Requested web pages, resources, and timestamps</li>
+          <li>Referrer URL (the webpage that directed you to LifeMode)</li>
+          <li>Internet Protocol (IP) address (processed by our CDN for network routing, security anomaly detection, and basic platform protection)</li>
+          <li>HTTP response status codes and byte sizes</li>
+        </ul>
+        <p>
+          These technical logs are processed strictly for security diagnostics, preventing malicious traffic, and optimizing CDN caching performance.
+        </p>
+      </section>
+
+      <section id="cookies">
+        <h2>4. Cookies &amp; Analytics</h2>
+        <p>
+          LifeMode operates as a fast, static-first web publication:
+        </p>
+        <ul>
+          <li>We do <strong>not</strong> deploy intrusive cross-site tracking cookies, invasive third-party behavioral advertising scripts, or keystroke loggers.</li>
+          <li>Essential technical cookies and routing tokens may be utilized by our CDN provider (Cloudflare) strictly where necessary to manage trusted web traffic and protect edge infrastructure.</li>
+          <li>You can manage or disable cookies at any time through your browser settings without impacting your ability to read articles on LifeMode.</li>
+        </ul>
+      </section>
+
+      <section id="pinterest-integration">
+        <h2>5. Pinterest API Integration &amp; Developer Services</h2>
+        <p>
+          LifeMode utilizes the official <strong>Pinterest Developer Platform (API v5)</strong> to distribute curated editorial content, visual lifestyle essays, and shopping inspirations to relevant Pinterest boards corresponding to our editorial pillars.
+        </p>
+
+        <h3>5.1. OAuth 2.0 Authorization</h3>
+        <p>
+          Authentication with Pinterest is conducted strictly through standard Pinterest OAuth 2.0 authorization protocols. LifeMode requests only granular, least-privilege permissions necessary for editorial publishing:
+        </p>
+        <ul>
+          <li><code>boards:read</code>: To identify available Pinterest boards and route content to appropriate topical categories (such as Travel, Home, or Tech).</li>
+          <li><code>boards:write</code>: To create or manage relevant topical boards for LifeMode editorial curation when authorized.</li>
+          <li><code>pins:read</code>: To verify publication status and check destination link integrity.</li>
+          <li><code>pins:write</code>: To publish organic Pins containing editorial titles, curated descriptions, public HTTPS image assets, and links back to published LifeMode articles or collections.</li>
+          <li><code>user_accounts:read</code>: To verify account connectivity, profile handle, and token validity for operational monitoring.</li>
+        </ul>
+
+        <h3>5.2. Pinterest Data Accessed</h3>
+        <p>
+          Our application accesses only the following Pinterest data points:
+        </p>
+        <ul>
+          <li>Authorized Pinterest account identifier and username</li>
+          <li>Board names, board identifiers, and privacy status (public/secret)</li>
+          <li>Identifiers and publication timestamps of Pins published through the application</li>
+        </ul>
+
+        <h3>5.3. How Pinterest Data is Used</h3>
+        <p>
+          Data accessed through the Pinterest API is used exclusively to:
+        </p>
+        <ul>
+          <li>Publish scheduled and approved editorial Pins to authorized boards.</li>
+          <li>Verify that destination links route accurately to high-quality content.</li>
+          <li>Prevent duplicate Pin candidate generation and ensure taxonomy consistency.</li>
+          <li>Monitor API rate limits, error states, and connection health.</li>
+        </ul>
+
+        <h3>5.4. What Pinterest Data is NOT Used For</h3>
+        <p>
+          In strict compliance with Pinterest Developer Policies and international privacy principles:
+        </p>
+        <ul>
+          <li><strong>No Sale of Data:</strong> We never sell, rent, license, or trade Pinterest user data, tokens, or profile insights to any third party, broker, or advertising network.</li>
+          <li><strong>No Password Access:</strong> We never request, process, or store Pinterest account passwords. Authentication is handled entirely via secure OAuth 2.0 tokens.</li>
+          <li><strong>No Access to Private Communications:</strong> We do not request or access private messages, personal payment instruments, address books, or contacts.</li>
+          <li><strong>No Scraping:</strong> We interact with Pinterest solely via authenticated REST API v5 endpoints and never engage in web scraping or unauthorized data extraction.</li>
+          <li><strong>No Cross-Platform Tracking:</strong> Pinterest API data is not combined with external tracking databases or used for behavioral profiling.</li>
+        </ul>
+
+        <h3>5.5. Token Storage &amp; Security</h3>
+        <p>
+          API credentials and access tokens are kept in protected server-side environment configurations with restricted administrative access and are not exposed to client-side code, public repositories, or client-facing responses.
+        </p>
+
+        <h3>5.6. Revoking Access &amp; Disconnecting Pinterest</h3>
+        <p>
+          Authorized accounts retain complete control over permissions. You can revoke LifeMode's access at any time directly through Pinterest:
+        </p>
+        <ol>
+          <li>Navigate to your Pinterest account <strong>Settings</strong>.</li>
+          <li>Select <strong>Apps and sessions</strong> &rarr; <strong>Connected apps</strong>.</li>
+          <li>Locate LifeMode and click <strong>Revoke access</strong>.</li>
+        </ol>
+        <p>
+          Upon revocation, our application immediately loses all ability to interact with your Pinterest account. You may also contact us at <a href="mailto:privacy@lifemode.life">privacy@lifemode.life</a> to request deletion of any associated authorization records.
+        </p>
+      </section>
+
+      <section id="retention">
+        <h2>6. Data Retention &amp; Deletion</h2>
+        <ul>
+          <li><strong>Server &amp; Platform Logs:</strong> Infrastructure and edge network logs may be retained for a limited operational period as necessary for security diagnostics, abuse prevention, and platform reliability, in accordance with our infrastructure provider's standard retention policies.</li>
+          <li><strong>Inquiry Correspondence:</strong> Retained only as long as necessary to address your communication or feedback.</li>
+          <li><strong>Pinterest Authorization Data:</strong> Stored only during the active lifecycle of the integration. If access is revoked or deleted, records are removed.</li>
+        </ul>
+      </section>
+
+      <section id="third-parties">
+        <h2>7. Third-Party Service Providers</h2>
+        <p>
+          We partner with reputable infrastructure providers who process data strictly under confidentiality and data protection obligations:
+        </p>
+        <ul>
+          <li><strong>Cloudflare:</strong> Provides global Content Delivery Network (CDN) edge delivery, HTTPS encryption, network security safeguards, and Cloudflare R2 object storage for delivering public HTTPS image assets.</li>
+          <li><strong>Pinterest:</strong> Powers our social distribution and Pin publishing integration via the official Pinterest Developer Platform.</li>
+          <li><strong>AI &amp; Editorial Research Tools:</strong> Used strictly for internal, offline editorial planning, topic structuring, and content synthesis. No visitor personal data or reader information is ever transmitted to or processed by external AI services.</li>
+        </ul>
+      </section>
+
+      <section id="external-links">
+        <h2>8. External Links &amp; Affiliate Disclosures</h2>
+        <p>
+          LifeMode contains links to external websites, cultural institutions, merchant platforms, and original research sources. We do not operate or control external websites and are not responsible for their privacy practices. We encourage you to review the privacy policies of any external destination you visit.
+        </p>
+
+        <h3>8.1. Affiliate Programs &amp; Commercial Disclosures</h3>
+        <p>
+          Where LifeMode content contains qualifying commercial recommendations or links, LifeMode may participate in affiliate programs, including the <strong>Amazon Services LLC Associates Program</strong>, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com and affiliated international marketplaces.
+        </p>
+        <p>
+          When you click an affiliate link to a recommended product or curated collection and complete a qualifying purchase, LifeMode may earn commissions from qualifying purchases at <strong>no additional cost to the reader</strong>. All product references and editorial selections are curated independently. Transactions completed on third-party merchant sites such as Amazon are governed by their respective privacy notices and terms of service.
+        </p>
+      </section>
+
+      <section id="user-rights">
+        <h2>9. User Rights &amp; Privacy Requests</h2>
+        <p>
+          Regardless of your location, LifeMode respects fundamental digital privacy rights under the European Union General Data Protection Regulation (GDPR), the UK Data Protection Act, the California Consumer Privacy Act (CCPA/CPRA), and applicable global frameworks:
+        </p>
+        <ul>
+          <li><strong>Right of Access:</strong> You may request confirmation of whether we hold any personal information concerning you.</li>
+          <li><strong>Right to Rectification:</strong> You may request correction of inaccurate or incomplete information.</li>
+          <li><strong>Right to Erasure (&ldquo;Right to be Forgotten&rdquo;):</strong> You may request the deletion of your personal data or stored API tokens.</li>
+          <li><strong>Right to Object or Restrict Processing:</strong> You may object to or request restrictions on certain processing activities.</li>
+          <li><strong>Non-Discrimination:</strong> We will never discriminate against you for exercising your privacy rights.</li>
+        </ul>
+        <p>
+          To submit a privacy request, email our privacy desk directly at <a href="mailto:privacy@lifemode.life">privacy@lifemode.life</a>. We respond to all verified requests in accordance with applicable data protection laws without charge.
+        </p>
+      </section>
+
+      <section id="security">
+        <h2>10. Data Security Standards</h2>
+        <p>
+          We employ industry-standard technical, cryptographic, and administrative safeguards to protect our platform:
+        </p>
+        <ul>
+          <li>All network communications between your browser and LifeMode are encrypted using modern Transport Layer Security (TLS) and HTTPS.</li>
+          <li>API credentials and access tokens are maintained in protected server-side environments with restricted administrative access.</li>
+          <li>Edge network security safeguards provided by our infrastructure partners help protect our platform against unauthorized access and traffic anomalies.</li>
+        </ul>
+      </section>
+
+      <section id="children">
+        <h2>11. Children&rsquo;s Privacy</h2>
+        <p>
+          LifeMode is a general-audience digital publication and is not directed to children under the age of 13 (or under 16 in certain European jurisdictions). We do not knowingly collect, request, or maintain personal information from children. If you believe a child has provided us with personal data, please contact us immediately, and we will promptly delete such information.
+        </p>
+      </section>
+
+      <section id="international-transfers">
+        <h2>12. International Data Transfers</h2>
+        <p>
+          LifeMode is hosted on distributed cloud infrastructure with edge nodes worldwide. If you access LifeMode from outside our hosting regions, your technical request data may be routed and cached internationally, subject to standard data protection contractual clauses and strict cryptographic controls.
+        </p>
+      </section>
+
+      <section id="policy-updates">
+        <h2>13. Changes to This Privacy Policy</h2>
+        <p>
+          We may update this Privacy Policy from time to time to reflect modifications in our editorial workflows, technological infrastructure, or legal compliance standards (such as Pinterest Developer policy updates). Any changes will be posted on this page with an updated &ldquo;Effective Date&rdquo;. We encourage readers to review this page periodically.
+        </p>
+      </section>
+
+      <section id="contact">
+        <h2>14. Contact Information</h2>
+        <p>
+          If you have questions, feedback, or privacy requests regarding this policy or our data practices, please reach our editorial desk:
+        </p>
+        <div style="background-color: var(--color-surface-subtle); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: var(--space-6); margin-top: var(--space-6);">
+          <p style="margin-bottom: var(--space-2);"><strong>Publication:</strong> LifeMode</p>
+          <p style="margin-bottom: var(--space-2);"><strong>Website:</strong> <a href="https://lifemode.life">https://lifemode.life</a></p>
+          <p style="margin-bottom: var(--space-2);"><strong>Privacy Desk:</strong> <a href="mailto:privacy@lifemode.life">privacy@lifemode.life</a></p>
+          <p style="margin-bottom: var(--space-2);"><strong>Editorial Desk:</strong> <a href="mailto:contact@lifemode.life">contact@lifemode.life</a></p>
+          <p style="margin-bottom: 0;"><strong>Web Inquiries:</strong> <a href="/contact">https://lifemode.life/contact</a></p>
+        </div>
+      </section>
+    </article>
   </div>
 </BaseLayout>
