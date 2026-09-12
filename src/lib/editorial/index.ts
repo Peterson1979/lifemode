@@ -63,4 +63,5 @@ export * from './git-publisher/plan-builder.ts';
 export * from './git-publisher/publisher.ts';
 export * from './images/index.ts';
 export * from './automation/index.ts';
+export * from './maintenance/index.ts';
 

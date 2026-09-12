@@ -262,6 +262,54 @@ export class EditorialImageCostGuard {
   }
 
   /**
+   * Evaluates whether an image generation request is permitted for a one-time maintenance run
+   * that utilizes remaining monthly allowance without the daily 5-image restriction.
+   */
+  async canGenerateMaintenanceImage(date: Date = new Date()): Promise<CostGuardDecision> {
+    const dailyUsage = await this.getDailyUsage(date);
+    const monthlyUsage = await this.getMonthlyUsage(date);
+
+    if (!this.enabled) {
+      return {
+        allowed: true,
+        reason: 'GUARD_DISABLED',
+        dailyUsage,
+        monthlyUsage,
+        dailyLimit: this.dailyLimit,
+        monthlyLimit: this.monthlyLimit,
+      };
+    }
+
+    if (monthlyUsage >= this.monthlyLimit) {
+      return {
+        allowed: false,
+        reason: 'MONTHLY_LIMIT_EXCEEDED',
+        dailyUsage,
+        monthlyUsage,
+        dailyLimit: this.dailyLimit,
+        monthlyLimit: this.monthlyLimit,
+      };
+    }
+
+    return {
+      allowed: true,
+      dailyUsage,
+      monthlyUsage,
+      dailyLimit: this.dailyLimit,
+      monthlyLimit: this.monthlyLimit,
+    };
+  }
+
+  /**
+   * Retrieves the remaining monthly image generation allowance.
+   */
+  async getRemainingMonthlyCapacity(date: Date = new Date()): Promise<number> {
+    if (!this.enabled) return 999999;
+    const monthlyUsage = await this.getMonthlyUsage(date);
+    return Math.max(0, this.monthlyLimit - monthlyUsage);
+  }
+
+  /**
    * Records a successful image generation, incrementing both daily and monthly counters.
    */
   async recordGeneration(

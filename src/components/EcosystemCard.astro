@@ -11,7 +11,7 @@ const { project, compact = false } = Astro.props;
 
 <article class={`ecosystem-card ${compact ? 'ecosystem-card-compact' : ''}`}>
   <div class="ecosystem-header">
-    <span class="ecosystem-kicker">Ecosystem Curations</span>
+    <span class="ecosystem-kicker">Project</span>
     <span class="ecosystem-categories">
       {project.categories.slice(0, 2).join(' / ')}
     </span>

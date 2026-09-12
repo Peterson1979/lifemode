@@ -1,7 +1,8 @@
 ---
-title: "The Quietest Islands in the Azores Volcanic Hot Springs and Solitary Coastlines: A Modern Guide to Destinations & Global Journeys"
+title: "The quietest islands in the Azores: hot springs, volcanic trails, and solitary coastlines"
 description: "Discover our editorial guide on the quietest islands in the azores volcanic hot springs and solitary coastlines: a modern guide to destinations & global journeys. Explore key principles, actionable methods, and curated perspectives for modern living."
 pubDate: "2026-09-11T06:56:33.888Z"
+updatedDate: "2026-09-12"
 author: "LifeMode Editorial"
 tags: ["travel","azores","islands","nature"]
 featured: false
@@ -15,7 +16,8 @@ riskLevel: "low"
 sources:
   - name: "LifeMode Editorial Standards & Primary Reference"
     url: "https://lifemode.life/editorial-standards"
-version: 1
+image: "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-travel-20260910-the-quietest-islands-/45af073c9885c6e3.jpg"
+version: 2
 lifecycleStatus: "STORED"
 ---
 

@@ -98,10 +98,10 @@ const breadcrumbSchema = generateBreadcrumbSchema([
     <div class="container">
       <div class="section-header">
         <div>
-          <span class="section-kicker">Dispatches Archive</span>
-          <h2 class="section-title">Published in {pillar.name}</h2>
+          <span class="section-kicker">Articles</span>
+          <h2 class="section-title">Articles in {pillar.name}</h2>
           <p class="section-subtitle">
-            Showing {articles.length} curated {articles.length === 1 ? 'dispatch' : 'dispatches'}
+            Showing {articles.length} {articles.length === 1 ? 'article' : 'articles'}
           </p>
         </div>
       </div>
@@ -110,7 +110,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         <div>
           {articles.length >= 3 ? (
             <div>
-              <!-- Lead Dispatch Feature -->
+              <!-- Lead Article Feature -->
               <div style="margin-bottom: var(--space-10); padding-bottom: var(--space-10); border-bottom: 1px solid var(--color-border);">
                 <ArticleCard
                   pillar={pillar.slug}
@@ -176,22 +176,22 @@ const breadcrumbSchema = generateBreadcrumbSchema([
             <span style="font-family: var(--font-display); font-size: 2.2rem; font-style: italic; color: var(--color-olive); font-weight: 700;">LM</span>
           </div>
           <h3 style="font-family: var(--font-display); font-size: 1.4rem; margin-bottom: var(--space-2); color: var(--color-text-primary);">
-            Dispatches in Preparation
+            Articles coming soon
           </h3>
           <p style="color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.6; max-width: 480px; margin-inline: auto; margin-bottom: var(--space-6);">
-            Editorial essays for {pillar.name} are currently being curated for the upcoming volume release.
+            Articles for {pillar.name} will appear here soon.
           </p>
-          <a href="/" class="btn btn-outline">Return to Front Page</a>
+          <a href="/" class="btn btn-outline">Return to homepage</a>
         </div>
       )}
 
-      <!-- Pillar Ecosystem Extension -->
+      <!-- Related Projects Extension -->
       {relevantEcosystem && (
         <div style="margin-top: var(--space-16); padding-top: var(--space-10); border-top: 1px solid var(--color-border);">
           <div class="section-header">
             <div>
-              <span class="section-kicker">Related Platform</span>
-              <h2 class="section-title">Explore from the Ecosystem</h2>
+              <span class="section-kicker">From our projects</span>
+              <h2 class="section-title">Apps & tools</h2>
             </div>
           </div>
           <div style="max-width: 680px;">

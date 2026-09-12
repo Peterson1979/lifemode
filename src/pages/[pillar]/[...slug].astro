@@ -171,7 +171,7 @@ const combinedJsonLd = [articleJsonLd, breadcrumbJsonLd];
             <div style="text-align: center; padding: var(--space-8);">
               <span style="font-family: var(--font-display); font-size: 2.5rem; font-style: italic; font-weight: 700; color: var(--color-text-muted); display: block; margin-bottom: 0.25rem;">LM</span>
               <span style="font-family: var(--font-sans); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-text-muted);">
-                {pillar.name} &bull; Editorial Dispatch
+                {pillar.name}
               </span>
             </div>
           </div>
@@ -190,13 +190,13 @@ const combinedJsonLd = [articleJsonLd, breadcrumbJsonLd];
             &larr; More in {pillar.name}
           </a>
           <a href="/" class="btn btn-outline" style="font-size: 0.8125rem; color: var(--color-olive);">
-            Front Page Dispatches &rarr;
+            All stories &rarr;
           </a>
         </div>
       </footer>
     </article>
 
-    <!-- Relevant Ecosystem Recommendation -->
+    <!-- Relevant Project Recommendation -->
     {relevantEcosystem && (
       <section style="margin-top: var(--space-12); padding-top: var(--space-8); border-top: 1px solid var(--color-border);">
         <div style="max-width: 640px; margin: 0 auto;">
@@ -205,16 +205,16 @@ const combinedJsonLd = [articleJsonLd, breadcrumbJsonLd];
       </section>
     )}
 
-    <!-- Curated Related Dispatches -->
+    <!-- Related Stories -->
     {relatedEntries.length > 0 && (
       <section style="margin-top: var(--space-16); padding-top: var(--space-10); border-top: 1px solid var(--color-border);">
         <div class="section-header">
           <div>
-            <span class="section-kicker">Curated Reading</span>
-            <h2 class="section-title">Related Dispatches in {pillar.name}</h2>
+            <span class="section-kicker">More stories</span>
+            <h2 class="section-title">More in {pillar.name}</h2>
           </div>
           <a href={`/${pillar.slug}`} class="section-link">
-            Explore Pillar &rarr;
+            See all {pillar.name} &rarr;
           </a>
         </div>
         <div class="grid-3">
@@ -227,6 +227,7 @@ const combinedJsonLd = [articleJsonLd, breadcrumbJsonLd];
               pubDate={related.data.pubDate}
               author={related.data.author}
               image={related.data.image}
+              imageAlt={related.data.imageAlt}
               readingTime={related.data.readingTime}
               format={related.data.format}
               tags={related.data.tags}

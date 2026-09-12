@@ -1,7 +1,8 @@
 ---
-title: "Minimalist Coastal Retreats Architecture and Secluded Stays in the Mediterranean: A Modern Guide to Destinations & Global Journeys"
+title: "Minimalist coastal retreats: secluded architecture across the Mediterranean"
 description: "Discover our editorial guide on minimalist coastal retreats architecture and secluded stays in the mediterranean: a modern guide to destinations & global journeys. Explore key principles, actionable methods, and curated perspectives for modern living."
 pubDate: "2026-09-10T11:45:56.317Z"
+updatedDate: "2026-09-12"
 author: "LifeMode Editorial"
 tags: ["travel","mediterranean","retreats","architecture"]
 featured: false
@@ -15,7 +16,8 @@ riskLevel: "low"
 sources:
   - name: "LifeMode Editorial Standards & Primary Reference"
     url: "https://lifemode.life/editorial-standards"
-version: 1
+image: "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-travel-20260910-minimalist-coastal-re/8dc4b50faceccee8.jpg"
+version: 2
 lifecycleStatus: "STORED"
 ---
 

@@ -34,30 +34,42 @@ export function buildContentBrief(
 
   const estimatedWordCount = wordCountMap[format] || wordCountMap.standard;
 
-  // Title angle generator based on pillar and topic
-  const titleAngle = `${topic.canonicalTopic}: A Modern Guide to ${pillarConfig.tagline}`;
+  // Title angle generator based on canonical topic and format
+  const cleanTopic = topic.canonicalTopic.trim();
+  let titleAngle = cleanTopic;
+  if (!cleanTopic.toLowerCase().startsWith('how ') && !cleanTopic.toLowerCase().startsWith('why ') && !cleanTopic.toLowerCase().startsWith('what ')) {
+    if (format === 'guide') {
+      titleAngle = `How to make the most of ${cleanTopic}`;
+    } else if (format === 'deep-dive') {
+      titleAngle = `${cleanTopic}: what it tells you and how it works`;
+    } else if (format === 'listicle') {
+      titleAngle = `Practical lessons and insights from ${cleanTopic}`;
+    } else {
+      titleAngle = `${cleanTopic}: what to know`;
+    }
+  }
 
   // Default outline structure
   const outlineSections = [
     {
-      heading: 'Introduction & Core Perspective',
+      heading: 'Background & Core Context',
       keyPoints: [
-        `Define the essence of ${topic.canonicalTopic}.`,
-        'Highlight why this matters in contemporary lifestyle design.',
+        `Understand the essentials of ${topic.canonicalTopic}.`,
+        'Highlight why this matters for modern readers.',
       ],
     },
     {
-      heading: 'Foundational Principles & Actionable Framework',
+      heading: 'Practical Applications & Key Takeaways',
       keyPoints: [
-        'Break down the core methodology / insights.',
-        'Provide concrete, high-signal takeaways for the reader.',
+        'Break down practical insights and real-world methods.',
+        'Provide concrete, high-signal takeaways.',
       ],
     },
     {
-      heading: 'Curated Recommendations & Next Steps',
+      heading: 'Actionable Advice & Next Steps',
       keyPoints: [
-        'Specific tools, habits, or curated suggestions.',
-        'Actionable checklist or routine integration.',
+        'Specific recommendations, routines, or tools.',
+        'Practical steps for everyday integration.',
       ],
     },
   ];
@@ -70,24 +82,24 @@ export function buildContentBrief(
     format,
     primaryIntent,
     secondaryIntent: options.secondaryIntent || topic.secondaryIntent,
-    audience: options.audience || topic.targetAudience || 'Modern, curious, globally minded readers seeking intentional living.',
+    audience: options.audience || topic.targetAudience || 'Curious, thoughtful readers looking for practical ideas.',
     searchTargets: {
       primaryKeyword: topic.canonicalTopic.toLowerCase(),
       secondaryKeywords: topic.queryVariants.slice(0, 5),
       targetSearchVolumeTier: topic.scoring.searchPotential > 80 ? 'high' : 'medium',
     },
     pinterestAngle: {
-      visualTheme: `${pillarConfig.name} Aesthetic & Minimalist Living`,
-      pinTitleAngle: `The Ultimate Guide to ${topic.canonicalTopic}`,
-      pinDescriptionAngle: `Discover how ${topic.canonicalTopic.toLowerCase()} transforms modern routines. Read the full editorial breakdown on LifeMode.`,
-      aestheticKeywords: [topic.pillar, 'lifestyle', 'minimalist', 'modern living', ...topic.tags],
+      visualTheme: `${pillarConfig.name} Lifestyle & Everyday Ideas`,
+      pinTitleAngle: titleAngle,
+      pinDescriptionAngle: `Explore practical ideas and takeaways for ${topic.canonicalTopic.toLowerCase()} on LifeMode.`,
+      aestheticKeywords: [topic.pillar, 'lifestyle', 'ideas', 'modern living', ...topic.tags],
     },
     socialAngle: {
-      hookAngle: `Why ${topic.canonicalTopic} is changing how we approach ${pillarConfig.name.toLowerCase()} in 2026.`,
+      hookAngle: `What you should know about ${topic.canonicalTopic}.`,
       keyTakeaways: [
         `Key shift in ${topic.canonicalTopic}`,
-        'Core actionable framework',
-        'Long-term lifestyle outcome',
+        'Core actionable takeaway',
+        'Long-term everyday outcome',
       ],
     },
     affiliateOpportunities: {

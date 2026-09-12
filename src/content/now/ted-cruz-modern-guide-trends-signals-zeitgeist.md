@@ -1,5 +1,5 @@
 ---
-title: "Ted Cruz: A Modern Guide to Trends, Signals & Zeitgeist"
+title: "Ted Cruz and the rise of direct-to-listener political broadcasting"
 description: "Explore how the persona of Ted Cruz embodies today’s digital intentionality, calm tech, and cognitive rest to reshape our now in 2026."
 pubDate: "2026-09-12T05:19:21.788Z"
 author: "LifeMode Editorial"

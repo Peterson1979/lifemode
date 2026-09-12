@@ -436,11 +436,19 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
 
   await t.test('18. Scheduler integration integrates social automation cleanly', async () => {
     const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lm-sched-soc-'));
+    const contentDir = path.join(tempDir, 'content');
+    const storagePath = path.join(tempDir, 'candidates.json');
     const lockPath = path.join(tempDir, 'test.lock');
+
+    await fs.mkdir(contentDir, { recursive: true });
 
     const result = await runScheduledEditorialAutomation({
       enabled: true,
       dryRun: true,
+      providerMode: 'fixture',
+      gitRepoRoot: tempDir,
+      contentRoot: contentDir,
+      storagePath,
       lockPath,
       socialEnabled: true,
       socialOptions: {

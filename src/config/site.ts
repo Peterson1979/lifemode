@@ -30,7 +30,7 @@ export const PILLARS: Record<PillarSlug, PillarConfig> = {
     name: 'Tech & AI',
     slug: 'tech-ai',
     tagline: 'Intelligent Tools & Innovation',
-    description: 'Emerging artificial intelligence, productivity ecosystems, and modern digital lifestyles.',
+    description: 'Emerging artificial intelligence, practical software tools, and modern digital lifestyles.',
     color: '#a78bfa', // Violet
     bgLight: 'rgba(167, 139, 250, 0.1)',
   },
@@ -62,7 +62,7 @@ export const PILLARS: Record<PillarSlug, PillarConfig> = {
     name: 'Now',
     slug: 'now',
     tagline: 'Trends, Signals & Zeitgeist',
-    description: 'Real-time pulses, seasonal guides, cultural signals, and timely editorial dispatches.',
+    description: 'Real-time pulses, seasonal guides, cultural signals, and timely stories.',
     color: '#f43f5e', // Crimson
     bgLight: 'rgba(244, 63, 94, 0.1)',
   },
@@ -72,8 +72,9 @@ export const PILLAR_SLUGS = Object.keys(PILLARS) as PillarSlug[];
 
 export const SITE_CONFIG = {
   name: 'LifeMode',
-  title: 'LifeMode — Smart Living, Curated Culture & Timely Editorial',
-  description: 'A global digital publication exploring modern living, travel, artificial intelligence, wealth, wellbeing, and culture.',
+  slogan: 'Ideas for living well now',
+  title: 'LifeMode — Ideas for living well now',
+  description: 'Ideas, guides, and discoveries across technology, travel, personal finance, wellbeing, and everyday life.',
   siteUrl:
     (typeof import.meta !== 'undefined' && (import.meta as any).env?.PUBLIC_SITE_URL) ||
     ((globalThis as any).process?.env?.PUBLIC_SITE_URL as string) ||

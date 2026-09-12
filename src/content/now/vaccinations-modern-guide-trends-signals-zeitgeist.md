@@ -1,5 +1,5 @@
 ---
-title: "Vaccinations: A Modern Guide to Trends, Signals & Zeitgeist"
+title: "The changing conversation around seasonal vaccinations"
 description: "Explore how vaccinations shape the 2026 lifestyle—trends, mindful practices, and actionable habits for a healthier, more intentional now."
 pubDate: "2026-09-12T05:21:26.095Z"
 author: "LifeMode Editorial"

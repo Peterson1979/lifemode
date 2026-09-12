@@ -29,6 +29,7 @@ import { storePublishPackage } from '../storage/publishing-adapter.ts';
 import { AstroGitPublisher } from '../git-publisher/publisher.ts';
 import { GitCli } from '../git-publisher/git-cli.ts';
 import { defaultAIRouter } from '../../ai/router.ts';
+import { runImageBackfill, type BackfillRunResult } from '../images/backfill.ts';
 import type { GenerationRequest } from '../generation/types.ts';
 import type { ReviewRequest } from '../review/types.ts';
 import type { PublishingRequest } from '../publishing/types.ts';
@@ -176,6 +177,17 @@ export function formatAutomationSummary(result: AutomationResult): string {
       }
       lines.push('');
     }
+  }
+
+  if (result.backfill && (result.backfill.processedCount > 0 || result.backfill.eligibleCount > 0)) {
+    lines.push('Image Backfill:');
+    lines.push(`  Eligible:   ${result.backfill.eligibleCount}`);
+    lines.push(`  Capacity:   ${result.backfill.capacity}`);
+    lines.push(`  Processed:  ${result.backfill.processedCount}`);
+    lines.push(`  Succeeded:  ${result.backfill.succeededCount}`);
+    lines.push(`  Skipped:    ${result.backfill.skippedCount}`);
+    lines.push(`  Failed:     ${result.backfill.failedCount}`);
+    lines.push('');
   }
 
   lines.push(`Run Result: ${result.status}`);
@@ -971,7 +983,36 @@ export async function runEditorialAutomation(
     }
   }
 
-  // 5. Overall Run Result Calculation
+  // 5. Image Backfill pass for existing articles missing images (if enabled)
+  // Backfill runs AFTER new article image generation and consumes only remaining daily quota
+  const newImagesGeneratedCount = opportunityResults.filter(
+    (opp) => opp.publishing?.imageResult?.success && !opp.publishing.imageResult.skipped
+  ).length;
+
+  let backfillResult: BackfillRunResult | undefined;
+  try {
+    backfillResult = await runImageBackfill({
+      contentRepository: repository,
+      gitPublisher,
+      dryRun: config.dryRun,
+      allowCommit: config.allowCommit,
+      gitRepoRoot: request.gitRepoRoot,
+      contentRoot: request.contentRoot,
+      allowUnrelatedChanges: request.allowUnrelatedChanges,
+      commitAuthor: request.commitAuthor,
+      newImagesGeneratedCount,
+      dailyImageLimit: request.imageConfig?.costGuard?.dailyLimit,
+      imageConfig: request.imageConfig,
+      imagePrimaryProvider: request.imagePrimaryProvider,
+      imageFallbackProvider: request.imageFallbackProvider,
+      imageStorageProvider: request.imageStorageProvider,
+      costGuard: request.costGuard,
+    });
+  } catch {
+    // Non-fatal backfill safety boundary
+  }
+
+  // 6. Overall Run Result Calculation
   const durationMs = Math.max(1, Date.now() - startTime);
   const processedCount = opportunityResults.length;
 
@@ -1009,6 +1050,7 @@ export async function runEditorialAutomation(
     skippedCount: candidateCount - processedCount,
     opportunities: opportunityResults,
     articles: articleResults,
+    backfill: backfillResult,
     summary: '',
   };
 

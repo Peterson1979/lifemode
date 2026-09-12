@@ -1,5 +1,5 @@
 ---
-title: "Army Fitness Test: A Modern Guide to Health, Vitality & Mindset"
+title: "What the Army Combat Fitness Test teaches us about functional strength"
 description: "Explore how the Army Fitness Test reshapes everyday wellness with science-backed routines, sleep hygiene, and mindset shifts for 2026."
 pubDate: "2026-09-12T05:01:54.894Z"
 author: "LifeMode Editorial"

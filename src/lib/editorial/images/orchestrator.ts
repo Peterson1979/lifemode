@@ -14,6 +14,7 @@ import { EditorialImageCostGuard } from './cost-guard.ts';
 
 export interface EditorialImageOrchestratorOptions {
   dryRun?: boolean;
+  maintenanceMode?: boolean;
   config?: EditorialImageConfig;
   primaryProvider?: IEditorialImageProvider;
   fallbackProvider?: IEditorialImageProvider;
@@ -137,7 +138,9 @@ export async function orchestrateEditorialImage(
     });
 
   // 3.5. Cost Guard Quota Evaluation
-  const guardDecision = await costGuard.canGenerateImage();
+  const guardDecision = options.maintenanceMode
+    ? await costGuard.canGenerateMaintenanceImage()
+    : await costGuard.canGenerateImage();
   if (!guardDecision.allowed) {
     log(
       JSON.stringify(
@@ -173,7 +176,7 @@ export async function orchestrateEditorialImage(
   );
 
   let generatedResult: EditorialImageResult | null = null;
-  const maxAttempts = 1 + config.maxRetries;
+  const maxAttempts = 1 + (typeof config.maxRetries === 'number' ? config.maxRetries : 1);
 
   // 4. Primary Provider: Cloudflare Workers AI
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {

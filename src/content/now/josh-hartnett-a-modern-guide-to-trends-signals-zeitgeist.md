@@ -1,7 +1,8 @@
 ---
-title: "Josh Hartnett: A Modern Guide to Trends, Signals & Zeitgeist"
+title: "Josh Hartnett and the art of the deliberate career reset"
 description: "Discover our editorial guide on josh hartnett: a modern guide to trends, signals & zeitgeist. Explore key principles, actionable methods, and curated perspectives for modern living."
 pubDate: "2026-09-11T11:19:01.559Z"
+updatedDate: "2026-09-12"
 author: "LifeMode Editorial"
 tags: ["US","now","trending"]
 featured: false
@@ -15,7 +16,8 @@ riskLevel: "low"
 sources:
   - name: "LifeMode Editorial Standards & Primary Reference"
     url: "https://lifemode.life/editorial-standards"
-version: 1
+image: "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-now-20260911-josh-hartnett/09184b95b7ee7690.jpg"
+version: 2
 lifecycleStatus: "STORED"
 ---
 

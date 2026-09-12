@@ -1,5 +1,5 @@
 import type { GeneratedArticle, GenerationRequest, GenerationValidationIssue, GenerationValidationReport } from './types.ts';
-import { countWords } from '../quality.ts';
+import { countWords, FORMULAIC_TITLE_PATTERNS, GENERIC_EXCERPT_PATTERNS } from '../quality.ts';
 import { hasLeakedInternalMetadata } from '../sanitization.ts';
 
 export interface ValidationRulesOptions {
@@ -96,6 +96,18 @@ export function validateGeneratedArticle(
       message: `Article title is too short (${title.length} chars, min ${opts.minTitleLength}).`,
       severity: 'error',
     });
+  } else {
+    for (const pattern of FORMULAIC_TITLE_PATTERNS) {
+      if (pattern.test(title)) {
+        issues.push({
+          field: 'title',
+          rule: 'FORMULAIC_TITLE',
+          message: `Article title uses a formulaic pattern: "${pattern.toString()}".`,
+          severity: 'warning',
+        });
+        break;
+      }
+    }
   }
 
   const slug = (article.slug || '').trim();
@@ -130,6 +142,18 @@ export function validateGeneratedArticle(
       message: `Article description is too short (${description.length} chars, min ${opts.minDescriptionLength}).`,
       severity: 'warning',
     });
+  } else {
+    for (const pattern of GENERIC_EXCERPT_PATTERNS) {
+      if (pattern.test(description)) {
+        issues.push({
+          field: 'description',
+          rule: 'GENERIC_EXCERPT_BOILERPLATE',
+          message: `Article description contains generic boilerplate: "${pattern.toString()}".`,
+          severity: 'warning',
+        });
+        break;
+      }
+    }
   }
 
   const excerpt = (article.excerpt || '').trim();
@@ -140,6 +164,18 @@ export function validateGeneratedArticle(
       message: 'Article excerpt is missing or empty.',
       severity: 'error',
     });
+  } else {
+    for (const pattern of GENERIC_EXCERPT_PATTERNS) {
+      if (pattern.test(excerpt)) {
+        issues.push({
+          field: 'excerpt',
+          rule: 'GENERIC_EXCERPT_BOILERPLATE',
+          message: `Article excerpt contains generic boilerplate: "${pattern.toString()}".`,
+          severity: 'warning',
+        });
+        break;
+      }
+    }
   }
 
   const content = (article.content || '').trim();

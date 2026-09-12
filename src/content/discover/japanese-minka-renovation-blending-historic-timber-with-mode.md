@@ -1,7 +1,8 @@
 ---
-title: "Japanese Minka Renovation Blending Historic Timber with Modern Minimalism: A Modern Guide to Culture, Books & Design"
+title: "Inside a Japanese minka renovation that blends historic timber with modern minimalism"
 description: "Discover our editorial guide on japanese minka renovation blending historic timber with modern minimalism: a modern guide to culture, books & design. Explore key principles, actionable methods, and curated perspectives for modern living."
 pubDate: "2026-09-10T11:29:54.809Z"
+updatedDate: "2026-09-12"
 author: "LifeMode Editorial"
 tags: ["architecture","japan","design","interiors"]
 featured: false
@@ -15,7 +16,8 @@ riskLevel: "low"
 sources:
   - name: "LifeMode Editorial Standards & Primary Reference"
     url: "https://lifemode.life/editorial-standards"
-version: 1
+image: "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-discover-20260910-japanese-minka-reno/7901e36f7d4f0cce.jpg"
+version: 2
 lifecycleStatus: "STORED"
 ---
 

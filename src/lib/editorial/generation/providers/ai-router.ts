@@ -65,7 +65,7 @@ export class AIRouterGenerationProvider implements IGenerationProvider {
       requestId: request.topicId,
       responseFormat: 'json',
       validateJson: true,
-      maxOutputTokens: 6000,
+      maxOutputTokens: 3000,
     };
 
     const routerResult = await this.router.route(aiRequest);

@@ -1,7 +1,8 @@
 ---
-title: "Delta Flight 2311 Rapid Descent: A Modern Guide to Destinations & Global Journeys"
+title: "What happened aboard Delta Flight 2311: understanding rapid emergency descents"
 description: "Discover our editorial guide on delta flight 2311 rapid descent: a modern guide to destinations & global journeys. Explore key principles, actionable methods, and curated perspectives for modern living."
 pubDate: "2026-09-11T07:17:15.752Z"
+updatedDate: "2026-09-12"
 author: "LifeMode Editorial"
 tags: ["US","travel","trending"]
 featured: false
@@ -15,7 +16,8 @@ riskLevel: "low"
 sources:
   - name: "LifeMode Editorial Standards & Primary Reference"
     url: "https://lifemode.life/editorial-standards"
-version: 1
+image: "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-travel-20260910-delta-flight-2311-rap/6d3b518d36e69099.jpg"
+version: 2
 lifecycleStatus: "STORED"
 ---
 

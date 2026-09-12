@@ -1,7 +1,8 @@
 ---
-title: "Running Sovereign Local AI Models: Privacy Hardware Setups and Practical Use Cases – A Modern Guide to Intelligent Tools & Innovation"
+title: "A practical setup for running sovereign AI models locally"
 description: "Explore how to run AI models on your own hardware for complete privacy, learn benchmarked performance, and discover everyday use cases that fit a minimalist, intentional lifestyle."
 pubDate: "2026-09-11T10:45:50.307Z"
+updatedDate: "2026-09-12"
 author: "LifeMode Editorial"
 tags: ["tech-ai","privacy","local-llm","hardware"]
 featured: false
@@ -17,7 +18,8 @@ sources:
     url: "https://huggingface.co/docs/transformers/quantization"
   - name: "Ollama Open Source Project – Local Model Orchestration Architecture"
     url: "https://github.com/ollama/ollama/blob/main/docs/api.md"
-version: 1
+image: "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-tech-ai-20260910-running-sovereign-lo/fe68370c7896f800.jpg"
+version: 2
 lifecycleStatus: "STORED"
 ---
 

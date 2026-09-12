@@ -22,8 +22,8 @@ export class FixtureGenerationProvider implements IGenerationProvider {
       .substring(0, 60);
 
     const title = request.titleAngle;
-    const description = `Discover our editorial guide on ${request.titleAngle.toLowerCase()}. Explore key principles, actionable methods, and curated perspectives for modern living.`;
-    const excerpt = `A deep dive into ${request.titleAngle.toLowerCase()}, designed for ${request.audience.toLowerCase()}.`;
+    const description = `A practical overview of ${request.titleAngle.toLowerCase()}, covering essential methods and everyday applications.`;
+    const excerpt = `Key insights and practical takeaways on ${request.titleAngle.toLowerCase()}.`;
 
     // Construct rich, deterministic markdown content with multiple H2 and H3 sections
     const targetMin = request.estimatedWordCount?.min || 200;
@@ -31,7 +31,7 @@ export class FixtureGenerationProvider implements IGenerationProvider {
       ? request.outlineSections
       : [
           {
-            heading: 'Foundational Perspective & Core Principles',
+            heading: 'Foundational Context & Principles',
             keyPoints: [
               'Signal over Noise: Prioritizing substance and depth over superficial trends.',
               'Iterative Refinement: Embracing gradual, sustainable adaptations to daily workflows.',
@@ -39,7 +39,7 @@ export class FixtureGenerationProvider implements IGenerationProvider {
             ],
           },
           {
-            heading: 'Practical Framework & Actionable Protocol',
+            heading: 'Practical Methods & Step-by-Step Approach',
             keyPoints: [
               'Clarify the Essential Intent: Focus on primary outcomes to establish a clear benchmark.',
               'Establish the Routine Architecture: Design a supportive environment that minimizes decision fatigue.',
@@ -47,9 +47,9 @@ export class FixtureGenerationProvider implements IGenerationProvider {
             ],
           },
           {
-            heading: 'Curated Perspective & Long-Term Integration',
+            heading: 'Everyday Integration & Long-Term Habits',
             keyPoints: [
-              'Seamless Everyday Integration: Incorporate insights into your broader lifestyle philosophy.',
+              'Everyday Integration: Incorporate insights into your broader lifestyle philosophy.',
               'Sustainable Habit Formation: Focus on high-leverage adjustments rather than quick fixes.',
               'Continuous Evolution: Review and refine practices periodically to match lifestyle shifts.',
             ],
@@ -57,7 +57,7 @@ export class FixtureGenerationProvider implements IGenerationProvider {
         ];
 
     const contentSections: string[] = [
-      `In contemporary lifestyle design, **${request.titleAngle}** represents a pivotal intersection of intentionality, curiosity, and modern practice. Whether navigating rapid cultural shifts or refining daily rituals, cultivating a high-signal approach creates enduring clarity for ${request.audience.toLowerCase()}. In this comprehensive editorial guide, we examine the foundational principles, practical frameworks, and curated methodologies that transform abstract concepts into tangible daily routines.`,
+      `Understanding **${request.titleAngle}** offers practical clarity for everyday life. In this article, we examine the core insights, practical methods, and real-world considerations that help you put these ideas to work.`,
       '',
     ];
 

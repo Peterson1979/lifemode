@@ -77,7 +77,7 @@ const websiteSchema = generateWebsiteSchema();
 ---
 
 <BaseLayout
-  title="LifeMode — A Journal of Modern Living, Culture & Thoughtful Technology"
+  title="LifeMode — Ideas for living well now"
   description={SITE_CONFIG.description}
   jsonLd={websiteSchema}
 >
@@ -85,18 +85,18 @@ const websiteSchema = generateWebsiteSchema();
   <section class="hero-editorial">
     <div class="container">
       <div class="hero-kicker-wrap">
-        <span class="hero-tag">Contemporary Editorial Journal</span>
+        <span class="hero-tag">LifeMode</span>
       </div>
       <h1 class="hero-heading">
-        Intentional living, intelligent ideas, and timeless cultural perspectives.
+        Ideas for living well now
       </h1>
       <p class="hero-lead">
-        LifeMode explores the frameworks, tools, and aesthetics shaping modern lifestyle design across seven curated editorial pillars.
+        Practical guides, thoughtful tools, and clear ideas across technology, travel, money, wellbeing, and everyday life.
       </p>
 
-      <!-- Pillar Quick Nav Ribbon -->
+      <!-- Topic Quick Nav Ribbon -->
       <div class="hero-pillar-ribbon">
-        <span class="ribbon-label">Pillars:</span>
+        <span class="ribbon-label">Topics:</span>
         <div class="ribbon-badges">
           {PILLAR_SLUGS.map((slug) => (
             <PillarBadge pillar={slug} size="sm" />
@@ -112,8 +112,8 @@ const websiteSchema = generateWebsiteSchema();
       <div class="container">
         <div class="section-header">
           <div>
-            <span class="section-kicker">Cover Story</span>
-            <h2 class="section-title">Lead Editorial Dispatch</h2>
+            <span class="section-kicker">Featured</span>
+            <h2 class="section-title">Featured story</h2>
           </div>
           <a href={`/${leadArticle.pillar}`} class="section-link">
             Explore {PILLARS[leadArticle.pillar]?.name || leadArticle.pillar} &rarr;
@@ -143,7 +143,7 @@ const websiteSchema = generateWebsiteSchema();
           <!-- Secondary Companion Stories -->
           {secondaryArticles.length > 0 && (
             <div class="secondary-col">
-              <span class="secondary-header-kicker">Curated Features</span>
+              <span class="secondary-header-kicker">More stories</span>
               {secondaryArticles.map((article) => (
                 <ArticleCard
                   pillar={article.pillar}
@@ -169,25 +169,25 @@ const websiteSchema = generateWebsiteSchema();
     <section class="section">
       <div class="container">
         <div class="empty-state-editorial">
-          <span class="section-kicker">Volume Inauguration</span>
+          <span class="section-kicker">Welcome</span>
           <h2 class="empty-state-title">Welcome to LifeMode</h2>
           <p class="empty-state-text">
-            Our inaugural collection of long-form dispatches is currently being curated by the editorial desk. Explore our seven foundational pillars and ecosystem platforms below.
+            Our first collection of stories and guides is on the way. Explore our topics and tools below.
           </p>
         </div>
       </div>
     </section>
   )}
 
-  <!-- Latest Dispatches (Deduplicated Grid) -->
+  <!-- Latest Stories (Deduplicated Grid) -->
   {latestDispatches.length > 0 && (
     <section class="section" style="padding-top: var(--space-6);">
       <div class="container">
         <div class="section-header">
           <div>
-            <span class="section-kicker">Chronicle</span>
-            <h2 class="section-title">Latest Dispatches</h2>
-            <p class="section-subtitle">Freshly published perspectives across the journal</p>
+            <span class="section-kicker">Latest</span>
+            <h2 class="section-title">Latest stories</h2>
+            <p class="section-subtitle">Recent articles and guides</p>
           </div>
         </div>
 
@@ -213,14 +213,14 @@ const websiteSchema = generateWebsiteSchema();
     </section>
   )}
 
-  <!-- The Seven Pillars Discovery Showcase -->
+  <!-- Topics Discovery Showcase -->
   <section class="section pillar-showcase-section">
     <div class="container">
       <div class="section-header">
         <div>
-          <span class="section-kicker">Editorial Structure</span>
-          <h2 class="section-title">The Seven Pillars</h2>
-          <p class="section-subtitle">Core subject areas defining LifeMode's publishing architecture</p>
+          <span class="section-kicker">Topics</span>
+          <h2 class="section-title">Explore topics</h2>
+          <p class="section-subtitle">Browse stories across our main subjects</p>
         </div>
       </div>
 
@@ -247,14 +247,14 @@ const websiteSchema = generateWebsiteSchema();
     </div>
   </section>
 
-  <!-- LifeMode Ecosystem Discovery Showcase -->
+  <!-- Apps & Tools Discovery Showcase -->
   <section class="section ecosystem-showcase-section">
     <div class="container">
       <div class="section-header">
         <div>
-          <span class="section-kicker">Editorial Platforms</span>
-          <h2 class="section-title">The LifeMode Ecosystem</h2>
-          <p class="section-subtitle">Curated partner projects and intelligent tools extending our editorial vision</p>
+          <span class="section-kicker">From our projects</span>
+          <h2 class="section-title">Apps & tools</h2>
+          <p class="section-subtitle">Helpful tools and companion projects built by our team</p>
         </div>
       </div>
 

@@ -11,7 +11,7 @@ const currentYear = new Date().getUTCFullYear();
       <div class="footer-brand">
         <h3 class="footer-logo">LifeMode</h3>
         <p class="footer-tagline">
-          A contemporary editorial publication exploring intentional living, culture, thoughtful technology, sustainable wealth, and mindful design across seven curated pillars.
+          Ideas, guides, and discoveries across technology, travel, personal finance, wellbeing, and everyday life.
         </p>
         <div class="footer-edition-badge">
           <span>ISSN 2026-LM &bull; Published Globally</span>
@@ -20,7 +20,7 @@ const currentYear = new Date().getUTCFullYear();
 
       <!-- Pillar Navigation -->
       <div class="footer-links-group">
-        <h4>Editorial Pillars</h4>
+        <h4>Topics</h4>
         <ul>
           {SITE_CONFIG.navLinks.map((link) => {
             const pillar = PILLARS[link.slug as PillarSlug];
@@ -38,7 +38,7 @@ const currentYear = new Date().getUTCFullYear();
 
       <!-- Publication Links -->
       <div class="footer-links-group">
-        <h4>Journal</h4>
+        <h4>LifeMode</h4>
         <ul>
           {SITE_CONFIG.footerLinks.map((link) => (
             <li>
@@ -52,7 +52,7 @@ const currentYear = new Date().getUTCFullYear();
     <!-- Bottom Bar -->
     <div class="footer-bottom">
       <div>
-        <span>&copy; {currentYear} {SITE_CONFIG.name}. Contemporary Editorial Publishing.</span>
+        <span>&copy; {currentYear} {SITE_CONFIG.name}. All rights reserved.</span>
       </div>
       <div class="footer-bottom-meta">
         <span>Designed with intentional typography &bull; Powered by Astro</span>

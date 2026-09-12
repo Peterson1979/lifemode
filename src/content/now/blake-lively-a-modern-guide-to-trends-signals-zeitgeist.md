@@ -1,7 +1,8 @@
 ---
-title: "Blake Lively: A Modern Guide to Trends, Signals & Zeitgeist"
+title: "Blake Lively and the modern playbook of celebrity brand ownership"
 description: "Discover our editorial guide on blake lively: a modern guide to trends, signals & zeitgeist. Explore key principles, actionable methods, and curated perspectives for modern living."
 pubDate: "2026-09-11T06:54:28.252Z"
+updatedDate: "2026-09-12"
 author: "LifeMode Editorial"
 tags: ["US","now","trending"]
 featured: false
@@ -15,7 +16,8 @@ riskLevel: "low"
 sources:
   - name: "LifeMode Editorial Standards & Primary Reference"
     url: "https://lifemode.life/editorial-standards"
-version: 1
+image: "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-now-20260910-blake-lively/845ae65694c75d11.jpg"
+version: 2
 lifecycleStatus: "STORED"
 ---
 

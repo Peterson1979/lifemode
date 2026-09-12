@@ -1,11 +1,20 @@
 ---
 title: "Welcome to Now"
 description: "Real-time trends, seasonal recommendations, cultural pulses, and timely dispatches."
-pubDate: 2026-09-09
+pubDate: "2026-09-09"
+updatedDate: "2026-09-12"
 author: "LifeMode Editorial"
-tags: ["now", "trends", "seasonal", "updates"]
+tags: ["now","trends","seasonal","updates"]
 featured: true
 draft: false
+format: "standard"
+primaryIntent: "informational"
+affiliateIntent: false
+riskLevel: "low"
+sources: []
+image: "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/welcome-to-now/6f6c2c34c0d9ff85.jpg"
+version: 2
+lifecycleStatus: "STORED"
 ---
 
 # Welcome to Now

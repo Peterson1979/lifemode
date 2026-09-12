@@ -5,3 +5,4 @@ export * from './providers/bfl.ts';
 export * from './providers/fixture.ts';
 export * from './orchestrator.ts';
 export * from './cost-guard.ts';
+export * from './backfill.ts';

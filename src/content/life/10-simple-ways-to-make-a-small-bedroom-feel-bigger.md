@@ -16,7 +16,8 @@ riskLevel: "low"
 sources:
   - name: "LifeMode Editorial Interior Design Standards"
     url: "https://lifemode.life/about"
-version: 4
+image: "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-life-small-bedroom-01/9ca8e8849cc8150a.jpg"
+version: 5
 lifecycleStatus: "STORED"
 ---
 

@@ -62,6 +62,7 @@ import type { IEditorialImageProvider } from '../images/contracts.ts';
 import type { EditorialImageConfig } from '../images/config.ts';
 import type { EditorialImageCostGuard } from '../images/cost-guard.ts';
 import type { ISocialAssetStorageProvider } from '../../social/images/storage/contracts.ts';
+import type { BackfillRunResult } from '../images/backfill.ts';
 
 /**
  * Structured execution result for an individual article processed during daily automation.
@@ -181,6 +182,7 @@ export interface AutomationResult {
   skippedCount: number;
   opportunities: OpportunityRunResult[];
   articles?: DailyArticleExecutionResult[];
+  backfill?: BackfillRunResult;
   summary: string;
   error?: {
     code: string;

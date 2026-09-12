@@ -76,7 +76,7 @@ export function loadAIConfig(overrides: Partial<AIConfig> = {}): AIConfig {
       apiKey: getEnv('GROQ_API_KEY'),
       model: getEnv('GROQ_MODEL', 'openai/gpt-oss-20b'),
       dailyTokenBudget: getEnvNumber('GROQ_DAILY_TOKEN_BUDGET', 1_000_000),
-      tokensPerMinute: getEnvNumber('GROQ_TPM_LIMIT', 8_000),
+      tokensPerMinute: getEnvNumber('GROQ_TPM_LIMIT', 30_000),
     },
     router: {
       timeoutMs: getEnvNumber('AI_REQUEST_TIMEOUT_MS', 30_000),

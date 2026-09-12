@@ -1,7 +1,8 @@
 ---
-title: "Morning Sunlight and Adenosine Clearing a Simple Protocol for Eliminating Brain Fog: A Modern Guide to Health, Vitality & Mindset"
+title: "Morning sunlight and adenosine: a simple protocol for morning clarity"
 description: "Discover our editorial guide on morning sunlight and adenosine clearing a simple protocol for eliminating brain fog: a modern guide to health, vitality & mindset. Explore key principles, actionable methods, and curated perspectives for modern living."
 pubDate: "2026-09-11T06:54:27.269Z"
+updatedDate: "2026-09-12"
 author: "LifeMode Editorial"
 tags: ["wellbeing","sleep","morning-routine","vitality"]
 featured: false
@@ -15,7 +16,8 @@ riskLevel: "medium"
 sources:
   - name: "LifeMode Editorial Standards & Primary Reference"
     url: "https://lifemode.life/editorial-standards"
-version: 1
+image: "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-wellbeing-20260910-morning-sunlight-a/a77354965b8ad6b4.jpg"
+version: 2
 lifecycleStatus: "STORED"
 ---
 

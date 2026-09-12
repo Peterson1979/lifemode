@@ -213,7 +213,7 @@ test('7. recordGeneration increments both daily and monthly counters', async () 
 
 test('8. Image orchestrator blocks provider call when cost guard daily limit is reached', async () => {
   const store = new InMemoryCostGuardStore();
-  const testDate = new Date('2026-09-11T10:00:00.000Z');
+  const testDate = new Date();
   await store.increment(getDailyKey(testDate), 5); // Maxed out
 
   const guard = new EditorialImageCostGuard({

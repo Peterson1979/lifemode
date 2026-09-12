@@ -2,6 +2,7 @@
 title: "Japanese Minka Renovation: Blending Historic Timber with Modern Minimalism"
 description: "Discover how the ancient Japanese minka style can be reimagined with sleek minimalism, marrying warm timber and contemporary design for the modern home."
 pubDate: "2026-09-10T10:48:52.408Z"
+updatedDate: "2026-09-12"
 author: "LifeMode Editorial"
 tags: ["architecture","japan","design","interiors"]
 featured: false
@@ -15,7 +16,8 @@ riskLevel: "low"
 sources:
   - name: "LifeMode Editorial Standards & Primary Reference"
     url: "https://lifemode.life/editorial-standards"
-version: 1
+image: "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-discover-20260910-japanese-minka-reno/9eb169f3f25890ec.jpg"
+version: 2
 lifecycleStatus: "STORED"
 ---
 
