@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T07:53:55.136Z",
+    "updatedAt": "2026-09-12T10:13:44.089Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1397,7 +1397,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T07:53:55.138Z",
+    "updatedAt": "2026-09-12T10:13:44.090Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1458,7 +1458,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T07:53:55.139Z",
+    "updatedAt": "2026-09-12T10:13:44.091Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1519,7 +1519,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T07:53:55.141Z",
+    "updatedAt": "2026-09-12T10:13:44.092Z",
     "revisionCyclesCount": 0
   },
   {
@@ -12231,10 +12231,12 @@
     "totalScore": 84.6,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-11T07:28:52.811Z",
+    "status": "REJECTED",
+    "updatedAt": "2026-09-12T10:16:58.210Z",
     "pinterestScore": 85.3,
-    "revisionCyclesCount": 0
+    "revisionCyclesCount": 1,
+    "rejectionReason": "AI Review decision was REJECT (score: 0) after 1 quality revision",
+    "revisionAttempted": true
   },
   {
     "id": "lm-now-20260911-caitlin-clark-news",
@@ -16121,8 +16123,8 @@
     "totalScore": 84.6,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T05:40:00.137Z",
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-12T10:17:09.584Z",
     "pinterestScore": 85.3,
     "revisionCyclesCount": 0
   },
@@ -21043,10 +21045,12 @@
     "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T07:53:55.089Z",
+    "status": "REJECTED",
+    "updatedAt": "2026-09-12T10:15:07.666Z",
     "pinterestScore": 85.3,
-    "revisionCyclesCount": 0
+    "revisionCyclesCount": 1,
+    "rejectionReason": "AI Review decision was REJECT (score: 0) after 1 quality revision",
+    "revisionAttempted": true
   },
   {
     "id": "lm-now-20260912-super-earth",
@@ -21664,5 +21668,980 @@
     "status": "CANDIDATE",
     "updatedAt": "2026-09-12T07:53:55.056Z",
     "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260912-mlb-wildcard-standings",
+    "canonicalTopic": "Mlb Wildcard Standings",
+    "slug": "mlb-wildcard-standings",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-mlb20wildcard20st",
+        "query": "Mlb Wildcard Standings",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T10:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "mlb wildcard standings",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "mlb wildcard standings"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T10:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-12T10:13:43.995Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260912-jason-bard-yarmosky",
+    "canonicalTopic": "Jason Bard Yarmosky",
+    "slug": "jason-bard-yarmosky",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-jason20bard20yarm",
+        "query": "Jason Bard Yarmosky",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T09:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "jason bard yarmosky",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "jason bard yarmosky"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T09:50:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-12T10:13:44.006Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260912-red",
+    "canonicalTopic": "Red",
+    "slug": "red",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-red",
+        "query": "Red",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T09:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "red",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "red"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T09:50:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-12T10:13:44.011Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260912-weather-forecast",
+    "canonicalTopic": "Weather Forecast",
+    "slug": "weather-forecast",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-weather20forecas",
+        "query": "Weather Forecast",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T09:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "weather forecast",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "weather forecast"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T09:40:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-12T10:13:44.017Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260912-alexa-grasso",
+    "canonicalTopic": "Alexa Grasso",
+    "slug": "alexa-grasso",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-alexa20grasso",
+        "query": "Alexa Grasso",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T09:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "alexa grasso",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "alexa grasso"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T09:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-12T10:13:44.025Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260912-interstate-81",
+    "canonicalTopic": "Interstate 81",
+    "slug": "interstate-81",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-interstate2081",
+        "query": "Interstate 81",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T09:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "interstate 81",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "interstate 81"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T09:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-12T10:13:44.028Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260912-brics",
+    "canonicalTopic": "Brics",
+    "slug": "brics",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-brics",
+        "query": "Brics",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T09:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "brics",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "brics"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T09:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-12T10:13:44.031Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260912-schools",
+    "canonicalTopic": "Schools",
+    "slug": "schools",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-schools",
+        "query": "Schools",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T08:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "schools",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "schools"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T08:50:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-12T10:13:44.033Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260912-cryptocurrency-trading",
+    "canonicalTopic": "Cryptocurrency Trading",
+    "slug": "cryptocurrency-trading",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-cryptocurrency20",
+        "query": "Cryptocurrency Trading",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T08:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "cryptocurrency trading",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "cryptocurrency trading"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T08:50:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-12T10:13:44.038Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-travel-20260912-us-and-irelands-relationship-s",
+    "canonicalTopic": "Us and Irelands Relationship Stronger Than Ever",
+    "slug": "us-and-irelands-relationship-stronger-than-ever",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-2-US20and20Irelands20rel",
+        "query": "Us and Irelands Relationship Stronger Than Ever",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T10:02:45.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "US and Ireland's relationship 'stronger than ever'",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cy0zvx15rywo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-12T10:02:45.000Z",
+            "contentSnippet": "Trump is holding meetings in Dublin before attending the Irish Open golf tournament in Doonbeg, County Clare.",
+            "categories": [
+              "travel",
+              "global",
+              "destinations",
+              "culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "global",
+            "destinations",
+            "culture"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "us and irelands relationship stronger than ever"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T10:02:45.000Z",
+    "tags": [
+      "travel",
+      "global",
+      "destinations",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T10:13:44.046Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260912-never-ever-forget-america-mark",
+    "canonicalTopic": "Never Ever Forget - America Marks 25th Anniversary of 9/11 Attacks",
+    "slug": "never-ever-forget-america-marks-25th-anniversary-of-9-11-attacks",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-4-Never2C20ever20forget",
+        "query": "Never Ever Forget - America Marks 25th Anniversary of 9/11 Attacks",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T00:43:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "'Never, ever forget' - America marks 25th anniversary of 9/11 attacks",
+            "itemLink": "https://www.bbc.co.uk/news/articles/clyjqvjzlwno?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-12T00:43:00.000Z",
+            "contentSnippet": "In New York, the Pentagon and Pennsylvania, solemn ceremonies commemorate the landmark anniversary.",
+            "categories": [
+              "travel",
+              "global",
+              "destinations",
+              "culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "global",
+            "destinations",
+            "culture"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "never ever forget - america marks 25th anniversary of 9/11 attacks"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T00:43:00.000Z",
+    "tags": [
+      "travel",
+      "global",
+      "destinations",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T10:13:44.055Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260912-four-products-that-dyson-succe",
+    "canonicalTopic": "Four Products That Dyson Successfully Revolutionised and Four It Didnt",
+    "slug": "four-products-that-dyson-successfully-revolutionised-and-four-it-didnt",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-Four20products20that20D",
+        "query": "Four Products That Dyson Successfully Revolutionised and Four It Didnt",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T09:00:59.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Four products that Dyson successfully revolutionised, and four it didn't",
+            "itemLink": "https://www.dezeen.com/2026/09/12/dyson-products-roundup/",
+            "publishedDate": "2026-09-12T09:00:59.000Z",
+            "contentSnippet": "As Dyson seeks to disrupt the toothbrush market with its CameraJet, we look back at how the technology company has fared in its attempts to transform other product categories over the years. Founded in Britain but now controversially headquartered in Singapore, Dyson is one of the world's most innovative companies. Its mission-statement is to identify The post Four products that Dyson successfully revolutionised, and four it didn't appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "all",
+              "Design",
+              "Technology",
+              "Roundups",
+              "Product design",
+              "Dyson",
+              "Gadgets"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "all",
+            "Design",
+            "Technology",
+            "Roundups",
+            "Product design",
+            "Dyson",
+            "Gadgets"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "four products that dyson successfully revolutionised and four it didnt"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T09:00:59.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "all",
+      "Design",
+      "Technology",
+      "Roundups",
+      "Product design",
+      "Dyson",
+      "Gadgets"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T10:13:44.065Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-life-20260912-4-ways-to-get-your-iphone-read",
+    "canonicalTopic": "4 Ways to Get Your Iphone Ready for Ios 27",
+    "slug": "4-ways-to-get-your-iphone-ready-for-ios-27",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-1-420ways20to20get20your20i",
+        "query": "4 Ways to Get Your Iphone Ready for Ios 27",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T09:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "4 ways to get your iPhone ready for iOS 27",
+            "itemLink": "https://www.fastcompany.com/91597258/4-ways-to-get-your-iphone-ready-for-ios-27-storage-update-apple",
+            "publishedDate": "2026-09-12T09:00:00.000Z",
+            "contentSnippet": "This week Apple introduced its new iPhone lineup, including the iPhone 18 Pro series and the iPhone Duo. The devices feature the most advanced tech that Apple has ever stuffed into a smartphone. But if you’re not in the market for a new iPhone, there’s some good news: The company also announced a release date for the new iOS 27 operating system, which will run on any iPhone that can run iOS 26. Apple says that iOS 27 will be released to the general public this Monday, September 14. Until then, there are some things you can do to help ease the upgrade and ensure that the latest software runs as smoothly as possible on your existing iPhone. Update to iOS 26.6 or later Apple included a new indexing optimization with the release of iOS 26.6, in preparation for iOS 27, that should save you lots of post-installation headaches. “Indexing” is the term for the process in which iOS goes through all the files on your iPhone and categorizes and tags them, so it can find the file you need quickly when you search for it later on.&nbsp; Whenever a new major version of iOS comes out, it generally reindexes your entire phone—but this process can take days and is compute-intensive. So while the indexing is going on, it can sap your iPhone's processing power and battery life—which is why you see so many claims on social media that the new operating system “slows down” your older iPhone. Because iOS 27 has a completely new Spotlight search architecture that helps power the new Siri AI , indexing may take even longer than usual. That’s why, as noted by 9to5Mac , Apple added a background feature in iOS 26.6 that lets your iPhone start reindexing before you even install iOS 27. This means that, provided you have been running iOS 26.6 or later for a few days, your upgrade to iOS 27 should go much more smoothly. To make sure you’re running iOS 26.6 or later, go to Settings > General > Software Update. Back up your data to iCloud Right before installing iOS 27, you should make sure that your iPhone is backed up to iCloud. While it’s unlikely an iOS 27 install will brick your phone or erase critical data, accidents can happen. If your iPhone is backed up to iCloud, at least you always have a copy of your data to restore if the worst occurs. Your iPhone should back up automatically to iCloud each night when you plug it in before bed. But you can also force an iCloud backup right before downloading iOS 27, too.&nbsp; To manually back up your iPhone to iCloud, go to Settings > Apple Account > iCloud> iCloud Backup and tap “Back Up Now.” Just make sure you’re on a fast Wi-Fi connection so that the backup doesn’t take forever. Free up storage space Depending on your iPhone model, iOS 27 may require 25GB of free space or more to install. If you don’t have that free space, you can’t download iOS 27. That’s why you should take the time now to check whether you have enough storage space and, if not, free up some space so your iPhone has room to download iOS 27.&nbsp; Generally, the largest individual files on your iPhone are video games, which can be gigabytes in size, and 4K video, such as the kind you may have if you’ve downloaded any movies or series for offline viewing in streaming apps like Netflix and Disney+. To see what data is taking up the most space on your iPhone, go to Settings > General > iPhone Storage. You can then determine which large files or apps you no longer need and delete them. Update your apps In preparation for any major new iOS release, most developers work diligently to update their apps so that they run as smoothly as possible on the new operating system. In many cases, developers ship these optimizations in their apps before the major iOS release, so users can have the best possible experience as soon as the new iOS update is installed. In order to make sure your apps run without problems—and also take advantage of any newly supported iOS 27 features —it’s good practice to update your iPhone apps ahead of downloading iOS 27 (or at the very least, right after installing the new OS). To make sure you’re using the latest version of all your apps before installing iOS 27, open the App Store app, then tap your Apple Account profile picture in the upper-right corner. Next, tap App Updates, and then update all available apps. After prepping your iPhone for iOS 27, you should be all ready to install the new operating system as soon as Apple releases it.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "Tech"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "4 ways to get your iphone ready for ios 27"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T09:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T10:13:44.070Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260912-why-you-procrastinate-on-thing",
+    "canonicalTopic": "Why You Procrastinate on Things You Actually Want to Do",
+    "slug": "why-you-procrastinate-on-things-you-actually-want-to-do",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-2-Why20you20procrastinat",
+        "query": "Why You Procrastinate on Things You Actually Want to Do",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T08:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Why you procrastinate on things you actually want to do",
+            "itemLink": "https://www.fastcompany.com/91599448/procrastination-things-you-actually-want-to-do",
+            "publishedDate": "2026-09-12T08:30:00.000Z",
+            "contentSnippet": "Below, Dr. Itamar Shatz shares five key insights from his new book, Solving Procrastination: The Science of Why We Put Things Off and How to (Finally!) Stop . Itamar is an Affiliated Lecturer at Cambridge University. He helps people understand why they procrastinate and how to stop, using a practical system that he developed from more than 500 scientific studies. What’s the Big Idea? Procrastination isn’t a failure of time management or a sign that we don’t care. It’s a psychological tug-of-war between what we intend to do and what feels easier or better right now. To stop procrastinating, we need to understand what’s driving our particular pattern of delay and use strategies that address the real cause, rather than relying on willpower. Listen to the audio version of this Book Bite—read by Shatz himself—in the Next Big Idea app , or buy the book . 1. Procrastinators care more, not less. Procrastination involves an intention-action gap between the beneficial things we mean to do and the problematic things we actually do. You’ve probably experienced this yourself if there was ever something you truly wanted and intended to do, but found yourself putting off, again and again, each time telling yourself that you’ll do it in “tomorrow,” or “soon,” or “in just five minutes,” even if deep down you want to shake yourself and yell “JUST DO IT ALREADY.” The usual problem in cases like these isn’t that you don’t care about the things you should be doing, but that you have paralyzing perfectionism from caring too much. That’s why procrastination is an issue not only when it comes to unpleasant tasks, like many people think, but also on activities we’re genuinely excited about. And it’s why we procrastinate not only on stuff that doesn’t matter, but also on activities that can have serious consequences. To avoid this pitfall, it’s important to replace perfectionism with good enough, which can actually be quite good. Then, remind yourself that the right number of mistakes in your work isn’t zero, and focus on your own standards (rather than those set by others). 2. We procrastinate to pursue immediate pleasure and avoid immediate pain. The misconception that procrastination is just about time management or motivation leads us to try solving it with the wrong tools, which guarantees we’ll fail. Time-management is usually a symptom of procrastination, rather than its cause. We can have excellent time-management skills and still end up procrastinating because we’re not addressing the real cause. No matter how much planning we do or how many time-management apps we use, even the most meticulous schedule won’t work if we can’t actually bring ourselves to follow it when the chips are down. If we want to stop procrastinating, we need to take back control of our mind and find ways to strengthen our drive to act, or weaken our drive to delay. Fortunately, several techniques can help, like ditching big goals in favor of attainable ones, taking extra breaks when we need to rest, and riding the waves of our productivity rhythms. 3. Our brain is great at tricking us into thinking that next time will be different. The biggest issue is the self-control fallacy : our mistaken belief that if we just try harder, we’ll manage to do what we need to through sheer willpower, even though this exact approach has failed us many times before. It’s a tempting notion, because it offers a clear and straightforward solution that seems believable—until it’s time to act. This approach rarely helps us win our internal tug-of-war. To see through this trick, use the reality rule , by asking yourself what you’re actually likely to do, based on what you did in similar situations before, rather than on how you wish you’ll act. That way, you can adjust accordingly and find new solutions that could actually help, instead of trying the same things and getting the same results. 4. Procrastination is more varied than people think. There’s no single strategy that everyone should always use to overcome their procrastination. A college student who’s procrastinating because of distractions should use different strategies than an artist who’s procrastinating because of perfectionism, as should an executive who’s procrastinating because of burnout, and so on. To overcome your procrastination, it’s important to figure out why you procrastinate. You’ll often need to dig through several layers before you get to the reasons you should focus on addressing; an example is when it seems you’re getting distracted by social media, but really you’re stuck because your self-confidence is low. To help make sense of your procrastination, you can consider when, where, and how you do it, and what the difference is between cases where you procrastinate versus ones when you take action. You can also consider the different procrastinator archetypes—like the Worrier, Zigzagger, and Rebel—and see which ones resonate with you the most. This is great both for figuring out why you procrastinate, and for finding the best ways to stop. 5. Procrastination might be growing more common, but it has ancient roots. To overcome procrastination, we need to address modern risks, like the increasing bombardment of digital distractions, steep rise in unstructured work, and climbing rates of anxiety. But, although it’s tempting to think of procrastination as a purely modern problem, people have been battling it throughout history. That’s why we have warnings from almost three thousand years ago, saying that “a man who puts off work is always at hand-grips with ruin.” The issue is that procrastination is rooted deep in our psychology, and specifically in an impulsive fight-or-flight response that we’re wired to engage in. Fortunately, we can seize control of this response by empathizing with our future self to make us care more about what will happen to us. And we can also shine a bright light on our fears (the real ones driving our behavior, rather than just those that lie on the surface) by asking what they are, how likely they are to happen, and how we can successfully move on if they do. This article originally appeared in Next Big Idea Club magazine and is reprinted with permission. Enjoy our full library of Book Bites—read by the authors!—in the Next Big Idea app .",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "Work Life"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "Work Life"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "why you procrastinate on things you actually want to do"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T08:30:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "Work Life"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T10:13:44.078Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260912-i-bought-a-birkin-as-an-invest",
+    "canonicalTopic": "I Bought a Birkin As an Investment It Taught Me a Hard Lesson About Human Judgment",
+    "slug": "i-bought-a-birkin-as-an-investment-it-taught-me-a-hard-lesson-about-human-judgment",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-3-I20bought20a20Birkin20as",
+        "query": "I Bought a Birkin As an Investment It Taught Me a Hard Lesson About Human Judgment",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T08:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "I bought a Birkin as an investment. It taught me a hard lesson about human judgment",
+            "itemLink": "https://www.fastcompany.com/91596822/human-psychology-birkin-investment-perception-judgment",
+            "publishedDate": "2026-09-12T08:00:00.000Z",
+            "contentSnippet": "In 2017, I bought my first Birkin. Not because I wanted to impress anyone. Not because it was a status symbol. I bought it because I saw it as an investment . As an entrepreneur, I naturally look at assets differently. If something has the potential to hold or appreciate in value, I’m interested. Ironically, after spending so much on the bag, I barely used it. It stayed in my closet because I was afraid of scratching it, staining it, or hurting its resale value. One day I caught myself thinking,&nbsp; What’s the point of owning something you’re too afraid to use? So I started carrying it. What happened next surprised me. People opened doors faster. Staff greeted me differently. At luxury stores, the service felt noticeably warmer. While shopping for linens in France, I was offered sparkling water almost immediately and received a level of attention that stood out. At conferences and events, conversations seemed to begin more naturally. The bag didn’t change. I didn’t change. People’s perception changed. The psychology of fast judgment That experience forced me to confront something we don’t like to admit: Humans make incredibly fast judgments. We like to believe we evaluate people based purely on merit. In reality, our brains rely on shortcuts. Clothing, watches, handbags, titles, schools, confidence, and reputation all become signals that shape first impressions long before anyone has the chance to demonstrate competence. The Birkin wasn’t creating value; it was signaling it. That realization also reminded me of experiences on the opposite end. I’ve walked into stores after long workdays wearing simple clothes with messy hair and been followed by security guards. I’ve been overlooked despite having every intention, and every ability, to make a purchase. Same person, different signals. The uncomfortable truth is that perception often influences access. This isn’t really about luxury goods . Most people don’t own a Birkin, and nobody needs one. The lesson is much bigger. Every one of us sends signals every day. It might be how we communicate, how we introduce ourselves, the quality of our work, the consistency of our personal brand, or simply the confidence we project. Those signals influence whether people trust us, remember us, or give us an opportunity. Some people will argue that this shouldn’t matter. I agree. But there is a difference between how the world should work and how it actually works. Understanding human psychology doesn’t mean becoming fake. It means recognizing reality and deciding how you want to show up within it. Today, I no longer see my Birkin as just an investment; I see it as an unexpected lesson in perception. Perception may open a door, but character, competence, and results are what keep it open. —Kate Hancock The opinions expressed here by Inc.com columnists are their own, not those of Inc.com. Get 1 Smart Business Story delivered straight to your inbox when you subscribe to Inc.’s free daily newsletter. This article originally appeared on Fast Company ’s sister website, Inc.com. Inc.&nbsp; is the voice of the American entrepreneur. We inspire, inform, and document the most fascinating people in business: the risk-takers, the innovators, and the ultra-driven go-getters that represent the most dynamic force in the American economy.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "Work Life"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "Work Life"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "i bought a birkin as an investment it taught me a hard lesson about human judgment"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T08:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "Work Life"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T10:13:44.087Z",
+    "pinterestScore": 75.8
   }
 ]
