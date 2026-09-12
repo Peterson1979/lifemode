@@ -1,5 +1,5 @@
 ---
-title: "Laguna Beach: A Modern Guide to Destinations & Global Journeys"
+title: "Laguna Beach: a modern blueprint for intentional coastal travel"
 description: "Discover how Laguna Beach shapes contemporary travel, blending art, coastal serenity, and global inspiration for modern lifestyles."
 pubDate: "2026-09-12T05:41:05.466Z"
 author: "LifeMode Editorial"
@@ -15,6 +15,7 @@ riskLevel: "low"
 sources:
   - name: "Laguna Beach: A Modern Guide to Destinations & Global Journeys - Authoritative Lifestyle Reference"
     url: "https://lifemode.life/editorial-standards/travel"
+image: "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-travel-20260912-laguna-beach/1be980e15f817514.jpg"
 version: 1
 lifecycleStatus: "STORED"
 ---

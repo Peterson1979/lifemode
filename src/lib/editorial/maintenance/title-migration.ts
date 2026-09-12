@@ -22,6 +22,8 @@ export const EXISTING_TITLE_REPLACEMENTS: Record<string, string> = {
     'Minimalist coastal retreats: secluded architecture across the Mediterranean',
   'travel/delta-flight-2311-rapid-descent-a-modern-guide-to-destinatio':
     'What happened aboard Delta Flight 2311: understanding rapid emergency descents',
+  'travel/laguna-beach-modern-guide':
+    'Laguna Beach: a modern blueprint for intentional coastal travel',
 
   // Tech & AI
   'tech-ai/running-sovereign-local-ai-models-privacy-hardware-setups-an':
@@ -30,6 +32,8 @@ export const EXISTING_TITLE_REPLACEMENTS: Record<string, string> = {
     'A practical setup for running sovereign AI models locally',
 
   // Now
+  'now/pakistan-vs-england-modern-guide-trends-signals-zeitgeist':
+    'Pakistan vs England: what cultural contrasts reveal about intentional living',
   'now/vaccinations-modern-guide-trends-signals-zeitgeist':
     'The changing conversation around seasonal vaccinations',
   'now/the-counter-culture-of-friction-why-people-are-intentionally':
