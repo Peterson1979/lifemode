@@ -69,21 +69,31 @@ jobs:
 
       - name: Execute Scheduled Editorial Automation
         env:
-          # AI Router & Provider Credentials (stored in GitHub Secrets)
+          # AI Router & Provider Credentials (GitHub Secrets)
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
-          # Social Platform & Media API Credentials
+          # Cloudflare Workers AI & KV Cost Guard Credentials (GitHub Secrets)
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_IMAGE_API_KEY: ${{ secrets.CLOUDFLARE_IMAGE_API_KEY || secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_KV_NAMESPACE_ID: ${{ secrets.CLOUDFLARE_KV_NAMESPACE_ID }}
+
+          # Fallback Image Provider (Optional GitHub Secret)
+          BFL_API_KEY: ${{ secrets.BFL_API_KEY }}
+
+          # Discovery Credentials (Optional GitHub Secrets)
+          PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
+          GOOGLE_TRENDS_API_KEY: ${{ secrets.GOOGLE_TRENDS_API_KEY }}
+
+          # Social Platform Credentials (Optional GitHub Secrets)
           FACEBOOK_PAGE_ACCESS_TOKEN: ${{ secrets.FACEBOOK_PAGE_ACCESS_TOKEN }}
           FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
           INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
           INSTAGRAM_BUSINESS_ACCOUNT_ID: ${{ secrets.INSTAGRAM_BUSINESS_ACCOUNT_ID }}
-          PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
           PINTEREST_BOARD_ID: ${{ secrets.PINTEREST_BOARD_ID }}
-          CLOUDFLARE_IMAGE_API_KEY: ${{ secrets.CLOUDFLARE_IMAGE_API_KEY }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
-          # Cloudflare R2 Storage Credentials
+          # Cloudflare R2 Master Asset Storage (GitHub Secrets)
           R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
@@ -94,15 +104,24 @@ jobs:
           LIFEMODE_AUTOMATION_ENABLED: "true"
           LIFEMODE_AUTOMATION_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run == true && 'true' || 'false' }}
           LIFEMODE_AUTOMATION_COMMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run == true && 'false' || 'true' }}
-          LIFEMODE_AUTOMATION_PUSH: ${{ github.event_name == 'workflow_dispatch' && inputs.allow_push == false && 'false' || 'true' }}
+          LIFEMODE_AUTOMATION_PUSH: ${{ github.event_name == 'workflow_dispatch' && (inputs.dry_run == true || inputs.allow_push == false) && 'false' || 'true' }}
           LIFEMODE_AUTOMATION_MAX_OPPORTUNITIES: ${{ github.event_name == 'workflow_dispatch' && inputs.max_opportunities || '1' }}
           LIFEMODE_AUTOMATION_MIN_SCORE: ${{ github.event_name == 'workflow_dispatch' && inputs.min_score || '80' }}
           LIFEMODE_AUTOMATION_PROVIDER: "router"
+          LIFEMODE_AUTOMATION_GIT_REMOTE: "origin"
+          LIFEMODE_AUTOMATION_GIT_BRANCH: "master"
+
+          # Image Generation Pipeline Settings
+          LIFEMODE_IMAGE_ENABLED: "true"
+          LIFEMODE_IMAGE_PROVIDER: "cloudflare"
+          LIFEMODE_IMAGE_COST_GUARD: "true"
+          LIFEMODE_IMAGE_DAILY_LIMIT: "5"
+          LIFEMODE_IMAGE_MONTHLY_LIMIT: "120"
 
           # Social Automation Runtime Settings
-          LIFEMODE_SOCIAL_ENABLED: ${{ inputs.social_enabled }}
-          LIFEMODE_SOCIAL_PUBLISH: ${{ inputs.social_publish }}
-          LIFEMODE_SOCIAL_DRY_RUN: ${{ inputs.social_publish == false }}
-          LIFEMODE_SOCIAL_MAX_OPPORTUNITIES: ${{ inputs.social_max }}
+          LIFEMODE_SOCIAL_ENABLED: ${{ github.event_name == 'workflow_dispatch' && inputs.social_enabled == true && 'true' || 'false' }}
+          LIFEMODE_SOCIAL_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && inputs.social_publish == true && 'true' || 'false' }}
+          LIFEMODE_SOCIAL_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.social_publish == true && 'false' || 'true' }}
+          LIFEMODE_SOCIAL_MAX_OPPORTUNITIES: ${{ github.event_name == 'workflow_dispatch' && inputs.social_max || '3' }}
         run: |
           npx tsx scripts/run-scheduled-automation.ts
