@@ -9,6 +9,7 @@ const DEFAULT_CONFIG: AutomationConfig = {
   providerMode: 'fixture',
   accelerationEnabled: false,
   accelerationMaxOpportunities: 5,
+  allowCommit: false,
 };
 
 const DEFAULT_SCHEDULED_CONFIG: ScheduledAutomationConfig = {
@@ -59,6 +60,14 @@ export function loadAutomationConfig(overrides: Partial<AutomationConfig> = {}):
   const envProviderRaw = process.env.LIFEMODE_AUTOMATION_PROVIDER ?? process.env.EDITORIAL_AUTOMATION_PROVIDER;
   const envProviderMode = (envProviderRaw as 'fixture' | 'router') || DEFAULT_CONFIG.providerMode;
 
+  const envCommitRaw = process.env.LIFEMODE_AUTOMATION_COMMIT ?? process.env.EDITORIAL_AUTOMATION_COMMIT;
+  const envAllowCommit = envCommitRaw !== undefined
+    ? envCommitRaw === 'true'
+    : (DEFAULT_CONFIG.allowCommit ?? false);
+  const allowCommit = overrides.allowCommit !== undefined
+    ? overrides.allowCommit
+    : envAllowCommit;
+
   return {
     enabled: overrides.enabled ?? envEnabled,
     maxOpportunities: resolvedMaxOpp,
@@ -68,6 +77,7 @@ export function loadAutomationConfig(overrides: Partial<AutomationConfig> = {}):
     providerMode: overrides.providerMode || envProviderMode,
     accelerationEnabled,
     accelerationMaxOpportunities,
+    allowCommit,
   };
 }
 
@@ -78,10 +88,14 @@ export function loadScheduledAutomationConfig(overrides: Partial<ScheduledAutoma
   const base = loadAutomationConfig(overrides);
 
   const envCommitRaw = process.env.LIFEMODE_AUTOMATION_COMMIT ?? process.env.EDITORIAL_AUTOMATION_COMMIT;
-  const allowCommit = overrides.allowCommit ?? (envCommitRaw === 'true');
+  const allowCommit = overrides.allowCommit !== undefined
+    ? overrides.allowCommit
+    : (base.allowCommit ?? (envCommitRaw === 'true'));
 
   const envPushRaw = process.env.LIFEMODE_AUTOMATION_PUSH ?? process.env.EDITORIAL_AUTOMATION_PUSH;
-  const allowPush = overrides.allowPush ?? (envPushRaw === 'true');
+  const allowPush = overrides.allowPush !== undefined
+    ? overrides.allowPush
+    : (envPushRaw === 'true');
 
   const gitRemote = overrides.gitRemote || process.env.LIFEMODE_AUTOMATION_GIT_REMOTE || DEFAULT_SCHEDULED_CONFIG.gitRemote;
   const gitBranch = overrides.gitBranch || process.env.LIFEMODE_AUTOMATION_GIT_BRANCH || DEFAULT_SCHEDULED_CONFIG.gitBranch;

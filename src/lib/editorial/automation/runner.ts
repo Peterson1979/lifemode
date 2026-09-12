@@ -211,6 +211,7 @@ export async function runEditorialAutomation(
     dryRun: request.dryRun,
     minScoreThreshold: request.minScoreThreshold,
     providerMode: request.providerMode,
+    allowCommit: request.allowCommit,
   });
 
   // Safe opt-in check: If disabled, abort immediately
@@ -898,7 +899,7 @@ export async function runEditorialAutomation(
       const gitStart = Date.now();
       const gitResult = await gitPublisher.publish(storageResult.article, {
         dryRun: config.dryRun,
-        allowCommit: request.allowCommit,
+        allowCommit: config.allowCommit,
         gitRepoRoot: request.gitRepoRoot,
         contentRoot: request.contentRoot,
         allowUnrelatedChanges: request.allowUnrelatedChanges,

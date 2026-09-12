@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T05:00:50.680Z",
+    "updatedAt": "2026-09-12T05:18:16.666Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1397,7 +1397,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T05:00:50.683Z",
+    "updatedAt": "2026-09-12T05:18:16.667Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1458,7 +1458,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T05:00:50.687Z",
+    "updatedAt": "2026-09-12T05:18:16.669Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1519,7 +1519,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T05:00:50.690Z",
+    "updatedAt": "2026-09-12T05:18:16.670Z",
     "revisionCyclesCount": 0
   },
   {
@@ -8564,8 +8564,8 @@
     "totalScore": 85.4,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-11T07:28:52.792Z",
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-12T05:19:25.873Z",
     "pinterestScore": 85.3,
     "revisionCyclesCount": 0
   },
@@ -8746,8 +8746,8 @@
     "totalScore": 85.4,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-11T07:28:52.799Z",
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-12T05:21:30.391Z",
     "pinterestScore": 85.3,
     "revisionCyclesCount": 0
   },
@@ -8806,8 +8806,8 @@
     "totalScore": 85.4,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-11T07:28:52.803Z",
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-12T05:23:36.380Z",
     "pinterestScore": 85.3,
     "revisionCyclesCount": 0
   },
@@ -16069,12 +16069,35 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-new20movies20stre",
+        "query": "new movies streaming",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T04:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "new movies streaming",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "new movies streaming"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-12T04:40:00.000Z",
     "tags": [
       "US",
@@ -16084,21 +16107,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T05:00:49.704Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-12T05:18:16.609Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-wellbeing-20260912-army-fitness-test",
@@ -16128,12 +16152,35 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-army20fitness20te",
+        "query": "army fitness test",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T04:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "army fitness test",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "wellbeing",
+          "curatedTags": [
+            "US",
+            "wellbeing",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "army fitness test"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-12T04:40:00.000Z",
     "tags": [
       "US",
@@ -16143,20 +16190,20 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-12T05:02:02.919Z",
+    "updatedAt": "2026-09-12T05:18:16.613Z",
     "pinterestScore": 85.3,
     "revisionCyclesCount": 0
   },
@@ -16188,12 +16235,35 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-mater20dei20footb",
+        "query": "mater dei football",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T04:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "mater dei football",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "mater dei football"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-12T04:30:00.000Z",
     "tags": [
       "US",
@@ -16203,21 +16273,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T05:00:49.717Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-12T05:18:16.618Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260912-rey-mysterio",
@@ -16247,12 +16318,35 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-rey20mysterio",
+        "query": "rey mysterio",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T04:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "rey mysterio",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "rey mysterio"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-12T04:30:00.000Z",
     "tags": [
       "US",
@@ -16262,21 +16356,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T05:00:49.722Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-12T05:18:16.623Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260912-nifty",
@@ -16306,12 +16401,35 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-nifty",
+        "query": "nifty",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T04:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "nifty",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "nifty"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-12T04:30:00.000Z",
     "tags": [
       "US",
@@ -16321,21 +16439,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T05:00:49.727Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-12T05:18:16.627Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260912-robbie-ray",
@@ -16429,7 +16548,7 @@
     "queryVariants": [
       "pluribus"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-12T04:20:00.000Z",
     "tags": [
       "US",
@@ -16439,21 +16558,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T05:00:49.741Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-12T05:18:16.631Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260912-rhea-seehorn",
@@ -16483,12 +16603,35 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-rhea20seehorn",
+        "query": "rhea seehorn",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T04:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "rhea seehorn",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "rhea seehorn"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-12T04:10:00.000Z",
     "tags": [
       "US",
@@ -16498,21 +16641,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T05:00:49.748Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-12T05:18:16.645Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260912-athletics",
@@ -16547,7 +16691,7 @@
     "queryVariants": [
       "athletics"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-12T04:10:00.000Z",
     "tags": [
       "US",
@@ -16557,21 +16701,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T05:00:49.755Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-12T05:18:16.639Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260912-ufc-noche-2026",
@@ -19798,6 +19943,193 @@
     "opportunityType": "ARTICLE",
     "status": "SCORED",
     "updatedAt": "2026-09-12T05:00:50.675Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-now-20260912-padres-game",
+    "canonicalTopic": "Padres Game",
+    "slug": "padres-game",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-padres20game",
+        "query": "Padres Game",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T04:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "padres game",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "padres game"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T04:50:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-12T05:18:16.600Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260912-rafael-devers",
+    "canonicalTopic": "Rafael Devers",
+    "slug": "rafael-devers",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-rafael20devers",
+        "query": "Rafael Devers",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T04:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "rafael devers",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "rafael devers"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T04:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-12T05:18:16.636Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-travel-20260912-saudi-arabia-shuts-key-oil-pip",
+    "canonicalTopic": "Saudi Arabia Shuts Key Oil Pipeline After Drone Attack Launched from Iraq",
+    "slug": "saudi-arabia-shuts-key-oil-pipeline-after-drone-attack-launched-from-iraq",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-1-Saudi20Arabia20shuts20k",
+        "query": "Saudi Arabia Shuts Key Oil Pipeline After Drone Attack Launched from Iraq",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T04:43:10.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Saudi Arabia shuts key oil pipeline after drone attack launched from Iraq",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c62m933465eo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-12T04:43:10.000Z",
+            "contentSnippet": "Iraq removes a military commander and opens investigations into the attack that came from an area bordering Iran.",
+            "categories": [
+              "travel",
+              "global",
+              "destinations",
+              "culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "global",
+            "destinations",
+            "culture"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "saudi arabia shuts key oil pipeline after drone attack launched from iraq"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T04:43:10.000Z",
+    "tags": [
+      "travel",
+      "global",
+      "destinations",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:18:16.660Z",
     "pinterestScore": 79.2
   }
 ]

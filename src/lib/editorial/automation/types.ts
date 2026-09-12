@@ -200,6 +200,7 @@ export interface AutomationConfig {
   providerMode: 'fixture' | 'router';
   accelerationEnabled?: boolean;
   accelerationMaxOpportunities?: number;
+  allowCommit?: boolean;
 }
 
 /**
