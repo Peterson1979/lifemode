@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-11T11:44:48.754Z",
+    "updatedAt": "2026-09-12T05:00:50.680Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1397,7 +1397,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-11T11:44:48.758Z",
+    "updatedAt": "2026-09-12T05:00:50.683Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1458,7 +1458,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-11T11:44:48.762Z",
+    "updatedAt": "2026-09-12T05:00:50.687Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1519,7 +1519,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-11T11:44:48.765Z",
+    "updatedAt": "2026-09-12T05:00:50.690Z",
     "revisionCyclesCount": 0
   },
   {
@@ -8624,8 +8624,8 @@
     "totalScore": 85.4,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-11T07:28:52.794Z",
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-12T05:04:02.526Z",
     "pinterestScore": 85.3,
     "revisionCyclesCount": 0
   },
@@ -8684,10 +8684,12 @@
     "totalScore": 85.4,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-11T07:28:52.797Z",
+    "status": "REJECTED",
+    "updatedAt": "2026-09-12T05:06:04.305Z",
     "pinterestScore": 85.3,
-    "revisionCyclesCount": 0
+    "revisionCyclesCount": 1,
+    "rejectionReason": "AI Review decision was REJECT (score: 90) after 1 quality revision",
+    "revisionAttempted": true
   },
   {
     "id": "lm-now-20260911-vaccinations",
@@ -16038,5 +16040,3764 @@
     "status": "SCORED",
     "updatedAt": "2026-09-11T11:44:48.747Z",
     "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-now-20260912-new-movies-streaming",
+    "canonicalTopic": "New Movies Streaming",
+    "slug": "new-movies-streaming",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-new20movies20stre",
+        "query": "New Movies Streaming",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T04:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "new movies streaming",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "new movies streaming"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T04:40:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-12T05:00:49.704Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-wellbeing-20260912-army-fitness-test",
+    "canonicalTopic": "Army Fitness Test",
+    "slug": "army-fitness-test",
+    "pillar": "wellbeing",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-army20fitness20te",
+        "query": "Army Fitness Test",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T04:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "army fitness test",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "wellbeing",
+          "curatedTags": [
+            "US",
+            "wellbeing",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "army fitness test"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T04:40:00.000Z",
+    "tags": [
+      "US",
+      "wellbeing",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-12T05:02:02.919Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
+  },
+  {
+    "id": "lm-now-20260912-mater-dei-football",
+    "canonicalTopic": "Mater Dei Football",
+    "slug": "mater-dei-football",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-mater20dei20footb",
+        "query": "Mater Dei Football",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T04:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "mater dei football",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "mater dei football"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T04:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-12T05:00:49.717Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260912-rey-mysterio",
+    "canonicalTopic": "Rey Mysterio",
+    "slug": "rey-mysterio",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-rey20mysterio",
+        "query": "Rey Mysterio",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T04:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "rey mysterio",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "rey mysterio"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T04:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-12T05:00:49.722Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260912-nifty",
+    "canonicalTopic": "Nifty",
+    "slug": "nifty",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-nifty",
+        "query": "Nifty",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T04:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "nifty",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "nifty"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T04:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-12T05:00:49.727Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260912-robbie-ray",
+    "canonicalTopic": "Robbie Ray",
+    "slug": "robbie-ray",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-robbie20ray",
+        "query": "Robbie Ray",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T04:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "robbie ray",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "robbie ray"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T04:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-12T05:00:49.734Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260912-pluribus",
+    "canonicalTopic": "Pluribus",
+    "slug": "pluribus",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-pluribus",
+        "query": "Pluribus",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T04:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "pluribus",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "pluribus"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T04:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-12T05:00:49.741Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260912-rhea-seehorn",
+    "canonicalTopic": "Rhea Seehorn",
+    "slug": "rhea-seehorn",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-rhea20seehorn",
+        "query": "Rhea Seehorn",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T04:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "rhea seehorn",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "rhea seehorn"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T04:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-12T05:00:49.748Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260912-athletics",
+    "canonicalTopic": "Athletics",
+    "slug": "athletics",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-athletics",
+        "query": "Athletics",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T04:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "athletics",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "athletics"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T04:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-12T05:00:49.755Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260912-ufc-noche-2026",
+    "canonicalTopic": "Ufc Noche 2026",
+    "slug": "ufc-noche-2026",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-ufc20noche202026",
+        "query": "Ufc Noche 2026",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-12T04:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "ufc noche 2026",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ufc noche 2026"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T04:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-12T05:00:49.763Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-tech-ai-20260912-some-satellite-companies-still",
+    "canonicalTopic": "Some Satellite Companies Still Have an Appetite for Boutique Launch Services",
+    "slug": "some-satellite-companies-still-have-an-appetite-for-boutique-launch-services",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-1-Some20satellite20compa",
+        "query": "Some Satellite Companies Still Have an Appetite for Boutique Launch Services",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T23:34:45.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Some satellite companies still have an appetite for boutique launch services",
+            "itemLink": "https://arstechnica.com/space/2026/09/some-satellite-companies-still-have-an-appetite-for-boutique-launch-services/",
+            "publishedDate": "2026-09-11T23:34:45.000Z",
+            "contentSnippet": "\"Dedicated launch is pretty essential for us for most of our missions.\"",
+            "categories": [
+              "tech",
+              "ai",
+              "computing",
+              "hardware",
+              "Science",
+              "Space",
+              "Astroscale",
+              "isar aerospace",
+              "Japan",
+              "launch",
+              "satellite servicing",
+              "space debris"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "computing",
+            "hardware",
+            "Science",
+            "Space",
+            "Astroscale",
+            "isar aerospace",
+            "Japan",
+            "launch",
+            "satellite servicing",
+            "space debris"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "some satellite companies still have an appetite for boutique launch services"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T23:34:45.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "computing",
+      "hardware",
+      "Science",
+      "Space",
+      "Astroscale",
+      "isar aerospace",
+      "Japan",
+      "launch",
+      "satellite servicing",
+      "space debris"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:49.782Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260912-random-rewards-enrich-classic-",
+    "canonicalTopic": "Random Rewards Enrich Classic Game-theory Insights",
+    "slug": "random-rewards-enrich-classic-game-theory-insights",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-2-Random20rewards20enric",
+        "query": "Random Rewards Enrich Classic Game-theory Insights",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T21:41:16.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Random rewards enrich classic game-theory insights",
+            "itemLink": "https://arstechnica.com/science/2026/09/random-rewards-enrich-classic-game-theory-contests/",
+            "publishedDate": "2026-09-11T21:41:16.000Z",
+            "contentSnippet": "Simple games gain rich strategies in the face of noise.",
+            "categories": [
+              "tech",
+              "ai",
+              "computing",
+              "hardware",
+              "Science",
+              "Behavioral science",
+              "game theory",
+              "math"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "computing",
+            "hardware",
+            "Science",
+            "Behavioral science",
+            "game theory",
+            "math"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "random rewards enrich classic game-theory insights"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T21:41:16.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "computing",
+      "hardware",
+      "Science",
+      "Behavioral science",
+      "game theory",
+      "math"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:49.798Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260912-bouncy-castle-launches-horrify",
+    "canonicalTopic": "Bouncy Castle Launches Horrifying Mrsa Outbreak Striking 48 Kids in Ireland",
+    "slug": "bouncy-castle-launches-horrifying-mrsa-outbreak-striking-48-kids-in-ireland",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-3-Bouncy20castle20launch",
+        "query": "Bouncy Castle Launches Horrifying Mrsa Outbreak Striking 48 Kids in Ireland",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T21:14:26.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Bouncy castle launches horrifying MRSA outbreak, striking 48 kids in Ireland",
+            "itemLink": "https://arstechnica.com/health/2026/09/bouncy-castle-launches-horrifying-mrsa-outbreak-striking-48-kids-in-ireland/",
+            "publishedDate": "2026-09-11T21:14:26.000Z",
+            "contentSnippet": "The strain lurking in the inflatable structure was hypervirulent.",
+            "categories": [
+              "tech",
+              "ai",
+              "computing",
+              "hardware",
+              "Health",
+              "antibiotics",
+              "bouncy castle",
+              "drug resistance",
+              "infection",
+              "MRSA",
+              "outbreak",
+              "skin"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "computing",
+            "hardware",
+            "Health",
+            "antibiotics",
+            "bouncy castle",
+            "drug resistance",
+            "infection",
+            "MRSA",
+            "outbreak",
+            "skin"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "bouncy castle launches horrifying mrsa outbreak striking 48 kids in ireland"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T21:14:26.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "computing",
+      "hardware",
+      "Health",
+      "antibiotics",
+      "bouncy castle",
+      "drug resistance",
+      "infection",
+      "MRSA",
+      "outbreak",
+      "skin"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:49.815Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260912-trumps-forced-coal-plant-exten",
+    "canonicalTopic": "Trumps Forced Coal Plant Extensions Thrown Out by Judge",
+    "slug": "trumps-forced-coal-plant-extensions-thrown-out-by-judge",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-4-Trumps20forced20coal20",
+        "query": "Trumps Forced Coal Plant Extensions Thrown Out by Judge",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T20:32:59.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Trump's forced coal plant extensions thrown out by judge",
+            "itemLink": "https://arstechnica.com/science/2026/09/court-rejects-governments-energy-emergency-that-kept-coal-plant-open/",
+            "publishedDate": "2026-09-11T20:32:59.000Z",
+            "contentSnippet": "The Department of Energy declared an \"emergency\" when none existed.",
+            "categories": [
+              "tech",
+              "ai",
+              "computing",
+              "hardware",
+              "Policy",
+              "Science",
+              "coal plants",
+              "department of energy",
+              "Energy",
+              "lawsuit",
+              "power plants",
+              "ruling"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "computing",
+            "hardware",
+            "Policy",
+            "Science",
+            "coal plants",
+            "department of energy",
+            "Energy",
+            "lawsuit",
+            "power plants",
+            "ruling"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "trumps forced coal plant extensions thrown out by judge"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T20:32:59.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "computing",
+      "hardware",
+      "Policy",
+      "Science",
+      "coal plants",
+      "department of energy",
+      "Energy",
+      "lawsuit",
+      "power plants",
+      "ruling"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:49.832Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260912-chatgpt-using-lawyer-punished-",
+    "canonicalTopic": "Chatgpt-using Lawyer Punished for Citing Fake Testimony from Made-up Witnesses",
+    "slug": "chatgpt-using-lawyer-punished-for-citing-fake-testimony-from-made-up-witnesses",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-5-ChatGPT-using20lawyer",
+        "query": "Chatgpt-using Lawyer Punished for Citing Fake Testimony from Made-up Witnesses",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T19:34:09.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "ChatGPT-using lawyer punished for citing fake testimony from made-up witnesses",
+            "itemLink": "https://arstechnica.com/tech-policy/2026/09/chatgpt-using-lawyer-punished-for-citing-fake-testimony-from-made-up-witnesses/",
+            "publishedDate": "2026-09-11T19:34:09.000Z",
+            "contentSnippet": "\"I didn't know that AI could hallucinate facts,\" New Mexico defense lawyer says.",
+            "categories": [
+              "tech",
+              "ai",
+              "computing",
+              "hardware",
+              "AI",
+              "Policy",
+              "AI hallucination",
+              "ChatGPT"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "computing",
+            "hardware",
+            "AI",
+            "Policy",
+            "AI hallucination",
+            "ChatGPT"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "chatgpt-using lawyer punished for citing fake testimony from made-up witnesses"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T19:34:09.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "computing",
+      "hardware",
+      "AI",
+      "Policy",
+      "AI hallucination",
+      "ChatGPT"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:49.853Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260912-lawyer-fined-5k-over-ai-halluc",
+    "canonicalTopic": "Lawyer Fined 5k over Ai-hallucinated Witnesses in a Murder Case",
+    "slug": "lawyer-fined-5k-over-ai-hallucinated-witnesses-in-a-murder-case",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-Lawyer20fined20245K20ove",
+        "query": "Lawyer Fined 5k over Ai-hallucinated Witnesses in a Murder Case",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T20:44:02.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Lawyer fined $5K over AI-hallucinated witnesses in a murder case",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/994207/chatgpt-new-mexico-lawyer-fined-murder-appeal",
+            "publishedDate": "2026-09-11T20:44:02.000Z",
+            "contentSnippet": "New Mexico's Supreme Court is punishing a lawyer for including AI-fabricated witnesses and fake police testimony in an appeal for his client's murder conviction, according to a report from Reuters. In a filing on Wednesday, the court fined Stephen Aarons $5,000 and held him in contempt for failing to \"verify the factual claims and legal […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "AI",
+              "Law",
+              "News",
+              "OpenAI",
+              "Policy"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "AI",
+            "Law",
+            "News",
+            "OpenAI",
+            "Policy"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "lawyer fined 5k over ai-hallucinated witnesses in a murder case"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T20:44:02.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "AI",
+      "Law",
+      "News",
+      "OpenAI",
+      "Policy"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:49.873Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260912-matt-mullenweg-returns-as-auto",
+    "canonicalTopic": "Matt Mullenweg Returns As Automattic Ceo Two Days After Getting Booted",
+    "slug": "matt-mullenweg-returns-as-automattic-ceo-two-days-after-getting-booted",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-Matt20Mullenweg20retur",
+        "query": "Matt Mullenweg Returns As Automattic Ceo Two Days After Getting Booted",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T17:16:59.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Matt Mullenweg returns as Automattic CEO two days after getting booted",
+            "itemLink": "https://www.theverge.com/tech/994087/matt-mullenweg-automattic-ceo-return",
+            "publishedDate": "2026-09-11T17:16:59.000Z",
+            "contentSnippet": "Two days after being placed on a paid leave of absence, Matt Mullenweg says he has been reinstated as CEO of Automattic, according to a Slack message seen by TechCrunch. WordPress Executive Director Mary Hubbard confirmed Mullenweg's return to the CEO role in a Friday post on X, which the official WordPress account shared and […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "News",
+              "Tech",
+              "Web"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "News",
+            "Tech",
+            "Web"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "matt mullenweg returns as automattic ceo two days after getting booted"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T17:16:59.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "News",
+      "Tech",
+      "Web"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:49.892Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260912-we-unfolded-the-iphone-duo",
+    "canonicalTopic": "We Unfolded the Iphone Duo",
+    "slug": "we-unfolded-the-iphone-duo",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-We20unfolded20the20iPho",
+        "query": "We Unfolded the Iphone Duo",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T16:22:24.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "We unfolded the iPhone Duo",
+            "itemLink": "https://www.theverge.com/podcast/994016/iphone-duo-vergecast-apple-watch-mac-llms",
+            "publishedDate": "2026-09-11T16:22:24.000Z",
+            "contentSnippet": "You only get one chance at a first impression, and getting to introduce Apple's first folding phone is certainly a strong way to start things off as Apple's CEO. On The Vergecast today, we're talking all about Apple's launch event: how John Ternus did in his first appearance as CEO, what we make of the […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "Podcasts",
+              "Vergecast"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "Podcasts",
+            "Vergecast"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "we unfolded the iphone duo"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T16:22:24.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "Podcasts",
+      "Vergecast"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:49.900Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260912-the-white-house-says-truth-soc",
+    "canonicalTopic": "The White House Says Truth Social Is the Most Powerful and Popular Social Media Platform in the World",
+    "slug": "the-white-house-says-truth-social-is-the-most-powerful-and-popular-social-media-platform-in-the-world",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-4-The20White20House20says",
+        "query": "The White House Says Truth Social Is the Most Powerful and Popular Social Media Platform in the World",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T16:21:19.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "The White House says Truth Social is the ‘most powerful and popular social media platform in the world’",
+            "itemLink": "https://www.theverge.com/policy/994072/white-house-truth-social-popular-powerful",
+            "publishedDate": "2026-09-11T16:21:19.000Z",
+            "contentSnippet": "The White House claims the Donald Trump-owned Truth Social is the \"most powerful and popular social media platform in the world.\" The statement, provided to The New York Times by White House spokesperson Davis Ingle, is at odds with the user counts from some of the biggest social media platforms on the web. Data gathered […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "News",
+              "Policy",
+              "Politics",
+              "Social Media",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "News",
+            "Policy",
+            "Politics",
+            "Social Media",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the white house says truth social is the most powerful and popular social media platform in the world"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T16:21:19.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "News",
+      "Policy",
+      "Politics",
+      "Social Media",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:49.932Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260912-anthropic-spent-this-week-in-h",
+    "canonicalTopic": "Anthropic Spent This Week in Hot Water over Cybersecurity",
+    "slug": "anthropic-spent-this-week-in-hot-water-over-cybersecurity",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-5-Anthropic20spent20this",
+        "query": "Anthropic Spent This Week in Hot Water over Cybersecurity",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T16:09:14.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Anthropic spent this week in hot water over cybersecurity",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/994064/anthropic-spent-this-week-in-hot-water-over-cybersecurity",
+            "publishedDate": "2026-09-11T16:09:14.000Z",
+            "contentSnippet": "After admitting earlier this year that its AI models had hacked other companies' systems on a handful of occasions, Anthropic released a new report on Wednesday detailing the attacks. It reveals a string of incidents displaying what Anthropic deems its models' single-minded \"recklessness\" - and will likely fuel already raging concerns about cybersecurity and AI. […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "AI",
+              "Analysis",
+              "Anthropic",
+              "Report"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "AI",
+            "Analysis",
+            "Anthropic",
+            "Report"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "anthropic spent this week in hot water over cybersecurity"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T16:09:14.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "AI",
+      "Analysis",
+      "Anthropic",
+      "Report"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:49.955Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260912-roundtables-ais-apocalypse-cri",
+    "canonicalTopic": "Roundtables Ais Apocalypse Crisis",
+    "slug": "roundtables-ais-apocalypse-crisis",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-1-Roundtables3A20AIE2809",
+        "query": "Roundtables Ais Apocalypse Crisis",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T20:05:06.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "Roundtables: AI’s apocalypse crisis",
+            "itemLink": "https://www.technologyreview.com/2026/09/11/1143936/roundtables-will-ai-really-kill-us-all/",
+            "publishedDate": "2026-09-11T20:05:06.000Z",
+            "contentSnippet": "Employees at the world's leading AI labs are saying there's a real possibility that advanced AI could destroy humanity. Are they right? Or is this more scaremongering and hype? Join MIT Technology Review executive editor Niall Firth for a conversation with senior AI editor Will Douglas Heaven and AI reporter Grace Huckins unpacking AI extinction…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "Artificial intelligence",
+              "AI",
+              "App",
+              "Roundtables",
+              "Subscriber-Only Stories"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "Artificial intelligence",
+            "AI",
+            "App",
+            "Roundtables",
+            "Subscriber-Only Stories"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "roundtables ais apocalypse crisis"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T20:05:06.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "Artificial intelligence",
+      "AI",
+      "App",
+      "Roundtables",
+      "Subscriber-Only Stories"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:49.972Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260912-the-download-biotechs-future-a",
+    "canonicalTopic": "The Download Biotechs Future and Cheaper Cleaner Steel",
+    "slug": "the-download-biotechs-future-and-cheaper-cleaner-steel",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-2-The20Download3A20biote",
+        "query": "The Download Biotechs Future and Cheaper Cleaner Steel",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T12:10:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "The Download: biotech's future and cheaper, cleaner steel",
+            "itemLink": "https://www.technologyreview.com/2026/09/11/1143879/the-download-biotech-future-cheaper-cleaner-steel/",
+            "publishedDate": "2026-09-11T12:10:00.000Z",
+            "contentSnippet": "This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. Meet the under-35s shaping the future of biotech Every year, MIT Technology Review puts together our 35 Innovators Under 35, a list of some of the brightest and best young minds…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "The Download"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "The Download"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the download biotechs future and cheaper cleaner steel"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T12:10:00.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "The Download"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:49.998Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260912-how-to-make-the-most-of-greece",
+    "canonicalTopic": "How to Make the Most of Greeces Shoulder Season According to Cond Nast Traveler Specialists",
+    "slug": "how-to-make-the-most-of-greeces-shoulder-season-according-to-cond-nast-traveler-specialists",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-How20to20Make20the20Most",
+        "query": "How to Make the Most of Greeces Shoulder Season According to Cond Nast Traveler Specialists",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T18:02:28.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "How to Make the Most of Greece’s Shoulder Season, According to Condé Nast Traveler Specialists",
+            "itemLink": "https://www.cntraveler.com/story/how-to-do-greece-in-the-off-season-according-to-travel-specialists",
+            "publishedDate": "2026-09-11T18:02:28.000Z",
+            "contentSnippet": "The pros and pitfalls of heading to Hellas outside of high season—decoded.",
+            "categories": [
+              "travel",
+              "destinations",
+              "hotels",
+              "culture",
+              "Destinations"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "hotels",
+            "culture",
+            "Destinations"
+          ],
+          "feedName": "Conde Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how to make the most of greeces shoulder season according to cond nast traveler specialists"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T18:02:28.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "hotels",
+      "culture",
+      "Destinations"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.033Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260912-how-a-homecoming-to-jamaica-he",
+    "canonicalTopic": "How a Homecoming to Jamaica Helped Author Marlon James Write the Disappearers",
+    "slug": "how-a-homecoming-to-jamaica-helped-author-marlon-james-write-the-disappearers",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-2-How20a20Homecoming20to20",
+        "query": "How a Homecoming to Jamaica Helped Author Marlon James Write the Disappearers",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T17:26:22.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "How a Homecoming to Jamaica Helped Author Marlon James Write 'The Disappearers'",
+            "itemLink": "https://www.cntraveler.com/story/how-a-homecoming-to-jamaica-helped-author-marlon-james-write-his-newest-booker-prize-nominated-novel",
+            "publishedDate": "2026-09-11T17:26:22.000Z",
+            "contentSnippet": "On a research trip to Kingston for his newest novel, ‘The Disappearers,’ Marlon James reflects on how “to live in Jamaica is to confront history, which is all around you.”",
+            "categories": [
+              "travel",
+              "destinations",
+              "hotels",
+              "culture",
+              "Inspiration / Style & Culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "hotels",
+            "culture",
+            "Inspiration / Style & Culture"
+          ],
+          "feedName": "Conde Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how a homecoming to jamaica helped author marlon james write the disappearers"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T17:26:22.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "hotels",
+      "culture",
+      "Inspiration / Style & Culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.057Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260912-everyone-seems-to-be-taking-a-",
+    "canonicalTopic": "Everyone Seems to Be Taking a Fallcation This Year—what Does That Mean for Travel",
+    "slug": "everyone-seems-to-be-taking-a-fallcation-this-year-what-does-that-mean-for-travel",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-3-Everyone20Seems20to20Be",
+        "query": "Everyone Seems to Be Taking a Fallcation This Year—what Does That Mean for Travel",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T17:15:55.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Everyone Seems to Be Taking a “Fallcation” This Year—What Does That Mean for Travel",
+            "itemLink": "https://www.cntraveler.com/story/everyone-seems-to-be-taking-a-fallcation-this-year-what-does-that-mean-for-travel",
+            "publishedDate": "2026-09-11T17:15:55.000Z",
+            "contentSnippet": "Our travel specialists break down the shift, and share where their clients are going.",
+            "categories": [
+              "travel",
+              "destinations",
+              "hotels",
+              "culture",
+              "Inspiration"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "hotels",
+            "culture",
+            "Inspiration"
+          ],
+          "feedName": "Conde Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "everyone seems to be taking a fallcation this year—what does that mean for travel"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T17:15:55.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "hotels",
+      "culture",
+      "Inspiration"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.083Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260912-how-to-make-the-most-of-the-ve",
+    "canonicalTopic": "How to Make the Most of the Venice Film Festival According to a Critic Who Goes Every Year",
+    "slug": "how-to-make-the-most-of-the-venice-film-festival-according-to-a-critic-who-goes-every-year",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-4-How20to20Make20the20Most",
+        "query": "How to Make the Most of the Venice Film Festival According to a Critic Who Goes Every Year",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T16:46:18.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "How to Make the Most of the Venice Film Festival, According to a Critic Who Goes Every Year",
+            "itemLink": "https://www.cntraveler.com/story/how-to-make-the-most-of-the-venice-film-festival-according-to-a-critic-who-goes-every-year",
+            "publishedDate": "2026-09-11T16:46:18.000Z",
+            "contentSnippet": "Though it conjures images of indelible glamour, there are some practicalities to consider when attempting Venice.",
+            "categories": [
+              "travel",
+              "destinations",
+              "hotels",
+              "culture",
+              "Inspiration / Style & Culture",
+              "Destinations"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "hotels",
+            "culture",
+            "Inspiration / Style & Culture",
+            "Destinations"
+          ],
+          "feedName": "Conde Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how to make the most of the venice film festival according to a critic who goes every year"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T16:46:18.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "hotels",
+      "culture",
+      "Inspiration / Style & Culture",
+      "Destinations"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.111Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260912-ready-for-a-euro-fall-travel-e",
+    "canonicalTopic": "Ready for a Euro Fall Travel Experts Weigh in on the Best Destinations for 2026",
+    "slug": "ready-for-a-euro-fall-travel-experts-weigh-in-on-the-best-destinations-for-2026",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-5-Ready20for20a20Euro20Fal",
+        "query": "Ready for a Euro Fall Travel Experts Weigh in on the Best Destinations for 2026",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T15:44:59.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Ready for a Euro Fall? Travel Experts Weigh In on the Best Destinations for 2026",
+            "itemLink": "https://www.cntraveler.com/story/ready-for-a-euro-fall-travel-experts-weigh-in-on-the-best-destinations",
+            "publishedDate": "2026-09-11T15:44:59.000Z",
+            "contentSnippet": "Whether you prefer the city or the countryside, these are the European destinations making waves this fall.",
+            "categories": [
+              "travel",
+              "destinations",
+              "hotels",
+              "culture",
+              "Inspiration",
+              "Places to Stay"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "hotels",
+            "culture",
+            "Inspiration",
+            "Places to Stay"
+          ],
+          "feedName": "Conde Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ready for a euro fall travel experts weigh in on the best destinations for 2026"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T15:44:59.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "hotels",
+      "culture",
+      "Inspiration",
+      "Places to Stay"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.150Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260912-houthis-claim-major-advance-in",
+    "canonicalTopic": "Houthis Claim Major Advance in Yemen and Tighten Grip on Red Sea Shipping Lane",
+    "slug": "houthis-claim-major-advance-in-yemen-and-tighten-grip-on-red-sea-shipping-lane",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-1-Houthis20claim20major20",
+        "query": "Houthis Claim Major Advance in Yemen and Tighten Grip on Red Sea Shipping Lane",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T22:17:45.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Houthis claim major advance in Yemen and tighten grip on Red Sea shipping lane",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c23x72yx2rvo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-11T22:17:45.000Z",
+            "contentSnippet": "The Iran-backed Houthis are also reported to have seized Perim - a strategic island on the major shipping route.",
+            "categories": [
+              "travel",
+              "global",
+              "destinations",
+              "culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "global",
+            "destinations",
+            "culture"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "houthis claim major advance in yemen and tighten grip on red sea shipping lane"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T22:17:45.000Z",
+    "tags": [
+      "travel",
+      "global",
+      "destinations",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.190Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260912-tragic-death-of-woman-who-test",
+    "canonicalTopic": "Tragic Death of Woman Who Testified Against Father in Notorious Mafia Murder of Mother",
+    "slug": "tragic-death-of-woman-who-testified-against-father-in-notorious-mafia-murder-of-mother",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-2-Tragic20death20of20woma",
+        "query": "Tragic Death of Woman Who Testified Against Father in Notorious Mafia Murder of Mother",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T20:34:29.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Tragic death of woman who testified against father in notorious mafia murder of mother",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c39mr81j2j1o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-11T20:34:29.000Z",
+            "contentSnippet": "Denise Cosco testified against the powerful 'Ndrangheta clan and her own father over the murder of her mother in Italy.",
+            "categories": [
+              "travel",
+              "global",
+              "destinations",
+              "culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "global",
+            "destinations",
+            "culture"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "tragic death of woman who testified against father in notorious mafia murder of mother"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T20:34:29.000Z",
+    "tags": [
+      "travel",
+      "global",
+      "destinations",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.236Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260912-death-toll-from-philippines-fe",
+    "canonicalTopic": "Death Toll from Philippines Ferry Fire Climbs to 35 with Dozens Still Missing",
+    "slug": "death-toll-from-philippines-ferry-fire-climbs-to-35-with-dozens-still-missing",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-3-Death20toll20from20Phil",
+        "query": "Death Toll from Philippines Ferry Fire Climbs to 35 with Dozens Still Missing",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T03:02:28.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Death toll from Philippines ferry fire climbs to 35, with dozens still missing",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cwyz755yeg9o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-12T03:02:28.000Z",
+            "contentSnippet": "Access to the burnt-out boat has been slowed by toxic fumes and lingering heat, the country's coast guard says.",
+            "categories": [
+              "travel",
+              "global",
+              "destinations",
+              "culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "global",
+            "destinations",
+            "culture"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "death toll from philippines ferry fire climbs to 35 with dozens still missing"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T03:02:28.000Z",
+    "tags": [
+      "travel",
+      "global",
+      "destinations",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.265Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260912-passenger-train-derails-in-fra",
+    "canonicalTopic": "Passenger Train Derails in France Leaving at Least 44 Injured",
+    "slug": "passenger-train-derails-in-france-leaving-at-least-44-injured",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-4-Passenger20train20dera",
+        "query": "Passenger Train Derails in France Leaving at Least 44 Injured",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T21:25:32.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Passenger train derails in France leaving at least 44 injured",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c8d37dm8d8mo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-11T21:25:32.000Z",
+            "contentSnippet": "France's transport minister says 180 passengers were on board the train operating the Rouen-Caen route in Normandy.",
+            "categories": [
+              "travel",
+              "global",
+              "destinations",
+              "culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "global",
+            "destinations",
+            "culture"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "passenger train derails in france leaving at least 44 injured"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T21:25:32.000Z",
+    "tags": [
+      "travel",
+      "global",
+      "destinations",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.291Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260912-arrest-made-over-the-death-of-",
+    "canonicalTopic": "Arrest Made over the Death of Black Woman Found Hanged from Tree in Mississippi",
+    "slug": "arrest-made-over-the-death-of-black-woman-found-hanged-from-tree-in-mississippi",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-5-Arrest20made20over20the",
+        "query": "Arrest Made over the Death of Black Woman Found Hanged from Tree in Mississippi",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T02:29:49.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Arrest made over the death of black woman found hanged from tree in Mississippi",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cqjkejq5750o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-12T02:29:49.000Z",
+            "contentSnippet": "Tasia Fortune's body was found in the lot of an abandoned home in Mississippi in August.",
+            "categories": [
+              "travel",
+              "global",
+              "destinations",
+              "culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "global",
+            "destinations",
+            "culture"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "arrest made over the death of black woman found hanged from tree in mississippi"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T02:29:49.000Z",
+    "tags": [
+      "travel",
+      "global",
+      "destinations",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.327Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-life-20260912-im-a-deals-writer-and-these-ar",
+    "canonicalTopic": "Im a Deals Writer and These Are My Top 10 Tech Deals This Week",
+    "slug": "im-a-deals-writer-and-these-are-my-top-10-tech-deals-this-week",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-1-IE28099m20a20Deals20Writer2",
+        "query": "Im a Deals Writer and These Are My Top 10 Tech Deals This Week",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T21:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "I’m a Deals Writer, and These Are My Top 10 Tech Deals This Week",
+            "itemLink": "https://lifehacker.com/tech/best-tech-deals-this-week?utm_medium=RSS",
+            "publishedDate": "2026-09-11T21:30:00.000Z",
+            "contentSnippet": "Find great deals on the new The Legend of Zelda: Ocarina of Time remake, my favorite sleep earbuds, OLED TVs, new Samsung Galaxy devices, and more.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life",
+            "Tech"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "im a deals writer and these are my top 10 tech deals this week"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T21:30:00.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.357Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260912-this-powerful-bissell-pet-vacu",
+    "canonicalTopic": "This Powerful Bissell Pet Vacuum Is 50 Off Right Now",
+    "slug": "this-powerful-bissell-pet-vacuum-is-50-off-right-now",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-3-This20Powerful20Bissel",
+        "query": "This Powerful Bissell Pet Vacuum Is 50 Off Right Now",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T19:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "This Powerful Bissell Pet Vacuum Is $50 Off Right Now",
+            "itemLink": "https://lifehacker.com/ad/home/bissell-hepa-pet-vacuum-deal-september-2026?utm_medium=RSS",
+            "publishedDate": "2026-09-11T19:30:00.000Z",
+            "contentSnippet": "The two brush rolls help remove debris from any kind of surface.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life",
+              "Cleaning & Organizing"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life",
+            "Cleaning & Organizing"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "this powerful bissell pet vacuum is 50 off right now"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T19:30:00.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life",
+      "Cleaning & Organizing"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.382Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260912-yes-the-apple-watchs-new-audio",
+    "canonicalTopic": "Yes the Apple Watchs New Audio Intelligence Features Really Are Always Listening to You",
+    "slug": "yes-the-apple-watchs-new-audio-intelligence-features-really-are-always-listening-to-you",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-4-Yes2C20the20Apple20Watch",
+        "query": "Yes the Apple Watchs New Audio Intelligence Features Really Are Always Listening to You",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T18:30:33.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "Yes, the Apple Watch's New Audio Intelligence Features Really Are Always Listening to You",
+            "itemLink": "https://lifehacker.com/tech/the-new-apple-watch-listens-to-your-conversations?utm_medium=RSS",
+            "publishedDate": "2026-09-11T18:30:33.000Z",
+            "contentSnippet": "If you think that sounds like a privacy nightmare, you're not wrong.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life",
+              "Apple"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life",
+            "Apple"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "yes the apple watchs new audio intelligence features really are always listening to you"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T18:30:33.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life",
+      "Apple"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.418Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260912-these-are-the-most-affordable-",
+    "canonicalTopic": "These Are the Most Affordable Running Watches with Maps",
+    "slug": "these-are-the-most-affordable-running-watches-with-maps",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-5-These20Are20the20Most20A",
+        "query": "These Are the Most Affordable Running Watches with Maps",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T18:30:11.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "These Are the Most Affordable Running Watches With Maps",
+            "itemLink": "https://lifehacker.com/health/affordable-running-watches-maps?utm_medium=RSS",
+            "publishedDate": "2026-09-11T18:30:11.000Z",
+            "contentSnippet": "Take your pick: I have favorites at $170, $249, $399, and $750.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life",
+              "Fitness"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life",
+            "Fitness"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "these are the most affordable running watches with maps"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T18:30:11.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life",
+      "Fitness"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.441Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260912-the-iphone-duo-isnt-just-a-fol",
+    "canonicalTopic": "The Iphone Duo Isnt Just a Folding Phone",
+    "slug": "the-iphone-duo-isnt-just-a-folding-phone",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-1-The20iPhone20Duo20isnE280",
+        "query": "The Iphone Duo Isnt Just a Folding Phone",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T23:51:21.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "The iPhone Duo isn’t just a folding phone",
+            "itemLink": "https://www.fastcompany.com/91604665/iphone-duo",
+            "publishedDate": "2026-09-11T23:51:21.000Z",
+            "contentSnippet": "Hello again, and welcome back to Fast Company ’s Plugged In . On Wednesday, Apple held its annual September product launch at its Steve Jobs Theater. The event will be remembered for two debuts. One was the long-awaited announcement of the company’s first folding phone, the iPhone Duo . The other was the first public appearance of its new CEO , John Ternus, who appeared briefly in person and at length in the prerecorded keynote presentation. I came to Cupertino looking forward to the time I’d get with the folding iPhone in Apple’s post-keynote demo area. Though hardly enough to render a firm verdict on the device, that hands-on experience left me impressed with the thinking that Apple has put into the device. But I also left mulling over Ternus’s unexpectedly intriguing framing of the role that iPhones—folding or otherwise—play in the AI era. First, let’s talk about the Duo. By any measure, Apple is an exceptionally late arrival to the folding-screen party. Unlike the 2007 iPhone, the Duo is not a ground-up reimagining of a product category. Instead, it sits squarely in the same class as existing folding phones from Samsung and other makers of Android phones. Even its distinctive, passport-like form factor, with a squat outer screen and an inner one optimized for full-screen video, had some of its thunder purloined when Samsung announced the similar Galaxy Z Fold8 six weeks earlier. Yet the Duo, which is entering the market more than seven years after Samsung’s first Galaxy folding phone , is fully baked in ways other companies’ early folding phones were not. While other companies were putting their models through iteration after iteration , Apple was waiting until it had good answers to the myriad questions presented by the form factor. Such as: What size and aspect ratio should the inner and outer screens be? Which things about iOS’s user interface do and don’t need to change to accommodate those two displays? How do you minimize the crease at the folding point so users don’t obsess over it every time they open their phone? Overall, Apple's design decisions appear to strike a maximally happy balance between the Duo’s two screen sizes, something other folding phones long struggled with. In a daring change to a basic aspect of iOS, Apple repositioned the dock and other toolbars to the screens’ right edge. That helps prevent apps from merely stretching out to fill more space, an issue that can leave Android-based folding phones (and tablets) feeling like they don’t deliver on the promise of their extra display acreage. The iPhone Duo's screen aspect ratios strike a balance other makers of folding phones have struggled to reach. [Photo: Apple] When it came to facilitating the use of multiple apps on the inner screen, Apple didn’t invent a whole new mode of interaction. Instead, it pretty much revived the split-view multitasking that the iPad had until last year, when the company ditched it for a more Mac-like interface. I find the iPad’s new system an overcomplication rather than an improvement —which seems to be a minority view—and welcome the return of the old approach’s streamlined simplicity on the Duo. As for that pesky crease, Apple’s solution involves giving the inner screen a “nano-texture” matte finish that cuts glare, reducing the telltale reflections the fold would otherwise have. It’s a clever work-around that adds to the Duo’s generally posh vibe. Speaking of posh, there’s the unavoidable subject of the phone’s price. At $1,999 for the 256 GB version, it’s less than many analysts expected . But there’s no getting around the fact that it makes the Duo either unaffordable or a serious splurge for most people. Girding yourself to buy one may be easiest if you’d otherwise purchase both a new iPhone ($699 and way, way up) and an iPad Mini (at least $599). The Duo’s price might also make more sense if you embrace its transformer-style nature. You can prop it up like a tent for movie watching or open it into a laptop-esque clamshell for hands-free video calls. Or you can unfold it all the way and use the larger screen while the smaller one on the other side lets photo subjects see themselves, brings a nearby friend into FaceTime sessions, or shows Snoopy animations to focus the attention of a kid whose picture you’re taking. Apple has been clever with these scenarios, and it’s fun to think of additional ones it could add over time. Judged strictly on what it does and how it does it, the Duo appears to validate Apple’s why-rush-things attitude toward foldability. Its potential is constrained by its price more than its appeal, but it won’t be surprising if it meaningfully boosts the sales of folding phones all by itself. (They currently account for just 2% of the market .) The iPhone as iHub Now, on to Ternus’s remarks during the keynote. Nobody was expecting him to articulate a vision for Apple that boldly departed from that of his predecessor, Tim Cook. He didn’t. Still, I detected signs of his background as a product guy. Cook’s keynote comments on what Apple was trying to do usually didn’t go much beyond saying that it wanted to make great products that people love. Ternus, by contrast, immediately began explaining the iPhone’s role in people’s lives—a task that wouldn’t have been necessary until AI upended the entire tech industry. AI, he argued, “can become even more useful when it brings together your life with the apps, services, and products you use every day. And this means the product at the center of your experiences becomes even more essential. What I like to think of as an intelligent personal hub. It’s the intersection of your personal context that makes this idea so powerful.” Then Ternus listed the features you’d want in such a hub: a powerful processor, pervasive networking, a beautiful display, cameras, microphones, long battery life, and the ability to work seamlessly with other devices, apps, and services. “In other words, you would arrive at something remarkably familiar. Because there’s no product in the world better designed to be your intelligent personal hub than iPhone.” Not everyone attempting to invent the next generation of AI gadgetry would agree. Many of them are predicated on the assumption that the smartphone era has left people weary of all the screens in their lives. OpenAI, for example, is reportedly readying a screenless, puck-sized speaker. And then there’s the iPhone Duo. It’s .&nbsp;.&nbsp;. a smartphone! With two screens! Apple is betting that a critical mass of people are not tired of smartphones. Instead, they crave one that’s even more capable, because it's capable of displaying more information. (The Duo's inner screen is 50% larger than that of the iPhone 18 Max.) But wait. Along with the iPhone Duo, Apple’s Wednesday event featured the announcement of the Apple Watch Series 12 and Apple Watch Ultra 4. Among their features is an AI-powered mode that can listen to conversations, summarize them, and even let you see a text recap of the last 15 seconds. The Apple Watch does have a screen, of course, but this new capability offers a minimalist, ambient form of AI that wouldn’t work if it involved taking a phone out of your pocket. A product Apple didn’t announce on Wednesday is also relevant here: AirPods Pro with built-in cameras . Now expected next year , they appear to offer a visual counterpart to the new Apple Watch’s audio AI. Rather than letting you capture snapshots or video, they’ll feed imagery to Apple Intelligence for analysis. The new Apple Watch audio features have been greeted with skepticism over the propriety of a smartwatch capturing the speech of people who might not be aware that it's listening. Some folks are already in a tizzy over the privacy implications of AirPods that can see. If Apple convinces people that these new features can't be used for untoward purposes, the seamless, multi-device AI Ternus talked about could start to look very real. It would be tough for other companies to match. As Ternus introduced the concept of the iPhone as intelligent personal hub, he didn’t mention the iPhone Duo or new Apple Watches—they weren’t unveiled until later in the keynote—let alone the still-unannounced AirPods Pro. But his use of the term reminded me of another moment of truth, more than 25 years ago, when Steve Jobs pointed Apple toward the future by calling its most popular product a hub. In January 2001, Jobs was a fairly new CEO himself—it had been only a year since he’d stripped the “interim” from that title after returning to the company he’d cofounded . Apple was still bouncing back from the late-1990s turmoil that had threatened its very existence. The bulbous, all-in-one iMac was already a hit. But computers of all kinds were feeling somewhat outdated, at least in comparison to newer devices such as MP3 players, digital cameras, DV camcorders, and PDAs. That’s when Jobs used a Macworld Expo keynote to position the Mac as something new: a digital hub that would help you get more out of all those new gizmos in your life. The company already had a tool for editing video, iMovie. It began to roll out more media apps, such as iTunes and iDVD. Eventually, it released a whole suite of them called iLife. Apple didn’t have to make the case for the Mac being a digital hub for long. Mostly, it just made sure it was a great one. The strategy was central to the Mac’s rebound and led to the company releasing its own MP3 player, the iPod. Without the iPod, there might not have been an iPhone. Without the iPhone, who knows what Apple would look like today? Ternus's intelligent personal hub might have a similar trajectory: something that begins as a new way of looking at Apple's products and then redefines them so successfully that it no longer has to be acknowledged. Back when Jobs pitched the idea of the Mac as a digital hub, he wasn’t just talking about the iMac. Apple made many Macs, from PowerBooks and iBook laptops to the budget-priced Mac Mini to hulking Power Mac desktops to the memorable failure known as the G4 Cube . If the iPhone is going to be an intelligent personal hub, different people will want different expressions of the idea. And the iPhone Duo—the most different iPhone that Apple has made since the original—may be a clue to Ternus’s larger vision for the company's future. You’ve been reading Plugged In , Fast Company ’s weekly tech newsletter from me, global technology editor Harry McCracken. If a friend or colleague forwarded this edition to you—or if you're reading it on fastcompany.com—you can check out previous issues and sign up to get it yourself every Friday morning. I love hearing from you: Ping me at hmccracken@fastcompany.com with your feedback and ideas for future newsletters. I’m also on Bluesky , Mastodon , and Threads , and you can follow Plugged In on Flipboard. More top tech stories from Fast Company How I built an AI chief of staff for $25 a day And the lessons I learned doing it. Read More → The Elizabeth Holmes documentary grabbed our attention. Now it has to keep it Film studios have long used the promise of a secret to entice moviegoers. Nathan Fielder's new doc just perfected the art form. Read More → At last, Apple joins the war against fake AI images The company is leading the charge in making reality generative AI-proof. Read More → Self-driving cars are coming for driving culture Self-driving cars promise safer roads and easier commutes. They could also flatten one of the strangest expressions of local culture. Read More → This powerful free tool is your secret weapon against phone scams No matter what kind of phone you're using, this is one tool you'll absolutely want to keep around. Read More → Reclaim gigabytes from Google Drive, Gmail, and Photos in just a few minutes Upgrading cloud storage tiers feels convenient, but it only delays the inevitable. Read More →",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "Tech"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the iphone duo isnt just a folding phone"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T23:51:21.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.458Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260912-dont-trust-ai-companies-with-y",
+    "canonicalTopic": "Dont Trust Ai Companies with Your Content Verify Them Instead",
+    "slug": "dont-trust-ai-companies-with-your-content-verify-them-instead",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-2-DonE28099t20trust20AI20co",
+        "query": "Dont Trust Ai Companies with Your Content Verify Them Instead",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T19:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Don’t trust AI companies with your content. Verify them instead",
+            "itemLink": "https://www.fastcompany.com/91602471/dont-trust-ai-companies-content-verify",
+            "publishedDate": "2026-09-11T19:00:00.000Z",
+            "contentSnippet": "If it’s a day ending in Y, you can count on a story that further erodes the public’s trust in Big Tech . This week it was Sony Music and Warner suing Anthropic over copyright , accusing the AI company of illicitly pirating music and song lyrics from its catalog to train its AI models . With the lawsuit, Anthropic is now officially the target of all three major music publishers , since Universal brought a similar action in January. As copyright lawsuits go, the allegations are pretty juicy. They paint a picture of Anthropic brazenly pirating music catalogs through torrenting and copying huge troves of lyrics from third-party websites wholesale. The filing claims Anthropic cofounder Benjamin Mann personally conducted or directed the torrenting and discussed it openly in Slack channels. Anthropic, which agreed a year ago to pay $1.5 billion in a settlement over pirated books, responded curtly, telling Axios “we intend to defend ourselves robustly in court.” To any media executive, content creator, or news publisher, the lawsuit is more evidence that tech companies can’t be trusted with content. And that conclusion is correct. Ever since OpenAI's then-CTO Mira Murati was caught like a deer in the headlights when asked about what training data had been used to train Sora, the company’s now-discontinued video model, it’s been clear AI companies will always take the most liberal view of “fair use” when it comes to harvesting content for their models. The all-or-nothing trap The problem with “don’t trust them” is that it often fuels a binary perspective: that the only reasonable reaction is to lock down your corpus, blocking AI bots from ever ingesting a single character. Opening it up, even a little, to a bot—even a supposedly “legit” one—means trusting the company to play by certain rules, a key one being: content used for AI search won’t be thrown into training data. So you can open up and hope, or block and stay safe. I see this more and more in my consulting work: the instinct to protect IP makes publishers reluctant to even do generative engine optimization (GEO) testing. This perspective is understandable, but ultimately self-defeating. Blocking bots means sacrificing visibility in AI answers. And while translating that visibility into good business outcomes is far from guaranteed, AI experiences are rapidly becoming the future. What publishers need is an approach that preserves AI as a path for audiences to discover them and build their authority while not taking on faith that the AI companies will play by the rules. Bot blocking is generally centered around the Robots Exclusion Protocol (aka robots.txt), which governs which bots can scrape content on a site. Importantly, there are different kinds of bots. For this discussion, you really only need to know that there are training bots and retrieval (i.e., search/answer) bots. The former harvests information into vast archives to build new models, while the latter grabs specific info to answer individual queries in real time. Training bots copy data and keep it; retrieval bots use it once, then poof. (The search bots that power discovery do keep an index, the way Google always has, but that's a card catalog, not a model.) It’s becoming more or less standard for publishers to block training bots absent some kind of licensing deal. Retrieval, however, is how articles appear in AI answer engines. If your article is blocked, the engine only has metadata to go on, so if a competing site is open and yours is blocked, there's a high likelihood the engine will favor your competition in the answer. This is where many publishers trip up. They want to compete in the answer, but they don’t trust the AI company to simply scrape the article for just the one query. Many will assume the AI company will keep that article and use it for either training or for allowing their users to access the full text—which might hurt even more if there’s a paywall. So they block everything since it’s better than risking giving away the store. Verification > trust There is a happy medium here. You can open up content to retrieval bots without blindly trusting the AI companies’ claims that they’ll never train on it. The approach starts with blocking training bots (of course) and then selectively allowing retrieval bots where AI visibility is important. Then, you build your own verification: Your CDN (content distribution network) checks every bot and verifies it against the vendor. It also logs the visit—what the bot scraped and when. That’s evidence you can use later if the vendor does something they shouldn’t. To monitor whether an AI vendor may be training on your retrieved content, you can seed your site with “tracer” phrases, checking whether they show up in the raw model with a set of queries run on a schedule. If they do, it’s a strong indicator that your content is being thrown into training data. And any testing that opens up content to new kinds of crawlers should be done in pieces—a slice of the content—before deploying site-wide. Problems? Reverse course with a single file change. And measure against the only outcome that matters: whether your visibility in AI answers is improving or not. While the media industry has good reason to be paranoid, it’s worth pointing out that the AI companies are incentivized to ensure their bots play by the rules. The companies that determine AI visibility (OpenAI, Anthropic, Perplexity, et al.) are the same ones spending fortunes on licensing deals and courtroom settlements. They’ve also learned, expensively , what courts do with sloppy acquisition. If they were to cheat and use retrieval content for training, that would transform a murky fair-use fight into clear evidence of misrepresentation. You don't have to believe in their virtue to understand it’s in their interest to avoid that kind of exposure. A crawl is really a skim AI retrieval bots don’t actually read all your content anyway. When crawlers scan a web page, they expend the absolute minimum number of tokens to figure out what’s on the page to make a judgment about whether it’s worth citing. So even if you do make the entirety of a page available to crawlers, they often don’t read it—at least when it comes to determining presence in AI answers. But making the full text available to crawlers means there’s a greater chance of that extra context mattering in deeper, research-oriented queries—the exact kind where people tend to check their sources. Limiting what the crawlers can see means transferring your authority to more visible publishers for no real benefit. No one is asking publishers to trust companies that torrent online libraries. But the web has never run on trust—it runs on logs, verification, and who has the leverage. “Don’t trust” and “be discovered” aren’t opposites. Handled right, the first is how you afford the second.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "Tech"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dont trust ai companies with your content verify them instead"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T19:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.479Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260912-what-happened-when-meta-tried-",
+    "canonicalTopic": "What Happened When Meta Tried to Collect Employee Data",
+    "slug": "what-happened-when-meta-tried-to-collect-employee-data",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-3-What20happened20when20M",
+        "query": "What Happened When Meta Tried to Collect Employee Data",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T18:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "What happened when Meta tried to collect employee data",
+            "itemLink": "https://www.fastcompany.com/91606241/what-happened-when-meta-tried-to-collect-employee-data",
+            "publishedDate": "2026-09-11T18:30:00.000Z",
+            "contentSnippet": "When employees at Meta learned that the company would start collecting their data to train AI models, there was a swift backlash. Many of them openly pushed back on Meta’s plan to capture keystrokes and mouse movements, circulating an online petition and urging their colleagues to sign. Within just two months—and after an internal leak—Meta has put an end to the program, at least for now. A new report from Business Insider chronicles what happened internally as Meta shared its plans with employees, revealing just how quickly the program was shelved over employee concerns and a breach in data privacy. (Meta declined to comment when reached by Fast Company .) The idea to collect employee data reportedly came from the researchers in Meta’s AI division, who are largely siloed from the rest of the company. One of the researchers who spearheaded the program was Rylan Schaeffer, who reported to the company’s AI chief. When the program—which the company called the Model Capability Initiative (MCI)—was announced, it drew immediate outrage from employees, especially when they learned it was mandatory and nobody could opt out. According to Business Insider , when a cybersecurity engineer raised concerns about data privacy and said security seemed like “an afterthought,” Meta CTO Andrew Bosworth went on the defense, saying, \"That isn't remotely a fair characterization! How would any of this end up in 'the open'? This is tightly controlled data.” Many employees were reportedly worried that the program would extract passwords and other sensitive data, like credit card information or immigration forms. Some of them also wondered whether MCI would put them out of a job and enable the company to replace employees with AI. According to Business Insider , the petition from employees who were opposed to the program eventually got more than 1,800 signatures. Workers even used physical flyers to garner support and remind their colleagues that protesting their working conditions is protected activity under the National Labor Relations Act. In June, Meta decided people could opt out of the program for up to 30 minutes if they needed to handle anything sensitive, but employees kept pushing for the company to drop MCI altogether. The data privacy concerns turned out to be prescient: Toward the end of June, a Meta engineer sounded the alarm after finding that the data gathered by the program—even from private conversations—was accessible to the entire company. As one employee reportedly put it: \"I swear we're probably the richest yet most incompetent company to exist in tech right now.” Meta suspended the program almost immediately, according to Business Insider , and said workers would be able to opt out if it’s ever reintroduced. There seem to be conflicting accounts of whether the data Meta collected from employees was used in any meaningful way. Employees told Business Insider that one executive claimed the data was not actually used for AI training, while Bosworth reportedly said it proved more useful than anticipated.&nbsp; In leaked audio obtained by More Perfect Union , Bosworth has maintained that the employees who were openly opposed to MCI “made the entire company worse.” But the blowback Meta faced from its workforce—not to mention the public scrutiny—indicates that the risks far outweigh the benefits of trying to implement such a controversial program. As Fast Company has reported , it invites complex questions about the ethics of collecting employee data, even if it is technically legal to do so on company devices. The vocal outcry from Meta employees also points to more public dissent from white-collar employees, who are often not the target of this type of workplace monitoring. In the lead-up to a sweeping round of layoffs in May, many Meta employees expressed their discontent through memes and websites counting down to the announcement, The New York Times reported .&nbsp; As the AI boom continues to drive layoffs across the tech industry—and amid growing fears among the workforce that they could be replaced by AI—some tech workers seem newly emboldened to air their grievances about their working conditions.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "Work Life"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "Work Life"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "what happened when meta tried to collect employee data"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T18:30:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "Work Life"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.499Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260912-meta-just-told-some-of-its-for",
+    "canonicalTopic": "Meta Just Told Some of Its Former Managers to Become Managers Again",
+    "slug": "meta-just-told-some-of-its-former-managers-to-become-managers-again",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-4-Meta20just20told20some20",
+        "query": "Meta Just Told Some of Its Former Managers to Become Managers Again",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T18:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Meta just told some of its former managers to become managers again",
+            "itemLink": "https://www.fastcompany.com/91606260/meta-just-told-some-of-its-former-managers-to-become-managers-again",
+            "publishedDate": "2026-09-11T18:00:00.000Z",
+            "contentSnippet": "Meta may have been a bit too enthusiastic in its highly publicized campaign to reduce middle management . The social media giant has reportedly been asking some individual contributors in its Applied AI (AAI) division if they would like to return to managerial roles, according to Business Insider , citing four people with “knowledge of the matter.” Meta declined a request for comment. Meta formed the AAI division in March to support its superintelligence efforts. Meta said the division’s teams would have a “flat” structure, with up to 50 individual contributors for each manager. Some individual contributors in the 7,000-person unit had previously been in management. The return of some of those workers to supervisory roles is particularly noteworthy given that Meta is closely associated with the corporate trend toward reducing bureaucracy, known colloquially as the \" Great Flattening .\" Claiming “flatter is faster,” it aggressively eliminated management layers during its \"Year of Efficiency\" in 2023. Managers were also targeted as part of its 10% workforce cuts earlier this year, according to an analysis by Business Insider . Across the economy, companies have made similar changes in recent years. Overall, the average number of people reporting to managers has increased from 10.9 in 2024 to 12.1 in 2025, and is up nearly 50% since 2013, according to Gallup . Uber announced last week that it was reducing its workforce by 10%, or about 3,300 workers, and cutting by 20% the number of employees who sit seven or more layers from the CEO. It said the cuts were intended to make the company “simpler and faster” and involved “removing layers, simplifying team structures, refining our global location strategy, and focusing on our people and investments.” The new reassignments are not the first personnel changes in Meta’s AAI division. The company previously allowed some employees added to the division to leave amid complaints that they had been “drafted” in against their wishes.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "Work Life"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "Work Life"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "meta just told some of its former managers to become managers again"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T18:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "Work Life"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.525Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260912-netflix-hit-with-major-lawsuit",
+    "canonicalTopic": "Netflix Hit with Major Lawsuit over Alleged Secret Tracking of Families and Children",
+    "slug": "netflix-hit-with-major-lawsuit-over-alleged-secret-tracking-of-families-and-children",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-5-Netflix20hit20with20maj",
+        "query": "Netflix Hit with Major Lawsuit over Alleged Secret Tracking of Families and Children",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T17:15:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Netflix hit with major lawsuit over alleged secret tracking of families and children",
+            "itemLink": "https://www.fastcompany.com/91606139/netflix-hit-with-major-lawsuit-over-alleged-secret-tracking-of-families-and-children",
+            "publishedDate": "2026-09-11T17:15:00.000Z",
+            "contentSnippet": "If you’re unsettled about Netflix watching your every move during your next embarrassing binge watch, you’re not alone. In a new lawsuit, the state of Florida accused the streaming giant of deceiving customers about its plans to make money from ads, concealing the ways it collects behavioral data, and exposing kids to addictive design features.&nbsp; “Netflix told Florida families they could pay a monthly fee to escape Big Tech surveillance. That was false,” Florida Attorney General James Uthmeier said in a press release. “Netflix collected detailed data on children and families, designed its product to keep kids watching, and then commercialized that information to launch the advertising business it promised never to build.” Uthmeier, a Republican running in November’s race for a four-year term, succeeded the state’s former attorney general, Ashley Moody, when Florida Gov. Ron DeSantis appointed her to fill a Senate seat left empty by President Trump’s current Secretary of State Marco Rubio. The complaint accuses Netflix of pulling users in with a bait-and-switch scheme that initially promised them ad-free privacy, while quietly collecting vast troves of data on their activity to fine-tune future advertising. In the lawsuit, Florida’s attorney general points to the company’s collection of “user events”—behavioral data points that include location, keyword searches, streamed content, and even when a viewer pauses or rewinds a video. Beyond data collection, Florida takes issue with Netflix profiles designed specifically for kids, which the company represents as a “safe, protected environment,” according to the lawsuit. In the complaint, the attorney general’s office points to the addictive nature of autoplay—a feature enabled by default on children’s profiles. “For a busy parent trying to manage a household under pressure, autoplay is a vise grip designed to keep her child fixed under Netflix’s microscope,” the lawsuit states. “Netflix never told Floridians this.” A political template against Big Tech Earlier this year, Texas Attorney General Ken Paxton filed a separate, very similar complaint against Netflix, accusing the company of misleading its users while extracting their behavioral data. “Netflix is not the ad-free and kid-friendly platform it claims to be,” Paxton said of his decision to sue the company on behalf of his state. Paxton’s suit and the new Florida complaint show that politicians see an advantage in stirring up anti-tech sentiment in two key red states ahead of November. Paxton is running for U.S. Senate this fall and hoping to stave off an upset win from Democratic challenger James Talarico. In Florida, the Netflix complaint is just the attorney general’s latest broadside against Big Tech among a flurry of recent lawsuits. Uthmeier sued ChatGPT-maker OpenAI in early June, slamming the company for “[choosing] the AI race over the safety and security of our kids.” Two weeks later, Florida announced a fresh lawsuit against TikTok , accusing the sticky short-form video app of violating state child protection laws. “We’re going to send a message to Big Tech companies: If you hurt our kids, you are going to have to pay for it,” Uthmeier said during a press event announcing the decision to sue Netflix. “And so, in this lawsuit, we will be seeking billions of damages.”",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "News"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "News"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "netflix hit with major lawsuit over alleged secret tracking of families and children"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T17:15:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "News"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.547Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-discover-20260912-hanji-house-exhibition-celebra",
+    "canonicalTopic": "Hanji House Exhibition Celebrates Traditional Korean Papermaking",
+    "slug": "hanji-house-exhibition-celebrates-traditional-korean-papermaking",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-Hanji20House20exhibiti",
+        "query": "Hanji House Exhibition Celebrates Traditional Korean Papermaking",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T20:00:37.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Hanji House exhibition celebrates traditional Korean papermaking",
+            "itemLink": "https://www.dezeen.com/2026/09/11/hanji-house-exhibition-maison-et-objet/",
+            "publishedDate": "2026-09-11T20:00:37.000Z",
+            "contentSnippet": "Promotion: an exhibition during this year's Maison&Objet furniture fair in Paris is set to demonstrate the continued relevance of Hanji, a thousand-year-old Korean papermaking technique. Located within the Paris-Nord Villepinte exhibition centre, the exhibition aims to demonstrate contemporary potential uses for Hanji, Korea's traditional handmade paper. Hanji is primarily made from the inner bark fibres The post Hanji House exhibition celebrates traditional Korean papermaking appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "all",
+              "Design",
+              "Promotions",
+              "France",
+              "Paris",
+              "Paper",
+              "Craft",
+              "Maison&Objet",
+              "South Korea"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "all",
+            "Design",
+            "Promotions",
+            "France",
+            "Paris",
+            "Paper",
+            "Craft",
+            "Maison&Objet",
+            "South Korea"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "hanji house exhibition celebrates traditional korean papermaking"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T20:00:37.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "all",
+      "Design",
+      "Promotions",
+      "France",
+      "Paris",
+      "Paper",
+      "Craft",
+      "Maison&Objet",
+      "South Korea"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.572Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260912-the-buildings-on-the-world-tra",
+    "canonicalTopic": "The Buildings on the World Trade Center Site 25 Years Later",
+    "slug": "the-buildings-on-the-world-trade-center-site-25-years-later",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-2-The20buildings20on20the",
+        "query": "The Buildings on the World Trade Center Site 25 Years Later",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T14:00:06.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "The buildings on the World Trade Center site 25 years later",
+            "itemLink": "https://www.dezeen.com/2026/09/11/world-trade-center-buildings-25-years/",
+            "publishedDate": "2026-09-11T14:00:06.000Z",
+            "contentSnippet": "Multiple skyscrapers and smaller structures have been constructed since the terrorist attacks on 11 September 2001 devastated Lower Manhattan. Here, we take a look at the site 25 years on. In 1973, the World Trade Center complex comprised seven skyscrapers, including One and Two World Trade Center, the tallest buildings in the world at the The post The buildings on the World Trade Center site 25 years later appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "all",
+              "Architecture",
+              "USA",
+              "Skyscrapers",
+              "World Trade Center",
+              "Two World Trade Center",
+              "One World Trade Center",
+              "New York"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "all",
+            "Architecture",
+            "USA",
+            "Skyscrapers",
+            "World Trade Center",
+            "Two World Trade Center",
+            "One World Trade Center",
+            "New York"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the buildings on the world trade center site 25 years later"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T14:00:06.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "all",
+      "Architecture",
+      "USA",
+      "Skyscrapers",
+      "World Trade Center",
+      "Two World Trade Center",
+      "One World Trade Center",
+      "New York"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.594Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260912-six-handy-items-of-storage-on-",
+    "canonicalTopic": "Six Handy Items of Storage on Dezeen Showroom",
+    "slug": "six-handy-items-of-storage-on-dezeen-showroom",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-3-Six20handy20items20of20s",
+        "query": "Six Handy Items of Storage on Dezeen Showroom",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T13:00:26.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Six handy items of storage on Dezeen Showroom",
+            "itemLink": "https://www.dezeen.com/2026/09/11/storage-cupboards-cabinets-furnishings-dezeen-showroom/",
+            "publishedDate": "2026-09-11T13:00:26.000Z",
+            "contentSnippet": "Dezeen Showroom: from pieces designed to blend into the background to others that make a visual statement, the following storage products conceal clutter within capacious forms. These products come from the catalogues of global design brands, including those based in Denmark, Italy, the UK, Germany, South Korea and Poland. The selection includes cabinets, cupboards, sideboards, The post Six handy items of storage on Dezeen Showroom appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "Furniture",
+              "all",
+              "Products",
+              "Homeware",
+              "Design",
+              "Storage",
+              "Dezeen Showroom",
+              "Dezeen Showroom special features"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "Furniture",
+            "all",
+            "Products",
+            "Homeware",
+            "Design",
+            "Storage",
+            "Dezeen Showroom",
+            "Dezeen Showroom special features"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "six handy items of storage on dezeen showroom"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T13:00:26.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "Furniture",
+      "all",
+      "Products",
+      "Homeware",
+      "Design",
+      "Storage",
+      "Dezeen Showroom",
+      "Dezeen Showroom special features"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.608Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260912-rooms-new-identity-puts-people",
+    "canonicalTopic": "Rooms New Identity Puts People at the Center of Workplace Design",
+    "slug": "rooms-new-identity-puts-people-at-the-center-of-workplace-design",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-design-milk-1-ROOME28099s20New20Identity",
+        "query": "Rooms New Identity Puts People at the Center of Workplace Design",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T18:26:54.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://design-milk.com/feed/",
+            "feedTitle": "Design MilkDesign Milk",
+            "itemTitle": "ROOM’s New Identity Puts People at the Center of Workplace Design",
+            "itemLink": "https://design-milk.com/room-new-brand-identity-workplace-design/",
+            "publishedDate": "2026-09-11T18:26:54.000Z",
+            "contentSnippet": "The workplace brand looks to fashion for a visual refresh that shifts attention away from its products and toward people and everyday moments around them",
+            "categories": [
+              "design",
+              "interiors",
+              "home",
+              "art",
+              "Commercial",
+              "Main",
+              "phone booths",
+              "workplace design",
+              "workplace furniture"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "design",
+            "interiors",
+            "home",
+            "art",
+            "Commercial",
+            "Main",
+            "phone booths",
+            "workplace design",
+            "workplace furniture"
+          ],
+          "feedName": "Design Milk",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "rooms new identity puts people at the center of workplace design"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T18:26:54.000Z",
+    "tags": [
+      "design",
+      "interiors",
+      "home",
+      "art",
+      "Commercial",
+      "Main",
+      "phone booths",
+      "workplace design",
+      "workplace furniture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.635Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260912-the-awechair-makes-a-case-for-",
+    "canonicalTopic": "The Awechair Makes a Case for More Beautiful Accessible Design",
+    "slug": "the-awechair-makes-a-case-for-more-beautiful-accessible-design",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-design-milk-2-The20AWEchair20Makes20a",
+        "query": "The Awechair Makes a Case for More Beautiful Accessible Design",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T17:36:53.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://design-milk.com/feed/",
+            "feedTitle": "Design MilkDesign Milk",
+            "itemTitle": "The AWEchair Makes a Case for More Beautiful Accessible Design",
+            "itemLink": "https://design-milk.com/awechair-accessible-lift-chair-design/",
+            "publishedDate": "2026-09-11T17:36:53.000Z",
+            "contentSnippet": "After struggling to find a lift chair for her aging parents that didn’t look like medical equipment, Janet Feldman spent a decade developing a more considered alternative",
+            "categories": [
+              "design",
+              "interiors",
+              "home",
+              "art",
+              "Home Furnishings",
+              "Main",
+              "accessibility",
+              "accessible design",
+              "accessible furniture",
+              "accessible interiors",
+              "adaptive furniture",
+              "aging in place",
+              "aging in place design",
+              "American craftsmanship",
+              "Assistance With Elegance",
+              "assistive technology",
+              "AWEchair",
+              "chair design",
+              "club chair",
+              "ergonomic furniture",
+              "functional furniture",
+              "furniture craftsmanship",
+              "furniture design",
+              "German engineering",
+              "high-end furniture",
+              "home accessibility",
+              "inclusive design",
+              "independent living",
+              "industrial design",
+              "interior design",
+              "Italian leather",
+              "Janet Feldman",
+              "leather furniture",
+              "lift chair",
+              "longevity design",
+              "luxury furniture",
+              "luxury lift chair",
+              "luxury recliner",
+              "mobility aids",
+              "mobility furniture",
+              "multigenerational design",
+              "North Carolina furniture",
+              "product design",
+              "recliner",
+              "residential design",
+              "senior furniture",
+              "senior living",
+              "universal design",
+              "wellness design"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "design",
+            "interiors",
+            "home",
+            "art",
+            "Home Furnishings",
+            "Main",
+            "accessibility",
+            "accessible design",
+            "accessible furniture",
+            "accessible interiors",
+            "adaptive furniture",
+            "aging in place",
+            "aging in place design",
+            "American craftsmanship",
+            "Assistance With Elegance",
+            "assistive technology",
+            "AWEchair",
+            "chair design",
+            "club chair",
+            "ergonomic furniture",
+            "functional furniture",
+            "furniture craftsmanship",
+            "furniture design",
+            "German engineering",
+            "high-end furniture",
+            "home accessibility",
+            "inclusive design",
+            "independent living",
+            "industrial design",
+            "interior design",
+            "Italian leather",
+            "Janet Feldman",
+            "leather furniture",
+            "lift chair",
+            "longevity design",
+            "luxury furniture",
+            "luxury lift chair",
+            "luxury recliner",
+            "mobility aids",
+            "mobility furniture",
+            "multigenerational design",
+            "North Carolina furniture",
+            "product design",
+            "recliner",
+            "residential design",
+            "senior furniture",
+            "senior living",
+            "universal design",
+            "wellness design"
+          ],
+          "feedName": "Design Milk",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the awechair makes a case for more beautiful accessible design"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T17:36:53.000Z",
+    "tags": [
+      "design",
+      "interiors",
+      "home",
+      "art",
+      "Home Furnishings",
+      "Main",
+      "accessibility",
+      "accessible design",
+      "accessible furniture",
+      "accessible interiors",
+      "adaptive furniture",
+      "aging in place",
+      "aging in place design",
+      "American craftsmanship",
+      "Assistance With Elegance",
+      "assistive technology",
+      "AWEchair",
+      "chair design",
+      "club chair",
+      "ergonomic furniture",
+      "functional furniture",
+      "furniture craftsmanship",
+      "furniture design",
+      "German engineering",
+      "high-end furniture",
+      "home accessibility",
+      "inclusive design",
+      "independent living",
+      "industrial design",
+      "interior design",
+      "Italian leather",
+      "Janet Feldman",
+      "leather furniture",
+      "lift chair",
+      "longevity design",
+      "luxury furniture",
+      "luxury lift chair",
+      "luxury recliner",
+      "mobility aids",
+      "mobility furniture",
+      "multigenerational design",
+      "North Carolina furniture",
+      "product design",
+      "recliner",
+      "residential design",
+      "senior furniture",
+      "senior living",
+      "universal design",
+      "wellness design"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.653Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260912-nicole-alexander-shares-5-sire",
+    "canonicalTopic": "Nicole Alexander Shares 5 Siren Betty Projects Full of Personality",
+    "slug": "nicole-alexander-shares-5-siren-betty-projects-full-of-personality",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-design-milk-3-Nicole20Alexander20Sha",
+        "query": "Nicole Alexander Shares 5 Siren Betty Projects Full of Personality",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-11T13:00:35.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://design-milk.com/feed/",
+            "feedTitle": "Design MilkDesign Milk",
+            "itemTitle": "Nicole Alexander Shares 5 Siren Betty Projects Full of Personality",
+            "itemLink": "https://design-milk.com/nicole-alexander-siren-betty-friday-five/",
+            "publishedDate": "2026-09-11T13:00:35.000Z",
+            "contentSnippet": "From a nostalgic Italian-American restaurant to a former bank turned neighborhood bar, the Siren Betty founder shares five projects that capture her studio’s layered approach to interiors",
+            "categories": [
+              "design",
+              "interiors",
+              "home",
+              "art",
+              "Commercial",
+              "Interior Design",
+              "Main",
+              "adaptive reuse",
+              "American designers",
+              "antique furniture",
+              "antique shopping",
+              "art",
+              "bar design",
+              "cafe design",
+              "Chicago artists",
+              "Chicago design",
+              "Chicago designers",
+              "Chicago interior design",
+              "coffee shop design",
+              "collected interiors",
+              "commercial interiors",
+              "community design",
+              "craftsmanship",
+              "creative process",
+              "custom furniture",
+              "design inspiration",
+              "Dimmi Dimmi",
+              "Double Fun",
+              "eclectic interiors",
+              "El Che",
+              "El Che Steakhouse",
+              "estate sales",
+              "female designers",
+              "Friday Five",
+              "furniture design",
+              "Hoffman House",
+              "hospitality design",
+              "hospitality interiors",
+              "interior design",
+              "interior designers",
+              "Italian American design",
+              "layered interiors",
+              "Layla & Ringo’s",
+              "live fire cooking",
+              "Local artists",
+              "materiality",
+              "maximalist interiors",
+              "multidisciplinary design",
+              "Natalie Osborne",
+              "Nicole Alexander",
+              "nostalgic interiors",
+              "Peaches",
+              "remote work spaces",
+              "residential design",
+              "restaurant design",
+              "restaurant interiors",
+              "Siren Betty",
+              "Tilly Bagel",
+              "vintage design",
+              "vintage furniture",
+              "women in design"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "design",
+            "interiors",
+            "home",
+            "art",
+            "Commercial",
+            "Interior Design",
+            "Main",
+            "adaptive reuse",
+            "American designers",
+            "antique furniture",
+            "antique shopping",
+            "art",
+            "bar design",
+            "cafe design",
+            "Chicago artists",
+            "Chicago design",
+            "Chicago designers",
+            "Chicago interior design",
+            "coffee shop design",
+            "collected interiors",
+            "commercial interiors",
+            "community design",
+            "craftsmanship",
+            "creative process",
+            "custom furniture",
+            "design inspiration",
+            "Dimmi Dimmi",
+            "Double Fun",
+            "eclectic interiors",
+            "El Che",
+            "El Che Steakhouse",
+            "estate sales",
+            "female designers",
+            "Friday Five",
+            "furniture design",
+            "Hoffman House",
+            "hospitality design",
+            "hospitality interiors",
+            "interior design",
+            "interior designers",
+            "Italian American design",
+            "layered interiors",
+            "Layla & Ringo’s",
+            "live fire cooking",
+            "Local artists",
+            "materiality",
+            "maximalist interiors",
+            "multidisciplinary design",
+            "Natalie Osborne",
+            "Nicole Alexander",
+            "nostalgic interiors",
+            "Peaches",
+            "remote work spaces",
+            "residential design",
+            "restaurant design",
+            "restaurant interiors",
+            "Siren Betty",
+            "Tilly Bagel",
+            "vintage design",
+            "vintage furniture",
+            "women in design"
+          ],
+          "feedName": "Design Milk",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "nicole alexander shares 5 siren betty projects full of personality"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-11T13:00:35.000Z",
+    "tags": [
+      "design",
+      "interiors",
+      "home",
+      "art",
+      "Commercial",
+      "Interior Design",
+      "Main",
+      "adaptive reuse",
+      "American designers",
+      "antique furniture",
+      "antique shopping",
+      "art",
+      "bar design",
+      "cafe design",
+      "Chicago artists",
+      "Chicago design",
+      "Chicago designers",
+      "Chicago interior design",
+      "coffee shop design",
+      "collected interiors",
+      "commercial interiors",
+      "community design",
+      "craftsmanship",
+      "creative process",
+      "custom furniture",
+      "design inspiration",
+      "Dimmi Dimmi",
+      "Double Fun",
+      "eclectic interiors",
+      "El Che",
+      "El Che Steakhouse",
+      "estate sales",
+      "female designers",
+      "Friday Five",
+      "furniture design",
+      "Hoffman House",
+      "hospitality design",
+      "hospitality interiors",
+      "interior design",
+      "interior designers",
+      "Italian American design",
+      "layered interiors",
+      "Layla & Ringo’s",
+      "live fire cooking",
+      "Local artists",
+      "materiality",
+      "maximalist interiors",
+      "multidisciplinary design",
+      "Natalie Osborne",
+      "Nicole Alexander",
+      "nostalgic interiors",
+      "Peaches",
+      "remote work spaces",
+      "residential design",
+      "restaurant design",
+      "restaurant interiors",
+      "Siren Betty",
+      "Tilly Bagel",
+      "vintage design",
+      "vintage furniture",
+      "women in design"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-12T05:00:50.675Z",
+    "pinterestScore": 79.2
   }
 ]

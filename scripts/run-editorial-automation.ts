@@ -1,12 +1,19 @@
-import { runEditorialAutomation, formatAutomationSummary } from '../src/lib/editorial/automation/index.ts';
+import {
+  runEditorialAutomation,
+  formatAutomationSummary,
+  loadAutomationConfig,
+  type AutomationConfig,
+} from '../src/lib/editorial/automation/index.ts';
 
 async function main() {
   const args = process.argv.slice(2);
 
   const isLiveCommit = args.includes('--commit') || args.includes('--live');
+  const isExplicitDryRun = args.includes('--dry-run');
   const isRouter = args.includes('--router') || args.includes('--ai-router');
-  
-  let maxOpportunities = 1;
+  const isFixture = args.includes('--fixture');
+
+  let maxOpportunities: number | undefined;
   const maxArg = args.find((a) => a.startsWith('--max='));
   if (maxArg) {
     const val = parseInt(maxArg.split('=')[1], 10);
@@ -15,7 +22,7 @@ async function main() {
     }
   }
 
-  let minScore = 80;
+  let minScore: number | undefined;
   const scoreArg = args.find((a) => a.startsWith('--min-score='));
   if (scoreArg) {
     const val = parseInt(scoreArg.split('=')[1], 10);
@@ -24,22 +31,44 @@ async function main() {
     }
   }
 
+  const overrides: Partial<AutomationConfig> = {
+    enabled: true, // CLI execution explicitly enables automation
+  };
+
+  if (isLiveCommit) {
+    overrides.dryRun = false;
+  } else if (isExplicitDryRun) {
+    overrides.dryRun = true;
+  }
+
+  if (isRouter) {
+    overrides.providerMode = 'router';
+  } else if (isFixture) {
+    overrides.providerMode = 'fixture';
+  }
+
+  if (maxOpportunities !== undefined) {
+    overrides.maxOpportunities = maxOpportunities;
+  }
+
+  if (minScore !== undefined) {
+    overrides.minScoreThreshold = minScore;
+  }
+
+  const config = loadAutomationConfig(overrides);
+
   console.log('====================================================');
   console.log(' LifeMode Editorial Automation V1 Execution Engine  ');
   console.log('====================================================\n');
-  console.log(`* Mode:           ${isRouter ? 'AI Router (Managed Providers)' : 'Deterministic Fixtures (Offline)'}`);
-  console.log(`* Dry-Run:        ${isLiveCommit ? 'NO (Local Commit Allowed)' : 'YES (Safe Default)'}`);
-  console.log(`* Max Selection:  ${maxOpportunities}`);
-  console.log(`* Min Score:      ${minScore}`);
+  console.log(`* Mode:           ${config.providerMode === 'router' ? 'AI Router (Managed Providers)' : 'Deterministic Fixtures (Offline)'}`);
+  console.log(`* Dry-Run:        ${config.dryRun ? 'YES (Safe Default)' : 'NO (Local Commit Allowed)'}`);
+  console.log(`* Max Selection:  ${config.maxOpportunities}`);
+  console.log(`* Min Score:      ${config.minScoreThreshold}`);
   console.log('----------------------------------------------------\n');
 
   const result = await runEditorialAutomation({
-    enabled: true,
-    dryRun: !isLiveCommit,
+    ...config,
     allowCommit: isLiveCommit,
-    maxOpportunities,
-    minScoreThreshold: minScore,
-    providerMode: isRouter ? 'router' : 'fixture',
     allowUnrelatedChanges: true,
     commitAuthor: {
       name: 'LifeMode Editorial Automation',
@@ -61,3 +90,4 @@ main().catch((err) => {
   console.error('\nFatal Automation Error:', err);
   process.exit(1);
 });
+
