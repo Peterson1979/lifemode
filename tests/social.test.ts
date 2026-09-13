@@ -34,6 +34,10 @@ import {
   type ISocialPlatformAdapter,
   type SocialPlatform,
 } from '../src/lib/social/index.ts';
+import { AIRouterSocialGenerationProvider } from '../src/lib/social/generation/providers/ai-router.ts';
+import { loadAIConfig } from '../src/lib/ai/config.ts';
+import { parseGroqRetryDuration } from '../src/lib/ai/providers/groq.ts';
+import type { AIRouter } from '../src/lib/ai/router.ts';
 import {
   runScheduledEditorialAutomation,
   runEditorialWatchdog,
@@ -1844,5 +1848,162 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     assert.ok(receivedFbUrl.endsWith('.jpg'));
 
     await fs.rm(tempDir, { recursive: true, force: true });
+  });
+
+  await t.test('52. Groq configuration defaults tokensPerMinute to 8,000 and preserves env overrides', () => {
+    const origEnv = process.env.GROQ_TPM_LIMIT;
+    try {
+      delete process.env.GROQ_TPM_LIMIT;
+      const defaultConfig = loadAIConfig();
+      assert.equal(defaultConfig.groq.tokensPerMinute, 8_000);
+
+      process.env.GROQ_TPM_LIMIT = '15000';
+      const customConfig = loadAIConfig();
+      assert.equal(customConfig.groq.tokensPerMinute, 15_000);
+    } finally {
+      if (origEnv !== undefined) {
+        process.env.GROQ_TPM_LIMIT = origEnv;
+      } else {
+        delete process.env.GROQ_TPM_LIMIT;
+      }
+    }
+  });
+
+  await t.test('53. parseGroqRetryDuration accurately parses seconds retry durations and headers', () => {
+    // Header seconds
+    assert.equal(parseGroqRetryDuration('Rate limit reached', '17.145'), 17145);
+    assert.equal(parseGroqRetryDuration('', '30'), 30000);
+
+    // Message with float/int seconds
+    assert.equal(parseGroqRetryDuration('Rate limit reached. Please try again in 17.145s.'), 17145);
+    assert.equal(parseGroqRetryDuration('Limit 8000, Used 0. Please try again in 45s.'), 45000);
+    assert.equal(parseGroqRetryDuration('try again in 0.5s'), 500);
+  });
+
+  await t.test('54. parseGroqRetryDuration accurately parses minute/second composite retry durations', () => {
+    // Minute + Second: 1m15s -> (60 + 15) * 1000 = 75,000ms
+    assert.equal(
+      parseGroqRetryDuration('Rate limit reached for model openai/gpt-oss-20b on tokens per minute (TPM): Limit 8000, Used 0, Requested 6120. Please try again in 1m15s.'),
+      75000
+    );
+    assert.equal(parseGroqRetryDuration('Please try again in 1m15.5s.'), 75500);
+
+    // Pure minutes: 2m -> 120,000ms
+    assert.equal(parseGroqRetryDuration('Rate limit reached. Please try again in 2m.'), 120000);
+    assert.equal(parseGroqRetryDuration('try again in 1m'), 60000);
+  });
+
+  await t.test('55. parseGroqRetryDuration returns bounded fallback when retry duration is absent', () => {
+    // Absent header and message without duration pattern
+    assert.equal(parseGroqRetryDuration('Groq API returned HTTP 429: Rate limit reached.', null, 5000), 5000);
+    assert.equal(parseGroqRetryDuration('Unknown rate limit error', undefined, 10000), 10000);
+    assert.equal(parseGroqRetryDuration('', null, 5000), 5000);
+  });
+
+  await t.test('56. Social AI generation falls back to FixtureSocialGenerationProvider when AI Router fails', async () => {
+    const brief = buildSocialBrief({
+      topicId: 'top-fallback-test',
+      canonicalTopic: 'Mindful Morning Rituals for Remote Professionals',
+      pillar: 'life',
+      slug: 'mindful-morning-rituals',
+      totalScore: 88,
+      socialPotential: 90,
+      pinterestPotential: 85,
+      opportunityType: 'ARTICLE_AND_SOCIAL',
+      targetPlatforms: ['facebook', 'instagram'],
+      destinationUrl: 'https://lifemode.life/life/mindful-morning-rituals',
+      tags: ['life', 'mindfulness'],
+    });
+
+    // Mock router simulating total failure / 429 rate limit exhaustion
+    const mockFailingRouter = {
+      route: async () => ({
+        success: false,
+        error: {
+          code: 'RATE_LIMIT',
+          message: 'Groq API returned HTTP 429: TPM limit 8000 exceeded. Requested 6120.',
+          provider: 'groq',
+          retryable: true,
+        },
+        attemptedProviders: ['groq'],
+        attempts: [],
+      }),
+    } as unknown as AIRouter;
+
+    const provider = new AIRouterSocialGenerationProvider(mockFailingRouter);
+    const result = await provider.generateSocialContent(brief);
+
+    assert.equal(result.success, true);
+    assert.ok(result.content);
+    assert.equal(result.content.topicId, 'top-fallback-test');
+    assert.equal(result.content.pillar, 'life');
+    assert.ok(result.content.shortCaption.length > 20);
+
+    // Validate the resulting content passes full LifeMode validation
+    const validation = validateSocialContent(result.content);
+    assert.equal(validation.valid, true);
+    assert.equal(validation.errors.length, 0);
+  });
+
+  await t.test('57. AI-generated social content is strictly preferred when AI Router succeeds', async () => {
+    const brief = buildSocialBrief({
+      topicId: 'top-ai-pref-test',
+      canonicalTopic: 'Architectural Silence in Minimalist Homes',
+      pillar: 'design',
+      slug: 'architectural-silence',
+      totalScore: 92,
+      socialPotential: 95,
+      pinterestPotential: 90,
+      opportunityType: 'ARTICLE_AND_SOCIAL',
+      targetPlatforms: ['facebook', 'instagram', 'pinterest'],
+      destinationUrl: 'https://lifemode.life/design/architectural-silence',
+      tags: ['design', 'architecture'],
+    });
+
+    const aiGeneratedJson = JSON.stringify({
+      topicId: 'top-ai-pref-test',
+      pillar: 'design',
+      concept: 'Acoustic calm and spatial purity',
+      hook: 'How silence transforms modern architecture',
+      title: 'Architectural Silence in Minimalist Homes',
+      shortCaption: 'Exploring acoustic calm and intentional living in modern design.',
+      extendedCaption: 'The quietest rooms are designed with intention. Our latest design dispatch explores spatial acoustic purity.',
+      callToAction: 'Read the full design dispatch on LifeMode.',
+      hashtags: ['#minimalism', '#architecture', '#lifemode'],
+      visualConcept: 'Monolithic concrete interior with soft diffuse daylight',
+      imageText: {
+        headline: 'Architectural Silence',
+        subheadline: 'LIFEMODE DESIGN',
+      },
+      targetPlatforms: ['facebook', 'instagram', 'pinterest'],
+      destinationUrl: 'https://lifemode.life/design/architectural-silence',
+    });
+
+    const mockSuccessRouter = {
+      route: async () => ({
+        success: true,
+        provider: 'groq',
+        response: {
+          text: aiGeneratedJson,
+          provider: 'groq',
+          model: 'openai/gpt-oss-20b',
+          inputTokens: 350,
+          outputTokens: 250,
+          totalTokens: 600,
+          durationMs: 420,
+        },
+        attempts: [],
+      }),
+    } as unknown as AIRouter;
+
+    const provider = new AIRouterSocialGenerationProvider(mockSuccessRouter);
+    const result = await provider.generateSocialContent(brief);
+
+    assert.equal(result.success, true);
+    assert.equal(result.provider, 'groq');
+    assert.equal(result.model, 'openai/gpt-oss-20b');
+    assert.equal(result.content?.concept, 'Acoustic calm and spatial purity');
+    assert.equal(result.content?.visualConcept, 'Monolithic concrete interior with soft diffuse daylight');
+    assert.equal(result.rawResponse, aiGeneratedJson);
   });
 });

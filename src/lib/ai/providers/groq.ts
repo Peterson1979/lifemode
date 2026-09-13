@@ -9,6 +9,54 @@ export interface GroqProviderOptions {
 }
 
 /**
+ * Parses retry-after duration from Groq HTTP 429 response message or headers.
+ * Supports formats such as:
+ * - Header values (e.g. "17.145", "15")
+ * - "try again in 17.145s"
+ * - "try again in 1m15s" / "try again in 1m15.5s"
+ * - "try again in 2m"
+ * - Bounded fallback (defaults to 5,000ms) when duration is absent or unparseable.
+ */
+export function parseGroqRetryDuration(
+  message?: string,
+  headerValue?: string | null,
+  fallbackMs = 5_000
+): number {
+  if (headerValue) {
+    const sec = parseFloat(headerValue);
+    if (!isNaN(sec) && sec > 0) {
+      return Math.ceil(sec * 1000);
+    }
+  }
+
+  if (message) {
+    // Match "try again in 1m15s", "try again in 1m15.2s", "try again in 2m", "try again in 17.145s"
+    const minSecMatch = message.match(/try again in (?:([0-9.]+)\s*m(?:in(?:ute)?s?)?)?\s*(?:([0-9.]+)\s*s(?:ec(?:ond)?s?)?)?/i);
+    if (minSecMatch && (minSecMatch[1] || minSecMatch[2])) {
+      const minutes = minSecMatch[1] ? parseFloat(minSecMatch[1]) : 0;
+      const seconds = minSecMatch[2] ? parseFloat(minSecMatch[2]) : 0;
+      const totalMs = Math.ceil((minutes * 60 + seconds) * 1000);
+      if (totalMs > 0) {
+        return totalMs;
+      }
+    }
+
+    // Match generic patterns like "in 1m15s", "in 2m", "in 17.145s"
+    const genericMatch = message.match(/(?:in|after)\s+(?:([0-9.]+)\s*m(?:in(?:ute)?s?)?)?\s*(?:([0-9.]+)\s*s(?:ec(?:ond)?s?)?)?/i);
+    if (genericMatch && (genericMatch[1] || genericMatch[2])) {
+      const minutes = genericMatch[1] ? parseFloat(genericMatch[1]) : 0;
+      const seconds = genericMatch[2] ? parseFloat(genericMatch[2]) : 0;
+      const totalMs = Math.ceil((minutes * 60 + seconds) * 1000);
+      if (totalMs > 0) {
+        return totalMs;
+      }
+    }
+  }
+
+  return fallbackMs;
+}
+
+/**
  * Groq Cloud AI Provider Implementation.
  * Uses official Groq OpenAI-compatible REST API with clean timeout, error mapping, and usage extraction.
  */
@@ -180,21 +228,7 @@ export class GroqProvider implements IAIProvider {
           retryable = true;
 
           const retryAfterHeader = response.headers?.get ? response.headers.get('retry-after') : null;
-          if (retryAfterHeader) {
-            const seconds = parseFloat(retryAfterHeader);
-            if (!isNaN(seconds) && seconds > 0) {
-              retryAfterMs = Math.ceil(seconds * 1000);
-            }
-          }
-          if (!retryAfterMs) {
-            const match = sanitizedMsg.match(/try again in ([0-9.]+)s/i);
-            if (match) {
-              const seconds = parseFloat(match[1]);
-              if (!isNaN(seconds) && seconds > 0) {
-                retryAfterMs = Math.ceil(seconds * 1000);
-              }
-            }
-          }
+          retryAfterMs = parseGroqRetryDuration(sanitizedMsg, retryAfterHeader, 5_000);
         } else if (status === 400) {
           if (sanitizedMsg.toLowerCase().includes('failed to generate json') || sanitizedMsg.toLowerCase().includes('json')) {
             code = 'MALFORMED_OUTPUT';

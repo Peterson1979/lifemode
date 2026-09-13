@@ -4,19 +4,24 @@ import { buildSocialGenerationPrompt } from '../prompt.ts';
 import { AIRouter, defaultAIRouter } from '../../../ai/router.ts';
 import type { AIRequest } from '../../../ai/types.ts';
 import { extractAndParseJson } from '../../../ai/json-extractor.ts';
+import { FixtureSocialGenerationProvider } from './fixture.ts';
 
 export class AIRouterSocialGenerationProvider implements ISocialGenerationProvider {
   readonly name = 'AI Router Social Provider';
   readonly model = 'router-managed';
   private router: AIRouter;
+  private fallbackProvider: ISocialGenerationProvider;
 
-  constructor(router: AIRouter = defaultAIRouter) {
+  constructor(
+    router: AIRouter = defaultAIRouter,
+    fallbackProvider: ISocialGenerationProvider = new FixtureSocialGenerationProvider()
+  ) {
     this.router = router;
+    this.fallbackProvider = fallbackProvider;
   }
 
   private parseJsonOutput(rawText: string, brief: SocialBrief): GeneratedSocialContent {
     const parsed = extractAndParseJson<any>(rawText);
-
 
     return {
       topicId: parsed.topicId || brief.topicId,
@@ -54,48 +59,43 @@ export class AIRouterSocialGenerationProvider implements ISocialGenerationProvid
     try {
       const routerResult = await this.router.route(aiRequest);
 
-      if (!routerResult.success) {
-        return {
-          success: false,
-          durationMs: Date.now() - startTime,
-          provider: this.name,
-          error: {
-            code: routerResult.error?.code || 'ROUTER_ERROR',
-            message: routerResult.error?.message || 'AI Router failed to generate social content.',
-          },
-        };
+      if (routerResult.success && routerResult.response?.text) {
+        try {
+          const content = this.parseJsonOutput(routerResult.response.text, brief);
+
+          return {
+            success: true,
+            content,
+            rawResponse: routerResult.response.text,
+            durationMs: Date.now() - startTime,
+            provider: routerResult.response.provider,
+            model: routerResult.response.model,
+          };
+        } catch (jsonErr: any) {
+          console.warn(`[AI Router Social Provider] Output parsing failed: ${jsonErr.message}. Falling back to deterministic generation.`);
+        }
+      } else {
+        console.warn(`[AI Router Social Provider] AI generation failed (${routerResult.error?.code || 'ERROR'}: ${routerResult.error?.message || 'unknown'}). Falling back to deterministic generation.`);
       }
-
-      if (!routerResult.response?.text) {
-        return {
-          success: false,
-          durationMs: Date.now() - startTime,
-          provider: this.name,
-          error: {
-            code: 'EMPTY_RESPONSE',
-            message: 'AI Router returned empty response text.',
-          },
-        };
-      }
-
-      const content = this.parseJsonOutput(routerResult.response.text, brief);
-
-      return {
-        success: true,
-        content,
-        rawResponse: routerResult.response.text,
-        durationMs: Date.now() - startTime,
-        provider: routerResult.response.provider,
-        model: routerResult.response.model,
-      };
     } catch (err: any) {
+      console.warn(`[AI Router Social Provider] Unexpected error during AI generation: ${err.message}. Falling back to deterministic generation.`);
+    }
+
+    // Fallback: Use deterministic FixtureSocialGenerationProvider when AI Router fails
+    try {
+      const fallbackResult = await this.fallbackProvider.generateSocialContent(brief);
+      return {
+        ...fallbackResult,
+        durationMs: Date.now() - startTime,
+      };
+    } catch (fallbackErr: any) {
       return {
         success: false,
         durationMs: Date.now() - startTime,
         provider: this.name,
         error: {
-          code: 'PARSING_ERROR',
-          message: `Failed to parse structured social content JSON: ${err?.message || String(err)}`,
+          code: 'FALLBACK_ERROR',
+          message: `Both AI Router and fallback social generation failed: ${fallbackErr?.message || String(fallbackErr)}`,
         },
       };
     }
