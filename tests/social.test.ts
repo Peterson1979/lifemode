@@ -1419,6 +1419,72 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     assert.ok(watchdogResult.socialResult);
     assert.equal(watchdogResult.socialResult.dryRun, true);
     assert.ok(watchdogResult.socialResult.succeededCount > 0);
+    assert.ok(watchdogResult.socialResult.summary.includes('Dispatched Social Opportunities'));
+
+    await fs.rm(tempDir, { recursive: true, force: true });
+  });
+
+  await t.test('43. Social automation summary and manifest retain platform publication identifiers and URLs for observability', async () => {
+    const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lm-soc-obs-'));
+    const historyRepo = new FilesystemSocialHistoryRepository(tempDir);
+    const topic = createMockTopic({ id: 'top-obs-test' });
+
+    const customFb = new FacebookPlatformAdapter();
+    customFb.publish = async (pkg) => ({
+      platform: 'facebook',
+      status: 'PUBLISHED',
+      postId: 'fb-post-id-123456',
+      postUrl: 'https://facebook.com/123456',
+      publishedAt: new Date().toISOString(),
+      idempotencyKey: pkg.idempotencyKey,
+    });
+
+    const customIg = new InstagramPlatformAdapter();
+    customIg.publish = async (pkg) => ({
+      platform: 'instagram',
+      status: 'PUBLISHED',
+      postId: 'ig-media-id-789012',
+      postUrl: 'https://instagram.com/p/789012',
+      publishedAt: new Date().toISOString(),
+      idempotencyKey: pkg.idempotencyKey,
+    });
+
+    const adapters = new Map<SocialPlatform, ISocialPlatformAdapter>([
+      ['facebook', customFb],
+      ['instagram', customIg],
+      ['pinterest', new PinterestPlatformAdapter()],
+    ]);
+
+    const runResult = await runSocialPipeline({
+      candidates: [topic],
+      config: {
+        enabled: true,
+        dryRun: false,
+        allowPublish: true,
+        storageDir: tempDir,
+      },
+      historyRepository: historyRepo,
+      platformAdapters: adapters,
+    });
+
+    assert.equal(runResult.succeededCount, 1);
+    assert.ok(runResult.summary.includes('Dispatched Social Opportunities'));
+    assert.ok(runResult.summary.includes('FACEBOOK: [PUBLISHED] | ID: fb-post-id-123456 | URL: https://facebook.com/123456'));
+    assert.ok(runResult.summary.includes('INSTAGRAM: [PUBLISHED] | ID: ig-media-id-789012 | URL: https://instagram.com/p/789012'));
+    assert.ok(runResult.summary.includes('PINTEREST: [NOT_CONFIGURED]'));
+
+    // Check persisted manifest
+    const history = await historyRepo.loadHistory();
+    assert.equal(history.length, 1);
+    assert.equal(history[0].platformResults.facebook?.postId, 'fb-post-id-123456');
+    assert.equal(history[0].platformResults.facebook?.postUrl, 'https://facebook.com/123456');
+    assert.equal(history[0].platformResults.instagram?.postId, 'ig-media-id-789012');
+    assert.equal(history[0].platformResults.instagram?.postUrl, 'https://instagram.com/p/789012');
+
+    // Confirm no secrets or tokens are stored in the manifest
+    const manifestJson = JSON.stringify(history);
+    assert.equal(manifestJson.includes('access_token'), false);
+    assert.equal(manifestJson.includes('secret'), false);
 
     await fs.rm(tempDir, { recursive: true, force: true });
   });

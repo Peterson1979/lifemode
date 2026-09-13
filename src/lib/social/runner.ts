@@ -610,11 +610,27 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
     status = 'SUCCESS_NO_PUBLICATION';
   }
 
-  const summary = [
+  const summaryLines = [
     `Social Automation Run [${status}]`,
     `Selected: ${opportunities.length} | Succeeded: ${succeededCount} | Rejected: ${rejectedCount} | Failed: ${failedCount}`,
     `Platforms: Facebook (${platformSummary.facebook.published} pub, ${platformSummary.facebook.failed} fail) | Instagram (${platformSummary.instagram.published} pub, ${platformSummary.instagram.failed} fail) | Pinterest (${platformSummary.pinterest.published} pub, ${platformSummary.pinterest.failed} fail)`,
-  ].join('\n');
+  ];
+
+  if (manifestEntries.length > 0) {
+    summaryLines.push('\n--- Dispatched Social Opportunities ---');
+    for (const entry of manifestEntries) {
+      summaryLines.push(`* [${entry.pillar.toUpperCase()}] "${entry.canonicalTopic}" (Topic ID: ${entry.topicId})`);
+      for (const [platform, result] of Object.entries(entry.platformResults)) {
+        if (!result) continue;
+        const idInfo = result.postId ? ` | ID: ${result.postId}` : '';
+        const urlInfo = result.postUrl ? ` | URL: ${result.postUrl}` : '';
+        const errInfo = result.error ? ` | Error: ${result.error}` : '';
+        summaryLines.push(`  - ${platform.toUpperCase()}: [${result.status}]${idInfo}${urlInfo}${errInfo}`);
+      }
+    }
+  }
+
+  const summary = summaryLines.join('\n');
 
   return {
     runId,

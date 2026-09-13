@@ -132,3 +132,12 @@ jobs:
           LIFEMODE_SOCIAL_MAX_OPPORTUNITIES: ${{ github.event_name == 'workflow_dispatch' && inputs.social_max || '3' }}
         run: |
           npx tsx scripts/run-scheduled-automation.ts
+
+      - name: Upload Social Automation Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: social-automation-manifest
+          path: data/social/
+          if-no-files-found: ignore
+          retention-days: 30

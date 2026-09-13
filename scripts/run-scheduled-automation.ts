@@ -158,6 +158,10 @@ async function main() {
         console.log('\n--- Scheduled Execution Summary ---');
         console.log(watchdogResult.scheduledResult.summary);
       }
+      if (watchdogResult.socialResult) {
+        console.log('\n--- Social Automation Summary ---');
+        console.log(watchdogResult.socialResult.summary);
+      }
       console.log('\n====================================================');
       console.log(` Scheduled Automation Finished [${watchdogResult.status}]`);
       console.log('====================================================\n');
