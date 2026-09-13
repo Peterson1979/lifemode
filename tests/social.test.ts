@@ -20,6 +20,8 @@ import {
   resolveFacebookPageAccessToken,
   InstagramPlatformAdapter,
   PinterestPlatformAdapter,
+  FixtureSocialImageProvider,
+  isValidJpegBuffer,
   FixtureSocialGenerationProvider,
   FixtureSocialAssetStorageProvider,
   CloudflareR2SocialAssetStorageProvider,
@@ -1696,5 +1698,151 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
       if (savedFbPageId !== undefined) process.env.FACEBOOK_PAGE_ID = savedFbPageId;
       else delete process.env.FACEBOOK_PAGE_ID;
     }
+  });
+
+  await t.test('49. Fixture image provider generates valid JPEG buffer with correct dimensions, MIME type, and magic bytes', async () => {
+    const provider = new FixtureSocialImageProvider();
+    const result = await provider.generateImage({
+      topicId: 'calm-living-spaces',
+      pillar: 'life',
+      format: '1080x1350',
+      headlineOverlay: 'The Architecture of Calm Workspaces',
+      subheadlineOverlay: 'LIFEMODE LIFE',
+    });
+
+    assert.equal(result.success, true);
+    assert.equal(result.status, 'SUCCESS');
+    assert.ok(result.asset);
+    assert.equal(result.asset.mimeType, 'image/jpeg');
+    assert.equal(result.asset.format, '1080x1350');
+    assert.equal(result.asset.width, 1080);
+    assert.equal(result.asset.height, 1350);
+
+    const buf = result.asset.buffer;
+    assert.ok(buf);
+    assert.ok(buf.length > 5000, `Expected JPEG buffer > 5KB, got ${buf.length}`);
+
+    // Verify JPEG magic bytes: 0xFF, 0xD8, 0xFF
+    assert.equal(isValidJpegBuffer(buf), true);
+    assert.equal(buf[0], 0xff);
+    assert.equal(buf[1], 0xd8);
+    assert.equal(buf[2], 0xff);
+
+    // Verify buffer is NOT raw SVG XML
+    const str = buf.toString('utf-8', 0, 50);
+    assert.equal(str.includes('<svg'), false);
+    assert.equal(str.includes('<?xml'), false);
+  });
+
+  await t.test('50. Cloudflare R2 storage uploads genuine JPEG buffer with Content-Type image/jpeg and retains .jpg key extension', async () => {
+    let capturedHeaders: Record<string, string> = {};
+    let capturedBody: Uint8Array | undefined;
+    let capturedUrl = '';
+
+    const mockFetch = async (url: string, init?: any) => {
+      capturedUrl = url;
+      capturedHeaders = init?.headers || {};
+      capturedBody = init?.body;
+      return {
+        ok: true,
+        status: 200,
+        text: async () => '',
+      } as any;
+    };
+
+    const imageProvider = new FixtureSocialImageProvider();
+    const imageRes = await imageProvider.generateImage({
+      topicId: 'kyoto-gardens',
+      pillar: 'travel',
+      format: '1080x1350',
+      headlineOverlay: 'Quiet Architecture in Kyoto',
+    });
+
+    assert.equal(imageRes.success, true);
+    const asset = imageRes.asset!;
+
+    const r2Provider = new CloudflareR2SocialAssetStorageProvider({
+      accountId: 'test-account-id',
+      accessKeyId: 'test-access-key',
+      secretAccessKey: 'test-secret-key',
+      bucketName: 'lifemode-assets',
+      publicBaseUrl: 'https://media.lifemode.life',
+      customFetch: mockFetch as any,
+    });
+
+    const uploadRes = await r2Provider.uploadAsset({
+      topicId: 'kyoto-gardens',
+      pillar: 'travel',
+      assetHash: asset.assetHash,
+      buffer: asset.buffer!,
+      mimeType: asset.mimeType,
+      format: asset.format,
+    });
+
+    assert.equal(uploadRes.success, true);
+    assert.equal(uploadRes.contentType, 'image/jpeg');
+    assert.ok(uploadRes.objectKey.endsWith('.jpg'));
+    assert.ok(uploadRes.publicUrl.endsWith('.jpg'));
+    assert.equal(uploadRes.publicUrl, `https://media.lifemode.life/social/kyoto-gardens/${asset.assetHash.slice(0, 16)}.jpg`);
+
+    // Verify PUT request headers & body
+    assert.equal(capturedHeaders['Content-Type'], 'image/jpeg');
+    assert.ok(capturedBody);
+    assert.equal(isValidJpegBuffer(Buffer.from(capturedBody)), true);
+  });
+
+  await t.test('51. End-to-end pipeline produces raster JPEG asset and passes genuine image/jpeg URL to platform adapters', async () => {
+    let receivedFbUrl = '';
+    let storageContentType = '';
+
+    const mockStorage: ISocialAssetStorageProvider = {
+      name: 'Mock Storage',
+      isConfigured: () => true,
+      getObjectKey: (topicId, hash) => `social/${topicId}/${hash.slice(0, 16)}.jpg`,
+      uploadAsset: async (req) => {
+        storageContentType = req.mimeType;
+        assert.equal(isValidJpegBuffer(req.buffer), true);
+        return {
+          success: true,
+          status: 'SUCCESS',
+          publicUrl: `https://media.lifemode.life/social/${req.topicId}/${req.assetHash.slice(0, 16)}.jpg`,
+          objectKey: `social/${req.topicId}/${req.assetHash.slice(0, 16)}.jpg`,
+          contentType: req.mimeType,
+          sizeBytes: req.buffer.length,
+          assetHash: req.assetHash,
+          provider: 'Mock Storage',
+          durationMs: 5,
+        };
+      },
+    };
+
+    const customFbAdapter = new FacebookPlatformAdapter();
+    const origPrepare = customFbAdapter.prepare.bind(customFbAdapter);
+    customFbAdapter.prepare = async (content, asset, options) => {
+      receivedFbUrl = asset.url || '';
+      return origPrepare(content, asset, options);
+    };
+
+    const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lm-soc-jpeg-'));
+    const topic = createMockTopic({ id: 'top-jpeg-flow' });
+
+    const result = await runSocialPipeline({
+      candidates: [topic],
+      config: {
+        enabled: true,
+        dryRun: true,
+        storageDir: tempDir,
+      },
+      imageProvider: new FixtureSocialImageProvider(),
+      storageProvider: mockStorage,
+      platformAdapters: new Map([['facebook', customFbAdapter]]),
+    });
+
+    assert.equal(result.succeededCount, 1);
+    assert.equal(storageContentType, 'image/jpeg');
+    assert.ok(receivedFbUrl.startsWith('https://media.lifemode.life/social/top-jpeg-flow/'));
+    assert.ok(receivedFbUrl.endsWith('.jpg'));
+
+    await fs.rm(tempDir, { recursive: true, force: true });
   });
 });

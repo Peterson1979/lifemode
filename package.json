@@ -20,7 +20,8 @@
   "dependencies": {
     "@astrojs/mdx": "^8.0.1",
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.3.2"
+    "astro": "^7.3.2",
+    "sharp": "^0.35.4"
   },
   "allowScripts": {
     "esbuild": true

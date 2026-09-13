@@ -1,6 +1,17 @@
 import { createHash } from 'node:crypto';
+import sharp from 'sharp';
 import type { ISocialImageProvider, ImageGenerationRequest, ImageGenerationResult } from '../contracts.ts';
 import type { SocialVisualAsset } from '../../types.ts';
+
+/**
+ * Validates that a buffer is a non-empty, valid JPEG with standard magic bytes (0xFF, 0xD8, 0xFF).
+ */
+export function isValidJpegBuffer(buffer: Buffer | Uint8Array): boolean {
+  if (!buffer || buffer.length < 100) {
+    return false;
+  }
+  return buffer[0] === 0xff && buffer[1] === 0xd8 && buffer[2] === 0xff;
+}
 
 export class FixtureSocialImageProvider implements ISocialImageProvider {
   readonly name = 'Fixture Social Image Provider';
@@ -62,28 +73,51 @@ export class FixtureSocialImageProvider implements ISocialImageProvider {
   <text x="80" y="${height - 120}" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="500" fill="#a1a1aa">Read the complete guide on lifemode.life</text>
 </svg>`;
 
-    const buffer = Buffer.from(svg, 'utf-8');
-    const assetHash = createHash('sha256').update(buffer).digest('hex');
+    try {
+      const svgBuffer = Buffer.from(svg, 'utf-8');
+      const jpegBuffer = await sharp(svgBuffer)
+        .resize(width, height)
+        .jpeg({
+          quality: 90,
+          progressive: true,
+          chromaSubsampling: '4:4:4',
+        })
+        .toBuffer();
 
-    const asset: SocialVisualAsset = {
-      assetId: `asset-${request.topicId}-${request.format}-${assetHash.slice(0, 8)}`,
-      format: request.format,
-      mimeType: 'image/svg+xml',
-      width,
-      height,
-      assetHash,
-      altText: `LifeMode ${request.pillar.toUpperCase()}: ${headline}`,
-      headlineOverlay: headline,
-      buffer,
-      isFixture: true,
-    };
+      if (!isValidJpegBuffer(jpegBuffer)) {
+        throw new Error('Rendered social asset produced invalid JPEG output bytes.');
+      }
 
-    return {
-      success: true,
-      status: 'SUCCESS',
-      asset,
-      provider: this.name,
-      durationMs: Date.now() - startTime,
-    };
+      const assetHash = createHash('sha256').update(jpegBuffer).digest('hex');
+
+      const asset: SocialVisualAsset = {
+        assetId: `asset-${request.topicId}-${request.format}-${assetHash.slice(0, 8)}`,
+        format: request.format,
+        mimeType: 'image/jpeg',
+        width,
+        height,
+        assetHash,
+        altText: `LifeMode ${request.pillar.toUpperCase()}: ${headline}`,
+        headlineOverlay: headline,
+        buffer: jpegBuffer,
+        isFixture: true,
+      };
+
+      return {
+        success: true,
+        status: 'SUCCESS',
+        asset,
+        provider: this.name,
+        durationMs: Date.now() - startTime,
+      };
+    } catch (err: any) {
+      return {
+        success: false,
+        status: 'FAILED',
+        provider: this.name,
+        error: `Rasterization failed for social visual asset: ${err?.message || String(err)}`,
+        durationMs: Date.now() - startTime,
+      };
+    }
   }
 }
