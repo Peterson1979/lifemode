@@ -39,7 +39,7 @@ export const ECOSYSTEM_PROJECTS: EcosystemProject[] = [
     name: 'GetAISet',
     tagline: 'Curated AI Toolkits & Workflow Suites',
     description:
-      'A structured intelligence hub offering vetted productivity tools, automation blueprints, and generative AI frameworks.',
+      'GetAISet is a multilingual AI education and discovery platform helping learners, professionals, creators, marketers, and developers find and understand useful AI tools, online courses, learning paths, tutorials, comparisons, and practical AI resources.',
     url: 'https://getaiset.com',
     relevantPillars: ['tech-ai', 'money'],
     categories: ['Productivity', 'AI Tools', 'Workflows', 'Modern Tech'],
