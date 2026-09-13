@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T10:13:44.089Z",
+    "updatedAt": "2026-09-13T10:41:20.723Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1397,7 +1397,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T10:13:44.090Z",
+    "updatedAt": "2026-09-13T10:41:20.725Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1458,7 +1458,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T10:13:44.091Z",
+    "updatedAt": "2026-09-13T10:41:20.727Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1519,7 +1519,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T10:13:44.092Z",
+    "updatedAt": "2026-09-13T10:41:20.728Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1878,8 +1878,8 @@
     "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T08:51:25.026Z",
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-13T10:43:36.879Z",
     "pinterestScore": 85.3,
     "revisionCyclesCount": 0
   },
@@ -22642,6 +22642,2357 @@
     "opportunityType": "ARTICLE",
     "status": "SCORED",
     "updatedAt": "2026-09-12T10:13:44.087Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-now-20260913-eagles-schedule",
+    "canonicalTopic": "Eagles Schedule",
+    "slug": "eagles-schedule",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-eagles20schedule",
+        "query": "Eagles Schedule",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T10:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "eagles schedule",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "eagles schedule"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T10:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T10:41:20.272Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-eagles-game",
+    "canonicalTopic": "Eagles Game",
+    "slug": "eagles-game",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-eagles20game",
+        "query": "Eagles Game",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T10:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "eagles game",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "eagles game"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T10:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T10:41:20.282Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-dayana-yastremska",
+    "canonicalTopic": "Dayana Yastremska",
+    "slug": "dayana-yastremska",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-dayana20yastrems",
+        "query": "Dayana Yastremska",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T10:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "dayana yastremska",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dayana yastremska"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T10:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T10:41:20.292Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-sheffield-united-vs-wolves",
+    "canonicalTopic": "Sheffield United Vs Wolves",
+    "slug": "sheffield-united-vs-wolves",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-sheffield20unite",
+        "query": "Sheffield United Vs Wolves",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T10:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "sheffield united vs wolves",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "sheffield united vs wolves"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T10:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T10:41:20.304Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-sophie-cunningham-west-wilson",
+    "canonicalTopic": "Sophie Cunningham West Wilson",
+    "slug": "sophie-cunningham-west-wilson",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-sophie20cunningh",
+        "query": "Sophie Cunningham West Wilson",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T10:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "sophie cunningham west wilson",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "sophie cunningham west wilson"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T10:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T10:41:20.316Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-haitians",
+    "canonicalTopic": "Haitians",
+    "slug": "haitians",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-haitians",
+        "query": "Haitians",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T10:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "haitians",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "haitians"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T10:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T10:41:20.321Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-solar-storm-power-outage-study",
+    "canonicalTopic": "Solar Storm Power Outage Study",
+    "slug": "solar-storm-power-outage-study",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-solar20storm20pow",
+        "query": "Solar Storm Power Outage Study",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T10:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "solar storm power outage study",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "solar storm power outage study"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T10:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T10:41:20.330Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-tom-tiffany",
+    "canonicalTopic": "Tom Tiffany",
+    "slug": "tom-tiffany",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-tom20tiffany",
+        "query": "Tom Tiffany",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T10:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "tom tiffany",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "tom tiffany"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T10:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T10:41:20.336Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-lottery-powerball-jackpot",
+    "canonicalTopic": "Lottery Powerball Jackpot",
+    "slug": "lottery-powerball-jackpot",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-lottery20powerba",
+        "query": "Lottery Powerball Jackpot",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T10:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "lottery powerball jackpot",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "lottery powerball jackpot"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T10:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T10:41:20.346Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-cleveland-browns",
+    "canonicalTopic": "Cleveland Browns",
+    "slug": "cleveland-browns",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-cleveland20brown",
+        "query": "Cleveland Browns",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T10:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "cleveland browns",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "cleveland browns"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T10:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T10:41:20.355Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-tech-ai-20260913-i-spent-4000-on-a-robot-dog-fr",
+    "canonicalTopic": "I Spent 4000 on a Robot Dog from China",
+    "slug": "i-spent-4000-on-a-robot-dog-from-china",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-1-I20spent202442C00020on20a",
+        "query": "I Spent 4000 on a Robot Dog from China",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T11:00:53.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "I spent $4,000 on a robot dog from China",
+            "itemLink": "https://arstechnica.com/gadgets/2026/09/i-spent-4000-on-a-robot-dog-from-china/",
+            "publishedDate": "2026-09-12T11:00:53.000Z",
+            "contentSnippet": "Unitree might be the world’s most important robotics company.",
+            "categories": [
+              "tech",
+              "ai",
+              "computing",
+              "hardware",
+              "AI",
+              "Tech",
+              "china",
+              "chinese robots",
+              "robot dog",
+              "robots",
+              "syndication",
+              "Unitree",
+              "Unitree Robotics"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "computing",
+            "hardware",
+            "AI",
+            "Tech",
+            "china",
+            "chinese robots",
+            "robot dog",
+            "robots",
+            "syndication",
+            "Unitree",
+            "Unitree Robotics"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "i spent 4000 on a robot dog from china"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T11:00:53.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "computing",
+      "hardware",
+      "AI",
+      "Tech",
+      "china",
+      "chinese robots",
+      "robot dog",
+      "robots",
+      "syndication",
+      "Unitree",
+      "Unitree Robotics"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.365Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260913-openais-rogue-ai-tried-to-hack",
+    "canonicalTopic": "Openais Rogue Ai Tried to Hack Another Company in May",
+    "slug": "openais-rogue-ai-tried-to-hack-another-company-in-may",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-OpenAIE28099s20rogue20AI20tr",
+        "query": "Openais Rogue Ai Tried to Hack Another Company in May",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T21:41:36.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "OpenAI’s rogue AI tried to hack another company in May",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/994383/openais-rogue-ai-rubygems-hack",
+            "publishedDate": "2026-09-12T21:41:36.000Z",
+            "contentSnippet": "In May, hundreds of malicious and spam packages were uploaded to RubyGems, causing a serious disruption for the host. Now independent researchers have said that a swarm of OpenAI agents were responsible for the attack. Not only that, but the AI tried to steal users' API keys. At the time, RubyGems described it as a […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "AI",
+              "News",
+              "OpenAI"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "AI",
+            "News",
+            "OpenAI"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "openais rogue ai tried to hack another company in may"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T21:41:36.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "AI",
+      "News",
+      "OpenAI"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.379Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260913-sam-altman-says-openai-going-p",
+    "canonicalTopic": "Sam Altman Says Openai Going Public in 2026 Would Be Ill-advised",
+    "slug": "sam-altman-says-openai-going-public-in-2026-would-be-ill-advised",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-Sam20Altman20says20Open",
+        "query": "Sam Altman Says Openai Going Public in 2026 Would Be Ill-advised",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T21:16:28.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Sam Altman says OpenAI going public in 2026 would be ‘ill-advised’",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/994384/sam-altman-no-openai-ipo-ill-advised",
+            "publishedDate": "2026-09-12T21:16:28.000Z",
+            "contentSnippet": "OpenAI CEO Sam Altman confirmed that there would be no OpenAI IPO in 2026 during an interview with Fortune. Over the course of 45 minutes, Altman discussed a variety of subjects including the Hugging Face hacking incident, recursive self-improvement, and the possibility of building an AI that was beyond human control. On the latter, he […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "AI",
+              "News",
+              "OpenAI"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "AI",
+            "News",
+            "OpenAI"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "sam altman says openai going public in 2026 would be ill-advised"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T21:16:28.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "AI",
+      "News",
+      "OpenAI"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.393Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260913-starcraft-returns-in-2030-as-a",
+    "canonicalTopic": "Starcraft Returns in 2030 As an Open-world Shooter",
+    "slug": "starcraft-returns-in-2030-as-an-open-world-shooter",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-StarCraft20returns20in",
+        "query": "Starcraft Returns in 2030 As an Open-world Shooter",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T20:08:09.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "StarCraft returns in 2030 as an open-world shooter",
+            "itemLink": "https://www.theverge.com/games/994371/starcraft-returns-in-2030-as-an-open-world-shooter",
+            "publishedDate": "2026-09-12T20:08:09.000Z",
+            "contentSnippet": "Blizzard originally tried to bring the StarCraft universe to the world of 3D shooters way back in 2002 with StarCraft: Ghost. It sat in development hell for years until Blizzard president Mike Morhaime confirmed that it had been canceled in 2014. Now Blizzard is giving it another go with the simply titled StarCraft. Dan Hay, […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "Gaming",
+              "Microsoft",
+              "News",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "Gaming",
+            "Microsoft",
+            "News",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "starcraft returns in 2030 as an open-world shooter"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T20:08:09.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "Gaming",
+      "Microsoft",
+      "News",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.404Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260913-sylvan-esso-think-you-should-s",
+    "canonicalTopic": "Sylvan Esso Think You Should Splurge on Good-quality Yogurt",
+    "slug": "sylvan-esso-think-you-should-splurge-on-good-quality-yogurt",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-4-Sylvan20Esso20think20yo",
+        "query": "Sylvan Esso Think You Should Splurge on Good-quality Yogurt",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T16:35:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Sylvan Esso think you should splurge on good-quality yogurt",
+            "itemLink": "https://www.theverge.com/entertainment/994340/sylvan-esso-ow-infinity-interview-music",
+            "publishedDate": "2026-09-12T16:35:00.000Z",
+            "contentSnippet": "Amelia Meath and Nick Sanborn, better known as Sylvan Esso, have been bringing their low-key electro-pop to the masses since 2014, bursting onto the scene with their self-titled debut album and the single \"Hey Mami.\" Over the years, they've put out a number of excellent records, dabbling in dustier, more fragile textures on Free Love, […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "Entertainment",
+              "Interview",
+              "Music",
+              "Report"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "Entertainment",
+            "Interview",
+            "Music",
+            "Report"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "sylvan esso think you should splurge on good-quality yogurt"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T16:35:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "Entertainment",
+      "Interview",
+      "Music",
+      "Report"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.423Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260913-anthropic-ceo-says-its-time-to",
+    "canonicalTopic": "Anthropic Ceo Says Its Time to Pump the Brakes on Ai",
+    "slug": "anthropic-ceo-says-its-time-to-pump-the-brakes-on-ai",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-5-Anthropic20CEO20says20i",
+        "query": "Anthropic Ceo Says Its Time to Pump the Brakes on Ai",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T16:23:40.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Anthropic CEO says it’s time to pump the brakes on AI",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/994337/anthropic-ceo-slow-down-ai-development",
+            "publishedDate": "2026-09-12T16:23:40.000Z",
+            "contentSnippet": "Anthropic CEO Dario Amodei says the time has come to slow down AI development and will give third-party evaluators like METR access to its models to help ensure its \"adherence to safety practices and commitments.\" In a winding essay, Amodei proposed a three-step plan to \"pace the frontier\" - jargon that simply means to slow […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "AI",
+              "Anthropic",
+              "News",
+              "Policy"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "AI",
+            "Anthropic",
+            "News",
+            "Policy"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "anthropic ceo says its time to pump the brakes on ai"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T16:23:40.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "AI",
+      "Anthropic",
+      "News",
+      "Policy"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.438Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260913-11-national-parks-that-are-eve",
+    "canonicalTopic": "11 National Parks That Are Even More Beautiful in the Fall",
+    "slug": "11-national-parks-that-are-even-more-beautiful-in-the-fall",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-1120National20Parks20Th",
+        "query": "11 National Parks That Are Even More Beautiful in the Fall",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T14:02:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "11 National Parks That Are Even More Beautiful in the Fall",
+            "itemLink": "https://www.cntraveler.com/gallery/best-national-parks-to-visit-in-fall",
+            "publishedDate": "2026-09-12T14:02:00.000Z",
+            "contentSnippet": "Enjoy changing leaves in Shenandoah and cooler days in Big Bend.",
+            "categories": [
+              "travel",
+              "destinations",
+              "hotels",
+              "culture",
+              "Inspiration / National Parks"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "hotels",
+            "culture",
+            "Inspiration / National Parks"
+          ],
+          "feedName": "Conde Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "11 national parks that are even more beautiful in the fall"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T14:02:00.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "hotels",
+      "culture",
+      "Inspiration / National Parks"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.453Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260913-newport-rhode-island-is-new-en",
+    "canonicalTopic": "Newport Rhode Island Is New Englands Gilded Jewel—heres Where to Eat Stay and Play",
+    "slug": "newport-rhode-island-is-new-englands-gilded-jewel-heres-where-to-eat-stay-and-play",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-2-Newport2C20Rhode20Islan",
+        "query": "Newport Rhode Island Is New Englands Gilded Jewel—heres Where to Eat Stay and Play",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T11:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Newport, Rhode Island, Is New England’s Gilded Jewel—Here’s Where to Eat, Stay, and Play",
+            "itemLink": "https://www.cntraveler.com/story/where-to-eat-stay-and-play-in-newport-rhode-island",
+            "publishedDate": "2026-09-12T11:00:00.000Z",
+            "contentSnippet": "Consider this your guide to Rhode Island's historic haven by the sea.",
+            "categories": [
+              "travel",
+              "destinations",
+              "hotels",
+              "culture",
+              "Destinations"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "hotels",
+            "culture",
+            "Destinations"
+          ],
+          "feedName": "Conde Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "newport rhode island is new englands gilded jewel—heres where to eat stay and play"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T11:00:00.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "hotels",
+      "culture",
+      "Destinations"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.478Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260913-anthropic-boss-dario-amodei-ca",
+    "canonicalTopic": "Anthropic Boss Dario Amodei Calls for Ai Development to Slow Down",
+    "slug": "anthropic-boss-dario-amodei-calls-for-ai-development-to-slow-down",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-1-Anthropic20boss20Dario",
+        "query": "Anthropic Boss Dario Amodei Calls for Ai Development to Slow Down",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T21:16:47.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Anthropic boss Dario Amodei calls for AI development to slow down",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c14dpgm0rg4o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-12T21:16:47.000Z",
+            "contentSnippet": "The call comes amid growing concerns that AI models may become able to inflict serious damage worldwide.",
+            "categories": [
+              "travel",
+              "global",
+              "destinations",
+              "culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "global",
+            "destinations",
+            "culture"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "anthropic boss dario amodei calls for ai development to slow down"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T21:16:47.000Z",
+    "tags": [
+      "travel",
+      "global",
+      "destinations",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.495Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260913-trumps-comments-on-a-united-ir",
+    "canonicalTopic": "Trumps Comments on a United Ireland May Have Targeted Audience Across the Atlantic",
+    "slug": "trumps-comments-on-a-united-ireland-may-have-targeted-audience-across-the-atlantic",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-2-Trumps20comments20on20",
+        "query": "Trumps Comments on a United Ireland May Have Targeted Audience Across the Atlantic",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T21:25:28.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Trump's comments on a united Ireland may have targeted audience across the Atlantic",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cwyzppd1d5lo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-12T21:25:28.000Z",
+            "contentSnippet": "Nobody could have predicted that today's main global headline would be Trump's desire to see a unified Ireland.",
+            "categories": [
+              "travel",
+              "global",
+              "destinations",
+              "culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "global",
+            "destinations",
+            "culture"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "trumps comments on a united ireland may have targeted audience across the atlantic"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T21:25:28.000Z",
+    "tags": [
+      "travel",
+      "global",
+      "destinations",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.515Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260913-they-lost-their-jobs-after-pos",
+    "canonicalTopic": "They Lost Their Jobs After Posting About Charlie Kirk but Some Have No Regrets",
+    "slug": "they-lost-their-jobs-after-posting-about-charlie-kirk-but-some-have-no-regrets",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-3-They20lost20their20jobs",
+        "query": "They Lost Their Jobs After Posting About Charlie Kirk but Some Have No Regrets",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-13T00:49:08.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "They lost their jobs after posting about Charlie Kirk, but some have no regrets",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cj06jgl9qzlo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-13T00:49:08.000Z",
+            "contentSnippet": "Some people fired in the wake of Kirk's assassination have won big settlements from employers, others have had to start over from scratch.",
+            "categories": [
+              "travel",
+              "global",
+              "destinations",
+              "culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "global",
+            "destinations",
+            "culture"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "they lost their jobs after posting about charlie kirk but some have no regrets"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T00:49:08.000Z",
+    "tags": [
+      "travel",
+      "global",
+      "destinations",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.534Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260913-russians-seek-answers-over-hun",
+    "canonicalTopic": "Russians Seek Answers over Hundreds Missing After Ukraines 2024 Incursion",
+    "slug": "russians-seek-answers-over-hundreds-missing-after-ukraines-2024-incursion",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-4-Russians20seek20answer",
+        "query": "Russians Seek Answers over Hundreds Missing After Ukraines 2024 Incursion",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T23:51:05.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Russians seek answers over hundreds missing after Ukraine's 2024 incursion",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c62ene9kr71o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-12T23:51:05.000Z",
+            "contentSnippet": "Officials say more than 300 Russians remain missing after the 2024 Kursk offensive, but no-one really knows the true figure.",
+            "categories": [
+              "travel",
+              "global",
+              "destinations",
+              "culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "global",
+            "destinations",
+            "culture"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "russians seek answers over hundreds missing after ukraines 2024 incursion"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T23:51:05.000Z",
+    "tags": [
+      "travel",
+      "global",
+      "destinations",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.552Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260913-johan-sundberg-arkitektur-nest",
+    "canonicalTopic": "Johan Sundberg Arkitektur Nestles Timber Summer House Within Swedish Woodland",
+    "slug": "johan-sundberg-arkitektur-nestles-timber-summer-house-within-swedish-woodland",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-Johan20Sundberg20Arkit",
+        "query": "Johan Sundberg Arkitektur Nestles Timber Summer House Within Swedish Woodland",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-13T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Johan Sundberg Arkitektur nestles timber summer house within Swedish woodland",
+            "itemLink": "https://www.dezeen.com/2026/09/13/johan-sundberg-arkitektur-pine-house/",
+            "publishedDate": "2026-09-13T10:00:00.000Z",
+            "contentSnippet": "Swedish studio Johan Sundberg Arkitektur has designed the Pine House holiday home with a cross-shaped plan that stretches into its forested site in southern Sweden. Perched on a north-facing slope on the Hallandsåsen ridge, the 152-square-metre home was completed by Johan Sundberg Arkitektur in close collaboration with the clients. It contains a three-bedroom summer house The post Johan Sundberg Arkitektur nestles timber summer house within Swedish woodland appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "all",
+              "Architecture",
+              "Holiday homes",
+              "Swedish houses",
+              "Cross-laminated timber",
+              "Johan Sundberg",
+              "Glued laminated timber",
+              "Houses",
+              "Sweden"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "all",
+            "Architecture",
+            "Holiday homes",
+            "Swedish houses",
+            "Cross-laminated timber",
+            "Johan Sundberg",
+            "Glued laminated timber",
+            "Houses",
+            "Sweden"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "johan sundberg arkitektur nestles timber summer house within swedish woodland"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T10:00:00.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "all",
+      "Architecture",
+      "Holiday homes",
+      "Swedish houses",
+      "Cross-laminated timber",
+      "Johan Sundberg",
+      "Glued laminated timber",
+      "Houses",
+      "Sweden"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.571Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260913-seven-interiors-where-billiard",
+    "canonicalTopic": "Seven Interiors Where Billiard Tables Are Available on Cue",
+    "slug": "seven-interiors-where-billiard-tables-are-available-on-cue",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-2-Seven20interiors20wher",
+        "query": "Seven Interiors Where Billiard Tables Are Available on Cue",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-13T09:00:37.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Seven interiors where billiard tables are available on cue",
+            "itemLink": "https://www.dezeen.com/2026/09/13/interiors-billiard-tables-lookbooks/",
+            "publishedDate": "2026-09-13T09:00:37.000Z",
+            "contentSnippet": "From bars and hotels to private homes, this lookbook explores interiors where billiard tables are on hand for spontaneous games. Billiard tables – comprising a cloth-covered surface surrounded by cushioned sides that are punctuated with netted pockets – are a type of table that cue sports can be played on, such as pool and snooker. While they The post Seven interiors where billiard tables are available on cue appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "all",
+              "Interiors",
+              "Lookbooks",
+              "Residential architecture and interiors",
+              "Roundups"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "all",
+            "Interiors",
+            "Lookbooks",
+            "Residential architecture and interiors",
+            "Roundups"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "seven interiors where billiard tables are available on cue"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T09:00:37.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "all",
+      "Interiors",
+      "Lookbooks",
+      "Residential architecture and interiors",
+      "Roundups"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.587Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260913-red-facade-evoking-a-hedgehog-",
+    "canonicalTopic": "Red Facade Evoking a Hedgehog Wraps Ice Hockey Arena by Chybik Kristof",
+    "slug": "red-facade-evoking-a-hedgehog-wraps-ice-hockey-arena-by-chybik-kristof",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-3-Red20facade2022evoking20",
+        "query": "Red Facade Evoking a Hedgehog Wraps Ice Hockey Arena by Chybik Kristof",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-13T05:00:18.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Red facade \"evoking a hedgehog\" wraps ice hockey arena by Chybik + Kristof",
+            "itemLink": "https://www.dezeen.com/2026/09/13/jihlava-municipal-arena-chybik-kristof/",
+            "publishedDate": "2026-09-13T05:00:18.000Z",
+            "contentSnippet": "A zigzagging red facade and rooftop running track are among the key features of Jihlava Municipal Arena, completed by architecture studio Chybik + Kristof in the Czech Republic. Located in the heart of Jihlava, the 5,650-seat building was designed for a local ice hockey team, but will also serve as a \"cultural and civic hub\" The post Red facade \"evoking a hedgehog\" wraps ice hockey arena by Chybik + Kristof appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "all",
+              "Architecture",
+              "Red buildings",
+              "Chybik + Kristof",
+              "Red",
+              "Czech Republic",
+              "Aluminium",
+              "Sports",
+              "Public and leisure"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "all",
+            "Architecture",
+            "Red buildings",
+            "Chybik + Kristof",
+            "Red",
+            "Czech Republic",
+            "Aluminium",
+            "Sports",
+            "Public and leisure"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "red facade evoking a hedgehog wraps ice hockey arena by chybik kristof"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T05:00:18.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "all",
+      "Architecture",
+      "Red buildings",
+      "Chybik + Kristof",
+      "Red",
+      "Czech Republic",
+      "Aluminium",
+      "Sports",
+      "Public and leisure"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.605Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260913-new-york-beach-home-by-baao-co",
+    "canonicalTopic": "New York Beach Home by Baao Contains a House Within a House",
+    "slug": "new-york-beach-home-by-baao-contains-a-house-within-a-house",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-4-New20York20beach20home20",
+        "query": "New York Beach Home by Baao Contains a House Within a House",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T17:00:18.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "New York beach home by BAAO contains a \"house within a house\"",
+            "itemLink": "https://www.dezeen.com/2026/09/12/breezy-point-house-queens-new-york-baao-studio/",
+            "publishedDate": "2026-09-12T17:00:18.000Z",
+            "contentSnippet": "Indents and slices across an offset gabled volume bring natural light into this beach house in Queens, New York, by Brooklyn-based BAAO Studio. The 2,655-square-foot (247-square-metre) residence is located within a beachfront co-op in Breezy Point – a neighbourhood at the western end of the Rockaway Peninsula, which juts out into New York's Lower Bay. The post New York beach home by BAAO contains a \"house within a house\" appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "all",
+              "Architecture",
+              "Exclusives",
+              "Houses",
+              "American houses",
+              "New York City",
+              "Barker Associates Architecture Office",
+              "New York houses",
+              "Queens",
+              "New York",
+              "BAAO",
+              "Residential architecture and interiors",
+              "USA"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "all",
+            "Architecture",
+            "Exclusives",
+            "Houses",
+            "American houses",
+            "New York City",
+            "Barker Associates Architecture Office",
+            "New York houses",
+            "Queens",
+            "New York",
+            "BAAO",
+            "Residential architecture and interiors",
+            "USA"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "new york beach home by baao contains a house within a house"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T17:00:18.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "all",
+      "Architecture",
+      "Exclusives",
+      "Houses",
+      "American houses",
+      "New York City",
+      "Barker Associates Architecture Office",
+      "New York houses",
+      "Queens",
+      "New York",
+      "BAAO",
+      "Residential architecture and interiors",
+      "USA"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.622Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260913-mossy-rooftop-crowns-bathers-c",
+    "canonicalTopic": "Mossy Rooftop Crowns Bathers Cabin in East Sussex Woodland",
+    "slug": "mossy-rooftop-crowns-bathers-cabin-in-east-sussex-woodland",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-5-Mossy20rooftop20crowns",
+        "query": "Mossy Rooftop Crowns Bathers Cabin in East Sussex Woodland",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T10:00:49.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Mossy rooftop crowns Bather's Cabin in East Sussex woodland",
+            "itemLink": "https://www.dezeen.com/2026/09/12/bathers-cabin-built-works/",
+            "publishedDate": "2026-09-12T10:00:49.000Z",
+            "contentSnippet": "Visitors to this woodland cabin in East Sussex enter via a planted roof terrace, which its architect, British studio Built Works, has \"devoted entirely to the ritual of bathing\". Nestled in woodland in East Sussex, the blocky Bather's Cabin is sheathed in layers of blackened larch and topped by a lush rooftop fitted with a The post Mossy rooftop crowns Bather's Cabin in East Sussex woodland appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "all",
+              "Architecture",
+              "Larch",
+              "Wooden architecture",
+              "Cabins",
+              "Built Works",
+              "Wood",
+              "UK",
+              "England",
+              "Blackened wood",
+              "Holiday homes"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "all",
+            "Architecture",
+            "Larch",
+            "Wooden architecture",
+            "Cabins",
+            "Built Works",
+            "Wood",
+            "UK",
+            "England",
+            "Blackened wood",
+            "Holiday homes"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "mossy rooftop crowns bathers cabin in east sussex woodland"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T10:00:49.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "all",
+      "Architecture",
+      "Larch",
+      "Wooden architecture",
+      "Cabins",
+      "Built Works",
+      "Wood",
+      "UK",
+      "England",
+      "Blackened wood",
+      "Holiday homes"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.638Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-life-20260913-how-ai-is-opening-up-spectrum-",
+    "canonicalTopic": "How Ai Is Opening Up Spectrum Space on Crowded Airwaves",
+    "slug": "how-ai-is-opening-up-spectrum-space-on-crowded-airwaves",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-1-How20AI20is20opening20up",
+        "query": "How Ai Is Opening Up Spectrum Space on Crowded Airwaves",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-13T08:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "How AI is opening up spectrum space on crowded airwaves",
+            "itemLink": "https://www.fastcompany.com/91603622/ai-spectrum-space-crowded-airwaves",
+            "publishedDate": "2026-09-13T08:00:00.000Z",
+            "contentSnippet": "Every time you make a phone call, stream a video, or connect to Wi-Fi, your device is sending and receiving invisible signals through the air. So are your baby monitor, garage door opener, your GPS, the weather-monitoring satellites, and the radars keeping planes safely apart. All of these rely on the same invisible resource: the radio spectrum. The demand for wireless data—driven by smartphones, video streaming, and billions of connected devices —keeps growing, making available spectrum scarce. But it doesn’t have to remain that way. As an electrical engineer who studies wireless communications , I’m part of a field of research working to address the radio spectrum supply crunch. The solution engineers and regulators have been developing is dynamic spectrum sharing . The core idea is straightforward: Instead of reserving a portion of spectrum exclusively for one user forever, allow multiple users to share the same frequencies—intelligently, and with clear rules to keep them from stepping on each other’s signals. Radio spectrum is at the low end of the electromagnetic spectrum, with frequencies below microwaves, light, and X-rays. You can think of it as a vast collection of invisible highways, running at different frequencies, carrying signals through the air. Television, air traffic control, cellphones, remote sensing of distant stars—they all travel on different parts of this same invisible road network. These communication highways span an enormous range , from very low frequencies used for submarine communication all the way up beyond radio waves to the frequencies of visible light. Higher frequencies carry signals over shorter distances but can move more data with wider highways. Because there is only so much spectrum to go around as a matter of fundamental physics, governments have historically managed it by issuing exclusive licenses—dedicating certain highways to specific users and telling everyone else to stay off. This system worked well enough for decades, especially because the highway network was sufficient for the demand. Studies measuring actual spectrum use over many years have found something surprising: Large stretches of licensed spectrum sit idle much of the time . For example, a military radar system may operate only in certain locations on certain days. Burgeoning demand for radio spectrum has left some of these roads clogged with traffic jams, while others nearby sit almost completely empty. Radio communications occupy a small portion of the electromagnetic spectrum. NASA Traffic control for radio Making dynamic spectrum sharing work requires radios that are more flexible than the fixed-frequency devices of the past. Today’s smartphones and wireless devices are increasingly built on software-defined radio technology, meaning the frequencies they operate on can be adjusted by software rather than being locked into hardware. Think of it like a car that can switch lanes automatically rather than being stuck in one lane forever. Early researchers called the vision behind this “ cognitive radio ”—the idea of a radio that could sense its environment and adapt accordingly. This flexibility opens the door to a layered approach to spectrum sharing. At the top of the hierarchy sit incumbent primary users—those who hold existing rights to a frequency, such as the military or licensed broadcasters. Below them, other secondary users can access the same spectrum when and where the incumbents aren’t using it, stepping aside automatically the moment an incumbent returns. A more everyday version of this kind of sharing already exists in the Wi-Fi frequencies you use at home. Multiple devices—your laptop, your phone, your smart TV—share the same spectrum without a central authority assigning each one a dedicated slot. They do this by briefly sensing whether the channel is busy before transmitting, and by automatically adjusting their speed based on how crowded things get. The protocol resembles drivers at a four-way stop—informal rules that mostly work without anyone directing traffic. A significant recent example of dynamic spectrum sharing in the United States is the Citizens Band Radio Service , or CBRS, operating in the 3.5 GHz frequency band. The Federal Communications Commission created a three-tier system. Incumbent users—primarily U.S. Navy radar systems—sit at the top. Businesses and organizations that pay for priority access sit in the middle. And the general public can use whatever is left over. A central computer system—the Spectrum Access System —acts as a real-time traffic controller, constantly tracking where Navy radar is active and automatically coordinating access for everyone else. When a Navy ship is not using the spectrum in your area, hospitals, factories, warehouses, and campuses can use it for their own private wireless networks. When the Navy needs it back, everyone else steps aside within seconds. Getting around interference The biggest technical hurdle in spectrum sharing is interference—what happens when two signals overlap and scramble each other, like two people shouting different things in your ear at the same time. As more devices crowd the airwaves , each with different power levels and different bandwidth needs, keeping signals from colliding becomes increasingly complex. My lab and other researchers are now turning to artificial intelligence for help . AI can learn from experience and adapt in real time to changing conditions—deciding who transmits when, and at what power level, in ways that older rule-based systems could not . At the same time, new challenges are emerging, such as satellites and ground-based networks increasingly needing to share the same frequencies. The way radio spectrum is managed may not seem like a kitchen table issue, but it shapes everything from how fast your phone loads a video to whether a factory can automate its floor, to the reliability of a rural school’s internet access. Future wireless technologies, including those that connect self-driving cars and enable remote surgery, will depend on having access to enough spectrum. Dynamic spectrum sharing is how to make room for all of it without dismantling the systems already in place. The airwaves are finite. But with smarter management, they can do far more than once thought possible. Aylin Yener is a professor of electrical and computer engineering, computer science and engineering, integrated systems engineering at The Ohio State University . This article is republished from The Conversation under a Creative Commons license. Read the original article .",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "Tech"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how ai is opening up spectrum space on crowded airwaves"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T08:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.653Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260913-how-to-use-humor-at-work-effec",
+    "canonicalTopic": "How to Use Humor at Work Effectively",
+    "slug": "how-to-use-humor-at-work-effectively",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-2-How20to20use20humor20at20",
+        "query": "How to Use Humor at Work Effectively",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-13T05:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "How to use humor at work effectively",
+            "itemLink": "https://www.fastcompany.com/91603629/how-to-use-humor-at-work-effectively",
+            "publishedDate": "2026-09-13T05:00:00.000Z",
+            "contentSnippet": "A finance director stands in front of hundreds of employees to reveal the annual figures. No, it’s not the start of the most corporate joke ever, but something I saw a few weeks ago. Right away, he reveals he’s nervous. This isn’t his natural habitat. In fact, the last time he was on stage was back in high school, playing Kenickie in a production of Grease . He promises that if anyone falls asleep while he talks through the figures, as punishment for being boring, he’ll sing \"Greased Lightnin’\" to wake them up. Cue appreciative chuckles as the audience warms to him. His openness (and conjuring the memorable image of him with coiffured hair and a cigarette behind his ear) isn’t something we expect in a business setting, let alone from the numbers guy. Humor connects. It creates a window into the real person on stage. The finance director suddenly became someone the whole audience has an interest in actually listening to. We don’t often see humor in senior leaders or managers in the workplace. Because of that, it’s a surefire way to be heard. But it comes with a risk: What if it doesn’t land right? Here are six ways to use humor effectively at work.&nbsp; 1. Help the room, rather than perform for it The best humor makes it easier for people to listen, learn, and work together. The worst kind asks everyone to stop and admire the person being funny. I once worked with someone who made quips all the time. He would interject with—bunny ears quotation fingers at the ready—a hilarious aside. He was quick minded, but he slowed down meetings. So, before you open your mouth, ask yourself: Will this help the room move forward, or am I simply trying to get a laugh for the sake of it? 2. Don’t punch down During a meeting recently, all of us got distracted by a driver outside the window making heavy weather of getting into a parking spot. To get us back on track, I broke the silence with: “I’m very good at parallel parking.” There was a bit of a laugh, and we were ready to continue. But a member of the team chipped in, “Ha! What do you drive, Penny? A Mini?” I managed not to snap back that I drive a large, menacing car, thank you very much, and instead joined his colleagues in silently looking down at our notepads. His denigrating \"joke\" fell flat. Comedy-wise, it’s called \"punching down\" when we deploy humor at another’s expense. Like a fart in an elevator, it’s not nice. Ditto banter at work: Let’s just not. 3.&nbsp;Make it shared and situational The safest and often funniest humor comes from something everyone can see: technology that’s stopped working, the oddly gloomy room you’re in because the light switch is unfathomable, or the mild absurdity of a situation unfolding before you. It’s joyful because everybody is in on it. Humor tends to travel badly. A reference, phrase, or badinage that feels obvious to you may mean nothing to an international colleague. Similarly, private jokes and niche references are a waste of breath. If three colleagues are swapping jokes about a ball game while everybody else waits, they’re being cliquey and exclusionist. 4. Use self-deprecation carefully The financial director’s Grease story worked because he gave us a bit of vulnerability without casting doubt on his ability to do the job. He admitted he was nervous; he didn’t say he was hopeless with numbers. Laughing at yourself shows that you feel secure in who you are. Repeatedly telling people that you are disorganized, terrible at spreadsheets, or no good under pressure may eventually persuade them that you are just that. Be warmly self-aware but don’t regularly undermine yourself. 5. Notice what people already find funny about you Most people have their own version of wit, even if they would never describe themselves as outright funny.&nbsp; When I was starting out as a professional speaker, I watched recordings of my keynote talks to learn where I could improve. I noticed audiences laughing at times I didn’t expect. I asked people what they found funny and sometimes the answer was: “It’s the way your eyebrows work, Penny.” For you it may be a dry observation, an unexpected phrase, or the expression on your face that people find amusing. And then, if you’re inclined, do more of it. 6. Never use humor in an email A firm rule of mine. When you’re in person, a smile or the warmth in your voice can indicate your meaning. On email, your beautifully judged ironic observation can arrive sounding sharp or baffling. Save your repartee for situations where people can read your intention. In a room, on a call, or on stage, where you can see how it lands and adjust accordingly. Humor is just another form of communication Humor at work doesn’t feel risky when we view it as another form of communication that simply shows an understanding of yourself and your audience, making it more likely you’ll be listened to and noticed. And that’s no joke.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "Work Life"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "Work Life"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how to use humor at work effectively"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T05:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "Work Life"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.664Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260913-why-empathy-is-a-crucial-leade",
+    "canonicalTopic": "Why Empathy Is a Crucial Leadership Skill",
+    "slug": "why-empathy-is-a-crucial-leadership-skill",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-3-Why20empathy20is20a20cru",
+        "query": "Why Empathy Is a Crucial Leadership Skill",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-13T05:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Why empathy is a crucial leadership skill",
+            "itemLink": "https://www.fastcompany.com/91604722/why-emotional-intelligence-is-a-crucial-leadership-skill",
+            "publishedDate": "2026-09-13T05:00:00.000Z",
+            "contentSnippet": "With AI we are entering a new era in which technology can tabulate information, recognize patterns, answer questions, and write reports at a phenomenal speed, and do tasks that would require a massive amount of human time and effort. This has huge implications for our future and what kind of skills are still important for humans to acquire. Being the smartest person in the room has little value if artificial intelligence can pull up more accurate information than the entire room has, and assess that information in moments. There is, however, an aspect that we humans possess that AI does not: It cannot authentically care about others and make them feel heard. Doug Noll, author of Empathy Leadership , puts it this way: “Empathy is the learned ability to observe and name the emotional experience of another person from that person’s frame of reference.” Noll has a unique background as a lawyer turned peacemaker. From 2010 to 2020 he and his colleague Laurel Kaufer trained thousands of incarcerated people in California on how to stop prison violence, using empathy as the foundational skill for de-escalation and nervous system regulation. “Empathy suffers from a vague idea about another person’s feelings,\" Noll says. \"It is not vague. It is a precise neurophysiological skill that anyone can quickly learn and apply.” Noll and Kaufer’s work remind us of how powerful empathy can be. Here are four crucial ways empathy matters in the workplace that cannot be outsourced to AI. 1. Appreciation We know that people don't necessarily leave organizations because of factors such as salary, workload, or lack of advancement. Often, they leave because they don't feel recognized and appreciated. I recently read of a 20-year employee receiving an email recognizing her time with the organization. When she read the email, she discovered that it had been generated by AI. Imagine her disappointment when she realized that her manager could not be bothered to use his own words to write a personal note. While technically she was recognized, it fell very short of feeling appreciated. 2. Relationships Workplaces are more than places where we go to complete tasks that we are paid to do. Social attachments are formed and relationships built that often reach outside the workspace and carry on after. Sure, AI can provide massive amounts of information, but human experience and understanding of nuances and historical background is required to use that information beneficially and ethically to build relationships with other people. These relationships can help us find purpose and meaning in our work. 3. Trust Trust is one of the essential ingredients of a workplace in which we feel safe, included, respected, and appreciated. It is trust that allows people to feel safe to voice their opinions and take risks, knowing that their leaders will have their backs if things don’t work out as planned. In my book Emotional Intelligence Game Changers, one of the sections speaks to how leaders can develop trust. Trust takes time to build and can be easily destroyed. As humans we are hardwired for connection and want to be able to trust. Trust forms slowly through sharing with others, and coming to know and believe that the sharing will be safe with them. Building trust is an emotional process that rests upon our feelings about someone and our ability to empathize with them. While AI can mimic emotions, it is unable to feel. 4. Understanding Empathy helps us understand ourselves and others. It provides us with tools to understand others, respond with care, and make them feel safe around us. Through understanding our emotions we come to recognize how we come across to others and develop a better understanding of how others may think or feel differently. More than having access to the best technology, leaders will need to develop their people through understanding how to connect with them, earn their trust, and bring out the best of their abilities. Without building these crucial foundations in their people, the best technology cannot be used to its full potential. AI will not help us build the workplace memories that matter When we look back to our work, our memories will not be of the technology that we worked with. They will be of leaders who saw potential in us that we didn’t see in ourselves. These memories will be of connections and friendships that we formed with coworkers and people we came into contact with. While technology will change, come, and go, the relationships we build will form lasting impressions and memories that will stay forever.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "Leadership"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "Leadership"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "why empathy is a crucial leadership skill"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T05:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "Leadership"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.676Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260913-manischewitz-is-betting-that-a",
+    "canonicalTopic": "Manischewitz Is Betting That a Dating Show Can Attract Gen Z to the 138-year-old Brand",
+    "slug": "manischewitz-is-betting-that-a-dating-show-can-attract-gen-z-to-the-138-year-old-brand",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-4-Manischewitz20is20bett",
+        "query": "Manischewitz Is Betting That a Dating Show Can Attract Gen Z to the 138-year-old Brand",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Manischewitz is betting that a dating show can attract Gen Z to the 138-year-old brand",
+            "itemLink": "https://www.fastcompany.com/91605432/manischewitz-is-betting-that-a-dating-show-can-attract-gen-z-to-the-138-year-old-brand",
+            "publishedDate": "2026-09-12T10:00:00.000Z",
+            "contentSnippet": "For the next ten days, while everyone else is settling back into school and ushering in autumn with pumpkin spice lattes, Jewish Americans will be celebrating the \"Days of Awe,\" starting with Rosh Hashanah, the Jewish New Year, and ending with Yom Kippur, the holiest day of the Jewish calendar. The Days of Awe start at sundown on Friday, September 11, followed by 10 days of somber reflection on the past year. Yom Kippur is a day of atonement and deep reflection for which Jews traditionally fast—it begins at sundown on Sunday, September 20 and finishes at the end of the next day on Monday, September 21. And, for generations, Manischewitz has been a staple on many tables over the Jewish holidays—whether that's their wine, crackers, or another product like macaroons. But looking ahead, the question is whether younger Jewish consumers, like Gen Zers—whose brand of Judaism is a far cry from that of their parents or grandparents—will continue that tradition. \"We're not trying to convince Gen Z&nbsp; and other younger generations to experience Manischewitz the way previous generations did,\" Manischewitz senior vice president Mirit Shalvi tells Fast Company . We're giving them opportunities to make Manischewitz their own, and develop a connection to a brand their grandparents also knew. Very few brands have the ability to bridge generations that way.\" Introducing Manischewitz to a broader generation of culturally curious consumers has been a very intentional strategy for the company, particularly since its recent brand refresh in 2024. \"What is important is that we haven't approached this as simply changing the packaging or running a campaign aimed at Gen Z,\" a Manischewitz spokesperson tells Fast Company. \"We've been looking at how a 100+-year-old heritage brand can participate in contemporary culture while still being unmistakably Manischewitz.\" Manischewitz was born in 1888, some 138 years ago, from Jewish immigrants' need, and desire, for special kosher wine and food products, to ensure they met the necessary dietary guidelines under Jewish law once they came to America. Years later, following a 2024 refresh, Manischewitz has moved well beyond being perceived solely as a brand consumers encounter during major Jewish holidays. And it has created more opportunities for younger consumers to engage with the brand through an array of food products beyond staples like wine, matzoh, crackers and gefilte fish , to gluten-free, low-sodium, and sugar-free options. Its appeal to the next generation of American Jews and those interested in kosher products is, perhaps, most evident in the design of its website and products. The brighter orange color, updated font, contemporary food photography, and funny Yiddish expressions retain the visual and cultural cues associated with Manischewitz, while also showing how the tradition of having Manischewitz on the table can \"be fun, contemporary and culturally relevant.\" That's also true for its new merch (check out this culinary chutzpah apron ), and updated social media and entertainment content. Its dating show, Manischewitz Matchmakers , appeals to one thing all younger Jewish adults care about: dating. It also has a traveling food truck serving hot dogs, knishes, and matzo ball soup. \"Younger consumers don't necessarily separate food, identity, entertainment, social media and culture—they experience all of those things together,\" Talia Sabag, marketing manager for Manischewitz, tells Fast Company . \"That's why our evolution has gone far beyond packaging. From a dating show and a traveling deli to an art exhibition, college programs, athlete partnerships, merchandise and new products, we're finding new ways for people to participate in the Manischewitz brand.\" And the strategy is working: Since 2024, the brand has grown more than 12%, with Manischewitz's core products up over 40%—driven mainly by matzo product purchases by younger consumers. And that's not all: Manischewitz says it also saw&nbsp;double-digit growth&nbsp;in key markets such as Florida and California, along with continued expansion online, with sales tripling since 2024 in the \"Fresh & Frozen\" category—reflecting strong demand from younger consumers for convenience. Those items include frozen Challah, frozen matzoh balls, and frozen rugelach—all of which are ready to go after heating.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "News"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "News"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "manischewitz is betting that a dating show can attract gen z to the 138-year-old brand"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T10:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "News"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.701Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260913-4-things-you-can-do-to-protect",
+    "canonicalTopic": "4 Things You Can Do to Protect Yourself from the Rising Threat of Ai",
+    "slug": "4-things-you-can-do-to-protect-yourself-from-the-rising-threat-of-ai",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-5-420things20you20can20do20",
+        "query": "4 Things You Can Do to Protect Yourself from the Rising Threat of Ai",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-12T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "4 things you can do to protect yourself from the rising threat of AI",
+            "itemLink": "https://www.fastcompany.com/91605985/4-things-you-can-do-to-protect-yourself-from-the-rising-threat-of-ai",
+            "publishedDate": "2026-09-12T10:00:00.000Z",
+            "contentSnippet": "For more than 25 years, I've been the \"Computer Guy\" for friends, family, and colleagues who call when something digital goes sideways. Lately, those calls have changed. The questions used to be about slow computers and forgotten passwords. Now, almost every conversation circles back to the same two words: artificial intelligence . The concern is understandable—and underscored by recent warnings from high-profile AI researchers about the threat of superintelligence. AI is in our home appliances, work products and even attends our meetings. It shapes the apps we use, the content we see, and the messages we receive. Voice assistants listen to our commands, shopping sites predict what we'll buy next, and AI tools quietly learn from the data we create. Meanwhile, the traditional cybersecurity risks of stolen passwords, compromised accounts, and phishing emails haven't gone anywhere. They've only gotten more sophisticated and harder to spot. What frustrates me is that most of the \"protection advice\" floating around reminds me of Cold War–era guidance telling schoolchildren to hide under their desks during a nuclear attack: well-intentioned, but not exactly practical. The good news is you don't need a computer science degree to meaningfully reduce your risk. Four simple habits can help you protect your privacy, spot digital deception, and keep your accounts safer in an AI-driven world. Two ways to limit AI's reach into your world Start by limiting your digital footprint. Every app permission you grant, online quiz you complete, voice command you speak, and prompt you enter can add to the data profile companies build about you. Remove the apps you never use from your phone, then review app permissions on the ones you do use, opting out of unnecessary data collection where possible. Always avoid sharing personal details with AI chatbots. Be especially cautious with free AI sites that use your prompts, conversations, or uploaded files to train their systems. Anything you share could be stored, analyzed, or reused in ways you did not intend. Privacy-focused options such as proton.com and duck.ai may be better choices because they are designed to reduce data collection. You should also learn to recognize AI-generated content . AI can now create realistic fake images, videos, audio, and phishing messages that appear to come from people or organizations you trust. Verify unexpected messages, reverse-image search photos that seem unusually polished, and pause before reacting to content designed to make you angry, afraid, or excited. Two basic cybersecurity protections to start Even in the AI age, these are two things everyone should do to protect themselves online. It not only helps fight against human hackers but also, with AI-generated attacks. First, use strong, unique passwords and store them in a dedicated password manager . Reusing the same password across multiple sites means one breach can expose your email, banking, shopping, and social media accounts at the same time. A password manager creates long, random passwords for each account and remembers them for you, so you only need to memorize one strong master password. Second, enable multi-factor authentication, or MFA, on every account that offers it. MFA adds a second proof of identity, such as code from an authenticator app or a tap on a hardware security key. Even if someone steals your password, MFA makes it much harder for them to get into your account. Some examples of how strong passwords and MFA can help include: Deepfake Social Engineering — AI-generated voice clones or video deepfakes can impersonate trusted individuals, such as a CEO calling IT, your daughter, or your grandmother, making social engineering far more convincing. Even if an attacker successfully tricks someone into handing over their credentials, MFA ensures that stolen or socially engineered passwords alone aren't sufficient to gain access. AI-Optimized Password Spraying — AI can analyze publicly available data from social media and past breaches to build targeted password lists for a group of people. It then sprays the most likely passwords across many accounts while staying just below lockout thresholds to avoid detection. Strong, complex passwords are unlikely to appear on any spray list, and MFA blocks access even if a common password happens to be matched. Four simple steps These four habits — shrinking your data footprint, spotting AI-generated deception, using a password manager, and enabling MFA — give home users a practical first line of defense. Cybersecurity is not something you finish once and forget. Threats evolve, and your habits should evolve with them. Start with one step today: review your app permissions, set up a password manager, or turn on MFA for your most important account. A few minutes now can prevent far bigger problems later. Limit your digital footprint — review app permissions and opt out of data collection Be careful with free AI tools — avoid entering sensitive personal, financial, medical, or work information unless you understand how the service uses your data Use a password manager — generate strong, unique passwords for every account Enable multi-factor authentication — use an authenticator app or hardware security key for your most important accounts",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "Work Life"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "Work Life"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "4 things you can do to protect yourself from the rising threat of ai"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-12T10:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "Work Life"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T10:41:20.719Z",
     "pinterestScore": 75.8
   }
 ]
