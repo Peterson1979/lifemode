@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-13T10:41:20.723Z",
+    "updatedAt": "2026-09-13T11:13:37.576Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1397,7 +1397,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-13T10:41:20.725Z",
+    "updatedAt": "2026-09-13T11:13:37.579Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1458,7 +1458,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-13T10:41:20.727Z",
+    "updatedAt": "2026-09-13T11:13:37.582Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1519,7 +1519,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-13T10:41:20.728Z",
+    "updatedAt": "2026-09-13T11:13:37.584Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1577,10 +1577,12 @@
     "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T08:51:25.019Z",
+    "status": "REJECTED",
+    "updatedAt": "2026-09-13T11:14:11.101Z",
     "pinterestScore": 85.3,
-    "revisionCyclesCount": 0
+    "revisionCyclesCount": 1,
+    "rejectionReason": "AI Review decision was REJECT (score: 88) after 1 quality revision",
+    "revisionAttempted": true
   },
   {
     "id": "lm-travel-20260910-delta-flight-2311-rapid-descen",
@@ -1818,8 +1820,8 @@
     "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T08:51:25.024Z",
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-13T11:15:06.420Z",
     "pinterestScore": 85.3,
     "revisionCyclesCount": 0
   },
@@ -1938,10 +1940,12 @@
     "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T08:51:25.027Z",
+    "status": "REJECTED",
+    "updatedAt": "2026-09-13T11:17:39.868Z",
     "pinterestScore": 85.3,
-    "revisionCyclesCount": 0
+    "revisionCyclesCount": 1,
+    "rejectionReason": "AI Review decision was REJECT (score: 88) after 1 quality revision",
+    "revisionAttempted": true
   },
   {
     "id": "lm-now-20260910-eliezer-alfonzo",
@@ -24994,5 +24998,733 @@
     "status": "SCORED",
     "updatedAt": "2026-09-13T10:41:20.719Z",
     "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-now-20260913-tiempo",
+    "canonicalTopic": "Tiempo",
+    "slug": "tiempo",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-tiempo",
+        "query": "Tiempo",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "tiempo",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "tiempo"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T11:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T11:13:37.439Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-royal-news",
+    "canonicalTopic": "Royal News",
+    "slug": "royal-news",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-royal20news",
+        "query": "Royal News",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "royal news",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "royal news"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T11:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T11:13:37.449Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-club-brugge-vs-antwerp",
+    "canonicalTopic": "Club Brugge Vs Antwerp",
+    "slug": "club-brugge-vs-antwerp",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-club20brugge20vs20",
+        "query": "Club Brugge Vs Antwerp",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "club brugge vs antwerp",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "club brugge vs antwerp"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T11:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T11:13:37.463Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-eagles-game-today",
+    "canonicalTopic": "Eagles Game Today",
+    "slug": "eagles-game-today",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-eagles20game20tod",
+        "query": "Eagles Game Today",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "eagles game today",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "eagles game today"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T11:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T11:13:37.475Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-mto",
+    "canonicalTopic": "Mto",
+    "slug": "mto",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-mC3A9tC3A9o",
+        "query": "Mto",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "météo",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "mto"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T11:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T11:13:37.483Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-michelle-obama-chanel-us-open",
+    "canonicalTopic": "Michelle Obama Chanel Us Open",
+    "slug": "michelle-obama-chanel-us-open",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-michelle20obama20",
+        "query": "Michelle Obama Chanel Us Open",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "michelle obama chanel us open",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "michelle obama chanel us open"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T11:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T11:13:37.493Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-celtics",
+    "canonicalTopic": "Celtics",
+    "slug": "celtics",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-celtics",
+        "query": "Celtics",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "celtics",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "celtics"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T11:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T11:13:37.499Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-lions-schedule",
+    "canonicalTopic": "Lions Schedule",
+    "slug": "lions-schedule",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-lions20schedule",
+        "query": "Lions Schedule",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "lions schedule",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "lions schedule"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T11:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T11:13:37.506Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-boston-weather",
+    "canonicalTopic": "Boston Weather",
+    "slug": "boston-weather",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-boston20weather",
+        "query": "Boston Weather",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "boston weather",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "boston weather"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T11:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T11:13:37.515Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-mn-vikings",
+    "canonicalTopic": "Mn Vikings",
+    "slug": "mn-vikings",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-mn20vikings",
+        "query": "Mn Vikings",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "mn vikings",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "mn vikings"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T11:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T11:13:37.522Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-travel-20260913-ai-staff-genuinely-frightened-",
+    "canonicalTopic": "Ai Staff Genuinely Frightened for Humanitys Future Ex-anthropic Researcher Tells Bbc",
+    "slug": "ai-staff-genuinely-frightened-for-humanitys-future-ex-anthropic-researcher-tells-bbc",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-1-AI20staff20genuinely20",
+        "query": "Ai Staff Genuinely Frightened for Humanitys Future Ex-anthropic Researcher Tells Bbc",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-13T11:13:07.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "AI staff 'genuinely frightened' for humanity's future, ex-Anthropic researcher tells BBC",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c1kx0gyje9wo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-13T11:13:07.000Z",
+            "contentSnippet": "It comes as the AI firm's boss has called for the technology's development to be slowed down, citing \"serious\" risks.",
+            "categories": [
+              "travel",
+              "global",
+              "destinations",
+              "culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "global",
+            "destinations",
+            "culture"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ai staff genuinely frightened for humanitys future ex-anthropic researcher tells bbc"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T11:13:07.000Z",
+    "tags": [
+      "travel",
+      "global",
+      "destinations",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T11:13:37.548Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260913-six-dead-107-rescued-from-indo",
+    "canonicalTopic": "Six Dead 107 Rescued from Indonesian Ferry That Went Missing in Java Sea",
+    "slug": "six-dead-107-rescued-from-indonesian-ferry-that-went-missing-in-java-sea",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-2-Six20dead2C2010720rescue",
+        "query": "Six Dead 107 Rescued from Indonesian Ferry That Went Missing in Java Sea",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-13T09:42:08.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Six dead, 107 rescued from Indonesian ferry that went missing in Java Sea",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cvgykzgljlyo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-13T09:42:08.000Z",
+            "contentSnippet": "Ships and helicopters are searching for the remaining 130 missing people from the Virgo Transport 8 ship, which had encountered bad weather.",
+            "categories": [
+              "travel",
+              "global",
+              "destinations",
+              "culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "global",
+            "destinations",
+            "culture"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "six dead 107 rescued from indonesian ferry that went missing in java sea"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T09:42:08.000Z",
+    "tags": [
+      "travel",
+      "global",
+      "destinations",
+      "culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T11:13:37.565Z",
+    "pinterestScore": 79.2
   }
 ]
