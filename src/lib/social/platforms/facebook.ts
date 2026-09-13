@@ -9,6 +9,122 @@ import type { SocialValidationResult } from '../validation.ts';
 import { loadSocialConfig } from '../config.ts';
 import { createIdempotencyKey, hashString } from '../storage/repository.ts';
 
+const GRAPH_API_BASE = 'https://graph.facebook.com/v21.0';
+
+export interface FacebookPageResolutionResult {
+  valid: boolean;
+  pageId?: string;
+  pageName?: string;
+  isPageToken: boolean;
+  pageAccessToken?: string;
+  error?: string;
+}
+
+/**
+ * Resolves a valid Facebook Page Access Token from the supplied token and page ID.
+ *
+ * If the provided token is already a Page Access Token for target page, it is used directly.
+ * If it is a System User or User Access Token, this exchanges it via Graph API (/{pageId}?fields=access_token
+ * or /me/accounts) to obtain the dedicated Page Access Token required for publishing.
+ */
+export async function resolveFacebookPageAccessToken(
+  pageId: string,
+  rawToken: string,
+  customFetch?: typeof fetch
+): Promise<FacebookPageResolutionResult> {
+  const fetchImpl = customFetch || globalThis.fetch.bind(globalThis);
+  const token = (rawToken || '').trim();
+  const resolvedPageId = (pageId || '').trim();
+
+  if (!token || !resolvedPageId) {
+    return {
+      valid: false,
+      isPageToken: false,
+      error: 'Missing Facebook Access Token or Page ID.',
+    };
+  }
+
+  try {
+    // 1. Inspect the identity of the current token: /me?fields=id,name
+    const meUrl = `${GRAPH_API_BASE}/me?fields=id,name&access_token=${encodeURIComponent(token)}`;
+    const meRes = await fetchImpl(meUrl);
+    const meData = (await meRes.json()) as { id?: string; name?: string; error?: { message: string; code: number } };
+
+    // Case A: The token is already a Page Access Token matching resolvedPageId
+    if (meRes.ok && meData.id === resolvedPageId) {
+      return {
+        valid: true,
+        pageId: resolvedPageId,
+        pageName: meData.name,
+        isPageToken: true,
+        pageAccessToken: token,
+      };
+    }
+
+    // Case B: Query the page node directly with fields=id,name,access_token
+    const pageUrl = `${GRAPH_API_BASE}/${resolvedPageId}?fields=id,name,access_token&access_token=${encodeURIComponent(token)}`;
+    const pageRes = await fetchImpl(pageUrl);
+    const pageData = (await pageRes.json()) as {
+      id?: string;
+      name?: string;
+      access_token?: string;
+      error?: { message: string; code: number };
+    };
+
+    if (pageRes.ok && pageData.access_token) {
+      return {
+        valid: true,
+        pageId: resolvedPageId,
+        pageName: pageData.name,
+        isPageToken: true,
+        pageAccessToken: pageData.access_token,
+      };
+    }
+
+    // Case C: Query /me/accounts for user's managed pages
+    const accountsUrl = `${GRAPH_API_BASE}/me/accounts?fields=id,name,access_token&access_token=${encodeURIComponent(token)}`;
+    const accountsRes = await fetchImpl(accountsUrl);
+    const accountsData = (await accountsRes.json()) as {
+      data?: Array<{ id: string; name: string; access_token: string }>;
+      error?: { message: string; code: number };
+    };
+
+    if (accountsRes.ok && Array.isArray(accountsData.data)) {
+      const match = accountsData.data.find((acc) => acc.id === resolvedPageId);
+      if (match && match.access_token) {
+        return {
+          valid: true,
+          pageId: resolvedPageId,
+          pageName: match.name,
+          isPageToken: true,
+          pageAccessToken: match.access_token,
+        };
+      }
+    }
+
+    // If page endpoint returned error or no access_token:
+    const errCode = pageData?.error?.code || meData?.error?.code;
+    let hint = '';
+    if (errCode === 200 || !pageData?.access_token) {
+      hint = ` Token is a User/System Token (identity: '${meData?.name || meData?.id || 'unknown'}') without direct Page Access Token for Page ID '${resolvedPageId}'. Ensure the token has 'pages_manage_posts' and 'pages_read_engagement' permissions, or configure Page Access Token directly.`;
+    }
+
+    return {
+      valid: false,
+      isPageToken: false,
+      pageId: resolvedPageId,
+      pageName: pageData?.name || meData?.name,
+      error: `Facebook Page token resolution failed for Page '${resolvedPageId}': ${pageData?.error?.message || meData?.error?.message || 'Page Access Token not returned'}.${hint}`,
+    };
+  } catch (err: unknown) {
+    return {
+      valid: false,
+      isPageToken: false,
+      error: `Network error resolving Facebook Page credentials: ${err instanceof Error ? err.message : String(err)}`,
+    };
+  }
+}
+
 export class FacebookPlatformAdapter implements ISocialPlatformAdapter {
   readonly platform = 'facebook' as const;
   readonly name = 'Facebook Platform Adapter';
@@ -110,12 +226,25 @@ export class FacebookPlatformAdapter implements ISocialPlatformAdapter {
     const fetchImpl = this.customFetch || globalThis.fetch.bind(globalThis);
 
     try {
-      const endpoint = `https://graph.facebook.com/v20.0/${pageId}/photos`;
+      // Resolve Page Access Token from supplied raw token
+      const resolved = await resolveFacebookPageAccessToken(pageId, pageAccessToken, fetchImpl);
+      if (!resolved.valid || !resolved.pageAccessToken) {
+        return {
+          platform: this.platform,
+          status: 'FAILED',
+          error: resolved.error || `Failed to resolve Facebook Page Access Token for Page '${pageId}'.`,
+          publishedAt: now,
+          idempotencyKey: pkg.idempotencyKey,
+        };
+      }
+
+      const activeToken = resolved.pageAccessToken;
+      const endpoint = `${GRAPH_API_BASE}/${pageId}/photos`;
       const response = await fetchImpl(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          access_token: pageAccessToken,
+          access_token: activeToken,
           caption: pkg.caption,
           url: pkg.mediaAsset.url,
         }),

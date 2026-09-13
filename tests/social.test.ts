@@ -17,6 +17,7 @@ import {
   hashString,
   createIdempotencyKey,
   FacebookPlatformAdapter,
+  resolveFacebookPageAccessToken,
   InstagramPlatformAdapter,
   PinterestPlatformAdapter,
   FixtureSocialGenerationProvider,
@@ -1487,5 +1488,213 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     assert.equal(manifestJson.includes('secret'), false);
 
     await fs.rm(tempDir, { recursive: true, force: true });
+  });
+
+  await t.test('44. Facebook Page token resolution recognizes when supplied token is already a Page Access Token', async () => {
+    const mockFetch = async (url: string) => {
+      if (url.includes('/me?fields=id,name')) {
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({ id: '1234567890', name: 'LifeMode Page' }),
+        } as any;
+      }
+      return { ok: false, status: 404, json: async () => ({}) } as any;
+    };
+
+    const res = await resolveFacebookPageAccessToken('1234567890', 'EAA_direct_page_token', mockFetch as any);
+    assert.equal(res.valid, true);
+    assert.equal(res.isPageToken, true);
+    assert.equal(res.pageId, '1234567890');
+    assert.equal(res.pageName, 'LifeMode Page');
+    assert.equal(res.pageAccessToken, 'EAA_direct_page_token');
+  });
+
+  await t.test('45. Facebook Page token resolution exchanges System/User token for Page Access Token via /{pageId}?fields=access_token', async () => {
+    const mockFetch = async (url: string) => {
+      if (url.includes('/me?fields=id,name')) {
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({ id: '9999999999', name: 'System User Portfolio' }),
+        } as any;
+      }
+      if (url.includes('/1234567890?fields=id,name,access_token')) {
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({
+            id: '1234567890',
+            name: 'LifeMode Page',
+            access_token: 'EAA_exchanged_page_token_via_page_node',
+          }),
+        } as any;
+      }
+      return { ok: false, status: 404, json: async () => ({}) } as any;
+    };
+
+    const res = await resolveFacebookPageAccessToken('1234567890', 'EAA_system_user_token', mockFetch as any);
+    assert.equal(res.valid, true);
+    assert.equal(res.isPageToken, true);
+    assert.equal(res.pageId, '1234567890');
+    assert.equal(res.pageName, 'LifeMode Page');
+    assert.equal(res.pageAccessToken, 'EAA_exchanged_page_token_via_page_node');
+  });
+
+  await t.test('46. Facebook Page token resolution exchanges System/User token for Page Access Token via /me/accounts', async () => {
+    const mockFetch = async (url: string) => {
+      if (url.includes('/me?fields=id,name')) {
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({ id: '9999999999', name: 'System User Portfolio' }),
+        } as any;
+      }
+      if (url.includes('/1234567890?fields=id,name,access_token')) {
+        return {
+          ok: false,
+          status: 400,
+          json: async () => ({ error: { message: 'Cannot query directly', code: 200 } }),
+        } as any;
+      }
+      if (url.includes('/me/accounts?fields=id,name,access_token')) {
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({
+            data: [
+              { id: 'other_page_id', name: 'Other Page', access_token: 'EAA_other_page_token' },
+              { id: '1234567890', name: 'LifeMode Page', access_token: 'EAA_accounts_page_token' },
+            ],
+          }),
+        } as any;
+      }
+      return { ok: false, status: 404, json: async () => ({}) } as any;
+    };
+
+    const res = await resolveFacebookPageAccessToken('1234567890', 'EAA_system_user_token', mockFetch as any);
+    assert.equal(res.valid, true);
+    assert.equal(res.isPageToken, true);
+    assert.equal(res.pageId, '1234567890');
+    assert.equal(res.pageName, 'LifeMode Page');
+    assert.equal(res.pageAccessToken, 'EAA_accounts_page_token');
+  });
+
+  await t.test('47. Facebook Page token resolution fails cleanly without exposing token strings when unauthorized', async () => {
+    const sensitiveRawToken = 'SUPER_SECRET_RAW_TOKEN_9876543210';
+    const mockFetch = async (url: string) => {
+      if (url.includes('/me?fields=id,name')) {
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({ id: '9999999999', name: 'System User Without Page Access' }),
+        } as any;
+      }
+      if (url.includes('/1234567890?fields=id,name,access_token')) {
+        return {
+          ok: false,
+          status: 403,
+          json: async () => ({ error: { message: 'Permission denied', code: 200 } }),
+        } as any;
+      }
+      if (url.includes('/me/accounts?fields=id,name,access_token')) {
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({ data: [] }),
+        } as any;
+      }
+      return { ok: false, status: 404, json: async () => ({}) } as any;
+    };
+
+    const res = await resolveFacebookPageAccessToken('1234567890', sensitiveRawToken, mockFetch as any);
+    assert.equal(res.valid, false);
+    assert.equal(res.isPageToken, false);
+    assert.ok(res.error?.includes('Facebook Page token resolution failed for Page \'1234567890\''));
+    assert.equal(res.error?.includes(sensitiveRawToken), false);
+  });
+
+  await t.test('48. Facebook publish executes complete flow using resolved Page Access Token and Graph API v21.0', async () => {
+    const savedFbToken = process.env.FACEBOOK_PAGE_ACCESS_TOKEN;
+    const savedFbPageId = process.env.FACEBOOK_PAGE_ID;
+
+    try {
+      const mockRawToken = 'EAAGmockSystemUserTokenForLifeMode';
+      const mockResolvedPageToken = 'EAAGmockResolvedPageTokenForLifeModePage';
+      const mockPageId = '10009876543210';
+
+      process.env.FACEBOOK_PAGE_ACCESS_TOKEN = mockRawToken;
+      process.env.FACEBOOK_PAGE_ID = mockPageId;
+
+      const capturedRequests: Array<{ url: string; method?: string; body?: any }> = [];
+
+      const mockFetch = async (url: string, init?: any) => {
+        const method = init?.method || 'GET';
+        const body = init?.body ? JSON.parse(init.body) : undefined;
+        capturedRequests.push({ url, method, body });
+
+        if (url.includes('/me?fields=id,name')) {
+          return {
+            ok: true,
+            status: 200,
+            json: async () => ({ id: 'system_user_portfolio_id', name: 'LifeMode System User' }),
+          } as any;
+        }
+
+        if (url.includes(`/${mockPageId}?fields=id,name,access_token`)) {
+          return {
+            ok: true,
+            status: 200,
+            json: async () => ({
+              id: mockPageId,
+              name: 'LifeMode Official Page',
+              access_token: mockResolvedPageToken,
+            }),
+          } as any;
+        }
+
+        if (url.includes(`/${mockPageId}/photos`)) {
+          return {
+            ok: true,
+            status: 200,
+            json: async () => ({ id: 'fb_photo_post_id_99999' }),
+          } as any;
+        }
+
+        return { ok: false, status: 404, text: async () => 'Not Found' } as any;
+      };
+
+      const adapter = new FacebookPlatformAdapter(mockFetch as any);
+      assert.equal(adapter.isConfigured(), true);
+
+      const content = createMockValidSocialContent();
+      const asset = createMockValidVisualAsset({
+        url: 'https://media.lifemode.life/social/calm-workspace/img-123.jpg',
+      });
+      const pkg = await adapter.prepare(content, asset);
+
+      const result = await adapter.publish(pkg, { dryRun: false });
+
+      assert.equal(result.status, 'PUBLISHED');
+      assert.equal(result.postId, 'fb_photo_post_id_99999');
+      assert.equal(result.postUrl, 'https://facebook.com/fb_photo_post_id_99999');
+
+      // Verify captured API calls:
+      // 1. Identity check /me
+      assert.ok(capturedRequests[0].url.includes('https://graph.facebook.com/v21.0/me?fields=id,name'));
+      // 2. Token exchange /{pageId}
+      assert.ok(capturedRequests[1].url.includes(`https://graph.facebook.com/v21.0/${mockPageId}?fields=id,name,access_token`));
+      // 3. Publish POST /{pageId}/photos using the RESOLVED page token
+      assert.equal(capturedRequests[2].url, `https://graph.facebook.com/v21.0/${mockPageId}/photos`);
+      assert.equal(capturedRequests[2].method, 'POST');
+      assert.equal(capturedRequests[2].body.access_token, mockResolvedPageToken);
+      assert.equal(capturedRequests[2].body.url, 'https://media.lifemode.life/social/calm-workspace/img-123.jpg');
+    } finally {
+      if (savedFbToken !== undefined) process.env.FACEBOOK_PAGE_ACCESS_TOKEN = savedFbToken;
+      else delete process.env.FACEBOOK_PAGE_ACCESS_TOKEN;
+
+      if (savedFbPageId !== undefined) process.env.FACEBOOK_PAGE_ID = savedFbPageId;
+      else delete process.env.FACEBOOK_PAGE_ID;
+    }
   });
 });
