@@ -1,4 +1,4 @@
-import { resolve } from 'node:path';
+import { resolve, basename } from 'node:path';
 import type {
   AutomationRequest,
   AutomationResult,
@@ -30,6 +30,7 @@ import { AstroGitPublisher } from '../git-publisher/publisher.ts';
 import { GitCli } from '../git-publisher/git-cli.ts';
 import { defaultAIRouter } from '../../ai/router.ts';
 import { runImageBackfill, type BackfillRunResult } from '../images/backfill.ts';
+import { FilesystemPerformanceStore, aggregateFeedbackSignals } from '../performance/index.ts';
 import type { GenerationRequest } from '../generation/types.ts';
 import type { ReviewRequest } from '../review/types.ts';
 import type { PublishingRequest } from '../publishing/types.ts';
@@ -104,10 +105,10 @@ export function toDailyArticleResult(
     durationMs,
     error: opp.error
       ? {
-          stage: opp.error.stage,
-          code: opp.error.code,
-          message: opp.error.message,
-        }
+        stage: opp.error.stage,
+        code: opp.error.code,
+        message: opp.error.message,
+      }
       : undefined,
   };
 }
@@ -218,7 +219,7 @@ export async function runEditorialAutomation(
   // 1. Load and merge configuration
   const config = loadAutomationConfig({
     enabled: request.enabled,
-    maxOpportunities: request.dailyArticleLimit ?? request.maxOpportunities,
+    maxOpportunities: request.maxOpportunities ?? request.dailyArticleLimit,
     dailyArticleLimit: request.dailyArticleLimit ?? request.maxOpportunities,
     dryRun: request.dryRun,
     minScoreThreshold: request.minScoreThreshold,
@@ -250,7 +251,21 @@ export async function runEditorialAutomation(
   }
 
   // Initialize repositories and services
-  const defaultContentRoot = resolve(request.contentRoot || process.cwd(), 'src', 'content');
+  let defaultContentRoot: string;
+  if (request.contentRoot) {
+    const normalized = request.contentRoot.replace(/[/\\]+$/, '');
+    if (
+      normalized.endsWith('src/content') ||
+      normalized.endsWith('src\\content') ||
+      basename(normalized) === 'content'
+    ) {
+      defaultContentRoot = resolve(normalized);
+    } else {
+      defaultContentRoot = resolve(normalized, 'src', 'content');
+    }
+  } else {
+    defaultContentRoot = resolve(process.cwd(), 'src', 'content');
+  }
   const repository = request.contentRepository || new FilesystemContentRepository({
     contentRoot: defaultContentRoot,
   });
@@ -448,11 +463,26 @@ export async function runEditorialAutomation(
     existingPillarDistribution[art.pillar] = (existingPillarDistribution[art.pillar] || 0) + 1;
   }
 
+  // Load performance feedback signals if available
+  let feedbackSignals = request.performanceSignals;
+  if (!feedbackSignals) {
+    try {
+      const perfStore = request.performanceStore || new FilesystemPerformanceStore();
+      const perfRecords = await perfStore.loadRecords();
+      if (perfRecords.length > 0) {
+        feedbackSignals = aggregateFeedbackSignals(perfRecords);
+      }
+    } catch {
+      feedbackSignals = undefined;
+    }
+  }
+
   const { approved } = selectEditorialCandidates(unPublishedCandidates, {
     minScoreThreshold: config.minScoreThreshold,
     totalLimit: config.maxOpportunities,
     existingPillarDistribution,
     enablePillarBalancing: true,
+    feedbackSignals,
   });
 
   const selectedCount = approved.length;

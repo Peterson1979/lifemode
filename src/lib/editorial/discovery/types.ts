@@ -30,6 +30,9 @@ export interface DiscoverySignal {
   language?: string; // e.g. 'en'
   category?: PillarSlug | string;
   sourceUrl?: string;
+  publisherName?: string;
+  publishedAt?: string;
+  contentSnippet?: string;
   metadata?: Record<string, any>;
 }
 

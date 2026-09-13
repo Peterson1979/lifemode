@@ -73,7 +73,7 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
     const userPromptParts: string[] = [
       `Revise the existing article draft for the following topic based on editorial quality review feedback:`,
       '',
-      `### Topic Specifications:`,
+      `### Topic Specifications (Editorial Brief V2):`,
       `- Title Angle: "${request.titleAngle}"`,
       `- Topic ID: ${request.topicId}`,
       `- Pillar: ${request.pillar}`,
@@ -81,6 +81,19 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
       `- Target Audience: ${request.audience}`,
       `- Primary Intent: ${request.primaryIntent}${request.secondaryIntent ? ` (Secondary: ${request.secondaryIntent})` : ''}`,
       `- Primary Keyword: "${request.searchTargets.primaryKeyword}"`,
+    ];
+
+    if (request.recommendedAngle) {
+      userPromptParts.push(`- Recommended Angle: "${request.recommendedAngle}"`);
+    }
+    if (request.readerProblem) {
+      userPromptParts.push(`- Reader Problem / Need: "${request.readerProblem}"`);
+    }
+    if (request.commercialIntentType) {
+      userPromptParts.push(`- Commercial Intent Classification: ${request.commercialIntentType}`);
+    }
+
+    userPromptParts.push(
       '',
       `### Article Length & Depth Specifications:`,
       `- TARGET WORD COUNT: Approximately ${revTargetWords} words (Aim directly for this target).`,
@@ -88,7 +101,7 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
       `- Target Word Count Range: ${revMinWords}–${revMaxWords} words.`,
       '',
       `### AI Quality Review Evaluation (Score: ${reviewRes.overallScore}/100 - Decision: ${reviewRes.decision}):`,
-    ];
+    );
 
     if (reviewRes.dimensions) {
       userPromptParts.push(`- Dimension Scores & Feedback:`);
@@ -106,7 +119,16 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
       userPromptParts.push('', `### Reviewer Warnings & Recommendations:`, ...reviewRes.warnings.map((w) => `- ${w}`));
     }
 
-    if (request.evidence && request.evidence.length > 0) {
+    if (request.sourceBackedFacts && request.sourceBackedFacts.length > 0) {
+      userPromptParts.push(
+        '',
+        `### Verified Source-Backed Facts (Strict Factual Grounding):`,
+        ...request.sourceBackedFacts.map(
+          (f, i) =>
+            `  ${i + 1}. [${f.sourceType?.toUpperCase() || 'SOURCE'} - ${f.reliability} reliability] "${f.sourceTitle}" (${f.publisher})\n     URL: ${f.sourceUrl}\n     Verified Fact: ${f.claim}`
+        )
+      );
+    } else if (request.evidence && request.evidence.length > 0) {
       userPromptParts.push(
         '',
         `### Verified Research Evidence (Grounding Sources):`,
@@ -122,6 +144,46 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
         ...request.requiredSources.map(
           (s) => `- ${s.name}${s.url ? ` (${s.url})` : ''} [${s.citationType || 'authority'}]`
         )
+      );
+    }
+
+    if (request.evidenceLimitations && request.evidenceLimitations.length > 0) {
+      userPromptParts.push(
+        '',
+        `### Evidence Limitations & Uncertainty (Generation Constraints):`,
+        'The generator must strictly respect what the research does NOT establish:',
+        ...request.evidenceLimitations.map((lim) => `- ${lim}`)
+      );
+    }
+
+    if (request.doNotClaim && request.doNotClaim.length > 0) {
+      userPromptParts.push(
+        '',
+        `### Strict "Do Not Claim" Guardrails:`,
+        'The revised draft must NEVER violate the following constraints:',
+        ...request.doNotClaim.map((c) => `- ${c}`)
+      );
+    }
+
+    if (request.affiliateGuidance && request.affiliateGuidance.hasMatches) {
+      userPromptParts.push(
+        '',
+        `### Commercial & Affiliate Editorial Guidance (Optional & Non-Intrusive):`,
+        `- Commercial Intent: ${request.affiliateGuidance.intentType}`,
+        `- Primary Category: ${request.affiliateGuidance.primaryCategory || 'General'}`,
+        `- Editorial Placement Guidance: Subtle, context-aware integration strictly secondary to human editorial depth.`,
+        `- Matched Opportunities:`,
+        ...request.affiliateGuidance.matchedOpportunities.map(
+          (opp) =>
+            `  * ${opp.name} (${opp.category}): ${opp.placementSuggestion} ${
+              opp.isLinkable ? `[Approved Destination URL: ${opp.approvedDestinationUrl}]` : '[Editorial mention only; DO NOT create a live URL]'
+            }`
+        ),
+        '',
+        `Affiliate Safety & Integrity Rules:`,
+        `- Do NOT fabricate affiliate URLs, referral parameters, or merchant discount codes.`,
+        `- Unresolved opportunities without an approved destination URL must NEVER be turned into live links.`,
+        `- Commercial mentions must be organic and strictly secondary to reader value.`
       );
     }
 
@@ -248,7 +310,7 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
   const userPromptParts: string[] = [
     `Generate a complete, publishable editorial article package for the following topic:`,
     '',
-    `### Topic Specifications:`,
+    `### Topic Specifications (Editorial Brief V2):`,
     `- Title Angle (Guidance): "${request.titleAngle}"`,
     `- Topic ID: ${request.topicId}`,
     `- Pillar: ${request.pillar}`,
@@ -256,6 +318,25 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
     `- Target Audience: ${request.audience}`,
     `- Primary Intent: ${request.primaryIntent}${request.secondaryIntent ? ` (Secondary: ${request.secondaryIntent})` : ''}`,
     `- Primary Keyword: "${request.searchTargets.primaryKeyword}"`,
+  ];
+
+  if (request.recommendedAngle) {
+    userPromptParts.push(`- Recommended Angle: "${request.recommendedAngle}"`);
+  }
+
+  if (request.readerProblem) {
+    userPromptParts.push(`- Reader Problem / Need: "${request.readerProblem}"`);
+  }
+
+  if (request.commercialIntentType) {
+    userPromptParts.push(`- Commercial Intent: ${request.commercialIntentType}`);
+  }
+
+  if (request.seoMetadata?.freshnessSensitivity) {
+    userPromptParts.push(`- Freshness Sensitivity: ${request.seoMetadata.freshnessSensitivity}`);
+  }
+
+  userPromptParts.push(
     '',
     `### Headline & Excerpt Instructions:`,
     `- Craft a specific, natural, human headline for "title" describing the actual subject in sentence case. Do NOT blindly copy formulaic patterns or use "A Modern Guide to...".`,
@@ -273,9 +354,24 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
     `- Conclusion & Practical Takeaways (~15% / ~${Math.round(targetWords * 0.15)} words): Synthesize the insights into enduring lifestyle practices and actionable takeaways.`,
     `- FAQ Section: Include 2–4 detailed, practical Q&As answering high-intent reader questions.`,
     `Important: Do NOT output these planning notes. Execute this mental structure directly into the full Markdown text inside the "content" field.`,
-  ];
+  );
 
-  if (request.evidence && request.evidence.length > 0) {
+  if (request.sourceBackedFacts && request.sourceBackedFacts.length > 0) {
+    userPromptParts.push(
+      '',
+      `### Verified Source-Backed Facts & Factual Grounding:`,
+      `The following verified facts were retrieved during editorial research. Factual claims, dates, venue specifics, technical specifications, and statistics MUST be grounded in these verified facts:`,
+      ...request.sourceBackedFacts.map(
+        (f, i) =>
+          `  ${i + 1}. [${f.sourceType?.toUpperCase() || 'SOURCE'} - ${f.reliability} reliability] "${f.sourceTitle}" (${f.publisher})\n     URL: ${f.sourceUrl}\n     Verified Fact: ${f.claim}`
+      ),
+      '',
+      `Evidence Directives:`,
+      `- Use the verified sources above to populate the "sources" array in your JSON output.`,
+      `- Do NOT fabricate citations or external sources not supported by this evidence.`,
+      `- If a specific claim or detail is not supported by the evidence, omit or phrase it cautiously rather than guessing.`
+    );
+  } else if (request.evidence && request.evidence.length > 0) {
     userPromptParts.push(
       '',
       `### Verified Research Evidence & Factual Grounding:`,
@@ -297,6 +393,55 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
       ...request.requiredSources.map(
         (s) => `- ${s.name}${s.url ? ` (${s.url})` : ''} [${s.citationType || 'authority'}]`
       )
+    );
+  }
+
+  if (request.evidenceLimitations && request.evidenceLimitations.length > 0) {
+    userPromptParts.push(
+      '',
+      `### Evidence Limitations & Uncertainty (Generation Constraints):`,
+      `The generator must strictly respect what the research does NOT establish:`,
+      ...request.evidenceLimitations.map((lim) => `- ${lim}`)
+    );
+  }
+
+  if (request.doNotClaim && request.doNotClaim.length > 0) {
+    userPromptParts.push(
+      '',
+      `### Strict "Do Not Claim" Guardrails:`,
+      `The generator must NEVER violate the following constraints:`,
+      ...request.doNotClaim.map((c) => `- ${c}`)
+    );
+  }
+
+  if (request.sourceUrls && request.sourceUrls.length > 0) {
+    userPromptParts.push(
+      '',
+      `### Approved Citation Sources (Use only these URLs for "sources"):`,
+      ...request.sourceUrls.map((u) => `- ${u}`)
+    );
+  }
+
+  if (request.affiliateGuidance && request.affiliateGuidance.hasMatches) {
+    userPromptParts.push(
+      '',
+      `### Commercial & Affiliate Editorial Guidance (Optional & Non-Intrusive):`,
+      `- Commercial Intent: ${request.affiliateGuidance.intentType}`,
+      `- Primary Recommendation Category: ${request.affiliateGuidance.primaryCategory || 'General'}`,
+      `- Editorial Placement Guidance: Subtle, context-aware integration strictly secondary to human editorial depth.`,
+      `- Matched Opportunities:`,
+      ...request.affiliateGuidance.matchedOpportunities.map(
+        (opp) =>
+          `  * ${opp.name} (${opp.category}): ${opp.placementSuggestion} ${
+            opp.isLinkable ? `[Approved Destination URL: ${opp.approvedDestinationUrl}]` : '[Editorial mention only; DO NOT create a live URL]'
+          }`
+      ),
+      '',
+      `Affiliate Safety & Integrity Rules:`,
+      `- Do NOT fabricate or guess affiliate URLs, affiliate IDs, store referral parameters, or discount codes.`,
+      `- Unresolved opportunities without an explicit approved destination URL must NEVER be turned into links.`,
+      `- Do NOT insert affiliate links or markdown link tags into the article body text unless an approved destination URL is explicitly provided.`,
+      `- Commercial mentions must be organic, balanced, and strictly secondary to practical reader value.`
     );
   }
 

@@ -24,7 +24,10 @@ export * from './discovery/adapters/google-search-console.ts';
 export * from './discovery/adapters/bing-webmaster.ts';
 export * from './discovery/adapters/youtube-trends.ts';
 export * from './discovery/adapters/internal-analytics.ts';
+export * from './sources/index.ts';
 export * from './research/index.ts';
+export * from './affiliate/index.ts';
+export * from './validation/index.ts';
 export * from './generation/types.ts';
 export * from './generation/providers/types.ts';
 export * from './generation/providers/fixture.ts';
@@ -64,4 +67,5 @@ export * from './git-publisher/publisher.ts';
 export * from './images/index.ts';
 export * from './automation/index.ts';
 export * from './maintenance/index.ts';
+export * from './performance/index.ts';
 

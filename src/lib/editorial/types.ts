@@ -90,6 +90,11 @@ export interface SourceSignal {
   source: SignalSourceType;
   sourceId?: string;
   query: string;
+  sourceUrl?: string;
+  publisherName?: string;
+  author?: string;
+  publishedAt?: string;
+  contentSnippet?: string;
   volumeOrGrowth?: number;
   recordedAt: string;
   metadata?: Record<string, any>;
@@ -151,26 +156,77 @@ export interface EditorialTopic {
   researchRequired?: boolean;
   researchStatus?: 'SUCCESS' | 'NOT_REQUIRED' | 'NO_EVIDENCE' | 'FAILED';
   evidence?: import('./research/types.ts').EvidenceItem[];
+  performanceFeedback?: import('./performance/types.ts').TopicPerformanceFeedback;
   tags: string[];
 }
 
 /**
- * Content Brief structure produced from an approved topic.
+ * Commercial / Affiliate Intent Classification.
+ */
+export type CommercialIntentType =
+  | 'none'
+  | 'informational'
+  | 'commercial-investigation'
+  | 'transactional';
+
+/**
+ * Verified source-backed fact explicitly traceable to an evidence item.
+ */
+export interface SourceBackedFact {
+  claim: string;
+  sourceUrl: string;
+  sourceTitle: string;
+  publisher: string;
+  reliability: import('./research/types.ts').EvidenceReliability;
+  sourceType: import('./research/types.ts').EvidenceSourceType;
+}
+
+/**
+ * SEO Opportunity and Search Guidance Metadata.
+ */
+export interface SeoOpportunityMetadata {
+  primaryKeyword: string;
+  secondaryKeywords: string[];
+  intentCategory: SearchIntent;
+  freshnessSensitivity: 'low' | 'medium' | 'high';
+  opportunityScore?: number;
+  recommendedAngle?: string;
+}
+
+/**
+ * Commercial and Affiliate Opportunity Details.
+ */
+export interface BriefAffiliateOpportunities {
+  hasAffiliateIntent: boolean;
+  intentType: CommercialIntentType;
+  productCategories: string[];
+  suggestedPlacements: string[];
+}
+
+/**
+ * Content Brief structure produced from an approved topic and research evidence.
+ * Serves as the authoritative handoff between Research and Generation (Editorial Brief V2).
  */
 export interface ContentBrief {
   topicId: string;
   titleAngle: string;
+  workingTitle?: string;
   slug: string;
   pillar: PillarSlug;
   format: ArticleFormat;
   primaryIntent: SearchIntent;
   secondaryIntent?: string;
+  secondaryIntents?: string[];
   audience: string;
+  recommendedAngle: string;
+  readerProblem: string;
+  keyClaims: string[];
   searchTargets: {
     primaryKeyword: string;
     secondaryKeywords: string[];
     targetSearchVolumeTier?: 'low' | 'medium' | 'high' | 'breakout';
   };
+  seoMetadata?: SeoOpportunityMetadata;
   pinterestAngle: {
     visualTheme: string;
     pinTitleAngle: string;
@@ -181,11 +237,7 @@ export interface ContentBrief {
     hookAngle: string;
     keyTakeaways: string[];
   };
-  affiliateOpportunities: {
-    hasAffiliateIntent: boolean;
-    productCategories: string[];
-    suggestedPlacements: string[];
-  };
+  affiliateOpportunities: BriefAffiliateOpportunities;
   internalLinkTargets: string[];
   requiredSources: Array<{
     name: string;
@@ -193,6 +245,10 @@ export interface ContentBrief {
     citationType: 'authority' | 'study' | 'official' | 'benchmark';
   }>;
   evidence?: import('./research/types.ts').EvidenceItem[];
+  sourceBackedFacts?: SourceBackedFact[];
+  evidenceLimitations?: string[];
+  doNotClaim?: string[];
+  sourceUrls?: string[];
   riskLevel: RiskLevel;
   estimatedWordCount: {
     min: number;

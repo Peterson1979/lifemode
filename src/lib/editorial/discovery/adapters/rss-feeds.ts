@@ -128,6 +128,9 @@ export class RSSFeedsDiscoveryAdapter implements IDiscoveryAdapter {
             language: 'en',
             category: feed.pillar,
             sourceUrl: item.link || feed.url,
+            publisherName: parsed.title || feed.name,
+            publishedAt: pubIso,
+            contentSnippet: item.description,
             metadata: {
               rssPayload: payload,
               suggestedPillar: feed.pillar,

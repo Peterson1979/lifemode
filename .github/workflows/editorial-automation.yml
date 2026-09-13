@@ -2,10 +2,14 @@ name: Scheduled Editorial Automation
 
 on:
   schedule:
-    # Run once daily at 06:00 UTC
-    - cron: '0 6 * * *'
+    # Primary scheduled run at 06:00 UTC + automated watchdog catch-up windows at 09:00, 12:00, 18:00 UTC
+    - cron: '0 6,9,12,18 * * *'
   workflow_dispatch:
     inputs:
+      force:
+        description: 'Force execution even if daily publication quota is already satisfied'
+        type: boolean
+        default: false
       dry_run:
         description: 'Execute in safe dry-run mode (no commits, no pushes)'
         type: boolean
@@ -13,7 +17,7 @@ on:
       max_opportunities:
         description: 'Maximum opportunities to select and process'
         type: number
-        default: 1
+        default: 3
       min_score:
         description: 'Minimum topic score threshold (0-100)'
         type: number
@@ -102,10 +106,13 @@ jobs:
 
           # Scheduled Automation Runtime Settings
           LIFEMODE_AUTOMATION_ENABLED: "true"
+          LIFEMODE_AUTOMATION_WATCHDOG: "true"
+          LIFEMODE_AUTOMATION_FORCE: ${{ github.event_name == 'workflow_dispatch' && inputs.force == true && 'true' || 'false' }}
           LIFEMODE_AUTOMATION_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run == true && 'true' || 'false' }}
           LIFEMODE_AUTOMATION_COMMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run == true && 'false' || 'true' }}
           LIFEMODE_AUTOMATION_PUSH: ${{ github.event_name == 'workflow_dispatch' && (inputs.dry_run == true || inputs.allow_push == false) && 'false' || 'true' }}
-          LIFEMODE_AUTOMATION_MAX_OPPORTUNITIES: ${{ github.event_name == 'workflow_dispatch' && inputs.max_opportunities || '1' }}
+          LIFEMODE_DAILY_ARTICLE_LIMIT: "3"
+          LIFEMODE_AUTOMATION_MAX_OPPORTUNITIES: ${{ github.event_name == 'workflow_dispatch' && inputs.max_opportunities || '3' }}
           LIFEMODE_AUTOMATION_MIN_SCORE: ${{ github.event_name == 'workflow_dispatch' && inputs.min_score || '80' }}
           LIFEMODE_AUTOMATION_PROVIDER: "router"
           LIFEMODE_AUTOMATION_GIT_REMOTE: "origin"

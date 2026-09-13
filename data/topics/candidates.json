@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-13T11:13:37.576Z",
+    "updatedAt": "2026-09-13T12:54:43.593Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1397,7 +1397,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-13T11:13:37.579Z",
+    "updatedAt": "2026-09-13T12:54:43.594Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1458,7 +1458,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-13T11:13:37.582Z",
+    "updatedAt": "2026-09-13T12:54:43.595Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1519,7 +1519,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-13T11:13:37.584Z",
+    "updatedAt": "2026-09-13T12:54:43.597Z",
     "revisionCyclesCount": 0
   },
   {
@@ -25726,5 +25726,1315 @@
     "status": "SCORED",
     "updatedAt": "2026-09-13T11:13:37.565Z",
     "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-now-20260913-jude-bellingham",
+    "canonicalTopic": "Jude Bellingham",
+    "slug": "jude-bellingham",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-jude20bellingham",
+        "query": "Jude Bellingham",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-13T12:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T12:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "jude bellingham",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "jude bellingham"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T12:40:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T12:54:43.401Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-charley-hull",
+    "canonicalTopic": "Charley Hull",
+    "slug": "charley-hull",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-charley20hull",
+        "query": "Charley Hull",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-13T12:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T12:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "charley hull",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "charley hull"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T12:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T12:54:43.409Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-coventry-city-brighton",
+    "canonicalTopic": "Coventry City - Brighton",
+    "slug": "coventry-city-brighton",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-coventry20city20-",
+        "query": "Coventry City - Brighton",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-13T12:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T12:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "coventry city - brighton",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "coventry city - brighton"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T12:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T12:54:43.418Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-week-1-fantasy-rankings",
+    "canonicalTopic": "Week 1 Fantasy Rankings",
+    "slug": "week-1-fantasy-rankings",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-week20120fantasy20",
+        "query": "Week 1 Fantasy Rankings",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-13T12:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T12:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "week 1 fantasy rankings",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "week 1 fantasy rankings"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T12:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T12:54:43.426Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-celta-vigo",
+    "canonicalTopic": "Celta Vigo",
+    "slug": "celta-vigo",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-celta20vigo",
+        "query": "Celta Vigo",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-13T12:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T12:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "celta vigo",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "celta vigo"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T12:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T12:54:43.432Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-chicago-bears",
+    "canonicalTopic": "Chicago Bears",
+    "slug": "chicago-bears",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-chicago20bears",
+        "query": "Chicago Bears",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-13T12:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T12:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "chicago bears",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "chicago bears"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T12:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T12:54:43.437Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-19th-amendment",
+    "canonicalTopic": "19th Amendment",
+    "slug": "19th-amendment",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-19th20amendment",
+        "query": "19th Amendment",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-13T12:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T12:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "19th amendment",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "19th amendment"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T12:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T12:54:43.443Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-tech-ai-20260913-apple-tv-last-seen-series",
+    "canonicalTopic": "Apple Tv Last Seen Series",
+    "slug": "apple-tv-last-seen-series",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-apple20tv20last20s",
+        "query": "Apple Tv Last Seen Series",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-13T12:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T12:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "apple tv last seen series",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "US",
+            "tech-ai",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "apple tv last seen series"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T12:20:00.000Z",
+    "tags": [
+      "US",
+      "tech-ai",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T12:54:43.451Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-selena-gomez",
+    "canonicalTopic": "Selena Gomez",
+    "slug": "selena-gomez",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-selena20gomez",
+        "query": "Selena Gomez",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-13T12:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T12:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "selena gomez",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "selena gomez"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T12:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T12:54:43.461Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260913-democratic-party",
+    "canonicalTopic": "Democratic Party",
+    "slug": "democratic-party",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-democratic20part",
+        "query": "Democratic Party",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-13T12:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-13T12:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "democratic party",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "democratic party"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T12:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-13T12:54:43.468Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-tech-ai-20260913-your-car-is-selling-your-data",
+    "canonicalTopic": "Your Car Is Selling Your Data",
+    "slug": "your-car-is-selling-your-data",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-Your20car20is20selling20",
+        "query": "Your Car Is Selling Your Data",
+        "sourceUrl": "https://www.theverge.com/column/994172/your-car-is-selling-your-data",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-13T12:00:00.000Z",
+        "contentSnippet": "This is The Stepback, a weekly newsletter breaking down one essential story from the tech world. For more on cars, data privacy, and autonomous vehicles, follow Andrew J. Hawkins. The Stepback arrives in our subscribers' inboxes at 8AM ET. Opt in for The Stepback here. How it started Earlier this year, the Federal Trade Commission […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-13T12:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Your car is selling your data",
+            "itemLink": "https://www.theverge.com/column/994172/your-car-is-selling-your-data",
+            "publishedDate": "2026-09-13T12:00:00.000Z",
+            "contentSnippet": "This is The Stepback, a weekly newsletter breaking down one essential story from the tech world. For more on cars, data privacy, and autonomous vehicles, follow Andrew J. Hawkins. The Stepback arrives in our subscribers' inboxes at 8AM ET. Opt in for The Stepback here. How it started Earlier this year, the Federal Trade Commission […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Cars",
+              "Column",
+              "Privacy",
+              "Tech",
+              "The Stepback",
+              "Transportation"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Cars",
+            "Column",
+            "Privacy",
+            "Tech",
+            "The Stepback",
+            "Transportation"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "your car is selling your data"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T12:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Cars",
+      "Column",
+      "Privacy",
+      "Tech",
+      "The Stepback",
+      "Transportation"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T12:54:43.476Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260913-apples-new-phones-are-here",
+    "canonicalTopic": "Apples New Phones Are Here",
+    "slug": "apples-new-phones-are-here",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-AppleE28099s20new20phones20a",
+        "query": "Apples New Phones Are Here",
+        "sourceUrl": "https://www.theverge.com/tech/994218/apple-iphone-18-pro-airpods-5-meta-muse-ai-sony-headphones",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-13T12:00:00.000Z",
+        "contentSnippet": "Hi, friends! Welcome to Installer No. 143, your guide to the best and Verge-iest stuff in the world. (If you're new here, welcome, new tech season is here, and also you can read all the old editions at the Installer homepage.) This week, I've been devouring every iPhone Duo video I can find, clicking on […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-13T12:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Apple’s new phones are here",
+            "itemLink": "https://www.theverge.com/tech/994218/apple-iphone-18-pro-airpods-5-meta-muse-ai-sony-headphones",
+            "publishedDate": "2026-09-13T12:00:00.000Z",
+            "contentSnippet": "Hi, friends! Welcome to Installer No. 143, your guide to the best and Verge-iest stuff in the world. (If you're new here, welcome, new tech season is here, and also you can read all the old editions at the Installer homepage.) This week, I've been devouring every iPhone Duo video I can find, clicking on […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Installer",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Installer",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "apples new phones are here"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T12:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Installer",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T12:54:43.485Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260913-i-tried-rag-bones-viral-sweatp",
+    "canonicalTopic": "I Tried Rag & Bones Viral Sweatpants Jeans—heres Why I Love Them for Travel",
+    "slug": "i-tried-rag-bones-viral-sweatpants-jeans-heres-why-i-love-them-for-travel",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-I20Tried20Rag202620BoneE280",
+        "query": "I Tried Rag & Bones Viral Sweatpants Jeans—heres Why I Love Them for Travel",
+        "sourceUrl": "https://www.cntraveler.com/story/i-tried-rag-and-bones-viral-sweatpants-jeans-heres-why-i-love-them-for-travel",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-13T12:30:00.000Z",
+        "contentSnippet": "For the first time in my life, I'm comfortably wearing jeans on the plane.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-13T12:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "I Tried Rag & Bone’s Viral Sweatpants Jeans—Here’s Why I Love Them for Travel",
+            "itemLink": "https://www.cntraveler.com/story/i-tried-rag-and-bones-viral-sweatpants-jeans-heres-why-i-love-them-for-travel",
+            "publishedDate": "2026-09-13T12:30:00.000Z",
+            "contentSnippet": "For the first time in my life, I'm comfortably wearing jeans on the plane.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Shopping"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "i tried rag & bones viral sweatpants jeans—heres why i love them for travel"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T12:30:00.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T12:54:43.503Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260913-23-best-airbnbs-in-vancouver-f",
+    "canonicalTopic": "23 Best Airbnbs in Vancouver for Proximity to Nature Culture and Delicious Cuisine",
+    "slug": "23-best-airbnbs-in-vancouver-for-proximity-to-nature-culture-and-delicious-cuisine",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-2-2320Best20Airbnbs20in20V",
+        "query": "23 Best Airbnbs in Vancouver for Proximity to Nature Culture and Delicious Cuisine",
+        "sourceUrl": "https://www.cntraveler.com/gallery/best-airbnbs-in-vancouver",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-13T11:30:00.000Z",
+        "contentSnippet": "From a funky floating home to a chic studio in Gastown, these standout stays let you experience Vancouver’s neighborhoods like a local.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-13T11:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "23 Best Airbnbs in Vancouver for Proximity to Nature, Culture, and Delicious Cuisine",
+            "itemLink": "https://www.cntraveler.com/gallery/best-airbnbs-in-vancouver",
+            "publishedDate": "2026-09-13T11:30:00.000Z",
+            "contentSnippet": "From a funky floating home to a chic studio in Gastown, these standout stays let you experience Vancouver’s neighborhoods like a local.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Places to Stay"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Places to Stay"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "23 best airbnbs in vancouver for proximity to nature culture and delicious cuisine"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T11:30:00.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Places to Stay"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T12:54:43.519Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260913-iran-war-reshapes-brics-ties-b",
+    "canonicalTopic": "Iran War Reshapes Brics Ties but Also Exposes Divisions",
+    "slug": "iran-war-reshapes-brics-ties-but-also-exposes-divisions",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-2-Iran20war20reshapes20Br",
+        "query": "Iran War Reshapes Brics Ties but Also Exposes Divisions",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/ce8767g4jdpo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-13T11:23:42.000Z",
+        "contentSnippet": "Brics members agree they need a new global order but it's harder to answer what should replace it and how to get there.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-13T11:23:42.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Iran war reshapes Brics ties but also exposes divisions",
+            "itemLink": "https://www.bbc.co.uk/news/articles/ce8767g4jdpo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-13T11:23:42.000Z",
+            "contentSnippet": "Brics members agree they need a new global order but it's harder to answer what should replace it and how to get there.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "iran war reshapes brics ties but also exposes divisions"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T11:23:42.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T12:54:43.535Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-tech-ai-20260913-i-fixed-a-tractor-using-john-d",
+    "canonicalTopic": "I Fixed a Tractor Using John Deeres Self-repair Service Farmers Arent Sold on It",
+    "slug": "i-fixed-a-tractor-using-john-deeres-self-repair-service-farmers-arent-sold-on-it",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-1-I20fixed20a20tractor20us",
+        "query": "I Fixed a Tractor Using John Deeres Self-repair Service Farmers Arent Sold on It",
+        "sourceUrl": "https://arstechnica.com/gadgets/2026/09/i-fixed-a-tractor-using-john-deeres-self-repair-service-farmers-arent-sold-on-it/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-13T11:00:41.000Z",
+        "contentSnippet": "The manufacturer has a service that lets owners repair their own equipment.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-13T11:00:41.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "I fixed a tractor using John Deere’s self-repair service. Farmers aren’t sold on it.",
+            "itemLink": "https://arstechnica.com/gadgets/2026/09/i-fixed-a-tractor-using-john-deeres-self-repair-service-farmers-arent-sold-on-it/",
+            "publishedDate": "2026-09-13T11:00:41.000Z",
+            "contentSnippet": "The manufacturer has a service that lets owners repair their own equipment.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Tech",
+              "John Deere",
+              "right to repair",
+              "syndication"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Tech",
+            "John Deere",
+            "right to repair",
+            "syndication"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "i fixed a tractor using john deeres self-repair service farmers arent sold on it"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T11:00:41.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Tech",
+      "John Deere",
+      "right to repair",
+      "syndication"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T12:54:43.554Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260913-in-the-age-of-ai-ll-bean-is-be",
+    "canonicalTopic": "In the Age of Ai Ll Bean Is Betting Big on Brick-and-mortar Shopping",
+    "slug": "in-the-age-of-ai-ll-bean-is-betting-big-on-brick-and-mortar-shopping",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-1-In20the20age20of20AI2C20L",
+        "query": "In the Age of Ai Ll Bean Is Betting Big on Brick-and-mortar Shopping",
+        "sourceUrl": "https://www.fastcompany.com/91602349/ll-bean-new-flagship-store-design",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-13T09:00:00.000Z",
+        "contentSnippet": "When you step into the newly renovated L.L. Bean flagship, the first thing you see isn't the brand's latest collection of field coats or duck boots. It's fish. As you cross the threshold of the 160,000-square-foot store in Freeport, Maine, you're greeted by massive, multilevel aquariums stocked with native Maine trout; instructors from the company's nearby outdoor education center conduct fly-fishing demonstrations. As you climb the entryway's grand staircase, there's a pond exhibit featuring acrylic view ports where children—and curious adults—can pop their heads inside a glass bubble to come nose-to-nose with a trout. [Photo: courtesy L.L. Bean] \"We've concentrated all of our efforts on creating just a one-of-a-kind, must-visit retail destination,\" says Greg Elder, L.L. Bean's CEO, who takes me on a tour of the new location. \"We want customers to go home with the satisfaction of thinking: I didn't just buy something that solves a problem in my life. I learned something, I experienced something, I got to do something .\" This flagship is more than a store; it's an amusement park, nearly as big as three football fields. With this $50 million investment, L.L. Bean is signaling that the next generation of retail isn't just experiential. It's an exciting IRL destination that makes ordering something on your phone with ApplePay downright boring—even for practical L.L. Bean shoppers. At a time when artificial intelligence is taking over so many aspects of our lives, the company is making a contrarian bet that customers will gravitate toward a low-tech destination. [Photo: courtesy L.L. Bean] The Reluctant Retailer Even before this multiyear overhaul, the Freeport store attracted upwards of 4 million visitors annually, turning a sleepy coastal town into Maine's second most-visited tourist attraction, after Acadia National Park. With its new interactive features, L.L. Bean is hoping millions more will make the pilgrimage. The reimagined flagship represents the most ambitious investment in L.L. Bean’s 114-year history. Founded in 1912, the company remains private and family owned. Its executive board chairman, Shawn Gorman, is part of the fourth generation of descendants of the founder, Leon Leonwood Bean. Industry estimates place the company’s annual revenue around $1.7 billion and the workforce at 5,700 year-round employees. [Photo: courtesy L.L. Bean] The renovation of the flagship took five years of planning and two years of active construction. It was led by Elder, who spent nearly two decades directing the company's brick-and-mortar operations, climbing from VP of stores to chief retail officer before stepping into the top job. Elevating the top retail strategist to the head of the company signals L.L. Bean's conviction that physical store experiences are central to its growth. This year, the company will open eight new stores, with 10 more scheduled for next year. Despite its status as an American retail icon, L.L. Bean was surprisingly late to brick-and-mortar retail. For nearly a century, the company operated as a mail-order catalog with just a single store location in Freeport. \"For 80 years, this was the only store,\" Elder explains. The company was early to e-commerce, launching a website in 1998, which makes sense since the warehouse and shipping infrastructure of a catalog and online business are similar. But it was only in the year 2000 that L.L. Bean built its second store. Elder, who had spent 15 years as a retail specialist at Target and Eddie Bauer, was brought on to help develop the company's brick-and-mortar strategy. Over the past two decades, L.L. Bean has been deliberate with its expansion. Today it operates roughly 60 stores across 22 states, which is a small retail footprint for its size. \"We live kind of by the credo: Bigger is not always better. Better is better,\" Elder says. \"We're very prudent and pragmatic, as is the Maine way.\" Even before it became an industry buzz phrase, Elder was always an advocate of experiential retail. Near each retail hub, the company opened an Outdoor Discovery Program location that offered free or low-cost entry-level classes in archery, fly casting, kayaking, clay target shooting, and more. \"The hope was to do more than just sell things,\" Elder says. \"It was to give the customer a good experience and build their confidence by showing them they could shoot an arrow and come close to a target.\" [Photo: courtesy L.L. Bean] A Mail-Order Business L.L. Bean's late entry into retail was rooted in its origin store. Orphaned at 12, Leon Leonwood Bean spent his youth working in his brother’s shoe store while spending every spare moment hunting and fishing in the Maine woods. In 1911, frustrated by cold, soggy feet during outdoor trips, 40-year-old L.L. stitched leather uppers onto rubber boot bottoms. He gathered a mailing list of Maine hunting license holders and mailed out a promotional flyer for his new Maine Hunting Shoe. After several years of perfecting the design, L.L.'s business took off as a mail-order business. By 1917, L.L. moved his shop directly above the Freeport post office, where another brother served as postmaster. As orders arrived, L.L. made the boots upstairs, packed them, and slid them down a wooden chute straight into the post office. He went on to invent other problem-solving products for outdoorsmen. In 1924, he introduced the Duck Hunting Coat—known today as the Field Jacket. From the start, there were always die-hard fans of the company who came to Maine to see what L.L. was up to. Out-of-state hunters began stopping at the post office building to pick up a pair of boots in person. If the shop was closed, they would walk down the street to L.L.’s house and ring the doorbell. L.L. would wake up, walk the customers back to the shop, and service them in the middle of the night. By the 1950s, he was tired of getting woken up, so he decided to keep his little shop open around the clock. \"L.L. famously proclaimed they should take the locks off the doors and throw away the keys,\" Elder says. \"And to this day, this flagship operates 24/7, 365. We do not lock the doors.\" [Photo: courtesy L.L. Bean] Over decades, the Freeport store grew organically, evolving into a sprawling flagship with different buildings focused on hunting and fishing, home goods, clothing, and more. But over time and through remodels, the store became increasingly unwieldy. For instance, there were 27 stock rooms across seven levels. When the flagship celebrated its 100-year anniversary in 2017, Elder and his retail team realized that it might be time for this massive location—which had become a major tourist attraction—to be reimagined as a single, coherent, state-of-the-art space. Shortly before the COVID-19 pandemic, L.L. Bean renovated its Freeport corporate office—home to hundreds of employees—into an eco-friendly, energy-efficient facility built with reclaimed materials. The success of this renovation gave the retail team the confidence to pitch the L.L. Bean family on an even more ambitious building project. L.L.'s descendants approved the multimillion-dollar capital investment, and the company began searching for architects and designers. They picked Maine-based WBRC as the architect of record, along with Boston-based Arrowstreet Inc. to oversee the experiential retail design. [Photo: courtesy L.L. Bean] A Low-Tech Store The flagship redesign lands at a moment when many retailers are filling stores with digital touchscreens, self-checkout kiosks, and smart mirrors. L.L. Bean has deliberately taken the opposite approach: almost zero screens. \"Our brand purpose is to inspire and enable people to experience the restorative power of being outside,\" says Elder. \"When AI is going to be everywhere, people don't want to be surrounded by technology all the time.\" As you walk into the store, the space unfolds like a museum, with glass cases presenting rare pieces from the archives. There's a pair of original Maine Hunting Shoes made around 1912, which would evolve into the iconic Bean Boots. There's an original canvas ice carrier from 1944, which would become the Boat and Tote. Apart from two display panels showing archival video of Maine craftspeople stitching Bean Boots and Boat and Totes in factories 10 miles away, the store experience is analog. [Photo: courtesy L.L. Bean] On the lower level, an interactive personalization center lets shoppers customize bags, field jackets, and jeans—not just with monograms, but with custom patches, pins, bandanas, and charms. Outside, a lush 20,000-square-foot park features an open-air beer garden and concert stage that hosts free musical performances, with the country star Kip Moore and the '90s band The Wallflowers doing shows this fall. As an industry veteran, Elder is at the forefront of the latest retail technologies. He's seen many tech fads pop up over the years and then disappear when customers didn't actually like them. (Take smart screens in changing rooms, for instance.) There are some tools that are intriguing to him, like RFID systems that make inventory management and checkouts easier. But he's inclined to be skeptical of technology until it proves that it will improve the customer experience. [Photo: courtesy L.L. Bean] On the other hand, the store features many moments for interactive, tactile discovery. In the Bean Boot section, there's a bar that allows you to customize your footwear with colorful laces. As we look at the boots, Elder points out the acrylic flip panels that allow you to explore the product's history. \"We could have used a screen here,\" says Elder. \"But the question is: Why?\" The top floor, which features the kid's department, is designed like a modern play space. It was imagined with the help of a kid's focus group, around a camp theme. There's an open space featuring a pretend camp fire, plush s'mores, and a magnetic fly-fishing game that Elder demonstrates to me himself. (He proudly wields the pretend fishing rod to pick up a piece of bait, which he then uses to pick up the plastic fish.) \"I can't wait for the first rainy Saturday, and this place is just going berserk,\" says Elder. [Photo: courtesy L.L. Bean] The Future of A Heritage Brand As CEO, Elder is tasked with driving long-term corporate growth, while also protecting L.L. Bean's brand identity . Over the last couple of years, heritage clothing items like field jackets have had a resurgence in popular culture, with many brands developing their own designs. This has contributed to a spike in L.L. Bean's sales, since the company arguably invented the design. Boat and Tote bags, sometimes monogrammed with ironic or funny phrases, became a cultural phenomenon. Elder sees its physical stores as an opportunity to show customers the company's long history of making these products, and introducing them to a new generation. But the brand is also modernizing many of these designs, and leaning into customization to appeal to younger, urban consumers. \"Style is still important to us, but we are not a company that chases trends,\" Elder says. \"We're fortunate that many trends come back to the products we've always made.\" Elder points out that while L.L. Bean is an iconic American company, it still has room for growing brand awareness. While it is very well known on the East Coast, where it began its expansion, it is less so in other regions of the country. Building stores on the West Coast and in the Midwest will be crucial to customer acquisition. \"When we open stores in places like Nashville, there's a lot of demand from customers who want to experience the product in person,\" Elder says Whether this multimillion-dollar physical investment yields long-term returns remains to be seen in an evolving retail landscape. But inside L.L. Bean's new Freeport campus, the strategy is clear: Shopping should be an immersive experience worth making a journey for. \"Good retail is really having a renaissance,\" Elder reflects. \"But it can't just be about transactional shopping. It's a social event, a family event, an outing.\"",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-13T09:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "In the age of AI, L.L. Bean is betting big on brick-and-mortar shopping",
+            "itemLink": "https://www.fastcompany.com/91602349/ll-bean-new-flagship-store-design",
+            "publishedDate": "2026-09-13T09:00:00.000Z",
+            "contentSnippet": "When you step into the newly renovated L.L. Bean flagship, the first thing you see isn't the brand's latest collection of field coats or duck boots. It's fish. As you cross the threshold of the 160,000-square-foot store in Freeport, Maine, you're greeted by massive, multilevel aquariums stocked with native Maine trout; instructors from the company's nearby outdoor education center conduct fly-fishing demonstrations. As you climb the entryway's grand staircase, there's a pond exhibit featuring acrylic view ports where children—and curious adults—can pop their heads inside a glass bubble to come nose-to-nose with a trout. [Photo: courtesy L.L. Bean] \"We've concentrated all of our efforts on creating just a one-of-a-kind, must-visit retail destination,\" says Greg Elder, L.L. Bean's CEO, who takes me on a tour of the new location. \"We want customers to go home with the satisfaction of thinking: I didn't just buy something that solves a problem in my life. I learned something, I experienced something, I got to do something .\" This flagship is more than a store; it's an amusement park, nearly as big as three football fields. With this $50 million investment, L.L. Bean is signaling that the next generation of retail isn't just experiential. It's an exciting IRL destination that makes ordering something on your phone with ApplePay downright boring—even for practical L.L. Bean shoppers. At a time when artificial intelligence is taking over so many aspects of our lives, the company is making a contrarian bet that customers will gravitate toward a low-tech destination. [Photo: courtesy L.L. Bean] The Reluctant Retailer Even before this multiyear overhaul, the Freeport store attracted upwards of 4 million visitors annually, turning a sleepy coastal town into Maine's second most-visited tourist attraction, after Acadia National Park. With its new interactive features, L.L. Bean is hoping millions more will make the pilgrimage. The reimagined flagship represents the most ambitious investment in L.L. Bean’s 114-year history. Founded in 1912, the company remains private and family owned. Its executive board chairman, Shawn Gorman, is part of the fourth generation of descendants of the founder, Leon Leonwood Bean. Industry estimates place the company’s annual revenue around $1.7 billion and the workforce at 5,700 year-round employees. [Photo: courtesy L.L. Bean] The renovation of the flagship took five years of planning and two years of active construction. It was led by Elder, who spent nearly two decades directing the company's brick-and-mortar operations, climbing from VP of stores to chief retail officer before stepping into the top job. Elevating the top retail strategist to the head of the company signals L.L. Bean's conviction that physical store experiences are central to its growth. This year, the company will open eight new stores, with 10 more scheduled for next year. Despite its status as an American retail icon, L.L. Bean was surprisingly late to brick-and-mortar retail. For nearly a century, the company operated as a mail-order catalog with just a single store location in Freeport. \"For 80 years, this was the only store,\" Elder explains. The company was early to e-commerce, launching a website in 1998, which makes sense since the warehouse and shipping infrastructure of a catalog and online business are similar. But it was only in the year 2000 that L.L. Bean built its second store. Elder, who had spent 15 years as a retail specialist at Target and Eddie Bauer, was brought on to help develop the company's brick-and-mortar strategy. Over the past two decades, L.L. Bean has been deliberate with its expansion. Today it operates roughly 60 stores across 22 states, which is a small retail footprint for its size. \"We live kind of by the credo: Bigger is not always better. Better is better,\" Elder says. \"We're very prudent and pragmatic, as is the Maine way.\" Even before it became an industry buzz phrase, Elder was always an advocate of experiential retail. Near each retail hub, the company opened an Outdoor Discovery Program location that offered free or low-cost entry-level classes in archery, fly casting, kayaking, clay target shooting, and more. \"The hope was to do more than just sell things,\" Elder says. \"It was to give the customer a good experience and build their confidence by showing them they could shoot an arrow and come close to a target.\" [Photo: courtesy L.L. Bean] A Mail-Order Business L.L. Bean's late entry into retail was rooted in its origin store. Orphaned at 12, Leon Leonwood Bean spent his youth working in his brother’s shoe store while spending every spare moment hunting and fishing in the Maine woods. In 1911, frustrated by cold, soggy feet during outdoor trips, 40-year-old L.L. stitched leather uppers onto rubber boot bottoms. He gathered a mailing list of Maine hunting license holders and mailed out a promotional flyer for his new Maine Hunting Shoe. After several years of perfecting the design, L.L.'s business took off as a mail-order business. By 1917, L.L. moved his shop directly above the Freeport post office, where another brother served as postmaster. As orders arrived, L.L. made the boots upstairs, packed them, and slid them down a wooden chute straight into the post office. He went on to invent other problem-solving products for outdoorsmen. In 1924, he introduced the Duck Hunting Coat—known today as the Field Jacket. From the start, there were always die-hard fans of the company who came to Maine to see what L.L. was up to. Out-of-state hunters began stopping at the post office building to pick up a pair of boots in person. If the shop was closed, they would walk down the street to L.L.’s house and ring the doorbell. L.L. would wake up, walk the customers back to the shop, and service them in the middle of the night. By the 1950s, he was tired of getting woken up, so he decided to keep his little shop open around the clock. \"L.L. famously proclaimed they should take the locks off the doors and throw away the keys,\" Elder says. \"And to this day, this flagship operates 24/7, 365. We do not lock the doors.\" [Photo: courtesy L.L. Bean] Over decades, the Freeport store grew organically, evolving into a sprawling flagship with different buildings focused on hunting and fishing, home goods, clothing, and more. But over time and through remodels, the store became increasingly unwieldy. For instance, there were 27 stock rooms across seven levels. When the flagship celebrated its 100-year anniversary in 2017, Elder and his retail team realized that it might be time for this massive location—which had become a major tourist attraction—to be reimagined as a single, coherent, state-of-the-art space. Shortly before the COVID-19 pandemic, L.L. Bean renovated its Freeport corporate office—home to hundreds of employees—into an eco-friendly, energy-efficient facility built with reclaimed materials. The success of this renovation gave the retail team the confidence to pitch the L.L. Bean family on an even more ambitious building project. L.L.'s descendants approved the multimillion-dollar capital investment, and the company began searching for architects and designers. They picked Maine-based WBRC as the architect of record, along with Boston-based Arrowstreet Inc. to oversee the experiential retail design. [Photo: courtesy L.L. Bean] A Low-Tech Store The flagship redesign lands at a moment when many retailers are filling stores with digital touchscreens, self-checkout kiosks, and smart mirrors. L.L. Bean has deliberately taken the opposite approach: almost zero screens. \"Our brand purpose is to inspire and enable people to experience the restorative power of being outside,\" says Elder. \"When AI is going to be everywhere, people don't want to be surrounded by technology all the time.\" As you walk into the store, the space unfolds like a museum, with glass cases presenting rare pieces from the archives. There's a pair of original Maine Hunting Shoes made around 1912, which would evolve into the iconic Bean Boots. There's an original canvas ice carrier from 1944, which would become the Boat and Tote. Apart from two display panels showing archival video of Maine craftspeople stitching Bean Boots and Boat and Totes in factories 10 miles away, the store experience is analog. [Photo: courtesy L.L. Bean] On the lower level, an interactive personalization center lets shoppers customize bags, field jackets, and jeans—not just with monograms, but with custom patches, pins, bandanas, and charms. Outside, a lush 20,000-square-foot park features an open-air beer garden and concert stage that hosts free musical performances, with the country star Kip Moore and the '90s band The Wallflowers doing shows this fall. As an industry veteran, Elder is at the forefront of the latest retail technologies. He's seen many tech fads pop up over the years and then disappear when customers didn't actually like them. (Take smart screens in changing rooms, for instance.) There are some tools that are intriguing to him, like RFID systems that make inventory management and checkouts easier. But he's inclined to be skeptical of technology until it proves that it will improve the customer experience. [Photo: courtesy L.L. Bean] On the other hand, the store features many moments for interactive, tactile discovery. In the Bean Boot section, there's a bar that allows you to customize your footwear with colorful laces. As we look at the boots, Elder points out the acrylic flip panels that allow you to explore the product's history. \"We could have used a screen here,\" says Elder. \"But the question is: Why?\" The top floor, which features the kid's department, is designed like a modern play space. It was imagined with the help of a kid's focus group, around a camp theme. There's an open space featuring a pretend camp fire, plush s'mores, and a magnetic fly-fishing game that Elder demonstrates to me himself. (He proudly wields the pretend fishing rod to pick up a piece of bait, which he then uses to pick up the plastic fish.) \"I can't wait for the first rainy Saturday, and this place is just going berserk,\" says Elder. [Photo: courtesy L.L. Bean] The Future of A Heritage Brand As CEO, Elder is tasked with driving long-term corporate growth, while also protecting L.L. Bean's brand identity . Over the last couple of years, heritage clothing items like field jackets have had a resurgence in popular culture, with many brands developing their own designs. This has contributed to a spike in L.L. Bean's sales, since the company arguably invented the design. Boat and Tote bags, sometimes monogrammed with ironic or funny phrases, became a cultural phenomenon. Elder sees its physical stores as an opportunity to show customers the company's long history of making these products, and introducing them to a new generation. But the brand is also modernizing many of these designs, and leaning into customization to appeal to younger, urban consumers. \"Style is still important to us, but we are not a company that chases trends,\" Elder says. \"We're fortunate that many trends come back to the products we've always made.\" Elder points out that while L.L. Bean is an iconic American company, it still has room for growing brand awareness. While it is very well known on the East Coast, where it began its expansion, it is less so in other regions of the country. Building stores on the West Coast and in the Midwest will be crucial to customer acquisition. \"When we open stores in places like Nashville, there's a lot of demand from customers who want to experience the product in person,\" Elder says Whether this multimillion-dollar physical investment yields long-term returns remains to be seen in an evolving retail landscape. But inside L.L. Bean's new Freeport campus, the strategy is clear: Shopping should be an immersive experience worth making a journey for. \"Good retail is really having a renaissance,\" Elder reflects. \"But it can't just be about transactional shopping. It's a social event, a family event, an outing.\"",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Design"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Design"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "in the age of ai ll bean is betting big on brick-and-mortar shopping"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T09:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Design"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T12:54:43.571Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260913-traveling-to-europe-beware-of-",
+    "canonicalTopic": "Traveling to Europe Beware of the Credit Card Trap Thats Costing Tourists Big Money",
+    "slug": "traveling-to-europe-beware-of-the-credit-card-trap-thats-costing-tourists-big-money",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-2-Traveling20to20Europe3F",
+        "query": "Traveling to Europe Beware of the Credit Card Trap Thats Costing Tourists Big Money",
+        "sourceUrl": "https://www.fastcompany.com/91602397/traveling-europe-beware-credit-card-trap-thats-costing-tourists-big-money",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-13T09:00:00.000Z",
+        "contentSnippet": "I just returned from a family vacation through France, Spain, and Portugal, and we had an amazing time. However, I couldn’t help but notice a new tourist trap that could have potentially cost me hundreds of dollars. The trap has to do with a practice known as Dynamic Currency Conversion , or DCC. Because of it, you’re at risk of losing money every single time you pay with a credit card —which, for most people nowadays, is almost always. And recently, it seems DCC has evolved to make it even easier to fall victim to the trap. First, here’s how DCC works in case you’re unaware: Let’s say you’re visiting Italy, Spain, or Portugal and you decide to make a purchase with your credit card. The terminal offers you an option: You can pay in U.S. dollars (USD), or you can pay in the local currency (in this case, euros). For the uninformed, it may seem like a good idea to pay in USD. But it’s absolutely not, because the exchange rate offered by the terminal is usually bad. Very bad. According to Visa, this could add an additional 3% to 5% markup through inflated exchange rates . In contrast, choosing to pay in local currency (like euros if you’re traveling in Europe) allows your card network and issuing bank to handle the conversion, usually at a more favorable rate to you (although credit card companies and their rates vary, so you should always double-check). This is why, under normal circumstances and all things considered equal, you should always choose to pay in the local currency. To illustrate, imagine you go out for a nice dinner and you get the bill, which is 100 euros. Depending on the exchange rate, selecting to pay in USD could turn a roughly $110 charge into more than $115, not counting any foreign transaction fees your own card may be charging you. But as mentioned, there’s now more to the story. The DCC trap seems to have recently evolved, increasing the chances you fall victim to it. Now, in many shops and restaurants, after you’ve chosen to pay in a local currency like euros, the terminal then sends you to a second screen asking you to confirm if you accept or reject the conversion. As CNN business correspondent Richard Quest recently pointed out in a thread on X , if you push “accept,” you’ve fallen into the trap. “You have accepted the thing you wanted to reject,” Quest explains. “[The] cashier has told me most shoppers (myself included) are falling for this. It’s wrong, wrong, wrong.” To be clear, most of the service personnel I dealt with on our trip encouraged me to reject the conversion on that second screen. In fact, I’d often choose to pay in euros, forget about the second screen, and hand the terminal back to the cashier. At that point, they’d press “reject conversion” for me, at the same time showing me what they were doing to make sure I was okay with it. The problem of DCC isn’t limited to Europe. It’s present and growing in other tourist cities around Asia, Latin America, and other parts of the world. I haven’t heard of this new “second screen” trap in any of those countries, but I wouldn’t be surprised if it’s already global. Having lived and traveled extensively around Europe for years, though, I’ve noticed DCC seems to be especially aggressive there. How to avoid the trap Remember, to avoid falling victim to the DCC trap, make sure to always: Choose to pay in local currency. Choose to “reject conversion.” In doing so, you’ll generally be choosing the most favorable currency conversion rate and potentially saving yourself a lot of money in the process. —By Justin Bariso This article originally appeared on Fast Company ’s sister website, Inc.com. &nbsp; Inc. is the voice of the American entrepreneur. We inspire, inform, and document the most fascinating people in business: the risk-takers, the innovators, and the ultra-driven go-getters that represent the most dynamic force in the American economy.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-13T09:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Traveling to Europe? Beware of the credit card trap that’s costing tourists big money",
+            "itemLink": "https://www.fastcompany.com/91602397/traveling-europe-beware-credit-card-trap-thats-costing-tourists-big-money",
+            "publishedDate": "2026-09-13T09:00:00.000Z",
+            "contentSnippet": "I just returned from a family vacation through France, Spain, and Portugal, and we had an amazing time. However, I couldn’t help but notice a new tourist trap that could have potentially cost me hundreds of dollars. The trap has to do with a practice known as Dynamic Currency Conversion , or DCC. Because of it, you’re at risk of losing money every single time you pay with a credit card —which, for most people nowadays, is almost always. And recently, it seems DCC has evolved to make it even easier to fall victim to the trap. First, here’s how DCC works in case you’re unaware: Let’s say you’re visiting Italy, Spain, or Portugal and you decide to make a purchase with your credit card. The terminal offers you an option: You can pay in U.S. dollars (USD), or you can pay in the local currency (in this case, euros). For the uninformed, it may seem like a good idea to pay in USD. But it’s absolutely not, because the exchange rate offered by the terminal is usually bad. Very bad. According to Visa, this could add an additional 3% to 5% markup through inflated exchange rates . In contrast, choosing to pay in local currency (like euros if you’re traveling in Europe) allows your card network and issuing bank to handle the conversion, usually at a more favorable rate to you (although credit card companies and their rates vary, so you should always double-check). This is why, under normal circumstances and all things considered equal, you should always choose to pay in the local currency. To illustrate, imagine you go out for a nice dinner and you get the bill, which is 100 euros. Depending on the exchange rate, selecting to pay in USD could turn a roughly $110 charge into more than $115, not counting any foreign transaction fees your own card may be charging you. But as mentioned, there’s now more to the story. The DCC trap seems to have recently evolved, increasing the chances you fall victim to it. Now, in many shops and restaurants, after you’ve chosen to pay in a local currency like euros, the terminal then sends you to a second screen asking you to confirm if you accept or reject the conversion. As CNN business correspondent Richard Quest recently pointed out in a thread on X , if you push “accept,” you’ve fallen into the trap. “You have accepted the thing you wanted to reject,” Quest explains. “[The] cashier has told me most shoppers (myself included) are falling for this. It’s wrong, wrong, wrong.” To be clear, most of the service personnel I dealt with on our trip encouraged me to reject the conversion on that second screen. In fact, I’d often choose to pay in euros, forget about the second screen, and hand the terminal back to the cashier. At that point, they’d press “reject conversion” for me, at the same time showing me what they were doing to make sure I was okay with it. The problem of DCC isn’t limited to Europe. It’s present and growing in other tourist cities around Asia, Latin America, and other parts of the world. I haven’t heard of this new “second screen” trap in any of those countries, but I wouldn’t be surprised if it’s already global. Having lived and traveled extensively around Europe for years, though, I’ve noticed DCC seems to be especially aggressive there. How to avoid the trap Remember, to avoid falling victim to the DCC trap, make sure to always: Choose to pay in local currency. Choose to “reject conversion.” In doing so, you’ll generally be choosing the most favorable currency conversion rate and potentially saving yourself a lot of money in the process. —By Justin Bariso This article originally appeared on Fast Company ’s sister website, Inc.com. &nbsp; Inc. is the voice of the American entrepreneur. We inspire, inform, and document the most fascinating people in business: the risk-takers, the innovators, and the ultra-driven go-getters that represent the most dynamic force in the American economy.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Work Life"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Work Life"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "traveling to europe beware of the credit card trap thats costing tourists big money"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T09:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Work Life"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T12:54:43.589Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260913-nordic-sauna-culture-and-archi",
+    "canonicalTopic": "Nordic Sauna Culture and Architecture",
+    "slug": "nordic-sauna-culture-and-architecture",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "FIXTURE",
+        "sourceId": "mock-1",
+        "query": "Nordic Sauna Culture and Architecture",
+        "sourceUrl": "https://example.com/topic-1",
+        "publishedAt": "2026-09-13T12:54:45.281Z",
+        "volumeOrGrowth": 50,
+        "recordedAt": "2026-09-13T12:54:45.281Z",
+        "metadata": {
+          "mockIdx": 1
+        }
+      }
+    ],
+    "queryVariants": [
+      "nordic sauna culture and architecture"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-13T12:54:45.281Z",
+    "tags": [
+      "travel",
+      "curation"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 69,
+      "pinterestPotential": 74,
+      "socialPotential": 64,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 74.5,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "DEFER",
+    "status": "SCORED",
+    "updatedAt": "2026-09-13T12:54:45.326Z",
+    "pinterestScore": 71.6
   }
 ]

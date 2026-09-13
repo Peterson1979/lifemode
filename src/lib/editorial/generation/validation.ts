@@ -1,6 +1,7 @@
 import type { GeneratedArticle, GenerationRequest, GenerationValidationIssue, GenerationValidationReport } from './types.ts';
 import { countWords, FORMULAIC_TITLE_PATTERNS, GENERIC_EXCERPT_PATTERNS } from '../quality.ts';
 import { hasLeakedInternalMetadata } from '../sanitization.ts';
+import { validateEditorialArticle } from '../validation/validator.ts';
 
 export interface ValidationRulesOptions {
   minTitleLength?: number;
@@ -371,13 +372,61 @@ export function validateGeneratedArticle(
     });
   }
 
-  // High-risk request specific checks
-  if (request?.riskLevel === 'high') {
-    if (!article.sources || article.sources.length === 0) {
+  // Unified Editorial Validation (Brief V2, Evidence, Citations, Risk, Affiliate)
+  const editorialValidation = validateEditorialArticle(
+    article,
+    request
+      ? {
+          topicId: request.topicId,
+          pillar: request.pillar,
+          format: request.format,
+          audience: request.audience,
+          primaryIntent: request.primaryIntent,
+          secondaryIntent: request.secondaryIntent,
+          riskLevel: request.riskLevel,
+          readerProblem: request.readerProblem,
+          keyClaims: request.keyClaims,
+          doNotClaim: request.doNotClaim,
+          evidenceLimitations: request.evidenceLimitations,
+          sourceBackedFacts: request.sourceBackedFacts,
+          evidence: request.evidence,
+          sourceUrls: request.sourceUrls,
+          requiredSources: request.requiredSources,
+          searchTargets: request.searchTargets,
+          seoMetadata: request.seoMetadata,
+          affiliateIntent: request.affiliateIntent,
+          commercialIntentType: request.commercialIntentType,
+          affiliateGuidance: request.affiliateGuidance,
+          affiliateCategories: request.affiliateCategories,
+          estimatedWordCount: request.estimatedWordCount,
+        }
+      : {},
+    {
+      requireImage: false,
+      minTitleLength: opts.minTitleLength,
+      minDescriptionLength: opts.minDescriptionLength,
+      minWordCount: opts.minWordCount,
+      disallowUnresolvedPlaceholders: opts.disallowUnresolvedPlaceholders,
+    }
+  );
+
+  for (const err of editorialValidation.errors) {
+    if (!issues.some((i) => i.message === err)) {
       issues.push({
-        field: 'sources',
-        rule: 'HIGH_RISK_REQUIRES_SOURCES',
-        message: 'High-risk topic requires at least one verified source citation.',
+        field: 'editorial',
+        rule: 'EDITORIAL_VALIDATION_ERROR',
+        message: err,
+        severity: 'error',
+      });
+    }
+  }
+
+  for (const warn of editorialValidation.warnings) {
+    if (!issues.some((i) => i.message === warn)) {
+      issues.push({
+        field: 'editorial',
+        rule: 'EDITORIAL_VALIDATION_WARNING',
+        message: warn,
         severity: 'warning',
       });
     }
@@ -400,6 +449,7 @@ export function validateGeneratedArticle(
     issues,
     wordCount,
     headingsCount,
+    editorialValidation,
     validatedAt: new Date().toISOString(),
   };
 }

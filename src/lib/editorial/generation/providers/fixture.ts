@@ -118,12 +118,39 @@ export class FixtureGenerationProvider implements IGenerationProvider {
         );
         contentSections.push('');
       }
+
+      if (wordsNeededPerSection >= 550) {
+        contentSections.push(
+          `### Empirical Observations and Case Frameworks for ${sec.heading}`,
+          `Examining real-world deployments of these methodologies reveals consistent patterns across diverse lifestyle environments. Practitioners who adopt structured protocols report substantial gains in operational stability and cognitive bandwidth. By documenting progress and analyzing workflow friction points, individuals achieve sustainable mastery without compromising creative fluidity or personal wellbeing. These empirical findings underscore the importance of disciplined execution, structured environmental design, and periodic reflection across multi-week horizons.`
+        );
+        contentSections.push('');
+      }
+
+      if (wordsNeededPerSection >= 700) {
+        contentSections.push(
+          `### Long-Term Optimization and Continuous Evolution for ${sec.heading}`,
+          `Achieving enduring excellence requires regular recalibration of core workflows against evolving lifestyle objectives. When systems remain agile and responsive to changing priorities, they deliver compounding returns over multi-year horizons. Prioritize intentional architecture, eliminate lingering bottlenecks, and nurture an environment that fosters sustained focus, high aesthetic fidelity, and meaningful daily impact across all personal rituals.`
+        );
+        contentSections.push('');
+      }
     }
 
     contentSections.push(
       `## Summary & Long-Term Outlook`,
       `Mastering ${request.titleAngle} is an ongoing journey of refinement, restraint, and intentionality. By returning to first principles, maintaining disciplined focus on what truly matters, and curating an environment of calm and purpose, readers can navigate contemporary challenges with confidence, balance, and timeless grace. Embrace the process of incremental evolution, and let each mindful decision reinforce your broader lifestyle vision.`
     );
+
+    // If affiliate disclosure is required, append editorial disclosure
+    if (request.affiliateGuidance?.disclosureRequired) {
+      const disclosure = request.affiliateGuidance.disclosureText || 'LifeMode may earn an affiliate commission on purchases made through verified partner recommendations.';
+      contentSections.push('', `*Editorial Disclosure: ${disclosure}*`);
+    }
+
+    // If high-risk topic, prepend educational safety disclaimer
+    if (request.riskLevel === 'high') {
+      contentSections.unshift('*Editorial Disclaimer: This content is for educational purposes only. Consult a doctor or qualified professional for advice.*', '');
+    }
 
     const content = contentSections.join('\n');
 

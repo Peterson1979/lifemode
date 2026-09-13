@@ -1,5 +1,6 @@
 import type { PublishingRequest, PublishingGateThresholds, PublishingGateResult } from './types.ts';
 import { countWords } from '../quality.ts';
+import { validateEditorialArticle } from '../validation/validator.ts';
 
 export const DEFAULT_PUBLISHING_GATE_THRESHOLDS: PublishingGateThresholds = {
   minOverallScore: 85,
@@ -7,6 +8,7 @@ export const DEFAULT_PUBLISHING_GATE_THRESHOLDS: PublishingGateThresholds = {
   minFactualityScore: 85,
   requirePassDecision: true,
   disallowUnresolvedPlaceholders: true,
+  requireImage: false,
 };
 
 const SUSPICIOUS_URL_PATTERNS = [
@@ -65,71 +67,117 @@ export function evaluatePublishingGate(
     };
   }
 
+  // 2. Unified Editorial Validation (Structure, SEO, Evidence, Citations, Risk, Affiliate, Image)
+  const validationResult = validateEditorialArticle(
+    article,
+    {
+      topicId: context?.topicId,
+      pillar: context?.pillar,
+      format: context?.format,
+      audience: context?.audience,
+      primaryIntent: context?.primaryIntent,
+      secondaryIntent: context?.secondaryIntent,
+      riskLevel: context?.riskLevel,
+      readerProblem: context?.readerProblem,
+      doNotClaim: context?.doNotClaim,
+      evidenceLimitations: context?.evidenceLimitations,
+      sourceUrls: context?.sourceUrls,
+      evidence: context?.evidence,
+      searchTargets: context?.searchTargets,
+      seoMetadata: context?.seoMetadata,
+      affiliateIntent: context?.affiliateIntent,
+      affiliateCategories: context?.affiliateCategories,
+      affiliateGuidance: context?.affiliateGuidance,
+      estimatedWordCount: context?.estimatedWordCount,
+      imageMetadata: context?.imageMetadata,
+      tags: context?.tags,
+      isAlreadyPublished: context?.isAlreadyPublished,
+    },
+    {
+      requireImage: false,
+      disallowUnresolvedPlaceholders: thresholds.disallowUnresolvedPlaceholders,
+    }
+  );
+
+  if (!validationResult.passed) {
+    for (const err of validationResult.errors) {
+      if (!reasons.includes(err)) {
+        reasons.push(err);
+      }
+    }
+  }
+
+  for (const warn of validationResult.warnings) {
+    if (!warnings.includes(warn)) {
+      warnings.push(warn);
+    }
+  }
+
   const title = (article.title || '').trim();
-  if (!title) {
+  if (!title && !reasons.includes('Article title is missing or empty.')) {
     reasons.push('Article title is missing or empty.');
   }
 
   const slug = (article.slug || '').trim();
-  if (!slug) {
+  if (!slug && !reasons.includes('Article slug is missing or empty.')) {
     reasons.push('Article slug is missing or empty.');
-  } else if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
+  } else if (slug && !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
     warnings.push(`Slug "${slug}" does not strictly match canonical kebab-case format.`);
   }
 
   const description = (article.description || '').trim();
-  if (!description) {
+  if (!description && !reasons.includes('Article description is missing or empty.')) {
     reasons.push('Article description is missing or empty.');
   }
 
   const content = (article.content || '').trim();
-  if (!content) {
+  if (!content && !reasons.includes('Article content body is missing or empty.')) {
     reasons.push('Article content body is missing or empty.');
-  } else {
+  } else if (content) {
     const wordCount = countWords(content);
 
     // Minimum length check against brief context
     if (context?.estimatedWordCount?.min) {
       const targetMin = context.estimatedWordCount.min;
       const lowerBoundary = Math.floor(targetMin * 0.8);
-      if (wordCount < lowerBoundary) {
+      if (wordCount < lowerBoundary && !reasons.some((r) => r.includes('substantially below'))) {
         reasons.push(
           `Article content (${wordCount} words) is substantially below the required minimum target (${targetMin} words, threshold >= ${lowerBoundary} words).`
         );
       }
-    } else if (wordCount < 80) {
+    } else if (wordCount < 80 && !reasons.some((r) => r.includes('too short'))) {
       reasons.push(`Article content is too short (${wordCount} words, min 80 required for publishing).`);
     }
 
     const h2Matches = content.match(/^##\s+.+$/gm) || [];
-    if (h2Matches.length === 0) {
+    if (h2Matches.length === 0 && !reasons.some((r) => r.includes('H2'))) {
       reasons.push('Article content lacks required H2 markdown section headings.');
     }
   }
 
-  // 2. Placeholder & Artifact Checks
+  // 3. Placeholder & Artifact Checks
   const fullText = `${title} ${description} ${article.excerpt || ''} ${content}`;
 
   if (thresholds.disallowUnresolvedPlaceholders) {
     for (const pattern of PLACEHOLDER_PATTERNS) {
-      if (pattern.test(fullText)) {
+      if (pattern.test(fullText) && !reasons.some((r) => r.includes('placeholder'))) {
         reasons.push(`Article contains unresolved template placeholder or debug artifact: ${pattern.toString()}`);
       }
     }
   }
 
   for (const pattern of AI_ARTIFACT_PATTERNS) {
-    if (pattern.test(fullText)) {
+    if (pattern.test(fullText) && !warnings.some((w) => w.includes('conversational AI'))) {
       warnings.push(`Article contains conversational AI artifact pattern: "${pattern.toString()}"`);
     }
   }
 
-  // 3. Source citations & Suspicious URLs
+  // 4. Source citations & Suspicious URLs
   if (article.sources && Array.isArray(article.sources)) {
     for (const src of article.sources) {
       if (src.url) {
         for (const pattern of SUSPICIOUS_URL_PATTERNS) {
-          if (pattern.test(src.url)) {
+          if (pattern.test(src.url) && !reasons.some((r) => r.includes('dummy source URL'))) {
             reasons.push(`Article contains invalid or suspicious dummy source URL: "${src.url}"`);
           }
         }
@@ -137,19 +185,21 @@ export function evaluatePublishingGate(
     }
   }
 
-  // 4. High-risk safety requirements
+  // 5. High-risk safety requirements
   if (context?.riskLevel === 'high') {
     if (!article.sources || article.sources.length === 0) {
-      reasons.push('High-risk editorial topic requires verified sources before publishing, but none were provided.');
+      if (!reasons.some((r) => r.toLowerCase().includes('high-risk editorial topic requires verified sources'))) {
+        reasons.push('High-risk editorial topic requires verified sources before publishing, but none were provided.');
+      }
     }
   }
 
-  // 5. Duplicate / Lifecycle check
+  // 6. Duplicate / Lifecycle check
   if (context?.isAlreadyPublished) {
     reasons.push('Article topic is already marked as published in editorial lifecycle.');
   }
 
-  // 6. AI Quality Review Evaluation
+  // 7. AI Quality Review Evaluation
   if (!review) {
     reasons.push('AI Quality Review result is missing. Articles must be reviewed before entering publishing gate.');
   } else {
@@ -185,6 +235,7 @@ export function evaluatePublishingGate(
     eligible,
     reasons,
     warnings,
+    validationResult,
     evaluatedAt: new Date().toISOString(),
   };
 }

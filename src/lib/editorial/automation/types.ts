@@ -140,6 +140,8 @@ export interface AutomationRequest {
   contentRepository?: IContentRepository;
   gitPublisher?: IGitPublisher;
   aiRouter?: AIRouter;
+  performanceStore?: import('../performance/contracts.ts').IPerformanceStore;
+  performanceSignals?: import('../performance/types.ts').FeedbackSignalSummary;
 
   // Custom image & cost guard injections
   imageConfig?: EditorialImageConfig;

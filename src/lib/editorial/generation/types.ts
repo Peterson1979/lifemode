@@ -13,10 +13,22 @@ export interface GenerationRequest {
   audience: string;
   primaryIntent: SearchIntent;
   secondaryIntent?: string;
+  secondaryIntents?: string[];
+  recommendedAngle?: string;
+  readerProblem?: string;
+  keyClaims?: string[];
   searchTargets: {
     primaryKeyword: string;
     secondaryKeywords?: string[];
     targetSearchVolumeTier?: 'low' | 'medium' | 'high' | 'breakout';
+  };
+  seoMetadata?: {
+    primaryKeyword: string;
+    secondaryKeywords?: string[];
+    intentCategory?: string;
+    freshnessSensitivity?: 'low' | 'medium' | 'high';
+    opportunityScore?: number;
+    recommendedAngle?: string;
   };
   pinterestAngle?: {
     visualTheme?: string;
@@ -29,7 +41,9 @@ export interface GenerationRequest {
     keyTakeaways?: string[];
   };
   affiliateIntent: boolean;
+  commercialIntentType?: 'none' | 'informational' | 'commercial-investigation' | 'transactional';
   affiliateCategories?: string[];
+  affiliateGuidance?: import('../affiliate/types.ts').AffiliateMatchResult;
   riskLevel: RiskLevel;
   requiredSources?: Array<{
     name: string;
@@ -37,6 +51,17 @@ export interface GenerationRequest {
     citationType?: 'authority' | 'study' | 'official' | 'benchmark' | string;
   }>;
   evidence?: import('../research/types.ts').EvidenceItem[];
+  sourceBackedFacts?: Array<{
+    claim: string;
+    sourceUrl: string;
+    sourceTitle?: string;
+    publisher?: string;
+    reliability: 'high' | 'medium' | 'low';
+    sourceType?: string;
+  }>;
+  evidenceLimitations?: string[];
+  doNotClaim?: string[];
+  sourceUrls?: string[];
   internalLinks?: string[];
   contentInstructions?: string;
   estimatedWordCount?: {
@@ -131,6 +156,7 @@ export interface GenerationValidationReport {
   wordCount: number;
   headingsCount: number;
   validatedAt: string;
+  editorialValidation?: import('../validation/types.ts').EditorialValidationResult;
 }
 
 /**

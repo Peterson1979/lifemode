@@ -1,5 +1,6 @@
 import type { ReviewRequest } from './types.ts';
 import { countWords } from '../quality.ts';
+import { validateEditorialArticle } from '../validation/validator.ts';
 
 export interface ReviewGateResult {
   passed: boolean;
@@ -108,6 +109,55 @@ export function evaluateReviewGates(request: ReviewRequest): ReviewGateResult {
       .filter((i) => i.severity === 'error')
       .map((i) => `Generation validation failure [${i.field} / ${i.rule}]: ${i.message}`);
     criticalIssues.push(...validationErrors);
+  }
+
+  // 4c. Unified Editorial Validation (Brief V2, Evidence, Citations, Risk, Affiliate)
+  const editorialValidation =
+    request.editorialValidation ||
+    request.deterministicValidation?.editorialValidation ||
+    validateEditorialArticle(
+      {
+        title: request.title,
+        description: request.description,
+        excerpt: request.excerpt,
+        content: request.content,
+        sources: request.sources,
+        internalLinks: request.internalLinks,
+      },
+      {
+        topicId: request.topicId,
+        pillar: request.pillar,
+        format: request.format,
+        audience: request.audience,
+        primaryIntent: request.primaryIntent,
+        secondaryIntent: request.secondaryIntent,
+        riskLevel: request.riskLevel,
+        readerProblem: request.readerProblem,
+        doNotClaim: request.doNotClaim,
+        evidenceLimitations: request.evidenceLimitations,
+        sourceUrls: request.sourceUrls,
+        evidence: request.evidence,
+        affiliateIntent: request.affiliateIntent,
+        affiliateGuidance: request.affiliateGuidance,
+        estimatedWordCount: request.estimatedWordCount,
+      },
+      {
+        requireImage: false,
+      }
+    );
+
+  if (!editorialValidation.passed) {
+    for (const err of editorialValidation.errors) {
+      if (!criticalIssues.includes(err)) {
+        criticalIssues.push(err);
+      }
+    }
+  }
+
+  for (const warn of editorialValidation.warnings) {
+    if (!warnings.includes(warn)) {
+      warnings.push(warn);
+    }
   }
 
   const fullText = `${title} ${description} ${request.excerpt || ''} ${content}`;

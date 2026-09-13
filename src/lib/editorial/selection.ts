@@ -1,5 +1,7 @@
 import type { EditorialTopic, PillarSlug } from './types.ts';
 import { VALID_PILLARS } from './types.ts';
+import type { FeedbackSignalSummary } from './performance/types.ts';
+import { evaluateTopicPerformanceFeedback } from './performance/feedback.ts';
 
 export interface SelectionOptions {
   minScoreThreshold?: number; // default 80
@@ -8,6 +10,8 @@ export interface SelectionOptions {
   existingPillarDistribution?: Partial<Record<PillarSlug, number>>;
   enablePillarBalancing?: boolean; // default true
   requireVisualPotential?: boolean;
+  feedbackSignals?: FeedbackSignalSummary;
+  enablePerformanceFeedback?: boolean; // default true if feedbackSignals provided
 }
 
 /**
@@ -17,6 +21,7 @@ export interface SelectionOptions {
  * - Prefers underrepresented pillars when candidates have competitive scores (within ~5 points).
  * - Prevents high-volume single-source topics from flooding a single pillar in one batch.
  * - Strict quality rule: Never approves or forces an inferior candidate (< 80) merely to balance pillars.
+ * - Performance Feedback: Integrates bounded historical performance modifiers (+/- 10) without bypassing minimum quality or safety gates.
  */
 export function selectEditorialCandidates(
   candidates: EditorialTopic[],
@@ -29,6 +34,8 @@ export function selectEditorialCandidates(
   const minScore = options.minScoreThreshold ?? 80;
   const enableBalancing = options.enablePillarBalancing ?? true;
   const existingDist = options.existingPillarDistribution || {};
+  const feedbackSignals = options.feedbackSignals;
+  const applyFeedback = options.enablePerformanceFeedback ?? Boolean(feedbackSignals);
 
   const pillarCounts: Partial<Record<PillarSlug, number>> = {};
   for (const pillar of VALID_PILLARS) {
@@ -39,10 +46,27 @@ export function selectEditorialCandidates(
   const rejected: EditorialTopic[] = [];
   const deferred: EditorialTopic[] = [];
 
-  // Separate candidates into rejected, sub-threshold, and qualified
-  const qualified: EditorialTopic[] = [];
+  // 1. Evaluate performance feedback on candidates (if signals are available)
+  const enrichedCandidates: Array<EditorialTopic & { effectiveScore: number }> = candidates.map((topic) => {
+    let performanceFeedback = topic.performanceFeedback;
+    if (feedbackSignals && applyFeedback) {
+      performanceFeedback = evaluateTopicPerformanceFeedback(topic, feedbackSignals);
+    }
+    const adjustment = performanceFeedback?.scoreAdjustment || 0;
+    const effectiveScore = Math.max(0, Math.min(100, Math.round((topic.totalScore + adjustment) * 10) / 10));
 
-  for (const topic of candidates) {
+    return {
+      ...topic,
+      performanceFeedback,
+      effectiveScore,
+    };
+  });
+
+  // 2. Separate candidates into rejected, sub-threshold, and qualified
+  // Safety rule: Raw score < 60 or REJECT priority tier is NEVER approved by feedback
+  const qualified: Array<EditorialTopic & { effectiveScore: number }> = [];
+
+  for (const topic of enrichedCandidates) {
     if (topic.priorityTier === 'REJECT' || topic.totalScore < 60) {
       rejected.push({
         ...topic,
@@ -62,10 +86,10 @@ export function selectEditorialCandidates(
     }
   }
 
-  // Sort qualified candidates with pillar balancing
+  // 3. Sort qualified candidates with performance feedback and pillar balancing
   const sortedQualified = [...qualified].sort((a, b) => {
-    // If scores differ significantly (> 5 points), highest score strictly wins
-    const scoreDiff = b.totalScore - a.totalScore;
+    // If effective scores differ significantly (> 5 points), highest effective score strictly wins
+    const scoreDiff = b.effectiveScore - a.effectiveScore;
     if (Math.abs(scoreDiff) > 5 || !enableBalancing) {
       if (scoreDiff !== 0) return scoreDiff;
       return b.freshnessScore - a.freshnessScore;

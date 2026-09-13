@@ -75,6 +75,20 @@ export interface PublishingContext {
   riskLevel: RiskLevel;
   affiliateIntent?: boolean;
   affiliateCategories?: string[];
+  affiliateGuidance?: import('../affiliate/types.ts').AffiliateMatchResult;
+  doNotClaim?: string[];
+  evidenceLimitations?: string[];
+  sourceUrls?: string[];
+  readerProblem?: string;
+  evidence?: import('../research/types.ts').EvidenceItem[];
+  searchTargets?: {
+    primaryKeyword: string;
+    secondaryKeywords?: string[];
+  };
+  seoMetadata?: {
+    primaryKeyword?: string;
+    secondaryKeywords?: string[];
+  };
   tags?: string[];
   imageMetadata?: {
     url?: string;
@@ -101,7 +115,7 @@ export interface PublishingGateThresholds {
   minFactualityScore: number; // default: 85
   requirePassDecision: boolean; // default: true
   disallowUnresolvedPlaceholders: boolean; // default: true
-  requireImage?: boolean; // default: true
+  requireImage?: boolean; // default: false (in gate check) / true when validating publication readiness
 }
 
 /**
@@ -132,6 +146,7 @@ export interface PublishingGateResult {
   eligible: boolean;
   reasons: string[];
   warnings: string[];
+  validationResult?: import('../validation/types.ts').EditorialValidationResult;
   evaluatedAt: string;
 }
 

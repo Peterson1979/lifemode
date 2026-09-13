@@ -1,10 +1,16 @@
-import { runScheduledEditorialAutomation, loadScheduledAutomationConfig } from '../src/lib/editorial/automation/index.ts';
+import {
+  runScheduledEditorialAutomation,
+  runEditorialWatchdog,
+  loadScheduledAutomationConfig,
+} from '../src/lib/editorial/automation/index.ts';
 import { loadSocialConfig } from '../src/lib/social/index.ts';
 
 async function main() {
   const args = process.argv.slice(2);
 
   const isJson = args.includes('--json');
+  const isWatchdog = args.includes('--watchdog') || process.env.LIFEMODE_AUTOMATION_WATCHDOG === 'true';
+  const isForce = args.includes('--force') || process.env.LIFEMODE_AUTOMATION_FORCE === 'true';
   const isLiveCommit = args.includes('--commit') || args.includes('--live');
   const isPush = args.includes('--push');
   const isRouter = args.includes('--router') || args.includes('--ai-router');
@@ -126,7 +132,41 @@ async function main() {
     } else {
       console.log(`* Social Pipeline: DISABLED`);
     }
+    console.log(`* Watchdog Mode:  ${isWatchdog ? (isForce ? 'YES (Forced)' : 'YES (Idempotent Daily Check)') : 'NO (Direct Run)'}`);
     console.log('----------------------------------------------------\n');
+  }
+
+  if (isWatchdog) {
+    const watchdogResult = await runEditorialWatchdog({
+      ...config,
+      force: isForce,
+      allowUnrelatedChanges: true,
+      commitAuthor: {
+        name: 'LifeMode Editorial Automation',
+        email: 'automation@lifemode.local',
+      },
+    });
+
+    if (isJson) {
+      console.log(JSON.stringify(watchdogResult, null, 2));
+    } else {
+      console.log(`[Watchdog Action]: ${watchdogResult.action}`);
+      console.log(`[Watchdog Status]: ${watchdogResult.status}`);
+      console.log(`[Details]:         ${watchdogResult.reason}`);
+      console.log(`[Published Today]: ${watchdogResult.report.publishedTodayCount}/${watchdogResult.report.dailyLimit} on ${watchdogResult.report.targetDate}`);
+      if (watchdogResult.scheduledResult) {
+        console.log('\n--- Scheduled Execution Summary ---');
+        console.log(watchdogResult.scheduledResult.summary);
+      }
+      console.log('\n====================================================');
+      console.log(` Scheduled Automation Finished [${watchdogResult.status}]`);
+      console.log('====================================================\n');
+    }
+
+    if (watchdogResult.status === 'FAILED') {
+      process.exit(1);
+    }
+    return;
   }
 
   const result = await runScheduledEditorialAutomation({

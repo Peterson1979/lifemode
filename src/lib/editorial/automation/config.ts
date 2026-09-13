@@ -43,9 +43,9 @@ export function loadAutomationConfig(overrides: Partial<AutomationConfig> = {}):
     ? parseInt(envMaxOppRaw, 10)
     : (accelerationEnabled ? accelerationMaxOpportunities : DEFAULT_CONFIG.maxOpportunities);
 
-  const effectiveMaxOpp = overrides.dailyArticleLimit ?? overrides.maxOpportunities ?? baseMaxOpp;
+  const effectiveMaxOpp = overrides.maxOpportunities ?? overrides.dailyArticleLimit ?? baseMaxOpp;
   const resolvedMaxOpp = Math.max(1, isNaN(effectiveMaxOpp) ? DEFAULT_CONFIG.maxOpportunities : effectiveMaxOpp);
-  const resolvedDailyLimit = overrides.dailyArticleLimit ?? (envDailyLimitRaw ? parseInt(envDailyLimitRaw, 10) : (overrides.maxOpportunities ?? DEFAULT_CONFIG.dailyArticleLimit));
+  const resolvedDailyLimit = overrides.dailyArticleLimit ?? (envDailyLimitRaw ? parseInt(envDailyLimitRaw, 10) : DEFAULT_CONFIG.dailyArticleLimit);
 
   const envDryRunRaw = process.env.LIFEMODE_AUTOMATION_DRY_RUN ?? process.env.EDITORIAL_AUTOMATION_DRY_RUN;
   const envDryRun = envDryRunRaw !== undefined

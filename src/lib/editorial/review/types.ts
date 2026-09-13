@@ -48,6 +48,11 @@ export interface ReviewRequest {
     url?: string;
   }>;
   evidence?: import('../research/types.ts').EvidenceItem[];
+  doNotClaim?: string[];
+  evidenceLimitations?: string[];
+  sourceUrls?: string[];
+  readerProblem?: string;
+  affiliateGuidance?: import('../affiliate/types.ts').AffiliateMatchResult;
   internalLinks: string[];
   estimatedWordCount?: {
     min: number;
@@ -55,6 +60,7 @@ export interface ReviewRequest {
     max: number;
   };
   deterministicValidation?: GenerationValidationReport;
+  editorialValidation?: import('../validation/types.ts').EditorialValidationResult;
 }
 
 /**
