@@ -14,19 +14,20 @@ export class FixtureSocialGenerationProvider implements ISocialGenerationProvide
   async generateSocialContent(brief: SocialBrief): Promise<SocialGenerationResult> {
     const startTime = Date.now();
 
+    const title = brief.articleTitle || brief.canonicalTopic;
     const baseContent: GeneratedSocialContent = {
       topicId: brief.topicId,
       pillar: brief.pillar,
       concept: brief.coreConcept,
       hook: brief.editorialHook,
-      title: brief.canonicalTopic,
-      shortCaption: `Discover why ${brief.canonicalTopic.toLowerCase()} is redefining intentional living. A new perspective on LifeMode.`,
-      extendedCaption: `In an era of relentless notifications and noise, finding focus requires intentional design. Our latest dispatch on ${brief.canonicalTopic} explores evidence-backed rituals, serene architecture, and calm practices to reclaim clarity.\n\nDiscover the full curated guide on LifeMode.`,
+      title,
+      shortCaption: `Discover why ${title.toLowerCase()} is redefining intentional living. A new perspective on LifeMode.`,
+      extendedCaption: `In an era of relentless notifications and noise, finding focus requires intentional design. Our latest dispatch on ${title} explores evidence-backed rituals, serene architecture, and calm practices to reclaim clarity.\n\nDiscover the full curated guide on LifeMode.`,
       callToAction: 'Explore the full story on LifeMode.',
       hashtags: brief.hashtagsHint,
-      visualConcept: `Serene editorial photograph representing ${brief.canonicalTopic}, natural linen textures, warm diffuse morning light, uncluttered minimalist composition.`,
+      visualConcept: `Serene editorial photograph representing ${title}, natural linen textures, warm diffuse morning light, uncluttered minimalist composition.`,
       imageText: {
-        headline: brief.canonicalTopic.split(' ').slice(0, 6).join(' '),
+        headline: title.split(' ').slice(0, 6).join(' '),
         subheadline: `A Modern Guide to ${brief.pillar.toUpperCase()}`,
       },
       targetPlatforms: brief.targetPlatforms,

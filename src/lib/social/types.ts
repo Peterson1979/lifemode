@@ -29,6 +29,10 @@ export interface SocialOpportunity {
   destinationUrl: string;
   evidence?: Array<{ title: string; url: string; publisher?: string }>;
   tags: string[];
+  articleTitle?: string;
+  articleDescription?: string;
+  publishedAt?: string;
+  articleImage?: string;
 }
 
 /**
@@ -51,6 +55,9 @@ export interface SocialBrief {
     aestheticStyle: string;
     textOverlayRule: string;
   };
+  articleTitle?: string;
+  articleDescription?: string;
+  publishedAt?: string;
 }
 
 /**

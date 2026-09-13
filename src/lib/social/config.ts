@@ -98,7 +98,7 @@ export function loadSocialConfig(overrides: Partial<SocialAutomationConfig> = {}
 
   // Instagram credentials
   const igToken = getEnvVar('INSTAGRAM_ACCESS_TOKEN') || fbToken;
-  const igAccountId = getEnvVar('INSTAGRAM_BUSINESS_ACCOUNT_ID') || getEnvVar('IG_ACCOUNT_ID');
+  const igAccountId = getEnvVar('INSTAGRAM_BUSINESS_ACCOUNT_ID') || getEnvVar('INSTAGRAM_ACCOUNT_ID') || getEnvVar('IG_ACCOUNT_ID');
 
   // Pinterest credentials
   const pinToken = getEnvVar('PINTEREST_ACCESS_TOKEN') || getEnvVar('PIN_ACCESS_TOKEN');

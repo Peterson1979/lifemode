@@ -57,9 +57,20 @@ export class FilesystemSocialHistoryRepository implements ISocialHistoryReposito
     const index = current.findIndex((item) => item.idempotencyKey === entry.idempotencyKey || item.topicId === entry.topicId);
 
     if (index >= 0) {
+      const existing = current[index];
+      const mergedPlatformResults = {
+        ...existing.platformResults,
+        ...entry.platformResults,
+      };
+
+      const anyPublished = Object.values(mergedPlatformResults).some((r) => r?.status === 'PUBLISHED');
+      const allTargetPublished = entry.targetPlatforms.length > 0 && entry.targetPlatforms.every((p) => mergedPlatformResults[p]?.status === 'PUBLISHED');
+
       current[index] = {
-        ...current[index],
+        ...existing,
         ...entry,
+        platformResults: mergedPlatformResults,
+        overallStatus: allTargetPublished ? 'COMPLETED' : (anyPublished ? 'PARTIAL' : entry.overallStatus),
         updatedAt: new Date().toISOString(),
       };
     } else {
@@ -76,7 +87,8 @@ export class FilesystemSocialHistoryRepository implements ISocialHistoryReposito
     return history.some((item) => {
       if (item.topicId !== topicId) return false;
       const itemTime = new Date(item.createdAt).getTime();
-      return itemTime >= cutoff && (item.overallStatus === 'COMPLETED' || Object.values(item.platformResults).some((p) => p.status === 'PUBLISHED'));
+      const allTargetPublished = item.targetPlatforms.length > 0 && item.targetPlatforms.every((p) => item.platformResults[p]?.status === 'PUBLISHED');
+      return itemTime >= cutoff && (item.overallStatus === 'COMPLETED' || allTargetPublished);
     });
   }
 

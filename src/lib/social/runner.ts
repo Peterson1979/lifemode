@@ -1,3 +1,4 @@
+import * as path from 'node:path';
 import type { EditorialTopic } from '../editorial/types.ts';
 import type {
   GeneratedSocialContent,
@@ -33,11 +34,16 @@ import {
   type ISocialHistoryRepository,
   hashString,
 } from './storage/repository.ts';
-import { loadCandidates } from '../editorial/discovery/storage.ts';
+import { loadCandidates, loadPublished } from '../editorial/discovery/storage.ts';
+import type { IContentRepository } from '../editorial/storage/types.ts';
+import { FilesystemContentRepository } from '../editorial/storage/repository.ts';
 
 export interface SocialPipelineRunOptions {
   config?: Partial<SocialAutomationConfig>;
   candidates?: EditorialTopic[];
+  publishedTopics?: EditorialTopic[];
+  contentRepository?: IContentRepository;
+  contentRoot?: string;
   storagePath?: string;
   generationProvider?: ISocialGenerationProvider;
   imageProvider?: ISocialImageProvider;
@@ -149,13 +155,86 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
     };
   }
 
-  // 1. Load Candidates Pool
-  let candidatePool: EditorialTopic[] = options.candidates || [];
+  // 1. Load Published / Candidate Pool
+  let candidatePool: EditorialTopic[] = options.publishedTopics || options.candidates || [];
   if (candidatePool.length === 0) {
     try {
-      candidatePool = await loadCandidates(options.storagePath);
+      const published = await loadPublished(options.storagePath);
+      if (published && published.length > 0) {
+        candidatePool = [...published];
+      }
     } catch {
-      candidatePool = [];
+      // Ignore
+    }
+
+    // Scan Content Repository for published articles
+    try {
+      const contentRepo =
+        options.contentRepository ||
+        new FilesystemContentRepository({
+          contentRoot: options.contentRoot || path.resolve(process.cwd(), 'src/content'),
+        });
+      const storedArticles = await contentRepo.list();
+      const publishedArticles = storedArticles.filter(
+        (art) => !art.frontmatter.draft && (art.frontmatter.lifecycleStatus === 'PUBLISHED' || art.frontmatter.lifecycleStatus === 'STORED' || !art.frontmatter.lifecycleStatus)
+      );
+
+      for (const art of publishedArticles) {
+        const topicId = art.identity?.topicId || art.frontmatter.topicId || `lm-${art.pillar}-${art.slug}`;
+        const existingIdx = candidatePool.findIndex((c) => c.id === topicId || (c.pillar === art.pillar && c.slug === art.slug));
+        if (existingIdx >= 0) {
+          candidatePool[existingIdx] = {
+            ...candidatePool[existingIdx],
+            canonicalTopic: art.frontmatter.title || candidatePool[existingIdx].canonicalTopic,
+            status: 'PUBLISHED',
+            articleTitle: art.frontmatter.title,
+            articleDescription: art.frontmatter.description,
+            publishedAt: art.frontmatter.pubDate,
+            articleImage: art.frontmatter.image,
+          } as any;
+        } else {
+          candidatePool.push({
+            id: topicId,
+            canonicalTopic: art.frontmatter.title,
+            pillar: art.pillar,
+            slug: art.slug,
+            totalScore: 85,
+            status: 'PUBLISHED',
+            opportunityType: 'ARTICLE_AND_SOCIAL',
+            scoring: {
+              socialPotential: 85,
+              pinterestPotential: 85,
+              searchPotential: 80,
+              lifeModeRelevance: 90,
+              commercialPotential: 50,
+              freshness: 90,
+              competitionOpportunity: 80,
+              originalityPotential: 85,
+            },
+            tags: art.frontmatter.tags || [art.pillar, 'lifestyle'],
+            sourceSignals: [],
+            queryVariants: [],
+            freshnessScore: 90,
+            createdAt: art.frontmatter.pubDate,
+            updatedAt: art.frontmatter.updatedDate || art.frontmatter.pubDate,
+            articleTitle: art.frontmatter.title,
+            articleDescription: art.frontmatter.description,
+            publishedAt: art.frontmatter.pubDate,
+            articleImage: art.frontmatter.image,
+          } as any);
+        }
+      }
+    } catch {
+      // Best-effort scan
+    }
+
+    // Fallback: If still empty, load candidates from candidates.json (e.g. offline dev/mock environments)
+    if (candidatePool.length === 0) {
+      try {
+        candidatePool = await loadCandidates(options.storagePath);
+      } catch {
+        candidatePool = [];
+      }
     }
   }
 
@@ -417,6 +496,11 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
       const anySuccess = Object.values(platformResults).some(
         (r) => r?.status === 'PUBLISHED' || r?.status === 'DRY_RUN'
       );
+      const allTargetPublished =
+        opp.targetPlatforms.length > 0 &&
+        opp.targetPlatforms.every(
+          (p) => platformResults[p]?.status === 'PUBLISHED' || platformResults[p]?.status === 'DRY_RUN'
+        );
 
       if (!config.storageTest) {
         const entry: SocialManifestEntry = {
@@ -430,7 +514,11 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
           targetPlatforms: opp.targetPlatforms,
           platformResults,
           reviewScore: reviewResult.score,
-          overallStatus: anySuccess ? (config.dryRun ? 'DRY_RUN' : 'COMPLETED') : 'FAILED',
+          overallStatus: allTargetPublished
+            ? (config.dryRun ? 'DRY_RUN' : 'COMPLETED')
+            : anySuccess
+              ? 'PARTIAL'
+              : 'FAILED',
           createdAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
         };

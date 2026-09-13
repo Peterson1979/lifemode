@@ -52,7 +52,8 @@ export class FacebookPlatformAdapter implements ISocialPlatformAdapter {
     const tagString = content.hashtags.slice(0, 6).join(' ');
 
     const bodyParagraph = content.extendedCaption || content.shortCaption;
-    const formattedCaption = `${content.title}\n\n${bodyParagraph}\n\n${content.callToAction} 🔗 ${link}\n\n${tagString}`.trim();
+    const ctaText = content.callToAction || 'Read the complete guide on LifeMode';
+    const formattedCaption = `${content.title}\n\n${bodyParagraph}\n\n${ctaText}: 🔗 ${link}\n\n${tagString}`.trim();
 
     const contentHash = hashString(formattedCaption);
     const idempotencyKey = createIdempotencyKey(content.topicId, this.platform, contentHash);

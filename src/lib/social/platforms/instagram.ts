@@ -60,7 +60,7 @@ export class InstagramPlatformAdapter implements ISocialPlatformAdapter {
     const tagString = content.hashtags.slice(0, 10).join(' ');
 
     const bodyParagraph = content.extendedCaption || content.shortCaption;
-    const formattedCaption = `${content.title}\n\n${bodyParagraph}\n\n🔗 ${content.callToAction} Link in bio / visit lifemode.life\n.\n.\n${tagString}`.trim();
+    const formattedCaption = `${content.title}\n\n${bodyParagraph}\n\n🔗 Read the full story via the link in our bio\n.\n.\n${tagString}`.trim();
 
     const contentHash = hashString(formattedCaption);
     const idempotencyKey = createIdempotencyKey(content.topicId, this.platform, contentHash);

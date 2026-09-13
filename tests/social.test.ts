@@ -31,7 +31,12 @@ import {
   type ISocialPlatformAdapter,
   type SocialPlatform,
 } from '../src/lib/social/index.ts';
-import { runScheduledEditorialAutomation, loadScheduledAutomationConfig } from '../src/lib/editorial/automation/index.ts';
+import {
+  runScheduledEditorialAutomation,
+  runEditorialWatchdog,
+  loadScheduledAutomationConfig,
+} from '../src/lib/editorial/automation/index.ts';
+import { FilesystemContentRepository } from '../src/lib/editorial/storage/repository.ts';
 
 function createMockTopic(overrides: Partial<EditorialTopic> = {}): EditorialTopic {
   return {
@@ -353,7 +358,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
 
     const pkg = await igAdapter.prepare(content, asset);
     assert.equal(pkg.platform, 'instagram');
-    assert.ok(pkg.caption.includes('Link in bio'));
+    assert.ok(pkg.caption.toLowerCase().includes('link in'));
     assert.ok(pkg.caption.length <= 2200);
     assert.equal(igAdapter.validate(pkg).valid, true);
   });
@@ -931,6 +936,32 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     }
   });
 
+  await t.test('34b. Instagram configuration resolves INSTAGRAM_ACCOUNT_ID as fallback alias when INSTAGRAM_BUSINESS_ACCOUNT_ID is unset', async () => {
+    const savedIgBusinessAccount = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
+    const savedIgAccount = process.env.INSTAGRAM_ACCOUNT_ID;
+    const savedIgToken = process.env.INSTAGRAM_ACCESS_TOKEN;
+
+    try {
+      delete process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
+      process.env.INSTAGRAM_ACCOUNT_ID = '17841499988877766';
+      process.env.INSTAGRAM_ACCESS_TOKEN = 'mock-ig-token-alias';
+
+      const config = loadSocialConfig();
+      assert.equal(config.credentials.instagram.configured, true);
+      assert.equal(config.credentials.instagram.businessAccountId, '17841499988877766');
+      assert.equal(config.credentials.instagram.accessToken, 'mock-ig-token-alias');
+    } finally {
+      if (savedIgBusinessAccount !== undefined) process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID = savedIgBusinessAccount;
+      else delete process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
+
+      if (savedIgAccount !== undefined) process.env.INSTAGRAM_ACCOUNT_ID = savedIgAccount;
+      else delete process.env.INSTAGRAM_ACCOUNT_ID;
+
+      if (savedIgToken !== undefined) process.env.INSTAGRAM_ACCESS_TOKEN = savedIgToken;
+      else delete process.env.INSTAGRAM_ACCESS_TOKEN;
+    }
+  });
+
   await t.test('35. Controlled storage-test mode executes real R2 provider upload, verifies HTTPS URL, runs Facebook, Instagram, and Pinterest preparation, and strictly bypasses publish()', async () => {
     let r2UploadCalled = false;
     let r2PutEndpoint = '';
@@ -1174,5 +1205,221 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
       if (savedSocialDryRun !== undefined) process.env.LIFEMODE_SOCIAL_DRY_RUN = savedSocialDryRun;
       else delete process.env.LIFEMODE_SOCIAL_DRY_RUN;
     }
+  });
+
+  await t.test('40. Published article selection strictly derives canonical https://lifemode.life URLs and targets published repository content', async () => {
+    const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lm-soc-pubsel-'));
+    const contentDir = path.join(tempDir, 'content');
+    const contentRepo = new FilesystemContentRepository({ contentRoot: contentDir });
+
+    await contentRepo.create({
+      pillar: 'travel',
+      slug: 'serene-nordic-sauna-architecture',
+      content: 'Exploring minimalist woodcraft and thermal bathing rituals in Norway.',
+      frontmatter: {
+        title: 'Serene Nordic Sauna Architecture',
+        description: 'Exploring minimalist woodcraft and thermal bathing rituals in Norway.',
+        pubDate: '2026-09-13',
+        author: 'LifeMode Editorial',
+        tags: ['travel', 'architecture', 'nordic'],
+        featured: false,
+        draft: false,
+        format: 'standard',
+        primaryIntent: 'informational',
+        affiliateIntent: false,
+        riskLevel: 'low',
+        sources: [{ name: 'Nordic Architecture Review', url: 'https://example.com/nordic' }],
+        version: 1,
+        lifecycleStatus: 'PUBLISHED',
+      },
+    });
+
+    const result = await runSocialPipeline({
+      contentRepository: contentRepo,
+      contentRoot: contentDir,
+      config: {
+        enabled: true,
+        dryRun: true,
+        storageDir: path.join(tempDir, 'social'),
+        baseUrl: 'https://lifemode.life',
+      },
+    });
+
+    assert.equal(result.selectedCount, 1);
+    assert.equal(result.succeededCount, 1);
+    assert.equal(result.manifestEntries[0].pillar, 'travel');
+    assert.equal(result.manifestEntries[0].canonicalTopic, 'Serene Nordic Sauna Architecture');
+
+    const fbResult = result.manifestEntries[0].platformResults.facebook;
+    assert.ok(fbResult);
+
+    await fs.rm(tempDir, { recursive: true, force: true });
+  });
+
+  await t.test('41. Platform publication retry idempotency merges results across runs without re-publishing succeeded platforms', async () => {
+    const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lm-soc-retry-'));
+    const historyRepo = new FilesystemSocialHistoryRepository(tempDir);
+    const topic = createMockTopic({ id: 'top-retry-test-1' });
+
+    let pinCallCount = 0;
+    let fbCallCount = 0;
+    let igCallCount = 0;
+
+    const customFb = new FacebookPlatformAdapter();
+    customFb.publish = async (pkg) => {
+      fbCallCount++;
+      return {
+        platform: 'facebook',
+        status: 'PUBLISHED',
+        postId: 'fb-post-1',
+        publishedAt: new Date().toISOString(),
+        idempotencyKey: pkg.idempotencyKey,
+      };
+    };
+
+    const customIg = new InstagramPlatformAdapter();
+    customIg.publish = async (pkg) => {
+      igCallCount++;
+      return {
+        platform: 'instagram',
+        status: 'PUBLISHED',
+        postId: 'ig-post-1',
+        publishedAt: new Date().toISOString(),
+        idempotencyKey: pkg.idempotencyKey,
+      };
+    };
+
+    const customPin = new PinterestPlatformAdapter();
+    customPin.publish = async (pkg) => {
+      pinCallCount++;
+      if (pinCallCount === 1) {
+        throw new Error('Temporary Pinterest 503 Service Unavailable');
+      }
+      return {
+        platform: 'pinterest',
+        status: 'PUBLISHED',
+        postId: 'pin-post-2',
+        publishedAt: new Date().toISOString(),
+        idempotencyKey: pkg.idempotencyKey,
+      };
+    };
+
+    const adapters = new Map<SocialPlatform, ISocialPlatformAdapter>([
+      ['facebook', customFb],
+      ['instagram', customIg],
+      ['pinterest', customPin],
+    ]);
+
+    // Run 1: FB and IG succeed, Pinterest fails
+    const run1 = await runSocialPipeline({
+      candidates: [topic],
+      config: {
+        enabled: true,
+        dryRun: false,
+        allowPublish: true,
+        storageDir: tempDir,
+      },
+      historyRepository: historyRepo,
+      platformAdapters: adapters,
+    });
+
+    assert.equal(fbCallCount, 1);
+    assert.equal(igCallCount, 1);
+    assert.equal(pinCallCount, 1);
+    assert.equal(run1.platformSummary.facebook.published, 1);
+    assert.equal(run1.platformSummary.instagram.published, 1);
+    assert.equal(run1.platformSummary.pinterest.failed, 1);
+
+    // Verify history recorded partial status
+    const histAfterRun1 = await historyRepo.loadHistory();
+    assert.equal(histAfterRun1.length, 1);
+    assert.equal(histAfterRun1[0].platformResults.facebook?.status, 'PUBLISHED');
+    assert.equal(histAfterRun1[0].platformResults.instagram?.status, 'PUBLISHED');
+    assert.equal(histAfterRun1[0].platformResults.pinterest?.status, 'FAILED');
+    assert.equal(histAfterRun1[0].overallStatus, 'PARTIAL');
+
+    // Run 2: Re-run. Should target ONLY Pinterest and merge results!
+    const run2 = await runSocialPipeline({
+      candidates: [topic],
+      config: {
+        enabled: true,
+        dryRun: false,
+        allowPublish: true,
+        storageDir: tempDir,
+      },
+      historyRepository: historyRepo,
+      platformAdapters: adapters,
+    });
+
+    // FB and IG must NOT be called again
+    assert.equal(fbCallCount, 1);
+    assert.equal(igCallCount, 1);
+    // Pinterest called second time and succeeded
+    assert.equal(pinCallCount, 2);
+    assert.equal(run2.platformSummary.pinterest.published, 1);
+
+    // Verify history is merged and completed
+    const histAfterRun2 = await historyRepo.loadHistory();
+    assert.equal(histAfterRun2.length, 1);
+    assert.equal(histAfterRun2[0].platformResults.facebook?.status, 'PUBLISHED');
+    assert.equal(histAfterRun2[0].platformResults.instagram?.status, 'PUBLISHED');
+    assert.equal(histAfterRun2[0].platformResults.pinterest?.status, 'PUBLISHED');
+    assert.equal(histAfterRun2[0].overallStatus, 'COMPLETED');
+
+    await fs.rm(tempDir, { recursive: true, force: true });
+  });
+
+  await t.test('42. Editorial watchdog executes social pipeline even when daily editorial quota is already met', async () => {
+    const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lm-watchdog-soc-'));
+    const contentDir = path.join(tempDir, 'content');
+    const contentRepo = new FilesystemContentRepository({ contentRoot: contentDir });
+
+    const todayStr = new Date().toISOString().split('T')[0];
+
+    // Seed 3 published articles for today to meet quota (3/3)
+    for (let i = 1; i <= 3; i++) {
+      await contentRepo.create({
+        pillar: 'life',
+        slug: `daily-published-article-${i}`,
+        content: `Body for article ${i}`,
+        frontmatter: {
+          title: `Daily Published Article ${i}`,
+          description: `Description for article ${i}`,
+          pubDate: todayStr,
+          author: 'LifeMode Editorial',
+          tags: ['life', 'design'],
+          featured: false,
+          draft: false,
+          format: 'standard',
+          primaryIntent: 'informational',
+          affiliateIntent: false,
+          riskLevel: 'low',
+          sources: [],
+          version: 1,
+          lifecycleStatus: 'PUBLISHED',
+        },
+      });
+    }
+
+    const watchdogResult = await runEditorialWatchdog({
+      contentRepository: contentRepo,
+      contentRoot: contentDir,
+      dailyArticleLimit: 3,
+      socialEnabled: true,
+      socialOptions: {
+        enabled: true,
+        dryRun: true,
+        storageDir: path.join(tempDir, 'social'),
+      },
+    });
+
+    assert.equal(watchdogResult.action, 'NO_ACTION_REQUIRED');
+    assert.equal(watchdogResult.status, 'SKIPPED');
+    assert.equal(watchdogResult.report.isQuotaMet, true);
+    assert.ok(watchdogResult.socialResult);
+    assert.equal(watchdogResult.socialResult.dryRun, true);
+    assert.ok(watchdogResult.socialResult.succeededCount > 0);
+
+    await fs.rm(tempDir, { recursive: true, force: true });
   });
 });

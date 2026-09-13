@@ -1,6 +1,7 @@
 import type { EditorialTopic, PillarSlug } from '../editorial/types.ts';
 import type { SocialOpportunity, SocialPlatform } from './types.ts';
 import type { ISocialHistoryRepository } from './storage/repository.ts';
+import type { IContentRepository } from '../editorial/storage/types.ts';
 
 export interface SocialSelectionOptions {
   maxOpportunities?: number; // default 3
@@ -8,6 +9,9 @@ export interface SocialSelectionOptions {
   historyRepository?: ISocialHistoryRepository;
   baseUrl?: string;
   categoryFilter?: PillarSlug[];
+  contentRepository?: IContentRepository;
+  contentRoot?: string;
+  publishedOnly?: boolean; // default true in production
 }
 
 /**
@@ -51,7 +55,7 @@ export function determineTargetPlatforms(topic: EditorialTopic): SocialPlatform[
 }
 
 /**
- * Deterministically selects the top social opportunities from the candidates pool.
+ * Deterministically selects the top social opportunities from published articles.
  */
 export async function selectSocialOpportunities(
   candidates: EditorialTopic[],
@@ -59,21 +63,36 @@ export async function selectSocialOpportunities(
 ): Promise<SocialOpportunity[]> {
   const max = options.maxOpportunities ?? 3;
   const minScore = options.minScoreThreshold ?? 80;
-  const baseUrl = options.baseUrl || 'https://lifemode.life';
+  const baseUrl = (options.baseUrl || 'https://lifemode.life').replace(/\/+$/, '');
   const historyRepo = options.historyRepository;
+  const publishedOnly = options.publishedOnly ?? false;
 
-  // 1. Filter eligible candidates
-  const eligible: Array<{ topic: EditorialTopic; socialScore: number }> = [];
+  // 1. Filter eligible candidates/articles
+  const eligible: Array<{
+    topic: EditorialTopic;
+    socialScore: number;
+    activePlatforms: SocialPlatform[];
+  }> = [];
 
   for (const topic of candidates) {
-    // Quality Gate: Total score must meet or exceed minimum threshold
-    if (topic.totalScore < minScore) continue;
+    // Quality Gate: Total score must meet or exceed minimum threshold (if scoring exists)
+    const effectiveTotalScore = topic.totalScore ?? 80;
+    if (effectiveTotalScore < minScore) continue;
 
-    // Must be classified as ARTICLE_AND_SOCIAL or SOCIAL_ONLY
+    // In published-only mode, only consider topics that are actually published
+    if (publishedOnly && topic.status !== 'PUBLISHED') {
+      continue;
+    }
+
+    // Must not be rejected or archived
+    if (topic.status === 'REJECTED' || topic.priorityTier === 'REJECT') continue;
+
+    // Must be classified as ARTICLE_AND_SOCIAL, SOCIAL_ONLY, or high-scoring ARTICLE
     if (
+      topic.opportunityType &&
       topic.opportunityType !== 'ARTICLE_AND_SOCIAL' &&
       topic.opportunityType !== 'SOCIAL_ONLY' &&
-      topic.opportunityType !== 'ARTICLE' // High-scoring articles can be considered if opportunityType is ARTICLE and social potential is high (>=75)
+      topic.opportunityType !== 'ARTICLE'
     ) {
       continue;
     }
@@ -82,22 +101,41 @@ export async function selectSocialOpportunities(
       continue;
     }
 
-    // Must not be rejected or archived
-    if (topic.status === 'REJECTED' || topic.priorityTier === 'REJECT') continue;
-
     // Filter by pillar if specified
     if (options.categoryFilter && options.categoryFilter.length > 0) {
       if (!options.categoryFilter.includes(topic.pillar)) continue;
     }
 
-    // Check history: topic must not have been recently published on social
+    // Determine target platforms based on scoring & strengths
+    const allPlatforms = determineTargetPlatforms(topic);
+    let activePlatforms = [...allPlatforms];
+
+    // Check per-platform publication history: only target unfulfilled platforms
     if (historyRepo) {
+      const remainingPlatforms: SocialPlatform[] = [];
+      for (const p of allPlatforms) {
+        const isPublished = await historyRepo.isPlatformPublished(topic.id, p);
+        if (!isPublished) {
+          remainingPlatforms.push(p);
+        }
+      }
+
+      // If all target platforms have already been successfully published for this article, skip
+      if (remainingPlatforms.length === 0) {
+        continue;
+      }
+
+      // If recently published and no remaining platforms, skip
       const recentlyPublished = await historyRepo.isTopicRecentlyPublished(topic.id, 14);
-      if (recentlyPublished) continue;
+      if (recentlyPublished && remainingPlatforms.length === 0) {
+        continue;
+      }
+
+      activePlatforms = remainingPlatforms;
     }
 
     const socialScore = calculateSocialScore(topic);
-    eligible.push({ topic, socialScore });
+    eligible.push({ topic, socialScore, activePlatforms });
   }
 
   // 2. Sort by composite social score descending
@@ -118,7 +156,6 @@ export async function selectSocialOpportunities(
       continue;
     }
 
-    const targetPlatforms = determineTargetPlatforms(topic);
     const destinationUrl = `${baseUrl}/${topic.pillar}/${topic.slug}`;
 
     selected.push({
@@ -126,11 +163,11 @@ export async function selectSocialOpportunities(
       canonicalTopic: topic.canonicalTopic,
       pillar: topic.pillar,
       slug: topic.slug,
-      totalScore: topic.totalScore,
-      socialPotential: topic.scoring.socialPotential,
-      pinterestPotential: topic.scoring.pinterestPotential,
-      opportunityType: topic.opportunityType,
-      targetPlatforms,
+      totalScore: topic.totalScore ?? 80,
+      socialPotential: topic.scoring?.socialPotential ?? 80,
+      pinterestPotential: topic.scoring?.pinterestPotential ?? 80,
+      opportunityType: topic.opportunityType || 'ARTICLE_AND_SOCIAL',
+      targetPlatforms: item.activePlatforms,
       destinationUrl,
       evidence: topic.evidence?.map((e) => ({
         title: e.title,
@@ -138,6 +175,10 @@ export async function selectSocialOpportunities(
         publisher: e.publisher,
       })),
       tags: topic.tags || [topic.pillar, 'lifestyle'],
+      articleTitle: (topic as any).articleTitle || topic.canonicalTopic,
+      articleDescription: (topic as any).articleDescription,
+      publishedAt: (topic as any).publishedAt || topic.updatedAt,
+      articleImage: (topic as any).articleImage,
     });
 
     pillarCounts[topic.pillar] = (pillarCounts[topic.pillar] || 0) + 1;
@@ -150,7 +191,6 @@ export async function selectSocialOpportunities(
       if (selected.some((s) => s.topicId === item.topic.id)) continue;
 
       const topic = item.topic;
-      const targetPlatforms = determineTargetPlatforms(topic);
       const destinationUrl = `${baseUrl}/${topic.pillar}/${topic.slug}`;
 
       selected.push({
@@ -158,11 +198,11 @@ export async function selectSocialOpportunities(
         canonicalTopic: topic.canonicalTopic,
         pillar: topic.pillar,
         slug: topic.slug,
-        totalScore: topic.totalScore,
-        socialPotential: topic.scoring.socialPotential,
-        pinterestPotential: topic.scoring.pinterestPotential,
-        opportunityType: topic.opportunityType,
-        targetPlatforms,
+        totalScore: topic.totalScore ?? 80,
+        socialPotential: topic.scoring?.socialPotential ?? 80,
+        pinterestPotential: topic.scoring?.pinterestPotential ?? 80,
+        opportunityType: topic.opportunityType || 'ARTICLE_AND_SOCIAL',
+        targetPlatforms: item.activePlatforms,
         destinationUrl,
         evidence: topic.evidence?.map((e) => ({
           title: e.title,
@@ -170,9 +210,14 @@ export async function selectSocialOpportunities(
           publisher: e.publisher,
         })),
         tags: topic.tags || [topic.pillar, 'lifestyle'],
+        articleTitle: (topic as any).articleTitle || topic.canonicalTopic,
+        articleDescription: (topic as any).articleDescription,
+        publishedAt: (topic as any).publishedAt || topic.updatedAt,
+        articleImage: (topic as any).articleImage,
       });
     }
   }
 
   return selected;
 }
+

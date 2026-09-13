@@ -41,14 +41,17 @@ export function buildSocialBrief(opportunity: SocialOpportunity): SocialBrief {
     ])
   ).map((t) => `#${t}`);
 
+  const articleTitle = opportunity.articleTitle || opportunity.canonicalTopic;
+  const articleDescription = opportunity.articleDescription || `Editorial exploration of ${opportunity.canonicalTopic}, emphasizing practical insight, intentionality, and contemporary lifestyle relevance.`;
+
   return {
     briefId,
     topicId: opportunity.topicId,
     pillar: opportunity.pillar,
     canonicalTopic: opportunity.canonicalTopic,
     destinationUrl: opportunity.destinationUrl,
-    coreConcept: `Editorial exploration of ${opportunity.canonicalTopic}, emphasizing practical insight, intentionality, and contemporary lifestyle relevance.`,
-    editorialHook: `Why ${opportunity.canonicalTopic} is reshaping how high-signal readers approach ${opportunity.pillar}.`,
+    coreConcept: articleDescription,
+    editorialHook: `Why ${articleTitle} is reshaping how high-signal readers approach ${opportunity.pillar}.`,
     targetAudience,
     targetPlatforms: opportunity.targetPlatforms,
     evidence: opportunity.evidence,
@@ -58,5 +61,8 @@ export function buildSocialBrief(opportunity: SocialOpportunity): SocialBrief {
       aestheticStyle,
       textOverlayRule: 'Maximum 6-10 words. Punchy, elegant headline. Zero paragraphs, zero internal metadata, zero provider diagnostics.',
     },
+    articleTitle,
+    articleDescription,
+    publishedAt: opportunity.publishedAt,
   };
 }
