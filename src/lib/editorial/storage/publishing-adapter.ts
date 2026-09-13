@@ -51,12 +51,32 @@ export function publishPackageToStoredArticleInput(
 /**
  * Persists an approved PublishPackage to the content repository.
  *
- * Enforces that blocked/ineligible publishing packages cannot be stored.
+ * Enforces that blocked/ineligible publishing packages or image-less packages without fallback cannot be stored.
  */
 export async function storePublishPackage(
   repository: IContentRepository,
-  publishPackage: PublishPackage
+  publishPackage: PublishPackage,
+  options: { allowNoImageFallback?: boolean; dryRun?: boolean } = {}
 ): Promise<StorageResult> {
+  const isDryRun = options.dryRun ?? false;
+  const hasImageUrl = Boolean(
+    publishPackage.imageMetadata?.url &&
+    typeof publishPackage.imageMetadata.url === 'string' &&
+    publishPackage.imageMetadata.url.trim().length > 0
+  );
+
+  if (!isDryRun && !hasImageUrl && !options.allowNoImageFallback) {
+    return {
+      status: 'INVALID',
+      operation: 'create',
+      timestamp: new Date().toISOString(),
+      error: {
+        code: 'IMAGE_REQUIRED',
+        message: 'Cannot store published article without a valid image URL unless fallback is explicitly configured.',
+      },
+    };
+  }
+
   const articleInput = publishPackageToStoredArticleInput(publishPackage);
   return repository.create(articleInput);
 }
@@ -68,23 +88,27 @@ export async function storePublishPackage(
  */
 export async function storePublishingResult(
   repository: IContentRepository,
-  result: PublishingResult
+  result: PublishingResult,
+  options: { allowNoImageFallback?: boolean } = {}
 ): Promise<StorageResult> {
   if (!result || typeof result !== 'object') {
     throw new Error('PublishingResult must be a valid non-null object.');
   }
 
-  if (result.status === 'BLOCKED' || !result.gateResult?.eligible || !result.publishPackage) {
+  if (result.status === 'BLOCKED' || result.status === 'FAILED' || !result.gateResult?.eligible || !result.publishPackage) {
     return {
       status: 'INVALID',
       operation: 'create',
       timestamp: new Date().toISOString(),
       error: {
-        code: 'GATE_BLOCKED',
-        message: 'Cannot store blocked or ineligible publishing result.',
+        code: (result.error?.code as any) || 'GATE_BLOCKED',
+        message: result.error?.message || 'Cannot store blocked or ineligible publishing result.',
       },
     };
   }
 
-  return storePublishPackage(repository, result.publishPackage);
+  return storePublishPackage(repository, result.publishPackage, {
+    allowNoImageFallback: options.allowNoImageFallback,
+    dryRun: result.dryRun,
+  });
 }

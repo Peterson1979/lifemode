@@ -19,6 +19,10 @@ sources:
     url: "https://centerforhumanetech.com/insights/calm-technology-principles"
   - name: "Oxford Internet Institute: Cognitive Bandwidth and Everyday Rituals: An Empirical Synthesis"
     url: "https://ox.ac.uk/research/cognitive-restoration-digital-wellbeing"
+image: "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-now-20260912-new-movies-streaming/53f1f8caf6625b2f.jpg"
+imageAlt: "New movies streaming: what to know"
+imagePrompt: "Editorial documentary photograph of a curated minimalist living room with a sleek ambient screen streaming cinema in soft evening light, calm technology aesthetic, 16:9, architectural digest style, no text"
+imageSource: "cloudflare-workers-ai"
 version: 1
 lifecycleStatus: "STORED"
 ---

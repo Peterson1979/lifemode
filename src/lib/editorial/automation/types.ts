@@ -147,6 +147,7 @@ export interface AutomationRequest {
   imageFallbackProvider?: IEditorialImageProvider;
   imageStorageProvider?: ISocialAssetStorageProvider;
   costGuard?: EditorialImageCostGuard;
+  allowNoImageFallback?: boolean;
 
   // Custom paths & options
   storagePath?: string; // discovery candidate storage path

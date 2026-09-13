@@ -101,6 +101,7 @@ export interface PublishingGateThresholds {
   minFactualityScore: number; // default: 85
   requirePassDecision: boolean; // default: true
   disallowUnresolvedPlaceholders: boolean; // default: true
+  requireImage?: boolean; // default: true
 }
 
 /**
@@ -110,6 +111,7 @@ export interface PublishingOptions {
   dryRun?: boolean; // default: true
   author?: string;
   targetDate?: string;
+  allowNoImageFallback?: boolean; // default: false
   customThresholds?: Partial<PublishingGateThresholds>;
 }
 
@@ -138,6 +140,7 @@ export interface PublishingGateResult {
  */
 export type PublishingErrorCode =
   | 'GATE_BLOCKED'
+  | 'IMAGE_REQUIRED'
   | 'INVALID_PACKAGE'
   | 'PROVIDER_UNAVAILABLE'
   | 'PROVIDER_REJECTED'

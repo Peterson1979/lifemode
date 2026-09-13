@@ -4,6 +4,7 @@ export interface PublishingConfig {
   provider: string;
   dryRun: boolean;
   defaultAuthor: string;
+  allowNoImageFallback?: boolean;
   thresholds: PublishingGateThresholds;
 }
 
@@ -39,12 +40,16 @@ export function loadPublishingConfig(overrides: Partial<PublishingConfig> = {}):
     provider: getEnv('PUBLISHING_PROVIDER', 'fixture'),
     dryRun: getEnv('PUBLISHING_DRY_RUN') ? getEnvBoolean('PUBLISHING_DRY_RUN', true) : true,
     defaultAuthor: getEnv('PUBLISHING_DEFAULT_AUTHOR', 'LifeMode Editorial'),
+    allowNoImageFallback: getEnv('PUBLISHING_ALLOW_NO_IMAGE_FALLBACK')
+      ? getEnvBoolean('PUBLISHING_ALLOW_NO_IMAGE_FALLBACK', false)
+      : (getEnv('LIFEMODE_IMAGE_ALLOW_NO_IMAGE_FALLBACK') ? getEnvBoolean('LIFEMODE_IMAGE_ALLOW_NO_IMAGE_FALLBACK', false) : false),
     thresholds: {
       minOverallScore: getEnvNumber('PUBLISHING_MIN_SCORE', 85),
       minSafetyScore: getEnvNumber('PUBLISHING_MIN_SAFETY_SCORE', 85),
       minFactualityScore: getEnvNumber('PUBLISHING_MIN_FACTUALITY_SCORE', 85),
       requirePassDecision: true,
       disallowUnresolvedPlaceholders: true,
+      requireImage: true,
     },
   };
 

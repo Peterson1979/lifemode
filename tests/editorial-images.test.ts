@@ -578,3 +578,169 @@ test('13. End-to-end publishing pipeline with BFL fallback on Workers AI failure
   assert.equal(result.publishPackage.imageMetadata?.source, 'fixture-image');
 });
 
+test('14. End-to-end publishing pipeline blocks publication when image generation fails and fallback is disabled', async () => {
+  const fullContent = [
+    'In contemporary lifestyle design, intentionality represents a foundational shift toward clarity and sustainable daily focus.',
+    '',
+    '## 1. The Modern Shift: Signal Over Noise',
+    'Navigating digital overload requires cultivating a calm, deliberate relationship with our tools and physical spaces.',
+    'Rather than reacting to every new impulse, we establish clear boundaries and structured daily rhythms.',
+    '',
+    '## 2. Practical Framework & Daily Protocols',
+    'Implementing intentional design begins with small, repeatable workflows that compound over time.',
+    'By focusing on essential priorities, modern knowledge workers preserve cognitive bandwidth for deep, meaningful work.',
+  ].join('\n');
+
+  const pubRequest: PublishingRequest = {
+    article: {
+      title: 'The Art of Mindful Solitude',
+      slug: 'the-art-of-mindful-solitude',
+      description: 'How quiet contemplation fosters mental clarity and daily balance.',
+      excerpt: 'Exploring quiet contemplation and rest in modern life.',
+      content: fullContent,
+      sources: [{ name: 'LifeMode Editorial Standards', url: 'https://lifemode.life' }],
+      internalLinks: ['/wellbeing'],
+      affiliateIntents: [],
+      faq: [],
+      socialHooks: ['How quiet contemplation fosters mental clarity.'],
+    },
+    review: {
+      decision: 'PASS',
+      overallScore: 94,
+      dimensions: {
+        safety: { score: 95, rationale: 'Safe', issues: [] },
+        factuality: { score: 92, rationale: 'Accurate', issues: [] },
+        readability: { score: 90, rationale: 'Good', issues: [] },
+        structure: { score: 90, rationale: 'Good', issues: [] },
+        usefulness: { score: 90, rationale: 'Good', issues: [] },
+        originality: { score: 90, rationale: 'Good', issues: [] },
+        searchIntent: { score: 90, rationale: 'Good', issues: [] },
+        seo: { score: 90, rationale: 'Good', issues: [] },
+        editorialFit: { score: 90, rationale: 'Good', issues: [] },
+        monetizationFit: { score: 90, rationale: 'Good', issues: [] },
+      },
+      criticalIssues: [],
+      warnings: [],
+      reviewer: 'Senior Reviewer',
+      metadata: {
+        provider: 'fixture',
+        model: 'fixture-v1',
+        reviewedAt: '2026-09-10T12:00:00.000Z',
+        durationMs: 10,
+      },
+      gatePassed: true,
+    },
+    context: {
+      topicId: 'topic-wellbeing-solitude',
+      pillar: 'wellbeing',
+      format: 'guide',
+      audience: 'Intentional readers',
+      primaryIntent: 'informational',
+      riskLevel: 'low',
+      tags: ['wellbeing', 'solitude', 'mindfulness'],
+    },
+    options: {
+      dryRun: false,
+      allowNoImageFallback: false,
+    },
+  };
+
+  const primaryImageProvider = new FixtureEditorialImageProvider(false); // Fails
+  const fallbackImageProvider = new FixtureEditorialImageProvider(false); // Fails
+  const mockStorage = new MockStorageProvider(false);
+
+  const result = await runPublishingPipeline({
+    request: pubRequest,
+    imageConfig: loadEditorialImageConfig({ enabled: true, allowNoImageFallback: false }),
+    imagePrimaryProvider: primaryImageProvider,
+    imageFallbackProvider: fallbackImageProvider,
+    imageStorageProvider: mockStorage,
+  });
+
+  assert.equal(result.status, 'BLOCKED');
+  assert.equal(result.error?.code, 'IMAGE_REQUIRED');
+  assert.equal(result.gateResult.eligible, false);
+  assert.ok(result.error?.message.includes('A valid hero image URL is required for live publication'));
+});
+
+test('15. End-to-end publishing pipeline allows publication when allowNoImageFallback is explicitly true', async () => {
+  const fullContent = [
+    'In contemporary lifestyle design, intentionality represents a foundational shift toward clarity and sustainable daily focus.',
+    '',
+    '## 1. The Modern Shift: Signal Over Noise',
+    'Navigating digital overload requires cultivating a calm, deliberate relationship with our tools and physical spaces.',
+    'Rather than reacting to every new impulse, we establish clear boundaries and structured daily rhythms.',
+    '',
+    '## 2. Practical Framework & Daily Protocols',
+    'Implementing intentional design begins with small, repeatable workflows that compound over time.',
+    'By focusing on essential priorities, modern knowledge workers preserve cognitive bandwidth for deep, meaningful work.',
+  ].join('\n');
+
+  const pubRequest: PublishingRequest = {
+    article: {
+      title: 'The Art of Mindful Solitude',
+      slug: 'the-art-of-mindful-solitude',
+      description: 'How quiet contemplation fosters mental clarity and daily balance.',
+      excerpt: 'Exploring quiet contemplation and rest in modern life.',
+      content: fullContent,
+      sources: [{ name: 'LifeMode Editorial Standards', url: 'https://lifemode.life' }],
+      internalLinks: ['/wellbeing'],
+      affiliateIntents: [],
+      faq: [],
+      socialHooks: ['How quiet contemplation fosters mental clarity.'],
+    },
+    review: {
+      decision: 'PASS',
+      overallScore: 94,
+      dimensions: {
+        safety: { score: 95, rationale: 'Safe', issues: [] },
+        factuality: { score: 92, rationale: 'Accurate', issues: [] },
+        readability: { score: 90, rationale: 'Good', issues: [] },
+        structure: { score: 90, rationale: 'Good', issues: [] },
+        usefulness: { score: 90, rationale: 'Good', issues: [] },
+        originality: { score: 90, rationale: 'Good', issues: [] },
+        searchIntent: { score: 90, rationale: 'Good', issues: [] },
+        seo: { score: 90, rationale: 'Good', issues: [] },
+        editorialFit: { score: 90, rationale: 'Good', issues: [] },
+        monetizationFit: { score: 90, rationale: 'Good', issues: [] },
+      },
+      criticalIssues: [],
+      warnings: [],
+      reviewer: 'Senior Reviewer',
+      metadata: {
+        provider: 'fixture',
+        model: 'fixture-v1',
+        reviewedAt: '2026-09-10T12:00:00.000Z',
+        durationMs: 10,
+      },
+      gatePassed: true,
+    },
+    context: {
+      topicId: 'topic-wellbeing-solitude',
+      pillar: 'wellbeing',
+      format: 'guide',
+      audience: 'Intentional readers',
+      primaryIntent: 'informational',
+      riskLevel: 'low',
+      tags: ['wellbeing', 'solitude', 'mindfulness'],
+    },
+    options: {
+      dryRun: false,
+      allowNoImageFallback: true, // Explicit fallback allowed
+    },
+  };
+
+  const primaryImageProvider = new FixtureEditorialImageProvider(false);
+  const fallbackImageProvider = new FixtureEditorialImageProvider(false);
+
+  const result = await runPublishingPipeline({
+    request: pubRequest,
+    imageConfig: loadEditorialImageConfig({ enabled: true, allowNoImageFallback: true }),
+    imagePrimaryProvider: primaryImageProvider,
+    imageFallbackProvider: fallbackImageProvider,
+  });
+
+  assert.equal(result.status, 'PUBLISHED');
+  assert.equal(result.publishPackage?.imageMetadata?.url, undefined);
+});
+

@@ -813,6 +813,7 @@ export async function runEditorialAutomation(
         },
         options: {
           dryRun: config.dryRun,
+          allowNoImageFallback: request.imageConfig?.allowNoImageFallback ?? (request as any).allowNoImageFallback,
         },
       };
 
@@ -828,21 +829,23 @@ export async function runEditorialAutomation(
 
       oppResult.publishing = publishingResult;
 
-      if (publishingResult.status === 'BLOCKED' || !publishingResult.gateResult?.eligible) {
+      if (publishingResult.status === 'BLOCKED' || publishingResult.status === 'FAILED' || !publishingResult.gateResult?.eligible) {
+        const errorCode = (publishingResult.error?.code as any) || 'GATE_BLOCKED';
+        const errorMessage = publishingResult.error?.message || 'Publishing gate blocked publication.';
         stageResults.PUBLISHING_GATE = {
           stage: 'PUBLISHING_GATE',
           status: 'FAILED',
           durationMs: Math.max(1, Date.now() - pubStart),
           error: {
-            code: 'GATE_BLOCKED',
-            message: publishingResult.error?.message || 'Publishing gate ineligible.',
+            code: errorCode,
+            message: errorMessage,
           },
         };
         oppResult.failedStage = 'PUBLISHING_GATE';
         oppResult.error = {
           stage: 'PUBLISHING_GATE',
-          code: 'GATE_BLOCKED',
-          message: publishingResult.error?.message || 'Publishing gate blocked publication.',
+          code: errorCode,
+          message: errorMessage,
         };
         oppResult.status = 'FAILED';
         failedCount++;
@@ -863,7 +866,10 @@ export async function runEditorialAutomation(
 
       // Handle repository storage
       if (publishingResult.publishPackage) {
-        storageResult = await storePublishPackage(repository, publishingResult.publishPackage);
+        storageResult = await storePublishPackage(repository, publishingResult.publishPackage, {
+          allowNoImageFallback: request.allowNoImageFallback ?? request.imageConfig?.allowNoImageFallback,
+          dryRun: config.dryRun,
+        });
       } else {
         storageResult = {
           status: 'INVALID' as const,

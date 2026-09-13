@@ -28,6 +28,7 @@ export interface EditorialImageConfig {
   targetWidth: number;
   targetHeight: number;
   aspectRatio: string;
+  allowNoImageFallback?: boolean;
 }
 
 function getEnv(key: string, defaultValue = ''): string {
@@ -86,6 +87,9 @@ export function loadEditorialImageConfig(
   const strategy: 'cloudflare' | 'bfl' = rawStrategy === 'bfl' ? 'bfl' : 'cloudflare';
 
   const enabled = getEnvBoolean('LIFEMODE_IMAGE_ENABLED', false);
+  const allowNoImageFallback = getEnv('LIFEMODE_IMAGE_ALLOW_NO_IMAGE_FALLBACK')
+    ? getEnvBoolean('LIFEMODE_IMAGE_ALLOW_NO_IMAGE_FALLBACK', false)
+    : (getEnv('PUBLISHING_ALLOW_NO_IMAGE_FALLBACK') ? getEnvBoolean('PUBLISHING_ALLOW_NO_IMAGE_FALLBACK', false) : false);
   const maxRetries = Math.max(0, Math.min(3, getEnvNumber('LIFEMODE_IMAGE_MAX_RETRIES', 1)));
 
   const costGuardEnabled = getEnv('LIFEMODE_IMAGE_COST_GUARD') !== undefined
@@ -101,6 +105,7 @@ export function loadEditorialImageConfig(
   const baseConfig: EditorialImageConfig = {
     enabled,
     strategy,
+    allowNoImageFallback,
     cloudflare: {
       accountId: cfAccountId || undefined,
       apiToken: cfApiToken || undefined,

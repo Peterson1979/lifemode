@@ -277,7 +277,7 @@ test('1. Successful article + image generation: Generates article, creates maste
   }
 });
 
-test('2. Successful article without image: Publishes article cleanly when image generation is disabled', async () => {
+test('2. Image disabled without fallback: Blocks live article publication when image generation is disabled', async () => {
   const { repoDir, contentDir, cleanup } = await createTempWorkspace();
 
   try {
@@ -311,6 +311,81 @@ test('2. Successful article without image: Publishes article cleanly when image 
       contentRoot: contentDir,
       imageConfig: {
         enabled: false, // Disabled
+        allowNoImageFallback: false,
+        strategy: 'cloudflare',
+        cloudflare: { model: '@cf/black-forest-labs/flux-1-schnell', configured: false },
+        bfl: { model: 'flux-pro-1.1', configured: false },
+        targetWidth: 1536,
+        targetHeight: 864,
+        aspectRatio: '16:9',
+        maxRetries: 1,
+        costGuard: {
+          enabled: false,
+          dailyLimit: 5,
+          monthlyLimit: 120,
+        },
+      },
+      imagePrimaryProvider: imageProvider,
+      imageStorageProvider: storageProvider,
+    });
+
+    assert.equal(result.status, 'FAILED');
+    assert.equal(result.succeededCount, 0);
+    assert.equal(result.failedCount, 1);
+
+    // Verify structured article result indicates failure
+    assert.ok(result.articles && result.articles.length === 1);
+    const article = result.articles[0];
+    assert.equal(article.success, false);
+    assert.equal(article.imageGenerated, false);
+    assert.equal(article.error?.code, 'IMAGE_REQUIRED');
+
+    // Verify image provider was never called
+    assert.equal(imageProvider.generateCalls.length, 0);
+
+    // Verify NO article was stored in repository
+    const storedArticles = await repository.list();
+    assert.equal(storedArticles.length, 0);
+  } finally {
+    await cleanup();
+  }
+});
+
+test('2b. Image disabled with explicit fallback: Publishes article cleanly when allowNoImageFallback is true', async () => {
+  const { repoDir, contentDir, cleanup } = await createTempWorkspace();
+
+  try {
+    const repository = new FilesystemContentRepository({ contentRoot: contentDir });
+    const gitPublisher = new AstroGitPublisher({ defaultOptions: { gitRepoRoot: repoDir, contentRoot: contentDir } });
+    const imageProvider = new MockImageProvider('Mock Primary', 'cloudflare', true);
+    const storageProvider = new MockStorageProvider(true);
+
+    const discoveryAdapter = new MockTopicDiscoveryAdapter([
+      {
+        topic: 'Mindful Morning Routines for Focus',
+        pillar: 'wellbeing',
+        score: 92,
+        searchVolume: 'high',
+      },
+    ]);
+
+    const result = await runDailyEditorialAutomation({
+      enabled: true,
+      dryRun: false,
+      allowCommit: true,
+      allowUnrelatedChanges: true,
+      maxOpportunities: 1,
+      minScoreThreshold: 70,
+      providerMode: 'fixture',
+      storagePath: path.join(repoDir, 'candidates.json'),
+      discoveryAdapters: [discoveryAdapter],
+      contentRepository: repository,
+      gitPublisher,
+      gitRepoRoot: repoDir,
+      contentRoot: contentDir,
+      imageConfig: {
+        enabled: false,
+        allowNoImageFallback: true, // Explicit fallback allowed
         strategy: 'cloudflare',
         cloudflare: { model: '@cf/black-forest-labs/flux-1-schnell', configured: false },
         bfl: { model: 'flux-pro-1.1', configured: false },
@@ -331,27 +406,14 @@ test('2. Successful article without image: Publishes article cleanly when image 
     assert.equal(result.status, 'SUCCESS');
     assert.equal(result.succeededCount, 1);
 
-    // Verify structured article result indicates image skipped
-    assert.ok(result.articles && result.articles.length === 1);
-    const article = result.articles[0];
-    assert.equal(article.success, true);
-    assert.equal(article.imageGenerated, false);
-    assert.equal(article.imageUrl, undefined);
-    assert.equal(article.skippedReason, 'disabled');
-
-    // Verify image provider was never called
-    assert.equal(imageProvider.generateCalls.length, 0);
-
-    // Verify article was still stored successfully
     const storedArticles = await repository.list();
     assert.equal(storedArticles.length, 1);
-    assert.equal(storedArticles[0].frontmatter.image, undefined);
   } finally {
     await cleanup();
   }
 });
 
-test('3. Cost Guard blocking image: Reached quota blocks image generation and continues article publishing without failing', async () => {
+test('3. Cost Guard blocking image without fallback: Reached quota blocks image generation and halts publication', async () => {
   const { repoDir, contentDir, cleanup } = await createTempWorkspace();
 
   try {
@@ -360,18 +422,14 @@ test('3. Cost Guard blocking image: Reached quota blocks image generation and co
     const imageProvider = new MockImageProvider('Mock Primary', 'cloudflare', true);
     const storageProvider = new MockStorageProvider(true);
 
-    // Pre-populate in-memory cost guard store at daily limit
     const inMemoryStore = new InMemoryCostGuardStore();
-    const costGuard = new EditorialImageCostGuard(
-      {
-        enabled: true,
-        dailyLimit: 2,
-        monthlyLimit: 10,
-        store: inMemoryStore,
-      }
-    );
+    const costGuard = new EditorialImageCostGuard({
+      enabled: true,
+      dailyLimit: 2,
+      monthlyLimit: 10,
+      store: inMemoryStore,
+    });
 
-    // Artificially record 2 generations to reach limit
     await costGuard.recordGeneration();
     await costGuard.recordGeneration();
 
@@ -401,6 +459,7 @@ test('3. Cost Guard blocking image: Reached quota blocks image generation and co
       costGuard,
       imageConfig: {
         enabled: true,
+        allowNoImageFallback: false,
         strategy: 'cloudflare',
         cloudflare: { model: '@cf/black-forest-labs/flux-1-schnell', configured: true },
         bfl: { model: 'flux-pro-1.1', configured: false },
@@ -418,23 +477,19 @@ test('3. Cost Guard blocking image: Reached quota blocks image generation and co
       imageStorageProvider: storageProvider,
     });
 
-    // Workflow must succeed overall
-    assert.equal(result.status, 'SUCCESS');
-    assert.equal(result.succeededCount, 1);
+    // Workflow must fail due to image block
+    assert.equal(result.status, 'FAILED');
+    assert.equal(result.succeededCount, 0);
+    assert.equal(result.failedCount, 1);
 
-    // Structured article result indicates cost-guard-blocked
     assert.ok(result.articles && result.articles.length === 1);
     const article = result.articles[0];
-    assert.equal(article.success, true);
+    assert.equal(article.success, false);
     assert.equal(article.imageGenerated, false);
-    assert.equal(article.skippedReason, 'cost-guard-blocked');
 
-    // Provider was NOT invoked due to Cost Guard block
-    assert.equal(imageProvider.generateCalls.length, 0);
-
-    // Article was stored
+    // No article was stored
     const storedArticles = await repository.list();
-    assert.equal(storedArticles.length, 1);
+    assert.equal(storedArticles.length, 0);
   } finally {
     await cleanup();
   }

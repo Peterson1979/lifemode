@@ -107,12 +107,50 @@ export async function runPublishingPipeline(
       costGuard: options.costGuard,
     });
   } catch (err: any) {
-    // Non-blocking resilience: image failure never blocks publication
     imageResult = {
       success: false,
       skipped: false,
       reason: 'unexpected-exception',
       error: err?.message || String(err),
+    };
+  }
+
+  // 4.5. Enforce Production Image Guarantee:
+  // "A newly published article must not be committed as published without a valid image URL unless an explicit future fallback policy is intentionally configured."
+  const hasValidImageUrl = Boolean(
+    publishPackage.imageMetadata?.url &&
+    typeof publishPackage.imageMetadata.url === 'string' &&
+    publishPackage.imageMetadata.url.trim().length > 0
+  );
+  const allowNoImageFallback = Boolean(
+    request.options?.allowNoImageFallback ??
+    config.allowNoImageFallback ??
+    options.imageConfig?.allowNoImageFallback ??
+    false
+  );
+
+  if (!isDryRun && !hasValidImageUrl && !allowNoImageFallback) {
+    const failureReason = imageResult?.reason || imageResult?.error || 'image missing';
+    return {
+      status: 'BLOCKED',
+      publicationId: publishPackage.id,
+      slug: publishPackage.slug,
+      dryRun: isDryRun,
+      provider: provider.name,
+      publishPackage,
+      gateResult: {
+        ...gateResult,
+        eligible: false,
+        reasons: [
+          ...gateResult.reasons,
+          `Hero image generation required for live publication (${failureReason}). No fallback policy configured.`,
+        ],
+      },
+      imageResult,
+      error: {
+        code: 'IMAGE_REQUIRED',
+        message: `Article publication blocked: A valid hero image URL is required for live publication (${failureReason}). No fallback policy is configured.`,
+      },
     };
   }
 

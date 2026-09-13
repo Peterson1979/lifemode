@@ -92,6 +92,10 @@ const validPublishingRequest: PublishingRequest = {
     affiliateIntent: true,
     affiliateCategories: ['tech', 'hardware'],
     tags: ['tech-ai', 'hardware', 'workspaces'],
+    imageMetadata: {
+      url: 'https://assets.lifemode.life/editorial/test/sample.jpg',
+      prompt: 'Editorial minimal hardware photography.',
+    },
   },
 };
 
@@ -437,5 +441,28 @@ test('23. Publishing Gate allows article meeting target minimum word count', () 
 
   const gateResult = evaluatePublishingGate(sizedRequest);
   assert.equal(gateResult.eligible, true);
+});
+
+test('24. Runner: Live publishing is blocked when image is missing without fallback', async () => {
+  const provider = new FixturePublishingProvider();
+  const reqWithoutImage: PublishingRequest = {
+    ...validPublishingRequest,
+    context: {
+      ...validPublishingRequest.context,
+      imageMetadata: undefined,
+    },
+    options: {
+      dryRun: false,
+      allowNoImageFallback: false,
+    },
+  };
+
+  const result = await runPublishingPipeline({
+    request: reqWithoutImage,
+    provider,
+  });
+
+  assert.equal(result.status, 'BLOCKED');
+  assert.equal(result.error?.code, 'IMAGE_REQUIRED');
 });
 
