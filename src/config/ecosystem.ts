@@ -1,4 +1,5 @@
-import type { PillarSlug } from './site';
+import type { PillarSlug } from './site.ts';
+import { OWNED_PROJECTS, type OwnedProject } from '../lib/projects/index.ts';
 
 export interface EcosystemProject {
   id: string;
@@ -11,49 +12,17 @@ export interface EcosystemProject {
   ctaText: string;
 }
 
-export const ECOSYSTEM_PROJECTS: EcosystemProject[] = [
-  {
-    id: 'dreamly-ai',
-    name: 'Dreamly AI',
-    tagline: 'Dream Reflection & Sleep Mindfulness',
-    description:
-      'AI-guided dream journaling, nocturnal pattern analysis, and mindful morning reflections designed for intentional wellbeing.',
-    url: 'https://dreamly.ai',
-    relevantPillars: ['wellbeing', 'life'],
-    categories: ['Wellbeing', 'Sleep', 'Mindfulness', 'Reflection'],
-    ctaText: 'Explore Dreamly AI',
-  },
-  {
-    id: 'ai-zodiac',
-    name: 'AI Zodiac',
-    tagline: 'Archetypal Patterns & Personality Insights',
-    description:
-      'Nuanced personality mapping, relational dynamics, and cosmic archetypes explored through intelligent conversational frameworks.',
-    url: 'https://aizodiac.com',
-    relevantPillars: ['discover', 'wellbeing'],
-    categories: ['Culture', 'Relationships', 'Archetypes', 'Self-Discovery'],
-    ctaText: 'Discover AI Zodiac',
-  },
-  {
-    id: 'get-ai-set',
-    name: 'GetAISet',
-    tagline: 'Curated AI Toolkits & Workflow Suites',
-    description:
-      'GetAISet is a multilingual AI education and discovery platform helping learners, professionals, creators, marketers, and developers discover and understand useful AI courses, learning paths, tutorials, tools, comparisons, and practical AI resources.',
-    url: 'https://getaiset.com',
-    relevantPillars: ['tech-ai', 'money'],
-    categories: ['Productivity', 'AI Tools', 'Workflows', 'Modern Tech'],
-    ctaText: 'Visit GetAISet',
-  },
-  {
-    id: 'match-signal',
-    name: 'MatchSignal',
-    tagline: 'Sports Analytics & Strategic Data Insights',
-    description:
-      'Quantitative match signals, predictive momentum analytics, and data-driven sports intelligence for tactical enthusiasts.',
-    url: 'https://matchsignal.com',
-    relevantPillars: ['now', 'discover', 'tech-ai'],
-    categories: ['Sports Data', 'Analytics', 'Signals', 'Entertainment'],
-    ctaText: 'Explore MatchSignal',
-  },
-];
+/**
+ * Ecosystem projects derived from the centralized Owned Projects configuration.
+ * Preserves backward compatibility for global showcase components and home page.
+ */
+export const ECOSYSTEM_PROJECTS: EcosystemProject[] = OWNED_PROJECTS.map((project: OwnedProject) => ({
+  id: project.id,
+  name: project.name,
+  tagline: project.tagline,
+  description: project.description,
+  url: project.url,
+  relevantPillars: project.relevantPillars,
+  categories: project.categories,
+  ctaText: project.ctaLabel,
+}));

@@ -2,10 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PillarBadge from '../../components/PillarBadge.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
-import EcosystemCard from '../../components/EcosystemCard.astro';
+import OwnedProjectCta from '../../components/OwnedProjectCta.astro';
 import { getCollection, render } from 'astro:content';
 import { PILLARS, PILLAR_SLUGS, type PillarSlug } from '../../config/site';
-import { ECOSYSTEM_PROJECTS } from '../../config/ecosystem';
+import { matchOwnedProject } from '../../lib/projects/index';
 import { formatDate, toISODate } from '../../utils/date';
 import { generateArticleSchema, generateBreadcrumbSchema, getCanonicalUrl } from '../../utils/seo';
 
@@ -61,10 +61,18 @@ const displayReadingTime =
 
 const showFormat = entry.data.format && entry.data.format !== 'standard';
 
-// Find relevant ecosystem project for this pillar
-const relevantEcosystem = ECOSYSTEM_PROJECTS.find((p) =>
-  p.relevantPillars.includes(pillar.slug as PillarSlug)
-);
+// Deterministic article-to-owned-project routing based on article metadata
+const matchedProject = matchOwnedProject({
+  pillar: pillar.slug,
+  title: entry.data.title,
+  description: entry.data.description,
+  tags: entry.data.tags,
+  topicId: entry.data.topicId,
+  audience: entry.data.audience,
+  primaryIntent: entry.data.primaryIntent,
+  secondaryIntent: entry.data.secondaryIntent,
+  targetProject: entry.data.targetProject,
+});
 
 // JSON-LD Structured Data for Article & Breadcrumbs
 const articleJsonLd = generateArticleSchema({
@@ -196,11 +204,11 @@ const combinedJsonLd = [articleJsonLd, breadcrumbJsonLd];
       </footer>
     </article>
 
-    <!-- Relevant Project Recommendation -->
-    {relevantEcosystem && (
-      <section style="margin-top: var(--space-12); padding-top: var(--space-8); border-top: 1px solid var(--color-border);">
+    <!-- Relevant Owned Project Recommendation (Rendered only when high relevance is matched) -->
+    {matchedProject && (
+      <section class="article-project-cta-section" style="margin-top: var(--space-12); padding-top: var(--space-8); border-top: 1px solid var(--color-border);">
         <div style="max-width: 640px; margin: 0 auto;">
-          <EcosystemCard project={relevantEcosystem} compact={true} />
+          <OwnedProjectCta project={matchedProject} compact={true} />
         </div>
       </section>
     )}

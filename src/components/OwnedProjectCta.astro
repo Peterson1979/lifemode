@@ -1,0 +1,167 @@
+---
+import type { OwnedProject } from '../lib/projects/types.ts';
+
+export interface Props {
+  project?: OwnedProject | null;
+  compact?: boolean;
+}
+
+const { project, compact = false } = Astro.props;
+
+if (!project) {
+  // Safe no-op when no project is provided
+}
+---
+
+{project && (
+  <aside
+    class={`owned-project-cta ${compact ? 'owned-project-cta--compact' : ''}`}
+    aria-labelledby={`project-cta-title-${project.id}`}
+  >
+    <div class="cta-inner">
+      <div class="cta-header">
+        <span class="cta-kicker">Companion Project</span>
+        <span class="cta-categories">{project.categories.slice(0, 2).join(' / ')}</span>
+      </div>
+
+      <div class="cta-body">
+        <h3 id={`project-cta-title-${project.id}`} class="cta-title">
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cta-title-link"
+          >
+            {project.name}
+          </a>
+        </h3>
+
+        <p class="cta-tagline">{project.tagline}</p>
+        <p class="cta-desc">{project.ctaDescription || project.description}</p>
+      </div>
+
+      <div class="cta-action">
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cta-link"
+          aria-label={`${project.ctaLabel} (opens in new tab)`}
+        >
+          <span>{project.ctaLabel}</span>
+          <span aria-hidden="true" class="cta-arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+)}
+
+<style>
+  .owned-project-cta {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-6);
+    transition: border-color var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .owned-project-cta:hover {
+    border-color: var(--color-border-hover);
+    transform: translateY(-2px);
+  }
+
+  .cta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-3);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .cta-kicker {
+    color: var(--color-olive);
+  }
+
+  .cta-categories {
+    color: var(--color-text-muted);
+  }
+
+  .cta-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    margin-bottom: 0.25rem;
+  }
+
+  .cta-title-link {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .cta-title-link:hover {
+    color: var(--color-olive);
+  }
+
+  .cta-tagline {
+    font-family: var(--font-serif);
+    font-size: 0.925rem;
+    font-style: italic;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-3);
+    line-height: 1.4;
+  }
+
+  .cta-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-5);
+  }
+
+  .cta-action {
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  .cta-link {
+    font-family: var(--font-sans);
+    font-size: 0.775rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-olive);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: gap var(--transition-fast), color var(--transition-fast);
+  }
+
+  .cta-link:hover {
+    color: var(--color-primary-hover);
+    gap: 0.55rem;
+  }
+
+  .cta-arrow {
+    font-size: 1em;
+  }
+
+  /* Compact Variant */
+  .owned-project-cta--compact {
+    padding: var(--space-4);
+  }
+
+  .owned-project-cta--compact .cta-title {
+    font-size: 1.15rem;
+  }
+
+  .owned-project-cta--compact .cta-desc {
+    font-size: 0.825rem;
+    margin-bottom: var(--space-3);
+  }
+</style>

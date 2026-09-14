@@ -41,6 +41,7 @@ export interface StoredArticleFrontmatter {
   imageAlt?: string;
   imagePrompt?: string;
   imageSource?: string;
+  targetProject?: string;
   readingTime?: string;
   version: number;
   lifecycleStatus: ArticleLifecycleStatus;

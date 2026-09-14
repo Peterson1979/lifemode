@@ -58,6 +58,11 @@ export const articleSchema = z.object({
   imagePrompt: z.string().optional(),
   imageSource: z.string().optional(),
 
+  // Owned Project routing (Optional explicit target or 'none')
+  targetProject: z
+    .enum(['ai-zodiac', 'dreamly-ai', 'get-ai-set', 'match-signal', 'none'])
+    .optional(),
+
   readingTime: z.string().optional(),
   version: z.number().default(1),
   lifecycleStatus: z
