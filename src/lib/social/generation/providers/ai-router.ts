@@ -75,7 +75,8 @@ export class AIRouterSocialGenerationProvider implements ISocialGenerationProvid
           console.warn(`[AI Router Social Provider] Output parsing failed: ${jsonErr.message}. Falling back to deterministic generation.`);
         }
       } else {
-        console.warn(`[AI Router Social Provider] AI generation failed (${routerResult.error?.code || 'ERROR'}: ${routerResult.error?.message || 'unknown'}). Falling back to deterministic generation.`);
+        const errorInfo = !routerResult.success ? routerResult.error : undefined;
+        console.warn(`[AI Router Social Provider] AI generation failed (${errorInfo?.code || 'ERROR'}: ${errorInfo?.message || 'unknown'}). Falling back to deterministic generation.`);
       }
     } catch (err: any) {
       console.warn(`[AI Router Social Provider] Unexpected error during AI generation: ${err.message}. Falling back to deterministic generation.`);

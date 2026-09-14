@@ -9,13 +9,43 @@ import type { SocialValidationResult } from '../validation.ts';
 import { loadSocialConfig } from '../config.ts';
 import { createIdempotencyKey, hashString } from '../storage/repository.ts';
 
+const GRAPH_API_BASE = 'https://graph.facebook.com/v20.0';
+
+export interface InstagramAdapterOptions {
+  customFetch?: typeof fetch;
+  pollIntervalMs?: number;
+  maxPollAttempts?: number;
+  sleepFn?: (ms: number) => Promise<void>;
+}
+
 export class InstagramPlatformAdapter implements ISocialPlatformAdapter {
   readonly platform = 'instagram' as const;
   readonly name = 'Instagram Platform Adapter';
   private customFetch?: typeof fetch;
+  private pollIntervalMs: number;
+  private maxPollAttempts: number;
+  private sleepFn: (ms: number) => Promise<void>;
 
-  constructor(customFetch?: typeof fetch) {
-    this.customFetch = customFetch;
+  constructor(
+    customFetchOrOptions?: typeof fetch | InstagramAdapterOptions,
+    options?: InstagramAdapterOptions
+  ) {
+    if (typeof customFetchOrOptions === 'function') {
+      this.customFetch = customFetchOrOptions;
+      this.pollIntervalMs = options?.pollIntervalMs ?? 2000;
+      this.maxPollAttempts = options?.maxPollAttempts ?? 30;
+      this.sleepFn = options?.sleepFn ?? ((ms) => new Promise((resolve) => setTimeout(resolve, ms)));
+    } else if (typeof customFetchOrOptions === 'object' && customFetchOrOptions !== null) {
+      this.customFetch = customFetchOrOptions.customFetch;
+      this.pollIntervalMs = customFetchOrOptions.pollIntervalMs ?? 2000;
+      this.maxPollAttempts = customFetchOrOptions.maxPollAttempts ?? 30;
+      this.sleepFn = customFetchOrOptions.sleepFn ?? ((ms) => new Promise((resolve) => setTimeout(resolve, ms)));
+    } else {
+      this.customFetch = undefined;
+      this.pollIntervalMs = 2000;
+      this.maxPollAttempts = 30;
+      this.sleepFn = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    }
   }
 
   isConfigured(): boolean {
@@ -84,6 +114,69 @@ export class InstagramPlatformAdapter implements ISocialPlatformAdapter {
     };
   }
 
+  private redactToken(text: string, token?: string): string {
+    if (!token || !text) return text;
+    return text.replaceAll(token, '[REDACTED]');
+  }
+
+  private async waitForContainerReady(
+    creationId: string,
+    accessToken: string,
+    fetchImpl: typeof fetch
+  ): Promise<void> {
+    const statusEndpoint = `${GRAPH_API_BASE}/${creationId}?fields=status_code,status&access_token=${encodeURIComponent(accessToken)}`;
+
+    for (let attempt = 1; attempt <= this.maxPollAttempts; attempt++) {
+      let statusRes: Response;
+      try {
+        statusRes = await fetchImpl(statusEndpoint);
+      } catch (err: any) {
+        throw new Error(
+          this.redactToken(
+            `Failed to query Instagram container status for ${creationId}: ${err?.message || String(err)}`,
+            accessToken
+          )
+        );
+      }
+
+      if (!statusRes.ok) {
+        const rawError = await statusRes.text();
+        const safeError = this.redactToken(rawError, accessToken);
+        throw new Error(`Instagram container status check failed HTTP ${statusRes.status}: ${safeError}`);
+      }
+
+      const statusData: any = await statusRes.json();
+      const statusCode = statusData?.status_code;
+
+      if (statusCode === 'FINISHED' || statusCode === 'PUBLISHED') {
+        return;
+      }
+
+      if (statusCode === 'IN_PROGRESS') {
+        if (attempt < this.maxPollAttempts) {
+          await this.sleepFn(this.pollIntervalMs);
+          continue;
+        } else {
+          throw new Error(
+            `Instagram container ${creationId} processing timed out after ${this.maxPollAttempts} attempts (${(this.maxPollAttempts * this.pollIntervalMs) / 1000}s) with status IN_PROGRESS.`
+          );
+        }
+      }
+
+      if (statusCode === 'ERROR') {
+        const errorDetails = statusData?.status || 'Unknown error processing media container';
+        const safeDetails = this.redactToken(errorDetails, accessToken);
+        throw new Error(`Instagram container ${creationId} failed processing with status ERROR: ${safeDetails}`);
+      }
+
+      if (statusCode === 'EXPIRED') {
+        throw new Error(`Instagram container ${creationId} has EXPIRED.`);
+      }
+
+      throw new Error(`Instagram container ${creationId} returned unexpected status_code: ${statusCode || 'undefined'}`);
+    }
+  }
+
   async publish(
     pkg: SocialPlatformPackage,
     options: PlatformPublishOptions = {}
@@ -117,7 +210,7 @@ export class InstagramPlatformAdapter implements ISocialPlatformAdapter {
 
     try {
       // Step 1: Create media container
-      const containerEndpoint = `https://graph.facebook.com/v20.0/${businessAccountId}/media`;
+      const containerEndpoint = `${GRAPH_API_BASE}/${businessAccountId}/media`;
       const containerRes = await fetchImpl(containerEndpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -130,7 +223,8 @@ export class InstagramPlatformAdapter implements ISocialPlatformAdapter {
 
       if (!containerRes.ok) {
         const errorText = await containerRes.text();
-        throw new Error(`Instagram container creation failed HTTP ${containerRes.status}: ${errorText}`);
+        const safeError = this.redactToken(errorText, accessToken);
+        throw new Error(`Instagram container creation failed HTTP ${containerRes.status}: ${safeError}`);
       }
 
       const containerData: any = await containerRes.json();
@@ -140,8 +234,11 @@ export class InstagramPlatformAdapter implements ISocialPlatformAdapter {
         throw new Error('No creation ID returned from Instagram media container endpoint.');
       }
 
-      // Step 2: Publish media container
-      const publishEndpoint = `https://graph.facebook.com/v20.0/${businessAccountId}/media_publish`;
+      // Step 2: Poll container status until ready (FINISHED)
+      await this.waitForContainerReady(creationId, accessToken, fetchImpl);
+
+      // Step 3: Publish media container
+      const publishEndpoint = `${GRAPH_API_BASE}/${businessAccountId}/media_publish`;
       const publishRes = await fetchImpl(publishEndpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -153,7 +250,8 @@ export class InstagramPlatformAdapter implements ISocialPlatformAdapter {
 
       if (!publishRes.ok) {
         const errorText = await publishRes.text();
-        throw new Error(`Instagram container publish failed HTTP ${publishRes.status}: ${errorText}`);
+        const safeError = this.redactToken(errorText, accessToken);
+        throw new Error(`Instagram container publish failed HTTP ${publishRes.status}: ${safeError}`);
       }
 
       const publishData: any = await publishRes.json();
@@ -168,10 +266,12 @@ export class InstagramPlatformAdapter implements ISocialPlatformAdapter {
         idempotencyKey: pkg.idempotencyKey,
       };
     } catch (err: any) {
+      const rawMsg = err?.message || String(err);
+      const safeMsg = this.redactToken(rawMsg, accessToken);
       return {
         platform: this.platform,
         status: 'FAILED',
-        error: `Instagram publish failed: ${err?.message || String(err)}`,
+        error: `Instagram publish failed: ${safeMsg}`,
         publishedAt: now,
         idempotencyKey: pkg.idempotencyKey,
       };

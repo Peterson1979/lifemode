@@ -882,15 +882,23 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
       assert.equal(config.credentials.instagram.businessAccountId, mockIgAccountId);
 
       // 3. Verify Instagram adapter isConfigured() reports true
-      const capturedRequests: Array<{ url: string; body: any }> = [];
+      const capturedRequests: Array<{ url: string; method?: string; body?: any }> = [];
       const mockFetch = async (url: string, init?: any) => {
-        const body = JSON.parse(init.body);
-        capturedRequests.push({ url, body });
+        const method = init?.method || 'GET';
+        const body = init?.body ? JSON.parse(init.body) : undefined;
+        capturedRequests.push({ url, method, body });
         if (url.endsWith('/media')) {
           return {
             ok: true,
             status: 200,
             json: async () => ({ id: 'mock-creation-id-999' }),
+          } as any;
+        }
+        if (url.includes('mock-creation-id-999')) {
+          return {
+            ok: true,
+            status: 200,
+            json: async () => ({ id: 'mock-creation-id-999', status_code: 'FINISHED' }),
           } as any;
         }
         if (url.endsWith('/media_publish')) {
@@ -918,18 +926,21 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
       assert.equal(publishResult.postId, 'mock-ig-post-id-888');
       assert.equal(publishResult.postUrl, 'https://instagram.com/p/mock-ig-post-id-888');
 
-      // 5. Assert that both Graph API requests used the shared token and targeted the correct Instagram Business Account
-      assert.equal(capturedRequests.length, 2);
+      // 5. Assert that all 3 Graph API requests used the shared token and targeted the correct Instagram Business Account
+      assert.equal(capturedRequests.length, 3);
 
       // Step 1: /media container creation
       assert.equal(capturedRequests[0].url, `https://graph.facebook.com/v20.0/${mockIgAccountId}/media`);
       assert.equal(capturedRequests[0].body.access_token, mockSharedToken);
       assert.equal(capturedRequests[0].body.image_url, 'https://media.lifemode.life/social/top-12345/a1b2c3d4e5f60718.jpg');
 
-      // Step 2: /media_publish container publish
-      assert.equal(capturedRequests[1].url, `https://graph.facebook.com/v20.0/${mockIgAccountId}/media_publish`);
-      assert.equal(capturedRequests[1].body.access_token, mockSharedToken);
-      assert.equal(capturedRequests[1].body.creation_id, 'mock-creation-id-999');
+      // Step 2: container readiness check
+      assert.ok(capturedRequests[1].url.includes(`https://graph.facebook.com/v20.0/mock-creation-id-999?fields=status_code,status&access_token=${mockSharedToken}`));
+
+      // Step 3: /media_publish container publish
+      assert.equal(capturedRequests[2].url, `https://graph.facebook.com/v20.0/${mockIgAccountId}/media_publish`);
+      assert.equal(capturedRequests[2].body.access_token, mockSharedToken);
+      assert.equal(capturedRequests[2].body.creation_id, 'mock-creation-id-999');
     } finally {
       // Restore previous environment
       if (savedFbToken !== undefined) process.env.FACEBOOK_PAGE_ACCESS_TOKEN = savedFbToken;
@@ -1709,6 +1720,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     const result = await provider.generateImage({
       topicId: 'calm-living-spaces',
       pillar: 'life',
+      prompt: 'The Architecture of Calm Workspaces',
       format: '1080x1350',
       headlineOverlay: 'The Architecture of Calm Workspaces',
       subheadlineOverlay: 'LIFEMODE LIFE',
@@ -1758,6 +1770,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     const imageRes = await imageProvider.generateImage({
       topicId: 'kyoto-gardens',
       pillar: 'travel',
+      prompt: 'Quiet Architecture in Kyoto',
       format: '1080x1350',
       headlineOverlay: 'Quiet Architecture in Kyoto',
     });
@@ -1785,9 +1798,10 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
 
     assert.equal(uploadRes.success, true);
     assert.equal(uploadRes.contentType, 'image/jpeg');
-    assert.ok(uploadRes.objectKey.endsWith('.jpg'));
-    assert.ok(uploadRes.publicUrl.endsWith('.jpg'));
+    assert.ok(uploadRes.objectKey?.endsWith('.jpg'));
+    assert.ok(uploadRes.publicUrl?.endsWith('.jpg'));
     assert.equal(uploadRes.publicUrl, `https://media.lifemode.life/social/kyoto-gardens/${asset.assetHash.slice(0, 16)}.jpg`);
+    assert.ok(capturedUrl.includes('test-account-id.r2.cloudflarestorage.com'));
 
     // Verify PUT request headers & body
     assert.equal(capturedHeaders['Content-Type'], 'image/jpeg');
@@ -1949,20 +1963,20 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     const brief = buildSocialBrief({
       topicId: 'top-ai-pref-test',
       canonicalTopic: 'Architectural Silence in Minimalist Homes',
-      pillar: 'design',
+      pillar: 'life',
       slug: 'architectural-silence',
       totalScore: 92,
       socialPotential: 95,
       pinterestPotential: 90,
       opportunityType: 'ARTICLE_AND_SOCIAL',
       targetPlatforms: ['facebook', 'instagram', 'pinterest'],
-      destinationUrl: 'https://lifemode.life/design/architectural-silence',
+      destinationUrl: 'https://lifemode.life/life/architectural-silence',
       tags: ['design', 'architecture'],
     });
 
     const aiGeneratedJson = JSON.stringify({
       topicId: 'top-ai-pref-test',
-      pillar: 'design',
+      pillar: 'life',
       concept: 'Acoustic calm and spatial purity',
       hook: 'How silence transforms modern architecture',
       title: 'Architectural Silence in Minimalist Homes',
@@ -2005,5 +2019,422 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     assert.equal(result.content?.concept, 'Acoustic calm and spatial purity');
     assert.equal(result.content?.visualConcept, 'Monolithic concrete interior with soft diffuse daylight');
     assert.equal(result.rawResponse, aiGeneratedJson);
+  });
+
+  await t.test('58. Instagram publishing polls container status until FINISHED (IN_PROGRESS -> IN_PROGRESS -> FINISHED) before publishing', async () => {
+    const savedIgToken = process.env.INSTAGRAM_ACCESS_TOKEN;
+    const savedIgAccount = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
+
+    try {
+      process.env.INSTAGRAM_ACCESS_TOKEN = 'mock-ig-token-58';
+      process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID = '17841400000000058';
+
+      let statusPollCount = 0;
+      let sleepCallCount = 0;
+      const capturedRequests: Array<{ url: string; method: string; body?: any }> = [];
+
+      const mockFetch = async (url: string, init?: any) => {
+        const method = init?.method || 'GET';
+        const body = init?.body ? JSON.parse(init.body) : undefined;
+        capturedRequests.push({ url, method, body });
+
+        if (url.endsWith('/media') && method === 'POST') {
+          return {
+            ok: true,
+            status: 200,
+            json: async () => ({ id: 'ig-container-58' }),
+          } as any;
+        }
+
+        if (url.includes('ig-container-58') && method === 'GET') {
+          statusPollCount++;
+          if (statusPollCount < 3) {
+            return {
+              ok: true,
+              status: 200,
+              json: async () => ({ id: 'ig-container-58', status_code: 'IN_PROGRESS' }),
+            } as any;
+          }
+          return {
+            ok: true,
+            status: 200,
+            json: async () => ({ id: 'ig-container-58', status_code: 'FINISHED' }),
+          } as any;
+        }
+
+        if (url.endsWith('/media_publish') && method === 'POST') {
+          return {
+            ok: true,
+            status: 200,
+            json: async () => ({ id: 'ig-published-58' }),
+          } as any;
+        }
+
+        return { ok: false, status: 404, text: async () => 'Not Found' } as any;
+      };
+
+      const adapter = new InstagramPlatformAdapter(mockFetch as any, {
+        pollIntervalMs: 10,
+        maxPollAttempts: 10,
+        sleepFn: async () => {
+          sleepCallCount++;
+        },
+      });
+
+      const content = createMockValidSocialContent();
+      const asset = createMockValidVisualAsset({
+        url: 'https://media.lifemode.life/social/top-58/asset.jpg',
+      });
+      const pkg = await adapter.prepare(content, asset);
+      const res = await adapter.publish(pkg, { dryRun: false });
+
+      assert.equal(res.status, 'PUBLISHED');
+      assert.equal(res.postId, 'ig-published-58');
+      assert.equal(res.postUrl, 'https://instagram.com/p/ig-published-58');
+
+      // Verify polling sequence
+      assert.equal(statusPollCount, 3);
+      assert.equal(sleepCallCount, 2);
+      assert.equal(capturedRequests.length, 5); // 1 create + 3 polls + 1 publish
+      assert.equal(capturedRequests[0].method, 'POST');
+      assert.equal(capturedRequests[1].method, 'GET');
+      assert.equal(capturedRequests[2].method, 'GET');
+      assert.equal(capturedRequests[3].method, 'GET');
+      assert.equal(capturedRequests[4].method, 'POST');
+      assert.equal(capturedRequests[4].body.creation_id, 'ig-container-58');
+    } finally {
+      if (savedIgToken !== undefined) process.env.INSTAGRAM_ACCESS_TOKEN = savedIgToken;
+      else delete process.env.INSTAGRAM_ACCESS_TOKEN;
+      if (savedIgAccount !== undefined) process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID = savedIgAccount;
+      else delete process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
+    }
+  });
+
+  await t.test('59. Instagram publishing publishes immediately when container is FINISHED on initial status check', async () => {
+    const savedIgToken = process.env.INSTAGRAM_ACCESS_TOKEN;
+    const savedIgAccount = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
+
+    try {
+      process.env.INSTAGRAM_ACCESS_TOKEN = 'mock-ig-token-59';
+      process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID = '17841400000000059';
+
+      let pollCount = 0;
+      let sleepCalled = false;
+
+      const mockFetch = async (url: string, init?: any) => {
+        const method = init?.method || 'GET';
+        if (url.endsWith('/media') && method === 'POST') {
+          return { ok: true, status: 200, json: async () => ({ id: 'ig-container-59' }) } as any;
+        }
+        if (url.includes('ig-container-59') && method === 'GET') {
+          pollCount++;
+          return { ok: true, status: 200, json: async () => ({ id: 'ig-container-59', status_code: 'FINISHED' }) } as any;
+        }
+        if (url.endsWith('/media_publish') && method === 'POST') {
+          return { ok: true, status: 200, json: async () => ({ id: 'ig-published-59' }) } as any;
+        }
+        return { ok: false, status: 404, text: async () => 'Not Found' } as any;
+      };
+
+      const adapter = new InstagramPlatformAdapter(mockFetch as any, {
+        sleepFn: async () => {
+          sleepCalled = true;
+        },
+      });
+
+      const content = createMockValidSocialContent();
+      const asset = createMockValidVisualAsset({
+        url: 'https://media.lifemode.life/social/top-59/asset.jpg',
+      });
+      const pkg = await adapter.prepare(content, asset);
+      const res = await adapter.publish(pkg, { dryRun: false });
+
+      assert.equal(res.status, 'PUBLISHED');
+      assert.equal(res.postId, 'ig-published-59');
+      assert.equal(pollCount, 1);
+      assert.equal(sleepCalled, false);
+    } finally {
+      if (savedIgToken !== undefined) process.env.INSTAGRAM_ACCESS_TOKEN = savedIgToken;
+      else delete process.env.INSTAGRAM_ACCESS_TOKEN;
+      if (savedIgAccount !== undefined) process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID = savedIgAccount;
+      else delete process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
+    }
+  });
+
+  await t.test('60. Instagram publishing fails cleanly and halts before publication when container status returns ERROR', async () => {
+    const savedIgToken = process.env.INSTAGRAM_ACCESS_TOKEN;
+    const savedIgAccount = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
+
+    try {
+      process.env.INSTAGRAM_ACCESS_TOKEN = 'mock-ig-token-60';
+      process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID = '17841400000000060';
+
+      let publishCalled = false;
+
+      const mockFetch = async (url: string, init?: any) => {
+        const method = init?.method || 'GET';
+        if (url.endsWith('/media') && method === 'POST') {
+          return { ok: true, status: 200, json: async () => ({ id: 'ig-container-60-err' }) } as any;
+        }
+        if (url.includes('ig-container-60-err') && method === 'GET') {
+          return {
+            ok: true,
+            status: 200,
+            json: async () => ({
+              id: 'ig-container-60-err',
+              status_code: 'ERROR',
+              status: 'Media processing failed: Invalid aspect ratio 3:1',
+            }),
+          } as any;
+        }
+        if (url.endsWith('/media_publish')) {
+          publishCalled = true;
+          return { ok: true, status: 200, json: async () => ({ id: 'should-not-reach-here' }) } as any;
+        }
+        return { ok: false, status: 404, text: async () => 'Not Found' } as any;
+      };
+
+      const adapter = new InstagramPlatformAdapter(mockFetch as any);
+      const content = createMockValidSocialContent();
+      const asset = createMockValidVisualAsset({
+        url: 'https://media.lifemode.life/social/top-60/asset.jpg',
+      });
+      const pkg = await adapter.prepare(content, asset);
+      const res = await adapter.publish(pkg, { dryRun: false });
+
+      assert.equal(res.status, 'FAILED');
+      assert.ok(res.error?.includes('ERROR: Media processing failed: Invalid aspect ratio 3:1'));
+      assert.equal(publishCalled, false);
+    } finally {
+      if (savedIgToken !== undefined) process.env.INSTAGRAM_ACCESS_TOKEN = savedIgToken;
+      else delete process.env.INSTAGRAM_ACCESS_TOKEN;
+      if (savedIgAccount !== undefined) process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID = savedIgAccount;
+      else delete process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
+    }
+  });
+
+  await t.test('61. Instagram publishing fails with timeout when container stays IN_PROGRESS beyond max attempts', async () => {
+    const savedIgToken = process.env.INSTAGRAM_ACCESS_TOKEN;
+    const savedIgAccount = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
+
+    try {
+      process.env.INSTAGRAM_ACCESS_TOKEN = 'mock-ig-token-61';
+      process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID = '17841400000000061';
+
+      let pollCount = 0;
+      let publishCalled = false;
+
+      const mockFetch = async (url: string, init?: any) => {
+        const method = init?.method || 'GET';
+        if (url.endsWith('/media') && method === 'POST') {
+          return { ok: true, status: 200, json: async () => ({ id: 'ig-container-61-stuck' }) } as any;
+        }
+        if (url.includes('ig-container-61-stuck') && method === 'GET') {
+          pollCount++;
+          return {
+            ok: true,
+            status: 200,
+            json: async () => ({ id: 'ig-container-61-stuck', status_code: 'IN_PROGRESS' }),
+          } as any;
+        }
+        if (url.endsWith('/media_publish')) {
+          publishCalled = true;
+          return { ok: true, status: 200, json: async () => ({ id: 'should-not-reach-here' }) } as any;
+        }
+        return { ok: false, status: 404, text: async () => 'Not Found' } as any;
+      };
+
+      const adapter = new InstagramPlatformAdapter(mockFetch as any, {
+        pollIntervalMs: 50,
+        maxPollAttempts: 4,
+        sleepFn: async () => {},
+      });
+
+      const content = createMockValidSocialContent();
+      const asset = createMockValidVisualAsset({
+        url: 'https://media.lifemode.life/social/top-61/asset.jpg',
+      });
+      const pkg = await adapter.prepare(content, asset);
+      const res = await adapter.publish(pkg, { dryRun: false });
+
+      assert.equal(res.status, 'FAILED');
+      assert.ok(res.error?.includes('processing timed out after 4 attempts'));
+      assert.ok(res.error?.includes('with status IN_PROGRESS'));
+      assert.equal(pollCount, 4);
+      assert.equal(publishCalled, false);
+    } finally {
+      if (savedIgToken !== undefined) process.env.INSTAGRAM_ACCESS_TOKEN = savedIgToken;
+      else delete process.env.INSTAGRAM_ACCESS_TOKEN;
+      if (savedIgAccount !== undefined) process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID = savedIgAccount;
+      else delete process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
+    }
+  });
+
+  await t.test('62. Instagram publishing strictly redacts access tokens and secrets from all error messages and logs', async () => {
+    const sensitiveToken = 'EAA_SUPER_SECRET_IG_ACCESS_TOKEN_XYZ_987654321';
+    const savedIgToken = process.env.INSTAGRAM_ACCESS_TOKEN;
+    const savedIgAccount = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
+
+    try {
+      process.env.INSTAGRAM_ACCESS_TOKEN = sensitiveToken;
+      process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID = '17841400000000062';
+
+      const content = createMockValidSocialContent();
+      const asset = createMockValidVisualAsset({
+        url: 'https://media.lifemode.life/social/top-62/asset.jpg',
+      });
+
+      // Case 1: /media creation fails with token in error response body
+      const failingMediaFetch = async (url: string) => {
+        if (url.endsWith('/media')) {
+          return {
+            ok: false,
+            status: 400,
+            text: async () => `OAuthException: Invalid access token ${sensitiveToken} for account.`,
+          } as any;
+        }
+        return { ok: false, status: 404, text: async () => 'Not Found' } as any;
+      };
+
+      const adapter1 = new InstagramPlatformAdapter(failingMediaFetch as any);
+      const pkg1 = await adapter1.prepare(content, asset);
+      const res1 = await adapter1.publish(pkg1, { dryRun: false });
+      assert.equal(res1.status, 'FAILED');
+      assert.equal(res1.error?.includes(sensitiveToken), false);
+      assert.ok(res1.error?.includes('[REDACTED]'));
+
+      // Case 2: Status check returns HTTP error with token in error response body
+      const failingStatusFetch = async (url: string, init?: any) => {
+        const method = init?.method || 'GET';
+        if (url.endsWith('/media') && method === 'POST') {
+          return { ok: true, status: 200, json: async () => ({ id: 'ig-cont-62-status-fail' }) } as any;
+        }
+        if (url.includes('ig-cont-62-status-fail')) {
+          return {
+            ok: false,
+            status: 500,
+            text: async () => `Internal Server Error: token query failed for ${sensitiveToken}`,
+          } as any;
+        }
+        return { ok: false, status: 404, text: async () => 'Not Found' } as any;
+      };
+
+      const adapter2 = new InstagramPlatformAdapter(failingStatusFetch as any);
+      const pkg2 = await adapter2.prepare(content, asset);
+      const res2 = await adapter2.publish(pkg2, { dryRun: false });
+      assert.equal(res2.status, 'FAILED');
+      assert.equal(res2.error?.includes(sensitiveToken), false);
+      assert.ok(res2.error?.includes('[REDACTED]'));
+
+      // Case 3: Container status check returns ERROR with token in status string
+      const errorStatusFetch = async (url: string, init?: any) => {
+        const method = init?.method || 'GET';
+        if (url.endsWith('/media') && method === 'POST') {
+          return { ok: true, status: 200, json: async () => ({ id: 'ig-cont-62-error-code' }) } as any;
+        }
+        if (url.includes('ig-cont-62-error-code')) {
+          return {
+            ok: true,
+            status: 200,
+            json: async () => ({
+              id: 'ig-cont-62-error-code',
+              status_code: 'ERROR',
+              status: `Download failed with credentials for ${sensitiveToken}`,
+            }),
+          } as any;
+        }
+        return { ok: false, status: 404, text: async () => 'Not Found' } as any;
+      };
+
+      const adapter3 = new InstagramPlatformAdapter(errorStatusFetch as any);
+      const pkg3 = await adapter3.prepare(content, asset);
+      const res3 = await adapter3.publish(pkg3, { dryRun: false });
+      assert.equal(res3.status, 'FAILED');
+      assert.equal(res3.error?.includes(sensitiveToken), false);
+      assert.ok(res3.error?.includes('[REDACTED]'));
+
+      // Case 4: /media_publish fails with token in error body
+      const failingPublishFetch = async (url: string, init?: any) => {
+        const method = init?.method || 'GET';
+        if (url.endsWith('/media') && method === 'POST') {
+          return { ok: true, status: 200, json: async () => ({ id: 'ig-cont-62-pub-fail' }) } as any;
+        }
+        if (url.includes('ig-cont-62-pub-fail')) {
+          return {
+            ok: true,
+            status: 200,
+            json: async () => ({ id: 'ig-cont-62-pub-fail', status_code: 'FINISHED' }),
+          } as any;
+        }
+        if (url.endsWith('/media_publish')) {
+          return {
+            ok: false,
+            status: 400,
+            text: async () => `Publish rejected for token ${sensitiveToken}`,
+          } as any;
+        }
+        return { ok: false, status: 404, text: async () => 'Not Found' } as any;
+      };
+
+      const adapter4 = new InstagramPlatformAdapter(failingPublishFetch as any);
+      const pkg4 = await adapter4.prepare(content, asset);
+      const res4 = await adapter4.publish(pkg4, { dryRun: false });
+      assert.equal(res4.status, 'FAILED');
+      assert.equal(res4.error?.includes(sensitiveToken), false);
+      assert.ok(res4.error?.includes('[REDACTED]'));
+    } finally {
+      if (savedIgToken !== undefined) process.env.INSTAGRAM_ACCESS_TOKEN = savedIgToken;
+      else delete process.env.INSTAGRAM_ACCESS_TOKEN;
+      if (savedIgAccount !== undefined) process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID = savedIgAccount;
+      else delete process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
+    }
+  });
+
+  await t.test('63. Instagram publishing handles EXPIRED container status explicitly without calling media_publish', async () => {
+    const savedIgToken = process.env.INSTAGRAM_ACCESS_TOKEN;
+    const savedIgAccount = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
+
+    try {
+      process.env.INSTAGRAM_ACCESS_TOKEN = 'mock-ig-token-63';
+      process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID = '17841400000000063';
+
+      let publishCalled = false;
+
+      const mockFetch = async (url: string, init?: any) => {
+        const method = init?.method || 'GET';
+        if (url.endsWith('/media') && method === 'POST') {
+          return { ok: true, status: 200, json: async () => ({ id: 'ig-container-63-exp' }) } as any;
+        }
+        if (url.includes('ig-container-63-exp') && method === 'GET') {
+          return {
+            ok: true,
+            status: 200,
+            json: async () => ({ id: 'ig-container-63-exp', status_code: 'EXPIRED' }),
+          } as any;
+        }
+        if (url.endsWith('/media_publish')) {
+          publishCalled = true;
+          return { ok: true, status: 200, json: async () => ({ id: 'should-not-reach-here' }) } as any;
+        }
+        return { ok: false, status: 404, text: async () => 'Not Found' } as any;
+      };
+
+      const adapter = new InstagramPlatformAdapter(mockFetch as any);
+      const content = createMockValidSocialContent();
+      const asset = createMockValidVisualAsset({
+        url: 'https://media.lifemode.life/social/top-63/asset.jpg',
+      });
+      const pkg = await adapter.prepare(content, asset);
+      const res = await adapter.publish(pkg, { dryRun: false });
+
+      assert.equal(res.status, 'FAILED');
+      assert.ok(res.error?.includes('has EXPIRED'));
+      assert.equal(publishCalled, false);
+    } finally {
+      if (savedIgToken !== undefined) process.env.INSTAGRAM_ACCESS_TOKEN = savedIgToken;
+      else delete process.env.INSTAGRAM_ACCESS_TOKEN;
+      if (savedIgAccount !== undefined) process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID = savedIgAccount;
+      else delete process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
+    }
   });
 });
