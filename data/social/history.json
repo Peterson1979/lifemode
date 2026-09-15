@@ -33,5 +33,40 @@
     "overallStatus": "COMPLETED",
     "createdAt": "2026-09-15T16:52:03.582Z",
     "updatedAt": "2026-09-15T16:52:03.582Z"
+  },
+  {
+    "runId": "srun-1789496840425-vxwxf",
+    "topicId": "lm-now-20260910-jose-trevino",
+    "pillar": "now",
+    "canonicalTopic": "Jose Trevino: what to know",
+    "contentHash": "7d4365a6eb903b99a4fc8690855423ddc73f25e202fea6524995e1d3128cb481",
+    "assetHash": "b2b4174d24508c3154655c2f6a88a940edb6107746b78e4110b58eee4857b479",
+    "idempotencyKey": "lm-soc-lm-now-20260910-jose-trevino-7d4365a6",
+    "targetPlatforms": [
+      "instagram",
+      "facebook"
+    ],
+    "platformResults": {
+      "instagram": {
+        "platform": "instagram",
+        "status": "PUBLISHED",
+        "postId": "18145905835555759",
+        "postUrl": "https://instagram.com/p/18145905835555759",
+        "publishedAt": "2026-09-15T18:27:28.454Z",
+        "idempotencyKey": "lm-soc-lm-now-20260910-jose-trevino-instagram-c52f0bc8f3d0"
+      },
+      "facebook": {
+        "platform": "facebook",
+        "status": "PUBLISHED",
+        "postId": "122320558964197726",
+        "postUrl": "https://facebook.com/122320558964197726",
+        "publishedAt": "2026-09-15T18:27:37.486Z",
+        "idempotencyKey": "lm-soc-lm-now-20260910-jose-trevino-facebook-458361ea476c"
+      }
+    },
+    "reviewScore": 90,
+    "overallStatus": "COMPLETED",
+    "createdAt": "2026-09-15T18:27:43.109Z",
+    "updatedAt": "2026-09-15T18:27:43.110Z"
   }
 ]
