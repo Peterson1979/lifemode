@@ -66,7 +66,7 @@ const HIGH_RISK_DISCLAIMER_PATTERNS: RegExp[] = [
   /financial disclaimer/i,
 ];
 
-const AFFILIATE_DISCLOSURE_PATTERNS: RegExp[] = [
+export const AFFILIATE_DISCLOSURE_PATTERNS: RegExp[] = [
   /\b(commission|affiliate|partner|earn on purchases|editorial disclosure|advertiser disclosure)\b/i,
 ];
 

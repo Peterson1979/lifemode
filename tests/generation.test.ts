@@ -434,3 +434,126 @@ test('20. Revision prompt communicates depth, hard minimums, target word count, 
   assert.ok(payload.userPrompt.includes('Original Draft Content to Revise:'));
 });
 
+test('21. runGenerationPipeline automatically injects required affiliate disclosure before validation', async () => {
+  // Provider generates article WITHOUT disclosure
+  const customProvider: IGenerationProvider = {
+    name: 'Undisclosed Provider',
+    model: 'custom-model',
+    generate: async () => ({
+      article: {
+        title: 'Top Productivity Keyboards for Intentional Focus',
+        slug: 'top-productivity-keyboards-for-intentional-focus',
+        description: 'A curated review of mechanical and low-profile keyboards for mindful productivity.',
+        excerpt: 'Explore tactile and quiet productivity keyboards.',
+        content: `Understanding intentional workspace design begins with the tools beneath your fingertips. In this guide, we review ergonomic mechanical keyboards that minimize wrist strain and enhance focus.
+
+## 1. Ergonomic Keyboards for Focused Work
+Choosing a tactile keyboard helps reduce typing fatigue during long writing sessions. The subtle auditory feedback provides satisfying rhythm without overwhelming the auditory environment.
+
+## 2. Low-Profile Alternatives
+For travelers and minimalist desk setups, low-profile switches offer compact ergonomics and immediate actuation.
+
+## Summary & Key Takeaways
+Investing in an intentional typing experience supports daily wellbeing and sustained cognitive endurance.`,
+        faq: [
+          { question: 'Which switch type is best for focus?', answer: 'Silent linear or gentle tactile switches offer optimal quietude.' },
+          { question: 'Do ergonomic keyboards improve speed?', answer: 'They reduce strain, supporting sustained comfortable typing.' },
+        ],
+        sources: [{ name: 'LifeMode Ergonomics Standards', url: 'https://lifemode.life/editorial-standards' }],
+        internalLinks: ['/life', '/tech-ai'],
+        affiliateIntents: ['keyboards', 'desk-setup'],
+        socialHooks: ['Upgrade your workspace with curated focus keyboards.'],
+      },
+    }),
+  };
+
+  const commercialRequest: GenerationRequest = {
+    ...validRequest,
+    titleAngle: 'Top Productivity Keyboards for Intentional Focus',
+    affiliateIntent: true,
+    commercialIntentType: 'commercial-investigation',
+    affiliateGuidance: {
+      hasMatches: true,
+      intentType: 'commercial-investigation',
+      disclosureRequired: true,
+      disclosureText: 'LifeMode may earn an affiliate commission on purchases made through verified partner recommendations.',
+      matchedOpportunities: [{
+        programId: 'keyboards',
+        name: 'Ergonomic Mechanical Keyboard',
+        category: 'Workspace',
+        merchant: 'DeskCraft',
+        score: 85,
+        matchReasons: ['Workspace tools'],
+        placementSuggestion: 'Review section',
+        isLinkable: false,
+        disclosureRequired: true,
+      }],
+      editorialGuidance: [],
+      safetyConstraints: [],
+    },
+    estimatedWordCount: { min: 80, target: 120, max: 500 },
+  };
+
+  const result = await runGenerationPipeline({
+    request: commercialRequest,
+    provider: customProvider,
+  });
+
+  assert.equal(result.success, true);
+  if (result.success) {
+    assert.ok(result.article.content.includes('Editorial Disclosure: LifeMode may earn an affiliate commission'));
+    assert.equal(result.validation?.isValid, true);
+    assert.equal(result.validation?.issues.filter((i) => i.severity === 'error').length, 0);
+  }
+});
+
+test('22. Purely informational topics (e.g. Quantum Entanglement) do not require or force affiliate disclosures', async () => {
+  const infoTopic: EditorialTopic = {
+    id: 'lm-tech-ai-2026-quantum-entanglement',
+    canonicalTopic: 'Quantum Entanglement',
+    slug: 'quantum-entanglement',
+    pillar: 'tech-ai',
+    primaryIntent: 'informational',
+    sourceSignals: [],
+    queryVariants: ['quantum entanglement basics', 'understanding quantum physics'],
+    scoring: {
+      searchPotential: 85,
+      pinterestPotential: 70,
+      socialPotential: 75,
+      lifeModeRelevance: 80,
+      commercialPotential: 60, // default discovery score
+      freshness: 80,
+      competitionOpportunity: 70,
+      originalityPotential: 80,
+    },
+    totalScore: 82,
+    priorityTier: 'CANDIDATE',
+    opportunityType: 'ARTICLE',
+    status: 'BRIEF_READY',
+    freshnessScore: 80,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    tags: ['tech-ai', 'physics'],
+  };
+
+  const brief = buildContentBrief(infoTopic);
+  assert.equal(brief.affiliateOpportunities.hasAffiliateIntent, false);
+  assert.equal(brief.affiliateOpportunities.intentType, 'informational');
+
+  const genRequest = briefToGenerationRequest(brief);
+  assert.equal(genRequest.affiliateIntent, false);
+  assert.equal(genRequest.affiliateGuidance?.disclosureRequired, false);
+
+  const provider = new FixtureGenerationProvider();
+  const genResult = await runGenerationPipeline({
+    request: genRequest,
+    provider,
+  });
+
+  assert.equal(genResult.success, true);
+  if (genResult.success) {
+    assert.equal(genResult.validation?.isValid, true);
+    assert.equal(genResult.validation?.issues.filter((i) => i.severity === 'error').length, 0);
+  }
+});
+

@@ -146,7 +146,11 @@ export function deriveCommercialIntent(topic: EditorialTopic): BriefAffiliateOpp
       'In-text practical recommendation',
       'Featured tool callout box',
     ];
-  } else if (topic.primaryIntent === 'commercial' || commercialScore >= 50 || isCommercialQuery) {
+  } else if (
+    topic.primaryIntent === 'commercial' ||
+    isCommercialQuery ||
+    (commercialScore >= 50 && topic.primaryIntent !== 'informational' && topic.primaryIntent !== 'navigational')
+  ) {
     intentType = 'commercial-investigation';
     hasAffiliateIntent = true;
     productCategories = [topic.pillar, 'essentials', ...(topic.tags || []).slice(0, 2)];

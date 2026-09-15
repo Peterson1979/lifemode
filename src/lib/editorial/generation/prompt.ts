@@ -183,7 +183,8 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
         `Affiliate Safety & Integrity Rules:`,
         `- Do NOT fabricate affiliate URLs, referral parameters, or merchant discount codes.`,
         `- Unresolved opportunities without an approved destination URL must NEVER be turned into live links.`,
-        `- Commercial mentions must be organic and strictly secondary to reader value.`
+        `- Commercial mentions must be organic and strictly secondary to reader value.`,
+        `- Required Disclosure: If commercial/affiliate products or tools are referenced, include the standard editorial disclosure: "${request.affiliateGuidance.disclosureText || 'LifeMode may earn an affiliate commission on purchases made through verified partner recommendations.'}" at the conclusion of the article.`
       );
     }
 
@@ -441,7 +442,8 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
       `- Do NOT fabricate or guess affiliate URLs, affiliate IDs, store referral parameters, or discount codes.`,
       `- Unresolved opportunities without an explicit approved destination URL must NEVER be turned into links.`,
       `- Do NOT insert affiliate links or markdown link tags into the article body text unless an approved destination URL is explicitly provided.`,
-      `- Commercial mentions must be organic, balanced, and strictly secondary to practical reader value.`
+      `- Commercial mentions must be organic, balanced, and strictly secondary to practical reader value.`,
+      `- Required Disclosure: If commercial/affiliate products or tools are referenced, include the standard editorial disclosure: "${request.affiliateGuidance.disclosureText || 'LifeMode may earn an affiliate commission on purchases made through verified partner recommendations.'}" at the conclusion of the article.`
     );
   }
 

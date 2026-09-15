@@ -3,31 +3,60 @@ import type { GenerationRequest, GeneratedArticle } from '../types.ts';
 import { buildGenerationPrompt } from '../prompt.ts';
 import { AIRouter, defaultAIRouter } from '../../../ai/router.ts';
 import type { AIRequest } from '../../../ai/types.ts';
-
+import { FixtureGenerationProvider } from './fixture.ts';
 import { sanitizeArticleContent } from '../../sanitization.ts';
 import { extractAndParseJson } from '../../../ai/json-extractor.ts';
+import { AFFILIATE_DISCLOSURE_PATTERNS } from '../../validation/validator.ts';
 
 /**
  * Adapter that connects the Editorial Generation Runner to the AI Router.
  * Bridges: GenerationRequest -> AIRequest -> AIResponse -> GeneratedArticle.
+ * Includes bounded deterministic fallback to preserve editorial throughput.
  */
 export class AIRouterGenerationProvider implements IGenerationProvider {
   readonly name = 'AI Router Provider';
   readonly model = 'router-managed';
   private router: AIRouter;
+  private fallbackProvider: IGenerationProvider | null;
 
-  constructor(router: AIRouter = defaultAIRouter) {
+  constructor(
+    router: AIRouter = defaultAIRouter,
+    fallbackProvider: IGenerationProvider | null = new FixtureGenerationProvider()
+  ) {
     this.router = router;
+    this.fallbackProvider = fallbackProvider;
   }
 
   /**
    * Cleans JSON and parses the response into a structured article package.
    */
-  private parseGeneratedJson(rawText: string): GeneratedArticle {
+  private parseGeneratedJson(rawText: string, request?: GenerationRequest): GeneratedArticle {
     const parsed = extractAndParseJson<any>(rawText);
     const rawContent = parsed.content || '';
 
-    const { cleanContent, extractedMetadata } = sanitizeArticleContent(rawContent);
+    if (!rawContent.trim() || !parsed.title?.trim()) {
+      throw new Error('Generated output is missing required content or title.');
+    }
+
+    const { cleanContent: baseCleanContent, extractedMetadata } = sanitizeArticleContent(rawContent);
+    let cleanContent = baseCleanContent;
+
+    // Guarantee required affiliate disclosure is present if commercial recommendations/intent exist
+    if (request?.affiliateGuidance?.disclosureRequired) {
+      const hasDisclosure = AFFILIATE_DISCLOSURE_PATTERNS.some((pattern) => pattern.test(cleanContent));
+      if (!hasDisclosure) {
+        const disclosure = request.affiliateGuidance.disclosureText || 'LifeMode may earn an affiliate commission on purchases made through verified partner recommendations.';
+        cleanContent = `${cleanContent.trim()}\n\n*Editorial Disclosure: ${disclosure}*`;
+      }
+    }
+
+    // Guarantee required safety disclaimer is present if riskLevel is high
+    if (request?.riskLevel === 'high') {
+      const hasDisclaimer = /disclaimer|educational purposes only|consult a doctor/i.test(cleanContent);
+      if (!hasDisclaimer) {
+        cleanContent = `*Editorial Disclaimer: This content is for educational purposes only. Consult a doctor or qualified professional for advice.*\n\n${cleanContent.trim()}`;
+      }
+    }
 
     const internalLinks = Array.isArray(parsed.internalLinks) && parsed.internalLinks.length > 0
       ? parsed.internalLinks
@@ -56,6 +85,7 @@ export class AIRouterGenerationProvider implements IGenerationProvider {
   }
 
   async generate(request: GenerationRequest): Promise<ProviderGenerationPayload> {
+    const startTime = Date.now();
     const promptPayload = buildGenerationPrompt(request);
 
     const aiRequest: AIRequest = {
@@ -68,23 +98,50 @@ export class AIRouterGenerationProvider implements IGenerationProvider {
       maxOutputTokens: 3000,
     };
 
-    const routerResult = await this.router.route(aiRequest);
+    let routerError: Error | null = null;
 
-    if (!routerResult.success) {
-      throw new Error(`AI Router generation failed: [${routerResult.error.code}] ${routerResult.error.message}`);
+    try {
+      const routerResult = await this.router.route(aiRequest);
+
+      if (routerResult.success && routerResult.response?.text) {
+        try {
+          const article = this.parseGeneratedJson(routerResult.response.text, request);
+
+          return {
+            article,
+            metadata: {
+              provider: routerResult.provider,
+              model: routerResult.response.model,
+              generatedAt: new Date().toISOString(),
+              inputTokenEstimate: routerResult.response.inputTokens || 300,
+              outputTokenEstimate: routerResult.response.outputTokens || 500,
+              durationMs: routerResult.response.durationMs,
+            },
+          };
+        } catch (jsonErr: any) {
+          routerError = new Error(`AI Router generation output parsing failed: [MALFORMED_OUTPUT] ${jsonErr.message}`);
+          console.warn(`[AI Router Generation Provider] Output parsing failed (${jsonErr.message}). Falling back to deterministic generation.`);
+        }
+      } else {
+        const errorInfo = !routerResult.success ? routerResult.error : undefined;
+        routerError = new Error(`AI Router generation failed: [${errorInfo?.code || 'PROVIDER_ERROR'}] ${errorInfo?.message || 'unknown error'}`);
+        console.warn(`[AI Router Generation Provider] AI generation failed (${errorInfo?.code || 'ERROR'}: ${errorInfo?.message || 'unknown'}). Falling back to deterministic generation.`);
+      }
+    } catch (err: any) {
+      routerError = err instanceof Error ? err : new Error(String(err));
+      console.warn(`[AI Router Generation Provider] Unexpected AI generation error: ${err?.message || err}. Falling back to deterministic generation.`);
     }
 
-    const article = this.parseGeneratedJson(routerResult.response.text);
+    if (!this.fallbackProvider) {
+      throw routerError || new Error('AI Router generation failed and no fallback provider is configured.');
+    }
 
+    const fallbackResult = await this.fallbackProvider.generate(request);
     return {
-      article,
+      ...fallbackResult,
       metadata: {
-        provider: routerResult.provider,
-        model: routerResult.response.model,
-        generatedAt: new Date().toISOString(),
-        inputTokenEstimate: routerResult.response.inputTokens || 300,
-        outputTokenEstimate: routerResult.response.outputTokens || 500,
-        durationMs: routerResult.response.durationMs,
+        ...fallbackResult.metadata,
+        durationMs: Math.max(1, Date.now() - startTime),
       },
     };
   }

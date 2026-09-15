@@ -811,7 +811,7 @@ test('27. AIRouterGenerationProvider does not pass partial or malformed article 
     ]),
   });
 
-  const provider = new AIRouterGenerationProvider(failingRouter);
+  const provider = new AIRouterGenerationProvider(failingRouter, null);
   await assert.rejects(
     async () => provider.generate({
       topicId: 'lm-test-01',
@@ -1269,6 +1269,170 @@ test('39. AIRouterReviewProvider: Parses wrapped review JSON and extracts struct
   assert.equal(reviewResult.dimensions.factuality?.score, 95);
   assert.deepEqual(reviewResult.warnings, ['Consider adding 1 more source.']);
   assert.equal(reviewResult.metadata?.provider, 'groq');
+});
+
+test('38. AIRouterGenerationProvider recovers gracefully from MALFORMED_OUTPUT via fallback provider', async () => {
+  const failingRouter = new AIRouter({
+    config: {
+      providerOrder: ['failing'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000, tokensPerMinute: 100000 },
+      groq: { apiKey: '', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000, tokensPerMinute: 8000 },
+      router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers: new Map([
+      ['failing', new AIRouterFixtureProvider({ id: 'failing', forcedError: { code: 'MALFORMED_OUTPUT', message: 'Truncated JSON', provider: 'failing', retryable: false } })],
+    ]),
+  });
+
+  const provider = new AIRouterGenerationProvider(failingRouter);
+  const result = await provider.generate({
+    topicId: 'lm-test-malformed-recovery',
+    titleAngle: 'Eliezer Alfonzo: What to Know in 2026',
+    pillar: 'now',
+    format: 'standard',
+    audience: 'Baseball fans and sports followers',
+    primaryIntent: 'informational',
+    searchTargets: { primaryKeyword: 'Eliezer Alfonzo' },
+    affiliateIntent: false,
+    riskLevel: 'low',
+  });
+
+  assert.ok(result.article);
+  assert.equal(result.article.title, 'Eliezer Alfonzo: What to Know in 2026');
+  assert.ok(result.article.content.length > 100);
+});
+
+test('39. AIRouterGenerationProvider recovers gracefully from RATE_LIMIT via fallback provider', async () => {
+  const rateLimitedRouter = new AIRouter({
+    config: {
+      providerOrder: ['groq'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000, tokensPerMinute: 100000 },
+      groq: { apiKey: 'mock-key', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000, tokensPerMinute: 8000 },
+      router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers: new Map([
+      ['groq', new AIRouterFixtureProvider({ id: 'groq', forcedError: { code: 'RATE_LIMIT', message: 'TPM limit 8000 exceeded. Used 3996, Requested 6161.', provider: 'groq', retryable: true, retryAfterMs: 75000 } })],
+    ]),
+    sleepFn: async () => {},
+  });
+
+  const provider = new AIRouterGenerationProvider(rateLimitedRouter);
+  const result = await provider.generate({
+    topicId: 'lm-test-rate-limit-recovery',
+    titleAngle: 'Jose Trevino: Career Evolution in 2026',
+    pillar: 'now',
+    format: 'standard',
+    audience: 'Sports readers',
+    primaryIntent: 'informational',
+    searchTargets: { primaryKeyword: 'Jose Trevino' },
+    affiliateIntent: false,
+    riskLevel: 'low',
+  });
+
+  assert.ok(result.article);
+  assert.equal(result.article.title, 'Jose Trevino: Career Evolution in 2026');
+  assert.ok(result.article.content.length > 100);
+});
+
+test('40. AIRouterGenerationProvider automatically injects affiliate disclosure when disclosureRequired is true', async () => {
+  const rawArticleJson = JSON.stringify({
+    title: 'Quantum Entanglement: Fundamental Principles in 2026',
+    slug: 'quantum-entanglement-fundamental-principles',
+    description: 'A comprehensive exploration of quantum entanglement principles.',
+    excerpt: 'Key concepts in quantum mechanics.',
+    content: '## 1. Principles of Entanglement\n\nQuantum entanglement represents one of the most intriguing phenomena in modern physics.\n\n## 2. Real-World Applications\n\nQuantum computing and cryptography leverage these correlations.',
+    faq: [{ question: 'What is entanglement?', answer: 'Quantum correlation between particles.' }],
+    sources: [{ name: 'Physics Standards', url: 'https://lifemode.life/editorial-standards' }],
+  });
+
+  const mockProvider = new AIRouterFixtureProvider({ id: 'gemini' });
+  mockProvider.generate = async () => ({
+    text: rawArticleJson,
+    provider: 'gemini',
+    model: 'gemini-2.5-flash',
+    durationMs: 50,
+  });
+
+  const router = new AIRouter({
+    config: {
+      providerOrder: ['gemini'],
+      gemini: { apiKey: 'key', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000 },
+      router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers: new Map([['gemini', mockProvider]]),
+  });
+
+  const provider = new AIRouterGenerationProvider(router);
+  const genRequest: GenerationRequest = {
+    topicId: 'lm-test-quantum-entanglement',
+    titleAngle: 'Quantum Entanglement: Fundamental Principles in 2026',
+    pillar: 'tech-ai',
+    format: 'guide',
+    audience: 'Science enthusiasts',
+    primaryIntent: 'informational',
+    searchTargets: { primaryKeyword: 'quantum entanglement' },
+    affiliateIntent: true,
+    riskLevel: 'low',
+    affiliateGuidance: {
+      hasMatches: true,
+      intentType: 'commercial-investigation',
+      disclosureRequired: true,
+      disclosureText: 'LifeMode may earn an affiliate commission on purchases made through verified partner recommendations.',
+      matchedOpportunities: [{
+        programId: 'books',
+        name: 'Quantum Physics Books',
+        category: 'Books',
+        merchant: 'BookShop',
+        score: 80,
+        matchReasons: ['Relevant reading'],
+        placementSuggestion: 'Further reading',
+        isLinkable: false,
+        disclosureRequired: true,
+      }],
+      editorialGuidance: [],
+      safetyConstraints: [],
+    },
+  };
+
+  const result = await provider.generate(genRequest);
+  assert.ok(result.article);
+  assert.ok(result.article.content.includes('Editorial Disclosure: LifeMode may earn an affiliate commission'));
+});
+
+test('41. AIRouterReviewProvider falls back to deterministic review when AI Router fails', async () => {
+  const failingRouter = new AIRouter({
+    config: {
+      providerOrder: ['failing'],
+      gemini: { apiKey: '', model: 'gemini-2.5-flash', dailyTokenBudget: 100000 },
+      groq: { apiKey: '', model: 'openai/gpt-oss-20b', dailyTokenBudget: 100000 },
+      router: { timeoutMs: 5000, maxAttempts: 1, retryDelayMs: 10, dailyTotalTokenBudget: 200000, requestsPerMinute: 30, requestsPerDay: 100 },
+    },
+    providers: new Map([
+      ['failing', new AIRouterFixtureProvider({ id: 'failing', forcedError: { code: 'RATE_LIMIT', message: '429 Rate Limit', provider: 'failing', retryable: true } })],
+    ]),
+  });
+
+  const reviewProvider = new AIRouterReviewProvider(failingRouter);
+  const reviewResult = await reviewProvider.review({
+    topicId: 'lm-test-review-fallback',
+    pillar: 'life',
+    format: 'standard',
+    audience: 'General',
+    primaryIntent: 'informational',
+    riskLevel: 'low',
+    affiliateIntent: false,
+    sources: [],
+    internalLinks: [],
+    title: 'Test Article Title',
+    description: 'Test article description of sufficient length for review testing.',
+    excerpt: 'Test excerpt',
+    content: '## Heading One\n\nSubstantive content paragraph.\n\n## Heading Two\n\nAnother substantive paragraph.',
+  });
+
+  assert.equal(reviewResult.overallScore, 91);
+  assert.ok(reviewResult.dimensions.factuality);
+  assert.equal(reviewResult.dimensions.factuality?.score, 92);
 });
 
 

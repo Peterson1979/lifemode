@@ -2,6 +2,7 @@ import type { IGenerationProvider } from './providers/types.ts';
 import type { GenerationRequest, GenerationResult, GenerationMetadata } from './types.ts';
 import { buildGenerationPrompt } from './prompt.ts';
 import { validateGeneratedArticle, type ValidationRulesOptions } from './validation.ts';
+import { AFFILIATE_DISCLOSURE_PATTERNS } from '../validation/validator.ts';
 
 export interface GenerationPipelineOptions {
   request: GenerationRequest;
@@ -92,6 +93,23 @@ export async function runGenerationPipeline(
   }
 
   const { article, metadata } = providerPayload;
+
+  // Guarantee required affiliate disclosure is present if commercial recommendations/intent exist
+  if (request.affiliateGuidance?.disclosureRequired && article.content) {
+    const hasDisclosure = AFFILIATE_DISCLOSURE_PATTERNS.some((pattern) => pattern.test(article.content));
+    if (!hasDisclosure) {
+      const disclosure = request.affiliateGuidance.disclosureText || 'LifeMode may earn an affiliate commission on purchases made through verified partner recommendations.';
+      article.content = `${article.content.trim()}\n\n*Editorial Disclosure: ${disclosure}*`;
+    }
+  }
+
+  // Guarantee required safety disclaimer is present if riskLevel is high
+  if (request.riskLevel === 'high' && article.content) {
+    const hasDisclaimer = /disclaimer|educational purposes only|consult a doctor/i.test(article.content);
+    if (!hasDisclaimer) {
+      article.content = `*Editorial Disclaimer: This content is for educational purposes only. Consult a doctor or qualified professional for advice.*\n\n${article.content.trim()}`;
+    }
+  }
 
   // 4. Deterministic Validation of the generated article package
   const validationReport = validateGeneratedArticle(article, request, validationOptions);
