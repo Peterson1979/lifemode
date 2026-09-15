@@ -1,0 +1,106 @@
+name: Scheduled Social Automation
+
+on:
+  schedule:
+    # Runs at 12:30 UTC / 14:30 CEST daily (after 06:00 editorial and 09:00 watchdog catch-up, allowing site build and deploy)
+    - cron: '30 12 * * *'
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Allow live publishing to social platforms (otherwise dry-run)'
+        type: boolean
+        default: true
+      dry_run:
+        description: 'Execute in safe dry-run mode (no external publishing, no commits)'
+        type: boolean
+        default: false
+      allow_push:
+        description: 'Allow pushing social publication history to remote master branch'
+        type: boolean
+        default: true
+      min_score:
+        description: 'Minimum social score threshold (0-100)'
+        type: number
+        default: 80
+
+concurrency:
+  group: social-automation
+  cancel-in-progress: false
+
+jobs:
+  run-social-automation:
+    name: Run Social Automation Pipeline
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Configure Git Identity
+        run: |
+          git config user.name "LifeMode Social Automation"
+          git config user.email "social-automation@lifemode.local"
+
+      - name: Execute Scheduled Social Automation
+        env:
+          # AI Router & Provider Credentials (GitHub Secrets)
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+          # Cloudflare Workers AI & Image Credentials (GitHub Secrets)
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_IMAGE_API_KEY: ${{ secrets.CLOUDFLARE_IMAGE_API_KEY || secrets.CLOUDFLARE_API_TOKEN }}
+
+          # Cloudflare R2 Master Asset Storage (GitHub Secrets)
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+          R2_PUBLIC_BASE_URL: ${{ secrets.R2_PUBLIC_BASE_URL }}
+
+          # Social Platform Credentials (GitHub Secrets)
+          FACEBOOK_PAGE_ACCESS_TOKEN: ${{ secrets.FACEBOOK_PAGE_ACCESS_TOKEN }}
+          FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          INSTAGRAM_BUSINESS_ACCOUNT_ID: ${{ secrets.INSTAGRAM_BUSINESS_ACCOUNT_ID || secrets.INSTAGRAM_ACCOUNT_ID }}
+          PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
+          PINTEREST_BOARD_ID: ${{ secrets.PINTEREST_BOARD_ID }}
+
+          # Social Automation Runtime Settings
+          LIFEMODE_SOCIAL_ENABLED: "true"
+          LIFEMODE_SOCIAL_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && (inputs.publish == false && 'false' || 'true') || 'true' }}
+          LIFEMODE_SOCIAL_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && (inputs.dry_run == true && 'true' || 'false') || 'false' }}
+          LIFEMODE_SOCIAL_COMMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run == true && 'false' || 'true' }}
+          LIFEMODE_SOCIAL_PUSH: ${{ github.event_name == 'workflow_dispatch' && (inputs.dry_run == true || inputs.allow_push == false) && 'false' || 'true' }}
+          LIFEMODE_SOCIAL_MAX_OPPORTUNITIES: "1"
+          LIFEMODE_SOCIAL_MAX_FRESHNESS_DAYS: "1"
+          LIFEMODE_SOCIAL_MIN_SCORE: ${{ github.event_name == 'workflow_dispatch' && inputs.min_score || '80' }}
+          LIFEMODE_SOCIAL_PROVIDER: "router"
+          LIFEMODE_SOCIAL_GIT_REMOTE: "origin"
+          LIFEMODE_SOCIAL_GIT_BRANCH: "master"
+        run: |
+          npx tsx scripts/run-social-automation.ts
+
+      - name: Upload Social Automation Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: social-automation-manifest
+          path: data/social/
+          if-no-files-found: ignore
+          retention-days: 30

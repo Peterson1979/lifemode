@@ -158,6 +158,10 @@ export interface EditorialTopic {
   evidence?: import('./research/types.ts').EvidenceItem[];
   performanceFeedback?: import('./performance/types.ts').TopicPerformanceFeedback;
   tags: string[];
+  publishedAt?: string;
+  articleTitle?: string;
+  articleDescription?: string;
+  articleImage?: string;
 }
 
 /**

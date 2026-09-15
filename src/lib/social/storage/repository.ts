@@ -54,23 +54,38 @@ export class FilesystemSocialHistoryRepository implements ISocialHistoryReposito
 
   async recordEntry(entry: SocialManifestEntry): Promise<void> {
     const current = await this.loadHistory();
-    const index = current.findIndex((item) => item.idempotencyKey === entry.idempotencyKey || item.topicId === entry.topicId);
+    const index = current.findIndex(
+      (item) => item.idempotencyKey === entry.idempotencyKey || item.topicId === entry.topicId
+    );
 
     if (index >= 0) {
       const existing = current[index];
-      const mergedPlatformResults = {
+      const mergedPlatformResults: Partial<Record<SocialPlatform, any>> = {
         ...existing.platformResults,
-        ...entry.platformResults,
       };
 
+      // Merge each platform result, ensuring existing PUBLISHED statuses cannot be downgraded
+      for (const [p, res] of Object.entries(entry.platformResults) as [SocialPlatform, any][]) {
+        if (!res) continue;
+        const existingRes = existing.platformResults?.[p];
+        if (existingRes?.status === 'PUBLISHED' && res.status !== 'PUBLISHED') {
+          // Keep existing PUBLISHED status
+          mergedPlatformResults[p] = existingRes;
+        } else {
+          mergedPlatformResults[p] = res;
+        }
+      }
+
       const anyPublished = Object.values(mergedPlatformResults).some((r) => r?.status === 'PUBLISHED');
-      const allTargetPublished = entry.targetPlatforms.length > 0 && entry.targetPlatforms.every((p) => mergedPlatformResults[p]?.status === 'PUBLISHED');
+      const allTargetPublished =
+        entry.targetPlatforms.length > 0 &&
+        entry.targetPlatforms.every((p) => mergedPlatformResults[p]?.status === 'PUBLISHED');
 
       current[index] = {
         ...existing,
         ...entry,
         platformResults: mergedPlatformResults,
-        overallStatus: allTargetPublished ? 'COMPLETED' : (anyPublished ? 'PARTIAL' : entry.overallStatus),
+        overallStatus: allTargetPublished ? 'COMPLETED' : anyPublished ? 'PARTIAL' : entry.overallStatus,
         updatedAt: new Date().toISOString(),
       };
     } else {
@@ -83,20 +98,27 @@ export class FilesystemSocialHistoryRepository implements ISocialHistoryReposito
   async isTopicRecentlyPublished(topicId: string, withinDays: number = 14): Promise<boolean> {
     const history = await this.loadHistory();
     const cutoff = Date.now() - withinDays * 24 * 60 * 60 * 1000;
+    const normalizedTarget = topicId.trim().toLowerCase();
 
     return history.some((item) => {
-      if (item.topicId !== topicId) return false;
-      const itemTime = new Date(item.createdAt).getTime();
-      const allTargetPublished = item.targetPlatforms.length > 0 && item.targetPlatforms.every((p) => item.platformResults[p]?.status === 'PUBLISHED');
-      return itemTime >= cutoff && (item.overallStatus === 'COMPLETED' || allTargetPublished);
+      const matchTopicId = item.topicId && item.topicId.trim().toLowerCase() === normalizedTarget;
+      if (!matchTopicId) return false;
+      const itemTime = new Date(item.updatedAt || item.createdAt).getTime();
+      const allTargetPublished =
+        item.targetPlatforms.length > 0 &&
+        item.targetPlatforms.every((p) => item.platformResults?.[p]?.status === 'PUBLISHED');
+      const anyPublished = Object.values(item.platformResults || {}).some((r) => r?.status === 'PUBLISHED');
+      return itemTime >= cutoff && (item.overallStatus === 'COMPLETED' || allTargetPublished || anyPublished);
     });
   }
 
   async isPlatformPublished(topicId: string, platform: SocialPlatform): Promise<boolean> {
     const history = await this.loadHistory();
+    const normalizedTarget = topicId.trim().toLowerCase();
     return history.some((item) => {
-      if (item.topicId !== topicId) return false;
-      const res = item.platformResults[platform];
+      const matchTopicId = item.topicId && item.topicId.trim().toLowerCase() === normalizedTarget;
+      if (!matchTopicId) return false;
+      const res = item.platformResults?.[platform];
       return res && res.status === 'PUBLISHED';
     });
   }

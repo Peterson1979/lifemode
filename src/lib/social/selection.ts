@@ -4,7 +4,7 @@ import type { ISocialHistoryRepository } from './storage/repository.ts';
 import type { IContentRepository } from '../editorial/storage/types.ts';
 
 export interface SocialSelectionOptions {
-  maxOpportunities?: number; // default 3
+  maxOpportunities?: number; // default 1
   minScoreThreshold?: number; // default 80
   historyRepository?: ISocialHistoryRepository;
   baseUrl?: string;
@@ -12,6 +12,9 @@ export interface SocialSelectionOptions {
   contentRepository?: IContentRepository;
   contentRoot?: string;
   publishedOnly?: boolean; // default true in production
+  maxFreshnessDays?: number; // default 1 (24 hours)
+  referenceDate?: Date | string;
+  configuredPlatforms?: SocialPlatform[];
 }
 
 /**
@@ -56,22 +59,31 @@ export function determineTargetPlatforms(topic: EditorialTopic): SocialPlatform[
 
 /**
  * Deterministically selects the top social opportunities from published articles.
+ *
+ * Enforces:
+ * 1. Freshness Gate: Only newly published content (< maxFreshnessDays, default 1) is eligible.
+ * 2. Idempotency Gate: Excludes platforms that have already been PUBLISHED.
+ * 3. Sorting: Prioritizes newly published articles descending, then composite social score.
+ * 4. Frequency Limit: Returns at most `maxOpportunities` (default 1).
  */
 export async function selectSocialOpportunities(
   candidates: EditorialTopic[],
   options: SocialSelectionOptions = {}
 ): Promise<SocialOpportunity[]> {
-  const max = options.maxOpportunities ?? 3;
+  const max = options.maxOpportunities ?? 1;
   const minScore = options.minScoreThreshold ?? 80;
   const baseUrl = (options.baseUrl || 'https://lifemode.life').replace(/\/+$/, '');
   const historyRepo = options.historyRepository;
   const publishedOnly = options.publishedOnly ?? false;
+  const maxFreshnessDays = options.maxFreshnessDays ?? 1;
+  const refTime = options.referenceDate ? new Date(options.referenceDate).getTime() : Date.now();
 
   // 1. Filter eligible candidates/articles
   const eligible: Array<{
     topic: EditorialTopic;
     socialScore: number;
     activePlatforms: SocialPlatform[];
+    pubTime: number;
   }> = [];
 
   for (const topic of candidates) {
@@ -97,13 +109,36 @@ export async function selectSocialOpportunities(
       continue;
     }
 
-    if (topic.opportunityType === 'ARTICLE' && (topic.scoring?.socialPotential ?? 0) < 75 && (topic.scoring?.pinterestPotential ?? 0) < 75) {
+    if (
+      topic.opportunityType === 'ARTICLE' &&
+      (topic.scoring?.socialPotential ?? 0) < 75 &&
+      (topic.scoring?.pinterestPotential ?? 0) < 75
+    ) {
       continue;
     }
 
     // Filter by pillar if specified
     if (options.categoryFilter && options.categoryFilter.length > 0) {
       if (!options.categoryFilter.includes(topic.pillar)) continue;
+    }
+
+    // Freshness Gate: Validate publication timestamp
+    const pubDateStr = (topic as any).publishedAt || topic.createdAt || topic.updatedAt;
+    let pubTime = 0;
+    if (pubDateStr) {
+      const parsedDate = new Date(pubDateStr);
+      if (!isNaN(parsedDate.getTime())) {
+        pubTime = parsedDate.getTime();
+        const ageInDays = (refTime - pubTime) / (1000 * 60 * 60 * 24);
+        if (maxFreshnessDays > 0 && (ageInDays > maxFreshnessDays || ageInDays < -1)) {
+          // Stale publication outside the freshness window -> exclude
+          continue;
+        }
+      } else if (publishedOnly) {
+        continue;
+      }
+    } else if (publishedOnly) {
+      continue;
     }
 
     // Determine target platforms based on scoring & strengths
@@ -125,23 +160,34 @@ export async function selectSocialOpportunities(
         continue;
       }
 
-      // If recently published and no remaining platforms, skip
-      const recentlyPublished = await historyRepo.isTopicRecentlyPublished(topic.id, 14);
-      if (recentlyPublished && remainingPlatforms.length === 0) {
-        continue;
+      // If configured platforms are specified, ensure at least one remaining platform is configured
+      if (options.configuredPlatforms && options.configuredPlatforms.length > 0) {
+        const remainingConfigured = remainingPlatforms.filter((p) =>
+          options.configuredPlatforms!.includes(p)
+        );
+        if (remainingConfigured.length === 0) {
+          // All configured platforms are already PUBLISHED
+          continue;
+        }
+        activePlatforms = remainingConfigured;
+      } else {
+        activePlatforms = remainingPlatforms;
       }
-
-      activePlatforms = remainingPlatforms;
     }
 
     const socialScore = calculateSocialScore(topic);
-    eligible.push({ topic, socialScore, activePlatforms });
+    eligible.push({ topic, socialScore, activePlatforms, pubTime });
   }
 
-  // 2. Sort by composite social score descending
-  eligible.sort((a, b) => b.socialScore - a.socialScore);
+  // 2. Sort by publication freshness descending (newest first), then by composite social score
+  eligible.sort((a, b) => {
+    if (b.pubTime !== a.pubTime) {
+      return b.pubTime - a.pubTime;
+    }
+    return b.socialScore - a.socialScore;
+  });
 
-  // 3. Apply pillar diversity balancing
+  // 3. Apply selection limit
   const selected: SocialOpportunity[] = [];
   const pillarCounts: Partial<Record<PillarSlug, number>> = {};
 
@@ -152,7 +198,12 @@ export async function selectSocialOpportunities(
     const currentPillarCount = pillarCounts[topic.pillar] || 0;
 
     // Avoid dominating with more than 1 per pillar unless candidate pool is small
-    if (currentPillarCount >= 1 && selected.length + (eligible.length - selected.length) > max && eligible.length >= max * 2) {
+    if (
+      max > 1 &&
+      currentPillarCount >= 1 &&
+      selected.length + (eligible.length - selected.length) > max &&
+      eligible.length >= max * 2
+    ) {
       continue;
     }
 

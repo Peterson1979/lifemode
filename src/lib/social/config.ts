@@ -53,11 +53,16 @@ export interface SocialAutomationConfig {
   allowPublish: boolean;
   storageTest?: boolean;
   maxOpportunities: number;
+  maxFreshnessDays: number;
   minScoreThreshold: number;
   providerMode: 'fixture' | 'router';
   imageProviderMode: 'fixture' | 'cloudflare' | 'openai' | 'custom';
   baseUrl: string;
   storageDir: string;
+  allowCommit: boolean;
+  allowPush: boolean;
+  gitRemote: string;
+  gitBranch: string;
   platforms: Record<SocialPlatform, boolean>;
   credentials: PlatformCredentials;
   imageConfig: SocialImageConfig;
@@ -77,8 +82,20 @@ export function loadSocialConfig(overrides: Partial<SocialAutomationConfig> = {}
   const envPublishRaw = getEnvVar('LIFEMODE_SOCIAL_PUBLISH') ?? getEnvVar('SOCIAL_AUTOMATION_PUBLISH');
   const allowPublish = overrides.allowPublish ?? (storageTest ? false : envPublishRaw === 'true');
 
+  const envCommitRaw = getEnvVar('LIFEMODE_SOCIAL_COMMIT') ?? getEnvVar('SOCIAL_AUTOMATION_COMMIT');
+  const allowCommit = overrides.allowCommit ?? (storageTest ? false : envCommitRaw === 'true');
+
+  const envPushRaw = getEnvVar('LIFEMODE_SOCIAL_PUSH') ?? getEnvVar('SOCIAL_AUTOMATION_PUSH');
+  const allowPush = overrides.allowPush ?? (storageTest ? false : envPushRaw === 'true');
+
+  const gitRemote = overrides.gitRemote || getEnvVar('LIFEMODE_SOCIAL_GIT_REMOTE') || getEnvVar('LIFEMODE_AUTOMATION_GIT_REMOTE') || 'origin';
+  const gitBranch = overrides.gitBranch || getEnvVar('LIFEMODE_SOCIAL_GIT_BRANCH') || getEnvVar('LIFEMODE_AUTOMATION_GIT_BRANCH') || 'master';
+
   const envMaxOppRaw = getEnvVar('LIFEMODE_SOCIAL_MAX_OPPORTUNITIES') ?? getEnvVar('SOCIAL_MAX_OPPORTUNITIES');
-  const maxOpportunities = overrides.maxOpportunities ?? (envMaxOppRaw ? parseInt(envMaxOppRaw, 10) : (storageTest ? 1 : 3));
+  const maxOpportunities = overrides.maxOpportunities ?? (envMaxOppRaw ? parseInt(envMaxOppRaw, 10) : 1);
+
+  const envMaxFreshnessRaw = getEnvVar('LIFEMODE_SOCIAL_MAX_FRESHNESS_DAYS') ?? getEnvVar('SOCIAL_MAX_FRESHNESS_DAYS');
+  const maxFreshnessDays = overrides.maxFreshnessDays ?? (envMaxFreshnessRaw ? parseInt(envMaxFreshnessRaw, 10) : 1);
 
   const envMinScoreRaw = getEnvVar('LIFEMODE_SOCIAL_MIN_SCORE') ?? getEnvVar('SOCIAL_MIN_SCORE');
   const minScoreThreshold = overrides.minScoreThreshold ?? (envMinScoreRaw ? parseInt(envMinScoreRaw, 10) : 80);
@@ -164,12 +181,17 @@ export function loadSocialConfig(overrides: Partial<SocialAutomationConfig> = {}
     dryRun,
     allowPublish,
     storageTest,
-    maxOpportunities: isNaN(maxOpportunities) ? (storageTest ? 1 : 3) : maxOpportunities,
+    maxOpportunities: isNaN(maxOpportunities) ? 1 : maxOpportunities,
+    maxFreshnessDays: isNaN(maxFreshnessDays) ? 1 : maxFreshnessDays,
     minScoreThreshold: isNaN(minScoreThreshold) ? 80 : minScoreThreshold,
     providerMode,
     imageProviderMode,
     baseUrl,
     storageDir,
+    allowCommit,
+    allowPush,
+    gitRemote,
+    gitBranch,
     platforms: {
       facebook: true,
       instagram: true,

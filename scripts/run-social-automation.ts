@@ -6,6 +6,8 @@ async function main() {
   const isJson = args.includes('--json');
   const isStorageTest = args.includes('--storage-test');
   const isLivePublish = args.includes('--publish') || args.includes('--live');
+  const isCommit = args.includes('--commit') || args.includes('--live');
+  const isPush = args.includes('--push');
   const isRouter = args.includes('--router') || args.includes('--ai-router');
   const isFixture = args.includes('--fixture');
   const isExplicitDryRun = args.includes('--dry-run');
@@ -16,6 +18,15 @@ async function main() {
     const val = parseInt(maxArg.split('=')[1], 10);
     if (!isNaN(val) && val > 0) {
       maxOpportunities = val;
+    }
+  }
+
+  let maxFreshnessDays: number | undefined;
+  const freshnessArg = args.find((a) => a.startsWith('--freshness-days=') || a.startsWith('--max-freshness='));
+  if (freshnessArg) {
+    const val = parseInt(freshnessArg.split('=')[1], 10);
+    if (!isNaN(val) && val >= 0) {
+      maxFreshnessDays = val;
     }
   }
 
@@ -36,6 +47,8 @@ async function main() {
     overrides.storageTest = true;
     overrides.dryRun = true;
     overrides.allowPublish = false;
+    overrides.allowCommit = false;
+    overrides.allowPush = false;
     if (!isRouter) {
       overrides.providerMode = 'fixture';
     }
@@ -48,9 +61,17 @@ async function main() {
       overrides.allowPublish = true;
       overrides.dryRun = false;
     }
+    if (isCommit) {
+      overrides.allowCommit = true;
+    }
+    if (isPush) {
+      overrides.allowPush = true;
+    }
     if (isExplicitDryRun) {
       overrides.dryRun = true;
       overrides.allowPublish = false;
+      overrides.allowCommit = false;
+      overrides.allowPush = false;
     }
     if (isRouter) {
       overrides.providerMode = 'router';
@@ -61,6 +82,9 @@ async function main() {
 
   if (maxOpportunities !== undefined) {
     overrides.maxOpportunities = maxOpportunities;
+  }
+  if (maxFreshnessDays !== undefined) {
+    overrides.maxFreshnessDays = maxFreshnessDays;
   }
   if (minScore !== undefined) {
     overrides.minScoreThreshold = minScore;

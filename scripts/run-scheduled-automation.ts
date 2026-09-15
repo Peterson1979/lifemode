@@ -3,7 +3,6 @@ import {
   runEditorialWatchdog,
   loadScheduledAutomationConfig,
 } from '../src/lib/editorial/automation/index.ts';
-import { loadSocialConfig } from '../src/lib/social/index.ts';
 
 async function main() {
   const args = process.argv.slice(2);
@@ -17,10 +16,6 @@ async function main() {
   const isFixture = args.includes('--fixture');
   const isExplicitDryRun = args.includes('--dry-run');
   const isAccelerate = args.includes('--accelerate') || args.includes('--acceleration');
-  const isSocial = args.includes('--social') || args.includes('--social-enabled');
-  const isSocialPublish = args.includes('--social-publish');
-  const isSocialDryRun = args.includes('--social-dry-run');
-  const isSocialStorageTest = args.includes('--social-storage-test') || args.includes('--storage-test');
 
   let maxOpportunities: number | undefined;
   const maxArg = args.find((a) => a.startsWith('--max='));
@@ -28,15 +23,6 @@ async function main() {
     const val = parseInt(maxArg.split('=')[1], 10);
     if (!isNaN(val) && val > 0) {
       maxOpportunities = val;
-    }
-  }
-
-  let socialMax: number | undefined;
-  const socialMaxArg = args.find((a) => a.startsWith('--social-max='));
-  if (socialMaxArg) {
-    const val = parseInt(socialMaxArg.split('=')[1], 10);
-    if (!isNaN(val) && val > 0) {
-      socialMax = val;
     }
   }
 
@@ -80,37 +66,7 @@ async function main() {
     overrides.minScoreThreshold = minScore;
   }
 
-  const socialOverrides: any = {};
-  if (isSocial || isSocialStorageTest || isSocialPublish || isSocialDryRun) {
-    overrides.socialEnabled = true;
-    socialOverrides.enabled = true;
-  }
-  if (isSocialStorageTest) {
-    socialOverrides.storageTest = true;
-    socialOverrides.allowPublish = false;
-    socialOverrides.dryRun = true;
-  } else {
-    if (isSocialPublish) {
-      socialOverrides.allowPublish = true;
-      socialOverrides.dryRun = false;
-    }
-    if (isSocialDryRun) {
-      socialOverrides.dryRun = true;
-      socialOverrides.allowPublish = false;
-    }
-  }
-  if (socialMax !== undefined) {
-    socialOverrides.maxOpportunities = socialMax;
-  }
-  if (Object.keys(socialOverrides).length > 0) {
-    overrides.socialOptions = socialOverrides;
-  }
-
   const config = loadScheduledAutomationConfig(overrides);
-  const socialConfig = loadSocialConfig({
-    ...config.socialOptions,
-    enabled: config.socialEnabled ?? config.socialOptions?.enabled,
-  });
 
   if (!isJson) {
     console.log('====================================================');
@@ -123,15 +79,6 @@ async function main() {
     console.log(`* Accelerated:    ${config.accelerationEnabled ? 'YES (Initial Content Build Mode)' : 'NO (Standard Schedule)'}`);
     console.log(`* Max Selection:  ${config.maxOpportunities}`);
     console.log(`* Min Score:      ${config.minScoreThreshold}`);
-    if (socialConfig.enabled) {
-      if (socialConfig.storageTest) {
-        console.log(`* Social Pipeline: STORAGE TEST (Real R2, Zero Publishing)`);
-      } else {
-        console.log(`* Social Pipeline: ENABLED (Publish: ${socialConfig.allowPublish && !socialConfig.dryRun ? 'YES' : 'NO (Dry-Run)'}, Max: ${socialConfig.maxOpportunities})`);
-      }
-    } else {
-      console.log(`* Social Pipeline: DISABLED`);
-    }
     console.log(`* Watchdog Mode:  ${isWatchdog ? (isForce ? 'YES (Forced)' : 'YES (Idempotent Daily Check)') : 'NO (Direct Run)'}`);
     console.log('----------------------------------------------------\n');
   }
@@ -157,10 +104,6 @@ async function main() {
       if (watchdogResult.scheduledResult) {
         console.log('\n--- Scheduled Execution Summary ---');
         console.log(watchdogResult.scheduledResult.summary);
-      }
-      if (watchdogResult.socialResult) {
-        console.log('\n--- Social Automation Summary ---');
-        console.log(watchdogResult.socialResult.summary);
       }
       console.log('\n====================================================');
       console.log(` Scheduled Automation Finished [${watchdogResult.status}]`);

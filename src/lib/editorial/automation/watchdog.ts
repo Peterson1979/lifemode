@@ -8,7 +8,6 @@ import type {
   ScheduledAutomationOptions,
   ScheduledAutomationResult,
 } from './types.ts';
-import { loadSocialConfig, runSocialPipeline, type SocialAutomationResult } from '../../social/index.ts';
 
 export interface DailyArticleSummary {
   pillar: PillarSlug;
@@ -55,7 +54,6 @@ export interface WatchdogResult {
   durationMs: number;
   report: DailyRunStatusReport;
   scheduledResult?: ScheduledAutomationResult;
-  socialResult?: SocialAutomationResult;
 }
 
 /**
@@ -201,30 +199,6 @@ export async function runEditorialWatchdog(
 
   // 1. Quota already satisfied for today
   if (report.isQuotaMet && !options.force) {
-    let socialResult: SocialAutomationResult | undefined;
-    const isSocialEnabled =
-      options.socialEnabled ??
-      options.socialOptions?.enabled ??
-      (process.env.LIFEMODE_SOCIAL_ENABLED === 'true' || process.env.SOCIAL_AUTOMATION_ENABLED === 'true');
-
-    const socialConfig = loadSocialConfig({
-      ...options.socialOptions,
-      enabled: isSocialEnabled,
-    });
-
-    if (socialConfig.enabled) {
-      try {
-        socialResult = await runSocialPipeline({
-          config: socialConfig,
-          storagePath: options.storagePath,
-          contentRepository: options.contentRepository,
-          contentRoot: options.contentRoot,
-        });
-      } catch (socialErr: any) {
-        console.error('[Social Automation Pipeline Notice]', socialErr?.message || socialErr);
-      }
-    }
-
     const durationMs = Math.max(1, Date.now() - startTime);
     return {
       runId,
@@ -234,7 +208,6 @@ export async function runEditorialWatchdog(
       reason: `Daily editorial target already met (${report.publishedTodayCount}/${report.dailyLimit} published on ${targetDate}).`,
       durationMs,
       report,
-      socialResult,
     };
   }
 
@@ -283,6 +256,5 @@ export async function runEditorialWatchdog(
     durationMs,
     report,
     scheduledResult,
-    socialResult: scheduledResult.socialResult,
   };
 }

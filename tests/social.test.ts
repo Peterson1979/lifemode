@@ -1230,6 +1230,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     const contentDir = path.join(tempDir, 'content');
     const contentRepo = new FilesystemContentRepository({ contentRoot: contentDir });
 
+    const todayStr = new Date().toISOString().split('T')[0];
     await contentRepo.create({
       pillar: 'travel',
       slug: 'serene-nordic-sauna-architecture',
@@ -1237,7 +1238,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
       frontmatter: {
         title: 'Serene Nordic Sauna Architecture',
         description: 'Exploring minimalist woodcraft and thermal bathing rituals in Norway.',
-        pubDate: '2026-09-13',
+        pubDate: todayStr,
         author: 'LifeMode Editorial',
         tags: ['travel', 'architecture', 'nordic'],
         featured: false,
@@ -1387,7 +1388,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     await fs.rm(tempDir, { recursive: true, force: true });
   });
 
-  await t.test('42. Editorial watchdog executes social pipeline even when daily editorial quota is already met', async () => {
+  await t.test('42. Editorial watchdog operates decoupled from social pipeline without invoking social publishing', async () => {
     const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lm-watchdog-soc-'));
     const contentDir = path.join(tempDir, 'content');
     const contentRepo = new FilesystemContentRepository({ contentRoot: contentDir });
@@ -1423,21 +1424,12 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
       contentRepository: contentRepo,
       contentRoot: contentDir,
       dailyArticleLimit: 3,
-      socialEnabled: true,
-      socialOptions: {
-        enabled: true,
-        dryRun: true,
-        storageDir: path.join(tempDir, 'social'),
-      },
     });
 
     assert.equal(watchdogResult.action, 'NO_ACTION_REQUIRED');
     assert.equal(watchdogResult.status, 'SKIPPED');
     assert.equal(watchdogResult.report.isQuotaMet, true);
-    assert.ok(watchdogResult.socialResult);
-    assert.equal(watchdogResult.socialResult.dryRun, true);
-    assert.ok(watchdogResult.socialResult.succeededCount > 0);
-    assert.ok(watchdogResult.socialResult.summary.includes('Dispatched Social Opportunities'));
+    assert.equal((watchdogResult as any).socialResult, undefined);
 
     await fs.rm(tempDir, { recursive: true, force: true });
   });
@@ -2436,5 +2428,366 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
       if (savedIgAccount !== undefined) process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID = savedIgAccount;
       else delete process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
     }
+  });
+
+  await t.test('64. Freshly published article is eligible and prioritized over older articles under 24-hour window', async () => {
+    const refDate = new Date('2026-09-15T12:00:00.000Z');
+    const freshArticle = createMockTopic({
+      id: 'lm-life-20260915-fresh-topic',
+      slug: 'fresh-morning-rituals',
+      status: 'PUBLISHED',
+      createdAt: '2026-09-15T06:00:00.000Z',
+      updatedAt: '2026-09-15T06:00:00.000Z',
+      publishedAt: '2026-09-15T06:00:00.000Z', // 6 hours old
+      totalScore: 88,
+    });
+    const oldArticle = createMockTopic({
+      id: 'lm-tech-ai-20260910-old-topic',
+      slug: 'old-tech-article',
+      status: 'PUBLISHED',
+      createdAt: '2026-09-10T06:00:00.000Z',
+      updatedAt: '2026-09-10T06:00:00.000Z',
+      publishedAt: '2026-09-10T06:00:00.000Z',
+      totalScore: 95, // higher score, but stale
+    });
+
+    const selected = await selectSocialOpportunities([freshArticle, oldArticle], {
+      maxOpportunities: 1,
+      // Default maxFreshnessDays is 1 (24 hours)
+      referenceDate: refDate,
+      publishedOnly: true,
+    });
+
+    assert.equal(selected.length, 1);
+    assert.equal(selected[0].topicId, 'lm-life-20260915-fresh-topic');
+  });
+
+  await t.test('65. Already-PUBLISHED article/platform combination is excluded from automatic reposting', async () => {
+    const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lm-idempotency-test-'));
+    const historyRepo = new FilesystemSocialHistoryRepository(tempDir);
+
+    const topicId = 'lm-life-20260915-already-published';
+    const topic = createMockTopic({
+      id: topicId,
+      status: 'PUBLISHED',
+      publishedAt: '2026-09-15T06:00:00.000Z',
+    });
+
+    // Record that Facebook and Instagram are already PUBLISHED
+    await historyRepo.recordEntry({
+      runId: 'srun-prev-1',
+      topicId,
+      pillar: 'life',
+      canonicalTopic: 'Already Published Topic',
+      contentHash: 'hash-abc',
+      assetHash: 'hash-xyz',
+      idempotencyKey: `lm-soc-${topicId}-hash-abc`,
+      targetPlatforms: ['facebook', 'instagram'],
+      platformResults: {
+        facebook: {
+          platform: 'facebook',
+          status: 'PUBLISHED',
+          postId: 'fb-post-12345',
+          publishedAt: '2026-09-15T07:00:00.000Z',
+          idempotencyKey: `lm-soc-${topicId}-fb`,
+        },
+        instagram: {
+          platform: 'instagram',
+          status: 'PUBLISHED',
+          postId: 'ig-post-12345',
+          publishedAt: '2026-09-15T07:00:00.000Z',
+          idempotencyKey: `lm-soc-${topicId}-ig`,
+        },
+      },
+      reviewScore: 90,
+      overallStatus: 'COMPLETED',
+      createdAt: '2026-09-15T07:00:00.000Z',
+      updatedAt: '2026-09-15T07:00:00.000Z',
+    });
+
+    const isFbPub = await historyRepo.isPlatformPublished(topicId, 'facebook');
+    const isIgPub = await historyRepo.isPlatformPublished(topicId, 'instagram');
+    assert.equal(isFbPub, true);
+    assert.equal(isIgPub, true);
+
+    const selected = await selectSocialOpportunities([topic], {
+      maxOpportunities: 1,
+      historyRepository: historyRepo,
+      configuredPlatforms: ['facebook', 'instagram'],
+      publishedOnly: true,
+      referenceDate: '2026-09-15T12:00:00.000Z',
+    });
+
+    // Since all configured target platforms are already PUBLISHED, topic is excluded
+    assert.equal(selected.length, 0);
+
+    await fs.rm(tempDir, { recursive: true, force: true });
+  });
+
+  await t.test('66. Content published more than 24 hours ago is strictly excluded when no fresh content exists', async () => {
+    const refDate = new Date('2026-09-15T18:00:00.000Z');
+
+    // Reproducing scenario: articles published 30 hours, 54 hours, and 5 days prior
+    const old1 = createMockTopic({
+      id: 'lm-life-20260914-yesterday-noon',
+      status: 'PUBLISHED',
+      publishedAt: '2026-09-14T11:00:00.000Z', // 31 hours old (> 24 hours)
+    });
+    const old2 = createMockTopic({
+      id: 'lm-tech-ai-20260913-apple-tv-last-seen-series',
+      status: 'PUBLISHED',
+      publishedAt: '2026-09-13T12:54:45.409Z',
+    });
+    const old3 = createMockTopic({
+      id: 'lm-now-20260910-tommy-mcmillen',
+      status: 'PUBLISHED',
+      publishedAt: '2026-09-10T08:00:00.000Z',
+    });
+
+    const selected = await selectSocialOpportunities([old1, old2, old3], {
+      maxOpportunities: 1,
+      // Default maxFreshnessDays = 1 (24h)
+      referenceDate: refDate,
+      publishedOnly: true,
+    });
+
+    assert.equal(selected.length, 0);
+  });
+
+  await t.test('67. Editorial failure with zero new publications does not cause social fallback to old content', async () => {
+    const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lm-fallback-isolation-'));
+    const contentDir = path.join(tempDir, 'content');
+    const contentRepo = new FilesystemContentRepository({ contentRoot: contentDir });
+
+    // Seed only older articles in the content repository (simulating failed today editorial run)
+    await contentRepo.create({
+      pillar: 'tech-ai',
+      slug: 'apple-tv-last-seen-series-what-to-know',
+      content: 'Sample content',
+      frontmatter: {
+        title: 'Apple Tv Last Seen Series: what to know',
+        description: 'A practical overview',
+        pubDate: '2026-09-13T12:54:45.409Z',
+        author: 'LifeMode Editorial',
+        tags: ['tech-ai'],
+        featured: false,
+        draft: false,
+        format: 'standard',
+        primaryIntent: 'informational',
+        affiliateIntent: false,
+        riskLevel: 'low',
+        sources: [],
+        version: 1,
+        lifecycleStatus: 'PUBLISHED',
+      },
+    });
+
+    const result = await runSocialPipeline({
+      contentRepository: contentRepo,
+      contentRoot: contentDir,
+      referenceDate: '2026-09-15T18:00:00.000Z',
+      // Uses default maxFreshnessDays = 1
+      config: {
+        dryRun: true,
+        allowPublish: false,
+        storageDir: path.join(tempDir, 'social'),
+      },
+    });
+
+    assert.equal(result.status, 'SUCCESS_NO_PUBLICATION');
+    assert.equal(result.selectedCount, 0);
+    assert.equal(result.publishedCount, 0);
+    assert.ok(result.summary.includes('No eligible fresh published content found'));
+
+    await fs.rm(tempDir, { recursive: true, force: true });
+  });
+
+  await t.test('68. Scheduled editorial automation and watchdog do not invoke the social pipeline', async () => {
+    const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lm-sched-decouple-'));
+    const contentDir = path.join(tempDir, 'content');
+    const contentRepo = new FilesystemContentRepository({ contentRoot: contentDir });
+
+    const schedResult = await runScheduledEditorialAutomation({
+      contentRepository: contentRepo,
+      contentRoot: contentDir,
+      enabled: false,
+    });
+
+    assert.equal(schedResult.status, 'SUCCESS_NO_PUBLICATION');
+    assert.equal((schedResult as any).socialResult, undefined);
+
+    await fs.rm(tempDir, { recursive: true, force: true });
+  });
+
+  await t.test('69. Platform retry only targets previously FAILED platforms while preserving PUBLISHED ones', async () => {
+    const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lm-retry-plat-'));
+    const historyRepo = new FilesystemSocialHistoryRepository(tempDir);
+
+    const topicId = 'lm-life-20260915-partial-topic';
+    const topic = createMockTopic({
+      id: topicId,
+      status: 'PUBLISHED',
+      publishedAt: '2026-09-15T06:00:00.000Z',
+    });
+
+    // Run 1: Facebook succeeds, Instagram fails
+    await historyRepo.recordEntry({
+      runId: 'srun-retry-1',
+      topicId,
+      pillar: 'life',
+      canonicalTopic: topic.canonicalTopic,
+      contentHash: 'hash-abc',
+      assetHash: 'hash-xyz',
+      idempotencyKey: `lm-soc-${topicId}-hash-abc`,
+      targetPlatforms: ['facebook', 'instagram'],
+      platformResults: {
+        facebook: {
+          platform: 'facebook',
+          status: 'PUBLISHED',
+          postId: 'fb-retry-post-1',
+          publishedAt: '2026-09-15T07:00:00.000Z',
+          idempotencyKey: `lm-soc-${topicId}-fb`,
+        },
+        instagram: {
+          platform: 'instagram',
+          status: 'FAILED',
+          error: 'Rate limit / network error',
+          publishedAt: '2026-09-15T07:00:00.000Z',
+          idempotencyKey: `lm-soc-${topicId}-ig`,
+        },
+      },
+      reviewScore: 88,
+      overallStatus: 'PARTIAL',
+      createdAt: '2026-09-15T07:00:00.000Z',
+      updatedAt: '2026-09-15T07:00:00.000Z',
+    });
+
+    // Verify selection only targets Instagram
+    const selected = await selectSocialOpportunities([topic], {
+      maxOpportunities: 1,
+      historyRepository: historyRepo,
+      configuredPlatforms: ['facebook', 'instagram'],
+      referenceDate: '2026-09-15T12:00:00.000Z',
+    });
+
+    assert.equal(selected.length, 1);
+    assert.deepEqual(selected[0].targetPlatforms, ['instagram']);
+
+    // Now simulate Run 2 (retry): Instagram succeeds
+    await historyRepo.recordEntry({
+      runId: 'srun-retry-2',
+      topicId,
+      pillar: 'life',
+      canonicalTopic: topic.canonicalTopic,
+      contentHash: 'hash-abc',
+      assetHash: 'hash-xyz',
+      idempotencyKey: `lm-soc-${topicId}-hash-abc`,
+      targetPlatforms: ['instagram'],
+      platformResults: {
+        instagram: {
+          platform: 'instagram',
+          status: 'PUBLISHED',
+          postId: 'ig-retry-post-2',
+          publishedAt: '2026-09-15T12:00:00.000Z',
+          idempotencyKey: `lm-soc-${topicId}-ig`,
+        },
+      },
+      reviewScore: 88,
+      overallStatus: 'COMPLETED',
+      createdAt: '2026-09-15T12:00:00.000Z',
+      updatedAt: '2026-09-15T12:00:00.000Z',
+    });
+
+    // Verify history now holds PUBLISHED for both Facebook and Instagram
+    const isFb = await historyRepo.isPlatformPublished(topicId, 'facebook');
+    const isIg = await historyRepo.isPlatformPublished(topicId, 'instagram');
+    assert.equal(isFb, true);
+    assert.equal(isIg, true);
+
+    // Run 3: Verify topic is now completely ineligible for further automatic posting
+    const selectedAfter = await selectSocialOpportunities([topic], {
+      maxOpportunities: 1,
+      historyRepository: historyRepo,
+      configuredPlatforms: ['facebook', 'instagram'],
+      referenceDate: '2026-09-15T13:00:00.000Z',
+    });
+    assert.equal(selectedAfter.length, 0);
+
+    await fs.rm(tempDir, { recursive: true, force: true });
+  });
+
+  await t.test('70. Maximum 1 article per scheduled Social Run is strictly enforced', async () => {
+    const freshArticles: EditorialTopic[] = [];
+    for (let i = 1; i <= 5; i++) {
+      freshArticles.push(
+        createMockTopic({
+          id: `lm-life-20260915-fresh-${i}`,
+          slug: `fresh-article-${i}`,
+          canonicalTopic: `Fresh Article ${i}`,
+          status: 'PUBLISHED',
+          publishedAt: `2026-09-15T0${i}:00:00.000Z`,
+          totalScore: 80 + i,
+        })
+      );
+    }
+
+    const selected = await selectSocialOpportunities(freshArticles, {
+      maxOpportunities: 1, // standard default
+      referenceDate: '2026-09-15T12:00:00.000Z',
+      publishedOnly: true,
+    });
+
+    assert.equal(selected.length, 1);
+    // Should be newest published article (article 5)
+    assert.equal(selected[0].topicId, 'lm-life-20260915-fresh-5');
+  });
+
+  await t.test('71. Facebook and Instagram publishing adapters maintain valid package and dryRun mechanics', async () => {
+    const fbAdapter = new FacebookPlatformAdapter();
+    const igAdapter = new InstagramPlatformAdapter();
+
+    const content = createMockValidSocialContent();
+    const asset = createMockValidVisualAsset({
+      url: 'https://media.lifemode.life/social/test-71/visual.jpg',
+    });
+
+    const fbPkg = await fbAdapter.prepare(content, asset);
+    const fbVal = fbAdapter.validate(fbPkg);
+    assert.equal(fbVal.valid, true);
+
+    const fbRes = await fbAdapter.publish(fbPkg, { dryRun: true });
+    assert.equal(fbRes.status, 'DRY_RUN');
+
+    const igPkg = await igAdapter.prepare(content, asset);
+    const igVal = igAdapter.validate(igPkg);
+    assert.equal(igVal.valid, true);
+
+    const igRes = await igAdapter.publish(igPkg, { dryRun: true });
+    assert.equal(igRes.status, 'DRY_RUN');
+  });
+
+  await t.test('72. 24-hour freshness boundary strictly includes 23h-old content and excludes 25h-old content', async () => {
+    const refDate = new Date('2026-09-15T12:00:00.000Z');
+    const within24h = createMockTopic({
+      id: 'lm-life-20260914-23h-old',
+      status: 'PUBLISHED',
+      publishedAt: '2026-09-14T13:00:00.000Z', // 23 hours prior -> ELIGIBLE
+      totalScore: 85,
+    });
+    const beyond24h = createMockTopic({
+      id: 'lm-life-20260914-25h-old',
+      status: 'PUBLISHED',
+      publishedAt: '2026-09-14T11:00:00.000Z', // 25 hours prior -> INELIGIBLE
+      totalScore: 92, // higher score, but stale
+    });
+
+    const selected = await selectSocialOpportunities([within24h, beyond24h], {
+      maxOpportunities: 1,
+      referenceDate: refDate,
+      publishedOnly: true,
+    });
+
+    assert.equal(selected.length, 1);
+    assert.equal(selected[0].topicId, 'lm-life-20260914-23h-old');
   });
 });

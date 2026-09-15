@@ -9,7 +9,6 @@ import type {
 } from './types.ts';
 import { GitCli } from '../git-publisher/git-cli.ts';
 import { loadGitPublisherConfig } from '../git-publisher/config.ts';
-import { loadSocialConfig, runSocialPipeline, type SocialAutomationResult } from '../../social/index.ts';
 
 /**
  * Executes a production-safe Scheduled Editorial Automation run.
@@ -268,28 +267,7 @@ export async function runScheduledEditorialAutomation(
       }
     }
 
-    // 6. Optional Social Automation Pipeline stage
-    let socialResult: SocialAutomationResult | undefined;
-    const isSocialEnabled = options.socialEnabled ?? options.socialOptions?.enabled ?? (process.env.LIFEMODE_SOCIAL_ENABLED === 'true' || process.env.SOCIAL_AUTOMATION_ENABLED === 'true');
-
-    const socialConfig = loadSocialConfig({
-      ...options.socialOptions,
-      enabled: isSocialEnabled,
-    });
-
-    if (socialConfig.enabled) {
-      try {
-        socialResult = await runSocialPipeline({
-          config: socialConfig,
-          storagePath: options.storagePath,
-        });
-      } catch (socialErr: any) {
-        // Failure isolation: social exception does not fail the scheduled editorial run
-        console.error('[Social Automation Pipeline Notice]', socialErr?.message || socialErr);
-      }
-    }
-
-    // 7. Determine top-level ScheduledStatus
+    // 6. Determine top-level ScheduledStatus
     let scheduledStatus: ScheduledStatus;
     if (automationResult.status === 'FAILED') {
       scheduledStatus = 'FAILED';
@@ -311,10 +289,6 @@ export async function runScheduledEditorialAutomation(
       `\nPipeline Details:\n${automationResult.summary}`,
     ];
 
-    if (socialResult) {
-      summaryParts.push(`\nSocial Automation Details:\n${socialResult.summary}`);
-    }
-
     const summaryText = summaryParts.join('\n');
 
     return buildResult(
@@ -323,8 +297,7 @@ export async function runScheduledEditorialAutomation(
       pushedToRemote,
       summaryText,
       automationResult.error?.message,
-      automationResult,
-      socialResult
+      automationResult
     );
   } finally {
     // 8. Ensure execution lock is always released

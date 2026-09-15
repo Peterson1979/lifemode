@@ -34,9 +34,10 @@ import {
   type ISocialHistoryRepository,
   hashString,
 } from './storage/repository.ts';
-import { loadCandidates, loadPublished } from '../editorial/discovery/storage.ts';
+import { loadPublished } from '../editorial/discovery/storage.ts';
 import type { IContentRepository } from '../editorial/storage/types.ts';
 import { FilesystemContentRepository } from '../editorial/storage/repository.ts';
+import { GitCli } from '../editorial/git-publisher/git-cli.ts';
 
 export interface SocialPipelineRunOptions {
   config?: Partial<SocialAutomationConfig>;
@@ -45,18 +46,22 @@ export interface SocialPipelineRunOptions {
   contentRepository?: IContentRepository;
   contentRoot?: string;
   storagePath?: string;
+  referenceDate?: Date | string;
+  maxFreshnessDays?: number;
   generationProvider?: ISocialGenerationProvider;
   imageProvider?: ISocialImageProvider;
   storageProvider?: ISocialAssetStorageProvider;
   reviewProvider?: ISocialReviewProvider;
   platformAdapters?: Map<SocialPlatform, ISocialPlatformAdapter>;
   historyRepository?: ISocialHistoryRepository;
+  gitCli?: GitCli;
+  gitRepoRoot?: string;
 }
 
 export const MAX_SOCIAL_REVISIONS = 1;
 
 /**
- * Runs the end-to-end LifeMode Social Automation V1 Pipeline.
+ * Runs the end-to-end LifeMode Social Automation Pipeline.
  */
 export async function runSocialPipeline(options: SocialPipelineRunOptions = {}): Promise<SocialAutomationResult> {
   const startTime = Date.now();
@@ -155,7 +160,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
     };
   }
 
-  // 1. Load Published / Candidate Pool
+  // 1. Load Published Pool (strictly from content repository / published storage)
   let candidatePool: EditorialTopic[] = options.publishedTopics || options.candidates || [];
   if (candidatePool.length === 0) {
     try {
@@ -167,7 +172,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
       // Ignore
     }
 
-    // Scan Content Repository for published articles
+    // Scan Content Repository for genuinely published articles
     try {
       const contentRepo =
         options.contentRepository ||
@@ -181,6 +186,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
 
       for (const art of publishedArticles) {
         const topicId = art.identity?.topicId || art.frontmatter.topicId || `lm-${art.pillar}-${art.slug}`;
+        const pubDateStr = art.frontmatter.pubDate ? new Date(art.frontmatter.pubDate).toISOString() : '';
         const existingIdx = candidatePool.findIndex((c) => c.id === topicId || (c.pillar === art.pillar && c.slug === art.slug));
         if (existingIdx >= 0) {
           candidatePool[existingIdx] = {
@@ -189,7 +195,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
             status: 'PUBLISHED',
             articleTitle: art.frontmatter.title,
             articleDescription: art.frontmatter.description,
-            publishedAt: art.frontmatter.pubDate,
+            publishedAt: pubDateStr || candidatePool[existingIdx].publishedAt,
             articleImage: art.frontmatter.image,
           } as any;
         } else {
@@ -215,11 +221,11 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
             sourceSignals: [],
             queryVariants: [],
             freshnessScore: 90,
-            createdAt: art.frontmatter.pubDate,
-            updatedAt: art.frontmatter.updatedDate || art.frontmatter.pubDate,
+            createdAt: pubDateStr,
+            updatedAt: art.frontmatter.updatedDate ? new Date(art.frontmatter.updatedDate).toISOString() : pubDateStr,
             articleTitle: art.frontmatter.title,
             articleDescription: art.frontmatter.description,
-            publishedAt: art.frontmatter.pubDate,
+            publishedAt: pubDateStr,
             articleImage: art.frontmatter.image,
           } as any);
         }
@@ -227,23 +233,23 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
     } catch {
       // Best-effort scan
     }
-
-    // Fallback: If still empty, load candidates from candidates.json (e.g. offline dev/mock environments)
-    if (candidatePool.length === 0) {
-      try {
-        candidatePool = await loadCandidates(options.storagePath);
-      } catch {
-        candidatePool = [];
-      }
-    }
   }
 
-  // 2. Select Social Opportunities
+  // 2. Select Social Opportunities with Freshness & Platform Configuration Gating
+  const configuredPlatforms: SocialPlatform[] = [];
+  if (config.credentials.facebook.configured) configuredPlatforms.push('facebook');
+  if (config.credentials.instagram.configured) configuredPlatforms.push('instagram');
+  if (config.credentials.pinterest.configured) configuredPlatforms.push('pinterest');
+
   let opportunities = await selectSocialOpportunities(candidatePool, {
     maxOpportunities: config.maxOpportunities,
     minScoreThreshold: config.minScoreThreshold,
+    maxFreshnessDays: options.maxFreshnessDays ?? config.maxFreshnessDays,
+    referenceDate: options.referenceDate,
     historyRepository: historyRepo,
     baseUrl: config.baseUrl,
+    configuredPlatforms,
+    publishedOnly: !config.storageTest && (options.candidates === undefined || options.publishedTopics !== undefined),
   });
 
   // If storageTest is active and no candidates found, synthesize a representative test opportunity
@@ -282,7 +288,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
       publishedCount: 0,
       platformSummary,
       manifestEntries: [],
-      summary: 'No eligible social opportunities found matching score thresholds.',
+      summary: 'No eligible fresh published content found matching freshness criteria.',
     };
   }
 
@@ -538,6 +544,38 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
     }
   }
 
+  // Persist social publication history to git if enabled
+  let pushedToRemote = false;
+  if (manifestEntries.length > 0 && config.allowCommit && !config.dryRun && !config.storageTest) {
+    try {
+      const gitCli = options.gitCli || new GitCli();
+      const repoRoot = path.resolve(options.gitRepoRoot || process.cwd());
+      const isRepo = await gitCli.isGitRepo(repoRoot);
+      if (isRepo) {
+        const historyRelPath = gitCli.normalizeGitPath(
+          path.relative(repoRoot, path.resolve(process.cwd(), config.storageDir, 'history.json'))
+        );
+        const currentStatus = await gitCli.getRepoStatus(repoRoot, historyRelPath);
+        if (
+          currentStatus.modifiedFiles.includes(historyRelPath) ||
+          currentStatus.untrackedFiles.includes(historyRelPath)
+        ) {
+          await gitCli.stageSingleFile(repoRoot, historyRelPath);
+          await gitCli.createCommit(repoRoot, 'chore(social): update social publication history [skip ci]', {
+            name: 'LifeMode Social Automation',
+            email: 'social-automation@lifemode.local',
+          });
+        }
+        if (config.allowPush) {
+          await gitCli.push(repoRoot, config.gitRemote, config.gitBranch);
+          pushedToRemote = true;
+        }
+      }
+    } catch (gitErr: any) {
+      console.error('[Social Git Persistence Notice]', gitErr?.message || gitErr);
+    }
+  }
+
   const durationMs = Math.max(1, Date.now() - startTime);
 
   // In storage-test mode, produce the exact required CLI report
@@ -614,6 +652,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
     `Social Automation Run [${status}]`,
     `Selected: ${opportunities.length} | Succeeded: ${succeededCount} | Rejected: ${rejectedCount} | Failed: ${failedCount}`,
     `Platforms: Facebook (${platformSummary.facebook.published} pub, ${platformSummary.facebook.failed} fail) | Instagram (${platformSummary.instagram.published} pub, ${platformSummary.instagram.failed} fail) | Pinterest (${platformSummary.pinterest.published} pub, ${platformSummary.pinterest.failed} fail)`,
+    `Push to Remote: ${pushedToRemote ? 'COMPLETED' : 'SKIPPED'}`,
   ];
 
   if (manifestEntries.length > 0) {
