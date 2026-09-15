@@ -13,6 +13,7 @@ export * from './generation/providers/fixture.ts';
 
 // Image Providers & Contracts
 export * from './images/contracts.ts';
+export * from './images/composer.ts';
 export * from './images/providers/fixture.ts';
 export * from './images/providers/api.ts';
 export * from './images/storage/contracts.ts';

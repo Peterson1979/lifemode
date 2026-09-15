@@ -64,5 +64,6 @@ export function buildSocialBrief(opportunity: SocialOpportunity): SocialBrief {
     articleTitle,
     articleDescription,
     publishedAt: opportunity.publishedAt,
+    articleImage: opportunity.articleImage,
   };
 }

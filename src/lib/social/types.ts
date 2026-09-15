@@ -58,6 +58,7 @@ export interface SocialBrief {
   articleTitle?: string;
   articleDescription?: string;
   publishedAt?: string;
+  articleImage?: string;
 }
 
 /**

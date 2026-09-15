@@ -352,7 +352,8 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
       }
 
       // Step F: Image Asset Generation
-      const headlineOverlay = content.imageText?.headline || opp.canonicalTopic.slice(0, 40);
+      const articleTitle = opp.articleTitle || opp.canonicalTopic;
+      const headlineOverlay = content.imageText?.headline || articleTitle;
       const imageResult = await imageProvider.generateImage({
         topicId: opp.topicId,
         pillar: opp.pillar,
@@ -360,6 +361,9 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
         format: '1080x1350',
         headlineOverlay,
         subheadlineOverlay: `LIFEMODE ${opp.pillar.toUpperCase()}`,
+        articleImage: opp.articleImage,
+        articleTitle,
+        ctaText: 'Read the complete guide on lifemode.life',
       });
 
       if (!imageResult.success || !imageResult.asset) {

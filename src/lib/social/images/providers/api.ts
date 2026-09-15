@@ -2,13 +2,21 @@ import { createHash } from 'node:crypto';
 import type { ISocialImageProvider, ImageGenerationRequest, ImageGenerationResult } from '../contracts.ts';
 import type { SocialVisualAsset } from '../../types.ts';
 import { loadSocialConfig } from '../../config.ts';
+import { composeSocialCard } from '../composer.ts';
+import { isValidJpegBuffer } from './fixture.ts';
 
 export class APISocialImageProvider implements ISocialImageProvider {
   readonly name = 'API Social Image Provider';
   private customFetch?: typeof fetch;
+  private baseDir?: string;
 
-  constructor(customFetch?: typeof fetch) {
-    this.customFetch = customFetch;
+  constructor(options?: { customFetch?: typeof fetch; baseDir?: string } | (typeof fetch)) {
+    if (typeof options === 'function') {
+      this.customFetch = options;
+    } else if (options && typeof options === 'object') {
+      this.customFetch = options.customFetch;
+      this.baseDir = options.baseDir;
+    }
   }
 
   isConfigured(): boolean {
@@ -19,6 +27,9 @@ export class APISocialImageProvider implements ISocialImageProvider {
   async generateImage(request: ImageGenerationRequest): Promise<ImageGenerationResult> {
     const startTime = Date.now();
     const config = loadSocialConfig();
+
+    const title = request.articleTitle || request.headlineOverlay || 'Intentional Living & Design';
+    const headline = (request.headlineOverlay || title).replace(/<[^>]+>/g, '').trim();
 
     if (!this.isConfigured() || !config.imageConfig.apiKey) {
       return {
@@ -35,8 +46,17 @@ export class APISocialImageProvider implements ISocialImageProvider {
     const height = request.format === '1080x1080' ? 1080 : 1350;
 
     try {
-      // If configured with OpenAI DALL-E / external endpoint
-      if (config.imageConfig.provider === 'openai') {
+      let heroImageBuffer: Buffer | undefined;
+
+      // If request already has an article image, use it directly
+      if (request.articleImage) {
+        if (Buffer.isBuffer(request.articleImage) || request.articleImage instanceof Uint8Array) {
+          heroImageBuffer = Buffer.from(request.articleImage);
+        }
+      }
+
+      // If configured with OpenAI DALL-E / external endpoint and no image buffer supplied
+      if (!heroImageBuffer && config.imageConfig.provider === 'openai') {
         const response = await fetchImpl('https://api.openai.com/v1/images/generations', {
           method: 'POST',
           headers: {
@@ -59,36 +79,46 @@ export class APISocialImageProvider implements ISocialImageProvider {
         const b64 = data.data?.[0]?.b64_json;
         if (!b64) throw new Error('No image payload returned by OpenAI API.');
 
-        const buffer = Buffer.from(b64, 'base64');
-        const assetHash = createHash('sha256').update(buffer).digest('hex');
-
-        const asset: SocialVisualAsset = {
-          assetId: `asset-${request.topicId}-${assetHash.slice(0, 8)}`,
-          format: request.format,
-          mimeType: 'image/png',
-          width,
-          height,
-          assetHash,
-          altText: `LifeMode ${request.pillar.toUpperCase()}: ${request.headlineOverlay || 'Editorial image'}`,
-          headlineOverlay: request.headlineOverlay,
-          buffer,
-        };
-
-        return {
-          success: true,
-          status: 'SUCCESS',
-          asset,
-          provider: 'OpenAI DALL-E',
-          durationMs: Date.now() - startTime,
-        };
+        heroImageBuffer = Buffer.from(b64, 'base64');
       }
 
-      // Default Cloudflare / Generic API
+      // Compose into standard LifeMode 1080x1350 social card with pillar background
+      const jpegBuffer = await composeSocialCard({
+        topicId: request.topicId,
+        pillar: request.pillar,
+        format: request.format,
+        title,
+        articleImage: heroImageBuffer || request.articleImage,
+        headlineOverlay: headline,
+        subheadlineOverlay: request.subheadlineOverlay,
+        ctaText: request.ctaText,
+        customFetch: this.customFetch,
+        baseDir: this.baseDir,
+      });
+
+      if (!isValidJpegBuffer(jpegBuffer)) {
+        throw new Error('Composed social card produced invalid JPEG bytes.');
+      }
+
+      const assetHash = createHash('sha256').update(jpegBuffer).digest('hex');
+
+      const asset: SocialVisualAsset = {
+        assetId: `asset-${request.topicId}-${assetHash.slice(0, 8)}`,
+        format: request.format,
+        mimeType: 'image/jpeg',
+        width,
+        height,
+        assetHash,
+        altText: `LifeMode ${request.pillar.toUpperCase()}: ${headline}`,
+        headlineOverlay: headline,
+        buffer: jpegBuffer,
+      };
+
       return {
-        success: false,
-        status: 'NOT_CONFIGURED',
-        provider: this.name,
-        error: `Image generation provider "${config.imageConfig.provider}" endpoint not wired for live generation.`,
+        success: true,
+        status: 'SUCCESS',
+        asset,
+        provider: 'API Social Card Composer',
         durationMs: Date.now() - startTime,
       };
     } catch (err: any) {

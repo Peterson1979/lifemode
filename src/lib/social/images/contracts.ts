@@ -7,6 +7,9 @@ export interface ImageGenerationRequest {
   format: SocialImageFormat;
   headlineOverlay?: string;
   subheadlineOverlay?: string;
+  articleImage?: string | Buffer | Uint8Array;
+  articleTitle?: string;
+  ctaText?: string;
 }
 
 export interface ImageGenerationResult {
