@@ -1,0 +1,37 @@
+[
+  {
+    "runId": "srun-1789491095391-b3lvk",
+    "topicId": "lm-now-20260910-san-jose-earthquakes",
+    "pillar": "now",
+    "canonicalTopic": "San Jose Earthquakes: what to know",
+    "contentHash": "bfbd295806571f181fe49ac1677070f5a773ace4635943af82942754682e99b0",
+    "assetHash": "784cf3b3f172b8bf181e64cf457129d9c323b8b0ae1370a4db043e497b7a6468",
+    "idempotencyKey": "lm-soc-lm-now-20260910-san-jose-earthquakes-bfbd2958",
+    "targetPlatforms": [
+      "instagram",
+      "facebook"
+    ],
+    "platformResults": {
+      "instagram": {
+        "platform": "instagram",
+        "status": "PUBLISHED",
+        "postId": "17989506531026699",
+        "postUrl": "https://instagram.com/p/17989506531026699",
+        "publishedAt": "2026-09-15T16:51:40.580Z",
+        "idempotencyKey": "lm-soc-lm-now-20260910-san-jose-earthquakes-instagram-f4f8468981d2"
+      },
+      "facebook": {
+        "platform": "facebook",
+        "status": "PUBLISHED",
+        "postId": "122320539134197726",
+        "postUrl": "https://facebook.com/122320539134197726",
+        "publishedAt": "2026-09-15T16:51:54.602Z",
+        "idempotencyKey": "lm-soc-lm-now-20260910-san-jose-earthquakes-facebook-042bb9f3c316"
+      }
+    },
+    "reviewScore": 90,
+    "overallStatus": "COMPLETED",
+    "createdAt": "2026-09-15T16:52:03.582Z",
+    "updatedAt": "2026-09-15T16:52:03.582Z"
+  }
+]
