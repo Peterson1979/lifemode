@@ -172,6 +172,11 @@ const combinedJsonLd = [articleJsonLd, breadcrumbJsonLd];
             class="article-hero-img"
             loading="eager"
           />
+          {entry.data.imageSource && (
+            <figcaption class="article-hero-caption" style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--color-text-dim, #71717a); text-align: right;">
+              Photo / Source: {entry.data.imageSource}
+            </figcaption>
+          )}
         </div>
       ) : (
         <div class="article-hero-media">
@@ -187,9 +192,37 @@ const combinedJsonLd = [articleJsonLd, breadcrumbJsonLd];
       )}
 
       <!-- Main Reading Column (Prose) -->
-      <div class="prose" style="margin-bottom: var(--space-12);">
+      <div class="prose" style="margin-bottom: var(--space-8);">
         <Content />
       </div>
+
+      <!-- Visible Sources & Research Grounding Section -->
+      {entry.data.sources && entry.data.sources.length > 0 && (
+        <section class="article-sources-section" style="margin-top: var(--space-8); margin-bottom: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--color-border);">
+          <h2 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 600; color: var(--color-text-primary); margin-bottom: var(--space-3); letter-spacing: -0.01em;">
+            Sources
+          </h2>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem;">
+            {entry.data.sources.map((source: { name: string; url: string }) => (
+              <li style="font-size: 0.8125rem; color: var(--color-text-muted); display: flex; align-items: baseline; gap: 0.5rem;">
+                <span style="color: var(--color-olive);">&bull;</span>
+                {source.url ? (
+                  <a
+                    href={source.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="color: var(--color-text-primary); text-decoration: underline; text-underline-offset: 3px;"
+                  >
+                    {source.name}
+                  </a>
+                ) : (
+                  <span>{source.name}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <!-- Article Footer / Return Navigation -->
       <footer style="margin-top: var(--space-12); padding-top: var(--space-8); border-top: 1px solid var(--color-border);">
