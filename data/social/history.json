@@ -68,5 +68,40 @@
     "overallStatus": "COMPLETED",
     "createdAt": "2026-09-15T18:27:43.109Z",
     "updatedAt": "2026-09-15T18:27:43.110Z"
+  },
+  {
+    "runId": "srun-1789578862681-3btof",
+    "topicId": "lm-now-20260910-weather-nyc",
+    "pillar": "now",
+    "canonicalTopic": "Weather NYC: what to know",
+    "contentHash": "c587de7dd4d02d70615698c97bf4a16659454d1c4dd6d3f1d45f51f0bce1d0fe",
+    "assetHash": "ab6f606eeaf9611809339183eb040cbd44fad26ad241598c8679664a863c2f09",
+    "idempotencyKey": "lm-soc-lm-now-20260910-weather-nyc-c587de7d",
+    "targetPlatforms": [
+      "instagram",
+      "facebook"
+    ],
+    "platformResults": {
+      "instagram": {
+        "platform": "instagram",
+        "status": "PUBLISHED",
+        "postId": "18104305501957852",
+        "postUrl": "https://instagram.com/p/18104305501957852",
+        "publishedAt": "2026-09-16T17:14:28.247Z",
+        "idempotencyKey": "lm-soc-lm-now-20260910-weather-nyc-instagram-0e41770c7a63"
+      },
+      "facebook": {
+        "platform": "facebook",
+        "status": "PUBLISHED",
+        "postId": "122320705256197726",
+        "postUrl": "https://facebook.com/122320705256197726",
+        "publishedAt": "2026-09-16T17:14:42.030Z",
+        "idempotencyKey": "lm-soc-lm-now-20260910-weather-nyc-facebook-97d59c0711dd"
+      }
+    },
+    "reviewScore": 90,
+    "overallStatus": "COMPLETED",
+    "createdAt": "2026-09-16T17:14:49.897Z",
+    "updatedAt": "2026-09-16T17:14:49.897Z"
   }
 ]
