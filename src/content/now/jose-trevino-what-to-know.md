@@ -18,9 +18,9 @@ sources:
     url: "https://www.mlb.com/player/jose-trevino-624431"
   - name: "Sports Illustrated"
     url: "https://www.si.com/mlb/yankees/news/new-york-yankees-jose-trevino-nominated-roberto-clemente-award"
-image: "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-now-20260910-jose-trevino/c8b3984c5229860e.jpg"
-imageAlt: "Editorial sports photography depicting baseball diamond and catcher equipment"
-imageSource: "MLB & Editorial Sports Reporting"
+image: "/editorial/baseball-diamond-catcher-gear.jpg"
+imageAlt: "Contextual editorial photography of catcher equipment and baseball mitt on a stadium dugout bench"
+imageSource: "Contextual Editorial Photography / LifeMode"
 version: 2
 lifecycleStatus: "PUBLISHED"
 ---
