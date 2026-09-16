@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-15T16:43:47.183Z",
+    "updatedAt": "2026-09-16T10:58:03.364Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1397,7 +1397,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-15T16:43:47.185Z",
+    "updatedAt": "2026-09-16T10:58:03.366Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1458,7 +1458,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-15T16:43:47.187Z",
+    "updatedAt": "2026-09-16T10:58:03.367Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1519,7 +1519,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-15T16:43:47.189Z",
+    "updatedAt": "2026-09-16T10:58:03.369Z",
     "revisionCyclesCount": 0
   },
   {
@@ -5870,8 +5870,8 @@
     "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T11:45:56.206Z",
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-16T11:00:17.583Z",
     "pinterestScore": 85.3,
     "revisionCyclesCount": 0
   },
@@ -5953,10 +5953,12 @@
     "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T11:45:56.210Z",
+    "status": "REJECTED",
+    "updatedAt": "2026-09-16T11:02:59.394Z",
     "pinterestScore": 85.3,
-    "revisionCyclesCount": 0
+    "revisionCyclesCount": 1,
+    "rejectionReason": "AI Review decision was REJECT (score: 43) after 1 quality revision",
+    "revisionAttempted": true
   },
   {
     "id": "lm-now-20260910-solheim-cup-2026",
@@ -11478,12 +11480,51 @@
           "feedName": "Lifehacker",
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-5-1020Hacks20Every20macOS",
+        "query": "10 Hacks Every macOS 27 User Should Know",
+        "sourceUrl": "https://lifehacker.com/tech/10-hacks-every-macos-27-golden-gate-user-should-know?utm_medium=RSS",
+        "publisherName": "Lifehacker",
+        "publishedAt": "2026-09-15T20:00:00.000Z",
+        "contentSnippet": "You can create your own Safari extensions using AI.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-15T20:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "10 Hacks Every macOS 27 User Should Know",
+            "itemLink": "https://lifehacker.com/tech/10-hacks-every-macos-27-golden-gate-user-should-know?utm_medium=RSS",
+            "publishedDate": "2026-09-15T20:00:00.000Z",
+            "contentSnippet": "You can create your own Safari extensions using AI.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life-systems",
+              "Apple"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life-systems",
+            "Apple"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
-      "10 hacks every libby user should know"
+      "10 hacks every libby user should know",
+      "10 hacks every macos 27 user should know"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-10T21:00:00.000Z",
     "tags": [
       "habits",
@@ -11500,16 +11541,17 @@
       "socialPotential": 80,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 88
     },
-    "totalScore": 75.9,
+    "totalScore": 76.1,
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-09-11T10:44:45.000Z",
-    "pinterestScore": 75.8
+    "updatedAt": "2026-09-16T10:58:03.347Z",
+    "pinterestScore": 75.8,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-life-20260911-the-best-sales-on-headphones-a",
@@ -31553,6 +31595,3600 @@
     "opportunityType": "ARTICLE",
     "status": "SCORED",
     "updatedAt": "2026-09-15T16:43:47.180Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-now-20260916-cefepime",
+    "canonicalTopic": "Cefepime",
+    "slug": "cefepime",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-cefepime",
+        "query": "Cefepime",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-16T10:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-16T10:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "cefepime",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "cefepime"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T10:40:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-16T10:58:02.588Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260916-tyler-perry-moving-to-puerto-r",
+    "canonicalTopic": "Tyler Perry Moving to Puerto Rico",
+    "slug": "tyler-perry-moving-to-puerto-rico",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-tyler20perry20mov",
+        "query": "Tyler Perry Moving to Puerto Rico",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-16T10:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-16T10:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "tyler perry moving to puerto rico",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "tyler perry moving to puerto rico"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T10:40:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-16T10:58:02.606Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260916-who-is-sydney-sweeney",
+    "canonicalTopic": "Who Is Sydney Sweeney",
+    "slug": "who-is-sydney-sweeney",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-who20is20sydney20s",
+        "query": "Who Is Sydney Sweeney",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-16T10:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-16T10:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "who is sydney sweeney",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "who is sydney sweeney"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T10:40:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-16T10:58:02.614Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260916-pennsylvania-measles-deaths",
+    "canonicalTopic": "Pennsylvania Measles Deaths",
+    "slug": "pennsylvania-measles-deaths",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-pennsylvania20me",
+        "query": "Pennsylvania Measles Deaths",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-16T10:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-16T10:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "pennsylvania measles deaths",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "pennsylvania measles deaths"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T10:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-16T10:58:02.623Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260916-james-ransone",
+    "canonicalTopic": "James Ransone",
+    "slug": "james-ransone",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-james20ransone",
+        "query": "James Ransone",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-16T10:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-16T10:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "james ransone",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "james ransone"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T10:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-16T10:58:02.630Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260916-prince-harry-news",
+    "canonicalTopic": "Prince Harry News",
+    "slug": "prince-harry-news",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-prince20harry20ne",
+        "query": "Prince Harry News",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-16T10:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-16T10:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "prince harry news",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "prince harry news"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T10:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-16T10:58:02.637Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260916-ny-mets",
+    "canonicalTopic": "Ny Mets",
+    "slug": "ny-mets",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-ny20mets",
+        "query": "Ny Mets",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-16T10:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-16T10:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "ny mets",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ny mets"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T10:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-16T10:58:02.645Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260916-simone-biles",
+    "canonicalTopic": "Simone Biles",
+    "slug": "simone-biles",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-simone20biles",
+        "query": "Simone Biles",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-16T10:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-16T10:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "simone biles",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "simone biles"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T10:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-16T10:58:02.654Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260916-regulation",
+    "canonicalTopic": "Regulation",
+    "slug": "regulation",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-regulation",
+        "query": "Regulation",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-16T10:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-16T10:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "regulation",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "regulation"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T10:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-16T10:58:02.659Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260916-global-fuel-price-protests",
+    "canonicalTopic": "Global Fuel Price Protests",
+    "slug": "global-fuel-price-protests",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-global20fuel20pri",
+        "query": "Global Fuel Price Protests",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-16T10:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-16T10:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "global fuel price protests",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "global fuel price protests"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T10:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-16T10:58:02.667Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-tech-ai-20260916-roundtables-could-ai-really-ki",
+    "canonicalTopic": "Roundtables Could Ai Really Kill Us All",
+    "slug": "roundtables-could-ai-really-kill-us-all",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-1-Roundtables3A20Could20",
+        "query": "Roundtables Could Ai Really Kill Us All",
+        "sourceUrl": "https://www.technologyreview.com/2026/09/15/1143936/roundtables-will-ai-really-kill-us-all/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-09-15T17:47:51.000Z",
+        "contentSnippet": "Listen to the session or watch below Employees at the world's leading AI labs are saying there's a real possibility that advanced AI could destroy humanity. Are they right? Or is this more scaremongering and hype? Watch a conversation unpacking AI extinction fears: where they come from, whether they hold any water, and, if so,…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-15T17:47:51.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "Roundtables: Could AI really kill us all?",
+            "itemLink": "https://www.technologyreview.com/2026/09/15/1143936/roundtables-will-ai-really-kill-us-all/",
+            "publishedDate": "2026-09-15T17:47:51.000Z",
+            "contentSnippet": "Listen to the session or watch below Employees at the world's leading AI labs are saying there's a real possibility that advanced AI could destroy humanity. Are they right? Or is this more scaremongering and hype? Watch a conversation unpacking AI extinction fears: where they come from, whether they hold any water, and, if so,…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "Artificial intelligence",
+              "AI",
+              "Roundtables",
+              "Subscriber-Only Stories"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "Artificial intelligence",
+            "AI",
+            "Roundtables",
+            "Subscriber-Only Stories"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "roundtables could ai really kill us all"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-15T17:47:51.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "Artificial intelligence",
+      "AI",
+      "Roundtables",
+      "Subscriber-Only Stories"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:02.683Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-meta-is-reportedly-ready-to-la",
+    "canonicalTopic": "Meta Is Reportedly Ready to Launch Less Pervy Smart Glasses",
+    "slug": "meta-is-reportedly-ready-to-launch-less-pervy-smart-glasses",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-Meta20is20reportedly20r",
+        "query": "Meta Is Reportedly Ready to Launch Less Pervy Smart Glasses",
+        "sourceUrl": "https://www.theverge.com/tech/996138/meta-luna-ray-ban-smart-glasses-camera-free-connect",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-16T08:54:46.000Z",
+        "contentSnippet": "Meta may be ready to reveal a new pair of smart glasses with no camera at all, amid a PR crisis for the company caused by the video recording capabilities of its flagship smart glasses. A new report from The Information claims the camera-free glasses, codenamed Luna, could be revealed as soon as the Meta […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T08:54:46.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Meta is reportedly ready to launch less pervy smart glasses",
+            "itemLink": "https://www.theverge.com/tech/996138/meta-luna-ray-ban-smart-glasses-camera-free-connect",
+            "publishedDate": "2026-09-16T08:54:46.000Z",
+            "contentSnippet": "Meta may be ready to reveal a new pair of smart glasses with no camera at all, amid a PR crisis for the company caused by the video recording capabilities of its flagship smart glasses. A new report from The Information claims the camera-free glasses, codenamed Luna, could be revealed as soon as the Meta […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Gadgets",
+              "Meta",
+              "News",
+              "Tech",
+              "Wearable"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Gadgets",
+            "Meta",
+            "News",
+            "Tech",
+            "Wearable"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "meta is reportedly ready to launch less pervy smart glasses"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T08:54:46.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Gadgets",
+      "Meta",
+      "News",
+      "Tech",
+      "Wearable"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:02.701Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-the-boox-palma-3-gets-stylus-s",
+    "canonicalTopic": "The Boox Palma 3 Gets Stylus Support and a Sleek Redesign",
+    "slug": "the-boox-palma-3-gets-stylus-support-and-a-sleek-redesign",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-The20Boox20Palma20320get",
+        "query": "The Boox Palma 3 Gets Stylus Support and a Sleek Redesign",
+        "sourceUrl": "https://www.theverge.com/tech/995826/boox-palma-3-e-ink-reader-pocket-smartphone-android-16",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-16T02:00:00.000Z",
+        "contentSnippet": "Nearly two years after the last update to Boox's smartphone-sized black-and-white e-reader, the company announced the Palma 3 with a sleek redesign, new functionality, and a handful of other small updates that may justify its significant price bump depending on how you plan to use it. While the Palma 2 launched in 2024 for $279.99, […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T02:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "The Boox Palma 3 gets stylus support and a sleek redesign",
+            "itemLink": "https://www.theverge.com/tech/995826/boox-palma-3-e-ink-reader-pocket-smartphone-android-16",
+            "publishedDate": "2026-09-16T02:00:00.000Z",
+            "contentSnippet": "Nearly two years after the last update to Boox's smartphone-sized black-and-white e-reader, the company announced the Palma 3 with a sleek redesign, new functionality, and a handful of other small updates that may justify its significant price bump depending on how you plan to use it. While the Palma 2 launched in 2024 for $279.99, […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Gadgets",
+              "News",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Gadgets",
+            "News",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the boox palma 3 gets stylus support and a sleek redesign"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T02:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Gadgets",
+      "News",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:02.718Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-the-eos-r8-mark-ii-is-canons-l",
+    "canonicalTopic": "The Eos R8 Mark Ii Is Canons Lightest Full-frame Camera with Stabilization",
+    "slug": "the-eos-r8-mark-ii-is-canons-lightest-full-frame-camera-with-stabilization",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-The20EOS20R820Mark20II20i",
+        "query": "The Eos R8 Mark Ii Is Canons Lightest Full-frame Camera with Stabilization",
+        "sourceUrl": "https://www.theverge.com/tech/995430/canon-eos-r8-mark-11-full-frame-digital-camera-pricing-availability",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-16T01:00:00.000Z",
+        "contentSnippet": "Canon announced the second-generation of its EOS R8 with a new retro-inspired redesign and the addition of in-body stabilization. That feature was one of the most notable omissions from the original R8 that launched in 2023 as a smaller, cheaper, and more accessible alternative to the Canon R6 Mark II for photographers wanting a larger […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T01:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "The EOS R8 Mark II is Canon’s lightest full-frame camera with stabilization",
+            "itemLink": "https://www.theverge.com/tech/995430/canon-eos-r8-mark-11-full-frame-digital-camera-pricing-availability",
+            "publishedDate": "2026-09-16T01:00:00.000Z",
+            "contentSnippet": "Canon announced the second-generation of its EOS R8 with a new retro-inspired redesign and the addition of in-body stabilization. That feature was one of the most notable omissions from the original R8 that launched in 2023 as a smaller, cheaper, and more accessible alternative to the Canon R6 Mark II for photographers wanting a larger […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Cameras",
+              "Gadgets",
+              "News",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Cameras",
+            "Gadgets",
+            "News",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the eos r8 mark ii is canons lightest full-frame camera with stabilization"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T01:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Cameras",
+      "Gadgets",
+      "News",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:02.739Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-ai-and-data-centers-are-incred",
+    "canonicalTopic": "Ai and Data Centers Are Incredibly Unpopular in Every Poll",
+    "slug": "ai-and-data-centers-are-incredibly-unpopular-in-every-poll",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-4-AI20and20data20centers20",
+        "query": "Ai and Data Centers Are Incredibly Unpopular in Every Poll",
+        "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/995917/data-center-nyt-midterm-poll-september",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-15T23:34:25.000Z",
+        "contentSnippet": "Poll data released Tuesday by the New York Times and Siena University confirms what we've already been seeing, and what politicians are responding to - AI and data centers are incredibly unpopular. Asked if they support or oppose the construction of data centers to power AI tech, 61 percent of the 1,503 likely voters surveyed […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-15T23:34:25.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "AI and data centers are incredibly unpopular in every poll",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/995917/data-center-nyt-midterm-poll-september",
+            "publishedDate": "2026-09-15T23:34:25.000Z",
+            "contentSnippet": "Poll data released Tuesday by the New York Times and Siena University confirms what we've already been seeing, and what politicians are responding to - AI and data centers are incredibly unpopular. Asked if they support or oppose the construction of data centers to power AI tech, 61 percent of the 1,503 likely voters surveyed […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "News",
+              "Policy",
+              "Politics"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "News",
+            "Policy",
+            "Politics"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ai and data centers are incredibly unpopular in every poll"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-15T23:34:25.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "News",
+      "Policy",
+      "Politics"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:02.756Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-microsoft-announces-windows-an",
+    "canonicalTopic": "Microsoft Announces Windows and Surface Event for October 7th",
+    "slug": "microsoft-announces-windows-and-surface-event-for-october-7th",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-5-Microsoft20announces20",
+        "query": "Microsoft Announces Windows and Surface Event for October 7th",
+        "sourceUrl": "https://www.theverge.com/news/994714/microsoft-windows-surface-event-october-7-san-francisco",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-15T20:36:59.000Z",
+        "contentSnippet": "It's been more than two years since the last major Windows event, so Microsoft is heading to San Francisco next month to outline the future of Windows and Surface devices. At an event on October 7th, the company says it will host a \"conversation on how local AI will shape the next chapter of the […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-15T20:36:59.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Microsoft announces Windows and Surface event for October 7th",
+            "itemLink": "https://www.theverge.com/news/994714/microsoft-windows-surface-event-october-7-san-francisco",
+            "publishedDate": "2026-09-15T20:36:59.000Z",
+            "contentSnippet": "It's been more than two years since the last major Windows event, so Microsoft is heading to San Francisco next month to outline the future of Windows and Surface devices. At an event on October 7th, the company says it will host a \"conversation on how local AI will shape the next chapter of the […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Microsoft",
+              "News",
+              "Tech",
+              "Windows"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Microsoft",
+            "News",
+            "Tech",
+            "Windows"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "microsoft announces windows and surface event for october 7th"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-15T20:36:59.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Microsoft",
+      "News",
+      "Tech",
+      "Windows"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:02.774Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-how-chimps-teach-their-kids-to",
+    "canonicalTopic": "How Chimps Teach Their Kids Tool Tricks",
+    "slug": "how-chimps-teach-their-kids-tool-tricks",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-1-How20chimps20teach20the",
+        "query": "How Chimps Teach Their Kids Tool Tricks",
+        "sourceUrl": "https://arstechnica.com/science/2026/09/how-chimps-teach-their-kids-tool-tricks/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-16T04:00:39.000Z",
+        "contentSnippet": "Adults first demonstrate tool use, then hand over the implements to their infants, who copy the behavior.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T04:00:39.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "How chimps teach their kids tool tricks",
+            "itemLink": "https://arstechnica.com/science/2026/09/how-chimps-teach-their-kids-tool-tricks/",
+            "publishedDate": "2026-09-16T04:00:39.000Z",
+            "contentSnippet": "Adults first demonstrate tool use, then hand over the implements to their infants, who copy the behavior.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Science",
+              "animal behavior",
+              "animal psychology",
+              "animal tool use",
+              "chimpanzees",
+              "primates"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Science",
+            "animal behavior",
+            "animal psychology",
+            "animal tool use",
+            "chimpanzees",
+            "primates"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how chimps teach their kids tool tricks"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T04:00:39.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Science",
+      "animal behavior",
+      "animal psychology",
+      "animal tool use",
+      "chimpanzees",
+      "primates"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:02.787Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-the-roman-telescope-has-enough",
+    "canonicalTopic": "The Roman Telescope Has Enough Gas for 22 Years Double Nasas Expectations",
+    "slug": "the-roman-telescope-has-enough-gas-for-22-years-double-nasas-expectations",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-2-The20Roman20telescope20",
+        "query": "The Roman Telescope Has Enough Gas for 22 Years Double Nasas Expectations",
+        "sourceUrl": "https://arstechnica.com/space/2026/09/the-roman-telescope-has-enough-gas-for-22-years-double-nasas-expectations/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-15T22:26:32.000Z",
+        "contentSnippet": "The Nancy Grace Roman Space Telescope is the first NASA observatory designed for in-space refueling.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-15T22:26:32.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "The Roman telescope has enough gas for 22 years, double NASA's expectations",
+            "itemLink": "https://arstechnica.com/space/2026/09/the-roman-telescope-has-enough-gas-for-22-years-double-nasas-expectations/",
+            "publishedDate": "2026-09-15T22:26:32.000Z",
+            "contentSnippet": "The Nancy Grace Roman Space Telescope is the first NASA observatory designed for in-space refueling.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Space",
+              "falcon heavy",
+              "goddard space flight center",
+              "Nancy Grace Roman Space Telescope",
+              "NASA",
+              "satellite servicing",
+              "spacex"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Space",
+            "falcon heavy",
+            "goddard space flight center",
+            "Nancy Grace Roman Space Telescope",
+            "NASA",
+            "satellite servicing",
+            "spacex"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the roman telescope has enough gas for 22 years double nasas expectations"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-15T22:26:32.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Space",
+      "falcon heavy",
+      "goddard space flight center",
+      "Nancy Grace Roman Space Telescope",
+      "NASA",
+      "satellite servicing",
+      "spacex"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:02.808Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-filmmaker-suing-passthepopcorn",
+    "canonicalTopic": "Filmmaker Suing Passthepopcorn May Be Banned User Out for Revenge",
+    "slug": "filmmaker-suing-passthepopcorn-may-be-banned-user-out-for-revenge",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-3-E2809CFilmmakerE2809D20su",
+        "query": "Filmmaker Suing Passthepopcorn May Be Banned User Out for Revenge",
+        "sourceUrl": "https://arstechnica.com/tech-policy/2026/09/filmmaker-suing-passthepopcorn-may-be-banned-user-out-for-revenge/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-15T20:19:17.000Z",
+        "contentSnippet": "Allegedly fake filmmaker targeted trackers like PassThePopcorn, BroadcasTheNet, and HDBits.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-15T20:19:17.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "“Filmmaker” suing PassThePopcorn may be banned user out for revenge",
+            "itemLink": "https://arstechnica.com/tech-policy/2026/09/filmmaker-suing-passthepopcorn-may-be-banned-user-out-for-revenge/",
+            "publishedDate": "2026-09-15T20:19:17.000Z",
+            "contentSnippet": "Allegedly fake filmmaker targeted trackers like PassThePopcorn, BroadcasTheNet, and HDBits.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Policy",
+              "movie piracy",
+              "Torrent"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Policy",
+            "movie piracy",
+            "Torrent"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "filmmaker suing passthepopcorn may be banned user out for revenge"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-15T20:19:17.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Policy",
+      "movie piracy",
+      "Torrent"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:02.827Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-18-year-old-dies-of-measles-in",
+    "canonicalTopic": "18-year-old Dies of Measles in Pa from Severe Neurological Complication",
+    "slug": "18-year-old-dies-of-measles-in-pa-from-severe-neurological-complication",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-4-18-year-old20dies20of20",
+        "query": "18-year-old Dies of Measles in Pa from Severe Neurological Complication",
+        "sourceUrl": "https://arstechnica.com/health/2026/09/measles-kills-18-year-old-in-pa-fourth-death-as-state-outbreak-nears-700-cases/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-15T18:58:09.000Z",
+        "contentSnippet": "Teen developed acute disseminated encephalomyelitis, a known measles complication.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-15T18:58:09.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "18-year-old dies of measles in PA from severe neurological complication",
+            "itemLink": "https://arstechnica.com/health/2026/09/measles-kills-18-year-old-in-pa-fourth-death-as-state-outbreak-nears-700-cases/",
+            "publishedDate": "2026-09-15T18:58:09.000Z",
+            "contentSnippet": "Teen developed acute disseminated encephalomyelitis, a known measles complication.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Health",
+              "ADEM",
+              "anti-vaccine",
+              "Infectious disease",
+              "measles",
+              "MMR",
+              "outbreak",
+              "Pennsylvania"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Health",
+            "ADEM",
+            "anti-vaccine",
+            "Infectious disease",
+            "measles",
+            "MMR",
+            "outbreak",
+            "Pennsylvania"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "18-year-old dies of measles in pa from severe neurological complication"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-15T18:58:09.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Health",
+      "ADEM",
+      "anti-vaccine",
+      "Infectious disease",
+      "measles",
+      "MMR",
+      "outbreak",
+      "Pennsylvania"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:02.847Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-spacex-declares-starship-ready",
+    "canonicalTopic": "Spacex Declares Starship Ready for Orbit Sets Launch Date Next Week",
+    "slug": "spacex-declares-starship-ready-for-orbit-sets-launch-date-next-week",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-5-SpaceX20declares20Star",
+        "query": "Spacex Declares Starship Ready for Orbit Sets Launch Date Next Week",
+        "sourceUrl": "https://arstechnica.com/space/2026/09/spacex-sets-launch-date-for-first-starship-orbital-flight/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-15T18:48:08.000Z",
+        "contentSnippet": "Reaching orbit would mark a significant milestone.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-15T18:48:08.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "SpaceX declares Starship ready for orbit, sets launch date next week",
+            "itemLink": "https://arstechnica.com/space/2026/09/spacex-sets-launch-date-for-first-starship-orbital-flight/",
+            "publishedDate": "2026-09-15T18:48:08.000Z",
+            "contentSnippet": "Reaching orbit would mark a significant milestone.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Space",
+              "orbital flight",
+              "space",
+              "spacex",
+              "starlink",
+              "starship"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Space",
+            "orbital flight",
+            "space",
+            "spacex",
+            "starlink",
+            "starship"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "spacex declares starship ready for orbit sets launch date next week"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-15T18:48:08.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Space",
+      "orbital flight",
+      "space",
+      "spacex",
+      "starlink",
+      "starship"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:02.867Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260916-iberostar-promo-codes-for-sept",
+    "canonicalTopic": "Iberostar Promo Codes for September 2026",
+    "slug": "iberostar-promo-codes-for-september-2026",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-Iberostar20Promo20Code",
+        "query": "Iberostar Promo Codes for September 2026",
+        "sourceUrl": "https://www.cntraveler.com/story/iberostar-promo-code",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-15T22:19:01.000Z",
+        "contentSnippet": "Get up to a 60% discount on hotels and resorts in September 2026 with Iberostar coupon codes, including last-minute stays and IHG Rewards perks.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-15T22:19:01.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Iberostar Promo Codes for September 2026",
+            "itemLink": "https://www.cntraveler.com/story/iberostar-promo-code",
+            "publishedDate": "2026-09-15T22:19:01.000Z",
+            "contentSnippet": "Get up to a 60% discount on hotels and resorts in September 2026 with Iberostar coupon codes, including last-minute stays and IHG Rewards perks.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Shopping"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "iberostar promo codes for september 2026"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-15T22:19:01.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:02.880Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260916-35-best-restaurants-in-barcelo",
+    "canonicalTopic": "35 Best Restaurants in Barcelona the Catalan City Where Dinners Last Until Dawn",
+    "slug": "35-best-restaurants-in-barcelona-the-catalan-city-where-dinners-last-until-dawn",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-2-3520Best20Restaurants20",
+        "query": "35 Best Restaurants in Barcelona the Catalan City Where Dinners Last Until Dawn",
+        "sourceUrl": "https://www.cntraveler.com/gallery/best-restaurants-in-barcelona",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-15T21:02:29.000Z",
+        "contentSnippet": "Few cities in the world can rival this dining scene, where even humble tapas bars have Michelin stars.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-15T21:02:29.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "35 Best Restaurants in Barcelona, the Catalan City Where Dinners Last Until Dawn",
+            "itemLink": "https://www.cntraveler.com/gallery/best-restaurants-in-barcelona",
+            "publishedDate": "2026-09-15T21:02:29.000Z",
+            "contentSnippet": "Few cities in the world can rival this dining scene, where even humble tapas bars have Michelin stars.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Destinations"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Destinations"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "35 best restaurants in barcelona the catalan city where dinners last until dawn"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-15T21:02:29.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Destinations"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:02.902Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260916-say-goodbye-to-the-bulky-trave",
+    "canonicalTopic": "Say Goodbye to the Bulky Travel Sneaker—this Trending Shoe Is Taking over the Terminal",
+    "slug": "say-goodbye-to-the-bulky-travel-sneaker-this-trending-shoe-is-taking-over-the-terminal",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-3-Say20Goodbye20to20the20B",
+        "query": "Say Goodbye to the Bulky Travel Sneaker—this Trending Shoe Is Taking over the Terminal",
+        "sourceUrl": "https://www.cntraveler.com/story/say-goodbye-to-the-bulky-travel-sneaker-this-trending-shoe-is-taking-over-the-terminal",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-15T20:41:50.000Z",
+        "contentSnippet": "Mary Jane sneakers are the secret to comfortable yet stylish footwear for travel.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-15T20:41:50.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Say Goodbye to the Bulky Travel Sneaker—This Trending Shoe Is Taking Over the Terminal",
+            "itemLink": "https://www.cntraveler.com/story/say-goodbye-to-the-bulky-travel-sneaker-this-trending-shoe-is-taking-over-the-terminal",
+            "publishedDate": "2026-09-15T20:41:50.000Z",
+            "contentSnippet": "Mary Jane sneakers are the secret to comfortable yet stylish footwear for travel.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Shopping"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "say goodbye to the bulky travel sneaker—this trending shoe is taking over the terminal"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-15T20:41:50.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:02.931Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260916-the-most-remote-places-on-eart",
+    "canonicalTopic": "The Most Remote Places on Earth You Can Actually Visit",
+    "slug": "the-most-remote-places-on-earth-you-can-actually-visit",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-4-The20Most20Remote20Plac",
+        "query": "The Most Remote Places on Earth You Can Actually Visit",
+        "sourceUrl": "https://www.cntraveler.com/story/the-most-remote-places-on-earth-you-can-actually-visit",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-15T20:08:40.000Z",
+        "contentSnippet": "For those who crave distance, silence, and landscapes that feel almost lunar, these far-flung corners of the world are as remote as it gets.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-15T20:08:40.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "The Most Remote Places on Earth You Can Actually Visit",
+            "itemLink": "https://www.cntraveler.com/story/the-most-remote-places-on-earth-you-can-actually-visit",
+            "publishedDate": "2026-09-15T20:08:40.000Z",
+            "contentSnippet": "For those who crave distance, silence, and landscapes that feel almost lunar, these far-flung corners of the world are as remote as it gets.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Inspiration / Islands & Beaches"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Inspiration / Islands & Beaches"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the most remote places on earth you can actually visit"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-15T20:08:40.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Inspiration / Islands & Beaches"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:02.949Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260916-the-best-airbnbs-in-san-jose-f",
+    "canonicalTopic": "The Best Airbnbs in San Jose for Your Next Trip to Californias Bay Area",
+    "slug": "the-best-airbnbs-in-san-jose-for-your-next-trip-to-californias-bay-area",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-5-The20Best20Airbnbs20in20",
+        "query": "The Best Airbnbs in San Jose for Your Next Trip to Californias Bay Area",
+        "sourceUrl": "https://www.cntraveler.com/gallery/the-best-airbnbs-in-san-jose-for-your-next-trip-to-californias-bay-area",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-15T18:35:32.000Z",
+        "contentSnippet": "Whether you’re interested in catching a game at Levi’s Stadium or just exploring South Bay, these stylish stays are the perfect places to rest your head.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-15T18:35:32.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "The Best Airbnbs in San Jose for Your Next Trip to California’s Bay Area",
+            "itemLink": "https://www.cntraveler.com/gallery/the-best-airbnbs-in-san-jose-for-your-next-trip-to-californias-bay-area",
+            "publishedDate": "2026-09-15T18:35:32.000Z",
+            "contentSnippet": "Whether you’re interested in catching a game at Levi’s Stadium or just exploring South Bay, these stylish stays are the perfect places to rest your head.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Places to Stay"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Places to Stay"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the best airbnbs in san jose for your next trip to californias bay area"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-15T18:35:32.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Places to Stay"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:02.969Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260916-eu-chief-opens-door-for-canada",
+    "canonicalTopic": "Eu Chief Opens Door for Canada to Become Associate Member",
+    "slug": "eu-chief-opens-door-for-canada-to-become-associate-member",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-1-EU20chief20opens20door20",
+        "query": "Eu Chief Opens Door for Canada to Become Associate Member",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cjwyzrr9d3dko?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-16T10:28:45.000Z",
+        "contentSnippet": "Canada is seeking closer ties with EU after a breakdown in relations with the US and its president Donald Trump.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T10:28:45.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "EU chief opens door for Canada to become 'associate member'",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cjwyzrr9d3dko?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-16T10:28:45.000Z",
+            "contentSnippet": "Canada is seeking closer ties with EU after a breakdown in relations with the US and its president Donald Trump.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "eu chief opens door for canada to become associate member"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T10:28:45.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:02.988Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260916-openai-boss-says-world-right-t",
+    "canonicalTopic": "Openai Boss Says World Right to Be Afraid but Should Trust Ai Firms",
+    "slug": "openai-boss-says-world-right-to-be-afraid-but-should-trust-ai-firms",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-2-OpenAI20boss20says20wor",
+        "query": "Openai Boss Says World Right to Be Afraid but Should Trust Ai Firms",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cqx2zpj4y525o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-16T10:02:05.000Z",
+        "contentSnippet": "Sam Altman and other tech CEOs say there are incentives to limit advancements in AI, as fears grow over the threats it poses to humanity.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T10:02:05.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "OpenAI boss says world 'right to be afraid' but should trust AI firms",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cqx2zpj4y525o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-16T10:02:05.000Z",
+            "contentSnippet": "Sam Altman and other tech CEOs say there are incentives to limit advancements in AI, as fears grow over the threats it poses to humanity.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "openai boss says world right to be afraid but should trust ai firms"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T10:02:05.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:03.008Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260916-all-support-acts-on-ed-sheeran",
+    "canonicalTopic": "All Support Acts on Ed Sheerans Us Tour Quit After Macklemore Dropped",
+    "slug": "all-support-acts-on-ed-sheerans-us-tour-quit-after-macklemore-dropped",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-3-All20support20acts20on20",
+        "query": "All Support Acts on Ed Sheerans Us Tour Quit After Macklemore Dropped",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/c3vgyn49y4l7o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-16T09:36:54.000Z",
+        "contentSnippet": "The star said he was not responsible for Macklemore being dropped from the line-up after he made pro-Palestinian statements on stage.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T09:36:54.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "All support acts on Ed Sheeran's US tour quit after Macklemore dropped",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c3vgyn49y4l7o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-16T09:36:54.000Z",
+            "contentSnippet": "The star said he was not responsible for Macklemore being dropped from the line-up after he made pro-Palestinian statements on stage.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "all support acts on ed sheerans us tour quit after macklemore dropped"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T09:36:54.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:03.029Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260916-at-least-20-killed-after-war-d",
+    "canonicalTopic": "At Least 20 Killed After War-damaged Gaza Building Collapses",
+    "slug": "at-least-20-killed-after-war-damaged-gaza-building-collapses",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-4-At20least202020killed20a",
+        "query": "At Least 20 Killed After War-damaged Gaza Building Collapses",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cvp8d00j9gg5o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-16T10:40:36.000Z",
+        "contentSnippet": "Dozens of people are missing beneath the rubble of the building in Gaza City, where some 10 families had been living.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T10:40:36.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "At least 20 killed after war-damaged Gaza building collapses",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cvp8d00j9gg5o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-16T10:40:36.000Z",
+            "contentSnippet": "Dozens of people are missing beneath the rubble of the building in Gaza City, where some 10 families had been living.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "at least 20 killed after war-damaged gaza building collapses"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T10:40:36.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:03.047Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260916-iran-war-has-led-to-us-munitio",
+    "canonicalTopic": "Iran War Has Led to Us Munitions Shortfalls Pentagon Inspector Confirms",
+    "slug": "iran-war-has-led-to-us-munitions-shortfalls-pentagon-inspector-confirms",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-5-Iran20war20has20led20to20",
+        "query": "Iran War Has Led to Us Munitions Shortfalls Pentagon Inspector Confirms",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/c9gk58xgng0vo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-15T20:34:12.000Z",
+        "contentSnippet": "The inspector also found a bottleneck in resupply, despite President Donald Trump's claims that US supplies are \"virtually limitless\".",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-15T20:34:12.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Iran war has led to US munitions shortfalls, Pentagon inspector confirms",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c9gk58xgng0vo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-15T20:34:12.000Z",
+            "contentSnippet": "The inspector also found a bottleneck in resupply, despite President Donald Trump's claims that US supplies are \"virtually limitless\".",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "iran war has led to us munitions shortfalls pentagon inspector confirms"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-15T20:34:12.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:03.068Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260916-stone-walls-form-strong-yet-su",
+    "canonicalTopic": "Stone Walls Form Strong Yet Subtle Cottage Extension in Scotland",
+    "slug": "stone-walls-form-strong-yet-subtle-cottage-extension-in-scotland",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-Stone20walls20form2022st",
+        "query": "Stone Walls Form Strong Yet Subtle Cottage Extension in Scotland",
+        "sourceUrl": "https://www.dezeen.com/2026/09/16/cairngorm-cottage-architecture-office/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-16T10:43:18.000Z",
+        "contentSnippet": "Scottish ash joinery and clay plaster add warmth to the granite walls of this low-lying extension to Cairngorm Cottage in Scotland, designed by local studio Architecture Office. The extension was built for a client who wanted more space to host their extended family at their Victorian home in rural Aberdeenshire, all while retaining its cosy, The post Stone walls form \"strong yet subtle\" cottage extension in Scotland appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T10:43:18.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Stone walls form \"strong yet subtle\" cottage extension in Scotland",
+            "itemLink": "https://www.dezeen.com/2026/09/16/cairngorm-cottage-architecture-office/",
+            "publishedDate": "2026-09-16T10:43:18.000Z",
+            "contentSnippet": "Scottish ash joinery and clay plaster add warmth to the granite walls of this low-lying extension to Cairngorm Cottage in Scotland, designed by local studio Architecture Office. The extension was built for a client who wanted more space to host their extended family at their Victorian home in rural Aberdeenshire, all while retaining its cosy, The post Stone walls form \"strong yet subtle\" cottage extension in Scotland appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Exclusives",
+              "Ash",
+              "Cottages",
+              "Extensions",
+              "Granite",
+              "Houses",
+              "Residential architecture and interiors",
+              "Residential extensions",
+              "Scotland",
+              "Scottish houses",
+              "Stone"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Exclusives",
+            "Ash",
+            "Cottages",
+            "Extensions",
+            "Granite",
+            "Houses",
+            "Residential architecture and interiors",
+            "Residential extensions",
+            "Scotland",
+            "Scottish houses",
+            "Stone"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "stone walls form strong yet subtle cottage extension in scotland"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T10:43:18.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Exclusives",
+      "Ash",
+      "Cottages",
+      "Extensions",
+      "Granite",
+      "Houses",
+      "Residential architecture and interiors",
+      "Residential extensions",
+      "Scotland",
+      "Scottish houses",
+      "Stone"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:03.088Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260916-colour-sensing-toaster-makes-b",
+    "canonicalTopic": "Colour-sensing Toaster Makes Burnt Toast a Thing of the Past",
+    "slug": "colour-sensing-toaster-makes-burnt-toast-a-thing-of-the-past",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-2-Colour-sensing20toast",
+        "query": "Colour-sensing Toaster Makes Burnt Toast a Thing of the Past",
+        "sourceUrl": "https://www.dezeen.com/2026/09/16/eye-q-toaster-colour-sensor-sage-appliances/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-16T10:15:35.000Z",
+        "contentSnippet": "Kitchen brand Sage Appliances has launched a toaster that uses sensors to measure colour change to determine when toast is cooked. Described by the brand as \"a breakthrough in toasting innovation\", the appliance allows users to determine how dark a piece of toast should be, rather than select the time that the toaster runs for. The post Colour-sensing toaster makes burnt toast a thing of the past appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T10:15:35.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Colour-sensing toaster makes burnt toast a thing of the past",
+            "itemLink": "https://www.dezeen.com/2026/09/16/eye-q-toaster-colour-sensor-sage-appliances/",
+            "publishedDate": "2026-09-16T10:15:35.000Z",
+            "contentSnippet": "Kitchen brand Sage Appliances has launched a toaster that uses sensors to measure colour change to determine when toast is cooked. Described by the brand as \"a breakthrough in toasting innovation\", the appliance allows users to determine how dark a piece of toast should be, rather than select the time that the toaster runs for. The post Colour-sensing toaster makes burnt toast a thing of the past appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Design",
+              "Appliances",
+              "Toasters"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Design",
+            "Appliances",
+            "Toasters"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "colour-sensing toaster makes burnt toast a thing of the past"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T10:15:35.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Design",
+      "Appliances",
+      "Toasters"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:03.107Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260916-yinka-ilori-trash-bins-find-th",
+    "canonicalTopic": "Yinka Ilori Trash Bins Find the Magic in the Everyday",
+    "slug": "yinka-ilori-trash-bins-find-the-magic-in-the-everyday",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-3-Yinka20Ilori20trash20bi",
+        "query": "Yinka Ilori Trash Bins Find the Magic in the Everyday",
+        "sourceUrl": "https://www.dezeen.com/2026/09/16/yinka-illori-bins-ironing-board-brabantia/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-16T10:00:19.000Z",
+        "contentSnippet": "British-Nigerian designer Yinka Ilori has designed a collection of bins, ironing board covers and kitchenware for home product brand Brabantia. Named simply the Home Collection, the range was design by Ilori to add colour and joy to everyday items in the home. \"For me, the whole idea was to find the magic in the everyday,\" The post Yinka Ilori trash bins \"find the magic in the everyday\" appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T10:00:19.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Yinka Ilori trash bins \"find the magic in the everyday\"",
+            "itemLink": "https://www.dezeen.com/2026/09/16/yinka-illori-bins-ironing-board-brabantia/",
+            "publishedDate": "2026-09-16T10:00:19.000Z",
+            "contentSnippet": "British-Nigerian designer Yinka Ilori has designed a collection of bins, ironing board covers and kitchenware for home product brand Brabantia. Named simply the Home Collection, the range was design by Ilori to add colour and joy to everyday items in the home. \"For me, the whole idea was to find the magic in the everyday,\" The post Yinka Ilori trash bins \"find the magic in the everyday\" appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Products",
+              "Design",
+              "Bins",
+              "Yinka Ilori"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Products",
+            "Design",
+            "Bins",
+            "Yinka Ilori"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "yinka ilori trash bins find the magic in the everyday"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T10:00:19.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Products",
+      "Design",
+      "Bins",
+      "Yinka Ilori"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:03.126Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260916-terre-radiator-by-sebastian-he",
+    "canonicalTopic": "Terre Radiator by Sebastian Herkner for Tubes",
+    "slug": "terre-radiator-by-sebastian-herkner-for-tubes",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-4-Terre20radiator20by20Se",
+        "query": "Terre Radiator by Sebastian Herkner for Tubes",
+        "sourceUrl": "https://www.dezeen.com/2026/09/16/terre-radiator-sebastian-herkner-tubes-dezeen-showroom/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-16T09:30:25.000Z",
+        "contentSnippet": "Dezeen Showroom: designer Sebastian Herkner worked with Italian heating brand Tubes to create Terre, the company's first radiator made from terracotta. Taking its name from the Italian word for \"earth\", Terre is made from the clay of the Impruneta quarry in Tuscany, providing a warm, rustic contrast to the usual metal character of radiators. Tubes used The post Terre radiator by Sebastian Herkner for Tubes appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T09:30:25.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Terre radiator by Sebastian Herkner for Tubes",
+            "itemLink": "https://www.dezeen.com/2026/09/16/terre-radiator-sebastian-herkner-tubes-dezeen-showroom/",
+            "publishedDate": "2026-09-16T09:30:25.000Z",
+            "contentSnippet": "Dezeen Showroom: designer Sebastian Herkner worked with Italian heating brand Tubes to create Terre, the company's first radiator made from terracotta. Taking its name from the Italian word for \"earth\", Terre is made from the clay of the Impruneta quarry in Tuscany, providing a warm, rustic contrast to the usual metal character of radiators. Tubes used The post Terre radiator by Sebastian Herkner for Tubes appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Bathroom accessories",
+              "Products",
+              "Design",
+              "Do not show on the Homepage",
+              "Dezeen Showroom",
+              "Heating",
+              "Tubes",
+              "Bathroom products"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Bathroom accessories",
+            "Products",
+            "Design",
+            "Do not show on the Homepage",
+            "Dezeen Showroom",
+            "Heating",
+            "Tubes",
+            "Bathroom products"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "terre radiator by sebastian herkner for tubes"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T09:30:25.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Bathroom accessories",
+      "Products",
+      "Design",
+      "Do not show on the Homepage",
+      "Dezeen Showroom",
+      "Heating",
+      "Tubes",
+      "Bathroom products"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:03.140Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260916-rshp-and-erre-unveil-plans-for",
+    "canonicalTopic": "Rshp and Erre Unveil Plans for Curved-roof Rail Hub in Valencia",
+    "slug": "rshp-and-erre-unveil-plans-for-curved-roof-rail-hub-in-valencia",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-5-RSHP20and20ERRE20unveil",
+        "query": "Rshp and Erre Unveil Plans for Curved-roof Rail Hub in Valencia",
+        "sourceUrl": "https://www.dezeen.com/2026/09/16/rshp-erre-valencia-central-station/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-16T09:00:08.000Z",
+        "contentSnippet": "Architecture studios RSHP and ERRE have unveiled their plans for Valencia Central Station in Spain, which will incorporate public green spaces and sweeping roof canopies. Designed by RSHP and ERRE with engineering firm Sener, the station will become the city's key rail hub, with connections to the existing North Station. It will incorporate high-speed, commuter and The post RSHP and ERRE unveil plans for curved-roof rail hub in Valencia appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T09:00:08.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "RSHP and ERRE unveil plans for curved-roof rail hub in Valencia",
+            "itemLink": "https://www.dezeen.com/2026/09/16/rshp-erre-valencia-central-station/",
+            "publishedDate": "2026-09-16T09:00:08.000Z",
+            "contentSnippet": "Architecture studios RSHP and ERRE have unveiled their plans for Valencia Central Station in Spain, which will incorporate public green spaces and sweeping roof canopies. Designed by RSHP and ERRE with engineering firm Sener, the station will become the city's key rail hub, with connections to the existing North Station. It will incorporate high-speed, commuter and The post RSHP and ERRE unveil plans for curved-roof rail hub in Valencia appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "News",
+              "Exclusives",
+              "RSHP",
+              "Metro stations",
+              "Spain",
+              "Railway stations",
+              "Valencia",
+              "Infrastructure"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "News",
+            "Exclusives",
+            "RSHP",
+            "Metro stations",
+            "Spain",
+            "Railway stations",
+            "Valencia",
+            "Infrastructure"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "rshp and erre unveil plans for curved-roof rail hub in valencia"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T09:00:08.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "News",
+      "Exclusives",
+      "RSHP",
+      "Metro stations",
+      "Spain",
+      "Railway stations",
+      "Valencia",
+      "Infrastructure"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:03.160Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-life-20260916-the-confidence-myth-why-waitin",
+    "canonicalTopic": "The Confidence Myth Why Waiting to Feel Ready Holds Women Back",
+    "slug": "the-confidence-myth-why-waiting-to-feel-ready-holds-women-back",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-1-The20confidence20myth3A",
+        "query": "The Confidence Myth Why Waiting to Feel Ready Holds Women Back",
+        "sourceUrl": "https://www.fastcompany.com/91591400/the-confidence-myth-why-waiting-to-feel-ready-holds-women-back-women-workplace-confidence",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-16T10:30:00.000Z",
+        "contentSnippet": "I’ve noticed there’s a belief that women often carry quietly: I’ll do it when I feel more confident. And it sounds perfectly reasonable on the surface. I’ve heard things along the lines of: “I’m sort of starting a business. I’ll do it when I’ve done enough preparation, or when things aren’t so busy.” We’ve all said some version of this. I know I have. Inherited expectations Over 25 years of working with women founders, leaders, and high achievers, I've seen that one thing holding them back is the confidence myth. Most women I know aren't simply lacking self-belief. They are tuned into inherited expectations they've never stopped to question: expectations about how prepared you should be before you begin anything and how much you should know in advance. This goes deeper than confidence. It’s about recognizing which expectations are truly yours and which you’ve been living by without consciously choosing them. There’s a tendency to think you start out being confident. But in reality, you end up confident. There’s something else I’ve noticed: Women often feel they need to be completely ready before they put themselves forward, whereas men appear more willing to give it a try and work things out as they go. This isn’t a gap in capability but a gap in permission. I hear women saying things like, “I’m thinking about putting myself forward,” or, “I might apply.” We can underplay what we’re doing before anyone else has even had the chance to question it. This means they hold onto an idea and wait until they feel ready. But then they don’t get the chance to try it, see what happens, and learn from it. Without that experience, they still believe they weren’t ready in the first place. Losing good ideas A common theme among women I have coached is that they put off setting up a business because they believed there were already too many similar businesses and that their ideas or business plans weren’t strong enough. These women eventually started, and now run, successful businesses. Their confidence grew as they built them and worked things out. This is where waiting to feel ready stops having merely a personal impact. The woman with the most useful thing to say in the room may never say it, so everyone misses out on what she knew. Organizations miss out too. And when confidence gets confused with competence, the person who puts themselves forward can look readier than someone with stronger judgement or more experience. This often means capable women can be overlooked, and the organization loses ideas and talent. Fear is normal In the confidence-building workshops I’ve held, I've also found that some women believed confidence came from a naturally strong personality or from how they had been brought up. They were convinced that their lack of confidence was a fact of life. Women can carry an image of a future version of themselves who has it all together as more confident, more competent, and finally ready. We think we have to become her before we can begin, and in doing that, we lose sight of who we are now. This doesn’t mean you have to rush. You can think something through, weigh the options, and still take a step. It is normal to feel afraid. There's a tendency to confuse a sense of being ready with a feeling of comfort, since trying something new will probably be uncomfortable at first. Rather than asking yourself, \"Do I feel ready?\" ask instead, “Can I work it out as I go?” Competence is not certainty. It means being able to respond to what happens and handle things as they come. The more you do something you’ve been putting off—giving a presentation, having a difficult conversation, making a pitch—the more your confidence grows. It doesn’t have to be perfect; at least you’ve given it a try and gotten through it. Or perhaps you broke down but eventually felt relieved. It’s very easy to think about what might go wrong if we give it a try, but not what might be missed by waiting. Often waiting can cost us more than trying in the first place. There’s a lot of talk about helping women become more confident. I think it would be more useful to ask whether they are willing to have a shot before they feel completely ready. That might mean speaking without having the perfect answer or trying something knowing they could make a mistake. Confidence can naturally come later. You may not have everything you think you need, but you do have something to begin with. The women I see moving forward aren’t the ones who finally felt certain. They got tired of waiting and went through the door anyway. As you go, you learn and adapt. Somewhere in the doing, you realize that confidence was never something you needed to find first. It was always something you needed to practice.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T10:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "The confidence myth: Why waiting to feel ready holds women back",
+            "itemLink": "https://www.fastcompany.com/91591400/the-confidence-myth-why-waiting-to-feel-ready-holds-women-back-women-workplace-confidence",
+            "publishedDate": "2026-09-16T10:30:00.000Z",
+            "contentSnippet": "I’ve noticed there’s a belief that women often carry quietly: I’ll do it when I feel more confident. And it sounds perfectly reasonable on the surface. I’ve heard things along the lines of: “I’m sort of starting a business. I’ll do it when I’ve done enough preparation, or when things aren’t so busy.” We’ve all said some version of this. I know I have. Inherited expectations Over 25 years of working with women founders, leaders, and high achievers, I've seen that one thing holding them back is the confidence myth. Most women I know aren't simply lacking self-belief. They are tuned into inherited expectations they've never stopped to question: expectations about how prepared you should be before you begin anything and how much you should know in advance. This goes deeper than confidence. It’s about recognizing which expectations are truly yours and which you’ve been living by without consciously choosing them. There’s a tendency to think you start out being confident. But in reality, you end up confident. There’s something else I’ve noticed: Women often feel they need to be completely ready before they put themselves forward, whereas men appear more willing to give it a try and work things out as they go. This isn’t a gap in capability but a gap in permission. I hear women saying things like, “I’m thinking about putting myself forward,” or, “I might apply.” We can underplay what we’re doing before anyone else has even had the chance to question it. This means they hold onto an idea and wait until they feel ready. But then they don’t get the chance to try it, see what happens, and learn from it. Without that experience, they still believe they weren’t ready in the first place. Losing good ideas A common theme among women I have coached is that they put off setting up a business because they believed there were already too many similar businesses and that their ideas or business plans weren’t strong enough. These women eventually started, and now run, successful businesses. Their confidence grew as they built them and worked things out. This is where waiting to feel ready stops having merely a personal impact. The woman with the most useful thing to say in the room may never say it, so everyone misses out on what she knew. Organizations miss out too. And when confidence gets confused with competence, the person who puts themselves forward can look readier than someone with stronger judgement or more experience. This often means capable women can be overlooked, and the organization loses ideas and talent. Fear is normal In the confidence-building workshops I’ve held, I've also found that some women believed confidence came from a naturally strong personality or from how they had been brought up. They were convinced that their lack of confidence was a fact of life. Women can carry an image of a future version of themselves who has it all together as more confident, more competent, and finally ready. We think we have to become her before we can begin, and in doing that, we lose sight of who we are now. This doesn’t mean you have to rush. You can think something through, weigh the options, and still take a step. It is normal to feel afraid. There's a tendency to confuse a sense of being ready with a feeling of comfort, since trying something new will probably be uncomfortable at first. Rather than asking yourself, \"Do I feel ready?\" ask instead, “Can I work it out as I go?” Competence is not certainty. It means being able to respond to what happens and handle things as they come. The more you do something you’ve been putting off—giving a presentation, having a difficult conversation, making a pitch—the more your confidence grows. It doesn’t have to be perfect; at least you’ve given it a try and gotten through it. Or perhaps you broke down but eventually felt relieved. It’s very easy to think about what might go wrong if we give it a try, but not what might be missed by waiting. Often waiting can cost us more than trying in the first place. There’s a lot of talk about helping women become more confident. I think it would be more useful to ask whether they are willing to have a shot before they feel completely ready. That might mean speaking without having the perfect answer or trying something knowing they could make a mistake. Confidence can naturally come later. You may not have everything you think you need, but you do have something to begin with. The women I see moving forward aren’t the ones who finally felt certain. They got tired of waiting and went through the door anyway. As you go, you learn and adapt. Somewhere in the doing, you realize that confidence was never something you needed to find first. It was always something you needed to practice.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Work Life"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Work Life"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the confidence myth why waiting to feel ready holds women back"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T10:30:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Work Life"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:03.179Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260916-need-a-lyft-to-the-polls-the-r",
+    "canonicalTopic": "Need a Lyft to the Polls the Ride-hailing App Is Once Again Offering Free or Discounted Rides This Election Season",
+    "slug": "need-a-lyft-to-the-polls-the-ride-hailing-app-is-once-again-offering-free-or-discounted-rides-this-election-season",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-2-Need20a20Lyft20to20the20p",
+        "query": "Need a Lyft to the Polls the Ride-hailing App Is Once Again Offering Free or Discounted Rides This Election Season",
+        "sourceUrl": "https://www.fastcompany.com/91607672/need-a-lyft-to-the-polls-the-ride-hailing-app-is-once-again-offering-free-or-discounted-rides-this-election-season",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-16T10:01:00.000Z",
+        "contentSnippet": "With disruptions to mail voting systems and other election-related problems potentially sidelining some voters this election season, Lyft is offering, well, a lift! For the sixth straight election season, the ride-hailing company’s “ Lyft Up Voting Access Program ” will offer voters discounted rides to polling places on Election Day, Tuesday, November 3. Lyft’s program, which began in 2014, is available to anyone across the United States—from the streets of Manhattan to the wilds of Alaska—who enters the public discount code “VOTE26” to book a ride before November 3. That will give users a 50% discount, or up to $10, on a ride to their polling place.&nbsp; The program also partners with various nonprofits and civic organizations to help increase access to voting booths, a list that includes the League of Women Voters, National Council on Aging, National Coalition for Homeless Veterans, and Students Learn Students Vote Coalition. “Voting access is and has been a priority of Lyft for more than a decade,” says Christine Campigotto, Lyft’s senior director of policy impact and operations. “We want to make sure that transportation is not a barrier to voting for anyone.” Campigotto says that the program was designed from the get-go to be open to anyone. Voters, no matter where they live or their partisan leanings, can take advantage of it. But it may be particularly useful to voters who, traditionally, have had a more difficult time getting to their polling places, such as older individuals and students. The whole point, she says, is to ensure that transportation isn’t the thing that stops votes from being cast. “There’s research that shows voters with access to a car are 30% more likely to vote,” Campigotto says. “So we know that transportation is strongly correlated with voting.” Campigotto will also be at the Fast Company Innovation Festival in New York on Wednesday, participating in a session about what business leaders can be doing to meet the political moment during this year's midterm elections.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T10:01:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Need a Lyft to the polls? The ride-hailing app is once again offering free or discounted rides this election season",
+            "itemLink": "https://www.fastcompany.com/91607672/need-a-lyft-to-the-polls-the-ride-hailing-app-is-once-again-offering-free-or-discounted-rides-this-election-season",
+            "publishedDate": "2026-09-16T10:01:00.000Z",
+            "contentSnippet": "With disruptions to mail voting systems and other election-related problems potentially sidelining some voters this election season, Lyft is offering, well, a lift! For the sixth straight election season, the ride-hailing company’s “ Lyft Up Voting Access Program ” will offer voters discounted rides to polling places on Election Day, Tuesday, November 3. Lyft’s program, which began in 2014, is available to anyone across the United States—from the streets of Manhattan to the wilds of Alaska—who enters the public discount code “VOTE26” to book a ride before November 3. That will give users a 50% discount, or up to $10, on a ride to their polling place.&nbsp; The program also partners with various nonprofits and civic organizations to help increase access to voting booths, a list that includes the League of Women Voters, National Council on Aging, National Coalition for Homeless Veterans, and Students Learn Students Vote Coalition. “Voting access is and has been a priority of Lyft for more than a decade,” says Christine Campigotto, Lyft’s senior director of policy impact and operations. “We want to make sure that transportation is not a barrier to voting for anyone.” Campigotto says that the program was designed from the get-go to be open to anyone. Voters, no matter where they live or their partisan leanings, can take advantage of it. But it may be particularly useful to voters who, traditionally, have had a more difficult time getting to their polling places, such as older individuals and students. The whole point, she says, is to ensure that transportation isn’t the thing that stops votes from being cast. “There’s research that shows voters with access to a car are 30% more likely to vote,” Campigotto says. “So we know that transportation is strongly correlated with voting.” Campigotto will also be at the Fast Company Innovation Festival in New York on Wednesday, participating in a session about what business leaders can be doing to meet the political moment during this year's midterm elections.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "News"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "News"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "need a lyft to the polls the ride-hailing app is once again offering free or discounted rides this election season"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T10:01:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "News"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:03.213Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260916-i-wanted-it-to-be-raw-paula-sc",
+    "canonicalTopic": "I Wanted It to Be Raw Paula Scher Explains Her Squished Map Logo",
+    "slug": "i-wanted-it-to-be-raw-paula-scher-explains-her-squished-map-logo",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-3-E28098I20wanted20it20to20",
+        "query": "I Wanted It to Be Raw Paula Scher Explains Her Squished Map Logo",
+        "sourceUrl": "https://www.fastcompany.com/91606967/paula-scher-explains-her-squished-new-map-logo",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-16T10:00:00.000Z",
+        "contentSnippet": "Women+ on the Edge of Democracy is an upcoming revue of 10-minute plays and monologues about this moment in democracy, as written by 36 women playwrights. The logo for initiative, designed by Pentagram partner Paula Scher, with associate partner Bruno Bergallo and project manager Olivia Ray, purposely squeezes its title into a tight frame to visualize a point. Scher tells Fast Company that through her cramped, handwritten concept, she wanted to \"imply that women are being squeezed out of democracy.\" The revue showcases that idea. That's because all the short plays or monologues are built around two questions: What is the current state of democracy in America from a national and international perspective? And what can history, global context, or futurism offer us in this pivotal moment? [Image: Pentagram] The plays and monologues cover topics like immigration, education, and gun violence, according to a synopsis, and together, they are meant to inspire the audience to question the kind of world they want to live in and then challenge them to go about the business of creating it. Among the plays are \"Maya\" by Dael Orlandersmith about a custodial worker at a library New York who fights book banning, and \"The Pardon,\" a conversation between a grandma and an ICE agency by Jane Anderson. \"I wanted it to be raw,\" Scher says of the design. \"I didn't want it to be another sophisticated, typographic use of imagery in space,\" she added, noting that she thought the lettering needed to be drawn by hand. So Scher drew the logo with colored pencil on paper in a sketch-like style. It packs the title of the revue into a shape that approximates a map of lower 48 states, but appears roughly shaped, as if made out of tears on a sheet of paper. (Scher has made hand-painted maps for years, to varying degrees of cartographic accuracy). \"Women\" is scrunched on top of \"Democracy,\" which is split across two rows without a hyphen, and \"+ on the Edge of\" is scribble up, around, and down the East coast. It's not particularly easy to read or follow. [Image: Pentagram] Some iterations of the logo didn't look raw enough, and though they tried real typography, \"it just did not have any impact,\" says Scher , who designed typographic visual identities for the Public Theater in 1994 and the Library of Congress in 2018 , among many others. Instead, the the final lettering is scribbled in with letters that aren't filled in completely. Women+ on the Edge of Democracy will be performed October 23 and 24 at the Flynn Center for the Performing Arts in Burlington, Vermont, and put on by the Flynn and the Susan Smith Blackburn Prize. Organizers are also encouraging local performances of one or more of the plays with an online sign-up for people who are interested in staging Women+ on the Edge of Democracy on their own .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "‘I wanted it to be raw’: Paula Scher explains her squished map logo",
+            "itemLink": "https://www.fastcompany.com/91606967/paula-scher-explains-her-squished-new-map-logo",
+            "publishedDate": "2026-09-16T10:00:00.000Z",
+            "contentSnippet": "Women+ on the Edge of Democracy is an upcoming revue of 10-minute plays and monologues about this moment in democracy, as written by 36 women playwrights. The logo for initiative, designed by Pentagram partner Paula Scher, with associate partner Bruno Bergallo and project manager Olivia Ray, purposely squeezes its title into a tight frame to visualize a point. Scher tells Fast Company that through her cramped, handwritten concept, she wanted to \"imply that women are being squeezed out of democracy.\" The revue showcases that idea. That's because all the short plays or monologues are built around two questions: What is the current state of democracy in America from a national and international perspective? And what can history, global context, or futurism offer us in this pivotal moment? [Image: Pentagram] The plays and monologues cover topics like immigration, education, and gun violence, according to a synopsis, and together, they are meant to inspire the audience to question the kind of world they want to live in and then challenge them to go about the business of creating it. Among the plays are \"Maya\" by Dael Orlandersmith about a custodial worker at a library New York who fights book banning, and \"The Pardon,\" a conversation between a grandma and an ICE agency by Jane Anderson. \"I wanted it to be raw,\" Scher says of the design. \"I didn't want it to be another sophisticated, typographic use of imagery in space,\" she added, noting that she thought the lettering needed to be drawn by hand. So Scher drew the logo with colored pencil on paper in a sketch-like style. It packs the title of the revue into a shape that approximates a map of lower 48 states, but appears roughly shaped, as if made out of tears on a sheet of paper. (Scher has made hand-painted maps for years, to varying degrees of cartographic accuracy). \"Women\" is scrunched on top of \"Democracy,\" which is split across two rows without a hyphen, and \"+ on the Edge of\" is scribble up, around, and down the East coast. It's not particularly easy to read or follow. [Image: Pentagram] Some iterations of the logo didn't look raw enough, and though they tried real typography, \"it just did not have any impact,\" says Scher , who designed typographic visual identities for the Public Theater in 1994 and the Library of Congress in 2018 , among many others. Instead, the the final lettering is scribbled in with letters that aren't filled in completely. Women+ on the Edge of Democracy will be performed October 23 and 24 at the Flynn Center for the Performing Arts in Burlington, Vermont, and put on by the Flynn and the Susan Smith Blackburn Prize. Organizers are also encouraging local performances of one or more of the plays with an online sign-up for people who are interested in staging Women+ on the Edge of Democracy on their own .",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Design"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Design"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "i wanted it to be raw paula scher explains her squished map logo"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T10:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Design"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:03.234Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260916-in-china-mcdonalds-will-delive",
+    "canonicalTopic": "In China Mcdonalds Will Deliver Your Big Mac by Drone",
+    "slug": "in-china-mcdonalds-will-deliver-your-big-mac-by-drone",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-4-In20China2C20McDonaldE280",
+        "query": "In China Mcdonalds Will Deliver Your Big Mac by Drone",
+        "sourceUrl": "https://www.fastcompany.com/91607041/in-china-mcdonalds-will-deliver-your-big-mac-by-drone",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-16T10:00:00.000Z",
+        "contentSnippet": "Another day, another point of proof that people in China live in the future . Shanghai residents can now order from McDonald's and have it delivered by air to kiosks installed in the city's waterfront neighborhood. You just need to order using Meituan—China's dominant food-delivery, retail, and local services super-app—and, in a matter of minutes, a drone will zoom by with the classic paper bag with the logo of the golden arches, loaded with Big Macs, McNuggets, or whatever else you want from the fast-food chain. China has spent nearly a decade normalizing drones and robots as delivery infrastructure, not novelty. They call it \"low-altitude economy.\" Meituan has been flying paying customers' meals since 2017 , expanding city by city while regulators built the rules around it rather than the other way around. What's new today isn't the concept—it's the brand. This is the first time McDonald's has gotten its own dedicated drone corridor, rather than just being one menu among many on somebody else's flight path. The air link—a 1.93-mile-long hop—went live last week across West Bund , the waterfront district of Xuhui in Shanghai, connecting a McDonald's kitchen in Xuhui to a cluster of drop-off kiosks along the river. The usual white-collar workers and tourists in the area can skip the restaurant's counters. Your food meets you at your chosen handover point—a tall booth in McDonald's livery with a landing platform on top—just a few minutes after you submit your order. The drones can carry a maximum of 5.29 pounds per flight, according to Meituan. A typical order, the company claims, clears the 10-minute mark from kitchen to kiosk. The drone fleet can keep moving through ordinary Shanghai rain and snow, even holding its course against gusts up to 31 mph. If operating conditions get worse than that, the system finishes any deliveries already in the air, then grounds the entire fleet until conditions clear. Meituan executive Wei Qijun claims that, after the company spent years working on these drones, the system has a \"99.999% safety factor.\" According to McDonald's China chief impact officer Gu Lei, the two companies spent 2026 running experimental trials in Shenzhen before establishing these routes in Shanghai. Following the new deployment as a template, they now want to install scattered flight nodes that will mesh together to offer coverage across every district. Right now, about 20 brands use Meituan's drones. The low-altitude economy race In December 2024, reports indicated the company was running just 53 routes and had logged roughly 400,000 completed drops. Meituan told domestic press in May that it had crossed 900,000 paying drone orders network-wide. After the West Bund launch, that total passed 1 million—more than doubling the company's order count from the December 2024 baseline. Meituan's ambitions also cross borders. The company's Keeta Drone unit picked up the United Arab Emirates' first-ever commercial beyond-visual-line-of-sight delivery license from the Dubai Civil Aviation Authority in December 2024, opened four routes at Dubai Silicon Oasis the same day, and now ferries hot lunches as well as blood plasma for a hospital partner. Division chief Mao Yinian told Bloomberg in June 2025 to expect more routes over the Dubai Marina. This is all just part of a larger scheme, where fried rice, convenience store products, and Big Macs become the main pillar of Beijing’s low-altitude economy. Under its current five-year plan, the government aims to commercialize the airspace just above rooftops. Officials forecast this market will more than double over the next decade and reach roughly $521.7 billion by 2035 at current exchange rates. CCID Consulting —which bills itself as China's largest research, consulting, and IT outsourcing firm—counted more than 127,000 companies working in this industry back in June. Shanghai wants 400 low-altitude routes running by the end of 2027—and nearly 30 provinces in the country have plans for it. Meanwhile, in the U.S., drone delivery today is stuck in a perpetual state of \"almost here,\" a high-tech mirage operating on the fringes of the American suburbs. If you happen to live in the right zip code in the Dallas–Fort Worth metroplex or a select slice of North Carolina, you might catch a glimpse of a drone dropping food. But outside these meticulously manicured, hyper-controlled test bubbles, the grand promise of frictionless, airborne logistics remains a beautiful hallucination. The Federal Aviation Administration has recently approved DoorDash to operate a commercial drone delivery service, but we don't know when these will become fully operational. For the rest of the country, getting a pizza delivered still relies on the carbon-heavy realities of Honda Civics racing through streets in daily remakes of \"The Fat and the Furious.\" The biggest problem may be the law. Unlike China—where the government is actively pushing this low economy, writing the regulation around the technology—drone delivery in the U.S. is a hyper-regulated, expensive, highly chaperoned science experiment. Tech giants and venture-backed startups are grounded by the FAA, constantly lobbying for the right to fly just a few miles farther or slightly beyond a pilot's line of sight. Every successful delivery requires a perfect alignment of mild weather, low wind, open suburban yards, and a labyrinth of regulatory waivers. In Europe, things are better —with regulation that focuses on the risks of flying and not on the purpose of the flight, unlike the U.S.—but still way behind the top-down infrastructure push in China. There's a lot of things that need to be solved before Big Macs take over the skies everywhere. I can't help but wonder when the first big fatal accident will happen in Shenzhen or Shanghai. Because it will happen, since this is 99.99% safe, not 100%. Is our desire to push stuff into our faces within minutes of ordering it worth the growing pains that will inevitably arrive as these services expand globally? I will tell you as soon as my friend uses his DJI to shower 20 sweet-n-sour sauce-coated McNuggets inside my wide-open mouth. I'm not even walking to a kiosk.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "In China, McDonald’s will deliver your Big Mac by drone",
+            "itemLink": "https://www.fastcompany.com/91607041/in-china-mcdonalds-will-deliver-your-big-mac-by-drone",
+            "publishedDate": "2026-09-16T10:00:00.000Z",
+            "contentSnippet": "Another day, another point of proof that people in China live in the future . Shanghai residents can now order from McDonald's and have it delivered by air to kiosks installed in the city's waterfront neighborhood. You just need to order using Meituan—China's dominant food-delivery, retail, and local services super-app—and, in a matter of minutes, a drone will zoom by with the classic paper bag with the logo of the golden arches, loaded with Big Macs, McNuggets, or whatever else you want from the fast-food chain. China has spent nearly a decade normalizing drones and robots as delivery infrastructure, not novelty. They call it \"low-altitude economy.\" Meituan has been flying paying customers' meals since 2017 , expanding city by city while regulators built the rules around it rather than the other way around. What's new today isn't the concept—it's the brand. This is the first time McDonald's has gotten its own dedicated drone corridor, rather than just being one menu among many on somebody else's flight path. The air link—a 1.93-mile-long hop—went live last week across West Bund , the waterfront district of Xuhui in Shanghai, connecting a McDonald's kitchen in Xuhui to a cluster of drop-off kiosks along the river. The usual white-collar workers and tourists in the area can skip the restaurant's counters. Your food meets you at your chosen handover point—a tall booth in McDonald's livery with a landing platform on top—just a few minutes after you submit your order. The drones can carry a maximum of 5.29 pounds per flight, according to Meituan. A typical order, the company claims, clears the 10-minute mark from kitchen to kiosk. The drone fleet can keep moving through ordinary Shanghai rain and snow, even holding its course against gusts up to 31 mph. If operating conditions get worse than that, the system finishes any deliveries already in the air, then grounds the entire fleet until conditions clear. Meituan executive Wei Qijun claims that, after the company spent years working on these drones, the system has a \"99.999% safety factor.\" According to McDonald's China chief impact officer Gu Lei, the two companies spent 2026 running experimental trials in Shenzhen before establishing these routes in Shanghai. Following the new deployment as a template, they now want to install scattered flight nodes that will mesh together to offer coverage across every district. Right now, about 20 brands use Meituan's drones. The low-altitude economy race In December 2024, reports indicated the company was running just 53 routes and had logged roughly 400,000 completed drops. Meituan told domestic press in May that it had crossed 900,000 paying drone orders network-wide. After the West Bund launch, that total passed 1 million—more than doubling the company's order count from the December 2024 baseline. Meituan's ambitions also cross borders. The company's Keeta Drone unit picked up the United Arab Emirates' first-ever commercial beyond-visual-line-of-sight delivery license from the Dubai Civil Aviation Authority in December 2024, opened four routes at Dubai Silicon Oasis the same day, and now ferries hot lunches as well as blood plasma for a hospital partner. Division chief Mao Yinian told Bloomberg in June 2025 to expect more routes over the Dubai Marina. This is all just part of a larger scheme, where fried rice, convenience store products, and Big Macs become the main pillar of Beijing’s low-altitude economy. Under its current five-year plan, the government aims to commercialize the airspace just above rooftops. Officials forecast this market will more than double over the next decade and reach roughly $521.7 billion by 2035 at current exchange rates. CCID Consulting —which bills itself as China's largest research, consulting, and IT outsourcing firm—counted more than 127,000 companies working in this industry back in June. Shanghai wants 400 low-altitude routes running by the end of 2027—and nearly 30 provinces in the country have plans for it. Meanwhile, in the U.S., drone delivery today is stuck in a perpetual state of \"almost here,\" a high-tech mirage operating on the fringes of the American suburbs. If you happen to live in the right zip code in the Dallas–Fort Worth metroplex or a select slice of North Carolina, you might catch a glimpse of a drone dropping food. But outside these meticulously manicured, hyper-controlled test bubbles, the grand promise of frictionless, airborne logistics remains a beautiful hallucination. The Federal Aviation Administration has recently approved DoorDash to operate a commercial drone delivery service, but we don't know when these will become fully operational. For the rest of the country, getting a pizza delivered still relies on the carbon-heavy realities of Honda Civics racing through streets in daily remakes of \"The Fat and the Furious.\" The biggest problem may be the law. Unlike China—where the government is actively pushing this low economy, writing the regulation around the technology—drone delivery in the U.S. is a hyper-regulated, expensive, highly chaperoned science experiment. Tech giants and venture-backed startups are grounded by the FAA, constantly lobbying for the right to fly just a few miles farther or slightly beyond a pilot's line of sight. Every successful delivery requires a perfect alignment of mild weather, low wind, open suburban yards, and a labyrinth of regulatory waivers. In Europe, things are better —with regulation that focuses on the risks of flying and not on the purpose of the flight, unlike the U.S.—but still way behind the top-down infrastructure push in China. There's a lot of things that need to be solved before Big Macs take over the skies everywhere. I can't help but wonder when the first big fatal accident will happen in Shenzhen or Shanghai. Because it will happen, since this is 99.99% safe, not 100%. Is our desire to push stuff into our faces within minutes of ordering it worth the growing pains that will inevitably arrive as these services expand globally? I will tell you as soon as my friend uses his DJI to shower 20 sweet-n-sour sauce-coated McNuggets inside my wide-open mouth. I'm not even walking to a kiosk.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Design"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Design"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "in china mcdonalds will deliver your big mac by drone"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T10:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Design"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:03.252Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260916-el-nio-2026-just-broke-a-major",
+    "canonicalTopic": "El Nio 2026 Just Broke a Major Threshold Heading into Hurricane Season Heres What That Means for the Storm Forecast",
+    "slug": "el-nio-2026-just-broke-a-major-threshold-heading-into-hurricane-season-heres-what-that-means-for-the-storm-forecast",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-5-El20NiC3B1o20202620just20",
+        "query": "El Nio 2026 Just Broke a Major Threshold Heading into Hurricane Season Heres What That Means for the Storm Forecast",
+        "sourceUrl": "https://www.fastcompany.com/91607809/2026-super-el-nino-broke-a-major-threshold-extreme-weather-impact-hurricane-storm-forecast",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-16T10:00:00.000Z",
+        "contentSnippet": "El Niño just hit another milestone before we've even seen the first major storm of this year's U.S. hurricane season. And no, we're not talking about predictions that El Niño is likely to be the strongest on record , or that it could result in extreme weather through 2027 , including raising sea levels along California's coast by as much as a foot , potentially triggering massive flooding and damage. On September 14, the National Oceanic and Atmospheric Administration (NOAA) reported El Niño has now officially crossed the threshold of being a “very strong event during the Northern Hemisphere fall and winter 2026-27”—otherwise known as a Super El Niño. \"During the October-December 2026 season, there is a 75% chance of a historic event that would exceed the strength of previous El Niño events dating back to 1950,\" NOAA said . El Niño is a climate pattern that naturally occurs every two to seven years or so as a result of warmer-than-usual water in the central and eastern Pacific Ocean. NOAA reported that weekly sea surface temperatures in the tropical Pacific had hit the threshold of 3.6 degrees Fahrenheit : in effect qualifying it for \"super\" status. What is El Niño? The complex weather pattern refers to the warming of the ocean surface, or above-average sea surface temperatures , in the Pacific Ocean. Winds that ordinarily blow from west to east weaken, disrupting normal weather and creating more extreme meteorological events, per the U.S. Geological Survey. As the winds “ take warm water from South America towards Asia ,” that’s replaced by cold water that rises, known as “upwelling,” according to NOAA. In the recent past, El Niño has intensified storms and flooding here in the U.S., particularly in the Southeast and along the Gulf Coast. It can also cause wildfires and drought . The 2015 Super El Niño was responsible for significant drought conditions in the Caribbean and Ethiopia.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "El Niño 2026 just broke a major threshold heading into hurricane season. Here’s what that means for the storm forecast",
+            "itemLink": "https://www.fastcompany.com/91607809/2026-super-el-nino-broke-a-major-threshold-extreme-weather-impact-hurricane-storm-forecast",
+            "publishedDate": "2026-09-16T10:00:00.000Z",
+            "contentSnippet": "El Niño just hit another milestone before we've even seen the first major storm of this year's U.S. hurricane season. And no, we're not talking about predictions that El Niño is likely to be the strongest on record , or that it could result in extreme weather through 2027 , including raising sea levels along California's coast by as much as a foot , potentially triggering massive flooding and damage. On September 14, the National Oceanic and Atmospheric Administration (NOAA) reported El Niño has now officially crossed the threshold of being a “very strong event during the Northern Hemisphere fall and winter 2026-27”—otherwise known as a Super El Niño. \"During the October-December 2026 season, there is a 75% chance of a historic event that would exceed the strength of previous El Niño events dating back to 1950,\" NOAA said . El Niño is a climate pattern that naturally occurs every two to seven years or so as a result of warmer-than-usual water in the central and eastern Pacific Ocean. NOAA reported that weekly sea surface temperatures in the tropical Pacific had hit the threshold of 3.6 degrees Fahrenheit : in effect qualifying it for \"super\" status. What is El Niño? The complex weather pattern refers to the warming of the ocean surface, or above-average sea surface temperatures , in the Pacific Ocean. Winds that ordinarily blow from west to east weaken, disrupting normal weather and creating more extreme meteorological events, per the U.S. Geological Survey. As the winds “ take warm water from South America towards Asia ,” that’s replaced by cold water that rises, known as “upwelling,” according to NOAA. In the recent past, El Niño has intensified storms and flooding here in the U.S., particularly in the Southeast and along the Gulf Coast. It can also cause wildfires and drought . The 2015 Super El Niño was responsible for significant drought conditions in the Caribbean and Ethiopia.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "News"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "News"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "el nio 2026 just broke a major threshold heading into hurricane season heres what that means for the storm forecast"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T10:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "News"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:03.288Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260916-why-people-are-taping-fitbits-",
+    "canonicalTopic": "Why People Are Taping Fitbits to Their Arms",
+    "slug": "why-people-are-taping-fitbits-to-their-arms",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-1-Why20People20Are20Tapin",
+        "query": "Why People Are Taping Fitbits to Their Arms",
+        "sourceUrl": "https://lifehacker.com/health/why-people-are-taping-fitbits-to-their-arms?utm_medium=RSS",
+        "publisherName": "Lifehacker",
+        "publishedAt": "2026-09-15T21:30:29.000Z",
+        "contentSnippet": "I tried this trend, and I have thoughts.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-15T21:30:29.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "Why People Are Taping Fitbits to Their Arms",
+            "itemLink": "https://lifehacker.com/health/why-people-are-taping-fitbits-to-their-arms?utm_medium=RSS",
+            "publishedDate": "2026-09-15T21:30:29.000Z",
+            "contentSnippet": "I tried this trend, and I have thoughts.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life-systems",
+              "Fitness"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life-systems",
+            "Fitness"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "why people are taping fitbits to their arms"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-15T21:30:29.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life-systems",
+      "Fitness"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:03.302Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260916-using-this-under-pillow-speake",
+    "canonicalTopic": "Using This Under-pillow Speaker Is Way More Comfortable Than Sleeping with Earbuds",
+    "slug": "using-this-under-pillow-speaker-is-way-more-comfortable-than-sleeping-with-earbuds",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-3-Using20This20Under-Pil",
+        "query": "Using This Under-pillow Speaker Is Way More Comfortable Than Sleeping with Earbuds",
+        "sourceUrl": "https://lifehacker.com/tech/this-under-pillow-speaker-is-my-upgrade-of-the-week?utm_medium=RSS",
+        "publisherName": "Lifehacker",
+        "publishedAt": "2026-09-15T21:00:00.000Z",
+        "contentSnippet": "Never again will I lose my AirPods in the sheets.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-15T21:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "Using This Under-Pillow Speaker Is Way More Comfortable Than Sleeping With Earbuds",
+            "itemLink": "https://lifehacker.com/tech/this-under-pillow-speaker-is-my-upgrade-of-the-week?utm_medium=RSS",
+            "publishedDate": "2026-09-15T21:00:00.000Z",
+            "contentSnippet": "Never again will I lose my AirPods in the sheets.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life-systems",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life-systems",
+            "Tech"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "using this under-pillow speaker is way more comfortable than sleeping with earbuds"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-15T21:00:00.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life-systems",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:03.326Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260916-the-garmin-vivoactive-6-is-70-",
+    "canonicalTopic": "The Garmin Vivoactive 6 Is 70 Off Right Now",
+    "slug": "the-garmin-vivoactive-6-is-70-off-right-now",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-4-The20Garmin20Vivoactiv",
+        "query": "The Garmin Vivoactive 6 Is 70 Off Right Now",
+        "sourceUrl": "https://lifehacker.com/tech/garmin-vivoactive-6-deal-september-2026?utm_medium=RSS",
+        "publisherName": "Lifehacker",
+        "publishedAt": "2026-09-15T20:30:08.000Z",
+        "contentSnippet": "This lightweight and budget-friendly Garmin smartwatch has a sleek design and up to 11 days of battery life.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-15T20:30:08.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "The Garmin Vivoactive 6 Is $70 Off Right Now",
+            "itemLink": "https://lifehacker.com/tech/garmin-vivoactive-6-deal-september-2026?utm_medium=RSS",
+            "publishedDate": "2026-09-15T20:30:08.000Z",
+            "contentSnippet": "This lightweight and budget-friendly Garmin smartwatch has a sleek design and up to 11 days of battery life.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life-systems",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life-systems",
+            "Tech"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the garmin vivoactive 6 is 70 off right now"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-15T20:30:08.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life-systems",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:03.341Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-discover-20260916-7-south-african-designers-to-k",
+    "canonicalTopic": "7 South African Designers to Know from Maison&objet 2026",
+    "slug": "7-south-african-designers-to-know-from-maison-objet-2026",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-design-milk-1-720South20African20Desi",
+        "query": "7 South African Designers to Know from Maison&objet 2026",
+        "sourceUrl": "https://design-milk.com/south-african-designers-maison-objet-2026/",
+        "publisherName": "Design MilkDesign Milk",
+        "publishedAt": "2026-09-15T20:39:44.000Z",
+        "contentSnippet": "Maison&Objet’s Rising Talent Awards put the spotlight on 7 South African designers and studios bringing new perspectives to furniture, lighting, textiles, and objects",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-15T20:39:44.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://design-milk.com/feed/",
+            "feedTitle": "Design MilkDesign Milk",
+            "itemTitle": "7 South African Designers to Know From Maison&Objet 2026",
+            "itemLink": "https://design-milk.com/south-african-designers-maison-objet-2026/",
+            "publishedDate": "2026-09-15T20:39:44.000Z",
+            "contentSnippet": "Maison&Objet’s Rising Talent Awards put the spotlight on 7 South African designers and studios bringing new perspectives to furniture, lighting, textiles, and objects",
+            "categories": [
+              "design",
+              "interiors",
+              "home",
+              "art",
+              "minimalism",
+              "Art",
+              "Home Furnishings",
+              "Main"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "design",
+            "interiors",
+            "home",
+            "art",
+            "minimalism",
+            "Art",
+            "Home Furnishings",
+            "Main"
+          ],
+          "feedName": "Design Milk",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "7 south african designers to know from maison&objet 2026"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-15T20:39:44.000Z",
+    "tags": [
+      "design",
+      "interiors",
+      "home",
+      "art",
+      "minimalism",
+      "Art",
+      "Home Furnishings",
+      "Main"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T10:58:03.362Z",
     "pinterestScore": 79.2
   }
 ]
