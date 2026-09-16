@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-16T10:58:03.364Z",
+    "updatedAt": "2026-09-16T20:57:31.936Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1397,7 +1397,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-16T10:58:03.366Z",
+    "updatedAt": "2026-09-16T20:57:31.938Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1458,7 +1458,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-16T10:58:03.367Z",
+    "updatedAt": "2026-09-16T20:57:31.939Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1519,7 +1519,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-16T10:58:03.369Z",
+    "updatedAt": "2026-09-16T20:57:31.941Z",
     "revisionCyclesCount": 0
   },
   {
@@ -8510,8 +8510,8 @@
     "totalScore": 85.4,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-11T07:28:52.789Z",
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-16T20:58:41.154Z",
     "pinterestScore": 85.3,
     "revisionCyclesCount": 0
   },
@@ -15611,12 +15611,37 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-npr",
+        "query": "npr",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-16T20:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-16T20:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "npr",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "npr"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-11T11:20:00.000Z",
     "tags": [
       "US",
@@ -15626,21 +15651,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-11T11:44:48.614Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-16T20:57:31.212Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260911-temperature",
@@ -35190,5 +35216,3046 @@
     "status": "SCORED",
     "updatedAt": "2026-09-16T10:58:03.362Z",
     "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-now-20260916-raphinha",
+    "canonicalTopic": "Raphinha",
+    "slug": "raphinha",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-raphinha",
+        "query": "Raphinha",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-16T20:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-16T20:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "raphinha",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "raphinha"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T20:40:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-16T20:57:31.163Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260916-troy-aikman",
+    "canonicalTopic": "Troy Aikman",
+    "slug": "troy-aikman",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-troy20aikman",
+        "query": "Troy Aikman",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-16T20:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-16T20:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "troy aikman",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "troy aikman"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T20:40:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-16T20:57:31.176Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260916-armando-gonzlez",
+    "canonicalTopic": "Armando Gonzlez",
+    "slug": "armando-gonzlez",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-armando20gonzC3A1le",
+        "query": "Armando Gonzlez",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-16T20:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-16T20:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "armando gonzález",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "armando gonzlez"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T20:40:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-16T20:57:31.195Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260916-white-house-chief-of-staff",
+    "canonicalTopic": "White House Chief of Staff",
+    "slug": "white-house-chief-of-staff",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-white20house20chi",
+        "query": "White House Chief of Staff",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-16T20:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-16T20:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "white house chief of staff",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "white house chief of staff"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T20:40:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-16T20:57:31.208Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260916-grand-central-news",
+    "canonicalTopic": "Grand Central News",
+    "slug": "grand-central-news",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-grand20central20n",
+        "query": "Grand Central News",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-16T20:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-16T20:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "grand central news",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "grand central news"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T20:40:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-16T20:57:31.222Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260916-olivia-miles-mvp-odds-minnesot",
+    "canonicalTopic": "Olivia Miles Mvp Odds Minnesota Lynx",
+    "slug": "olivia-miles-mvp-odds-minnesota-lynx",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-olivia20miles20mv",
+        "query": "Olivia Miles Mvp Odds Minnesota Lynx",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-16T20:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-16T20:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "olivia miles mvp odds minnesota lynx",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "olivia miles mvp odds minnesota lynx"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T20:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-16T20:57:31.240Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260916-la-liga",
+    "canonicalTopic": "La Liga",
+    "slug": "la-liga",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-la20liga",
+        "query": "La Liga",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-16T20:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-16T20:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "la liga",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "la liga"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T20:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-16T20:57:31.248Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260916-amc",
+    "canonicalTopic": "Amc",
+    "slug": "amc",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-amc",
+        "query": "Amc",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-16T20:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-16T20:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "amc",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "amc"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T20:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-16T20:57:31.254Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260916-amc-theaters",
+    "canonicalTopic": "Amc Theaters",
+    "slug": "amc-theaters",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-amc20theaters",
+        "query": "Amc Theaters",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-16T20:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-16T20:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "amc theaters",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "amc theaters"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T20:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-16T20:57:31.268Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-tech-ai-20260916-meet-a-mouse-whose-brain-corte",
+    "canonicalTopic": "Meet a Mouse Whose Brain Cortex Is Made Up of Human Cells",
+    "slug": "meet-a-mouse-whose-brain-cortex-is-made-up-of-human-cells",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-1-Meet20a20mouse20whose2",
+        "query": "Meet a Mouse Whose Brain Cortex Is Made Up of Human Cells",
+        "sourceUrl": "https://www.technologyreview.com/2026/09/16/1144210/meet-a-mouse-whose-brain-cortex-is-made-up-of-human-cells/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-09-16T15:00:00.000Z",
+        "contentSnippet": "Multiple cameras tracked a mouse as it wandered around a small arena. A computer charted its position and speed, leaving Pong-like traces on a monitor. The reason to watch this rodent so carefully? Nearly half its brain volume had been replaced with human cells. The effort to mix the brain tissues of distant species is…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T15:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "Meet a mouse whose brain cortex is made up of human cells",
+            "itemLink": "https://www.technologyreview.com/2026/09/16/1144210/meet-a-mouse-whose-brain-cortex-is-made-up-of-human-cells/",
+            "publishedDate": "2026-09-16T15:00:00.000Z",
+            "contentSnippet": "Multiple cameras tracked a mouse as it wandered around a small arena. A computer charted its position and speed, leaving Pong-like traces on a monitor. The reason to watch this rodent so carefully? Nearly half its brain volume had been replaced with human cells. The effort to mix the brain tissues of distant species is…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "Biotechnology and health",
+              "App",
+              "Summary"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "Biotechnology and health",
+            "App",
+            "Summary"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "meet a mouse whose brain cortex is made up of human cells"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T15:00:00.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "Biotechnology and health",
+      "App",
+      "Summary"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.290Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-building-the-materials-foundat",
+    "canonicalTopic": "Building the Materials Foundation for Ai",
+    "slug": "building-the-materials-foundation-for-ai",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-2-Building20the20materia",
+        "query": "Building the Materials Foundation for Ai",
+        "sourceUrl": "https://www.technologyreview.com/2026/09/16/1144014/building-the-materials-foundation-for-ai/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-09-16T12:47:34.000Z",
+        "contentSnippet": "The AI boom is becoming a materials challenge. As AI pushes computing into new territory, the materials behind that infrastructure are becoming just as crucial as the algorithms running on it. Semiconductors and data centers are approaching physical limits around performance, thermal management, electrical efficiency, and reliability, creating new demands for materials that can do…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T12:47:34.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "Building the materials foundation for AI",
+            "itemLink": "https://www.technologyreview.com/2026/09/16/1144014/building-the-materials-foundation-for-ai/",
+            "publishedDate": "2026-09-16T12:47:34.000Z",
+            "contentSnippet": "The AI boom is becoming a materials challenge. As AI pushes computing into new territory, the materials behind that infrastructure are becoming just as crucial as the algorithms running on it. Semiconductors and data centers are approaching physical limits around performance, thermal management, electrical efficiency, and reliability, creating new demands for materials that can do…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "Artificial intelligence",
+              "sponsored"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "Artificial intelligence",
+            "sponsored"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "building the materials foundation for ai"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T12:47:34.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "Artificial intelligence",
+      "sponsored"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.305Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-the-download-ais-trillion-doll",
+    "canonicalTopic": "The Download Ais Trillion-dollar Gamble and Openais Biology Data Bid",
+    "slug": "the-download-ais-trillion-dollar-gamble-and-openais-biology-data-bid",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-3-The20Download3A20AIE28",
+        "query": "The Download Ais Trillion-dollar Gamble and Openais Biology Data Bid",
+        "sourceUrl": "https://www.technologyreview.com/2026/09/16/1144205/the-download-ai-trillion-dollar-build-openai-biological-data/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-09-16T12:10:00.000Z",
+        "contentSnippet": "This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. What’s at stake in AI’s trillion-dollar gamble When Jessica Wachter, a finance professor at the University of Pennsylvania, wanted to assess AI’s impact on the economy over the next few years,…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T12:10:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "The Download: AI’s trillion-dollar gamble and OpenAI's biology data bid",
+            "itemLink": "https://www.technologyreview.com/2026/09/16/1144205/the-download-ai-trillion-dollar-build-openai-biological-data/",
+            "publishedDate": "2026-09-16T12:10:00.000Z",
+            "contentSnippet": "This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. What’s at stake in AI’s trillion-dollar gamble When Jessica Wachter, a finance professor at the University of Pennsylvania, wanted to assess AI’s impact on the economy over the next few years,…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "The Download"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "The Download"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the download ais trillion-dollar gamble and openais biology data bid"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T12:10:00.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "The Download"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.329Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-the-ai-data-center-e-waste-pro",
+    "canonicalTopic": "The Ai Data Center E-waste Problem Is Huge — and Getting Bigger",
+    "slug": "the-ai-data-center-e-waste-problem-is-huge-and-getting-bigger",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-The20AI20data20center20e",
+        "query": "The Ai Data Center E-waste Problem Is Huge — and Getting Bigger",
+        "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/996470/ai-data-center-e-waste-ban",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-16T20:40:46.000Z",
+        "contentSnippet": "E-waste from the AI boom has been vastly underestimated, a new report warns. By 2050, it could become enough trash to fill 23 million shipping containers - roughly enough 40-foot containers to circle the world six times if lined up in a row. It's a significantly higher estimate of AI's e-waste than previous studies have […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T20:40:46.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "The AI data center e-waste problem is huge — and getting bigger",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/996470/ai-data-center-e-waste-ban",
+            "publishedDate": "2026-09-16T20:40:46.000Z",
+            "contentSnippet": "E-waste from the AI boom has been vastly underestimated, a new report warns. By 2050, it could become enough trash to fill 23 million shipping containers - roughly enough 40-foot containers to circle the world six times if lined up in a row. It's a significantly higher estimate of AI's e-waste than previous studies have […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "Environment",
+              "Science"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "Environment",
+            "Science"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the ai data center e-waste problem is huge — and getting bigger"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T20:40:46.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "Environment",
+      "Science"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.351Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-resident-evil-is-a-comedy-firs",
+    "canonicalTopic": "Resident Evil Is a Comedy First and a Thrilling Nightmare Second",
+    "slug": "resident-evil-is-a-comedy-first-and-a-thrilling-nightmare-second",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-Resident20Evil20is20a20c",
+        "query": "Resident Evil Is a Comedy First and a Thrilling Nightmare Second",
+        "sourceUrl": "https://www.theverge.com/entertainment/996416/resident-zach-cregger-review",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-16T18:45:35.000Z",
+        "contentSnippet": "When Paul W.S. Anderson's Resident Evil hit theaters in 2002, video game movies were largely seen as a niche. Films like Mortal Kombat and Tomb Raider had proven that big-screen game adaptations could be successful, but the commercial and critical failure of projects like the 1993 Super Mario Bros. still cast a long shadow. And […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T18:45:35.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Resident Evil is a comedy first and a thrilling nightmare second",
+            "itemLink": "https://www.theverge.com/entertainment/996416/resident-zach-cregger-review",
+            "publishedDate": "2026-09-16T18:45:35.000Z",
+            "contentSnippet": "When Paul W.S. Anderson's Resident Evil hit theaters in 2002, video game movies were largely seen as a niche. Films like Mortal Kombat and Tomb Raider had proven that big-screen game adaptations could be successful, but the commercial and critical failure of projects like the 1993 Super Mario Bros. still cast a long shadow. And […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Entertainment",
+              "Film",
+              "Gaming",
+              "Movie Review"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Entertainment",
+            "Film",
+            "Gaming",
+            "Movie Review"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "resident evil is a comedy first and a thrilling nightmare second"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T18:45:35.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Entertainment",
+      "Film",
+      "Gaming",
+      "Movie Review"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.373Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-walmart-takes-a-bite-off-the-c",
+    "canonicalTopic": "Walmart Takes a Bite Off the Cost of Metroid Ravenous Physical Preorders",
+    "slug": "walmart-takes-a-bite-off-the-cost-of-metroid-ravenous-physical-preorders",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-Walmart20takes20a20bite",
+        "query": "Walmart Takes a Bite Off the Cost of Metroid Ravenous Physical Preorders",
+        "sourceUrl": "https://www.theverge.com/gadgets/996379/metroid-ravenous-preorder-deal-sale",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-16T18:20:38.000Z",
+        "contentSnippet": "The Metroid series is going back to its 2D roots again with Metroid Ravenous for the Nintendo Switch 2, the first side-scrolling game in the series since 2021’s Metroid Dread for the Nintendo Switch. If you’re already excited enough to consider preordering, you can save $10 on the physical version of the game when you […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T18:20:38.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Walmart takes a bite off the cost of Metroid Ravenous physical preorders",
+            "itemLink": "https://www.theverge.com/gadgets/996379/metroid-ravenous-preorder-deal-sale",
+            "publishedDate": "2026-09-16T18:20:38.000Z",
+            "contentSnippet": "The Metroid series is going back to its 2D roots again with Metroid Ravenous for the Nintendo Switch 2, the first side-scrolling game in the series since 2021’s Metroid Dread for the Nintendo Switch. If you’re already excited enough to consider preordering, you can save $10 on the physical version of the game when you […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Deals",
+              "Gadgets",
+              "Gaming",
+              "Nintendo",
+              "Verge Shopping"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Deals",
+            "Gadgets",
+            "Gaming",
+            "Nintendo",
+            "Verge Shopping"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "walmart takes a bite off the cost of metroid ravenous physical preorders"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T18:20:38.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Deals",
+      "Gadgets",
+      "Gaming",
+      "Nintendo",
+      "Verge Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.396Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-apple-might-make-servers-again",
+    "canonicalTopic": "Apple Might Make Servers Again to Cash in on the Ai Rush",
+    "slug": "apple-might-make-servers-again-to-cash-in-on-the-ai-rush",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-4-Apple20might20make20ser",
+        "query": "Apple Might Make Servers Again to Cash in on the Ai Rush",
+        "sourceUrl": "https://www.theverge.com/tech/996321/apple-servers-ai-nvidia",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-16T17:20:29.000Z",
+        "contentSnippet": "According to The Information, Apple is planning to get back into the server game and might just pair up with Nvidia to make it happen. Apple retired its Xserve line in 2011 and has largely left enterprise machines to other manufacturers since. But the growing demand for compute power as the AI industry continues to […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T17:20:29.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Apple might make servers again to cash in on the AI rush",
+            "itemLink": "https://www.theverge.com/tech/996321/apple-servers-ai-nvidia",
+            "publishedDate": "2026-09-16T17:20:29.000Z",
+            "contentSnippet": "According to The Information, Apple is planning to get back into the server game and might just pair up with Nvidia to make it happen. Apple retired its Xserve line in 2011 and has largely left enterprise machines to other manufacturers since. But the growing demand for compute power as the AI industry continues to […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "Apple",
+              "Apple Rumors",
+              "News",
+              "Nvidia",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "Apple",
+            "Apple Rumors",
+            "News",
+            "Nvidia",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "apple might make servers again to cash in on the ai rush"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T17:20:29.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "Apple",
+      "Apple Rumors",
+      "News",
+      "Nvidia",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.417Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-your-health-age-is-fake",
+    "canonicalTopic": "Your Health Age Is Fake",
+    "slug": "your-health-age-is-fake",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-5-Your20E28098health20ageE2809",
+        "query": "Your Health Age Is Fake",
+        "sourceUrl": "https://www.theverge.com/column/995939/optimizer-health-age-wearables-longevity",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-16T17:00:00.000Z",
+        "contentSnippet": "This is Optimizer, a weekly newsletter sent from Verge senior reviewer Victoria Song that dissects and discusses the latest gizmos and potions that swear they're going to change your life. Opt in for Optimizer here. During last week's Apple Watch announcement, I let out a distinct \"Noooo!\" in the Steve Jobs Theater. Along with a […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T17:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Your ‘health age’ is fake",
+            "itemLink": "https://www.theverge.com/column/995939/optimizer-health-age-wearables-longevity",
+            "publishedDate": "2026-09-16T17:00:00.000Z",
+            "contentSnippet": "This is Optimizer, a weekly newsletter sent from Verge senior reviewer Victoria Song that dissects and discusses the latest gizmos and potions that swear they're going to change your life. Opt in for Optimizer here. During last week's Apple Watch announcement, I let out a distinct \"Noooo!\" in the Steve Jobs Theater. Along with a […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Column",
+              "Gadgets",
+              "Health",
+              "Optimizer",
+              "Science",
+              "Wearable"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Column",
+            "Gadgets",
+            "Health",
+            "Optimizer",
+            "Science",
+            "Wearable"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "your health age is fake"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T17:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Column",
+      "Gadgets",
+      "Health",
+      "Optimizer",
+      "Science",
+      "Wearable"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.429Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-its-ok-to-tell-ice-their-actio",
+    "canonicalTopic": "Its Ok to Tell Ice Their Actions Will Haunt Them Judge Rules in Speech Fight",
+    "slug": "its-ok-to-tell-ice-their-actions-will-haunt-them-judge-rules-in-speech-fight",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-1-ItE28099s20OK20to20tell20",
+        "query": "Its Ok to Tell Ice Their Actions Will Haunt Them Judge Rules in Speech Fight",
+        "sourceUrl": "https://arstechnica.com/tech-policy/2026/09/its-ok-to-tell-ice-their-actions-will-haunt-them-judge-rules-in-speech-fight/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-16T17:06:06.000Z",
+        "contentSnippet": "Man wins fight to block ICE threat over off-the-cuff angry email.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T17:06:06.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "It’s OK to tell ICE their actions will haunt them, judge rules in speech fight",
+            "itemLink": "https://arstechnica.com/tech-policy/2026/09/its-ok-to-tell-ice-their-actions-will-haunt-them-judge-rules-in-speech-fight/",
+            "publishedDate": "2026-09-16T17:06:06.000Z",
+            "contentSnippet": "Man wins fight to block ICE threat over off-the-cuff angry email.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Policy",
+              "censorship",
+              "First Amendment",
+              "free speech",
+              "ice",
+              "immigration and customs enforcement"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Policy",
+            "censorship",
+            "First Amendment",
+            "free speech",
+            "ice",
+            "immigration and customs enforcement"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "its ok to tell ice their actions will haunt them judge rules in speech fight"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T17:06:06.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Policy",
+      "censorship",
+      "First Amendment",
+      "free speech",
+      "ice",
+      "immigration and customs enforcement"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.457Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-iran-strikes-on-amazon-data-ce",
+    "canonicalTopic": "Iran Strikes on Amazon Data Centers Caused Permanent Loss of Customer Data",
+    "slug": "iran-strikes-on-amazon-data-centers-caused-permanent-loss-of-customer-data",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-2-Iran20strikes20on20Amaz",
+        "query": "Iran Strikes on Amazon Data Centers Caused Permanent Loss of Customer Data",
+        "sourceUrl": "https://arstechnica.com/gadgets/2026/09/iran-strikes-on-amazon-data-centers-caused-permanent-loss-of-customer-data/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-16T16:40:11.000Z",
+        "contentSnippet": "War damage to data centers exceeded what AWS services are designed to withstand.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T16:40:11.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Iran strikes on Amazon data centers caused permanent loss of customer data",
+            "itemLink": "https://arstechnica.com/gadgets/2026/09/iran-strikes-on-amazon-data-centers-caused-permanent-loss-of-customer-data/",
+            "publishedDate": "2026-09-16T16:40:11.000Z",
+            "contentSnippet": "War damage to data centers exceeded what AWS services are designed to withstand.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Tech",
+              "ai data centers",
+              "Amazon",
+              "Amazon AWS",
+              "Amazon Web Services",
+              "AWS",
+              "aws outage",
+              "cloud services",
+              "data centers",
+              "Iran",
+              "military drones",
+              "USA-Iran War"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Tech",
+            "ai data centers",
+            "Amazon",
+            "Amazon AWS",
+            "Amazon Web Services",
+            "AWS",
+            "aws outage",
+            "cloud services",
+            "data centers",
+            "Iran",
+            "military drones",
+            "USA-Iran War"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "iran strikes on amazon data centers caused permanent loss of customer data"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T16:40:11.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Tech",
+      "ai data centers",
+      "Amazon",
+      "Amazon AWS",
+      "Amazon Web Services",
+      "AWS",
+      "aws outage",
+      "cloud services",
+      "data centers",
+      "Iran",
+      "military drones",
+      "USA-Iran War"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.481Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-what-happens-when-neutrinos-sw",
+    "canonicalTopic": "What Happens When Neutrinos Swap Identities Inside a Supernova",
+    "slug": "what-happens-when-neutrinos-swap-identities-inside-a-supernova",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-3-What20happens20when20ne",
+        "query": "What Happens When Neutrinos Swap Identities Inside a Supernova",
+        "sourceUrl": "https://arstechnica.com/science/2026/09/what-happens-when-neutrinos-swap-identities-inside-a-supernova/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-16T15:17:43.000Z",
+        "contentSnippet": "Identity-fluid particles may carry some energy out, leading to direct collapse.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T15:17:43.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "What happens when neutrinos swap identities inside a supernova?",
+            "itemLink": "https://arstechnica.com/science/2026/09/what-happens-when-neutrinos-swap-identities-inside-a-supernova/",
+            "publishedDate": "2026-09-16T15:17:43.000Z",
+            "contentSnippet": "Identity-fluid particles may carry some energy out, leading to direct collapse.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Science",
+              "astrophysics",
+              "neutrinos",
+              "particle physics",
+              "Physics",
+              "supernovas"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Science",
+            "astrophysics",
+            "neutrinos",
+            "particle physics",
+            "Physics",
+            "supernovas"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "what happens when neutrinos swap identities inside a supernova"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T15:17:43.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Science",
+      "astrophysics",
+      "neutrinos",
+      "particle physics",
+      "Physics",
+      "supernovas"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.503Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-macos-27-golden-gate-the-ars-t",
+    "canonicalTopic": "Macos 27 Golden Gate the Ars Technica Review",
+    "slug": "macos-27-golden-gate-the-ars-technica-review",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-4-macOS202720Golden20Gate",
+        "query": "Macos 27 Golden Gate the Ars Technica Review",
+        "sourceUrl": "https://arstechnica.com/gadgets/2026/09/macos-27-golden-gate-the-ars-technica-review/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-16T14:50:06.000Z",
+        "contentSnippet": "It's both a \"Snow Leopard update\" and a major leap for Apple Intelligence.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T14:50:06.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "macOS 27 Golden Gate: The Ars Technica review",
+            "itemLink": "https://arstechnica.com/gadgets/2026/09/macos-27-golden-gate-the-ars-technica-review/",
+            "publishedDate": "2026-09-16T14:50:06.000Z",
+            "contentSnippet": "It's both a \"Snow Leopard update\" and a major leap for Apple Intelligence.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Apple",
+              "Features",
+              "Tech",
+              "apple",
+              "Apple silicon",
+              "MacOS",
+              "macos 27",
+              "macos 27 golden gate",
+              "macos golden gate"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Apple",
+            "Features",
+            "Tech",
+            "apple",
+            "Apple silicon",
+            "MacOS",
+            "macos 27",
+            "macos 27 golden gate",
+            "macos golden gate"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "macos 27 golden gate the ars technica review"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T14:50:06.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Apple",
+      "Features",
+      "Tech",
+      "apple",
+      "Apple silicon",
+      "MacOS",
+      "macos 27",
+      "macos 27 golden gate",
+      "macos golden gate"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.520Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260916-the-worlds-best-racing-driver-",
+    "canonicalTopic": "The Worlds Best Racing Driver Is About to Race 100 Karts at Once",
+    "slug": "the-worlds-best-racing-driver-is-about-to-race-100-karts-at-once",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-5-The20worldE28099s20best20",
+        "query": "The Worlds Best Racing Driver Is About to Race 100 Karts at Once",
+        "sourceUrl": "https://arstechnica.com/cars/2026/09/the-worlds-best-racing-driver-is-about-to-race-100-karts-at-once/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-16T14:19:01.000Z",
+        "contentSnippet": "Red Bull, Disney+, and ESPN are streaming the race at noon Eastern today.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T14:19:01.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "The world’s best racing driver is about to race 100 karts at once",
+            "itemLink": "https://arstechnica.com/cars/2026/09/the-worlds-best-racing-driver-is-about-to-race-100-karts-at-once/",
+            "publishedDate": "2026-09-16T14:19:01.000Z",
+            "contentSnippet": "Red Bull, Disney+, and ESPN are streaming the race at noon Eastern today.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Cars",
+              "Racing",
+              "red bull"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Cars",
+            "Racing",
+            "red bull"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the worlds best racing driver is about to race 100 karts at once"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T14:19:01.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Cars",
+      "Racing",
+      "red bull"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.543Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260916-9-standout-galapagos-cruises-f",
+    "canonicalTopic": "9 Standout Galapagos Cruises for Sailing the Bucket-list Wildlife Destination",
+    "slug": "9-standout-galapagos-cruises-for-sailing-the-bucket-list-wildlife-destination",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-920Standout20Galapagos",
+        "query": "9 Standout Galapagos Cruises for Sailing the Bucket-list Wildlife Destination",
+        "sourceUrl": "https://www.cntraveler.com/story/best-galapagos-cruises",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-16T20:33:20.000Z",
+        "contentSnippet": "From luxury ships to affordable sailings, family-friendly and solo-traveler-favorites, there’s a cruise in the Galapagos for every type of traveler.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T20:33:20.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "9 Standout Galapagos Cruises for Sailing the Bucket-List Wildlife Destination",
+            "itemLink": "https://www.cntraveler.com/story/best-galapagos-cruises",
+            "publishedDate": "2026-09-16T20:33:20.000Z",
+            "contentSnippet": "From luxury ships to affordable sailings, family-friendly and solo-traveler-favorites, there’s a cruise in the Galapagos for every type of traveler.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Cruise"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Cruise"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "9 standout galapagos cruises for sailing the bucket-list wildlife destination"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T20:33:20.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Cruise"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.568Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260916-arquitectonica-designs-worlds-",
+    "canonicalTopic": "Arquitectonica Designs Worlds Largest Cruise Terminal to Mirror Directionality of Ships",
+    "slug": "arquitectonica-designs-worlds-largest-cruise-terminal-to-mirror-directionality-of-ships",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-Arquitectonica20desig",
+        "query": "Arquitectonica Designs Worlds Largest Cruise Terminal to Mirror Directionality of Ships",
+        "sourceUrl": "https://www.dezeen.com/2026/09/16/arquitectonica-msc-cruise-terminal-port-miami/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-16T16:00:05.000Z",
+        "contentSnippet": "Local architecture studio Arquitectonica has shaped the MSC Cruise Terminal, the world's largest cruise terminal by size, in Miami to accommodate three ships at once. Arquitectonica designed a slim, elongated building for the building, which processes 36,000 daily passengers through its 492,000-square-feet (45,700 square metres). Arquitectonica has completed the world's largest cruise terminal at Port The post Arquitectonica designs world's largest cruise terminal to \"mirror directionality\" of ships appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T16:00:05.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Arquitectonica designs world's largest cruise terminal to \"mirror directionality\" of ships",
+            "itemLink": "https://www.dezeen.com/2026/09/16/arquitectonica-msc-cruise-terminal-port-miami/",
+            "publishedDate": "2026-09-16T16:00:05.000Z",
+            "contentSnippet": "Local architecture studio Arquitectonica has shaped the MSC Cruise Terminal, the world's largest cruise terminal by size, in Miami to accommodate three ships at once. Arquitectonica designed a slim, elongated building for the building, which processes 36,000 daily passengers through its 492,000-square-feet (45,700 square metres). Arquitectonica has completed the world's largest cruise terminal at Port The post Arquitectonica designs world's largest cruise terminal to \"mirror directionality\" of ships appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "News",
+              "Cruise ships",
+              "Miami",
+              "USA",
+              "Florida",
+              "Seaside architecture and design",
+              "Arquitectonica"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "News",
+            "Cruise ships",
+            "Miami",
+            "USA",
+            "Florida",
+            "Seaside architecture and design",
+            "Arquitectonica"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "arquitectonica designs worlds largest cruise terminal to mirror directionality of ships"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T16:00:05.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "News",
+      "Cruise ships",
+      "Miami",
+      "USA",
+      "Florida",
+      "Seaside architecture and design",
+      "Arquitectonica"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.602Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260916-gingko-lounge-chair-by-anne-me",
+    "canonicalTopic": "Gingko Lounge Chair by Anne-mette Bartholin and Morten Ernst for Cozmo",
+    "slug": "gingko-lounge-chair-by-anne-mette-bartholin-and-morten-ernst-for-cozmo",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-2-Gingko20lounge20chair20",
+        "query": "Gingko Lounge Chair by Anne-mette Bartholin and Morten Ernst for Cozmo",
+        "sourceUrl": "https://www.dezeen.com/2026/09/16/gingko-lounge-chair-anne-mette-bartholin-cozmo-dezeen-showroom/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-16T13:00:01.000Z",
+        "contentSnippet": "Dezeen Showroom: economy of material and sculptural presence meet in this lounge chair, designed by Anne-mette Bartholin and Morten Ernst for furniture brand Cozmo. The Gingko lounge chair is the product of a simple gesture, where a 2D shape is turned into a 3D object using as little material as possible. Bartholin and Ernst originally The post Gingko lounge chair by Anne-mette Bartholin and Morten Ernst for Cozmo appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T13:00:01.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Gingko lounge chair by Anne-mette Bartholin and Morten Ernst for Cozmo",
+            "itemLink": "https://www.dezeen.com/2026/09/16/gingko-lounge-chair-anne-mette-bartholin-cozmo-dezeen-showroom/",
+            "publishedDate": "2026-09-16T13:00:01.000Z",
+            "contentSnippet": "Dezeen Showroom: economy of material and sculptural presence meet in this lounge chair, designed by Anne-mette Bartholin and Morten Ernst for furniture brand Cozmo. The Gingko lounge chair is the product of a simple gesture, where a 2D shape is turned into a 3D object using as little material as possible. Bartholin and Ernst originally The post Gingko lounge chair by Anne-mette Bartholin and Morten Ernst for Cozmo appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "Furniture",
+              "all",
+              "Lounge chairs",
+              "Design",
+              "Do not show on the Homepage",
+              "Dezeen Showroom",
+              "Cozmo Home",
+              "Seating",
+              "Chairs"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "Furniture",
+            "all",
+            "Lounge chairs",
+            "Design",
+            "Do not show on the Homepage",
+            "Dezeen Showroom",
+            "Cozmo Home",
+            "Seating",
+            "Chairs"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "gingko lounge chair by anne-mette bartholin and morten ernst for cozmo"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T13:00:01.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "Furniture",
+      "all",
+      "Lounge chairs",
+      "Design",
+      "Do not show on the Homepage",
+      "Dezeen Showroom",
+      "Cozmo Home",
+      "Seating",
+      "Chairs"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.625Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-life-20260916-bob-the-drag-queens-greatest-g",
+    "canonicalTopic": "Bob the Drag Queens Greatest Gift As an Artist Is Unorthodox—and Its Now Helping Her Succeed As an Entrepreneur",
+    "slug": "bob-the-drag-queens-greatest-gift-as-an-artist-is-unorthodox-and-its-now-helping-her-succeed-as-an-entrepreneur",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-1-Bob20the20Drag20QueenE280",
+        "query": "Bob the Drag Queens Greatest Gift As an Artist Is Unorthodox—and Its Now Helping Her Succeed As an Entrepreneur",
+        "sourceUrl": "https://www.fastcompany.com/91607988/bob-the-drag-queen-greatest-gift-as-an-artist-is-helping-her-succeed-as-an-entrepreneur",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-16T19:00:00.000Z",
+        "contentSnippet": "Bob the Drag Queen is the multihyphenate to end all multihyphenates. She may have “the Drag Queen” in her name, but Bob’s career has expanded far beyond its origins in New York City’s drag scene. Since winning RuPaul’s Drag Race and making a name for herself on the world’s biggest platform for drag artists, she’s led an HBO series , appeared on Broadway, starred in several comedy specials, hosted a podcast with thousands of listeners, launched a fashion brand, published a New York Times bestselling book, and founded her own production company, Purse First Studios.&nbsp; According to Bob herself (who identifies as nonbinary and uses both she/her and he/him pronouns), she’s always known she was destined for greatness. At the Fast Company Innovation Festival, Bob shared that even in her audition for RuPaul’s Drag Race , she told the producers that the show would only be a footnote in her eventual career. “I said, ‘Not only am I going to win RuPaul’s Drag Race , but it won't even be the most interesting thing I do in my life,’” Bob told the crowd, speaking virtually from Los Angeles. “I'm nothing if not audacious.” That unabashed confidence, she explained, is a byproduct of her “greatest gift as an artist, as a business, as a businessman”: not being a perfectionist. “I would rather just do it and get it right the next time than try to be perfect. I am a doer,” Bob said. “When people brag about being a perfectionist, I think it's probably a coping mechanism to excuse why you're not doing what you need to be doing.” Taking a cue from Top Gun Along with letting go of perfection, Bob encouraged other creatives to recognize that putting art into the world means losing control of how it’s perceived. “Once you make it, you got to let it go,” she said. “IP, it belongs to you, but once you make it and put it out, it is now public property.” As an example, she recalled being at a movie theater to watch 2022’s The Batman . Before that movie, a trailer for Top Gun: Maverick played, sending Bob down a mental rabbit hole of the 30-year effort to bring the trailer to fruition. From the creative energy spent on the original Top Gun film in 1986 and its $15 million budget (a figure she looked up while telling this story), to the even bigger production mounted for its sequel decades later, Bob couldn’t help but wonder at the number of creative hands that had touched the property on its way to that cinema screen—only for the product to immediately fall flat. “When the trailer was done, the guy next to me went, ‘Ugh, I'm not watching that,’” she said. “That's crazy! I said to myself, ‘You know what, you gotta just make it and put it out there.’” “Granted, I also didn't watch it,” she admitted. “Granted, I ain't ever seen Top Gun in my life.” Offering her megaphone Beyond her own creative endeavors, Bob has helped other creatives step into the spotlight through Purse First Studios. She highlighted Zach Noe Towers’s comedy special Twink Death and the podcast Quit Playin’ , hosted by Amber Wallin and Jazmyn W. , as examples of standout projects her production company has worked on since its founding in 2025. “I'm like, someone needs to hear your voice, and I can use my megaphone,\" Bob said. \"You know, there are a lot of megaphones bigger than mine, but I have a loud voice.” She compared her current platform to the experience of riding the New York City subway while in drag, something she regularly did early in her career. When other riders would turn and stare, she said she’d feel obligated to take advantage of the attention to “say something important.” “I better do something with that attention that I have, because that might not happen forever,” she said—though she acknowledged that drag has never been more mainstream, thanks in no small part to RuPaul’s Drag Race . The flagship American series has seen more than 200 drag queens compete across its 18 seasons. Taking into account the franchise’s 15 international spinoffs, that number balloons to nearly 800. Among those hundreds of drag artists, Bob counts herself “very lucky to be one of the ones that people listen to.” “Am I number one? No,” she conceded. “Am I top five? Obviously.”",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T19:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Bob the Drag Queen’s ‘greatest gift’ as an artist is unorthodox—and it’s now helping her succeed as an entrepreneur",
+            "itemLink": "https://www.fastcompany.com/91607988/bob-the-drag-queen-greatest-gift-as-an-artist-is-helping-her-succeed-as-an-entrepreneur",
+            "publishedDate": "2026-09-16T19:00:00.000Z",
+            "contentSnippet": "Bob the Drag Queen is the multihyphenate to end all multihyphenates. She may have “the Drag Queen” in her name, but Bob’s career has expanded far beyond its origins in New York City’s drag scene. Since winning RuPaul’s Drag Race and making a name for herself on the world’s biggest platform for drag artists, she’s led an HBO series , appeared on Broadway, starred in several comedy specials, hosted a podcast with thousands of listeners, launched a fashion brand, published a New York Times bestselling book, and founded her own production company, Purse First Studios.&nbsp; According to Bob herself (who identifies as nonbinary and uses both she/her and he/him pronouns), she’s always known she was destined for greatness. At the Fast Company Innovation Festival, Bob shared that even in her audition for RuPaul’s Drag Race , she told the producers that the show would only be a footnote in her eventual career. “I said, ‘Not only am I going to win RuPaul’s Drag Race , but it won't even be the most interesting thing I do in my life,’” Bob told the crowd, speaking virtually from Los Angeles. “I'm nothing if not audacious.” That unabashed confidence, she explained, is a byproduct of her “greatest gift as an artist, as a business, as a businessman”: not being a perfectionist. “I would rather just do it and get it right the next time than try to be perfect. I am a doer,” Bob said. “When people brag about being a perfectionist, I think it's probably a coping mechanism to excuse why you're not doing what you need to be doing.” Taking a cue from Top Gun Along with letting go of perfection, Bob encouraged other creatives to recognize that putting art into the world means losing control of how it’s perceived. “Once you make it, you got to let it go,” she said. “IP, it belongs to you, but once you make it and put it out, it is now public property.” As an example, she recalled being at a movie theater to watch 2022’s The Batman . Before that movie, a trailer for Top Gun: Maverick played, sending Bob down a mental rabbit hole of the 30-year effort to bring the trailer to fruition. From the creative energy spent on the original Top Gun film in 1986 and its $15 million budget (a figure she looked up while telling this story), to the even bigger production mounted for its sequel decades later, Bob couldn’t help but wonder at the number of creative hands that had touched the property on its way to that cinema screen—only for the product to immediately fall flat. “When the trailer was done, the guy next to me went, ‘Ugh, I'm not watching that,’” she said. “That's crazy! I said to myself, ‘You know what, you gotta just make it and put it out there.’” “Granted, I also didn't watch it,” she admitted. “Granted, I ain't ever seen Top Gun in my life.” Offering her megaphone Beyond her own creative endeavors, Bob has helped other creatives step into the spotlight through Purse First Studios. She highlighted Zach Noe Towers’s comedy special Twink Death and the podcast Quit Playin’ , hosted by Amber Wallin and Jazmyn W. , as examples of standout projects her production company has worked on since its founding in 2025. “I'm like, someone needs to hear your voice, and I can use my megaphone,\" Bob said. \"You know, there are a lot of megaphones bigger than mine, but I have a loud voice.” She compared her current platform to the experience of riding the New York City subway while in drag, something she regularly did early in her career. When other riders would turn and stare, she said she’d feel obligated to take advantage of the attention to “say something important.” “I better do something with that attention that I have, because that might not happen forever,” she said—though she acknowledged that drag has never been more mainstream, thanks in no small part to RuPaul’s Drag Race . The flagship American series has seen more than 200 drag queens compete across its 18 seasons. Taking into account the franchise’s 15 international spinoffs, that number balloons to nearly 800. Among those hundreds of drag artists, Bob counts herself “very lucky to be one of the ones that people listen to.” “Am I number one? No,” she conceded. “Am I top five? Obviously.”",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "News"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "News"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "bob the drag queens greatest gift as an artist is unorthodox—and its now helping her succeed as an entrepreneur"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T19:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "News"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.663Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260916-15-leaders-on-the-economic-ind",
+    "canonicalTopic": "15 Leaders on the Economic Indicators Companies Should Watch",
+    "slug": "15-leaders-on-the-economic-indicators-companies-should-watch",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-2-1520leaders20on20the20ec",
+        "query": "15 Leaders on the Economic Indicators Companies Should Watch",
+        "sourceUrl": "https://www.fastcompany.com/91601018/15-leaders-on-the-economic-indicators-companies-should-watch",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-16T18:23:39.000Z",
+        "contentSnippet": "If you’re only focused on a few economic metrics to run your business, you may miss what’s right in front of you that can help you course correct and drive growth. Some useful economic indicators don’t show up in financial news. Others get media coverage, but leaders may overlook them thinking “that doesn’t apply to us.” We asked members of the Fast Company Impact Council what economic indicators companies should pay more attention to. Fifteen of them weighed in with the data they think deserves more attention or a closer reading. 1. SPEED OF REGULATORY CHANGES I believe we should focus on the speed of regulatory changes rather than traditional charts and data. In fast-paced fields like artificial intelligence and data, rules change so quickly that companies often struggle to keep up. A business might look successful today, but one new regulation can completely change what it is allowed to do. Therefore, watching regulatory trends gives you a better view of your future than looking at quarterly financial reports. Companies that pay attention to these changes early stay ahead, while others are left striving to catch up. — Denas Grybauskas , Oxylabs 2. HEALTHCARE COSTS The fastest growing, least managed, and most unsustainable cost for business today is healthcare. The United States spends more than $5 trillion on healthcare each year. Companies are experiencing significant cost increases with no end in sight. Employers have the power to break—not just bend—the cost curve, and they may be the only ones who do. Leveraging innovative and AI-powered benefits solutions, employers can take the power into their own hands and build a future that makes it easy for their people to access high-quality, affordable healthcare while reducing costs to their businesses. — Glen Tullman , Transcarent 3. LABOR-FORCE PARTICIPATION RATES I suggest that companies pay close attention to the labor-force participation rate. Especially by region and demographic group. The unemployment rate is calculated only from people in the labor force who are working or actively seeking employment. Participation shows how much of the population is engaged. Leaders should pair occupation-level job postings, skills, and wage data to create a clear picture of labor supply and where talent pipelines are breaking down. — Paul Toomey , Geographic Solutions 4. AI TIME-TO-FIRST REVENUE Artificial intelligence is dramatically compressing the distance from idea to first dollar, so it's crucial to measure your company's time-to-first revenue. In science and deep technology, AI is poised to accelerate discovery and R&D: There, the measure to watch is cost per experiment. Every physical experiment tends to cost months and serious money, but AI models and automation are beginning to compress that loop and its cost by orders of magnitude. Cost per experiment sets how many shots on goal you get before the money runs out. Measuring and managing that cost can help you turn your moonshot into an investable venture. — Andrea Carafa , UC Santa Cruz 5. COST AND AVAILABILITY OF MONEY For companies connected to real estate, design, construction, or other capital projects, the most revealing indicator is often the cost and availability of money—not simply the headline interest rate. Credit conditions influence whether organizations can fund expansion, workplace investment, and transformation. But financial signals should be read alongside policy direction and workforce expectations. The numbers tell us what is possible. Cultural and political context helps reveal what is likely. — Susan Watts , SPACECRAFT 6. TEACHER RETENTION DATA An unexpected economic indicator is teacher retention data. It sounds like an education metric, but it’s a regional workforce indicator hiding in plain sight. A district losing experienced teachers loses the pipeline that feeds local employers—the students who would have graduated ready for skilled trades, healthcare, advanced manufacturing, or technology roles. Companies track unemployment and job openings closely. Few track teacher attrition, even though it moves years ahead of the labor numbers everyone else watches. The right question for any company hiring in a given region: Is the local teacher shortage about to become our hiring shortage? — Kellie Lauth , MindSpark 7. INDICATORS THAT DRIVE THEIR BUSINESS No single economic indicator matters in isolation because every indicator is ultimately a proxy for human behavior. Companies should focus on the indicators that best reflect the people who drive their business—customers, employees, investors, or partners—and interpret them through the lens of their mission, strategy, and objectives. Purpose first, systems second. Tools, including economic indicators, only have value when they improve decisions. — Andrea Montecchi , Oliver Wight Americas 8. FOUR INDICATORS OF A PRODUCTIVE WORKFORCE Strong health systems, education access, food security, and resilient local infrastructure are leading indicators of a productive workforce and a stable economy. Investing in children isn't separate from economic growth. It’s a strong predictor of both. — Michele Walsh , UNICEF USA 9. THOSE THAT AFFECT YOUR CUSTOMER If you're selling toys to parents, watch wages, childcare costs, and consumer sentiment, not headline GDP. We build software for founders and small teams, so I track small business optimism and early-stage funding activity. Those indicators tell me whether clients will greenlight new work next quarter. Pick the two or three indicators that predict your customers' willingness to spend and let the rest be noise. — Lindsey Witmer Collins , WLCM App Studio 10. DIRECTION OF LIQUIDITY I think companies should pay more attention to the direction of liquidity, not just headline economic data. Interest rates, lending conditions, and access to capital often shape customer and investor behavior before the impact appears in revenue or employment numbers. When liquidity tightens, even strong businesses can feel pressure quickly. Understanding where capital is flowing can give leaders an earlier read on where the economy is heading. — George Kailas , Prospero.ai 11. INFLATION I am paying closer attention to inflation, particularly how it affects price-capped partner ecosystems. In the music industry, for instance, subscription pricing at streaming giants like Spotify and Apple cannot shift overnight, creating a margin squeeze that demands immediate operational agility. — Logan Mulvey , GoDigital Music 12. LEVERAGE People forget it works both ways. Keeping an eye on debt levels is the most honest indicator we have for spotting fragility before things break. — Khozema Shipchandler , Twilio 13. COST OF LIVING One economic indicator that companies should pay closer attention to is the cost of living. When was the last time you considered your team’s financial reality? Student debt, caregiving, childcare, and rising costs don’t stay at home. They show up at work. If salaries aren’t keeping pace, employees notice. Senior leaders and executives are often insulated from these pressures, but their teams experience the daily strain of rising costs. We have a responsibility to ensure compensation reflects today’s economic realities. It’s not only the right thing to do. It’s also a smarter strategy than absorbing the high costs of turnover. — Edgar Villanueva , Decolonizing Wealth Project 14. THE GREAT WEALTH TRANSFER Roughly $124 trillion is expected to move between generations over the next 20 years, and most families are not prepared to receive it. That's a leading indicator for demand across financial services, legal, and family wellness. Our 2026 Estate Planning Report found 56% of Americans still have no estate planning documents in place. That gap tells you where consumer confidence, wealth preservation, and financial literacy are headed. — Cody Barbo , Trust & Will 15. TRUST I think companies should pay closer attention to trust as an economic indicator. We often look at growth, spend, demand, key performance indicators, or consumer confidence, but trust is what sits underneath all of it. When people don’t trust institutions, brands, media, or leadership, everything becomes more expensive: acquisition, retention, communication, reputation, even internal alignment. For me, trust is an essential business asset. The brands that build trust consistently will have a real competitive advantage, especially in a more uncertain world. — Virtyt Pula , TOML Collective",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T18:23:39.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "15 leaders on the economic indicators companies should watch",
+            "itemLink": "https://www.fastcompany.com/91601018/15-leaders-on-the-economic-indicators-companies-should-watch",
+            "publishedDate": "2026-09-16T18:23:39.000Z",
+            "contentSnippet": "If you’re only focused on a few economic metrics to run your business, you may miss what’s right in front of you that can help you course correct and drive growth. Some useful economic indicators don’t show up in financial news. Others get media coverage, but leaders may overlook them thinking “that doesn’t apply to us.” We asked members of the Fast Company Impact Council what economic indicators companies should pay more attention to. Fifteen of them weighed in with the data they think deserves more attention or a closer reading. 1. SPEED OF REGULATORY CHANGES I believe we should focus on the speed of regulatory changes rather than traditional charts and data. In fast-paced fields like artificial intelligence and data, rules change so quickly that companies often struggle to keep up. A business might look successful today, but one new regulation can completely change what it is allowed to do. Therefore, watching regulatory trends gives you a better view of your future than looking at quarterly financial reports. Companies that pay attention to these changes early stay ahead, while others are left striving to catch up. — Denas Grybauskas , Oxylabs 2. HEALTHCARE COSTS The fastest growing, least managed, and most unsustainable cost for business today is healthcare. The United States spends more than $5 trillion on healthcare each year. Companies are experiencing significant cost increases with no end in sight. Employers have the power to break—not just bend—the cost curve, and they may be the only ones who do. Leveraging innovative and AI-powered benefits solutions, employers can take the power into their own hands and build a future that makes it easy for their people to access high-quality, affordable healthcare while reducing costs to their businesses. — Glen Tullman , Transcarent 3. LABOR-FORCE PARTICIPATION RATES I suggest that companies pay close attention to the labor-force participation rate. Especially by region and demographic group. The unemployment rate is calculated only from people in the labor force who are working or actively seeking employment. Participation shows how much of the population is engaged. Leaders should pair occupation-level job postings, skills, and wage data to create a clear picture of labor supply and where talent pipelines are breaking down. — Paul Toomey , Geographic Solutions 4. AI TIME-TO-FIRST REVENUE Artificial intelligence is dramatically compressing the distance from idea to first dollar, so it's crucial to measure your company's time-to-first revenue. In science and deep technology, AI is poised to accelerate discovery and R&D: There, the measure to watch is cost per experiment. Every physical experiment tends to cost months and serious money, but AI models and automation are beginning to compress that loop and its cost by orders of magnitude. Cost per experiment sets how many shots on goal you get before the money runs out. Measuring and managing that cost can help you turn your moonshot into an investable venture. — Andrea Carafa , UC Santa Cruz 5. COST AND AVAILABILITY OF MONEY For companies connected to real estate, design, construction, or other capital projects, the most revealing indicator is often the cost and availability of money—not simply the headline interest rate. Credit conditions influence whether organizations can fund expansion, workplace investment, and transformation. But financial signals should be read alongside policy direction and workforce expectations. The numbers tell us what is possible. Cultural and political context helps reveal what is likely. — Susan Watts , SPACECRAFT 6. TEACHER RETENTION DATA An unexpected economic indicator is teacher retention data. It sounds like an education metric, but it’s a regional workforce indicator hiding in plain sight. A district losing experienced teachers loses the pipeline that feeds local employers—the students who would have graduated ready for skilled trades, healthcare, advanced manufacturing, or technology roles. Companies track unemployment and job openings closely. Few track teacher attrition, even though it moves years ahead of the labor numbers everyone else watches. The right question for any company hiring in a given region: Is the local teacher shortage about to become our hiring shortage? — Kellie Lauth , MindSpark 7. INDICATORS THAT DRIVE THEIR BUSINESS No single economic indicator matters in isolation because every indicator is ultimately a proxy for human behavior. Companies should focus on the indicators that best reflect the people who drive their business—customers, employees, investors, or partners—and interpret them through the lens of their mission, strategy, and objectives. Purpose first, systems second. Tools, including economic indicators, only have value when they improve decisions. — Andrea Montecchi , Oliver Wight Americas 8. FOUR INDICATORS OF A PRODUCTIVE WORKFORCE Strong health systems, education access, food security, and resilient local infrastructure are leading indicators of a productive workforce and a stable economy. Investing in children isn't separate from economic growth. It’s a strong predictor of both. — Michele Walsh , UNICEF USA 9. THOSE THAT AFFECT YOUR CUSTOMER If you're selling toys to parents, watch wages, childcare costs, and consumer sentiment, not headline GDP. We build software for founders and small teams, so I track small business optimism and early-stage funding activity. Those indicators tell me whether clients will greenlight new work next quarter. Pick the two or three indicators that predict your customers' willingness to spend and let the rest be noise. — Lindsey Witmer Collins , WLCM App Studio 10. DIRECTION OF LIQUIDITY I think companies should pay more attention to the direction of liquidity, not just headline economic data. Interest rates, lending conditions, and access to capital often shape customer and investor behavior before the impact appears in revenue or employment numbers. When liquidity tightens, even strong businesses can feel pressure quickly. Understanding where capital is flowing can give leaders an earlier read on where the economy is heading. — George Kailas , Prospero.ai 11. INFLATION I am paying closer attention to inflation, particularly how it affects price-capped partner ecosystems. In the music industry, for instance, subscription pricing at streaming giants like Spotify and Apple cannot shift overnight, creating a margin squeeze that demands immediate operational agility. — Logan Mulvey , GoDigital Music 12. LEVERAGE People forget it works both ways. Keeping an eye on debt levels is the most honest indicator we have for spotting fragility before things break. — Khozema Shipchandler , Twilio 13. COST OF LIVING One economic indicator that companies should pay closer attention to is the cost of living. When was the last time you considered your team’s financial reality? Student debt, caregiving, childcare, and rising costs don’t stay at home. They show up at work. If salaries aren’t keeping pace, employees notice. Senior leaders and executives are often insulated from these pressures, but their teams experience the daily strain of rising costs. We have a responsibility to ensure compensation reflects today’s economic realities. It’s not only the right thing to do. It’s also a smarter strategy than absorbing the high costs of turnover. — Edgar Villanueva , Decolonizing Wealth Project 14. THE GREAT WEALTH TRANSFER Roughly $124 trillion is expected to move between generations over the next 20 years, and most families are not prepared to receive it. That's a leading indicator for demand across financial services, legal, and family wellness. Our 2026 Estate Planning Report found 56% of Americans still have no estate planning documents in place. That gap tells you where consumer confidence, wealth preservation, and financial literacy are headed. — Cody Barbo , Trust & Will 15. TRUST I think companies should pay closer attention to trust as an economic indicator. We often look at growth, spend, demand, key performance indicators, or consumer confidence, but trust is what sits underneath all of it. When people don’t trust institutions, brands, media, or leadership, everything becomes more expensive: acquisition, retention, communication, reputation, even internal alignment. For me, trust is an essential business asset. The brands that build trust consistently will have a real competitive advantage, especially in a more uncertain world. — Virtyt Pula , TOML Collective",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Fast Company Impact Council"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Fast Company Impact Council"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "15 leaders on the economic indicators companies should watch"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T18:23:39.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Fast Company Impact Council"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.685Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260916-martha-stewart-thinks-ai-can-m",
+    "canonicalTopic": "Martha Stewart Thinks Ai Can Make Homeownership Less Complicated",
+    "slug": "martha-stewart-thinks-ai-can-make-homeownership-less-complicated",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-3-Martha20Stewart20think",
+        "query": "Martha Stewart Thinks Ai Can Make Homeownership Less Complicated",
+        "sourceUrl": "https://www.fastcompany.com/91606348/martha-stewart-thinks-ai-can-make-homeownership-less-complicated",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-16T18:16:46.000Z",
+        "contentSnippet": "Martha Stewart built a career around helping people care for their homes. Her latest idea is to put that work in an app. Stewart, who made her name building a media and merchandising empire around cooking, entertaining, and homekeeping, launched Hint in July with cofounders Yih-Han Ma and Kyle Rush. The home intelligence app uses AI to help manage home maintenance and track your property’s vital stats. “I wanted to do—I called it a home organizer. I thought, Well, we can use the computer for this, ” Stewart said on Wednesday at the Fast Company Innovation Festival in New York. “When I started, nobody was even designing magazines on a computer, but I thought this would be a big time-saver for everyone if we could figure out all our utilities, how to take care of the home, what about our roofs, what about the paint job on the house. All of these things—how can I organize this?” Decades later, AI has made that idea considerably easier to build. The company started with $10 million in seed money from investors and recently launched its app on iOS, with plans to launch on the Google Play Store soon. Hint tracks what a homeowner needs using data layers and proprietary technology to stitch a home’s data together. Data is not sold, shared, or used to train models. In practice, that means taking the scattered information homeowners typically keep in manuals, inboxes, folders, and their own heads, and putting it in one place. Hint users can enter the serial numbers of their home appliances into the app and receive information on how to care for them. Stewart said that once a serial number is entered, “you can throw away those manuals.” Stewart was joined onstage by Ma, Hint's cofounder and CEO, and by investor Brian Kelly, founder of travel website The Points Guy. The larger pitch is that Hint can make homeownership less intimidating, particularly for people buying their first homes. Ma said Hint can help people feel more confident about approaching homeownership. He explained that the app’s core users are millennial first-time homebuyers, though it can also help people who are aging in place. “People are staying in their homes longer, and there's a whole generation of people that are helping their parents take care of homes and helping them stay on top of decisions as well,” Ma said. “And so you could see a very broad ultimate use case, but we're very focused on people getting into homes.” Hint’s ambitions extend beyond helping homeowners remember when to service the furnace. The company also wants to create a record of how a home has been maintained and improved over time. Kelly believes Hint will allow people to sell their homes for more. “Whenever you sell a home, if you have a gain, you have to list your improvements. So Hint tracks and helps with maintenance and making sure you're taking care of your home,” he said. “But long term, the value of Hint is making sure your biggest investments are tracked and that you can show it. And when you go to sell your home, I believe that Hint homes will sell for more.”",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T18:16:46.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Martha Stewart thinks AI can make homeownership less complicated",
+            "itemLink": "https://www.fastcompany.com/91606348/martha-stewart-thinks-ai-can-make-homeownership-less-complicated",
+            "publishedDate": "2026-09-16T18:16:46.000Z",
+            "contentSnippet": "Martha Stewart built a career around helping people care for their homes. Her latest idea is to put that work in an app. Stewart, who made her name building a media and merchandising empire around cooking, entertaining, and homekeeping, launched Hint in July with cofounders Yih-Han Ma and Kyle Rush. The home intelligence app uses AI to help manage home maintenance and track your property’s vital stats. “I wanted to do—I called it a home organizer. I thought, Well, we can use the computer for this, ” Stewart said on Wednesday at the Fast Company Innovation Festival in New York. “When I started, nobody was even designing magazines on a computer, but I thought this would be a big time-saver for everyone if we could figure out all our utilities, how to take care of the home, what about our roofs, what about the paint job on the house. All of these things—how can I organize this?” Decades later, AI has made that idea considerably easier to build. The company started with $10 million in seed money from investors and recently launched its app on iOS, with plans to launch on the Google Play Store soon. Hint tracks what a homeowner needs using data layers and proprietary technology to stitch a home’s data together. Data is not sold, shared, or used to train models. In practice, that means taking the scattered information homeowners typically keep in manuals, inboxes, folders, and their own heads, and putting it in one place. Hint users can enter the serial numbers of their home appliances into the app and receive information on how to care for them. Stewart said that once a serial number is entered, “you can throw away those manuals.” Stewart was joined onstage by Ma, Hint's cofounder and CEO, and by investor Brian Kelly, founder of travel website The Points Guy. The larger pitch is that Hint can make homeownership less intimidating, particularly for people buying their first homes. Ma said Hint can help people feel more confident about approaching homeownership. He explained that the app’s core users are millennial first-time homebuyers, though it can also help people who are aging in place. “People are staying in their homes longer, and there's a whole generation of people that are helping their parents take care of homes and helping them stay on top of decisions as well,” Ma said. “And so you could see a very broad ultimate use case, but we're very focused on people getting into homes.” Hint’s ambitions extend beyond helping homeowners remember when to service the furnace. The company also wants to create a record of how a home has been maintained and improved over time. Kelly believes Hint will allow people to sell their homes for more. “Whenever you sell a home, if you have a gain, you have to list your improvements. So Hint tracks and helps with maintenance and making sure you're taking care of your home,” he said. “But long term, the value of Hint is making sure your biggest investments are tracked and that you can show it. And when you go to sell your home, I believe that Hint homes will sell for more.”",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "News"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "News"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "martha stewart thinks ai can make homeownership less complicated"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T18:16:46.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "News"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.708Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260916-amazon-increases-starting-hour",
+    "canonicalTopic": "Amazon Increases Starting Hourly Wage and Discounts for Employees",
+    "slug": "amazon-increases-starting-hourly-wage-and-discounts-for-employees",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-4-Amazon20increases20sta",
+        "query": "Amazon Increases Starting Hourly Wage and Discounts for Employees",
+        "sourceUrl": "https://www.fastcompany.com/91608534/amazon-increases-starting-hourly-wage-discounts-employees",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-16T18:11:56.000Z",
+        "contentSnippet": "Online behemoth Amazon said it's increasing the starting hourly wage for its U.S. full-time operations employees like warehouse workers by $1, to $20. With the increase, the average wage will be nearly $24 an hour, with average total compensation of more than $32 an hour including the value of its benefits package, according to Amazon's announcement Wednesday. The pay increase is effective starting September 27, the retailer said. Amazon also said Wednesday that employees will receive new benefits like a 10% discount on eligible fresh groceries and everyday essentials at Amazon.com and Whole Foods Market online, as well as 20% off at Whole Foods physical stores. The discount can be combined with existing Prime member discounts, the retailer said. The discount will be available to every Amazon employee in the U.S. starting October 1, the company said. Amazon also said it's rolling out access to qualified employees and their families for a membership in First Tech Federal Credit Union that provides low-cost banking services they can keep for life. Employees can access accounts with no overdraft or monthly maintenance. The company said no credit history is required to open a checking and savings account. The rollout will start later this year. In comparison, Walmart last year expanded its 10% employee discount to include nearly all grocery purchases at its stores and online. The discount had previously applied to fresh groceries and general merchandise but didn't include such groceries as milk, pasta, or meat except during the November and December holiday shopping period. At Walmart , the starting pay for hourly workers is $14, with U.S. hourly employees making more than $18.50 on average, according to Walmart. Walmart also noted that the average hourly starting wage is $16. For Walmart warehouse and other supply network workers, the average hourly wage is $27.50 and the average hourly starting wage is $24.75. —By D'Innocenzio, AP retail writer",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T18:11:56.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Amazon increases starting hourly wage and discounts for employees",
+            "itemLink": "https://www.fastcompany.com/91608534/amazon-increases-starting-hourly-wage-discounts-employees",
+            "publishedDate": "2026-09-16T18:11:56.000Z",
+            "contentSnippet": "Online behemoth Amazon said it's increasing the starting hourly wage for its U.S. full-time operations employees like warehouse workers by $1, to $20. With the increase, the average wage will be nearly $24 an hour, with average total compensation of more than $32 an hour including the value of its benefits package, according to Amazon's announcement Wednesday. The pay increase is effective starting September 27, the retailer said. Amazon also said Wednesday that employees will receive new benefits like a 10% discount on eligible fresh groceries and everyday essentials at Amazon.com and Whole Foods Market online, as well as 20% off at Whole Foods physical stores. The discount can be combined with existing Prime member discounts, the retailer said. The discount will be available to every Amazon employee in the U.S. starting October 1, the company said. Amazon also said it's rolling out access to qualified employees and their families for a membership in First Tech Federal Credit Union that provides low-cost banking services they can keep for life. Employees can access accounts with no overdraft or monthly maintenance. The company said no credit history is required to open a checking and savings account. The rollout will start later this year. In comparison, Walmart last year expanded its 10% employee discount to include nearly all grocery purchases at its stores and online. The discount had previously applied to fresh groceries and general merchandise but didn't include such groceries as milk, pasta, or meat except during the November and December holiday shopping period. At Walmart , the starting pay for hourly workers is $14, with U.S. hourly employees making more than $18.50 on average, according to Walmart. Walmart also noted that the average hourly starting wage is $16. For Walmart warehouse and other supply network workers, the average hourly wage is $27.50 and the average hourly starting wage is $24.75. —By D'Innocenzio, AP retail writer",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Tech"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "amazon increases starting hourly wage and discounts for employees"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T18:11:56.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.731Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260916-microsoft-ceo-satya-nadella-ai",
+    "canonicalTopic": "Microsoft Ceo Satya Nadella Ai Companies Should Serve Humanity First",
+    "slug": "microsoft-ceo-satya-nadella-ai-companies-should-serve-humanity-first",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-5-Microsoft20CEO20Satya20",
+        "query": "Microsoft Ceo Satya Nadella Ai Companies Should Serve Humanity First",
+        "sourceUrl": "https://www.fastcompany.com/91608443/microsoft-ceo-satya-nadella-ai-companies-should-serve-humanity-first",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-16T17:30:00.000Z",
+        "contentSnippet": "Microsoft CEO Satya Nadella weighed in on the increasingly contentious AI safety debate this week, urging companies to “do what it takes to build stuff that serves humanity first and is in human control” and calling for thorough testing, including by outside testers. Nadella made the comments Tuesday at the &nbsp; All-In Summit &nbsp;in Los Angeles, a day after he &nbsp; warned developers &nbsp;against rushing AI products to market.&nbsp; “As the stakes get higher, one should take all the time they need,” he wrote. “If not, you will anyway lose permission to operate.” Several top tech executives have recently commented on AI safety amid growing concerns about the pace of development.&nbsp; After researcher Jacob Coxon &nbsp; resigned from Anthropic last week &nbsp;and accused leading AI labs of “gambling with our lives,” Anthropic CEO Dario Amodei published an &nbsp; essay &nbsp;calling for an industry-wide slowdown in frontier AI development. OpenAI’s &nbsp; Sam Altman &nbsp;and other top tech executives backed the call.&nbsp; Nvidia CEO &nbsp; Jensen Huang &nbsp;and Meta CEO &nbsp; Mark Zuckerberg , however, have expressed more market-driven views, arguing that AI labs are already incentivized to police themselves due to liability concerns. “If you build a product or a service and you’re not confident in its functionality, capability or safety, then don’t release it,” Huang said yesterday.&nbsp; Nadella made a similar point yesterday, arguing that engineers can mitigate many AI risks using common sense and established quality control processes.&nbsp; “One of the biggest things you learn as an early sort of engineering lead is how to deal with a showstopper bug,” he said. “If you see a showstopper, stop the show.” He admitted, however, that AI also presents some novel risks: for example, businesses should have transparency into how AI uses their data. “I want my privacy. I want to be able to embed my knowledge in a set of weights I control,\" he said. “My IP shouldn’t leak.” Nadella also described autonomous AI agents as a new form of “insider risk,” envisioning a scenario where an AI agent decides to “fake my books” to complete a task it has been instructed to do. He added that long-running agents require not only containment, but “true aggressive monitoring of agent activity.” In the long run, Nadella envisioned the possibility of international AI safety norms, particularly if the risks associated with AI can be clearly defined. If something really goes wrong, he said, “it’s going to go wrong everywhere at the same time.”",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T17:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Microsoft CEO Satya Nadella: AI companies should serve ‘humanity first’",
+            "itemLink": "https://www.fastcompany.com/91608443/microsoft-ceo-satya-nadella-ai-companies-should-serve-humanity-first",
+            "publishedDate": "2026-09-16T17:30:00.000Z",
+            "contentSnippet": "Microsoft CEO Satya Nadella weighed in on the increasingly contentious AI safety debate this week, urging companies to “do what it takes to build stuff that serves humanity first and is in human control” and calling for thorough testing, including by outside testers. Nadella made the comments Tuesday at the &nbsp; All-In Summit &nbsp;in Los Angeles, a day after he &nbsp; warned developers &nbsp;against rushing AI products to market.&nbsp; “As the stakes get higher, one should take all the time they need,” he wrote. “If not, you will anyway lose permission to operate.” Several top tech executives have recently commented on AI safety amid growing concerns about the pace of development.&nbsp; After researcher Jacob Coxon &nbsp; resigned from Anthropic last week &nbsp;and accused leading AI labs of “gambling with our lives,” Anthropic CEO Dario Amodei published an &nbsp; essay &nbsp;calling for an industry-wide slowdown in frontier AI development. OpenAI’s &nbsp; Sam Altman &nbsp;and other top tech executives backed the call.&nbsp; Nvidia CEO &nbsp; Jensen Huang &nbsp;and Meta CEO &nbsp; Mark Zuckerberg , however, have expressed more market-driven views, arguing that AI labs are already incentivized to police themselves due to liability concerns. “If you build a product or a service and you’re not confident in its functionality, capability or safety, then don’t release it,” Huang said yesterday.&nbsp; Nadella made a similar point yesterday, arguing that engineers can mitigate many AI risks using common sense and established quality control processes.&nbsp; “One of the biggest things you learn as an early sort of engineering lead is how to deal with a showstopper bug,” he said. “If you see a showstopper, stop the show.” He admitted, however, that AI also presents some novel risks: for example, businesses should have transparency into how AI uses their data. “I want my privacy. I want to be able to embed my knowledge in a set of weights I control,\" he said. “My IP shouldn’t leak.” Nadella also described autonomous AI agents as a new form of “insider risk,” envisioning a scenario where an AI agent decides to “fake my books” to complete a task it has been instructed to do. He added that long-running agents require not only containment, but “true aggressive monitoring of agent activity.” In the long run, Nadella envisioned the possibility of international AI safety norms, particularly if the risks associated with AI can be clearly defined. If something really goes wrong, he said, “it’s going to go wrong everywhere at the same time.”",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Leadership"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Leadership"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "microsoft ceo satya nadella ai companies should serve humanity first"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T17:30:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Leadership"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.756Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-discover-20260916-inside-a-new-venice-hotel-with",
+    "canonicalTopic": "Inside a New Venice Hotel with a Lighter Take on Venetian Grandeur",
+    "slug": "inside-a-new-venice-hotel-with-a-lighter-take-on-venetian-grandeur",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-design-milk-1-Inside20a20New20Venice20",
+        "query": "Inside a New Venice Hotel with a Lighter Take on Venetian Grandeur",
+        "sourceUrl": "https://design-milk.com/elizabeth-unique-venice-cannaregio/",
+        "publisherName": "Design MilkDesign Milk",
+        "publishedAt": "2026-09-16T18:27:49.000Z",
+        "contentSnippet": "Elizabeth Unique Venice brings Cristina Celestino’s contemporary mix of color, material, and Italian design to a 17th-century palazzo in Cannaregio",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T18:27:49.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://design-milk.com/feed/",
+            "feedTitle": "Design MilkDesign Milk",
+            "itemTitle": "Inside a New Venice Hotel With a Lighter Take on Venetian Grandeur",
+            "itemLink": "https://design-milk.com/elizabeth-unique-venice-cannaregio/",
+            "publishedDate": "2026-09-16T18:27:49.000Z",
+            "contentSnippet": "Elizabeth Unique Venice brings Cristina Celestino’s contemporary mix of color, material, and Italian design to a 17th-century palazzo in Cannaregio",
+            "categories": [
+              "design",
+              "interiors",
+              "home",
+              "art",
+              "minimalism",
+              "Commercial",
+              "Interior Design",
+              "Main",
+              "Travel",
+              "hotel design",
+              "Venice"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "design",
+            "interiors",
+            "home",
+            "art",
+            "minimalism",
+            "Commercial",
+            "Interior Design",
+            "Main",
+            "Travel",
+            "hotel design",
+            "Venice"
+          ],
+          "feedName": "Design Milk",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "inside a new venice hotel with a lighter take on venetian grandeur"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T18:27:49.000Z",
+    "tags": [
+      "design",
+      "interiors",
+      "home",
+      "art",
+      "minimalism",
+      "Commercial",
+      "Interior Design",
+      "Main",
+      "Travel",
+      "hotel design",
+      "Venice"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.779Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260916-photos-show-widespread-damage-",
+    "canonicalTopic": "Photos Show Widespread Damage at Us Sites from Iranian Attacks",
+    "slug": "photos-show-widespread-damage-at-us-sites-from-iranian-attacks",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-1-Photos20show20widespre",
+        "query": "Photos Show Widespread Damage at Us Sites from Iranian Attacks",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/c8g49e0gwxeno?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-16T18:36:16.000Z",
+        "contentSnippet": "A wrecked air force plane and destroyed buildings are among the images obtained by the BBC's partner CBS News.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T18:36:16.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Photos show widespread damage at US sites from Iranian attacks",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c8g49e0gwxeno?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-16T18:36:16.000Z",
+            "contentSnippet": "A wrecked air force plane and destroyed buildings are among the images obtained by the BBC's partner CBS News.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "photos show widespread damage at us sites from iranian attacks"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T18:36:16.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.802Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260916-us-house-votes-to-hold-billion",
+    "canonicalTopic": "Us House Votes to Hold Billionaire Epstein Associate Leon Black in Contempt",
+    "slug": "us-house-votes-to-hold-billionaire-epstein-associate-leon-black-in-contempt",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-4-US20House20votes20to20ho",
+        "query": "Us House Votes to Hold Billionaire Epstein Associate Leon Black in Contempt",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/c62l8g8qlr0ko?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-16T19:59:57.000Z",
+        "contentSnippet": "Black - who had business ties to Epstein - declined to appear and provide documents related to the convicted sex offender.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T19:59:57.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "US House votes to hold billionaire Epstein associate Leon Black in contempt",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c62l8g8qlr0ko?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-16T19:59:57.000Z",
+            "contentSnippet": "Black - who had business ties to Epstein - declined to appear and provide documents related to the convicted sex offender.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "us house votes to hold billionaire epstein associate leon black in contempt"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T19:59:57.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.827Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-life-20260916-this-three-in-one-foldable-ank",
+    "canonicalTopic": "This Three-in-one Foldable Anker Charger Is 34 Off Right Now",
+    "slug": "this-three-in-one-foldable-anker-charger-is-34-off-right-now",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-1-This20Three-in-One20Fo",
+        "query": "This Three-in-one Foldable Anker Charger Is 34 Off Right Now",
+        "sourceUrl": "https://lifehacker.com/tech/anker-magsafe-3-in-1-charger-deal-september-2026?utm_medium=RSS",
+        "publisherName": "Lifehacker",
+        "publishedAt": "2026-09-16T20:30:00.000Z",
+        "contentSnippet": "It's super-convenient for travel.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T20:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "This Three-in-One Foldable Anker Charger Is 34% Off Right Now",
+            "itemLink": "https://lifehacker.com/tech/anker-magsafe-3-in-1-charger-deal-september-2026?utm_medium=RSS",
+            "publishedDate": "2026-09-16T20:30:00.000Z",
+            "contentSnippet": "It's super-convenient for travel.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life-systems",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life-systems",
+            "Tech"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "this three-in-one foldable anker charger is 34 off right now"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T20:30:00.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life-systems",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.850Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260916-how-to-eat-healthy-in-a-world-",
+    "canonicalTopic": "How to Eat Healthy in a World Full of Processed Food",
+    "slug": "how-to-eat-healthy-in-a-world-full-of-processed-food",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-2-How20to20Eat20Healthy",
+        "query": "How to Eat Healthy in a World Full of Processed Food",
+        "sourceUrl": "https://lifehacker.com/how-to-eat-healthy-in-a-world-full-of-processed-food?utm_medium=RSS",
+        "publisherName": "Lifehacker",
+        "publishedAt": "2026-09-16T20:00:00.000Z",
+        "contentSnippet": "Processed doesn't always mean unhealthy.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T20:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "How to Eat 'Healthy' in a World Full of Processed Food",
+            "itemLink": "https://lifehacker.com/how-to-eat-healthy-in-a-world-full-of-processed-food?utm_medium=RSS",
+            "publishedDate": "2026-09-16T20:00:00.000Z",
+            "contentSnippet": "Processed doesn't always mean unhealthy.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life-systems",
+              "Health"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life-systems",
+            "Health"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how to eat healthy in a world full of processed food"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T20:00:00.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life-systems",
+      "Health"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.871Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260916-this-is-the-best-gaming-gear-o",
+    "canonicalTopic": "This Is the Best Gaming Gear of 2026",
+    "slug": "this-is-the-best-gaming-gear-of-2026",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-3-This20Is20the20Best20Gam",
+        "query": "This Is the Best Gaming Gear of 2026",
+        "sourceUrl": "https://lifehacker.com/tech/best-gaming-gear-of-2026?utm_medium=RSS",
+        "publisherName": "Lifehacker",
+        "publishedAt": "2026-09-16T19:11:46.000Z",
+        "contentSnippet": "From consoles to controllers to PC, this is the best gaming gear of 2026.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T19:11:46.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "This Is the Best Gaming Gear of 2026",
+            "itemLink": "https://lifehacker.com/tech/best-gaming-gear-of-2026?utm_medium=RSS",
+            "publishedDate": "2026-09-16T19:11:46.000Z",
+            "contentSnippet": "From consoles to controllers to PC, this is the best gaming gear of 2026.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life-systems",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life-systems",
+            "Tech"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "this is the best gaming gear of 2026"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T19:11:46.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life-systems",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.886Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260916-if-you-loved-the-shards-theres",
+    "canonicalTopic": "If You Loved the Shards Theres One Movie You Need to Watch Next",
+    "slug": "if-you-loved-the-shards-theres-one-movie-you-need-to-watch-next",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-4-If20You20Loved20The20Sh",
+        "query": "If You Loved the Shards Theres One Movie You Need to Watch Next",
+        "sourceUrl": "https://lifehacker.com/entertainment/best-movie-for-fans-of-the-shards?utm_medium=RSS",
+        "publisherName": "Lifehacker",
+        "publishedAt": "2026-09-16T17:00:00.000Z",
+        "contentSnippet": "Craving more decadent, 1980s-themed thrills like “The Shards”? There’s a perfect movie choice for you.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T17:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "If You Loved 'The Shards,' There's One Movie You Need to Watch Next",
+            "itemLink": "https://lifehacker.com/entertainment/best-movie-for-fans-of-the-shards?utm_medium=RSS",
+            "publishedDate": "2026-09-16T17:00:00.000Z",
+            "contentSnippet": "Craving more decadent, 1980s-themed thrills like “The Shards”? There’s a perfect movie choice for you.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life-systems",
+              "Streaming"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life-systems",
+            "Streaming"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "if you loved the shards theres one movie you need to watch next"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T17:00:00.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life-systems",
+      "Streaming"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.910Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260916-you-can-save-15-on-casetify-ph",
+    "canonicalTopic": "You Can Save 15 on Casetify Phone Cases and Accessories Right Now",
+    "slug": "you-can-save-15-on-casetify-phone-cases-and-accessories-right-now",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-5-You20Can20Save20152520on20",
+        "query": "You Can Save 15 on Casetify Phone Cases and Accessories Right Now",
+        "sourceUrl": "https://lifehacker.com/ad/tech/casetify-phone-case-deal-september-2026?utm_medium=RSS",
+        "publisherName": "Lifehacker",
+        "publishedAt": "2026-09-16T16:44:25.000Z",
+        "contentSnippet": "Their huge selection of cases and accessories will have something that matches your style.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-16T16:44:25.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "You Can Save 15% on CASETiFY Phone Cases and Accessories Right Now",
+            "itemLink": "https://lifehacker.com/ad/tech/casetify-phone-case-deal-september-2026?utm_medium=RSS",
+            "publishedDate": "2026-09-16T16:44:25.000Z",
+            "contentSnippet": "Their huge selection of cases and accessories will have something that matches your style.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life-systems",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life-systems",
+            "Tech"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "you can save 15 on casetify phone cases and accessories right now"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-16T16:44:25.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life-systems",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-16T20:57:31.934Z",
+    "pinterestScore": 75.8
   }
 ]
