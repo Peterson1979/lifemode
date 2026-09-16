@@ -92,6 +92,7 @@ export interface EditorialValidationContext {
   };
   tags?: string[];
   isAlreadyPublished?: boolean;
+  isPerson?: boolean;
 }
 
 export interface EditorialValidationOptions {

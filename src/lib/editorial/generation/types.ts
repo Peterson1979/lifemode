@@ -73,6 +73,8 @@ export interface GenerationRequest {
     heading: string;
     keyPoints?: string[];
   }>;
+  tags?: string[];
+  isPerson?: boolean;
   revisionContext?: GenerationRevisionContext;
 }
 

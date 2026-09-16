@@ -8,6 +8,7 @@ import type {
 import { countWords, FORMULAIC_TITLE_PATTERNS, GENERIC_EXCERPT_PATTERNS } from '../quality.ts';
 import { hasLeakedInternalMetadata } from '../sanitization.ts';
 import { VALID_PILLARS } from '../types.ts';
+import { isPersonTopic, PERSON_MIN_REQUIRED_SOURCES } from '../person-policy.ts';
 
 const PLACEHOLDER_PATTERNS: RegExp[] = [
   /\{\{[^}]+\}\}/,
@@ -213,6 +214,13 @@ export function validateEditorialArticle(
     }
   }
 
+  const isPerson = isPersonTopic({
+    canonicalTopic: context.topicId,
+    title,
+    tags: context.tags,
+    isPerson: context.isPerson,
+  });
+
   // ----------------------------------------------------
   // 2. SEO & METADATA CHECKS
   // ----------------------------------------------------
@@ -229,6 +237,10 @@ export function validateEditorialArticle(
         warnings.push(`Article title matches formulaic template pattern: "${pattern.toString()}".`);
         break;
       }
+    }
+
+    if (isPerson && /^[A-Z][a-zà-ÿ]+(?:\s+[A-Z][a-zà-ÿ]+)+:\s*(?:what to know|what you should know)$/i.test(title)) {
+      warnings.push(`Person-related article uses repetitive formulaic title pattern ("${title}"); varied editorial headlines are recommended.`);
     }
   }
 
@@ -285,6 +297,7 @@ export function validateEditorialArticle(
   // 4. CITATIONS & APPROVED SOURCES CHECKS
   // ----------------------------------------------------
   const articleSources = article.sources || [];
+  let validCredibleSourcesCount = 0;
 
   for (let i = 0; i < articleSources.length; i++) {
     const src = articleSources[i];
@@ -294,24 +307,51 @@ export function validateEditorialArticle(
     }
 
     const srcUrl = (src.url || '').trim();
-    if (srcUrl) {
-      // Suspicious dummy domains
-      for (const pattern of SUSPICIOUS_URL_PATTERNS) {
-        if (pattern.test(srcUrl)) {
-          errors.push(`Article contains invalid dummy/placeholder source citation URL: "${srcUrl}".`);
-          checks.citations = false;
-          break;
-        }
-      }
+    let isInvalidSource = false;
 
-      // Discovery-only signal isolation
-      for (const pattern of DISCOVERY_ONLY_SOURCE_PATTERNS) {
-        if (pattern.test(srcUrl) || pattern.test(src.name)) {
-          errors.push(`Discovery signal from "${src.name || srcUrl}" cannot be cited as authoritative factual evidence.`);
-          checks.citations = false;
-          break;
-        }
+    if (!srcUrl) {
+      warnings.push(`Source citation "${src.name}" is missing a URL.`);
+      continue;
+    }
+
+    // Suspicious dummy domains
+    for (const pattern of SUSPICIOUS_URL_PATTERNS) {
+      if (pattern.test(srcUrl)) {
+        errors.push(`Article contains invalid dummy/placeholder source citation URL: "${srcUrl}".`);
+        checks.citations = false;
+        isInvalidSource = true;
+        break;
       }
+    }
+
+    // Discovery-only signal isolation
+    for (const pattern of DISCOVERY_ONLY_SOURCE_PATTERNS) {
+      if (pattern.test(srcUrl) || pattern.test(src.name)) {
+        errors.push(`Discovery signal from "${src.name || srcUrl}" cannot be cited as authoritative factual evidence.`);
+        checks.citations = false;
+        isInvalidSource = true;
+        break;
+      }
+    }
+
+    // Internal standards URL cannot be used as external factual biography source for person articles
+    if (isPerson && /lifemode\.life\/editorial-standards/i.test(srcUrl)) {
+      warnings.push(`Internal standard URL "${srcUrl}" cannot be used as an external factual biography source.`);
+      isInvalidSource = true;
+    }
+
+    if (!isInvalidSource && /^https?:\/\//i.test(srcUrl)) {
+      validCredibleSourcesCount++;
+    }
+  }
+
+  // Person-specific source requirements (>= 2 credible sources)
+  if (isPerson) {
+    if (validCredibleSourcesCount < PERSON_MIN_REQUIRED_SOURCES) {
+      errors.push(
+        `Person-related article requires at least ${PERSON_MIN_REQUIRED_SOURCES} verified, credible sources for biographical reporting, but only ${validCredibleSourcesCount} valid source(s) were provided.`
+      );
+      checks.citations = false;
     }
   }
 

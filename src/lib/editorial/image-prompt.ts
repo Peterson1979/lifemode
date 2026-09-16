@@ -4,6 +4,7 @@ import {
   GLOBAL_IMAGE_GUIDELINES,
   EDITORIAL_ASPECT_RATIOS,
 } from '../../config/images.ts';
+import { isPersonTopic, getPersonImageDirectives } from './person-policy.ts';
 
 export interface ImagePromptInput {
   title: string;
@@ -55,6 +56,9 @@ function extractSubjectKeywords(title: string, description: string, tags: string
  *
  * Ensures realistic, high-end magazine aesthetics (Kinfolk, Cereal, Monocle, Wallpaper)
  * tailored to the LifeMode pillar visual identity.
+ *
+ * For identifiable real persons, strictly avoids photorealistic likeness generation
+ * and generates domain-specific contextual editorial scenes.
  */
 export function generateEditorialImagePrompt(
   input: ImagePromptInput
@@ -64,10 +68,44 @@ export function generateEditorialImagePrompt(
   const ratioKey = input.aspectRatio || 'hero';
   const recommendedAspectRatio = EDITORIAL_ASPECT_RATIOS[ratioKey] || EDITORIAL_ASPECT_RATIOS.hero;
 
-  const subjectFocus = extractSubjectKeywords(input.title, input.description, input.tags);
+  const isPerson = isPersonTopic({
+    title: input.title,
+    tags: input.tags,
+  });
 
   // Pick suitable visual motifs from pillar style
   const motifs = pillarStyle.visualMotifs.slice(0, 2).join(', ');
+
+  if (isPerson) {
+    const contextHints = [input.pillar, ...(input.tags || []), input.title, input.description || ''].join(' ');
+    const personDirectives = getPersonImageDirectives(input.title, contextHints);
+
+    const promptParts: string[] = [
+      `Editorial photography for high-end lifestyle magazine LifeMode.`,
+      `Subject Focus: ${personDirectives.promptSnippet}`,
+      `Atmosphere & Theme: ${pillarStyle.theme}, ${pillarStyle.mood} mood.`,
+      `Visual Elements: ${motifs}.`,
+      `Lighting: ${pillarStyle.lighting}.`,
+      `Camera & Composition: Shot on ${pillarStyle.cameraLens}, 35mm film grain texture, natural depth of field, authentic candid framing, generous negative space, warm organic color grading.`,
+      `Aesthetic: Contemporary documentary lifestyle photography, warm neutral palette, tactile textures, completely realistic, no artificial digital artifacts. Do not depict or impersonate any specific real person.`,
+    ];
+
+    const fullPrompt = promptParts.join(' ');
+    const negativePrompt = [
+      ...GLOBAL_IMAGE_GUIDELINES.negativePromptRules,
+      personDirectives.negativePromptSnippet,
+    ].join(', ');
+
+    return {
+      prompt: fullPrompt,
+      negativePrompt,
+      recommendedAspectRatio,
+      altText: personDirectives.altText,
+      visualTheme: personDirectives.visualTheme,
+    };
+  }
+
+  const subjectFocus = extractSubjectKeywords(input.title, input.description, input.tags);
 
   // Compose the high-end editorial photography prompt
   const promptParts: string[] = [
@@ -82,7 +120,6 @@ export function generateEditorialImagePrompt(
 
   const fullPrompt = promptParts.join(' ');
   const negativePrompt = GLOBAL_IMAGE_GUIDELINES.negativePromptRules.join(', ');
-
   const altText = `${input.title} — editorial photography exploring ${pillarStyle.theme.toLowerCase()}`;
 
   return {

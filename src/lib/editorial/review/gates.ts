@@ -1,6 +1,7 @@
 import type { ReviewRequest } from './types.ts';
 import { countWords } from '../quality.ts';
 import { validateEditorialArticle } from '../validation/validator.ts';
+import { isPersonTopic } from '../person-policy.ts';
 
 export interface ReviewGateResult {
   passed: boolean;
@@ -112,6 +113,12 @@ export function evaluateReviewGates(request: ReviewRequest): ReviewGateResult {
   }
 
   // 4c. Unified Editorial Validation (Brief V2, Evidence, Citations, Risk, Affiliate)
+  const isPerson = isPersonTopic({
+    canonicalTopic: request.topicId,
+    title: request.title,
+    tags: request.tags,
+  });
+
   const editorialValidation =
     request.editorialValidation ||
     request.deterministicValidation?.editorialValidation ||
@@ -140,6 +147,8 @@ export function evaluateReviewGates(request: ReviewRequest): ReviewGateResult {
         affiliateIntent: request.affiliateIntent,
         affiliateGuidance: request.affiliateGuidance,
         estimatedWordCount: request.estimatedWordCount,
+        tags: request.tags,
+        isPerson,
       },
       {
         requireImage: false,

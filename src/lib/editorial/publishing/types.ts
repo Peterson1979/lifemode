@@ -104,6 +104,7 @@ export interface PublishingContext {
     max: number;
   };
   isAlreadyPublished?: boolean;
+  isPerson?: boolean;
 }
 
 /**

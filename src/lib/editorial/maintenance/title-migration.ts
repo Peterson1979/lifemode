@@ -42,10 +42,6 @@ export const EXISTING_TITLE_REPLACEMENTS: Record<string, string> = {
     'The analog turn: why high-signal professionals are returning to tactile tools',
   'now/the-2026-cultural-shift-toward-digital-intentionality':
     'The cultural shift toward digital intentionality',
-  'now/ted-cruz-modern-guide-trends-signals-zeitgeist':
-    'Ted Cruz and the rise of direct-to-listener political broadcasting',
-  'now/josh-hartnett-a-modern-guide-to-trends-signals-zeitgeist':
-    'Josh Hartnett and the art of the deliberate career reset',
   'now/fire-weather-watch-a-modern-guide-to-trends-signals-zeitgeis':
     'What a fire weather watch actually means for your neighborhood',
   'now/downdetector-guide-2026':
@@ -54,8 +50,8 @@ export const EXISTING_TITLE_REPLACEMENTS: Record<string, string> = {
     'DeepSeek V4.1 Flash: what high-speed inference means for daily developer workflows',
   'now/cable-tv-a-modern-guide-to-trends-signals-zeitgeist':
     'Why cable TV is not disappearing as fast as predicted',
-  'now/blake-lively-a-modern-guide-to-trends-signals-zeitgeist':
-    'Blake Lively and the modern playbook of celebrity brand ownership',
+  'now/jose-trevino-what-to-know':
+    'Who Is José Trevino? Career, Background and Community Impact',
 
   // Life
   'life/the-contemplative-workspace-acoustic-comfort-natural-wood-an':

@@ -1,4 +1,5 @@
 import type { GenerationRequest } from './types.ts';
+import { isPersonTopic } from '../person-policy.ts';
 
 /**
  * Structured prompt representation supporting both unified prompt strings
@@ -295,6 +296,25 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
       '### MEDIUM RISK PROTOCOL:',
       '- Exercise journalistic diligence and avoid speculative or unverified claims.',
       '- Keep recommendations realistic, measured, and safe.'
+    );
+  }
+
+  const isPerson = isPersonTopic({
+    canonicalTopic: request.topicId,
+    title: request.titleAngle,
+    tags: request.tags,
+  });
+
+  if (isPerson) {
+    systemPromptParts.push(
+      '',
+      '### IDENTIFIABLE REAL PERSON EDITORIAL POLICY:',
+      '- Ground all biographical details, dates, career milestones, achievements, and statistics strictly in verified evidence.',
+      '- Distinguish confirmed factual reporting from uncertain, rumored, or developing details.',
+      '- Do NOT invent or guess biographical background, career moves, statistics, quotes, family relationships, or current status.',
+      '- If a claim cannot be verified by the provided evidence, omit it rather than speculating.',
+      '- Populate the "sources" array with at least 2 credible, verified external sources.',
+      '- Headline Craftsmanship: Craft varied, organic headlines (e.g. "Who Is [Name]? Career, Background and More", "[Name]: Career, Background and Latest Updates"). Avoid repetitive "[Name]: What to Know" templates.'
     );
   }
 

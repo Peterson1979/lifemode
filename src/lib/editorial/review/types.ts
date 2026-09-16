@@ -59,6 +59,8 @@ export interface ReviewRequest {
     target: number;
     max: number;
   };
+  tags?: string[];
+  isPerson?: boolean;
   deterministicValidation?: GenerationValidationReport;
   editorialValidation?: import('../validation/types.ts').EditorialValidationResult;
 }

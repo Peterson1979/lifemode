@@ -1,6 +1,7 @@
 import type { PublishingRequest, PublishingGateThresholds, PublishingGateResult } from './types.ts';
 import { countWords } from '../quality.ts';
 import { validateEditorialArticle } from '../validation/validator.ts';
+import { isPersonTopic, PERSON_MIN_REQUIRED_SOURCES } from '../person-policy.ts';
 
 export const DEFAULT_PUBLISHING_GATE_THRESHOLDS: PublishingGateThresholds = {
   minOverallScore: 85,
@@ -67,6 +68,13 @@ export function evaluatePublishingGate(
     };
   }
 
+  const isPerson = isPersonTopic({
+    canonicalTopic: context?.topicId,
+    title: article.title,
+    tags: context?.tags,
+    isPerson: context?.isPerson,
+  });
+
   // 2. Unified Editorial Validation (Structure, SEO, Evidence, Citations, Risk, Affiliate, Image)
   const validationResult = validateEditorialArticle(
     article,
@@ -92,6 +100,7 @@ export function evaluatePublishingGate(
       imageMetadata: context?.imageMetadata,
       tags: context?.tags,
       isAlreadyPublished: context?.isAlreadyPublished,
+      isPerson,
     },
     {
       requireImage: false,
@@ -181,6 +190,25 @@ export function evaluatePublishingGate(
             reasons.push(`Article contains invalid or suspicious dummy source URL: "${src.url}"`);
           }
         }
+      }
+    }
+  }
+
+  // 4b. Person Editorial Policy Source Enforcement
+  if (isPerson) {
+    const validSources = (article.sources || []).filter(
+      (s) =>
+        s &&
+        s.name &&
+        s.url &&
+        /^https?:\/\//i.test(s.url) &&
+        !SUSPICIOUS_URL_PATTERNS.some((p) => p.test(s.url)) &&
+        !/lifemode\.life\/editorial-standards/i.test(s.url)
+    );
+    if (validSources.length < PERSON_MIN_REQUIRED_SOURCES) {
+      const msg = `Person-related article requires at least ${PERSON_MIN_REQUIRED_SOURCES} verified, credible sources before publishing, but only ${validSources.length} valid source(s) were provided.`;
+      if (!reasons.includes(msg)) {
+        reasons.push(msg);
       }
     }
   }

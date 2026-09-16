@@ -11,6 +11,11 @@ import type {
 } from './types.ts';
 import type { EvidenceItem } from './research/types.ts';
 import { PILLARS } from '../../config/site.ts';
+import {
+  isPersonTopic,
+  generatePersonTitle,
+  PERSON_DO_NOT_CLAIM_GUARDRAILS,
+} from './person-policy.ts';
 
 export interface BriefGenerationOptions {
   format?: ArticleFormat;
@@ -107,6 +112,10 @@ export function deriveReaderProblem(topic: EditorialTopic, primaryIntent: Search
   if (customProblem) return customProblem;
 
   const cleanTopic = topic.canonicalTopic.trim();
+
+  if (isPersonTopic(topic)) {
+    return `The reader needs accurate, verified biographical context, career milestones, and objective understanding regarding ${cleanTopic} grounded in authoritative reporting without speculation or gossip.`;
+  }
 
   switch (primaryIntent) {
     case 'commercial':
@@ -283,6 +292,10 @@ export function deriveDoNotClaimConstraints(
     'Do not cite discovery or social signals (Reddit, Google Trends, Pinterest, YouTube) as authoritative factual citations.',
   ];
 
+  if (isPersonTopic(topic)) {
+    constraints.push(...PERSON_DO_NOT_CLAIM_GUARDRAILS);
+  }
+
   const lowerTopic = topic.canonicalTopic.toLowerCase();
 
   if (topic.pillar === 'money' || /\b(finance|investment|crypto|stock|tax|retirement|budget|wealth)\b/.test(lowerTopic)) {
@@ -386,8 +399,17 @@ export function synthesizeEditorialBrief(
 
   // Title angle generation
   const cleanTopic = topic.canonicalTopic.trim();
+  const isPerson = isPersonTopic(topic);
   let titleAngle = cleanTopic;
-  if (!cleanTopic.toLowerCase().startsWith('how ') && !cleanTopic.toLowerCase().startsWith('why ') && !cleanTopic.toLowerCase().startsWith('what ')) {
+
+  if (isPerson) {
+    titleAngle = generatePersonTitle(cleanTopic, {
+      format,
+      primaryIntent,
+      queryVariants: topic.queryVariants,
+      topicId: topic.id,
+    });
+  } else if (!cleanTopic.toLowerCase().startsWith('how ') && !cleanTopic.toLowerCase().startsWith('why ') && !cleanTopic.toLowerCase().startsWith('what ')) {
     if (format === 'guide') {
       titleAngle = `How to make the most of ${cleanTopic}`;
     } else if (format === 'deep-dive') {
@@ -418,40 +440,75 @@ export function synthesizeEditorialBrief(
   const audience = options.audience || topic.targetAudience || 'Curious, thoughtful readers looking for practical ideas.';
 
   // Default outline structure
-  const outlineSections = [
-    {
-      heading: 'Background & Core Context',
-      keyPoints: [
-        `Understand the essentials of ${topic.canonicalTopic}.`,
-        'Highlight why this matters for modern readers.',
-      ],
-    },
-    {
-      heading: 'Practical Applications & Key Takeaways',
-      keyPoints: [
-        'Break down practical insights and real-world methods.',
-        'Provide concrete, high-signal takeaways.',
-      ],
-    },
-    {
-      heading: 'Actionable Advice & Next Steps',
-      keyPoints: [
-        'Specific recommendations, routines, or tools.',
-        'Practical steps for everyday integration.',
-      ],
-    },
-  ];
+  const outlineSections = isPerson
+    ? [
+        {
+          heading: 'Background & Career Context',
+          keyPoints: [
+            `Verified biographical background and career milestones for ${topic.canonicalTopic}.`,
+            'Key context and recent developments supported by primary sources.',
+          ],
+        },
+        {
+          heading: 'Notable Achievements & Impact',
+          keyPoints: [
+            'Documented career contributions, verified records, and professional focus.',
+            'Distinctive approaches and verified domain impact.',
+          ],
+        },
+        {
+          heading: 'Verified Context & Practical Takeaways',
+          keyPoints: [
+            'Factual summary of current status and confirmed future initiatives.',
+            'Objective takeaways grounded strictly in verified reporting.',
+          ],
+        },
+      ]
+    : [
+        {
+          heading: 'Background & Core Context',
+          keyPoints: [
+            `Understand the essentials of ${topic.canonicalTopic}.`,
+            'Highlight why this matters for modern readers.',
+          ],
+        },
+        {
+          heading: 'Practical Applications & Key Takeaways',
+          keyPoints: [
+            'Break down practical insights and real-world methods.',
+            'Provide concrete, high-signal takeaways.',
+          ],
+        },
+        {
+          heading: 'Actionable Advice & Next Steps',
+          keyPoints: [
+            'Specific recommendations, routines, or tools.',
+            'Practical steps for everyday integration.',
+          ],
+        },
+      ];
 
   const requiredSources: Array<{
     name: string;
     url?: string;
     citationType: 'authority' | 'study' | 'official' | 'benchmark';
-  }> = [
-    {
-      name: 'LifeMode Editorial Standards & Primary Reference',
-      citationType: 'authority',
-    },
-  ];
+  }> = isPerson
+    ? [
+        {
+          name: 'Primary Official Record & Biographical Source',
+          citationType: 'official',
+        },
+        {
+          name: 'Reputable Secondary Media Coverage',
+          citationType: 'authority',
+        },
+      ]
+    : [
+        {
+          name: 'LifeMode Editorial Standards & Primary Reference',
+          citationType: 'authority',
+        },
+      ];
 
   if (effectiveEvidence && effectiveEvidence.length > 0) {
     for (const ev of effectiveEvidence) {
