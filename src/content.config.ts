@@ -9,6 +9,7 @@ export const ArticleFormatEnum = z.enum([
   'deep-dive',
   'dispatch',
   'curation',
+  'recipe',
 ]);
 
 export const SearchIntentEnum = z.enum([
@@ -23,7 +24,8 @@ export const RiskLevelEnum = z.enum(['low', 'medium', 'high']);
 
 /**
  * Standard schema for LifeMode editorial articles across all pillars.
- * Extensible and backward-compatible with automated Content Engine metadata.
+ * Extensible and backward-compatible with automated Content Engine metadata
+ * and culinary recipe provenance models.
  */
 export const articleSchema = z.object({
   title: z.string(),
@@ -57,6 +59,27 @@ export const articleSchema = z.object({
   imageAlt: z.string().optional(),
   imagePrompt: z.string().optional(),
   imageSource: z.string().optional(),
+  imageSourceUrl: z.string().optional(),
+  imageLicense: z.string().optional(),
+  imageAttribution: z.string().optional(),
+
+  // Recipe-specific culinary and provenance fields (Optional)
+  source: z.string().optional(),
+  sourceUrl: z.string().optional(),
+  sourceLicense: z.string().optional(),
+  sourceAuthor: z.string().optional(),
+  originalRecipeId: z.string().optional(),
+  importedAt: z.coerce.date().optional(),
+
+  prepTime: z.string().optional(),
+  cookTime: z.string().optional(),
+  totalTime: z.string().optional(),
+  servings: z.union([z.string(), z.number()]).optional(),
+  cuisine: z.string().optional(),
+  mealType: z.string().optional(),
+  dietaryTags: z.array(z.string()).optional(),
+  ingredients: z.array(z.string()).optional(),
+  directions: z.array(z.string()).optional(),
 
   // Owned Project routing (Optional explicit target or 'none')
   targetProject: z
@@ -81,6 +104,7 @@ const createPillarCollection = (pillarName: string) =>
 export const collections = {
   life: createPillarCollection('life'),
   travel: createPillarCollection('travel'),
+  'food-drink': createPillarCollection('food-drink'),
   'tech-ai': createPillarCollection('tech-ai'),
   money: createPillarCollection('money'),
   wellbeing: createPillarCollection('wellbeing'),

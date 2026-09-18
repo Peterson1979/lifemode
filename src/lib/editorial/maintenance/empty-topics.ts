@@ -220,6 +220,34 @@ export const SEED_TOPICS_FOR_EMPTY_PILLARS: Record<PillarSlug, EditorialTopic> =
     opportunityType: 'ARTICLE',
     status: 'APPROVED',
   },
+  'food-drink': {
+    id: 'lm-food-seed-01-artisan-fermentation-kitchen',
+    canonicalTopic: 'The Art of Home Fermentation: Sourdough, Sauerkraut, and Cultured Pantry Basics',
+    slug: 'artisan-home-fermentation-sourdough-sauerkraut-pantry',
+    pillar: 'food-drink',
+    sourceSignals: [],
+    queryVariants: ['home fermentation basics', 'artisan sourdough culture pantry'],
+    freshnessScore: 90,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    tags: ['food-drink', 'cooking', 'food-culture', 'kitchen', 'ingredients'],
+    targetAudience: 'Culinary enthusiasts seeking mindful, traditional food craft.',
+    primaryIntent: 'informational',
+    scoring: {
+      searchPotential: 88,
+      pinterestPotential: 95,
+      socialPotential: 85,
+      lifeModeRelevance: 95,
+      commercialPotential: 80,
+      freshness: 90,
+      competitionOpportunity: 80,
+      originalityPotential: 90,
+    },
+    totalScore: 88,
+    priorityTier: 'PRIORITY',
+    opportunityType: 'ARTICLE',
+    status: 'APPROVED',
+  },
 };
 
 /**
@@ -238,6 +266,7 @@ export async function findEmptyTopics(options: {
     wellbeing: 0,
     discover: 0,
     now: 0,
+    'food-drink': 0,
   };
 
   for (const pillar of VALID_PILLARS) {

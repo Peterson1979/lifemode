@@ -122,6 +122,7 @@ const PILLAR_KEYWORDS: Record<PillarSlug, string[]> = {
   wellbeing: ['wellbeing', 'health', 'fitness', 'nutrition', 'workout', 'diet', 'sleep', 'mindfulness', 'longevity', 'mental', 'vitality', 'circadian', 'recovery', 'sauna', 'light'],
   discover: ['discover', 'culture', 'book', 'art', 'design', 'architecture', 'film', 'curation', 'history', 'exhibition', 'minka', 'prefab', 'monograph', 'ceramic'],
   now: ['now', 'trend', 'viral', 'season', 'summer', 'winter', 'autumn', 'spring', 'update', 'breaking', 'zeitgeist', 'shift', 'cultural', 'intentionality', 'friction'],
+  'food-drink': ['food', 'drink', 'recipe', 'cooking', 'ingredient', 'kitchen', 'cuisine', 'sourdough', 'fermentation', 'meal', 'baking', 'culinary', 'dish', 'beverage', 'tea', 'coffee'],
 };
 
 /**

@@ -7,7 +7,7 @@ export interface PillarConfig {
   bgLight: string;
 }
 
-export type PillarSlug = 'life' | 'travel' | 'tech-ai' | 'money' | 'wellbeing' | 'discover' | 'now';
+export type PillarSlug = 'life' | 'travel' | 'food-drink' | 'tech-ai' | 'money' | 'wellbeing' | 'discover' | 'now';
 
 export const PILLARS: Record<PillarSlug, PillarConfig> = {
   life: {
@@ -25,6 +25,14 @@ export const PILLARS: Record<PillarSlug, PillarConfig> = {
     description: 'Curated itineraries, boutique stays, slow travel, and smart destination intelligence.',
     color: '#38bdf8', // Sky
     bgLight: 'rgba(56, 189, 248, 0.1)',
+  },
+  'food-drink': {
+    name: 'Food & Drink',
+    slug: 'food-drink',
+    tagline: 'Culinary Craft, Recipes & Living Well',
+    description: 'Thoughtful recipes, seasonal cooking, food culture, drinks, kitchen essentials, and mindful culinary journeys.',
+    color: '#ea580c', // Warm Terracotta Ochre
+    bgLight: 'rgba(234, 88, 12, 0.1)',
   },
   'tech-ai': {
     name: 'Tech & AI',
@@ -86,6 +94,7 @@ export const SITE_CONFIG = {
   navLinks: [
     { name: 'Life', href: '/life', slug: 'life' },
     { name: 'Travel', href: '/travel', slug: 'travel' },
+    { name: 'Food & Drink', href: '/food-drink', slug: 'food-drink' },
     { name: 'Tech & AI', href: '/tech-ai', slug: 'tech-ai' },
     { name: 'Money', href: '/money', slug: 'money' },
     { name: 'Wellbeing', href: '/wellbeing', slug: 'wellbeing' },

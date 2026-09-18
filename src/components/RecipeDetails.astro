@@ -1,0 +1,398 @@
+---
+export interface Props {
+  recipe: {
+    title: string;
+    description?: string;
+    prepTime?: string;
+    cookTime?: string;
+    totalTime?: string;
+    servings?: string | number;
+    cuisine?: string;
+    mealType?: string;
+    dietaryTags?: string[];
+    ingredients?: string[];
+    directions?: string[];
+    source?: string;
+    sourceUrl?: string;
+    sourceLicense?: string;
+    sourceAuthor?: string;
+    originalRecipeId?: string;
+    imageSource?: string;
+    imageSourceUrl?: string;
+    imageLicense?: string;
+  };
+}
+
+const { recipe } = Astro.props;
+
+const hasQuickFacts =
+  recipe.prepTime ||
+  recipe.cookTime ||
+  recipe.totalTime ||
+  recipe.servings ||
+  recipe.cuisine ||
+  recipe.mealType;
+---
+
+<div class="recipe-card-container">
+  <!-- Recipe Quick Facts Header Strip -->
+  {hasQuickFacts && (
+    <div class="recipe-meta-grid">
+      {recipe.prepTime && (
+        <div class="recipe-meta-item">
+          <span class="recipe-meta-label">Prep Time</span>
+          <span class="recipe-meta-val">{recipe.prepTime}</span>
+        </div>
+      )}
+      {recipe.cookTime && (
+        <div class="recipe-meta-item">
+          <span class="recipe-meta-label">Cook Time</span>
+          <span class="recipe-meta-val">{recipe.cookTime}</span>
+        </div>
+      )}
+      {recipe.totalTime && (
+        <div class="recipe-meta-item">
+          <span class="recipe-meta-label">Total Time</span>
+          <span class="recipe-meta-val">{recipe.totalTime}</span>
+        </div>
+      )}
+      {recipe.servings && (
+        <div class="recipe-meta-item">
+          <span class="recipe-meta-label">Yield</span>
+          <span class="recipe-meta-val">{recipe.servings}</span>
+        </div>
+      )}
+      {recipe.cuisine && (
+        <div class="recipe-meta-item">
+          <span class="recipe-meta-label">Cuisine</span>
+          <span class="recipe-meta-val">{recipe.cuisine}</span>
+        </div>
+      )}
+      {recipe.mealType && (
+        <div class="recipe-meta-item">
+          <span class="recipe-meta-label">Course</span>
+          <span class="recipe-meta-val">{recipe.mealType}</span>
+        </div>
+      )}
+    </div>
+  )}
+
+  <!-- Dietary Tags -->
+  {recipe.dietaryTags && recipe.dietaryTags.length > 0 && (
+    <div class="recipe-dietary-row">
+      <span class="recipe-dietary-label">Dietary:</span>
+      <div class="recipe-dietary-tags">
+        {recipe.dietaryTags.map((tag) => (
+          <span class="badge-dietary">{tag.replace('-', ' ')}</span>
+        ))}
+      </div>
+    </div>
+  )}
+
+  <!-- Ingredients & Instructions Split/Stacked Section -->
+  <div class="recipe-body-grid">
+    {recipe.ingredients && recipe.ingredients.length > 0 && (
+      <section class="recipe-ingredients-block">
+        <h2 class="recipe-section-heading">
+          <span class="heading-accent">&bull;</span> Ingredients
+        </h2>
+        <ul class="recipe-ingredients-list">
+          {recipe.ingredients.map((item) => (
+            <li class="recipe-ingredient-item">
+              <span class="ingredient-bullet" aria-hidden="true">&ndash;</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    {recipe.directions && recipe.directions.length > 0 && (
+      <section class="recipe-directions-block">
+        <h2 class="recipe-section-heading">
+          <span class="heading-accent">&bull;</span> Method &amp; Preparation
+        </h2>
+        <ol class="recipe-directions-list">
+          {recipe.directions.map((step, idx) => (
+            <li class="recipe-step-item">
+              <div class="step-num-badge">{idx + 1}</div>
+              <div class="step-text">{step}</div>
+            </li>
+          ))}
+        </ol>
+      </section>
+    )}
+  </div>
+
+  <!-- Recipe Provenance & License Box -->
+  {recipe.source && (
+    <div class="recipe-provenance-box">
+      <div class="provenance-header">
+        <span class="provenance-kicker">Public Domain Recipe Provenance</span>
+        {recipe.sourceLicense && (
+          <span class="provenance-license-badge">{recipe.sourceLicense}</span>
+        )}
+      </div>
+      <p class="provenance-desc">
+        This recipe was curated from the <strong>{recipe.source}</strong> public domain archive. 
+        {recipe.sourceAuthor && (
+          <span> Contributed by <em>{recipe.sourceAuthor}</em>.</span>
+        )}
+        {' '}Published with verified authentic dish photography under open-source and public-domain terms.
+      </p>
+      {recipe.sourceUrl && (
+        <div class="provenance-link-wrap">
+          <a
+            href={recipe.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="provenance-source-link"
+          >
+            View Original Recipe in Source Repository &rarr;
+          </a>
+        </div>
+      )}
+    </div>
+  )}
+</div>
+
+<style>
+  .recipe-card-container {
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-10);
+    padding: var(--space-8);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .recipe-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: var(--space-4);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--color-border-subtle);
+    margin-bottom: var(--space-6);
+  }
+
+  .recipe-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .recipe-meta-label {
+    font-family: var(--font-sans);
+    font-size: 0.725rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+  }
+
+  .recipe-meta-val {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  .recipe-dietary-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-8);
+    flex-wrap: wrap;
+  }
+
+  .recipe-dietary-label {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+  }
+
+  .recipe-dietary-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .badge-dietary {
+    font-family: var(--font-sans);
+    font-size: 0.725rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: var(--color-olive);
+    background-color: rgba(72, 92, 75, 0.08);
+    border: 1px solid rgba(72, 92, 75, 0.18);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+  }
+
+  .recipe-body-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    margin-bottom: var(--space-10);
+  }
+
+  .recipe-section-heading {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .heading-accent {
+    color: var(--pillar-food-drink, #c2593f);
+  }
+
+  .recipe-ingredients-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    background-color: var(--color-surface-subtle);
+    padding: var(--space-5);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border-subtle);
+  }
+
+  .recipe-ingredient-item {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .ingredient-bullet {
+    color: var(--pillar-food-drink, #c2593f);
+    font-weight: 700;
+  }
+
+  .recipe-directions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .recipe-step-item {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+
+  .step-num-badge {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    color: var(--pillar-food-drink, #c2593f);
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  .step-text {
+    font-family: var(--font-serif);
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--color-text-primary);
+    flex-grow: 1;
+  }
+
+  .recipe-provenance-box {
+    background-color: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--pillar-food-drink, #c2593f);
+    border-radius: var(--radius-xs);
+    padding: var(--space-5);
+  }
+
+  .provenance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-2);
+  }
+
+  .provenance-kicker {
+    font-family: var(--font-sans);
+    font-size: 0.725rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--pillar-food-drink, #c2593f);
+  }
+
+  .provenance-license-badge {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    background-color: var(--color-surface);
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--radius-xs);
+    border: 1px solid var(--color-border-subtle);
+  }
+
+  .provenance-desc {
+    font-family: var(--font-sans);
+    font-size: 0.825rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-3);
+  }
+
+  .provenance-link-wrap {
+    padding-top: var(--space-2);
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  .provenance-source-link {
+    font-family: var(--font-sans);
+    font-size: 0.775rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--transition-fast);
+  }
+
+  .provenance-source-link:hover {
+    color: var(--pillar-food-drink, #c2593f);
+  }
+
+  @media (min-width: 768px) {
+    .recipe-body-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: var(--space-8);
+    }
+  }
+</style>

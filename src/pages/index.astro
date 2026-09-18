@@ -8,10 +8,11 @@ import { PILLARS, PILLAR_SLUGS, SITE_CONFIG, type PillarSlug } from '../config/s
 import { ECOSYSTEM_PROJECTS } from '../config/ecosystem';
 import { generateWebsiteSchema } from '../utils/seo';
 
-// Fetch articles from all 7 collections
+// Fetch articles from all 8 collections
 const [
   lifeDocs,
   travelDocs,
+  foodDrinkDocs,
   techAiDocs,
   moneyDocs,
   wellbeingDocs,
@@ -20,6 +21,7 @@ const [
 ] = await Promise.all([
   getCollection('life'),
   getCollection('travel'),
+  getCollection('food-drink'),
   getCollection('tech-ai'),
   getCollection('money'),
   getCollection('wellbeing'),
@@ -49,6 +51,7 @@ interface ArticleEntry {
 const allArticles: ArticleEntry[] = [
   ...lifeDocs.map((doc) => ({ id: doc.id, pillar: 'life' as PillarSlug, data: doc.data })),
   ...travelDocs.map((doc) => ({ id: doc.id, pillar: 'travel' as PillarSlug, data: doc.data })),
+  ...foodDrinkDocs.map((doc) => ({ id: doc.id, pillar: 'food-drink' as PillarSlug, data: doc.data })),
   ...techAiDocs.map((doc) => ({ id: doc.id, pillar: 'tech-ai' as PillarSlug, data: doc.data })),
   ...moneyDocs.map((doc) => ({ id: doc.id, pillar: 'money' as PillarSlug, data: doc.data })),
   ...wellbeingDocs.map((doc) => ({ id: doc.id, pillar: 'wellbeing' as PillarSlug, data: doc.data })),

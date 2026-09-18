@@ -189,4 +189,23 @@ export const PILLAR_IMAGE_STYLES: Record<PillarSlug, PillarImageStyle> = {
       'A modern outdoor cultural pavilion filled with visitors engaged in lively conversation',
     ],
   },
+  'food-drink': {
+    pillar: 'food-drink',
+    theme: 'Culinary Craft, Seasonal Food & Mindful Dining',
+    palette: ['Terracotta Red', 'Olive Green', 'Warm Ochre', 'Linen Cream'],
+    visualMotifs: [
+      'Authentic rustic kitchen tabletops with fresh seasonal produce',
+      'Artisanal fermentation crocks, sourdough loaves, copper cookware',
+      'Intimate dining moments with warm candlelight and linen napkins',
+      'Close-up culinary craft and authentic plated dishes',
+    ],
+    lighting: 'Natural side window daylight with soft warm shadows, rustic ambient glow',
+    cameraLens: '50mm f/1.8 prime lens, rich depth of field and authentic food texture',
+    mood: 'Appetizing, artisanal, warm, grounded',
+    exampleScenes: [
+      'A freshly sliced crusty sourdough loaf on a weathered wooden cutting board with sea salt crystals',
+      'A ceramic bowl of steaming rustic soup with fresh herbs and olive oil drizzle on a linen tablecloth',
+      'Hands assembling fresh seasonal ingredients on a sunlit kitchen island',
+    ],
+  },
 };

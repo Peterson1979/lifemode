@@ -37,9 +37,10 @@
   --color-primary: #3d5240;          /* Deep olive ink for links */
   --color-primary-hover: #263628;
 
-  /* 7 Canonical Editorial Pillars (Restrained, Cultured Hues) */
+  /* Canonical Editorial Pillars (Restrained, Cultured Hues) */
   --pillar-life: #9e4751;            /* Terracotta Rose */
   --pillar-travel: #2b617a;          /* Deep Coast Azure */
+  --pillar-food-drink: #c2593f;       /* Terracotta Paprika / Culinary Warmth */
   --pillar-tech-ai: #524b75;         /* Mineral Violet */
   --pillar-money: #326952;           /* Sage Slate */
   --pillar-wellbeing: #946927;       /* Raw Amber */
