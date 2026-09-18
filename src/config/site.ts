@@ -94,6 +94,7 @@ export const SITE_CONFIG = {
   ],
   footerLinks: [
     { name: 'About', href: '/about' },
+    { name: 'Editorial Standards', href: '/editorial-standards' },
     { name: 'Contact', href: '/contact' },
     { name: 'Privacy Policy', href: '/privacy' },
     { name: 'Terms of Service', href: '/terms' },

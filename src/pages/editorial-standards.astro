@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { PILLARS, PILLAR_SLUGS } from '../config/site';
+
+const canonicalUrl = 'https://lifemode.life/editorial-standards';
+---
+
+<BaseLayout
+  title="Editorial Standards — LifeMode"
+  description="LifeMode editorial guidelines, sourcing standards, factual review process, affiliate transparency, and AI policy."
+  canonicalUrl={canonicalUrl}
+>
+  <div class="page-shell container-prose">
+    <header style="margin-bottom: var(--space-8);">
+      <span class="hero-tag">Journalism &amp; Ethics</span>
+      <h1 class="page-title">Editorial Standards</h1>
+      <p class="page-lead">
+        Our editorial principles for publishing useful, accurate, and reader-focused lifestyle journalism.
+      </p>
+    </header>
+
+    <div class="prose">
+      <h2>1. Reader-Focused Mission</h2>
+      <p>
+        LifeMode is dedicated to publishing original, high-signal, and practical editorial content. Our goal is to help readers live well with clarity, intentionality, and actionable insights across modern living.
+      </p>
+
+      <h2>2. Core Coverage Areas</h2>
+      <p>
+        Our editorial coverage spans seven primary subjects:
+      </p>
+      <ul>
+        {PILLAR_SLUGS.map((slug) => {
+          const pillar = PILLARS[slug];
+          return (
+            <li>
+              <strong><a href={`/${pillar.slug}`}>{pillar.name}</a>:</strong> {pillar.description}
+            </li>
+          );
+        })}
+      </ul>
+
+      <h2>3. Sourcing &amp; Factual Review</h2>
+      <p>
+        We hold our content to high standards of accuracy, substance, and utility:
+      </p>
+      <ul>
+        <li><strong>Factual Verification:</strong> Key factual claims, technical concepts, data points, and health or finance topics are reviewed for accuracy before publication.</li>
+        <li><strong>Attribution:</strong> We reference reputable primary sources, official documentation, subject-matter experts, and authoritative publications where appropriate.</li>
+        <li><strong>Corrections:</strong> If a factual inaccuracy is identified, we promptly review and correct the article to maintain reader trust.</li>
+      </ul>
+
+      <h2>4. Editorial Independence &amp; Commercial Transparency</h2>
+      <p>
+        Editorial integrity and reader trust are paramount:
+      </p>
+      <ul>
+        <li><strong>Editorial Independence:</strong> Coverage decisions and editorial recommendations are made independently of commercial or advertising relationships.</li>
+        <li><strong>Affiliate Transparency:</strong> When an article includes links to recommended products or services that earn an affiliate commission, we clearly disclose this relationship to the reader. Affiliate partnerships never influence our honest evaluations or standards.</li>
+      </ul>
+
+      <h2>5. AI-Assisted Workflows &amp; Human Editorial Oversight</h2>
+      <p>
+        LifeMode embraces modern technology responsibly. Advanced AI tools may be utilized to assist with background research, topic synthesis, and drafting efficiency. However, all published stories remain subject to human editorial oversight, curation, and quality verification to ensure every piece meets our standards of tone, depth, and utility.
+      </p>
+
+      <h2>6. Feedback &amp; Editorial Inquiries</h2>
+      <p>
+        We welcome questions, suggestions, corrections, and editorial pitches from our readers:
+      </p>
+      <p>
+        <strong>Publication:</strong> LifeMode<br />
+        <strong>Publisher:</strong> Oberhauser Péter Zoltán<br />
+        <strong>Editorial Desk:</strong> <a href="mailto:contact@lifemode.life">contact@lifemode.life</a>
+      </p>
+    </div>
+  </div>
+</BaseLayout>
