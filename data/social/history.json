@@ -103,5 +103,40 @@
     "overallStatus": "COMPLETED",
     "createdAt": "2026-09-16T17:14:49.897Z",
     "updatedAt": "2026-09-16T17:14:49.897Z"
+  },
+  {
+    "runId": "srun-1789749606492-ikbwt",
+    "topicId": "lm-food-kitchen-workflow-ergonomics",
+    "pillar": "food-drink",
+    "canonicalTopic": "Designing a Low-Friction Kitchen: Mise en Place, Counter Space, and Daily Rhythm",
+    "contentHash": "03b210a3ed89138abba701d538707caa60e06f50ec14294ab2afb0bc23794e98",
+    "assetHash": "30a8b4bff17631a6738ace75af42e1925c1e6d153b5388a98cd36b1e96ccc7a8",
+    "idempotencyKey": "lm-soc-lm-food-kitchen-workflow-ergonomics-03b210a3",
+    "targetPlatforms": [
+      "instagram",
+      "facebook"
+    ],
+    "platformResults": {
+      "instagram": {
+        "platform": "instagram",
+        "status": "PUBLISHED",
+        "postId": "18619867195022262",
+        "postUrl": "https://instagram.com/p/18619867195022262",
+        "publishedAt": "2026-09-18T16:40:12.616Z",
+        "idempotencyKey": "lm-soc-lm-food-kitchen-workflow-ergonomics-instagram-f87af8c07e48"
+      },
+      "facebook": {
+        "platform": "facebook",
+        "status": "PUBLISHED",
+        "postId": "122321056928197726",
+        "postUrl": "https://facebook.com/122321056928197726",
+        "publishedAt": "2026-09-18T16:40:24.376Z",
+        "idempotencyKey": "lm-soc-lm-food-kitchen-workflow-ergonomics-facebook-4c45566229f3"
+      }
+    },
+    "reviewScore": 90,
+    "overallStatus": "COMPLETED",
+    "createdAt": "2026-09-18T16:40:27.833Z",
+    "updatedAt": "2026-09-18T16:40:27.833Z"
   }
 ]
