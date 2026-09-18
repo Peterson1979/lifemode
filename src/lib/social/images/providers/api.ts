@@ -55,8 +55,8 @@ export class APISocialImageProvider implements ISocialImageProvider {
         }
       }
 
-      // If configured with OpenAI DALL-E / external endpoint and no image buffer supplied
-      if (!heroImageBuffer && config.imageConfig.provider === 'openai') {
+      // If configured with OpenAI DALL-E / external endpoint and no article image supplied
+      if (!request.articleImage && !heroImageBuffer && config.imageConfig.provider === 'openai') {
         const response = await fetchImpl('https://api.openai.com/v1/images/generations', {
           method: 'POST',
           headers: {

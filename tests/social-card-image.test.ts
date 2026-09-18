@@ -8,13 +8,19 @@ import {
   computeTitleLayout,
   escapeXml,
   resolvePillarBackgroundPath,
+  loadLocalImage,
   PILLAR_BACKGROUND_FILES,
   PILLAR_VISUAL_THEMES,
   FixtureSocialImageProvider,
   APISocialImageProvider,
   isValidJpegBuffer,
   validateSocialVisualAsset,
+  selectSocialOpportunities,
+  buildSocialBrief,
+  FacebookPlatformAdapter,
+  InstagramPlatformAdapter,
   type PillarSlug,
+  type EditorialTopic,
 } from '../src/lib/social/index.ts';
 
 test('LifeMode Social Card Image Generation & Layout Test Suite', async (t) => {
@@ -40,8 +46,8 @@ test('LifeMode Social Card Image Generation & Layout Test Suite', async (t) => {
     }
   });
 
-  await t.test('2. All seven pillar themes have defined accent colors and uppercase display names', () => {
-    const pillars: PillarSlug[] = ['life', 'travel', 'tech-ai', 'money', 'wellbeing', 'discover', 'now'];
+  await t.test('2. All eight pillar themes have defined accent colors and uppercase display names', () => {
+    const pillars: PillarSlug[] = ['life', 'travel', 'food-drink', 'tech-ai', 'money', 'wellbeing', 'discover', 'now'];
 
     for (const pillar of pillars) {
       const theme = PILLAR_VISUAL_THEMES[pillar];
@@ -91,8 +97,8 @@ test('LifeMode Social Card Image Generation & Layout Test Suite', async (t) => {
     assert.equal(escaped.includes('"'), false);
   });
 
-  await t.test('5. composeSocialCard produces 1080x1350 JPEG with valid magic bytes across all 7 pillars', async () => {
-    const pillars: PillarSlug[] = ['life', 'travel', 'tech-ai', 'money', 'wellbeing', 'discover', 'now'];
+  await t.test('5. composeSocialCard produces 1080x1350 JPEG with valid magic bytes across all 8 pillars', async () => {
+    const pillars: PillarSlug[] = ['life', 'travel', 'food-drink', 'tech-ai', 'money', 'wellbeing', 'discover', 'now'];
 
     for (const pillar of pillars) {
       const buffer = await composeSocialCard({
@@ -234,5 +240,253 @@ test('LifeMode Social Card Image Generation & Layout Test Suite', async (t) => {
       if (origKey !== undefined) process.env.OPENAI_API_KEY = origKey;
       else delete process.env.OPENAI_API_KEY;
     }
+  });
+
+  await t.test('10. Article image resolution loads real public/editorial local images and differs from fallback card', async () => {
+    // A. Verify loadLocalImage resolves root-relative path correctly
+    const lentilBuffer = await loadLocalImage('/editorial/food/cooking-with-lentils.webp');
+    assert.ok(lentilBuffer, 'Must load /editorial/food/cooking-with-lentils.webp from public/');
+    assert.ok(lentilBuffer.length > 10000, `Buffer size must be substantive: ${lentilBuffer.length}`);
+
+    // B. Compose social card with actual assigned article image path
+    const cardWithRealImage = await composeSocialCard({
+      topicId: 'lm-food-drink-cooking-with-lentils',
+      pillar: 'food-drink',
+      format: '1080x1350',
+      title: 'A Practical Guide to Cooking with Lentils',
+      articleImage: '/editorial/food/cooking-with-lentils.webp',
+      ctaText: 'Read the complete guide on lifemode.life',
+    });
+
+    assert.ok(cardWithRealImage);
+    assert.equal(isValidJpegBuffer(cardWithRealImage), true);
+
+    // C. Compose card with NO image (fallback geometric SVG)
+    const cardWithFallback = await composeSocialCard({
+      topicId: 'lm-food-drink-cooking-with-lentils',
+      pillar: 'food-drink',
+      format: '1080x1350',
+      title: 'A Practical Guide to Cooking with Lentils',
+      articleImage: undefined,
+      ctaText: 'Read the complete guide on lifemode.life',
+    });
+
+    assert.ok(cardWithFallback);
+    assert.equal(isValidJpegBuffer(cardWithFallback), true);
+
+    // D. Verify that the card with real image is distinct from the fallback card
+    assert.notDeepEqual(
+      cardWithRealImage,
+      cardWithFallback,
+      'Card rendered with assigned article image must NOT be identical to generic fallback card'
+    );
+
+    // E. Verify canonical lifemode.life URL is also resolved locally
+    const cardWithCanonicalUrl = await composeSocialCard({
+      topicId: 'lm-food-drink-cooking-with-lentils',
+      pillar: 'food-drink',
+      format: '1080x1350',
+      title: 'A Practical Guide to Cooking with Lentils',
+      articleImage: 'https://lifemode.life/editorial/food/cooking-with-lentils.webp',
+      ctaText: 'Read the complete guide on lifemode.life',
+    });
+
+    assert.ok(cardWithCanonicalUrl);
+    assert.equal(isValidJpegBuffer(cardWithCanonicalUrl), true);
+    assert.deepEqual(
+      cardWithRealImage,
+      cardWithCanonicalUrl,
+      'Canonical https://lifemode.life image URL should resolve to the identical production image bytes'
+    );
+  });
+
+  await t.test('11. End-to-end regression: Published Food & Drink article with assigned image propagates exact image URL to Facebook and Instagram packages without generic fallback', async () => {
+    const publishedFoodTopic: EditorialTopic = {
+      id: 'lm-food-drink-20260918-sourdough-craft',
+      canonicalTopic: 'How Sourdough Fermentation Works',
+      slug: 'how-sourdough-fermentation-works',
+      pillar: 'food-drink',
+      sourceSignals: [],
+      queryVariants: ['sourdough fermentation science', 'wild yeast microbiology'],
+      scoring: {
+        searchPotential: 85,
+        pinterestPotential: 88,
+        socialPotential: 90,
+        lifeModeRelevance: 95,
+        commercialPotential: 70,
+        freshness: 90,
+        competitionOpportunity: 80,
+        originalityPotential: 90,
+      },
+      totalScore: 88.0,
+      priorityTier: 'PRIORITY',
+      opportunityType: 'ARTICLE_AND_SOCIAL',
+      status: 'PUBLISHED',
+      freshnessScore: 90,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      publishedAt: new Date().toISOString(),
+      tags: ['food-drink', 'baking', 'science'],
+      articleImage: '/editorial/food/sourdough-fermentation.webp',
+    } as any;
+
+    // 1. Candidate Selection: Social opportunity contains the exact assigned article image
+    const opportunities = await selectSocialOpportunities([publishedFoodTopic], {
+      maxOpportunities: 1,
+      minScoreThreshold: 80,
+      publishedOnly: true,
+      baseUrl: 'https://lifemode.life',
+    });
+
+    assert.equal(opportunities.length, 1);
+    const opp = opportunities[0];
+    assert.equal(opp.articleImage, '/editorial/food/sourdough-fermentation.webp');
+    assert.equal(opp.destinationUrl, 'https://lifemode.life/food-drink/how-sourdough-fermentation-works');
+
+    // 2. Brief contains the article image
+    const brief = buildSocialBrief(opp);
+    assert.equal(brief.articleImage, '/editorial/food/sourdough-fermentation.webp');
+
+    // 3. Fixture/API Image Provider generates card with the assigned article image
+    const imageProvider = new FixtureSocialImageProvider();
+    const imageResult = await imageProvider.generateImage({
+      topicId: opp.topicId,
+      pillar: opp.pillar,
+      prompt: 'Microbiology of sourdough fermentation and crumb structure',
+      format: '1080x1350',
+      headlineOverlay: 'How Sourdough Fermentation Works',
+      articleImage: opp.articleImage,
+      articleTitle: opp.canonicalTopic,
+      ctaText: 'Read the complete guide on lifemode.life',
+    });
+
+    assert.equal(imageResult.success, true);
+    assert.ok(imageResult.asset);
+    assert.ok(imageResult.asset.buffer);
+
+    // Mock storage upload assigning a public HTTPS asset URL
+    const expectedPublicUrl = 'https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/social/lm-food-drink-sourdough/social-card.jpg';
+    imageResult.asset.url = expectedPublicUrl;
+
+    const content = {
+      topicId: opp.topicId,
+      pillar: opp.pillar,
+      concept: 'The science behind wild yeast and lactic acid bacteria in sourdough.',
+      hook: 'Why sourdough fermentation creates superior flavour and texture.',
+      title: 'How Sourdough Fermentation Works: The Complete Guide',
+      shortCaption: 'Exploring the microbiology of wild yeast and slow fermentation.',
+      callToAction: 'Read the full guide on LifeMode',
+      hashtags: ['#LifeMode', '#FoodDrink', '#Sourdough', '#BakingCraft'],
+      visualConcept: 'Artisanal bread scoring and bubbly fermentation starter',
+      imageText: { headline: 'How Sourdough Fermentation Works' },
+      targetPlatforms: ['facebook', 'instagram'] as any[],
+      destinationUrl: opp.destinationUrl,
+    };
+
+    // 4. Facebook Adapter receives the exact public image URL
+    const fbAdapter = new FacebookPlatformAdapter();
+    const fbPkg = await fbAdapter.prepare(content, imageResult.asset, { destinationUrl: opp.destinationUrl });
+    const fbValidation = fbAdapter.validate(fbPkg);
+    assert.equal(fbValidation.valid, true);
+    assert.equal(fbPkg.mediaAsset.url, expectedPublicUrl);
+    assert.equal(fbPkg.preparedPayload.url, expectedPublicUrl);
+    assert.ok(fbPkg.caption.includes('https://lifemode.life/food-drink/how-sourdough-fermentation-works'));
+
+    // 5. Instagram Adapter receives the exact public image URL
+    const igAdapter = new InstagramPlatformAdapter();
+    const igPkg = await igAdapter.prepare(content, imageResult.asset, { destinationUrl: opp.destinationUrl });
+    const igValidation = igAdapter.validate(igPkg);
+    assert.equal(igValidation.valid, true);
+    assert.equal(igPkg.mediaAsset.url, expectedPublicUrl);
+    assert.equal(igPkg.preparedPayload.image_url, expectedPublicUrl);
+  });
+
+  await t.test('12. Non-Food articles (now, wellbeing, travel, life) propagate assigned production images unaffected while preserving selection limits', async () => {
+    const publishedTopics: EditorialTopic[] = [
+      {
+        id: 'lm-now-20260910-jose-trevino',
+        canonicalTopic: 'Jose Trevino: what to know',
+        slug: 'jose-trevino-what-to-know',
+        pillar: 'now',
+        sourceSignals: [],
+        queryVariants: ['jose trevino catcher'],
+        scoring: {
+          searchPotential: 85,
+          pinterestPotential: 70,
+          socialPotential: 85,
+          lifeModeRelevance: 85,
+          commercialPotential: 50,
+          freshness: 90,
+          competitionOpportunity: 80,
+          originalityPotential: 80,
+        },
+        totalScore: 85.0,
+        priorityTier: 'PRIORITY',
+        opportunityType: 'ARTICLE_AND_SOCIAL',
+        status: 'PUBLISHED',
+        freshnessScore: 90,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+        publishedAt: new Date().toISOString(),
+        tags: ['now', 'baseball', 'sports'],
+        articleImage: '/editorial/baseball-diamond-catcher-gear.jpg',
+      } as any,
+      {
+        id: 'lm-wellbeing-20260910-morning-sunlight',
+        canonicalTopic: 'Morning Sunlight and Adenosine Clearing',
+        slug: 'morning-sunlight-and-adenosine-clearing',
+        pillar: 'wellbeing',
+        sourceSignals: [],
+        queryVariants: ['morning sunlight protocol'],
+        scoring: {
+          searchPotential: 80,
+          pinterestPotential: 80,
+          socialPotential: 80,
+          lifeModeRelevance: 90,
+          commercialPotential: 50,
+          freshness: 80,
+          competitionOpportunity: 80,
+          originalityPotential: 80,
+        },
+        totalScore: 82.0,
+        priorityTier: 'NORMAL',
+        opportunityType: 'ARTICLE_AND_SOCIAL',
+        status: 'PUBLISHED',
+        freshnessScore: 80,
+        createdAt: new Date(Date.now() - 3600000).toISOString(),
+        updatedAt: new Date(Date.now() - 3600000).toISOString(),
+        publishedAt: new Date(Date.now() - 3600000).toISOString(),
+        tags: ['wellbeing', 'circadian', 'health'],
+        articleImage: 'https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-wellbeing-20260910-morning-sunlight-a/a77354965b8ad6b4.jpg',
+      } as any,
+    ];
+
+    // A. Verify selection limit: maxOpportunities = 1 strictly returns exactly 1 item
+    const selected = await selectSocialOpportunities(publishedTopics, {
+      maxOpportunities: 1,
+      minScoreThreshold: 80,
+      publishedOnly: true,
+      baseUrl: 'https://lifemode.life',
+    });
+
+    assert.equal(selected.length, 1, 'maxOpportunities: 1 must return exactly 1 opportunity');
+    assert.equal(selected[0].topicId, 'lm-now-20260910-jose-trevino');
+    assert.equal(selected[0].articleImage, '/editorial/baseball-diamond-catcher-gear.jpg');
+
+    // B. Verify local image loading for existing non-Food article (/editorial/baseball-diamond-catcher-gear.jpg)
+    const baseballBuffer = await loadLocalImage(selected[0].articleImage!);
+    assert.ok(baseballBuffer, 'Must load /editorial/baseball-diamond-catcher-gear.jpg from public/');
+    assert.ok(baseballBuffer.length > 10000);
+
+    const nonFoodCard = await composeSocialCard({
+      topicId: selected[0].topicId,
+      pillar: selected[0].pillar,
+      format: '1080x1350',
+      title: selected[0].canonicalTopic,
+      articleImage: selected[0].articleImage,
+    });
+
+    assert.ok(nonFoodCard);
+    assert.equal(isValidJpegBuffer(nonFoodCard), true);
   });
 });

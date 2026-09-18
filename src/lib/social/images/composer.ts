@@ -64,6 +64,31 @@ export const PILLAR_BACKGROUND_FILES: Record<PillarSlug, string> = {
 };
 
 /**
+ * Resolves and reads a local image file buffer from disk, testing public asset directories and relative paths.
+ */
+export async function loadLocalImage(imagePath: string, baseDir = process.cwd()): Promise<Buffer | null> {
+  const cleanRel = imagePath.replace(/^[/\\]+/, '');
+  const candidatePaths = [
+    path.resolve(baseDir, 'public', cleanRel),
+    path.resolve(baseDir, cleanRel),
+    path.resolve(baseDir, imagePath),
+    imagePath,
+  ];
+
+  for (const candidate of candidatePaths) {
+    try {
+      const buf = await fs.readFile(candidate);
+      if (buf && buf.length > 0) {
+        return buf;
+      }
+    } catch {
+      // Continue searching next candidate
+    }
+  }
+  return null;
+}
+
+/**
  * Resolves the absolute path to a pillar-specific background image.
  */
 export function resolvePillarBackgroundPath(pillar: PillarSlug, baseDir = process.cwd()): string {
@@ -226,20 +251,29 @@ export async function composeSocialCard(options: ComposeSocialCardOptions): Prom
       } else if (typeof options.articleImage === 'string') {
         const imageSource = options.articleImage.trim();
         if (imageSource.startsWith('http://') || imageSource.startsWith('https://')) {
-          const fetchImpl = options.customFetch || globalThis.fetch.bind(globalThis);
-          const response = await fetchImpl(imageSource, {
-            signal: AbortSignal.timeout(5000),
-          });
-          if (response.ok) {
-            const arrayBuffer = await response.arrayBuffer();
-            rawImageBuffer = Buffer.from(arrayBuffer);
+          // If the URL points to lifemode.life canonical site, try local file first for speed and resilience
+          if (imageSource.startsWith('https://lifemode.life/') || imageSource.startsWith('http://lifemode.life/')) {
+            try {
+              const urlPath = new URL(imageSource).pathname;
+              rawImageBuffer = await loadLocalImage(urlPath, options.baseDir);
+            } catch {
+              // Fallback to network fetch below
+            }
+          }
+
+          if (!rawImageBuffer) {
+            const fetchImpl = options.customFetch || globalThis.fetch.bind(globalThis);
+            const response = await fetchImpl(imageSource, {
+              signal: AbortSignal.timeout(5000),
+            });
+            if (response.ok) {
+              const arrayBuffer = await response.arrayBuffer();
+              rawImageBuffer = Buffer.from(arrayBuffer);
+            }
           }
         } else {
-          // Local file path
-          const localPath = path.isAbsolute(imageSource)
-            ? imageSource
-            : path.resolve(options.baseDir || process.cwd(), imageSource);
-          rawImageBuffer = await fs.readFile(localPath);
+          // Local file path or web root-relative path (e.g., /editorial/food/cooking-with-lentils.webp)
+          rawImageBuffer = await loadLocalImage(imageSource, options.baseDir);
         }
       }
 
