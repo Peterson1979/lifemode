@@ -20,6 +20,11 @@ sources:
     url: "https://www.sciencedirect.com/journal/applied-ergonomics"
   - name: "The Philosophy of Mise en Place and Culinary Workflow Organization"
     url: "https://www.jstor.org"
+image: "/editorial/food/kitchen-workflow.webp"
+imageAlt: "A calm, organized kitchen counter with wooden cutting board and glass pantry jars in natural light"
+imageSource: "Photo by Sean via Wikimedia Commons (CC BY-SA 2.0)"
+imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Banana_bread_on_cutting_board,_with_kitchen_jars.jpg"
+imageLicense: "CC BY-SA 2.0"
 ---
 
 Many people believe they dislike cooking, when what they actually dislike is the friction of their kitchen.

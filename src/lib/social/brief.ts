@@ -14,6 +14,7 @@ export function buildSocialBrief(opportunity: SocialOpportunity): SocialBrief {
     wellbeing: 'Health-conscious readers interested in longevity science, circadian protocols, and restorative rituals.',
     discover: 'Aesthetics-driven curators and collectors interested in monograph design, architecture, and craftsmanship.',
     now: 'High-signal thinkers navigating cultural shifts, modern work dynamics, and zeitgeist trends.',
+    'food-drink': 'Mindful cooks, culinary travelers, and food culture enthusiasts valuing authentic ingredients, seasonal rituals, and thoughtful dining.',
   };
 
   const aestheticStyleMap: Record<string, string> = {
@@ -24,6 +25,7 @@ export function buildSocialBrief(opportunity: SocialOpportunity): SocialBrief {
     wellbeing: 'Morning sunlight streaming through linen, cedar contrast sauna, botanical serenity, vital natural tones.',
     discover: 'Museum-grade monograph layouts, artisanal ceramic textures, brutalist timber structures, fine craftsmanship.',
     now: 'Editorial documentary photography, tactile analog notebooks, serene urban pause, contemporary cultural moments.',
+    'food-drink': 'Warm kitchen ambience, artisanal ceramic tableware, vibrant seasonal produce, textural crusts, natural linen, and soft daylight.',
   };
 
   const targetAudience = audienceMap[opportunity.pillar] || 'Curious global readers seeking smart, contemporary lifestyle perspectives.';

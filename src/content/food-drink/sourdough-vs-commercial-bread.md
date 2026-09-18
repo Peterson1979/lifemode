@@ -21,6 +21,11 @@ sources:
     url: "https://www.flourandgrain.com"
   - name: "Glycemic Index and Digestibility Comparisons of Sourdough Bread (European Journal of Clinical Nutrition)"
     url: "https://www.nature.com/ejcn"
+image: "/editorial/food/sourdough-crumb-structure.webp"
+imageAlt: "Cross section of a sliced sourdough loaf revealing open aerated crumb and golden blistered crust"
+imageSource: "Photo by Nleamy via Wikimedia Commons (CC BY 2.5)"
+imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Sourdoughbreadcrumb.jpg"
+imageLicense: "CC BY 2.5"
 ---
 
 For thousands of years, bread was synonymous with time. Producing a loaf required twelve, twenty-four, or even thirty-six hours of passive biological activity as wild microbes slowly metabolized ground grains. 

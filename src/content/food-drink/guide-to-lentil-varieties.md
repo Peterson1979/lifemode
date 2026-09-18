@@ -20,6 +20,11 @@ sources:
     url: "https://www.fao.org"
   - name: "Culinary Science of Seed Coat Permeability in Pulses"
     url: "https://www.sciencedirect.com/topics/food-science/lentils"
+image: "/editorial/food/lentil-varieties.webp"
+imageAlt: "Three distinct varieties of dried lentils including French green Puy, red split, and brown lentils"
+imageSource: "Photo by Justin Cormack via Wikimedia Commons (CC BY-SA 2.0)"
+imageSourceUrl: "https://commons.wikimedia.org/wiki/File:3_types_of_lentil.jpg"
+imageLicense: "CC BY-SA 2.0"
 ---
 
 Lentils (*Lens culinaris*) are among humanity's oldest domesticated crops, cultivated in the Fertile Crescent for nearly ten thousand years. Yet in many home kitchens, they are treated as a single, homogenous ingredient: an undifferentiated brown pulse that is boiled until soft.

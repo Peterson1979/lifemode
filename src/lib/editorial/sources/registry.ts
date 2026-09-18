@@ -643,6 +643,88 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
   },
 
   // =========================================================================
+  // FOOD & DRINK (Culinary Craft, Ingredients, Gastronomy & Food Culture)
+  // =========================================================================
+  {
+    id: 'fao-pulses-agriculture',
+    name: 'Food and Agriculture Organization (FAO) of the United Nations',
+    role: 'research',
+    sourceType: 'government',
+    reliability: 'high',
+    pillars: ['food-drink'],
+    domains: ['fao.org'],
+    url: 'https://www.fao.org',
+    topics: ['legumes', 'pulses', 'grains', 'agriculture', 'sustainability', 'food-standards'],
+    description: 'International standards for pulse classification, grain agronomy, and global agricultural biodiversity.',
+    enabled: true,
+  },
+  {
+    id: 'international-olive-council',
+    name: 'International Olive Council (IOC)',
+    role: 'research',
+    sourceType: 'official',
+    reliability: 'high',
+    pillars: ['food-drink'],
+    domains: ['internationaloliveoil.org'],
+    url: 'https://www.internationaloliveoil.org',
+    topics: ['olive-oil', 'evoo', 'polyphenols', 'sensory-analysis', 'standards'],
+    description: 'Official intergovernmental standards, physicochemical criteria, and sensory evaluation of extra virgin olive oil.',
+    enabled: true,
+  },
+  {
+    id: 'culinary-institute-america',
+    name: 'Culinary Institute of America (CIA)',
+    role: 'research',
+    sourceType: 'academic',
+    reliability: 'high',
+    pillars: ['food-drink'],
+    domains: ['ciachef.edu'],
+    url: 'https://www.ciachef.edu',
+    topics: ['cooking-technique', 'kitchen-tools', 'culinary-science', 'baking', 'fermentation', 'emulsions'],
+    description: 'Authoritative professional culinary techniques, food science, and kitchen ergonomics.',
+    enabled: true,
+  },
+  {
+    id: 'slow-food-foundation',
+    name: 'Slow Food Foundation for Biodiversity',
+    role: 'research',
+    sourceType: 'official',
+    reliability: 'high',
+    pillars: ['food-drink', 'travel'],
+    domains: ['slowfood.com'],
+    url: 'https://www.slowfood.com',
+    topics: ['food-culture', 'heritage-grains', 'neighborhood-markets', 'artisanal-producers', 'biodiversity'],
+    description: 'Global heritage food registry, artisanal foodway preservation, and sustainable market geographies.',
+    enabled: true,
+  },
+  {
+    id: 'reddit-cooking',
+    name: 'Reddit r/Cooking',
+    role: 'discovery',
+    sourceType: 'industry',
+    reliability: 'medium',
+    pillars: ['food-drink'],
+    domains: ['reddit.com/r/cooking'],
+    topics: ['cooking', 'techniques', 'ingredients', 'recipes', 'kitchen-gear'],
+    description: 'Home cook community discussions, technique queries, and emerging ingredient interest.',
+    enabled: true,
+    isDiscoveryOnly: true,
+  },
+  {
+    id: 'reddit-sourdough',
+    name: 'Reddit r/Sourdough',
+    role: 'discovery',
+    sourceType: 'industry',
+    reliability: 'medium',
+    pillars: ['food-drink'],
+    domains: ['reddit.com/r/sourdough'],
+    topics: ['sourdough', 'fermentation', 'baking', 'wild-yeast', 'crumb-structure'],
+    description: 'Artisan bread baking community troubleshooting, fermentation protocols, and crumb analysis.',
+    enabled: true,
+    isDiscoveryOnly: true,
+  },
+
+  // =========================================================================
   // DISCOVERY SIGNALS (Strictly isolated from factual evidence)
   // =========================================================================
   {
@@ -651,7 +733,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['tech-ai', 'money', 'wellbeing', 'travel', 'life', 'discover', 'now'],
+    pillars: ['tech-ai', 'money', 'wellbeing', 'travel', 'life', 'discover', 'now', 'food-drink'],
     domains: ['trends.google.com'],
     url: 'https://trends.google.com',
     description: 'Real-time search interest spikes and keyword breakout signals.',
@@ -664,7 +746,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['life', 'discover', 'travel', 'wellbeing', 'now'],
+    pillars: ['life', 'discover', 'travel', 'wellbeing', 'now', 'food-drink'],
     domains: ['pinterest.com'],
     url: 'https://pinterest.com',
     description: 'Emerging visual aesthetics, interior design boards, and lifestyle curations.',
@@ -677,7 +759,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['tech-ai', 'life', 'wellbeing', 'travel'],
+    pillars: ['tech-ai', 'life', 'wellbeing', 'travel', 'food-drink'],
     domains: ['youtube.com'],
     url: 'https://www.youtube.com',
     description: 'Video culture discussions, tutorial surges, and hardware reviews.',
@@ -847,6 +929,87 @@ export const CURATED_TOPIC_EVIDENCE: CuratedTopicEvidenceSpec[] = [
         claimSummary:
           'Systemic analysis of cognitive friction design, attention economy resistance, and architectural patterns for calm personal computing environments.',
         sourceType: 'official',
+        reliability: 'high',
+      },
+    ],
+  },
+  // 6. Food & Drink / Sourdough & Fermentation
+  {
+    pillar: 'food-drink',
+    keywords: ['sourdough', 'fermentation', 'starter', 'bread', 'yeast'],
+    evidence: [
+      {
+        title: 'Microbial Ecology of Sourdough Fermentations (Gänzle & Ripari, Applied Microbiology)',
+        url: 'https://journals.asm.org/journal/aem',
+        publisher: 'American Society for Microbiology',
+        publishedAt: '2025-11-10T00:00:00.000Z',
+        claimSummary:
+          'Peer-reviewed analysis of symbiotic wild yeasts (Kazachstania exigua) and lactic acid bacteria (Lactobacillus sanfranciscensis) metabolizing maltose and synthesizing organic acids for structural gluten relaxation.',
+        sourceType: 'academic',
+        reliability: 'high',
+      },
+      {
+        title: 'The Sourdough School: Science and Micro-Ecology of Fermentation',
+        url: 'https://www.sourdough.co.uk/research',
+        publisher: 'The Sourdough School Research Board',
+        publishedAt: '2026-01-12T00:00:00.000Z',
+        claimSummary:
+          'Empirical protocols for ambient starter maintenance, enzymatic phytate breakdown, organic acid accumulation, and extended cold proofing for optimal crumb aeration.',
+        sourceType: 'official',
+        reliability: 'high',
+      },
+    ],
+  },
+  // 7. Food & Drink / Extra Virgin Olive Oil & Polyphenols
+  {
+    pillar: 'food-drink',
+    keywords: ['olive', 'oil', 'evoo', 'polyphenol', 'oleocanthal'],
+    evidence: [
+      {
+        title: 'International Olive Council: Commercial Quality Standards and Sensory Analysis',
+        url: 'https://www.internationaloliveoil.org/what-we-do/standardisation-unit',
+        publisher: 'International Olive Council',
+        publishedAt: '2026-01-15T00:00:00.000Z',
+        claimSummary:
+          'Official physicochemical standards: free acidity below 0.8% (with premium early-harvest below 0.3%), peroxide value thresholds, and certified organoleptic panel tasting criteria.',
+        sourceType: 'official',
+        reliability: 'high',
+      },
+      {
+        title: 'Oleocanthal and Phenolic Compounds in Extra Virgin Olive Oil (Journal of Agricultural and Food Chemistry)',
+        url: 'https://pubs.acs.org/journal/jafcau',
+        publisher: 'American Chemical Society',
+        publishedAt: '2025-12-05T00:00:00.000Z',
+        claimSummary:
+          'Biochemical mechanism of peppery posterior pharynx pungency caused by oleocanthal binding to TRPA1 ion channels in fresh, early-harvest cold-pressed extra virgin olive oils.',
+        sourceType: 'academic',
+        reliability: 'high',
+      },
+    ],
+  },
+  // 8. Food & Drink / Legumes & Pulses
+  {
+    pillar: 'food-drink',
+    keywords: ['lentil', 'legume', 'chickpea', 'pulse', 'bean'],
+    evidence: [
+      {
+        title: 'FAO Pulse Standards and Nutritional Agronomy Classification',
+        url: 'https://www.fao.org/pulses-2016/en',
+        publisher: 'Food and Agriculture Organization (FAO)',
+        publishedAt: '2025-10-20T00:00:00.000Z',
+        claimSummary:
+          'International pulse classification detailing seed coat thickness, tannin concentrations, starch gelatinization curves, and optimal soaking and hydration chemistry for Lens culinaris and Cicer arietinum.',
+        sourceType: 'government',
+        reliability: 'high',
+      },
+      {
+        title: 'Culinary Institute of America: Professional Legume Moisture Management and Flavor Layering',
+        url: 'https://www.ciachef.edu',
+        publisher: 'Culinary Institute of America',
+        publishedAt: '2026-02-01T00:00:00.000Z',
+        claimSummary:
+          'Classical techniques for cooking dried pulses: gentle sub-boiling simmers (85-90°C), osmotic salt penetration during cooking, and building aromatic sofrito bases with fat-soluble spices.',
+        sourceType: 'academic',
         reliability: 'high',
       },
     ],

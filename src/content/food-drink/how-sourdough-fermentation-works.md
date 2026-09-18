@@ -21,10 +21,11 @@ sources:
     url: "https://journals.asm.org/journal/aem"
   - name: "Cereal Chemistry & Sourdough Acidification Studies"
     url: "https://www.sciencedirect.com/journal/journal-of-cereal-science"
-image: "/editorial/food/sourdough-bread.webp"
-imageAlt: "Sliced artisan sourdough bread showing open crumb structure and caramelized crust"
-imageSource: "Original photo by SirStark via Based Cooking (CC0)"
-imageSourceUrl: "https://github.com/LukeSmithxyz/based.cooking"
+image: "/editorial/food/sourdough-fermentation.webp"
+imageAlt: "Active bubbling sourdough starter showing rich aerated fermentation network"
+imageSource: "Photo by Spurekar via Flickr / Openverse (CC BY 2.0)"
+imageSourceUrl: "https://www.flickr.com/photos/63324741@N04/49883187806"
+imageLicense: "CC BY 2.0"
 ---
 
 At its core, breadmaking appears deceptively elementary: flour, water, salt, and microorganisms. Yet the transformation of inert milled cereal grains into a structured, open-crumbed, fragrant loaf is one of the most intricate biological processes in everyday culinary practice. 

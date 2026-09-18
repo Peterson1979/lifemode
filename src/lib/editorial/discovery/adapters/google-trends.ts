@@ -41,8 +41,13 @@ export function classifyTrendingQueryPillar(query: string, description?: string)
     return 'discover';
   }
 
+  // Food & Drink (Culinary, Ingredients, Gastronomy, Fermentation, Drinks)
+  if (/\b(food|drink|drinks|recipe|recipes|cooking|cook|ingredient|ingredients|kitchen|cuisine|sourdough|fermentation|coffee|tea|wine|olive oil|tahini|vinegar|lentil|lentils|baking|culinary|chef|dining|meal|dish)\b/i.test(text)) {
+    return 'food-drink';
+  }
+
   // Life / Intentionality
-  if (/\b(habit|routine|productivity|focus|workspace|lifestyle|declutter|career|home|kitchen|coffee|garden|craft)\b/i.test(text)) {
+  if (/\b(habit|routine|productivity|focus|workspace|lifestyle|declutter|career|home|garden|craft)\b/i.test(text)) {
     return 'life';
   }
 

@@ -134,6 +134,36 @@ const SEASONAL_EDITORIAL_THEMES: SeasonalTheme[] = [
     visualPotentialScore: 85,
     tags: ['wellbeing', 'sauna', 'recovery', 'longevity'],
   },
+  {
+    event: 'Spring Market Produce & Fresh Herbs',
+    pillar: 'food-drink',
+    rawQuery: 'Spring Market Cooking: Tender Greens, Fresh Herbs, and Light Broths',
+    targetMonths: [2, 3, 4, 5],
+    growthRate: 88,
+    relativeInterest: 90,
+    visualPotentialScore: 92,
+    tags: ['food-drink', 'seasonal-food', 'ingredients', 'cooking'],
+  },
+  {
+    event: 'Late Summer Harvest & Slow Fermentation',
+    pillar: 'food-drink',
+    rawQuery: 'Late Summer Harvest: Preserving Heirloom Produce and Wild Ferments',
+    targetMonths: [6, 7, 8, 9],
+    growthRate: 94,
+    relativeInterest: 92,
+    visualPotentialScore: 90,
+    tags: ['food-drink', 'seasonal-food', 'fermentation', 'harvest'],
+  },
+  {
+    event: 'Autumn Hearth Cooking & Simmered Legumes',
+    pillar: 'food-drink',
+    rawQuery: 'Slow Autumn Hearth: Hearty Legume Broths, Earthenware, and Root Vegetables',
+    targetMonths: [9, 10, 11, 0],
+    growthRate: 90,
+    relativeInterest: 93,
+    visualPotentialScore: 91,
+    tags: ['food-drink', 'cooking', 'ingredients', 'kitchen'],
+  },
 ];
 
 /**

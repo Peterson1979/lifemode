@@ -21,10 +21,11 @@ sources:
     url: "https://www.sourdough.co.uk/research"
   - name: "Culinary Institute of America: Heritage Grains and Bread Traditions"
     url: "https://www.ciachef.edu"
-image: "/editorial/food/sourdough-bread.webp"
-imageAlt: "Artisan sourdough loaf with blistered crust and flour dusting resting on a wooden board"
-imageSource: "Original photo by SirStark via Based Cooking (CC0)"
-imageSourceUrl: "https://github.com/LukeSmithxyz/based.cooking"
+image: "/editorial/food/sourdough-baking-craft.webp"
+imageAlt: "Artisan sourdough bread loaf being scored with precision on a floured baker table"
+imageSource: "Photo by Jarkko Laine via Flickr / Openverse (CC BY 2.0)"
+imageSourceUrl: "https://www.flickr.com/photos/87308984@N00/9407622899"
+imageLicense: "CC BY 2.0"
 version: 1
 lifecycleStatus: "PUBLISHED"
 ---

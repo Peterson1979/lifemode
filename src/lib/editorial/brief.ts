@@ -85,6 +85,7 @@ export function deriveArticleAngle(topic: EditorialTopic, format: ArticleFormat,
     wellbeing: 'Balanced, science-aware wellness guidance grounded in sustainable daily habits and professional caution.',
     travel: 'Curated, design-conscious experiential exploration prioritizing architectural detail and authentic atmosphere.',
     now: 'Insightful contemporary cultural observation dissecting emerging behavioral shifts and modern zeitgeist.',
+    'food-drink': 'Sensory-rich, technique-aware culinary perspective emphasizing ingredient integrity, seasonal cooking, and cultural context.',
   };
 
   const baseAngle = pillarAngles[topic.pillar] || 'Contemporary, human-first editorial analysis with high-signal takeaways.';

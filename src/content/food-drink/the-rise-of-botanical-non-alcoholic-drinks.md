@@ -20,6 +20,11 @@ sources:
     url: "https://www.sciencedirect.com"
   - name: "Global Beverage Culture and Zero-Proof Botanical Trends (IWSR Strategic Drinks Market Analysis)"
     url: "https://www.theiwsr.com"
+image: "/editorial/food/botanical-drinks.webp"
+imageAlt: "An elegant botanical aperitif in glassware garnished with natural herbs and citrus"
+imageSource: "Photo by Dinner Series via Wikimedia Commons (CC BY 2.0)"
+imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Rimmed_cocktail_glass.jpg"
+imageLicense: "CC BY 2.0"
 ---
 
 For generations, declining an alcoholic drink at a social gathering or restaurant meant accepting a severe compromise. The non-alcoholic options were almost universally infantilizing: overly sweet fruit juices, cloying sodas, or sickly syrup-based "mocktails" garnished with maraschino cherries.

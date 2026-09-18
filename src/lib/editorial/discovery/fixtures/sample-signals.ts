@@ -152,4 +152,25 @@ export const FIXTURE_DISCOVERY_SIGNALS: DiscoverySignal[] = [
       curatedTags: ['trends', 'zeitgeist', 'lifestyle', 'culture'],
     },
   },
+  {
+    source: 'FIXTURE',
+    sourceId: 'fix-food-008',
+    rawQuery: 'Artisanal Sourdough Fermentation and Ancient Grains',
+    timestamp: '2026-09-09T11:45:00.000Z',
+    metrics: {
+      growthRate: 85,
+      searchVolume: 28000,
+      relativeInterest: 92,
+      isBreakout: true,
+      visualPotentialScore: 92,
+    },
+    geography: 'GLOBAL',
+    language: 'en',
+    category: 'food-drink',
+    metadata: {
+      isFixture: true,
+      suggestedPillar: 'food-drink',
+      curatedTags: ['food-drink', 'sourdough', 'fermentation', 'baking', 'cooking'],
+    },
+  },
 ];

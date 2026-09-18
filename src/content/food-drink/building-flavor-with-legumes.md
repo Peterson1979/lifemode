@@ -21,10 +21,11 @@ sources:
     url: "https://ich.unesco.org"
   - name: "Flavor Chemistry of Legumes and Allium Sauté Bases (Food Chemistry)"
     url: "https://www.sciencedirect.com/journal/food-chemistry"
-image: "/editorial/food/hummus.webp"
-imageAlt: "Smooth creamy hummus plated with olive oil swirl, whole chickpeas, and herbs"
-imageSource: "Original photo by Jacob Smith via Based Cooking (CC0)"
-imageSourceUrl: "https://github.com/LukeSmithxyz/based.cooking"
+image: "/editorial/food/flavor-with-legumes.webp"
+imageAlt: "Dried whole chickpeas in a rustic ceramic bowl on a wooden kitchen surface"
+imageSource: "Photo by AlixSaz via Wikimedia Commons (CC BY-SA 4.0)"
+imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Ordinary_chickpeas_in_a_ceramic_bowl.jpg"
+imageLicense: "CC BY-SA 4.0"
 ---
 
 In modern Western diet culture, dried legumes—chickpeas, white beans, lentils, and favas—are frequently discussed in terms of utility: grams of plant protein, fiber metrics, or low glycemic load. Yet in the traditional culinary cultures of the Mediterranean basin, the Levant, and North Africa, pulses are never treated as ascetic dietary compromises. They are celebrated centerpieces, simmered into luxurious broths, whipped into silky mezze, and layered with complex aromatics.

@@ -21,6 +21,11 @@ sources:
     url: "https://www.internationaloliveoil.org"
   - name: "Oleocanthal and Phenolic Compounds in Extra Virgin Olive Oil (Journal of Agricultural and Food Chemistry)"
     url: "https://pubs.acs.org/journal/jafcau"
+image: "/editorial/food/extra-virgin-olive-oil.webp"
+imageAlt: "A bottle of extra virgin olive oil highlighting golden-green hue and harvest quality"
+imageSource: "Photo by Eteogoods via Wikimedia Commons (CC BY-SA 4.0)"
+imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Eteo_organic_extra_virgin_olive_oil.jpg"
+imageLicense: "CC BY-SA 4.0"
 ---
 
 Extra virgin olive oil (EVOO) is one of the most celebrated culinary staples in the world, yet it remains one of the most widely misunderstood. Supermarket shelves are saturated with bottles labeled "pure," "light," "cold-pressed," or "extra virgin," often bearing little connection to the fresh, vibrant, peppery fruit juice that authentic olive oil is meant to be.

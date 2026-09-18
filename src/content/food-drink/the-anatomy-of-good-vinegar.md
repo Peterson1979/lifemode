@@ -20,6 +20,11 @@ sources:
     url: "https://www.sciencedirect.com"
   - name: "Consorzio Tutela Aceto Balsamico Tradizionale di Modena Production Disciplinaries"
     url: "https://www.balsamicotradizionale.it"
+image: "/editorial/food/artisanal-vinegar.webp"
+imageAlt: "Glass cruets of extra virgin olive oil and aged dark balsamic vinegar on a dining table"
+imageSource: "Photo by Jacklee via Wikimedia Commons (CC BY-SA 4.0)"
+imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Bottle_of_oil_and_vinegar_in_an_Italian_restaurant_in_Singapore_-_20130324.jpg"
+imageLicense: "CC BY-SA 4.0"
 ---
 
 When salt, fat, and heat have done their work in a pan, there is often a persistent sensation that something is still missing. The flavors may feel heavy, flat, or muted. The remedy in professional kitchens is almost always a measured touch of acid. 

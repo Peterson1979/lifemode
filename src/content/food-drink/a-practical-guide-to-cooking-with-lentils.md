@@ -21,6 +21,11 @@ sources:
     url: "https://www.hsph.harvard.edu/nutritionsource/legumes"
   - name: "Culinary Institute of America: Legume Cooking Techniques & Moisture Management"
     url: "https://www.ciachef.edu"
+image: "/editorial/food/cooking-with-lentils.webp"
+imageAlt: "A steaming ceramic bowl of red lentil soup garnished with herbs and olive oil"
+imageSource: "Photo by Jules via Wikimedia Commons (CC BY 2.0)"
+imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Red_lentil_soup_bowl.jpg"
+imageLicense: "CC BY 2.0"
 version: 1
 lifecycleStatus: "PUBLISHED"
 ---

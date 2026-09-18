@@ -20,6 +20,11 @@ sources:
     url: "https://waterforcoffeebook.com"
   - name: "Specialty Coffee Association (SCA) Brewing Control Chart & Standards"
     url: "https://sca.coffee"
+image: "/editorial/food/modern-coffee-ritual.webp"
+imageAlt: "A manual drip pour-over coffee dripper brewing freshly ground coffee in morning light"
+imageSource: "Photo by Kim Sanso via Wikimedia Commons (CC0 1.0)"
+imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Manual_drip_(pour-over)_coffee.jpg"
+imageLicense: "CC0 1.0 Universal"
 ---
 
 For decades, domestic coffee in the Western world was treated as a utilitarian commodity: a dark, bitter liquid dispensed from automated drip machines or instant soluble crystals, designed purely to deliver caffeine with maximum speed.

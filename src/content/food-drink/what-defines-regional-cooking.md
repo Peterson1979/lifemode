@@ -20,6 +20,11 @@ sources:
     url: "https://www.routledge.com"
   - name: "Terroir in Gastronomy: Agricultural Geography and Culinary Form (University of California Press)"
     url: "https://www.ucpress.edu"
+image: "/editorial/food/regional-earthenware-cooking.webp"
+imageAlt: "Handcrafted earthenware cooking tagine pot for slow-simmered regional stews"
+imageSource: "Photo by Cullen328 via Wikimedia Commons (CC BY-SA 4.0)"
+imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Portuguese_made_tagine.jpg"
+imageLicense: "CC BY-SA 4.0"
 ---
 
 We frequently speak in convenient geographical generalizations: "Italian food," "Mexican food," "Chinese food," or "Indian food." Yet anyone who travels deeply through these regions with an appetite quickly realizes that national cuisines are largely modern political constructs.

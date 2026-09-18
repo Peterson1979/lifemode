@@ -20,6 +20,11 @@ sources:
     url: "https://www.sciencedirect.com/journal/journal-of-food-engineering"
   - name: "Traditional Sesame Processing in the Levant and Eastern Mediterranean"
     url: "https://www.jstor.org"
+image: "/editorial/food/cooking-with-tahini.webp"
+imageAlt: "Creamy pure sesame tahini paste with natural golden oil separation in a ceramic bowl"
+imageSource: "Photo by Miansari66 via Wikimedia Commons (CC0 1.0)"
+imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Tahini_with_oil.JPG"
+imageLicense: "CC0 1.0 Universal"
 ---
 
 In many kitchens outside the Eastern Mediterranean, tahini is treated as a single-purpose ingredient: a jar purchased to make a batch of hummus and subsequently forgotten in the refrigerator door.

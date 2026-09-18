@@ -45,6 +45,8 @@ export const DEFAULT_CURATED_SUBREDDITS: ConfiguredRedditCommunity[] = [
   { subreddit: 'longevity', pillar: 'wellbeing', sort: 'top', timeframe: 'day', minScore: 20 },
   { subreddit: 'RoomPorn', pillar: 'discover', sort: 'top', timeframe: 'day', minScore: 50 },
   { subreddit: 'ArchitecturePorn', pillar: 'discover', sort: 'top', timeframe: 'day', minScore: 40 },
+  { subreddit: 'Cooking', pillar: 'food-drink', sort: 'top', timeframe: 'day', minScore: 40 },
+  { subreddit: 'Sourdough', pillar: 'food-drink', sort: 'top', timeframe: 'day', minScore: 25 },
 ];
 
 export interface GlobalDiscoveryConfig {

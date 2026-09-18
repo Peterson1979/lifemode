@@ -20,6 +20,11 @@ sources:
     url: "https://www.ciachef.edu"
   - name: "American Chemical Society: Heat Retention and Metallurgy in Cookware"
     url: "https://www.acs.org"
+image: "/editorial/food/kitchen-tools.webp"
+imageAlt: "An essential chef knife resting on a solid wooden cutting board in a home kitchen"
+imageSource: "Photo by Gaurav Dhwaj Khadka via Wikimedia Commons (CC BY-SA 4.0)"
+imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Cutting_Board.jpg"
+imageLicense: "CC BY-SA 4.0"
 version: 1
 lifecycleStatus: "PUBLISHED"
 ---

@@ -20,6 +20,11 @@ sources:
     url: "https://www.slowfood.com"
   - name: "The Architecture and Social Ecology of European Covered Markets"
     url: "https://www.jstor.org"
+image: "/editorial/food/neighborhood-farmers-market.webp"
+imageAlt: "Vibrant wooden crates filled with fresh seasonal vegetables at a neighborhood farmers market stall"
+imageSource: "Photo by JustSomePics via Wikimedia Commons (CC BY-SA 3.0)"
+imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Cambridge_Farmers_Market_2.jpg"
+imageLicense: "CC BY-SA 3.0"
 ---
 
 In a global food retail landscape dominated by frictionless online delivery apps, climate-controlled supermarkets, and standardized plastic-wrapped produce, the traditional neighborhood food market feels almost defiant. 
