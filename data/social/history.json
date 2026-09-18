@@ -138,5 +138,40 @@
     "overallStatus": "COMPLETED",
     "createdAt": "2026-09-18T16:40:27.833Z",
     "updatedAt": "2026-09-18T16:40:27.833Z"
+  },
+  {
+    "runId": "srun-1789751236207-4xhq2",
+    "topicId": "lm-food-botanical-drinks",
+    "pillar": "food-drink",
+    "canonicalTopic": "The Rise of Botanical Non-Alcoholic Drinks: Complexity Without Alcohol",
+    "contentHash": "fcf7f3d61fc0401999d8f243c6f72c5fc698db02bef21975b2e9dd49f1d4becb",
+    "assetHash": "aa8b2244800844bc0327cd2ace6e39fd2beec1d1390f513d2dc6ec489a0c110a",
+    "idempotencyKey": "lm-soc-lm-food-botanical-drinks-fcf7f3d6",
+    "targetPlatforms": [
+      "instagram",
+      "facebook"
+    ],
+    "platformResults": {
+      "instagram": {
+        "platform": "instagram",
+        "status": "PUBLISHED",
+        "postId": "18133724326648736",
+        "postUrl": "https://instagram.com/p/18133724326648736",
+        "publishedAt": "2026-09-18T17:07:19.565Z",
+        "idempotencyKey": "lm-soc-lm-food-botanical-drinks-instagram-70d9a243e1bc"
+      },
+      "facebook": {
+        "platform": "facebook",
+        "status": "PUBLISHED",
+        "postId": "122321060558197726",
+        "postUrl": "https://facebook.com/122321060558197726",
+        "publishedAt": "2026-09-18T17:07:27.878Z",
+        "idempotencyKey": "lm-soc-lm-food-botanical-drinks-facebook-1f1269937143"
+      }
+    },
+    "reviewScore": 90,
+    "overallStatus": "COMPLETED",
+    "createdAt": "2026-09-18T17:07:33.185Z",
+    "updatedAt": "2026-09-18T17:07:33.185Z"
   }
 ]
