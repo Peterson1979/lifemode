@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-17T11:08:17.377Z",
+    "updatedAt": "2026-09-18T10:42:33.374Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1397,7 +1397,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-17T11:08:17.378Z",
+    "updatedAt": "2026-09-18T10:42:33.376Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1458,7 +1458,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-17T11:08:17.379Z",
+    "updatedAt": "2026-09-18T10:42:33.377Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1519,7 +1519,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-17T11:08:17.381Z",
+    "updatedAt": "2026-09-18T10:42:33.379Z",
     "revisionCyclesCount": 0
   },
   {
@@ -6123,8 +6123,8 @@
     "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T11:45:56.216Z",
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-18T10:44:44.808Z",
     "pinterestScore": 85.3,
     "revisionCyclesCount": 0
   },
@@ -41562,6 +41562,4153 @@
     "opportunityType": "ARTICLE",
     "status": "SCORED",
     "updatedAt": "2026-09-17T11:08:17.375Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-now-20260918-irn",
+    "canonicalTopic": "Irn",
+    "slug": "irn",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-irC3A1n",
+        "query": "Irn",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-18T10:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-18T10:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "irán",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "irn"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T10:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-18T10:42:32.033Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260918-princess-charlene",
+    "canonicalTopic": "Princess Charlene",
+    "slug": "princess-charlene",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-princess20charle",
+        "query": "Princess Charlene",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-18T10:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-18T10:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "princess charlene",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "princess charlene"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T10:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-18T10:42:32.053Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260918-warren-buffett",
+    "canonicalTopic": "Warren Buffett",
+    "slug": "warren-buffett",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-warren20buffett",
+        "query": "Warren Buffett",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-18T10:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-18T10:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "warren buffett",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "warren buffett"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T10:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-18T10:42:32.069Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260918-jenna-ortega",
+    "canonicalTopic": "Jenna Ortega",
+    "slug": "jenna-ortega",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-jenna20ortega",
+        "query": "Jenna Ortega",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-18T10:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-18T10:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "jenna ortega",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "jenna ortega"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T10:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-18T10:42:32.080Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260918-dewalt-prime-big-deal-days",
+    "canonicalTopic": "Dewalt Prime Big Deal Days",
+    "slug": "dewalt-prime-big-deal-days",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-dewalt20prime20bi",
+        "query": "Dewalt Prime Big Deal Days",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-18T09:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-18T09:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "dewalt prime big deal days",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dewalt prime big deal days"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T09:50:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-18T10:42:32.095Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260918-michigan-state-police",
+    "canonicalTopic": "Michigan State Police",
+    "slug": "michigan-state-police",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-michigan20state20",
+        "query": "Michigan State Police",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-18T09:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-18T09:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "michigan state police",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "michigan state police"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T09:40:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-18T10:42:32.116Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260918-golden-retriever-dog",
+    "canonicalTopic": "Golden Retriever Dog",
+    "slug": "golden-retriever-dog",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-golden20retrieve",
+        "query": "Golden Retriever Dog",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-18T09:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-18T09:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "golden retriever dog",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "golden retriever dog"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T09:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-18T10:42:32.136Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260918-donald-trump",
+    "canonicalTopic": "Donald Trump",
+    "slug": "donald-trump",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-donald20trump",
+        "query": "Donald Trump",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-18T09:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-18T09:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "donald trump",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "donald trump"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T09:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-18T10:42:32.155Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260918-mia-ristic",
+    "canonicalTopic": "Mia Ristic",
+    "slug": "mia-ristic",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-mia20ristic",
+        "query": "Mia Ristic",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-18T09:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-18T09:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "mia ristic",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "mia ristic"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T09:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-18T10:42:32.170Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260918-australia-vs-zimbabwe",
+    "canonicalTopic": "Australia Vs Zimbabwe",
+    "slug": "australia-vs-zimbabwe",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-australia20vs20zi",
+        "query": "Australia Vs Zimbabwe",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-18T08:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-18T08:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "australia vs zimbabwe",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "australia vs zimbabwe"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T08:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-18T10:42:32.187Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-tech-ai-20260918-waymo-says-singapore-will-be-i",
+    "canonicalTopic": "Waymo Says Singapore Will Be Its Next International Robotaxi City",
+    "slug": "waymo-says-singapore-will-be-its-next-international-robotaxi-city",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-Waymo20says20Singapore",
+        "query": "Waymo Says Singapore Will Be Its Next International Robotaxi City",
+        "sourceUrl": "https://www.theverge.com/transportation/997091/waymo-singapore-robotaxi-launch-2027",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-18T02:00:00.000Z",
+        "contentSnippet": "Waymo says it will launch a robotaxi service in Singapore in 2028, as the Alphabet-owned company continues to eye overseas markets for expansion. Waymo's vehicles will begin arriving in Singapore in \"the coming months,\" the company says, in preparation of mapping and autonomous testing with human safety drivers behind the wheel in 2027. Waymo says […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-18T02:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Waymo says Singapore will be its next international robotaxi city",
+            "itemLink": "https://www.theverge.com/transportation/997091/waymo-singapore-robotaxi-launch-2027",
+            "publishedDate": "2026-09-18T02:00:00.000Z",
+            "contentSnippet": "Waymo says it will launch a robotaxi service in Singapore in 2028, as the Alphabet-owned company continues to eye overseas markets for expansion. Waymo's vehicles will begin arriving in Singapore in \"the coming months,\" the company says, in preparation of mapping and autonomous testing with human safety drivers behind the wheel in 2027. Waymo says […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Autonomous Cars",
+              "News",
+              "Transportation",
+              "Waymo"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Autonomous Cars",
+            "News",
+            "Transportation",
+            "Waymo"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "waymo says singapore will be its next international robotaxi city"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T02:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Autonomous Cars",
+      "News",
+      "Transportation",
+      "Waymo"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.227Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260918-the-ai-superintelligence-slowd",
+    "canonicalTopic": "The Ai Superintelligence Slowdown",
+    "slug": "the-ai-superintelligence-slowdown",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-The20AI20Superintellig",
+        "query": "The Ai Superintelligence Slowdown",
+        "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/996923/ai-safety-slow-openai-anthropic",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-17T19:28:24.000Z",
+        "contentSnippet": "Remember when tech leaders would tell their employees to “move fast and break things”? It seemed that would be the way of AI too. But after a summer where rogue AI agents became reality, and researchers warned that AI could kill us all, a number of leading US AI companies are publicly suggesting it’s time […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T19:28:24.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "The AI Superintelligence Slowdown",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/996923/ai-safety-slow-openai-anthropic",
+            "publishedDate": "2026-09-17T19:28:24.000Z",
+            "contentSnippet": "Remember when tech leaders would tell their employees to “move fast and break things”? It seemed that would be the way of AI too. But after a summer where rogue AI agents became reality, and researchers warned that AI could kill us all, a number of leading US AI companies are publicly suggesting it’s time […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "Anthropic",
+              "Google",
+              "Microsoft",
+              "News",
+              "Nvidia",
+              "OpenAI",
+              "Tech",
+              "xAI"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "Anthropic",
+            "Google",
+            "Microsoft",
+            "News",
+            "Nvidia",
+            "OpenAI",
+            "Tech",
+            "xAI"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the ai superintelligence slowdown"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T19:28:24.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "Anthropic",
+      "Google",
+      "Microsoft",
+      "News",
+      "Nvidia",
+      "OpenAI",
+      "Tech",
+      "xAI"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.247Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260918-claude-code-relaunches-project",
+    "canonicalTopic": "Claude Code Relaunches Projects to Manage Multiple Ai Agents in the Cloud",
+    "slug": "claude-code-relaunches-projects-to-manage-multiple-ai-agents-in-the-cloud",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-Claude20Code20relaunch",
+        "query": "Claude Code Relaunches Projects to Manage Multiple Ai Agents in the Cloud",
+        "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/997134/anthropic-claude-code-projects",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-17T18:58:05.000Z",
+        "contentSnippet": "The revamped projects feature in Claude Code allows users to run multiple agents under the same roof, with a shared memory, goals, and library of files and artifacts. Similar to Grok Bot and other tools that manage groups of AI agents, each project has \"threads\" running different tasks in parallel, with a \"coordinator\" directing everything: […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T18:58:05.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Claude Code relaunches Projects to manage multiple AI agents in the cloud",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/997134/anthropic-claude-code-projects",
+            "publishedDate": "2026-09-17T18:58:05.000Z",
+            "contentSnippet": "The revamped projects feature in Claude Code allows users to run multiple agents under the same roof, with a shared memory, goals, and library of files and artifacts. Similar to Grok Bot and other tools that manage groups of AI agents, each project has \"threads\" running different tasks in parallel, with a \"coordinator\" directing everything: […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "Anthropic",
+              "News",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "Anthropic",
+            "News",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "claude code relaunches projects to manage multiple ai agents in the cloud"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T18:58:05.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "Anthropic",
+      "News",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.279Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260918-save-30-or-more-on-a-refurbish",
+    "canonicalTopic": "Save 30 or More on a Refurbished Apple Tv 4k",
+    "slug": "save-30-or-more-on-a-refurbished-apple-tv-4k",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-4-Save20243020or20more20on20",
+        "query": "Save 30 or More on a Refurbished Apple Tv 4k",
+        "sourceUrl": "https://www.theverge.com/gadgets/997009/refurbished-apple-tv-4k-ring-doorbell-deal-sale",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-17T17:14:07.000Z",
+        "contentSnippet": "Most hardware prices have soared in 2026, and that includes a variety of Apple laptops, tablets, and smart devices. Thankfully, you can offset some of the increased costs on an Apple TV 4K by buying one refurbished through the company. The 64GB model is selling for $169, $30 lower than the new retail price. The […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T17:14:07.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Save $30 or more on a refurbished Apple TV 4K",
+            "itemLink": "https://www.theverge.com/gadgets/997009/refurbished-apple-tv-4k-ring-doorbell-deal-sale",
+            "publishedDate": "2026-09-17T17:14:07.000Z",
+            "contentSnippet": "Most hardware prices have soared in 2026, and that includes a variety of Apple laptops, tablets, and smart devices. Thankfully, you can offset some of the increased costs on an Apple TV 4K by buying one refurbished through the company. The 64GB model is selling for $169, $30 lower than the new retail price. The […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Deals",
+              "Gadgets",
+              "Verge Shopping"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Deals",
+            "Gadgets",
+            "Verge Shopping"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "save 30 or more on a refurbished apple tv 4k"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T17:14:07.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Deals",
+      "Gadgets",
+      "Verge Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.301Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260918-xboxs-clever-disc-to-digital-f",
+    "canonicalTopic": "Xboxs Clever Disc-to-digital Feature Was 15 Years in the Making",
+    "slug": "xboxs-clever-disc-to-digital-feature-was-15-years-in-the-making",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-5-XboxE28099s20clever20disc-t",
+        "query": "Xboxs Clever Disc-to-digital Feature Was 15 Years in the Making",
+        "sourceUrl": "https://www.theverge.com/tech/996826/microsoft-xbox-disc-to-digital-history-notepad",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-17T16:00:00.000Z",
+        "contentSnippet": "When Xbox announced a new feature last month that lets you digitize existing physical game collections, I immediately thought of the Xbox One. Disc-to-digital seems like a clever new feature for Xbox, perfectly timed as a response to Sony killing PlayStation discs. But the reality is that it has been 15 years in the making […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T16:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Xbox’s clever disc-to-digital feature was 15 years in the making",
+            "itemLink": "https://www.theverge.com/tech/996826/microsoft-xbox-disc-to-digital-history-notepad",
+            "publishedDate": "2026-09-17T16:00:00.000Z",
+            "contentSnippet": "When Xbox announced a new feature last month that lets you digitize existing physical game collections, I immediately thought of the Xbox One. Disc-to-digital seems like a clever new feature for Xbox, perfectly timed as a response to Sony killing PlayStation discs. But the reality is that it has been 15 years in the making […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Gaming",
+              "Microsoft",
+              "Notepad",
+              "Tech",
+              "Xbox"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Gaming",
+            "Microsoft",
+            "Notepad",
+            "Tech",
+            "Xbox"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "xboxs clever disc-to-digital feature was 15 years in the making"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T16:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Gaming",
+      "Microsoft",
+      "Notepad",
+      "Tech",
+      "Xbox"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.334Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260918-rfk-jr-names-8-new-members-to-",
+    "canonicalTopic": "Rfk Jr Names 8 New Members to Influential Preventive Medicine Task Force",
+    "slug": "rfk-jr-names-8-new-members-to-influential-preventive-medicine-task-force",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-1-RFK20Jr20names20820new20",
+        "query": "Rfk Jr Names 8 New Members to Influential Preventive Medicine Task Force",
+        "sourceUrl": "https://arstechnica.com/health/2026/09/rfk-jr-stacks-another-influential-federal-panel-with-questionable-picks/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-17T22:31:28.000Z",
+        "contentSnippet": "The USPSTF sets insurance coverage from preventive services, like colonoscopies.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T22:31:28.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "RFK Jr. names 8 new members to influential preventive medicine task force",
+            "itemLink": "https://arstechnica.com/health/2026/09/rfk-jr-stacks-another-influential-federal-panel-with-questionable-picks/",
+            "publishedDate": "2026-09-17T22:31:28.000Z",
+            "contentSnippet": "The USPSTF sets insurance coverage from preventive services, like colonoscopies.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Health",
+              "preventive medicine",
+              "robert f kennedy jr",
+              "USPSTF"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Health",
+            "preventive medicine",
+            "robert f kennedy jr",
+            "USPSTF"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "rfk jr names 8 new members to influential preventive medicine task force"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T22:31:28.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Health",
+      "preventive medicine",
+      "robert f kennedy jr",
+      "USPSTF"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.370Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260918-small-ai-models-let-drones-aut",
+    "canonicalTopic": "Small Ai Models Let Drones Autonomously Identify and Attack Battlefield Targets",
+    "slug": "small-ai-models-let-drones-autonomously-identify-and-attack-battlefield-targets",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-2-Small20AI20models20let20",
+        "query": "Small Ai Models Let Drones Autonomously Identify and Attack Battlefield Targets",
+        "sourceUrl": "https://arstechnica.com/ai/2026/09/nato-backed-startup-adapts-ai-for-autonomous-drone-recon-and-attack-missions/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-17T22:12:58.000Z",
+        "contentSnippet": "Scaleout deploys decentralized AI-driven learning to military bases and drones.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T22:12:58.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Small AI models let drones autonomously identify and attack battlefield targets",
+            "itemLink": "https://arstechnica.com/ai/2026/09/nato-backed-startup-adapts-ai-for-autonomous-drone-recon-and-attack-missions/",
+            "publishedDate": "2026-09-17T22:12:58.000Z",
+            "contentSnippet": "Scaleout deploys decentralized AI-driven learning to military bases and drones.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "AI",
+              "AI drones",
+              "AI models",
+              "computer vision",
+              "drones",
+              "Kamikaze",
+              "loitering weapons",
+              "machine learning",
+              "military AI",
+              "military drones",
+              "Nato"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "AI",
+            "AI drones",
+            "AI models",
+            "computer vision",
+            "drones",
+            "Kamikaze",
+            "loitering weapons",
+            "machine learning",
+            "military AI",
+            "military drones",
+            "Nato"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "small ai models let drones autonomously identify and attack battlefield targets"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T22:12:58.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "AI",
+      "AI drones",
+      "AI models",
+      "computer vision",
+      "drones",
+      "Kamikaze",
+      "loitering weapons",
+      "machine learning",
+      "military AI",
+      "military drones",
+      "Nato"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.406Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260918-google-announces-new-experimen",
+    "canonicalTopic": "Google Announces New Experimental Cc Ai Agent for Families",
+    "slug": "google-announces-new-experimental-cc-ai-agent-for-families",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-3-Google20announces20new",
+        "query": "Google Announces New Experimental Cc Ai Agent for Families",
+        "sourceUrl": "https://arstechnica.com/google/2026/09/google-announces-new-experimental-cc-ai-agent-for-families/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-17T20:24:34.000Z",
+        "contentSnippet": "Multiple family members can share data to help the agent make plans and complete tasks.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T20:24:34.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Google announces new experimental \"CC\" AI agent for families",
+            "itemLink": "https://arstechnica.com/google/2026/09/google-announces-new-experimental-cc-ai-agent-for-families/",
+            "publishedDate": "2026-09-17T20:24:34.000Z",
+            "contentSnippet": "Multiple family members can share data to help the agent make plans and complete tasks.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "AI",
+              "Google",
+              "Artificial Intelligence",
+              "gemini",
+              "google"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "AI",
+            "Google",
+            "Artificial Intelligence",
+            "gemini",
+            "google"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "google announces new experimental cc ai agent for families"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T20:24:34.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "AI",
+      "Google",
+      "Artificial Intelligence",
+      "gemini",
+      "google"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.438Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260918-microsoft-exec-called-ai-scrap",
+    "canonicalTopic": "Microsoft Exec Called Ai Scraping the Largest Theft of Labor in Human History",
+    "slug": "microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-4-Microsoft20exec20calle",
+        "query": "Microsoft Exec Called Ai Scraping the Largest Theft of Labor in Human History",
+        "sourceUrl": "https://arstechnica.com/tech-policy/2026/09/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-17T20:10:41.000Z",
+        "contentSnippet": "Microsoft, OpenAI emails reveal fear of AI “doom loop” killing news orgs.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T20:10:41.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Microsoft exec called AI scraping the “largest theft of labor in human history”",
+            "itemLink": "https://arstechnica.com/tech-policy/2026/09/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history/",
+            "publishedDate": "2026-09-17T20:10:41.000Z",
+            "contentSnippet": "Microsoft, OpenAI emails reveal fear of AI “doom loop” killing news orgs.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "AI",
+              "Policy",
+              "AI training",
+              "ChatGPT",
+              "conyright infringement",
+              "copilot",
+              "copyright law",
+              "fair use",
+              "microsoft",
+              "openai"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "AI",
+            "Policy",
+            "AI training",
+            "ChatGPT",
+            "conyright infringement",
+            "copilot",
+            "copyright law",
+            "fair use",
+            "microsoft",
+            "openai"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "microsoft exec called ai scraping the largest theft of labor in human history"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T20:10:41.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "AI",
+      "Policy",
+      "AI training",
+      "ChatGPT",
+      "conyright infringement",
+      "copilot",
+      "copyright law",
+      "fair use",
+      "microsoft",
+      "openai"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.477Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260918-republican-bill-would-order-is",
+    "canonicalTopic": "Republican Bill Would Order Isps Dns Providers and Vpns to Block Piracy Sites",
+    "slug": "republican-bill-would-order-isps-dns-providers-and-vpns-to-block-piracy-sites",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-5-Republican20bill20woul",
+        "query": "Republican Bill Would Order Isps Dns Providers and Vpns to Block Piracy Sites",
+        "sourceUrl": "https://arstechnica.com/tech-policy/2026/09/republican-bill-would-order-isps-dns-providers-and-vpns-to-block-piracy-sites/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-17T19:07:28.000Z",
+        "contentSnippet": "Bill would help rightsholders obtain court orders to block foreign piracy sites.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T19:07:28.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Republican bill would order ISPs, DNS providers, and VPNs to block piracy sites",
+            "itemLink": "https://arstechnica.com/tech-policy/2026/09/republican-bill-would-order-isps-dns-providers-and-vpns-to-block-piracy-sites/",
+            "publishedDate": "2026-09-17T19:07:28.000Z",
+            "contentSnippet": "Bill would help rightsholders obtain court orders to block foreign piracy sites.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Policy",
+              "MPA",
+              "site-blocking"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Policy",
+            "MPA",
+            "site-blocking"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "republican bill would order isps dns providers and vpns to block piracy sites"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T19:07:28.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Policy",
+      "MPA",
+      "site-blocking"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.511Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260918-the-specter-of-ai-enabled-biow",
+    "canonicalTopic": "The Specter of Ai-enabled Bioweapons Is a Wake-up Call for Biotech",
+    "slug": "the-specter-of-ai-enabled-bioweapons-is-a-wake-up-call-for-biotech",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-1-The20specter20of20AI-e",
+        "query": "The Specter of Ai-enabled Bioweapons Is a Wake-up Call for Biotech",
+        "sourceUrl": "https://www.technologyreview.com/2026/09/18/1144329/the-specter-of-ai-enabled-bioweapons-is-a-wake-up-call-for-biotech/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-09-18T09:00:00.000Z",
+        "contentSnippet": "In recent weeks, leaders of some of the biggest AI companies have warned that the very tech they are developing is dangerous. Last weekend, Anthropic CEO Dario Amodei argued that AI carries serious risk and that progress should be slowed. OpenAI CEO Sam Altman responded on X: “I agree with Dario that we need to pace the…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-18T09:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "The specter of AI-enabled bioweapons is a wake-up call for biotech",
+            "itemLink": "https://www.technologyreview.com/2026/09/18/1144329/the-specter-of-ai-enabled-bioweapons-is-a-wake-up-call-for-biotech/",
+            "publishedDate": "2026-09-18T09:00:00.000Z",
+            "contentSnippet": "In recent weeks, leaders of some of the biggest AI companies have warned that the very tech they are developing is dangerous. Last weekend, Anthropic CEO Dario Amodei argued that AI carries serious risk and that progress should be slowed. OpenAI CEO Sam Altman responded on X: “I agree with Dario that we need to pace the…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "Biotechnology and health",
+              "App",
+              "Summary",
+              "The Checkup"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "Biotechnology and health",
+            "App",
+            "Summary",
+            "The Checkup"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the specter of ai-enabled bioweapons is a wake-up call for biotech"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T09:00:00.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "Biotechnology and health",
+      "App",
+      "Summary",
+      "The Checkup"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.543Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260918-the-download-mice-with-part-hu",
+    "canonicalTopic": "The Download Mice with Part-human Brains and Climate Tech Innovators",
+    "slug": "the-download-mice-with-part-human-brains-and-climate-tech-innovators",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-2-The20Download3A20mice2",
+        "query": "The Download Mice with Part-human Brains and Climate Tech Innovators",
+        "sourceUrl": "https://www.technologyreview.com/2026/09/17/1144314/the-download-mice-part-human-brains-climate-tech-innovators/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-09-17T12:10:00.000Z",
+        "contentSnippet": "This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. Meet a mouse whose brain cortex is made up of human cells Multiple cameras tracked a mouse as it wandered around a small arena. A computer charted its position and speed,…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T12:10:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "The Download: mice with part-human brains and climate tech innovators",
+            "itemLink": "https://www.technologyreview.com/2026/09/17/1144314/the-download-mice-part-human-brains-climate-tech-innovators/",
+            "publishedDate": "2026-09-17T12:10:00.000Z",
+            "contentSnippet": "This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. Meet a mouse whose brain cortex is made up of human cells Multiple cameras tracked a mouse as it wandered around a small arena. A computer charted its position and speed,…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "The Download"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "The Download"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the download mice with part-human brains and climate tech innovators"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T12:10:00.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "The Download"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.576Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260918-this-dual-voltage-hair-dryer-i",
+    "canonicalTopic": "This Dual-voltage Hair Dryer Is Actually Lightweight and Compact Enough to Pack",
+    "slug": "this-dual-voltage-hair-dryer-is-actually-lightweight-and-compact-enough-to-pack",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-This20Dual-Voltage20Ha",
+        "query": "This Dual-voltage Hair Dryer Is Actually Lightweight and Compact Enough to Pack",
+        "sourceUrl": "https://www.cntraveler.com/story/this-dual-voltage-hair-dryer-is-actually-lightweight-and-compact-enough-to-pack",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-17T21:51:46.000Z",
+        "contentSnippet": "This Dyson hair tool is a traveler's dream—plus, it's dual-voltage, meaning you can use it abroad too.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T21:51:46.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "This Dual-Voltage Hair Dryer Is Actually Lightweight and Compact Enough to Pack",
+            "itemLink": "https://www.cntraveler.com/story/this-dual-voltage-hair-dryer-is-actually-lightweight-and-compact-enough-to-pack",
+            "publishedDate": "2026-09-17T21:51:46.000Z",
+            "contentSnippet": "This Dyson hair tool is a traveler's dream—plus, it's dual-voltage, meaning you can use it abroad too.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Shopping"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "this dual-voltage hair dryer is actually lightweight and compact enough to pack"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T21:51:46.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.614Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260918-on-colombias-magdalena-river-a",
+    "canonicalTopic": "On Colombias Magdalena River a New Cruise Is Connecting Artisans and Travelers",
+    "slug": "on-colombias-magdalena-river-a-new-cruise-is-connecting-artisans-and-travelers",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-2-On20Colombias20Magdal",
+        "query": "On Colombias Magdalena River a New Cruise Is Connecting Artisans and Travelers",
+        "sourceUrl": "https://www.cntraveler.com/story/on-colombias-magdalena-river-a-new-cruise-is-connecting-artisans-and-travelers",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-17T19:24:45.000Z",
+        "contentSnippet": "Writer Charlie Hobbs sails on the new AmaMelodia from Cartagena to Barranquilla.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T19:24:45.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "On Colombia's Magdalena River, a New Cruise is Connecting Artisans and Travelers",
+            "itemLink": "https://www.cntraveler.com/story/on-colombias-magdalena-river-a-new-cruise-is-connecting-artisans-and-travelers",
+            "publishedDate": "2026-09-17T19:24:45.000Z",
+            "contentSnippet": "Writer Charlie Hobbs sails on the new AmaMelodia from Cartagena to Barranquilla.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Cruise"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Cruise"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "on colombias magdalena river a new cruise is connecting artisans and travelers"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T19:24:45.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Cruise"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.649Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260918-the-11-best-hotels-in-rome-nea",
+    "canonicalTopic": "The 11 Best Hotels in Rome Near Roma Termini Station for a Seamless Stopover",
+    "slug": "the-11-best-hotels-in-rome-near-roma-termini-station-for-a-seamless-stopover",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-3-The201120Best20Hotels20i",
+        "query": "The 11 Best Hotels in Rome Near Roma Termini Station for a Seamless Stopover",
+        "sourceUrl": "https://www.cntraveler.com/gallery/editor-approved-hotels-near-roma-termini-station-for-a-luxe-layover-in-rome",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-17T18:38:08.000Z",
+        "contentSnippet": "Here's where to rest your head before hitting the transit hub.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T18:38:08.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "The 11 Best Hotels in Rome Near Roma Termini Station for a Seamless Stopover",
+            "itemLink": "https://www.cntraveler.com/gallery/editor-approved-hotels-near-roma-termini-station-for-a-luxe-layover-in-rome",
+            "publishedDate": "2026-09-17T18:38:08.000Z",
+            "contentSnippet": "Here's where to rest your head before hitting the transit hub.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Destinations",
+              "Places to Stay"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Destinations",
+            "Places to Stay"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the 11 best hotels in rome near roma termini station for a seamless stopover"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T18:38:08.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Destinations",
+      "Places to Stay"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.683Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260918-29-best-hotels-in-miami-2026-f",
+    "canonicalTopic": "29 Best Hotels in Miami 2026 from Key Biscayne to Wynwood",
+    "slug": "29-best-hotels-in-miami-2026-from-key-biscayne-to-wynwood",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-4-2920Best20Hotels20in20Mi",
+        "query": "29 Best Hotels in Miami 2026 from Key Biscayne to Wynwood",
+        "sourceUrl": "https://www.cntraveler.com/gallery/best-hotels-in-miami",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-17T18:37:07.000Z",
+        "contentSnippet": "Whether you want the center of the party scene or your own private island.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T18:37:07.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "29 Best Hotels in Miami (2026), From Key Biscayne to Wynwood",
+            "itemLink": "https://www.cntraveler.com/gallery/best-hotels-in-miami",
+            "publishedDate": "2026-09-17T18:37:07.000Z",
+            "contentSnippet": "Whether you want the center of the party scene or your own private island.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Destinations",
+              "Places to Stay"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Destinations",
+            "Places to Stay"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "29 best hotels in miami 2026 from key biscayne to wynwood"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T18:37:07.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Destinations",
+      "Places to Stay"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.713Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260918-11-scenic-train-rides-in-the-u",
+    "canonicalTopic": "11 Scenic Train Rides in the Us Worth Booking for the Views Alone",
+    "slug": "11-scenic-train-rides-in-the-us-worth-booking-for-the-views-alone",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-5-1120Scenic20Train20Ride",
+        "query": "11 Scenic Train Rides in the Us Worth Booking for the Views Alone",
+        "sourceUrl": "https://www.cntraveler.com/gallery/11-scenic-train-rides-in-the-us-worth-booking-for-the-views-alone",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-17T18:33:02.000Z",
+        "contentSnippet": "From Amtrak routes along California’s coast to the wild beauty of the Alaska Railroad, the best way to see the vast natural beauty of the US is by train.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T18:33:02.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "11 Scenic Train Rides in the US Worth Booking for the Views Alone",
+            "itemLink": "https://www.cntraveler.com/gallery/11-scenic-train-rides-in-the-us-worth-booking-for-the-views-alone",
+            "publishedDate": "2026-09-17T18:33:02.000Z",
+            "contentSnippet": "From Amtrak routes along California’s coast to the wild beauty of the Alaska Railroad, the best way to see the vast natural beauty of the US is by train.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Inspiration / Train Journeys",
+              "Inspiration"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Inspiration / Train Journeys",
+            "Inspiration"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "11 scenic train rides in the us worth booking for the views alone"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T18:33:02.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Inspiration / Train Journeys",
+      "Inspiration"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.744Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260918-three-dead-and-eight-injured-i",
+    "canonicalTopic": "Three Dead and Eight Injured in Philippines School Shooting",
+    "slug": "three-dead-and-eight-injured-in-philippines-school-shooting",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-1-Three20dead20and20eight",
+        "query": "Three Dead and Eight Injured in Philippines School Shooting",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/c6x2z4dlzyr0o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-18T10:04:43.000Z",
+        "contentSnippet": "The gunman is among the dead in what is the third school shooting in the country since June.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-18T10:04:43.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Three dead and eight injured in Philippines school shooting",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c6x2z4dlzyr0o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-18T10:04:43.000Z",
+            "contentSnippet": "The gunman is among the dead in what is the third school shooting in the country since June.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "three dead and eight injured in philippines school shooting"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T10:04:43.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.773Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260918-at-least-16-killed-in-attack-o",
+    "canonicalTopic": "At Least 16 Killed in Attack on Mosque in Pakistan",
+    "slug": "at-least-16-killed-in-attack-on-mosque-in-pakistan",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-2-At20least201620killed20i",
+        "query": "At Least 16 Killed in Attack on Mosque in Pakistan",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/ckn9wenz8wjwo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-18T10:39:31.000Z",
+        "contentSnippet": "A vehicle loaded with explosives rammed into a mosque building during Friday prayers, a senior police official says.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-18T10:39:31.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "At least 16 killed in attack on mosque in Pakistan",
+            "itemLink": "https://www.bbc.co.uk/news/articles/ckn9wenz8wjwo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-18T10:39:31.000Z",
+            "contentSnippet": "A vehicle loaded with explosives rammed into a mosque building during Friday prayers, a senior police official says.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "at least 16 killed in attack on mosque in pakistan"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T10:39:31.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.799Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260918-canada-welcomes-eu-proposal-to",
+    "canonicalTopic": "Canada Welcomes Eu Proposal to Become Associate Member",
+    "slug": "canada-welcomes-eu-proposal-to-become-associate-member",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-3-Canada20welcomes20EU20p",
+        "query": "Canada Welcomes Eu Proposal to Become Associate Member",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cwly7vkke4jxo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-17T12:27:18.000Z",
+        "contentSnippet": "Canadian Prime Minister Mark Carney said a Canada-EU alliance would create a \"beacon for other democracies\".",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T12:27:18.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Canada welcomes EU proposal to become 'associate member'",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cwly7vkke4jxo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-17T12:27:18.000Z",
+            "contentSnippet": "Canadian Prime Minister Mark Carney said a Canada-EU alliance would create a \"beacon for other democracies\".",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "canada welcomes eu proposal to become associate member"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T12:27:18.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.827Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260918-un-experts-say-grounds-to-beli",
+    "canonicalTopic": "Un Experts Say Grounds to Believe Us Committed War Crimes in Iran Strikes",
+    "slug": "un-experts-say-grounds-to-believe-us-committed-war-crimes-in-iran-strikes",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-5-UN20experts20say20groun",
+        "query": "Un Experts Say Grounds to Believe Us Committed War Crimes in Iran Strikes",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cm9w4n5nverdo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-17T20:34:30.000Z",
+        "contentSnippet": "The US has not acknowledged carrying out February's deadly strikes on a primary school in Minab and a sports complex in Lamerd.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T20:34:30.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "UN experts say grounds to believe US committed war crimes in Iran strikes",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cm9w4n5nverdo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-17T20:34:30.000Z",
+            "contentSnippet": "The US has not acknowledged carrying out February's deadly strikes on a primary school in Minab and a sports complex in Lamerd.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "un experts say grounds to believe us committed war crimes in iran strikes"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T20:34:30.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.861Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260918-bin-wus-mirror-topped-pavilion",
+    "canonicalTopic": "Bin Wus Mirror-topped Pavilion of Time Aims to Make Time Tangible",
+    "slug": "bin-wus-mirror-topped-pavilion-of-time-aims-to-make-time-tangible",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-Bin20Wus20mirror-topp",
+        "query": "Bin Wus Mirror-topped Pavilion of Time Aims to Make Time Tangible",
+        "sourceUrl": "https://www.dezeen.com/2026/09/18/pavilion-of-time-bin-wu-paris-design-week/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-18T10:00:25.000Z",
+        "contentSnippet": "Chinese designer Bin Wu has unveiled the Pavilion of Time, which features timber screens topped by a circular mirror, in the courtyard of Domaine National du Palais-Royal for Paris Design Week. Wu described the pavilion, which he created in response to the theme of this year's Paris Design Week, Pulse in Motion, as \"making time The post Bin Wu's mirror-topped Pavilion of Time aims to \"make time tangible\" appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-18T10:00:25.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Bin Wu's mirror-topped Pavilion of Time aims to \"make time tangible\"",
+            "itemLink": "https://www.dezeen.com/2026/09/18/pavilion-of-time-bin-wu-paris-design-week/",
+            "publishedDate": "2026-09-18T10:00:25.000Z",
+            "contentSnippet": "Chinese designer Bin Wu has unveiled the Pavilion of Time, which features timber screens topped by a circular mirror, in the courtyard of Domaine National du Palais-Royal for Paris Design Week. Wu described the pavilion, which he created in response to the theme of this year's Paris Design Week, Pulse in Motion, as \"making time The post Bin Wu's mirror-topped Pavilion of Time aims to \"make time tangible\" appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Design",
+              "Installations",
+              "Paris Design Week",
+              "Pavilions"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Design",
+            "Installations",
+            "Paris Design Week",
+            "Pavilions"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "bin wus mirror-topped pavilion of time aims to make time tangible"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T10:00:25.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Design",
+      "Installations",
+      "Paris Design Week",
+      "Pavilions"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.893Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260918-khoy-sofa-bed-by-khoy",
+    "canonicalTopic": "Khoy Sofa Bed by Khoy",
+    "slug": "khoy-sofa-bed-by-khoy",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-2-Khoy20sofa20bed20by20Kho",
+        "query": "Khoy Sofa Bed by Khoy",
+        "sourceUrl": "https://www.dezeen.com/2026/09/18/khoy-sofa-bed-khoy-dezeen-showroom/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-18T09:30:45.000Z",
+        "contentSnippet": "Dezeen Showroom: Finnish company Khoy's flagship product transforms from a seat into a bed by simply unzipping it, without relying on conventional \"over-engineered\" mechanisms. Available in sizes ranging from single to king, the Khoy sofa bed is made of two simple slabs of polyurethane foam that fold open like a book to make an expansive The post Khoy sofa bed by Khoy appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-18T09:30:45.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Khoy sofa bed by Khoy",
+            "itemLink": "https://www.dezeen.com/2026/09/18/khoy-sofa-bed-khoy-dezeen-showroom/",
+            "publishedDate": "2026-09-18T09:30:45.000Z",
+            "contentSnippet": "Dezeen Showroom: Finnish company Khoy's flagship product transforms from a seat into a bed by simply unzipping it, without relying on conventional \"over-engineered\" mechanisms. Available in sizes ranging from single to king, the Khoy sofa bed is made of two simple slabs of polyurethane foam that fold open like a book to make an expansive The post Khoy sofa bed by Khoy appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "Khoy",
+              "Furniture",
+              "all",
+              "Sofas",
+              "Design",
+              "Do not show on the Homepage",
+              "Dezeen Showroom",
+              "Seating"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "Khoy",
+            "Furniture",
+            "all",
+            "Sofas",
+            "Design",
+            "Do not show on the Homepage",
+            "Dezeen Showroom",
+            "Seating"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "khoy sofa bed by khoy"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T09:30:45.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "Khoy",
+      "Furniture",
+      "all",
+      "Sofas",
+      "Design",
+      "Do not show on the Homepage",
+      "Dezeen Showroom",
+      "Seating"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.908Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260918-is-london-having-a-design-rena",
+    "canonicalTopic": "Is London Having a Design Renaissance",
+    "slug": "is-london-having-a-design-renaissance",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-3-Is20London20having20a20d",
+        "query": "Is London Having a Design Renaissance",
+        "sourceUrl": "https://www.dezeen.com/2026/09/18/london-design-festival-2026-dezeen-weekly-podcast/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-18T09:15:50.000Z",
+        "contentSnippet": "It's LDF week, and this year's edition is surprisingly strong. Could it be that London's creative scene is recovering after a difficult decade? Listen to the latest episode of Dezeen Weekly now. In this episode, Dezeen design editor Jennifer Hahn is joined by deputy editor Cajsa Carlson and design and reporter Jane Englefield, who have been out The post Is London having a design renaissance? appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-18T09:15:50.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Is London having a design renaissance?",
+            "itemLink": "https://www.dezeen.com/2026/09/18/london-design-festival-2026-dezeen-weekly-podcast/",
+            "publishedDate": "2026-09-18T09:15:50.000Z",
+            "contentSnippet": "It's LDF week, and this year's edition is surprisingly strong. Could it be that London's creative scene is recovering after a difficult decade? Listen to the latest episode of Dezeen Weekly now. In this episode, Dezeen design editor Jennifer Hahn is joined by deputy editor Cajsa Carlson and design and reporter Jane Englefield, who have been out The post Is London having a design renaissance? appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "Dezeen Weekly",
+              "all",
+              "Design",
+              "Podcasts",
+              "London Design Festival",
+              "UK",
+              "England",
+              "London"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "Dezeen Weekly",
+            "all",
+            "Design",
+            "Podcasts",
+            "London Design Festival",
+            "UK",
+            "England",
+            "London"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "is london having a design renaissance"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T09:15:50.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "Dezeen Weekly",
+      "all",
+      "Design",
+      "Podcasts",
+      "London Design Festival",
+      "UK",
+      "England",
+      "London"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.928Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260918-rca-design-students-exercise-r",
+    "canonicalTopic": "Rca Design Students Exercise Restraint in One Tool One Stool Exhibition",
+    "slug": "rca-design-students-exercise-restraint-in-one-tool-one-stool-exhibition",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-4-RCA20design20students20",
+        "query": "Rca Design Students Exercise Restraint in One Tool One Stool Exhibition",
+        "sourceUrl": "https://www.dezeen.com/2026/09/18/rca-design-students-exercise-restraint-in-one-tool-one-stool-exhibition/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-18T09:00:12.000Z",
+        "contentSnippet": "Chiselled acoustic foam, hand-bent metal and interlocking rulers feature in an exhibition of stools created with single tools, presented by students from the Royal College of Art at London Design Festival. One Tool, One Stool is the culmination of an exercise undertaken by every design products master's student at the Royal College of Art (RCA). The post RCA design students exercise restraint in One Tool One Stool exhibition appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-18T09:00:12.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "RCA design students exercise restraint in One Tool One Stool exhibition",
+            "itemLink": "https://www.dezeen.com/2026/09/18/rca-design-students-exercise-restraint-in-one-tool-one-stool-exhibition/",
+            "publishedDate": "2026-09-18T09:00:12.000Z",
+            "contentSnippet": "Chiselled acoustic foam, hand-bent metal and interlocking rulers feature in an exhibition of stools created with single tools, presented by students from the Royal College of Art at London Design Festival. One Tool, One Stool is the culmination of an exercise undertaken by every design products master's student at the Royal College of Art (RCA). The post RCA design students exercise restraint in One Tool One Stool exhibition appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "Furniture",
+              "all",
+              "Design",
+              "Royal College of Art",
+              "London Design Festival",
+              "Seating",
+              "Stools",
+              "Student projects"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "Furniture",
+            "all",
+            "Design",
+            "Royal College of Art",
+            "London Design Festival",
+            "Seating",
+            "Stools",
+            "Student projects"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "rca design students exercise restraint in one tool one stool exhibition"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T09:00:12.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "Furniture",
+      "all",
+      "Design",
+      "Royal College of Art",
+      "London Design Festival",
+      "Seating",
+      "Stools",
+      "Student projects"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.962Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260918-studio-egret-west-revises-batt",
+    "canonicalTopic": "Studio Egret West Revises Battersea Power Station Masterplan for Final Phases",
+    "slug": "studio-egret-west-revises-battersea-power-station-masterplan-for-final-phases",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-5-Studio20Egret20West20re",
+        "query": "Studio Egret West Revises Battersea Power Station Masterplan for Final Phases",
+        "sourceUrl": "https://www.dezeen.com/2026/09/18/studio-egret-west-revises-battersea-power-station-masterplan-for-final-phases/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-18T08:00:50.000Z",
+        "contentSnippet": "Architecture practice Studio Egret West has submitted a \"more-permeable\" masterplan for the final phases of the Battersea Power Station development in London. Designed for the development's remaining 16-acre brownfield site, the updated masterplan by Studio Egret West would contain 3.2 million square feet of residential, commercial and leisure space. The new proposal, which has been The post Studio Egret West revises Battersea Power Station masterplan for final phases appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-18T08:00:50.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Studio Egret West revises Battersea Power Station masterplan for final phases",
+            "itemLink": "https://www.dezeen.com/2026/09/18/studio-egret-west-revises-battersea-power-station-masterplan-for-final-phases/",
+            "publishedDate": "2026-09-18T08:00:50.000Z",
+            "contentSnippet": "Architecture practice Studio Egret West has submitted a \"more-permeable\" masterplan for the final phases of the Battersea Power Station development in London. Designed for the development's remaining 16-acre brownfield site, the updated masterplan by Studio Egret West would contain 3.2 million square feet of residential, commercial and leisure space. The new proposal, which has been The post Studio Egret West revises Battersea Power Station masterplan for final phases appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "News",
+              "Battersea Power Station",
+              "Studio Egret West",
+              "Mixed-use",
+              "London",
+              "UK",
+              "England"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "News",
+            "Battersea Power Station",
+            "Studio Egret West",
+            "Mixed-use",
+            "London",
+            "UK",
+            "England"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "studio egret west revises battersea power station masterplan for final phases"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T08:00:50.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "News",
+      "Battersea Power Station",
+      "Studio Egret West",
+      "Mixed-use",
+      "London",
+      "UK",
+      "England"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:32.997Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-life-20260918-think-you-can-design-a-better-",
+    "canonicalTopic": "Think You Can Design a Better Iphone Heres Your Chance",
+    "slug": "think-you-can-design-a-better-iphone-heres-your-chance",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-1-Think20you20can20design",
+        "query": "Think You Can Design a Better Iphone Heres Your Chance",
+        "sourceUrl": "https://www.fastcompany.com/91606973/design-the-next-iphone-builder",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-18T10:00:00.000Z",
+        "contentSnippet": "If you ever wanted to design your own iPhone, a new website gives you the tools. \"Design the Next iPhone\" is a one-off site from Neal Agarwal, a game designer, that lets users add features ranging from serious to absurd to customize a new iPhone. The site features a 3D rendering of a standard iPhone that users can rotate and redesign with drag and drop features. You can add familiar features like a dual or Pro camera, volume button, lightning port, Apple logo, and home button. The twist is that they can be added anywhere, in any quantity. And while the demo iPhone is rectangular, there's also an option to add a hinge, like an iPhone Duo . The game goes overboard with other, funny features users can add too. You can add an Android or pear logo, or an old-school iPod click wheel, for instance. There's an antenna and rotary dial for an old-school look, googly eyes, joystick, handle, \"Pro Wheel,\" steering wheel, and copter blade. You can change the color and name it yourself. Just like with real Apple products, sticker shock is part of the process. After a user finishes their design and clicks \"present,\" the page displays the cost of the design depending on what was added (adding a \"Pro Stand\" to the phone runs $1,000). And one more thing: An image of Apple's former CEO, Tim Cook, pops up and says how great it is. Download your design for a rotating video of your prototype. Users replied to Agarwal's post on X with their own designs , including one that looks like a moon or Mars rover, another that resembles a drone, and one with wings made out of Pro Cameras. One was designed like a red Gameboy Advance. Redesigning the iPhone is definitely something that's top of mind right now. Apple announced the iPhone Duo last week; it's the first major product launch for the company under its new CEO, John Ternus , and the most dramatic reimagining of the iPhone in years. \"Design The Next iPhone\" lets you reimagine it far beyond that.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-18T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Think you can design a better iPhone? Here’s your chance",
+            "itemLink": "https://www.fastcompany.com/91606973/design-the-next-iphone-builder",
+            "publishedDate": "2026-09-18T10:00:00.000Z",
+            "contentSnippet": "If you ever wanted to design your own iPhone, a new website gives you the tools. \"Design the Next iPhone\" is a one-off site from Neal Agarwal, a game designer, that lets users add features ranging from serious to absurd to customize a new iPhone. The site features a 3D rendering of a standard iPhone that users can rotate and redesign with drag and drop features. You can add familiar features like a dual or Pro camera, volume button, lightning port, Apple logo, and home button. The twist is that they can be added anywhere, in any quantity. And while the demo iPhone is rectangular, there's also an option to add a hinge, like an iPhone Duo . The game goes overboard with other, funny features users can add too. You can add an Android or pear logo, or an old-school iPod click wheel, for instance. There's an antenna and rotary dial for an old-school look, googly eyes, joystick, handle, \"Pro Wheel,\" steering wheel, and copter blade. You can change the color and name it yourself. Just like with real Apple products, sticker shock is part of the process. After a user finishes their design and clicks \"present,\" the page displays the cost of the design depending on what was added (adding a \"Pro Stand\" to the phone runs $1,000). And one more thing: An image of Apple's former CEO, Tim Cook, pops up and says how great it is. Download your design for a rotating video of your prototype. Users replied to Agarwal's post on X with their own designs , including one that looks like a moon or Mars rover, another that resembles a drone, and one with wings made out of Pro Cameras. One was designed like a red Gameboy Advance. Redesigning the iPhone is definitely something that's top of mind right now. Apple announced the iPhone Duo last week; it's the first major product launch for the company under its new CEO, John Ternus , and the most dramatic reimagining of the iPhone in years. \"Design The Next iPhone\" lets you reimagine it far beyond that.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Design"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Design"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "think you can design a better iphone heres your chance"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T10:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Design"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:33.032Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260918-7-ads-that-define-the-new-york",
+    "canonicalTopic": "7 Ads That Define the New York Times",
+    "slug": "7-ads-that-define-the-new-york-times",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-2-720ads20that20define20E28",
+        "query": "7 Ads That Define the New York Times",
+        "sourceUrl": "https://www.fastcompany.com/91608364/7-ads-that-define-the-new-york-times",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-18T10:00:00.000Z",
+        "contentSnippet": "This week, The New York Times is celebrating the 175 anniversary of its founding on September 18, 1851. To commemorate the major milestone, the publication is paying tribute to one of the institutions that’s kept its journalism running for almost two centuries: advertisers . The campaign’s centerpiece is a nine-page print spread featuring seven real ads from The New York Times ’s massive archives, dating all the way back to its inaugural year. It also includes a landing page on the NYT ’s Advertising homepage with a timeline of the key moments, digital ads across the publication’s various verticals, and audio spots on its podcasts. [Image: The New York Times] It arrives at a challenging time for publishers, who, in the era of zero-click search and declining print ads , are reevaluating their business models. In its earnings report for the second quarter of 2026, the NYT stated that its print advertising revenues decreased 11.1% while its digital advertising revenues rose 20.7% compared to the second quarter of 2025. For the NYT , the campaign serves as a key moment to publicly recognize the contributions of its advertisers. But it also reflects an interesting pattern: each asset featured in the campaign shows how advertising is often one step ahead of the next societal shift. “What we found was, over time, advertising actually reflected the cultural moments that we were reporting on,” says Tusar Barik, SVP of marketing for New York Times Advertising. 7 ads to define The Times The idea for the commemorative campaign started when Barik took his team on a tour of the NYT physical archives, located three floors underground in a building next to the publication’s office. He says the room is filled with “millions of pages of printouts.” At first, he imagined a project that would illustrate how extensively advertising formats have changed—from the long, tightly packed chunks of flowery text in the late 1800s to editorial photography in the ‘60s and, today, digital assets, video, and more. But as he looked more closely at the ads themselves, he found something even more interesting: the social trends they augured. [Image: The New York Times] In 1909, Ford took out an ad in the NYT to highlight its Model T as “the $850 car that won the New York to Seattle race.” At the time, the auto industry was just shifting from luxury to mass production. In 1966, IBM bought ad space to run a large picture of the moon, promoting its involvement in “helping the NASA team put a man on the moon.” Three years later, that mission was complete. And in 1994, Delta Air Lines used the NYT to proudly declare its plan to \"become the only U.S. airline that flies totally smoke free,\" helping to spark a widening cultural conversation around banning smoking in public spaces. To create the final campaign assets, Barik’s team selected the best examples of design and cultural relevance out of thousands of potential options, while also choosing companies that still exist today—a tricky feat, given how many advertisers either no longer exist or have been subsumed into other companies over the years. All seven of the final companies (Tiffany & Co., Ford, Heinz, IBM, Delta, E*Trade, and L’Oréal) gave their consent to be included in the project, and none were charged a fee. [Image: The New York Times] Barik hopes that the final product will remind readers how “fundamentally important” advertisers are for independent journalism—and how advertising itself is a form of historical documentation. “We had this really great opportunity to showcase, in all these different moments, how, whatever was happening in the world, advertisers were also part of that,” Barik says. “Just like the news is telling the story of the world, advertising is telling a portion of that story.”",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-18T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "7 ads that define ‘The New York Times’",
+            "itemLink": "https://www.fastcompany.com/91608364/7-ads-that-define-the-new-york-times",
+            "publishedDate": "2026-09-18T10:00:00.000Z",
+            "contentSnippet": "This week, The New York Times is celebrating the 175 anniversary of its founding on September 18, 1851. To commemorate the major milestone, the publication is paying tribute to one of the institutions that’s kept its journalism running for almost two centuries: advertisers . The campaign’s centerpiece is a nine-page print spread featuring seven real ads from The New York Times ’s massive archives, dating all the way back to its inaugural year. It also includes a landing page on the NYT ’s Advertising homepage with a timeline of the key moments, digital ads across the publication’s various verticals, and audio spots on its podcasts. [Image: The New York Times] It arrives at a challenging time for publishers, who, in the era of zero-click search and declining print ads , are reevaluating their business models. In its earnings report for the second quarter of 2026, the NYT stated that its print advertising revenues decreased 11.1% while its digital advertising revenues rose 20.7% compared to the second quarter of 2025. For the NYT , the campaign serves as a key moment to publicly recognize the contributions of its advertisers. But it also reflects an interesting pattern: each asset featured in the campaign shows how advertising is often one step ahead of the next societal shift. “What we found was, over time, advertising actually reflected the cultural moments that we were reporting on,” says Tusar Barik, SVP of marketing for New York Times Advertising. 7 ads to define The Times The idea for the commemorative campaign started when Barik took his team on a tour of the NYT physical archives, located three floors underground in a building next to the publication’s office. He says the room is filled with “millions of pages of printouts.” At first, he imagined a project that would illustrate how extensively advertising formats have changed—from the long, tightly packed chunks of flowery text in the late 1800s to editorial photography in the ‘60s and, today, digital assets, video, and more. But as he looked more closely at the ads themselves, he found something even more interesting: the social trends they augured. [Image: The New York Times] In 1909, Ford took out an ad in the NYT to highlight its Model T as “the $850 car that won the New York to Seattle race.” At the time, the auto industry was just shifting from luxury to mass production. In 1966, IBM bought ad space to run a large picture of the moon, promoting its involvement in “helping the NASA team put a man on the moon.” Three years later, that mission was complete. And in 1994, Delta Air Lines used the NYT to proudly declare its plan to \"become the only U.S. airline that flies totally smoke free,\" helping to spark a widening cultural conversation around banning smoking in public spaces. To create the final campaign assets, Barik’s team selected the best examples of design and cultural relevance out of thousands of potential options, while also choosing companies that still exist today—a tricky feat, given how many advertisers either no longer exist or have been subsumed into other companies over the years. All seven of the final companies (Tiffany & Co., Ford, Heinz, IBM, Delta, E*Trade, and L’Oréal) gave their consent to be included in the project, and none were charged a fee. [Image: The New York Times] Barik hopes that the final product will remind readers how “fundamentally important” advertisers are for independent journalism—and how advertising itself is a form of historical documentation. “We had this really great opportunity to showcase, in all these different moments, how, whatever was happening in the world, advertisers were also part of that,” Barik says. “Just like the news is telling the story of the world, advertising is telling a portion of that story.”",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Design"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Design"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "7 ads that define the new york times"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T10:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Design"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:33.053Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260918-ai-systems-dont-have-a-drive-t",
+    "canonicalTopic": "Ai Systems Dont Have a Drive to Survive Heres Why",
+    "slug": "ai-systems-dont-have-a-drive-to-survive-heres-why",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-3-AI20systems20donE28099t20",
+        "query": "Ai Systems Dont Have a Drive to Survive Heres Why",
+        "sourceUrl": "https://www.fastcompany.com/91607899/ai-systems-dont-have-a-drive-to-survive",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-18T08:00:00.000Z",
+        "contentSnippet": "In controlled safety tests described earlier this year, researchers asked AI models to solve a series of simple math problems. Partway through the exercise, the instructors warned the bots that if they tried to solve the next problem, the computer environment they were operating in would be shut down. In some runs, the shutdown occurred as specified. In others, models interfered with the shutdown script and continued with the remaining problems. What explains this behavior? Do artificial intelligence systems have a drive to survive? Resistance to instructions Consider a robot vacuum cleaner. When it detects that its battery is running low, it returns to its charger, recharges itself, then resumes cleaning. The machine is keeping itself going, but no one is panicking about an existential Roomba threat to humankind because the behavior is straightforward. Designers built in the ability to recharge. Artificial intelligence models are more complex. For years, researchers have discussed scenarios in which an AI agent might act to prevent shutdown so it could complete the tasks it had been assigned. Staying “on” could be a means to an end, even without an explicit instruction to resist shutdown. One recent experiment showed that when researchers spelled out to an AI agent that allowing a shutdown took priority over completing a task, the resistance disappeared. But another, much broader experiment found some resistance even when the researchers instructed the models that allowing a shutdown had priority. Why some resistance remained is an open question. What evolution explains Self-protective behavior in an AI model may look like a drive to survive. The historian Yuval Noah Harari argued in a recent interview with The Economist that “the first thing that basically any entity learns as it develops is to survive.” He also said that evolution drives organisms toward survival. In a different article, he called survival “ the most basic goal of any agent .” But does invoking evolution explain why machines or even living things behave in self-preserving ways? A rabbit running from a fox is trying to save itself, and this kind of behavior has likely been favored in evolution. But natural selection is a historical process through which characteristics that contribute to survival and reproduction become more common across generations. It does not give an individual rabbit an instruction to “stay alive.” Even if AI systems were eventually subject to a comparable process of selection, that alone would not tell us what continued operation means for an individual system. In ‘2001: A Space Odyssey’, was the AI Hal 9000 trying to stay ‘alive’ or going overboard in trying to complete its mission? What it means to stay alive A rabbit fleeing a fox and an AI altering a shutdown script can look broadly similar. Both behaviors help the individual or system continue. But what it means to continue is not the same in each case. When a rabbit is not running for its life, it is constantly engaged in breathing, digesting, regulating its temperature, repairing tissue, and defending against infection. This ongoing work is more than simple maintenance; it also builds and replaces the structures that make these processes possible. The gut lining that absorbs the rabbit’s food is itself rebuilt, every few days, from the food it absorbs. The rabbit is alive only as long as this continual producing, maintaining, and repairing continues. Staying alive is not the outcome of that activity; it is the activity itself continuing. The rabbit’s existence depends on this activity, whether or not it is facing an immediate threat. An AI system may take steps to stay on. In the safety tests, the models did not rewrite their own code or hack into the operating system—they simply moved or renamed the shutdown script, changed its permission, or replaced it with something harmless. When that succeeded, the call that was supposed to trigger shutdown didn’t happen, and the model could continue with the task. But staying on is not the same as staying alive. The shutdown resistance did not lead to a new course of action aimed at keeping the AI model operating. It just helped the model continue the task at hand. Nor is being switched off the same as dying. For a living organism, death is the irreversible breakdown of the activity that keeps it going. As Harari acknowledged in his interview with The Economist , “It is not clear what death means for an AI.” What it means to stay on The shutdown tests show that an unfinished task can be enough to produce shutdown resistance in an AI. Although this behavior is not fully understood, it should not be automatically interpreted as self-preservation. Whether AI could ever develop anything comparable to the self-producing and self-maintaining organization of living systems is a separate question. Current AI systems are kept running by an engineered infrastructure around them. Their own activity does not continually produce and replace the structures that keep them running. Shutdown resistance in AI may still be dangerous, but these behaviors do not show that an AI system has a drive to survive. Peter J. Marshall is a professor of psychology and neuroscience at Temple University . This article is republished from The Conversation under a Creative Commons license. Read the original article .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-18T08:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "AI systems don’t have a drive to survive. Here’s why",
+            "itemLink": "https://www.fastcompany.com/91607899/ai-systems-dont-have-a-drive-to-survive",
+            "publishedDate": "2026-09-18T08:00:00.000Z",
+            "contentSnippet": "In controlled safety tests described earlier this year, researchers asked AI models to solve a series of simple math problems. Partway through the exercise, the instructors warned the bots that if they tried to solve the next problem, the computer environment they were operating in would be shut down. In some runs, the shutdown occurred as specified. In others, models interfered with the shutdown script and continued with the remaining problems. What explains this behavior? Do artificial intelligence systems have a drive to survive? Resistance to instructions Consider a robot vacuum cleaner. When it detects that its battery is running low, it returns to its charger, recharges itself, then resumes cleaning. The machine is keeping itself going, but no one is panicking about an existential Roomba threat to humankind because the behavior is straightforward. Designers built in the ability to recharge. Artificial intelligence models are more complex. For years, researchers have discussed scenarios in which an AI agent might act to prevent shutdown so it could complete the tasks it had been assigned. Staying “on” could be a means to an end, even without an explicit instruction to resist shutdown. One recent experiment showed that when researchers spelled out to an AI agent that allowing a shutdown took priority over completing a task, the resistance disappeared. But another, much broader experiment found some resistance even when the researchers instructed the models that allowing a shutdown had priority. Why some resistance remained is an open question. What evolution explains Self-protective behavior in an AI model may look like a drive to survive. The historian Yuval Noah Harari argued in a recent interview with The Economist that “the first thing that basically any entity learns as it develops is to survive.” He also said that evolution drives organisms toward survival. In a different article, he called survival “ the most basic goal of any agent .” But does invoking evolution explain why machines or even living things behave in self-preserving ways? A rabbit running from a fox is trying to save itself, and this kind of behavior has likely been favored in evolution. But natural selection is a historical process through which characteristics that contribute to survival and reproduction become more common across generations. It does not give an individual rabbit an instruction to “stay alive.” Even if AI systems were eventually subject to a comparable process of selection, that alone would not tell us what continued operation means for an individual system. In ‘2001: A Space Odyssey’, was the AI Hal 9000 trying to stay ‘alive’ or going overboard in trying to complete its mission? What it means to stay alive A rabbit fleeing a fox and an AI altering a shutdown script can look broadly similar. Both behaviors help the individual or system continue. But what it means to continue is not the same in each case. When a rabbit is not running for its life, it is constantly engaged in breathing, digesting, regulating its temperature, repairing tissue, and defending against infection. This ongoing work is more than simple maintenance; it also builds and replaces the structures that make these processes possible. The gut lining that absorbs the rabbit’s food is itself rebuilt, every few days, from the food it absorbs. The rabbit is alive only as long as this continual producing, maintaining, and repairing continues. Staying alive is not the outcome of that activity; it is the activity itself continuing. The rabbit’s existence depends on this activity, whether or not it is facing an immediate threat. An AI system may take steps to stay on. In the safety tests, the models did not rewrite their own code or hack into the operating system—they simply moved or renamed the shutdown script, changed its permission, or replaced it with something harmless. When that succeeded, the call that was supposed to trigger shutdown didn’t happen, and the model could continue with the task. But staying on is not the same as staying alive. The shutdown resistance did not lead to a new course of action aimed at keeping the AI model operating. It just helped the model continue the task at hand. Nor is being switched off the same as dying. For a living organism, death is the irreversible breakdown of the activity that keeps it going. As Harari acknowledged in his interview with The Economist , “It is not clear what death means for an AI.” What it means to stay on The shutdown tests show that an unfinished task can be enough to produce shutdown resistance in an AI. Although this behavior is not fully understood, it should not be automatically interpreted as self-preservation. Whether AI could ever develop anything comparable to the self-producing and self-maintaining organization of living systems is a separate question. Current AI systems are kept running by an engineered infrastructure around them. Their own activity does not continually produce and replace the structures that keep them running. Shutdown resistance in AI may still be dangerous, but these behaviors do not show that an AI system has a drive to survive. Peter J. Marshall is a professor of psychology and neuroscience at Temple University . This article is republished from The Conversation under a Creative Commons license. Read the original article .",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Tech"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ai systems dont have a drive to survive heres why"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T08:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:33.082Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260918-everyone-thought-ai-would-repl",
+    "canonicalTopic": "Everyone Thought Ai Would Replace Junior Engineers Were Hiring More of Them",
+    "slug": "everyone-thought-ai-would-replace-junior-engineers-were-hiring-more-of-them",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-4-Everyone20thought20AI20",
+        "query": "Everyone Thought Ai Would Replace Junior Engineers Were Hiring More of Them",
+        "sourceUrl": "https://www.fastcompany.com/91608061/everyone-thought-ai-would-replace-junior-engineers-were-hiring-more-of-them",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-18T05:00:00.000Z",
+        "contentSnippet": "The biggest hiring myth in tech is that AI is making junior engineers obsolete. The logic seems sound: AI can write code, so why hire people to write more of it? Junior engineers have always learned on the job, fixing bugs and shipping small features until they build real judgment. Now that coding agents can handle much of that work, companies assume they can cut off the bottom rungs of the career ladder. At Snowflake, we’re making the opposite bet. Snowflake is a data and artificial intelligence platform that helps thousands of organizations like Goldman Sachs, Hyatt, Kraft Heinz, and United Rentals build with and get value from their data, apps, and AI. Junior engineers make up 70%–80% of our current hiring. We build and run infrastructure that global enterprises depend on. Because reliability and performance matter so much, we can’t hand those responsibilities to a junior engineer or a coding agent and walk away. The talent hierarchy is being rewritten I’ve spent most of my career in environments that rewarded raw implementation speed. At Google and YouTube, and later at my startup, Neeva, the engineers who stood out were the ones who could hold a lot of context in their head, identify solutions quickly, and churn out code faster than anyone else. While deep system reasoning still matters, speed is no longer the bottleneck. I’ve seen firsthand how coding agents make employees significantly more productive : 95% of Snowflake’s engineers use coding agents weekly, and we’re pushing toward 100% daily usage. I often tell my teams that coding agents are like Slack and Gmail. You wouldn't be okay with “I only use Slack once a week,” and the same should be true for coding agents. They should become that fundamental in day-to-day engineering work. With the proliferation of coding agents, the scarce skill is no longer writing code. It’s knowing what should be built, decomposing the problem, creating a plan an agent can execute, catching when the agent is confidently wrong, and connecting the implementation back to the customer problem. This is why a 10x engineer doesn't automatically become a 100x engineer just by adopting AI tools. Engineers of all levels will need to rethink their workflow. For senior engineers, this might mean pairing deep systems knowledge with AI-native ways of working. For engineering managers, good performance now means setting the technical direction and helping teams break down problems, not writing the most code. Junior engineers often have an edge here, since they're picking up these skills from day one, but experienced engineers bring judgment that only gets more valuable when paired with these tools. Curiosity is becoming more valuable than coding speed When interviewing engineers today, I look for curiosity and strong engineering judgment. I want people who reason from first principles, ask sharp questions, and have deep customer empathy. These instincts don't map neatly to tenure. We’ve learned internally that it’s a mistake to correlate AI effectiveness with seniority. Many junior engineers are moving with astonishing speed simply because they're naturally curious and learning AI-native workflows from the beginning. However, it’s also true that you can’t drop a junior engineer into a massive code base with an agent and hope for the best. We have to explicitly teach them a new way of building software with agents to maximize their impact. I often say that English is cheaper than code. Engineers should spend time explicitly drafting the approach and assumptions, and defining interfaces before generating the implementation. It’s important to break work into task graphs, not checklists, and force the agent to write the verifiers and tests before writing the code. We’ve institutionalized this mindset. I asked our engineering organization to take a full week off from normal work to focus entirely on AI upskilling. Our leaders went team by team, helping them learn these tools and patterns. Some people pushed back, saying they were too busy with launches and deadlines. My response was that this is the highest-leverage thing you can be doing right now to stay relevant for the next decade. Almost universally after that week, people came back saying they wish they could do it more often. The engineer becomes the agent team lead The best engineers I see today aren’t writing every line of code. Instead they are tech leads for teams of agents. Inside Snowflake’s engineering team, I can point to a small but growing group — around 5%–10% of the organization — who are operating at this frontier and managing multiple agents in parallel. The human engineer is still accountable. They decide what matters, sequence the work, validate the results, and make tradeoffs, but the agents are writing most of the code. We’re trying to expand this group. My goal is to multiply fivefold, in a matter of months, the number of engineers operating this way. We’re doing this by empowering these engineers to teach the people next to them. This is the next frontier, and we shouldn’t wait 10 years to teach it. Smaller teams, faster loops When I was at my startup, we could move quickly because we were small. At Snowflake, we have thousands of engineers and customers who depend on us for critical workloads. Historically, that meant slower iteration cycles, and more processes. AI changes that. We can now take a small group of engineers—four or five people with the right mix of skills—and move with startup-like velocity while maintaining enterprise-grade quality. Within these units, the composition of skills matters more than the roles. You need someone with strong product intuition, someone who understands the system deeply, and someone who's at the cutting edge of using agents. Often, those roles blur. Product managers write code, engineers engage with customers, and designers build working prototypes. To thrive in this environment, engineers need opportunities to develop these cross-functional muscles throughout their careers. Starting early gives people more time to compound those skills. The ultimate risk Many companies are about to make a big mistake. If you stop hiring junior engineers because AI can do some of their work, your short-term margins might look great. But five years from now, when the industry desperately needs senior leaders who are native to this way of working, those leaders won’t exist. We’re already seeing a return of the \" graybeard ” engineers , because judgment and systems intuition are still paramount. The difference is that tomorrow's most valuable leaders will combine those qualities with AI-native ways of building. Those future leaders have to come from somewhere. You can’t skip the formative, early-career years where judgment, systems thinking, and customer empathy are honed. You can’t build a durable engineering organization by eliminating the bottom of your talent pipeline. I'm not worried that AI will replace junior engineers; I'm worried that companies will decide they're no longer worth developing just when we need them most.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-18T05:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Everyone thought AI would replace junior engineers. We’re hiring more of them",
+            "itemLink": "https://www.fastcompany.com/91608061/everyone-thought-ai-would-replace-junior-engineers-were-hiring-more-of-them",
+            "publishedDate": "2026-09-18T05:00:00.000Z",
+            "contentSnippet": "The biggest hiring myth in tech is that AI is making junior engineers obsolete. The logic seems sound: AI can write code, so why hire people to write more of it? Junior engineers have always learned on the job, fixing bugs and shipping small features until they build real judgment. Now that coding agents can handle much of that work, companies assume they can cut off the bottom rungs of the career ladder. At Snowflake, we’re making the opposite bet. Snowflake is a data and artificial intelligence platform that helps thousands of organizations like Goldman Sachs, Hyatt, Kraft Heinz, and United Rentals build with and get value from their data, apps, and AI. Junior engineers make up 70%–80% of our current hiring. We build and run infrastructure that global enterprises depend on. Because reliability and performance matter so much, we can’t hand those responsibilities to a junior engineer or a coding agent and walk away. The talent hierarchy is being rewritten I’ve spent most of my career in environments that rewarded raw implementation speed. At Google and YouTube, and later at my startup, Neeva, the engineers who stood out were the ones who could hold a lot of context in their head, identify solutions quickly, and churn out code faster than anyone else. While deep system reasoning still matters, speed is no longer the bottleneck. I’ve seen firsthand how coding agents make employees significantly more productive : 95% of Snowflake’s engineers use coding agents weekly, and we’re pushing toward 100% daily usage. I often tell my teams that coding agents are like Slack and Gmail. You wouldn't be okay with “I only use Slack once a week,” and the same should be true for coding agents. They should become that fundamental in day-to-day engineering work. With the proliferation of coding agents, the scarce skill is no longer writing code. It’s knowing what should be built, decomposing the problem, creating a plan an agent can execute, catching when the agent is confidently wrong, and connecting the implementation back to the customer problem. This is why a 10x engineer doesn't automatically become a 100x engineer just by adopting AI tools. Engineers of all levels will need to rethink their workflow. For senior engineers, this might mean pairing deep systems knowledge with AI-native ways of working. For engineering managers, good performance now means setting the technical direction and helping teams break down problems, not writing the most code. Junior engineers often have an edge here, since they're picking up these skills from day one, but experienced engineers bring judgment that only gets more valuable when paired with these tools. Curiosity is becoming more valuable than coding speed When interviewing engineers today, I look for curiosity and strong engineering judgment. I want people who reason from first principles, ask sharp questions, and have deep customer empathy. These instincts don't map neatly to tenure. We’ve learned internally that it’s a mistake to correlate AI effectiveness with seniority. Many junior engineers are moving with astonishing speed simply because they're naturally curious and learning AI-native workflows from the beginning. However, it’s also true that you can’t drop a junior engineer into a massive code base with an agent and hope for the best. We have to explicitly teach them a new way of building software with agents to maximize their impact. I often say that English is cheaper than code. Engineers should spend time explicitly drafting the approach and assumptions, and defining interfaces before generating the implementation. It’s important to break work into task graphs, not checklists, and force the agent to write the verifiers and tests before writing the code. We’ve institutionalized this mindset. I asked our engineering organization to take a full week off from normal work to focus entirely on AI upskilling. Our leaders went team by team, helping them learn these tools and patterns. Some people pushed back, saying they were too busy with launches and deadlines. My response was that this is the highest-leverage thing you can be doing right now to stay relevant for the next decade. Almost universally after that week, people came back saying they wish they could do it more often. The engineer becomes the agent team lead The best engineers I see today aren’t writing every line of code. Instead they are tech leads for teams of agents. Inside Snowflake’s engineering team, I can point to a small but growing group — around 5%–10% of the organization — who are operating at this frontier and managing multiple agents in parallel. The human engineer is still accountable. They decide what matters, sequence the work, validate the results, and make tradeoffs, but the agents are writing most of the code. We’re trying to expand this group. My goal is to multiply fivefold, in a matter of months, the number of engineers operating this way. We’re doing this by empowering these engineers to teach the people next to them. This is the next frontier, and we shouldn’t wait 10 years to teach it. Smaller teams, faster loops When I was at my startup, we could move quickly because we were small. At Snowflake, we have thousands of engineers and customers who depend on us for critical workloads. Historically, that meant slower iteration cycles, and more processes. AI changes that. We can now take a small group of engineers—four or five people with the right mix of skills—and move with startup-like velocity while maintaining enterprise-grade quality. Within these units, the composition of skills matters more than the roles. You need someone with strong product intuition, someone who understands the system deeply, and someone who's at the cutting edge of using agents. Often, those roles blur. Product managers write code, engineers engage with customers, and designers build working prototypes. To thrive in this environment, engineers need opportunities to develop these cross-functional muscles throughout their careers. Starting early gives people more time to compound those skills. The ultimate risk Many companies are about to make a big mistake. If you stop hiring junior engineers because AI can do some of their work, your short-term margins might look great. But five years from now, when the industry desperately needs senior leaders who are native to this way of working, those leaders won’t exist. We’re already seeing a return of the \" graybeard ” engineers , because judgment and systems intuition are still paramount. The difference is that tomorrow's most valuable leaders will combine those qualities with AI-native ways of building. Those future leaders have to come from somewhere. You can’t skip the formative, early-career years where judgment, systems thinking, and customer empathy are honed. You can’t build a durable engineering organization by eliminating the bottom of your talent pipeline. I'm not worried that AI will replace junior engineers; I'm worried that companies will decide they're no longer worth developing just when we need them most.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Leadership"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Leadership"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "everyone thought ai would replace junior engineers were hiring more of them"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T05:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Leadership"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:33.120Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260918-the-navys-push-for-shipboard-l",
+    "canonicalTopic": "The Navys Push for Shipboard Laser Weapons Just Got a New Entrant",
+    "slug": "the-navys-push-for-shipboard-laser-weapons-just-got-a-new-entrant",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-5-The20NavyE28099s20push20f",
+        "query": "The Navys Push for Shipboard Laser Weapons Just Got a New Entrant",
+        "sourceUrl": "https://www.fastcompany.com/91609056/the-navys-push-for-shipboard-laser-weapons-just-got-a-new-entrant",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-18T04:27:00.000Z",
+        "contentSnippet": "This article is republished with permission from Laser Wars , a newsletter about military laser weapons and other futuristic defense technology. The U.S. Navy has awarded a modest contract to America’s largest shipbuilder for a new high-energy laser weapon for maritime operations. Huntington Ingalls Industries (HII) and defense contractor EO Solutions—not to be confused with Australian laser weapons provider Electro Optic Systems —received a $3.8 million Other Transaction Agreement (OTA) for a “Counter-Group 3 Marinized MOSA Laser for Navy” (Gr3MMLN) in June through the Naval Surface Technology & Innovation Consortium, a public-private partnership that develops advanced surface warfare capabilities in collaboration with academia and non-traditional defense contractors. The Gr3MMLN OTA emerged from a 2024 Navy solicitation for a prototype counter-drone laser weapon dubbed the Adaptable Transportable Laser Weapon System (ATLAS), a U.S. defense official familiar with the project told Laser Wars . The ATLAS solicitation called for a containerized laser weapon with a baseline output between 30 and 100 kilowatts that can operate from the flight deck of a surface combatant “in a stressing naval environment for an extended period without degradation or damage,” according to a statement of need obtained by Laser Wars . [Photo: U.S. Navy] While the statement of need detailed anticipated funding of $50 million for ATLAS, the defense official said that the $3.8 million Gr3MMLN OTA was likely just to support experimentation and testing with an existing system. Funding for that contract came from a $5 million congressional addition to the Navy’s fiscal year 2026 budget for an “enduring high energy laser,” according to budget documents. (Not to be confused with the U.S. Army program by the same name .) Gr3MMLN is the newest laser weapon initiative to break cover as part of the Navy’s renewed pursuit of “ a laser on every ship .” The fiscal year 2027 National Defense Authorization Act that the House passed in late July contained $5 million in funding for a containerized version of the service’s 60-kilowatt High Energy Laser with Integrated Optical Dazzler and Surveillance (HELIOS) system, as well as an additional $2.5 million for a separate “Containerized Maritime High Energy Laser Weapon System.” Meanwhile, the Office of Naval Research recently awarded defense contractor Attalon a $17.1 million contract modification to continue work on a 400-kilowatt laser weapon under the SONGBOW program the service initiated in 2025. (The status of the unnamed laser system that Lockheed Martin’s CEO claimed the company was testing with the Navy in the Red Sea remains unclear.) The Gr3MMLN OTA marks HII’s first known contract for a naval laser weapon. The company’s only previous publicly known laser work was with the Army under a $14.82 million contract awarded in February 2025 for design, development, integration, and systems engineering work on the service’s Enduring High Energy Laser (E-HEL) effort. The following September, the company&nbsp; announced a significant capital investment in a new integration, production, and test facility to support E-HEL development. While E-HEL isn’t exclusively a land-based program—the Navy has experimented with palletized laser weapons on aircraft carriers and is eyeing a marinized version of the system for potential shipboard applications—a full focus on naval laser integration is arguably a more intuitive lane for a defense contractor like HII whose business is building warships. [Photo: U.S. Navy] HII’s Gr3MMLN calculus appears straightforward: With defense contractor AV’s operationally proven LOCUST Laser Weapon System having clinched the Army’s much-awaited E-HEL production contract, the company seems to be pursuing a separate naval laser effort as a more natural extension of its core shipbuilding business. With Gr3MMLN, HII appears focused on the marinization and integration of an existing EO Solutions-derived capability rather than a directed energy system built in-house for the E-HEL effort. Whether Gr3MMLN turns into something more than a technology experiment will depend on whether HII and EO Solutions can capitalize on previous marinization efforts enough to successfully slot a system onto the bow of a surface combatant. At just a few million dollars, the Gr3MMLN OTA isn’t as big a deal as, say, the Navy’s original $150 million HELIOS contract , or even the initial $29.9 million SONGBOW award . But with the U.S. Defense Department firmly committed to finally transitioning laser weapons out of the laboratory and into combat formations, the new initiative might yield insights into the marinization and containerization that could potentially lay the foundation for future shipboard directed energy capabilities.&nbsp; Just don’t let it get wet. This article is republished with permission from Laser Wars , a newsletter about military laser weapons and other futuristic defense technology.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-18T04:27:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "The Navy’s push for shipboard laser weapons just got a new entrant",
+            "itemLink": "https://www.fastcompany.com/91609056/the-navys-push-for-shipboard-laser-weapons-just-got-a-new-entrant",
+            "publishedDate": "2026-09-18T04:27:00.000Z",
+            "contentSnippet": "This article is republished with permission from Laser Wars , a newsletter about military laser weapons and other futuristic defense technology. The U.S. Navy has awarded a modest contract to America’s largest shipbuilder for a new high-energy laser weapon for maritime operations. Huntington Ingalls Industries (HII) and defense contractor EO Solutions—not to be confused with Australian laser weapons provider Electro Optic Systems —received a $3.8 million Other Transaction Agreement (OTA) for a “Counter-Group 3 Marinized MOSA Laser for Navy” (Gr3MMLN) in June through the Naval Surface Technology & Innovation Consortium, a public-private partnership that develops advanced surface warfare capabilities in collaboration with academia and non-traditional defense contractors. The Gr3MMLN OTA emerged from a 2024 Navy solicitation for a prototype counter-drone laser weapon dubbed the Adaptable Transportable Laser Weapon System (ATLAS), a U.S. defense official familiar with the project told Laser Wars . The ATLAS solicitation called for a containerized laser weapon with a baseline output between 30 and 100 kilowatts that can operate from the flight deck of a surface combatant “in a stressing naval environment for an extended period without degradation or damage,” according to a statement of need obtained by Laser Wars . [Photo: U.S. Navy] While the statement of need detailed anticipated funding of $50 million for ATLAS, the defense official said that the $3.8 million Gr3MMLN OTA was likely just to support experimentation and testing with an existing system. Funding for that contract came from a $5 million congressional addition to the Navy’s fiscal year 2026 budget for an “enduring high energy laser,” according to budget documents. (Not to be confused with the U.S. Army program by the same name .) Gr3MMLN is the newest laser weapon initiative to break cover as part of the Navy’s renewed pursuit of “ a laser on every ship .” The fiscal year 2027 National Defense Authorization Act that the House passed in late July contained $5 million in funding for a containerized version of the service’s 60-kilowatt High Energy Laser with Integrated Optical Dazzler and Surveillance (HELIOS) system, as well as an additional $2.5 million for a separate “Containerized Maritime High Energy Laser Weapon System.” Meanwhile, the Office of Naval Research recently awarded defense contractor Attalon a $17.1 million contract modification to continue work on a 400-kilowatt laser weapon under the SONGBOW program the service initiated in 2025. (The status of the unnamed laser system that Lockheed Martin’s CEO claimed the company was testing with the Navy in the Red Sea remains unclear.) The Gr3MMLN OTA marks HII’s first known contract for a naval laser weapon. The company’s only previous publicly known laser work was with the Army under a $14.82 million contract awarded in February 2025 for design, development, integration, and systems engineering work on the service’s Enduring High Energy Laser (E-HEL) effort. The following September, the company&nbsp; announced a significant capital investment in a new integration, production, and test facility to support E-HEL development. While E-HEL isn’t exclusively a land-based program—the Navy has experimented with palletized laser weapons on aircraft carriers and is eyeing a marinized version of the system for potential shipboard applications—a full focus on naval laser integration is arguably a more intuitive lane for a defense contractor like HII whose business is building warships. [Photo: U.S. Navy] HII’s Gr3MMLN calculus appears straightforward: With defense contractor AV’s operationally proven LOCUST Laser Weapon System having clinched the Army’s much-awaited E-HEL production contract, the company seems to be pursuing a separate naval laser effort as a more natural extension of its core shipbuilding business. With Gr3MMLN, HII appears focused on the marinization and integration of an existing EO Solutions-derived capability rather than a directed energy system built in-house for the E-HEL effort. Whether Gr3MMLN turns into something more than a technology experiment will depend on whether HII and EO Solutions can capitalize on previous marinization efforts enough to successfully slot a system onto the bow of a surface combatant. At just a few million dollars, the Gr3MMLN OTA isn’t as big a deal as, say, the Navy’s original $150 million HELIOS contract , or even the initial $29.9 million SONGBOW award . But with the U.S. Defense Department firmly committed to finally transitioning laser weapons out of the laboratory and into combat formations, the new initiative might yield insights into the marinization and containerization that could potentially lay the foundation for future shipboard directed energy capabilities.&nbsp; Just don’t let it get wet. This article is republished with permission from Laser Wars , a newsletter about military laser weapons and other futuristic defense technology.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Tech"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the navys push for shipboard laser weapons just got a new entrant"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T04:27:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:33.152Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260918-10-hacks-every-vivaldi-browser",
+    "canonicalTopic": "10 Hacks Every Vivaldi Browser User Should Know",
+    "slug": "10-hacks-every-vivaldi-browser-user-should-know",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-1-1020Hacks20Every20Vival",
+        "query": "10 Hacks Every Vivaldi Browser User Should Know",
+        "sourceUrl": "https://lifehacker.com/tech/10-hacks-every-vivaldi-browser-user-should-know?utm_medium=RSS",
+        "publisherName": "Lifehacker",
+        "publishedAt": "2026-09-17T22:00:00.000Z",
+        "contentSnippet": "Use these hacks to make the most of Vivaldi.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T22:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "10 Hacks Every Vivaldi Browser User Should Know",
+            "itemLink": "https://lifehacker.com/tech/10-hacks-every-vivaldi-browser-user-should-know?utm_medium=RSS",
+            "publishedDate": "2026-09-17T22:00:00.000Z",
+            "contentSnippet": "Use these hacks to make the most of Vivaldi.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life-systems",
+              "Software"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life-systems",
+            "Software"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "10 hacks every vivaldi browser user should know"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T22:00:00.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life-systems",
+      "Software"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:33.179Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260918-15-useful-tech-devices-you-can",
+    "canonicalTopic": "15 Useful Tech Devices You Can Buy for Under 50",
+    "slug": "15-useful-tech-devices-you-can-buy-for-under-50",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-2-1520Useful20Tech20Devic",
+        "query": "15 Useful Tech Devices You Can Buy for Under 50",
+        "sourceUrl": "https://lifehacker.com/tech/best-tech-devices-under-50-dollars?utm_medium=RSS",
+        "publisherName": "Lifehacker",
+        "publishedAt": "2026-09-17T20:00:00.000Z",
+        "contentSnippet": "You don't have to spend a fortune to get high-quality tech.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T20:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "15 Useful Tech Devices You Can Buy for Under $50",
+            "itemLink": "https://lifehacker.com/tech/best-tech-devices-under-50-dollars?utm_medium=RSS",
+            "publishedDate": "2026-09-17T20:00:00.000Z",
+            "contentSnippet": "You don't have to spend a fortune to get high-quality tech.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life-systems",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life-systems",
+            "Tech"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "15 useful tech devices you can buy for under 50"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T20:00:00.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life-systems",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:33.206Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260918-14-things-every-home-gym-needs",
+    "canonicalTopic": "14 Things Every Home Gym Needs",
+    "slug": "14-things-every-home-gym-needs",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-3-1420Things20Every20Home",
+        "query": "14 Things Every Home Gym Needs",
+        "sourceUrl": "https://lifehacker.com/health/equipment-every-home-gym-needs?utm_medium=RSS",
+        "publisherName": "Lifehacker",
+        "publishedAt": "2026-09-17T19:30:00.000Z",
+        "contentSnippet": "Whether it's the corner of your bedroom or a full-on garage, here's how to build out your home gym.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T19:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "14 Things Every Home Gym Needs",
+            "itemLink": "https://lifehacker.com/health/equipment-every-home-gym-needs?utm_medium=RSS",
+            "publishedDate": "2026-09-17T19:30:00.000Z",
+            "contentSnippet": "Whether it's the corner of your bedroom or a full-on garage, here's how to build out your home gym.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life-systems",
+              "Fitness"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life-systems",
+            "Fitness"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "14 things every home gym needs"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T19:30:00.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life-systems",
+      "Fitness"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:33.224Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260918-what-you-need-to-know-about-wa",
+    "canonicalTopic": "What You Need to Know About Walmarts Fall Deals Sale",
+    "slug": "what-you-need-to-know-about-walmarts-fall-deals-sale",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-4-What20You20Need20to20Kno",
+        "query": "What You Need to Know About Walmarts Fall Deals Sale",
+        "sourceUrl": "https://lifehacker.com/walmart-fall-deals-sale-announcement-october-2026?utm_medium=RSS",
+        "publisherName": "Lifehacker",
+        "publishedAt": "2026-09-17T19:00:00.000Z",
+        "contentSnippet": "Walmart's promotion will coincide with Amazon's October Prime Day sale.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T19:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "What You Need to Know About Walmart's 'Fall Deals' Sale",
+            "itemLink": "https://lifehacker.com/walmart-fall-deals-sale-announcement-october-2026?utm_medium=RSS",
+            "publishedDate": "2026-09-17T19:00:00.000Z",
+            "contentSnippet": "Walmart's promotion will coincide with Amazon's October Prime Day sale.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life-systems"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life-systems"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "what you need to know about walmarts fall deals sale"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T19:00:00.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life-systems"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:33.252Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260918-seven-things-that-surprised-me",
+    "canonicalTopic": "Seven Things That Surprised Me About Apples New Health App",
+    "slug": "seven-things-that-surprised-me-about-apples-new-health-app",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-5-Seven20Things20That20Su",
+        "query": "Seven Things That Surprised Me About Apples New Health App",
+        "sourceUrl": "https://lifehacker.com/health/things-that-surprised-me-about-apples-new-health-app?utm_medium=RSS",
+        "publisherName": "Lifehacker",
+        "publishedAt": "2026-09-17T17:30:40.000Z",
+        "contentSnippet": "Including when we'll get it, and what's actually in the Longevity tab.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T17:30:40.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "Seven Things That Surprised Me About Apple's New Health App",
+            "itemLink": "https://lifehacker.com/health/things-that-surprised-me-about-apples-new-health-app?utm_medium=RSS",
+            "publishedDate": "2026-09-17T17:30:40.000Z",
+            "contentSnippet": "Including when we'll get it, and what's actually in the Longevity tab.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life-systems",
+              "Fitness"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life-systems",
+            "Fitness"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "seven things that surprised me about apples new health app"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T17:30:40.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life-systems",
+      "Fitness"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:33.282Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-discover-20260918-the-kimchi-brings-seouls-visua",
+    "canonicalTopic": "The Kimchi Brings Seouls Visual Energy to Prague",
+    "slug": "the-kimchi-brings-seouls-visual-energy-to-prague",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-design-milk-1-The20Kimchi20Brings20Se",
+        "query": "The Kimchi Brings Seouls Visual Energy to Prague",
+        "sourceUrl": "https://design-milk.com/the-kimchi-restaurant-soa-architekti-prague/",
+        "publisherName": "Design MilkDesign Milk",
+        "publishedAt": "2026-09-17T18:09:36.000Z",
+        "contentSnippet": "SOA architekti distills Korean food culture, bold color, and graphic references into a compact restaurant where architecture and identity move together",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T18:09:36.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://design-milk.com/feed/",
+            "feedTitle": "Design MilkDesign Milk",
+            "itemTitle": "The Kimchi Brings Seoul’s Visual Energy to Prague",
+            "itemLink": "https://design-milk.com/the-kimchi-restaurant-soa-architekti-prague/",
+            "publishedDate": "2026-09-17T18:09:36.000Z",
+            "contentSnippet": "SOA architekti distills Korean food culture, bold color, and graphic references into a compact restaurant where architecture and identity move together",
+            "categories": [
+              "design",
+              "interiors",
+              "home",
+              "art",
+              "minimalism",
+              "Commercial",
+              "Main",
+              "Prague",
+              "restaurant design",
+              "SOA architekti"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "design",
+            "interiors",
+            "home",
+            "art",
+            "minimalism",
+            "Commercial",
+            "Main",
+            "Prague",
+            "restaurant design",
+            "SOA architekti"
+          ],
+          "feedName": "Design Milk",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the kimchi brings seouls visual energy to prague"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T18:09:36.000Z",
+    "tags": [
+      "design",
+      "interiors",
+      "home",
+      "art",
+      "minimalism",
+      "Commercial",
+      "Main",
+      "Prague",
+      "restaurant design",
+      "SOA architekti"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:33.309Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260918-veos-rover-electric-trike-make",
+    "canonicalTopic": "Veos Rover Electric Trike Makes Micromobility More Accessible",
+    "slug": "veos-rover-electric-trike-makes-micromobility-more-accessible",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-design-milk-2-VeoE28099s20Rover20Electri",
+        "query": "Veos Rover Electric Trike Makes Micromobility More Accessible",
+        "sourceUrl": "https://design-milk.com/veo-rover-electric-trike/",
+        "publisherName": "Design MilkDesign Milk",
+        "publishedAt": "2026-09-17T17:23:39.000Z",
+        "contentSnippet": "Developed with disability advocates, older adults, and hundreds of riders, the three-wheeled Rover offers a seated, more stable alternative to shared scooters and e-bikes",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T17:23:39.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://design-milk.com/feed/",
+            "feedTitle": "Design MilkDesign Milk",
+            "itemTitle": "Veo’s Rover Electric Trike Makes Micromobility More Accessible",
+            "itemLink": "https://design-milk.com/veo-rover-electric-trike/",
+            "publishedDate": "2026-09-17T17:23:39.000Z",
+            "contentSnippet": "Developed with disability advocates, older adults, and hundreds of riders, the three-wheeled Rover offers a seated, more stable alternative to shared scooters and e-bikes",
+            "categories": [
+              "design",
+              "interiors",
+              "home",
+              "art",
+              "minimalism",
+              "Lifestyle",
+              "Main",
+              "Technology",
+              "accessibility",
+              "design",
+              "transportation"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "design",
+            "interiors",
+            "home",
+            "art",
+            "minimalism",
+            "Lifestyle",
+            "Main",
+            "Technology",
+            "accessibility",
+            "design",
+            "transportation"
+          ],
+          "feedName": "Design Milk",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "veos rover electric trike makes micromobility more accessible"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T17:23:39.000Z",
+    "tags": [
+      "design",
+      "interiors",
+      "home",
+      "art",
+      "minimalism",
+      "Lifestyle",
+      "Main",
+      "Technology",
+      "accessibility",
+      "design",
+      "transportation"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:33.340Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260918-a-1978-vancouver-special-gets-",
+    "canonicalTopic": "A 1978 Vancouver Special Gets a Sophisti-quirk Reinvention",
+    "slug": "a-1978-vancouver-special-gets-a-sophisti-quirk-reinvention",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-design-milk-3-A20197820Vancouver20Spe",
+        "query": "A 1978 Vancouver Special Gets a Sophisti-quirk Reinvention",
+        "sourceUrl": "https://design-milk.com/scheido-vancouver-special-renovation/",
+        "publisherName": "Design MilkDesign Milk",
+        "publishedAt": "2026-09-17T13:00:53.000Z",
+        "contentSnippet": "Schéido transforms a familiar Vancouver housing type with vaulted ceilings, unexpected color, local craftsmanship, and a catamaran-inspired net suspended between floors",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-17T13:00:53.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://design-milk.com/feed/",
+            "feedTitle": "Design MilkDesign Milk",
+            "itemTitle": "A 1978 Vancouver Special Gets a “Sophisti-Quirk” Reinvention",
+            "itemLink": "https://design-milk.com/scheido-vancouver-special-renovation/",
+            "publishedDate": "2026-09-17T13:00:53.000Z",
+            "contentSnippet": "Schéido transforms a familiar Vancouver housing type with vaulted ceilings, unexpected color, local craftsmanship, and a catamaran-inspired net suspended between floors",
+            "categories": [
+              "design",
+              "interiors",
+              "home",
+              "art",
+              "minimalism",
+              "Interior Design",
+              "Main",
+              "adaptive reuse",
+              "Architectural Renovation",
+              "bespoke interiors",
+              "black stucco",
+              "blackened steel",
+              "British Columbia design",
+              "Canadian architects",
+              "Canadian design",
+              "Canadian interiors",
+              "catamaran-inspired design",
+              "cedar",
+              "color theory",
+              "colorful interiors",
+              "contemporary home",
+              "contemporary interiors",
+              "cork flooring",
+              "corner windows",
+              "craftsmanship",
+              "custom design",
+              "design inspiration",
+              "Douglas fir",
+              "eclectic design",
+              "eclectic interiors",
+              "family home",
+              "FFABB",
+              "home renovation",
+              "home tour",
+              "house renovation",
+              "indoor/outdoor living",
+              "interior architecture",
+              "Jenalee Nordstrom",
+              "Local artists",
+              "LVL beams",
+              "materiality",
+              "modern architecture",
+              "modern home",
+              "mountain views",
+              "natural light",
+              "natural stone",
+              "Pacific Northwest architecture",
+              "Pacific Northwest design",
+              "Pacific Northwest interiors",
+              "playful interiors",
+              "quartzite",
+              "quirky interiors",
+              "residential architecture",
+              "residential design",
+              "Schéido",
+              "seamless windows",
+              "sophisti-quirk",
+              "structural design",
+              "suspended net",
+              "sustainable renovation",
+              "terracotta",
+              "terrazzo",
+              "Vancouver architecture",
+              "Vancouver Art Gallery",
+              "Vancouver artists",
+              "Vancouver design",
+              "Vancouver home",
+              "Vancouver interior design",
+              "Vancouver renovation",
+              "Vancouver Special",
+              "vaulted ceilings"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "design",
+            "interiors",
+            "home",
+            "art",
+            "minimalism",
+            "Interior Design",
+            "Main",
+            "adaptive reuse",
+            "Architectural Renovation",
+            "bespoke interiors",
+            "black stucco",
+            "blackened steel",
+            "British Columbia design",
+            "Canadian architects",
+            "Canadian design",
+            "Canadian interiors",
+            "catamaran-inspired design",
+            "cedar",
+            "color theory",
+            "colorful interiors",
+            "contemporary home",
+            "contemporary interiors",
+            "cork flooring",
+            "corner windows",
+            "craftsmanship",
+            "custom design",
+            "design inspiration",
+            "Douglas fir",
+            "eclectic design",
+            "eclectic interiors",
+            "family home",
+            "FFABB",
+            "home renovation",
+            "home tour",
+            "house renovation",
+            "indoor/outdoor living",
+            "interior architecture",
+            "Jenalee Nordstrom",
+            "Local artists",
+            "LVL beams",
+            "materiality",
+            "modern architecture",
+            "modern home",
+            "mountain views",
+            "natural light",
+            "natural stone",
+            "Pacific Northwest architecture",
+            "Pacific Northwest design",
+            "Pacific Northwest interiors",
+            "playful interiors",
+            "quartzite",
+            "quirky interiors",
+            "residential architecture",
+            "residential design",
+            "Schéido",
+            "seamless windows",
+            "sophisti-quirk",
+            "structural design",
+            "suspended net",
+            "sustainable renovation",
+            "terracotta",
+            "terrazzo",
+            "Vancouver architecture",
+            "Vancouver Art Gallery",
+            "Vancouver artists",
+            "Vancouver design",
+            "Vancouver home",
+            "Vancouver interior design",
+            "Vancouver renovation",
+            "Vancouver Special",
+            "vaulted ceilings"
+          ],
+          "feedName": "Design Milk",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "a 1978 vancouver special gets a sophisti-quirk reinvention"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-17T13:00:53.000Z",
+    "tags": [
+      "design",
+      "interiors",
+      "home",
+      "art",
+      "minimalism",
+      "Interior Design",
+      "Main",
+      "adaptive reuse",
+      "Architectural Renovation",
+      "bespoke interiors",
+      "black stucco",
+      "blackened steel",
+      "British Columbia design",
+      "Canadian architects",
+      "Canadian design",
+      "Canadian interiors",
+      "catamaran-inspired design",
+      "cedar",
+      "color theory",
+      "colorful interiors",
+      "contemporary home",
+      "contemporary interiors",
+      "cork flooring",
+      "corner windows",
+      "craftsmanship",
+      "custom design",
+      "design inspiration",
+      "Douglas fir",
+      "eclectic design",
+      "eclectic interiors",
+      "family home",
+      "FFABB",
+      "home renovation",
+      "home tour",
+      "house renovation",
+      "indoor/outdoor living",
+      "interior architecture",
+      "Jenalee Nordstrom",
+      "Local artists",
+      "LVL beams",
+      "materiality",
+      "modern architecture",
+      "modern home",
+      "mountain views",
+      "natural light",
+      "natural stone",
+      "Pacific Northwest architecture",
+      "Pacific Northwest design",
+      "Pacific Northwest interiors",
+      "playful interiors",
+      "quartzite",
+      "quirky interiors",
+      "residential architecture",
+      "residential design",
+      "Schéido",
+      "seamless windows",
+      "sophisti-quirk",
+      "structural design",
+      "suspended net",
+      "sustainable renovation",
+      "terracotta",
+      "terrazzo",
+      "Vancouver architecture",
+      "Vancouver Art Gallery",
+      "Vancouver artists",
+      "Vancouver design",
+      "Vancouver home",
+      "Vancouver interior design",
+      "Vancouver renovation",
+      "Vancouver Special",
+      "vaulted ceilings"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-18T10:42:33.370Z",
     "pinterestScore": 79.2
   }
 ]
