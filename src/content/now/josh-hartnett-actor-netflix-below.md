@@ -26,8 +26,6 @@ version: 1
 lifecycleStatus: "STORED"
 ---
 
-# Josh Hartnett: Canadian actor stars in Netflix’s underwater thriller Below
-
 Josh Hartnett has long been recognized as a seasoned Hollywood actor, but recent reports reveal a fresh turn in his career and personal life. A new wave of Canadian citizenship, coupled with a lead role in Netflix’s atmospheric series *Below*, has placed him at the intersection of North American film and streaming culture. This article lays out the facts that readers need—his background, the milestones that led to the present role, and what his current project says about his professional evolution.
 
 ## Background & Career Context
