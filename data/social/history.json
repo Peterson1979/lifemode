@@ -173,5 +173,40 @@
     "overallStatus": "COMPLETED",
     "createdAt": "2026-09-18T17:07:33.185Z",
     "updatedAt": "2026-09-18T17:07:33.185Z"
+  },
+  {
+    "runId": "srun-1789833671193-gyu5x",
+    "topicId": "lm-wellbeing-20260919-sleep-news",
+    "pillar": "wellbeing",
+    "canonicalTopic": "Sleep news: what to know",
+    "contentHash": "d735043233d7acdcdd32e1f13ff8925c87bfb90e8221513de30292202c776367",
+    "assetHash": "1c932c71667afb60fdd2d2d248cbf38f52f9130c041a20141834b8e3f25fa0b5",
+    "idempotencyKey": "lm-soc-lm-wellbeing-20260919-sleep-news-d7350432",
+    "targetPlatforms": [
+      "instagram",
+      "facebook"
+    ],
+    "platformResults": {
+      "instagram": {
+        "platform": "instagram",
+        "status": "PUBLISHED",
+        "postId": "18137706505620123",
+        "postUrl": "https://instagram.com/p/18137706505620123",
+        "publishedAt": "2026-09-19T16:01:17.829Z",
+        "idempotencyKey": "lm-soc-lm-wellbeing-20260919-sleep-news-instagram-18a5ce6245f8"
+      },
+      "facebook": {
+        "platform": "facebook",
+        "status": "PUBLISHED",
+        "postId": "122321257784197726",
+        "postUrl": "https://facebook.com/122321257784197726",
+        "publishedAt": "2026-09-19T16:01:28.796Z",
+        "idempotencyKey": "lm-soc-lm-wellbeing-20260919-sleep-news-facebook-4d04e3e1002f"
+      }
+    },
+    "reviewScore": 90,
+    "overallStatus": "COMPLETED",
+    "createdAt": "2026-09-19T16:01:37.912Z",
+    "updatedAt": "2026-09-19T16:01:37.912Z"
   }
 ]
