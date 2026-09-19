@@ -1,0 +1,152 @@
+---
+import type { PillarSlug } from '../../config/site.ts';
+import type { TopicDataBlock } from '../../lib/topic-data/types/core.ts';
+import { globalTopicDataService } from '../../lib/topic-data/service.ts';
+import { isCurrentDataDomain } from '../../lib/topic-data/runtime-handler.ts';
+import EarthquakeBlock from './blocks/EarthquakeBlock.astro';
+import FxBlock from './blocks/FxBlock.astro';
+import WeatherBlock from './blocks/WeatherBlock.astro';
+import AirQualityBlock from './blocks/AirQualityBlock.astro';
+import EconomicBlock from './blocks/EconomicBlock.astro';
+import FoodNutritionBlock from './blocks/FoodNutritionBlock.astro';
+import TechActivityBlock from './blocks/TechActivityBlock.astro';
+import KnowledgeFactBlock from './blocks/KnowledgeFactBlock.astro';
+import TopicDataCard from './TopicDataCard.astro';
+
+export interface Props {
+  pillar: PillarSlug;
+  pillarName?: string;
+  initialBlocks?: TopicDataBlock[];
+}
+
+const { pillar, pillarName, initialBlocks } = Astro.props;
+
+let blocks: TopicDataBlock[] = initialBlocks || [];
+
+if (!initialBlocks || initialBlocks.length === 0) {
+  try {
+    blocks = await globalTopicDataService.getTopicData(pillar);
+  } catch (_e) {
+    blocks = [];
+  }
+}
+
+const hasBlocks = blocks.length > 0;
+const hasCurrentBlocks = blocks.some((b) => isCurrentDataDomain(b.domain));
+---
+
+{hasBlocks && (
+  <section
+    class="topic-data-section"
+    data-pillar={pillar}
+    data-has-current={hasCurrentBlocks ? 'true' : 'false'}
+    aria-label={`${pillarName || pillar} Data & Live Intelligence`}
+  >
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker">Topic Intelligence</span>
+          <h2 class="section-title">Current & Reference Data</h2>
+          <p class="section-subtitle">
+            Curated, live and reference intelligence for {pillarName || pillar}
+          </p>
+        </div>
+      </div>
+
+      <div class="topic-data-grid">
+        {blocks.map((block) => {
+          switch (block.domain) {
+            case 'earthquakes':
+              return <EarthquakeBlock block={block as any} />;
+            case 'fx':
+              return <FxBlock block={block as any} />;
+            case 'weather':
+              return <WeatherBlock block={block as any} />;
+            case 'air_quality':
+              return <AirQualityBlock block={block as any} />;
+            case 'economic':
+              return <EconomicBlock block={block as any} />;
+            case 'nutrition':
+              return <FoodNutritionBlock block={block as any} />;
+            case 'tech_activity':
+              return <TechActivityBlock block={block as any} />;
+            case 'knowledge':
+              return <KnowledgeFactBlock block={block as any} />;
+            default:
+              return <TopicDataCard block={block} />;
+          }
+        })}
+      </div>
+    </div>
+  </section>
+)}
+
+{hasCurrentBlocks && (
+  <script>
+    // Progressive runtime revalidation for current/live topic blocks (Weather, AQI, Earthquakes)
+    (function () {
+      const section = document.querySelector('.topic-data-section[data-has-current="true"]');
+      if (!section) return;
+
+      const pillar = section.getAttribute('data-pillar');
+      if (!pillar) return;
+
+      // Single runtime fetch on page mount — no continuous polling
+      fetch(`/api/topic-data.json?pillar=${encodeURIComponent(pillar)}&currentOnly=true`)
+        .then((res) => {
+          if (!res.ok) return null;
+          return res.json();
+        })
+        .then((payload) => {
+          if (!payload || !payload.success || !Array.isArray(payload.blocks)) return;
+
+          for (const block of payload.blocks) {
+            const card = section.querySelector(`[data-domain="${block.domain}"]`);
+            if (!card) continue;
+
+            const badgeText = card.querySelector('.freshness-text');
+            const badge = card.querySelector('.freshness-badge');
+
+            if (badgeText && block.freshness?.label) {
+              badgeText.textContent = block.freshness.label;
+            }
+
+            if (badge && block.freshness?.status) {
+              badge.classList.remove('badge-fresh', 'badge-stale', 'badge-unavailable');
+              if (block.status === 'unavailable' || block.freshness.status === 'expired') {
+                badge.classList.add('badge-unavailable');
+              } else if (block.status === 'stale_available' || block.freshness.status === 'stale') {
+                badge.classList.add('badge-stale');
+              } else {
+                badge.classList.add('badge-fresh');
+              }
+            }
+          }
+        })
+        .catch(() => {
+          // Graceful fallback on network error; static or fallback state is preserved without error prompt
+        });
+    })();
+  </script>
+)}
+
+<style>
+  .topic-data-section {
+    padding-top: var(--space-8, 2rem);
+    padding-bottom: var(--space-10, 2.5rem);
+    border-bottom: 1px solid var(--color-border, #e6ded2);
+    background-color: var(--color-bg, #f8f5ee);
+  }
+
+  .topic-data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-6, 1.5rem);
+  }
+
+  @media (max-width: 640px) {
+    .topic-data-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,120 @@
+---
+import type { TopicDataBlock } from '../../../lib/topic-data/types/core.ts';
+import type { EarthquakeFeedData } from '../../../lib/topic-data/types/topics.ts';
+import TopicDataCard from '../TopicDataCard.astro';
+
+export interface Props {
+  block: TopicDataBlock<EarthquakeFeedData>;
+}
+
+const { block } = Astro.props;
+const data = block.data;
+---
+
+<TopicDataCard block={block}>
+  {data && data.items && data.items.length > 0 && (
+    <div class="earthquake-list">
+      {data.items.slice(0, 4).map((item) => (
+        <div class="earthquake-row">
+          <div class="magnitude-pill" data-level={item.magnitude >= 6.0 ? 'high' : item.magnitude >= 5.0 ? 'med' : 'normal'}>
+            <span class="mag-num">M {item.magnitude}</span>
+          </div>
+          <div class="event-info">
+            <span class="event-place">{item.place}</span>
+            <span class="event-meta">
+              Depth: {item.coordinates.depthKm} km &bull; {new Date(item.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} UTC
+            </span>
+          </div>
+          <a
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="event-link"
+            aria-label={`View USGS details for ${item.place}`}
+          >
+            &rarr;
+          </a>
+        </div>
+      ))}
+    </div>
+  )}
+</TopicDataCard>
+
+<style>
+  .earthquake-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .earthquake-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.5rem 0.65rem;
+    background-color: var(--color-surface-subtle, #f2ece0);
+    border-radius: var(--radius-xs, 2px);
+    transition: background-color var(--transition-fast, 0.15s ease);
+  }
+
+  .earthquake-row:hover {
+    background-color: var(--color-surface-tint, #ede6d8);
+  }
+
+  .magnitude-pill {
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-xs, 2px);
+    font-family: var(--font-mono, monospace);
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .magnitude-pill[data-level='high'] {
+    background-color: #8f343d;
+    color: #ffffff;
+  }
+
+  .magnitude-pill[data-level='med'] {
+    background-color: #b0854c;
+    color: #ffffff;
+  }
+
+  .magnitude-pill[data-level='normal'] {
+    background-color: #485c4b;
+    color: #ffffff;
+  }
+
+  .event-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .event-place {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-primary, #1e1b18);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .event-meta {
+    font-size: 0.72rem;
+    color: var(--color-text-muted, #8a8275);
+  }
+
+  .event-link {
+    color: var(--color-olive, #485c4b);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0 0.25rem;
+    transition: transform var(--transition-fast, 0.15s ease);
+  }
+
+  .event-link:hover {
+    transform: translateX(2px);
+  }
+</style>

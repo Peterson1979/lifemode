@@ -1,0 +1,91 @@
+---
+import type { TopicDataBlock } from '../../../lib/topic-data/types/core.ts';
+import type { EconomicData } from '../../../lib/topic-data/types/topics.ts';
+import TopicDataCard from '../TopicDataCard.astro';
+
+export interface Props {
+  block: TopicDataBlock<EconomicData>;
+}
+
+const { block } = Astro.props;
+const data = block.data;
+---
+
+<TopicDataCard block={block}>
+  {data && data.indicators && (
+    <div class="economic-grid">
+      {data.indicators.map((item) => (
+        <div class="indicator-card">
+          <div class="indicator-meta">
+            <span class="country-name">{item.countryName}</span>
+            <span class="indicator-year">{item.year}</span>
+          </div>
+          <div class="indicator-val-row">
+            <span class="indicator-value">{item.value}{item.unit}</span>
+            <span class="indicator-tag">CPI Inflation</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+</TopicDataCard>
+
+<style>
+  .economic-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem;
+  }
+
+  @media (max-width: 640px) {
+    .economic-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .indicator-card {
+    padding: 0.75rem;
+    background-color: var(--color-surface-subtle, #f2ece0);
+    border-radius: var(--radius-xs, 2px);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .indicator-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .country-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-text-primary, #1e1b18);
+  }
+
+  .indicator-year {
+    font-size: 0.68rem;
+    color: var(--color-text-muted, #8a8275);
+  }
+
+  .indicator-val-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  .indicator-value {
+    font-family: var(--font-mono, monospace);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-olive, #485c4b);
+  }
+
+  .indicator-tag {
+    font-size: 0.68rem;
+    color: var(--color-text-dim, #b0a799);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+</style>

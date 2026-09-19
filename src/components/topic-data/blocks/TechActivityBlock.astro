@@ -1,0 +1,113 @@
+---
+import type { TopicDataBlock } from '../../../lib/topic-data/types/core.ts';
+import type { TechActivityData } from '../../../lib/topic-data/types/topics.ts';
+import TopicDataCard from '../TopicDataCard.astro';
+
+export interface Props {
+  block: TopicDataBlock<TechActivityData>;
+}
+
+const { block } = Astro.props;
+const data = block.data;
+---
+
+<TopicDataCard block={block}>
+  {data && data.projects && (
+    <div class="tech-project-list">
+      {data.projects.map((project) => (
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-name">{project.displayName}</span>
+            <span class="project-lang-pill">{project.language}</span>
+          </div>
+          <p class="project-desc">{project.description}</p>
+          <div class="project-stats-row">
+            <div class="project-stat">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              <span>{project.starsCount.toLocaleString()} stars</span>
+            </div>
+            <div class="project-stat">
+              <span>License: {project.licenseName}</span>
+            </div>
+            <a href={project.url} target="_blank" rel="noopener noreferrer" class="project-repo-link">
+              GitHub &rarr;
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+</TopicDataCard>
+
+<style>
+  .tech-project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .project-card {
+    padding: 0.85rem;
+    background-color: var(--color-surface-subtle, #f2ece0);
+    border-radius: var(--radius-xs, 2px);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .project-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text-primary, #1e1b18);
+  }
+
+  .project-lang-pill {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.15rem 0.45rem;
+    background-color: var(--color-surface, #ffffff);
+    border-radius: var(--radius-xs, 2px);
+    border: 1px solid var(--color-border-subtle, #eee7dc);
+    color: var(--color-text-secondary, #5c564e);
+  }
+
+  .project-desc {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary, #5c564e);
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .project-stats-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.725rem;
+    color: var(--color-text-muted, #8a8275);
+    padding-top: 0.4rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .project-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .project-repo-link {
+    color: var(--color-olive, #485c4b);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>

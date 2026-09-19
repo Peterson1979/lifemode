@@ -1,0 +1,83 @@
+---
+import type { TopicDataBlock } from '../../../lib/topic-data/types/core.ts';
+import type { FxRatesData } from '../../../lib/topic-data/types/topics.ts';
+import TopicDataCard from '../TopicDataCard.astro';
+
+export interface Props {
+  block: TopicDataBlock<FxRatesData>;
+}
+
+const { block } = Astro.props;
+const data = block.data;
+---
+
+<TopicDataCard block={block}>
+  {data && data.rates && (
+    <div class="fx-grid">
+      {data.rates.map((item) => (
+        <div class="fx-cell">
+          <div class="fx-curr-row">
+            <span class="curr-symbol">{item.symbol}</span>
+            <span class="curr-code">{item.currency}</span>
+          </div>
+          <div class="fx-rate-val">{item.rate}</div>
+          <div class="fx-conversion-label">1 {data.baseCurrency} = {item.rate} {item.currency}</div>
+        </div>
+      ))}
+    </div>
+  )}
+</TopicDataCard>
+
+<style>
+  .fx-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.65rem;
+  }
+
+  @media (max-width: 640px) {
+    .fx-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .fx-cell {
+    padding: 0.65rem;
+    background-color: var(--color-surface-subtle, #f2ece0);
+    border-radius: var(--radius-xs, 2px);
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .fx-curr-row {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .curr-symbol {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-olive, #485c4b);
+  }
+
+  .curr-code {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted, #8a8275);
+  }
+
+  .fx-rate-val {
+    font-family: var(--font-mono, monospace);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-primary, #1e1b18);
+  }
+
+  .fx-conversion-label {
+    font-size: 0.65rem;
+    color: var(--color-text-dim, #b0a799);
+  }
+</style>

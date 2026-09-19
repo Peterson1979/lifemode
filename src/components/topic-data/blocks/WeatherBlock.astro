@@ -1,0 +1,119 @@
+---
+import type { TopicDataBlock } from '../../../lib/topic-data/types/core.ts';
+import type { WeatherData } from '../../../lib/topic-data/types/topics.ts';
+import TopicDataCard from '../TopicDataCard.astro';
+
+export interface Props {
+  block: TopicDataBlock<WeatherData>;
+}
+
+const { block } = Astro.props;
+const data = block.data;
+---
+
+<TopicDataCard block={block}>
+  {data && data.locations && (
+    <div class="weather-grid">
+      {data.locations.map((loc) => (
+        <div class="weather-city-card">
+          <div class="city-header">
+            <span class="city-name">{loc.city}</span>
+            <span class="country-tag">{loc.country}</span>
+          </div>
+          <div class="weather-main">
+            <div class="temp-readout">
+              <span class="temp-c">{loc.temperatureCelsius}°C</span>
+              <span class="temp-f">/ {loc.temperatureFahrenheit}°F</span>
+            </div>
+            <span class="weather-condition">{loc.condition}</span>
+          </div>
+          <div class="weather-meta-row">
+            <span>Humidity: {loc.humidityPercent}%</span>
+            <span>Wind: {loc.windSpeedKmh} km/h</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+</TopicDataCard>
+
+<style>
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem;
+  }
+
+  @media (max-width: 640px) {
+    .weather-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .weather-city-card {
+    padding: 0.75rem;
+    background-color: var(--color-surface-subtle, #f2ece0);
+    border-radius: var(--radius-xs, 2px);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .city-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .city-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-text-primary, #1e1b18);
+  }
+
+  .country-tag {
+    font-size: 0.68rem;
+    color: var(--color-text-muted, #8a8275);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .weather-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .temp-readout {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+  }
+
+  .temp-c {
+    font-family: var(--font-mono, monospace);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-text-primary, #1e1b18);
+  }
+
+  .temp-f {
+    font-size: 0.75rem;
+    color: var(--color-text-muted, #8a8275);
+  }
+
+  .weather-condition {
+    font-size: 0.775rem;
+    color: var(--color-olive, #485c4b);
+    font-weight: 600;
+  }
+
+  .weather-meta-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.68rem;
+    color: var(--color-text-dim, #b0a799);
+    padding-top: 0.25rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+</style>

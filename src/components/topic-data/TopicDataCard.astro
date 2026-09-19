@@ -1,0 +1,144 @@
+---
+import type { TopicDataBlock } from '../../lib/topic-data/types/core';
+import FreshnessBadge from './FreshnessBadge.astro';
+import SourceAttribution from './SourceAttribution.astro';
+
+export interface Props {
+  block: TopicDataBlock<any>;
+}
+
+const { block } = Astro.props;
+const isUnavailable = block.status === 'unavailable' || !block.data;
+---
+
+<article class={`topic-data-card ${isUnavailable ? 'card-unavailable' : ''}`} data-domain={block.domain}>
+  <!-- Card Header -->
+  <header class="card-header">
+    <div class="card-meta-row">
+      <span class="domain-kicker">{block.domain.replace('_', ' ')}</span>
+      <FreshnessBadge freshness={block.freshness} status={block.status} />
+    </div>
+    <h3 class="card-title">{block.title}</h3>
+    {block.subtitle && (
+      <p class="card-subtitle">{block.subtitle}</p>
+    )}
+  </header>
+
+  <!-- Card Body -->
+  <div class="card-body">
+    {isUnavailable ? (
+      <div class="unavailable-state">
+        <div class="unavailable-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <p class="unavailable-message">
+          Live data from {block.source.name} is temporarily unavailable. Normal updates will resume automatically.
+        </p>
+      </div>
+    ) : (
+      <slot />
+    )}
+  </div>
+
+  <!-- Card Footer -->
+  <footer class="card-footer">
+    <SourceAttribution source={block.source} />
+  </footer>
+</article>
+
+<style>
+  .topic-data-card {
+    background-color: var(--color-surface, #ffffff);
+    border: 1px solid var(--color-border, #e6ded2);
+    border-radius: var(--radius-sm, 4px);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(35, 30, 25, 0.04));
+    transition: border-color var(--transition-fast, 0.15s ease), box-shadow var(--transition-fast, 0.15s ease);
+  }
+
+  .topic-data-card:hover {
+    border-color: var(--color-border-hover, #c8bfaf);
+    box-shadow: var(--shadow-card, 0 4px 16px rgba(35, 30, 25, 0.05));
+  }
+
+  .card-header {
+    margin-bottom: 1.25rem;
+  }
+
+  .card-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .domain-kicker {
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-olive, #485c4b);
+  }
+
+  .card-title {
+    font-family: var(--font-display, 'Newsreader', serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-primary, #1e1b18);
+    line-height: 1.25;
+    margin-bottom: 0.25rem;
+  }
+
+  .card-subtitle {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary, #5c564e);
+    line-height: 1.45;
+  }
+
+  .card-body {
+    flex-grow: 1;
+    margin-bottom: 1.25rem;
+  }
+
+  .card-footer {
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--color-border-subtle, #eee7dc);
+    margin-top: auto;
+  }
+
+  /* Unavailable state */
+  .card-unavailable {
+    background-color: var(--color-surface-subtle, #f2ece0);
+  }
+
+  .unavailable-state {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background-color: rgba(143, 52, 61, 0.04);
+    border-radius: var(--radius-xs, 2px);
+    border: 1px dashed rgba(143, 52, 61, 0.2);
+  }
+
+  .unavailable-icon {
+    color: #8f343d;
+    flex-shrink: 0;
+  }
+
+  .unavailable-message {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary, #5c564e);
+    line-height: 1.45;
+    margin: 0;
+  }
+</style>

@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import PillarBadge from '../../components/PillarBadge.astro';
 import EcosystemCard from '../../components/EcosystemCard.astro';
+import TopicDataSection from '../../components/topic-data/TopicDataSection.astro';
 import { getCollection } from 'astro:content';
 import { PILLARS, PILLAR_SLUGS, type PillarSlug } from '../../config/site';
 import { ECOSYSTEM_PROJECTS } from '../../config/ecosystem';
@@ -92,6 +93,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
       </p>
     </div>
   </section>
+
+  <!-- Topic Data & Live Intelligence Section -->
+  <TopicDataSection pillar={pillar.slug as PillarSlug} pillarName={pillar.name} />
 
   <!-- Article Grid / Archive -->
   <section class="section">

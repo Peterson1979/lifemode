@@ -1,0 +1,111 @@
+---
+import type { TopicDataBlock } from '../../../lib/topic-data/types/core.ts';
+import type { NutritionData } from '../../../lib/topic-data/types/topics.ts';
+import TopicDataCard from '../TopicDataCard.astro';
+
+export interface Props {
+  block: TopicDataBlock<NutritionData>;
+}
+
+const { block } = Astro.props;
+const data = block.data;
+---
+
+<TopicDataCard block={block}>
+  {data && data.items && data.items.length > 0 && (
+    <div class="nutrition-container">
+      {data.items.slice(0, 2).map((item) => (
+        <div class="nutrition-card">
+          <div class="food-header">
+            <span class="food-name">{item.foodName}</span>
+            <span class="serving-tag">{item.servingSize}</span>
+          </div>
+
+          <div class="macro-row">
+            <div class="macro-cell">
+              <span class="macro-val">{item.nutrients.calories}</span>
+              <span class="macro-label">Calories</span>
+            </div>
+            <div class="macro-cell">
+              <span class="macro-val">{item.nutrients.proteinGrams}g</span>
+              <span class="macro-label">Protein</span>
+            </div>
+            <div class="macro-cell">
+              <span class="macro-val">{item.nutrients.carbsGrams}g</span>
+              <span class="macro-label">Carbs</span>
+            </div>
+            <div class="macro-cell">
+              <span class="macro-val">{item.nutrients.fatGrams}g</span>
+              <span class="macro-label">Fats</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+</TopicDataCard>
+
+<style>
+  .nutrition-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .nutrition-card {
+    padding: 0.85rem;
+    background-color: var(--color-surface-subtle, #f2ece0);
+    border-radius: var(--radius-xs, 2px);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .food-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .food-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-text-primary, #1e1b18);
+  }
+
+  .serving-tag {
+    font-size: 0.7rem;
+    color: var(--color-text-muted, #8a8275);
+  }
+
+  .macro-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+
+  .macro-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.35rem 0.25rem;
+    background-color: var(--color-surface, #ffffff);
+    border-radius: var(--radius-xs, 2px);
+    border: 1px solid var(--color-border-subtle, #eee7dc);
+  }
+
+  .macro-val {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text-primary, #1e1b18);
+  }
+
+  .macro-label {
+    font-size: 0.625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-text-muted, #8a8275);
+  }
+</style>

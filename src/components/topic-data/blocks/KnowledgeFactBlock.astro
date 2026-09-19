@@ -1,0 +1,88 @@
+---
+import type { TopicDataBlock } from '../../../lib/topic-data/types/core.ts';
+import type { KnowledgeFactData } from '../../../lib/topic-data/types/topics.ts';
+import TopicDataCard from '../TopicDataCard.astro';
+
+export interface Props {
+  block: TopicDataBlock<KnowledgeFactData>;
+}
+
+const { block } = Astro.props;
+const data = block.data;
+---
+
+<TopicDataCard block={block}>
+  {data && data.facts && data.facts.length > 0 && (
+    <div class="knowledge-container">
+      {data.facts.map((fact) => (
+        <div class="knowledge-card">
+          <div class="fact-body">
+            <span class="fact-title">{fact.title}</span>
+            <p class="fact-extract">{fact.extract}</p>
+          </div>
+          <div class="fact-footer">
+            <span class="fact-cat">{fact.category}</span>
+            <a href={fact.pageUrl} target="_blank" rel="noopener noreferrer" class="fact-link">
+              Read encyclopedia entry &rarr;
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+</TopicDataCard>
+
+<style>
+  .knowledge-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .knowledge-card {
+    padding: 0.85rem;
+    background-color: var(--color-surface-subtle, #f2ece0);
+    border-radius: var(--radius-xs, 2px);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .fact-title {
+    font-family: var(--font-display, serif);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-text-primary, #1e1b18);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .fact-extract {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary, #5c564e);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .fact-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.4rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .fact-cat {
+    font-size: 0.7rem;
+    color: var(--color-text-muted, #8a8275);
+    font-style: italic;
+  }
+
+  .fact-link {
+    font-size: 0.725rem;
+    font-weight: 700;
+    color: var(--color-olive, #485c4b);
+  }
+</style>

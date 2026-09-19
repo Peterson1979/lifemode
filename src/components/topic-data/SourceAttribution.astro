@@ -1,0 +1,80 @@
+---
+import type { DataSource } from '../../lib/topic-data/types/core';
+
+export interface Props {
+  source: DataSource;
+}
+
+const { source } = Astro.props;
+---
+
+<div class="source-attribution">
+  <span class="source-label">Source:</span>
+  {source.url ? (
+    <a
+      href={source.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="source-link"
+      title={source.attribution || source.name}
+    >
+      {source.name}
+      <svg class="external-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+        <polyline points="15 3 21 3 21 9"></polyline>
+        <line x1="10" y1="14" x2="21" y2="3"></line>
+      </svg>
+    </a>
+  ) : (
+    <span class="source-name">{source.name}</span>
+  )}
+  {source.license && (
+    <span class="source-license">({source.license})</span>
+  )}
+</div>
+
+<style>
+  .source-attribution {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.725rem;
+    color: var(--color-text-dim, #8a8275);
+    flex-wrap: wrap;
+  }
+
+  .source-label {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.65rem;
+    color: var(--color-text-muted);
+  }
+
+  .source-link {
+    color: var(--color-text-secondary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    transition: color var(--transition-fast);
+  }
+
+  .source-link:hover {
+    color: var(--color-primary);
+  }
+
+  .source-name {
+    color: var(--color-text-secondary);
+  }
+
+  .source-license {
+    color: var(--color-text-dim);
+  }
+
+  .external-icon {
+    display: inline-block;
+    flex-shrink: 0;
+  }
+</style>
