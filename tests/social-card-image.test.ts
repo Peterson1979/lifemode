@@ -62,28 +62,28 @@ test('LifeMode Social Card Image Generation & Layout Test Suite', async (t) => {
     // A. Very Short Title
     const shortTitle = 'Local AI';
     const shortLayout = computeTitleLayout(shortTitle);
-    assert.equal(shortLayout.fontSize, 48);
+    assert.equal(shortLayout.fontSize, 72);
     assert.equal(shortLayout.lines.length, 1);
     assert.equal(shortLayout.lines[0], 'Local AI');
 
     // B. Normal Title
     const normalTitle = 'The Intentional Guide to Local LLMs in 2026';
     const normalLayout = computeTitleLayout(normalTitle);
-    assert.equal(normalLayout.fontSize, 40);
+    assert.equal(normalLayout.fontSize, 58);
     assert.ok(normalLayout.lines.length >= 1 && normalLayout.lines.length <= 2);
     assert.equal(normalLayout.lines.join(' '), normalTitle);
 
     // C. Long Title
     const longTitle = 'Minimalist coastal retreats: secluded architecture across the Mediterranean';
     const longLayout = computeTitleLayout(longTitle);
-    assert.equal(longLayout.fontSize, 34);
+    assert.equal(longLayout.fontSize, 48);
     assert.ok(longLayout.lines.length >= 2 && longLayout.lines.length <= 3);
     assert.equal(normalLayout.lines.join(' ').replace(/\s+/g, ' '), normalLayout.lines.join(' '));
 
     // D. Very Long Title (should wrap into max lines without clipping edges)
     const veryLongTitle = 'A Comprehensive Exploration of Sovereign Privacy-First Offline Artificial Intelligence Deployments for Mindful Professionals and Knowledge Workers in 2026';
     const veryLongLayout = computeTitleLayout(veryLongTitle);
-    assert.equal(veryLongLayout.fontSize, 28);
+    assert.equal(veryLongLayout.fontSize, 40);
     assert.ok(veryLongLayout.lines.length <= 6);
     assert.ok(veryLongLayout.lines.every((line) => line.length > 0));
   });

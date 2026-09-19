@@ -125,12 +125,20 @@ export class CloudflareWorkersAIImageProvider implements IEditorialImageProvider
         durationMs: Date.now() - startTime,
       };
     } catch (err: any) {
+      const errMsg = err?.message || String(err);
+      const isQuota =
+        errMsg.includes('4006') ||
+        errMsg.toLowerCase().includes('neuron') ||
+        errMsg.toLowerCase().includes('quota') ||
+        errMsg.includes('429') ||
+        errMsg.includes('402');
+
       return {
         success: false,
-        status: 'FAILED',
+        status: isQuota ? ('QUOTA_EXCEEDED' as any) : 'FAILED',
         provider: this.providerId,
         model,
-        error: err?.message || String(err),
+        error: errMsg,
         durationMs: Date.now() - startTime,
       };
     }

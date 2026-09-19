@@ -91,7 +91,10 @@ export function loadSocialConfig(overrides: Partial<SocialAutomationConfig> = {}
   const gitRemote = overrides.gitRemote || getEnvVar('LIFEMODE_SOCIAL_GIT_REMOTE') || getEnvVar('LIFEMODE_AUTOMATION_GIT_REMOTE') || 'origin';
   const gitBranch = overrides.gitBranch || getEnvVar('LIFEMODE_SOCIAL_GIT_BRANCH') || getEnvVar('LIFEMODE_AUTOMATION_GIT_BRANCH') || 'master';
 
-  const envMaxOppRaw = getEnvVar('LIFEMODE_SOCIAL_MAX_OPPORTUNITIES') ?? getEnvVar('SOCIAL_MAX_OPPORTUNITIES');
+  const envMaxOppRaw =
+    getEnvVar('MAX_DAILY_SOCIAL_POSTS') ??
+    getEnvVar('LIFEMODE_SOCIAL_MAX_OPPORTUNITIES') ??
+    getEnvVar('SOCIAL_MAX_OPPORTUNITIES');
   const maxOpportunities = overrides.maxOpportunities ?? (envMaxOppRaw ? parseInt(envMaxOppRaw, 10) : 1);
 
   const envMaxFreshnessRaw = getEnvVar('LIFEMODE_SOCIAL_MAX_FRESHNESS_DAYS') ?? getEnvVar('SOCIAL_MAX_FRESHNESS_DAYS');

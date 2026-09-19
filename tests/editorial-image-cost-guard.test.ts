@@ -295,7 +295,8 @@ test('10. CloudflareKVCostGuardStore gets, increments, and handles 404 cleanly w
 
   const customFetch: typeof fetch = async (url: any, init?: any) => {
     const urlStr = String(url);
-    const key = decodeURIComponent(urlStr.split('/values/')[1] || '');
+    const keyWithQuery = urlStr.split('/values/')[1] || '';
+    const key = decodeURIComponent(keyWithQuery.split('?')[0]);
 
     if (init?.method === 'PUT') {
       mockKvStorage.set(key, String(init.body));
@@ -329,3 +330,105 @@ test('10. CloudflareKVCostGuardStore gets, increments, and handles 404 cleanly w
   assert.equal(await kvStore.increment(testKey, 2), 3);
   assert.equal(await kvStore.get(testKey), 3);
 });
+
+test('11. CloudflareKVCostGuardStore attaches expiration_ttl to PUT requests', async () => {
+  const capturedUrls: string[] = [];
+
+  const customFetch: typeof fetch = async (url: any, init?: any) => {
+    capturedUrls.push(String(url));
+    if (init?.method === 'PUT') {
+      return new Response(null, { status: 200 });
+    }
+    return new Response('Key not found', { status: 404 });
+  };
+
+  const kvStore = new CloudflareKVCostGuardStore({
+    accountId: 'mock-account',
+    apiToken: 'mock-token',
+    namespaceId: 'mock-namespace',
+    customFetch,
+  });
+
+  // Daily key
+  await kvStore.increment('lifemode:image-count:2026-09-11', 1);
+  assert.ok(capturedUrls.some((u) => u.includes('expiration_ttl=5184000')));
+
+  // Monthly key
+  await kvStore.increment('lifemode:image-count:2026-09', 1);
+  assert.ok(capturedUrls.some((u) => u.includes('expiration_ttl=34560000')));
+});
+
+test('12. Fail-Closed: CloudflareKVCostGuardStore server error causes canGenerateImage to fail closed', async () => {
+  const customFetch: typeof fetch = async () => {
+    return new Response('Internal Server Error', { status: 500 });
+  };
+
+  const kvStore = new CloudflareKVCostGuardStore({
+    accountId: 'mock-account',
+    apiToken: 'mock-token',
+    namespaceId: 'mock-namespace',
+    customFetch,
+  });
+
+  const guard = new EditorialImageCostGuard({
+    enabled: true,
+    dailyLimit: 5,
+    monthlyLimit: 120,
+    store: kvStore,
+  });
+
+  const decision = await guard.canGenerateImage();
+  assert.equal(decision.allowed, false);
+  assert.equal(decision.reason, 'STORE_UNAVAILABLE');
+});
+
+test('13. Fail-Closed: Network exception in counter store causes canGenerateImage to block', async () => {
+  const customFetch: typeof fetch = async () => {
+    throw new Error('ECONNRESET');
+  };
+
+  const kvStore = new CloudflareKVCostGuardStore({
+    accountId: 'mock-account',
+    apiToken: 'mock-token',
+    namespaceId: 'mock-namespace',
+    customFetch,
+  });
+
+  const guard = new EditorialImageCostGuard({
+    enabled: true,
+    dailyLimit: 5,
+    monthlyLimit: 120,
+    store: kvStore,
+  });
+
+  const decision = await guard.canGenerateImage();
+  assert.equal(decision.allowed, false);
+  assert.equal(decision.reason, 'STORE_UNAVAILABLE');
+  assert.equal(await guard.getRemainingMonthlyCapacity(), 0);
+});
+
+test('14. Centralized environment variable aliases are respected in configuration', () => {
+  const origDaily = process.env.MAX_DAILY_IMAGE_GENERATIONS;
+  const origMonthly = process.env.MAX_MONTHLY_IMAGE_GENERATIONS;
+
+  try {
+    process.env.MAX_DAILY_IMAGE_GENERATIONS = '8';
+    process.env.MAX_MONTHLY_IMAGE_GENERATIONS = '200';
+
+    const config = loadEditorialImageConfig();
+    assert.equal(config.costGuard.dailyLimit, 8);
+    assert.equal(config.costGuard.monthlyLimit, 200);
+  } finally {
+    if (origDaily !== undefined) {
+      process.env.MAX_DAILY_IMAGE_GENERATIONS = origDaily;
+    } else {
+      delete process.env.MAX_DAILY_IMAGE_GENERATIONS;
+    }
+    if (origMonthly !== undefined) {
+      process.env.MAX_MONTHLY_IMAGE_GENERATIONS = origMonthly;
+    } else {
+      delete process.env.MAX_MONTHLY_IMAGE_GENERATIONS;
+    }
+  }
+});
+

@@ -119,29 +119,29 @@ export interface TitleLayout {
  * Deterministically calculates title typography, word wrapping, and vertical positioning
  * to ensure that titles of any length never overflow the card boundaries.
  */
-export function computeTitleLayout(rawTitle: string, maxBoxWidth = 860, maxBoxHeight = 240): TitleLayout {
+export function computeTitleLayout(rawTitle: string, maxBoxWidth = 860, maxBoxHeight = 310): TitleLayout {
   const cleanTitle = rawTitle.replace(/\s+/g, ' ').trim();
   const charCount = cleanTitle.length;
 
-  let fontSize = 48;
-  let lineHeight = 60;
+  let fontSize = 72;
+  let lineHeight = 88;
 
   if (charCount <= 35) {
-    fontSize = 48;
-    lineHeight = 60;
+    fontSize = 72;
+    lineHeight = 88;
   } else if (charCount <= 65) {
-    fontSize = 40;
-    lineHeight = 50;
+    fontSize = 58;
+    lineHeight = 74;
   } else if (charCount <= 100) {
-    fontSize = 34;
-    lineHeight = 42;
+    fontSize = 48;
+    lineHeight = 62;
   } else {
-    fontSize = 28;
-    lineHeight = 36;
+    fontSize = 40;
+    lineHeight = 52;
   }
 
-  // Calculate maximum characters per line using standard bold sans-serif ratio
-  const maxLineChars = Math.max(12, Math.floor(maxBoxWidth / (fontSize * 0.58)));
+  // Calculate maximum characters per line using standard bold sans-serif ratio (~0.58 em per char)
+  const maxLineChars = Math.max(10, Math.floor(maxBoxWidth / (fontSize * 0.58)));
   const maxLines = Math.max(1, Math.floor(maxBoxHeight / lineHeight));
 
   const words = cleanTitle.split(' ');
@@ -174,12 +174,12 @@ export function computeTitleLayout(rawTitle: string, maxBoxWidth = 860, maxBoxHe
     
     // Vertical centering offset
     const totalTextHeight = clamped.length * lineHeight;
-    const startY = 890 + Math.max(0, Math.floor((maxBoxHeight - totalTextHeight) / 2));
+    const startY = 875 + Math.max(0, Math.floor((maxBoxHeight - totalTextHeight) / 2));
     return { lines: clamped, fontSize, lineHeight, startY };
   }
 
   const totalTextHeight = lines.length * lineHeight;
-  const startY = 890 + Math.max(0, Math.floor((maxBoxHeight - totalTextHeight) / 2));
+  const startY = 875 + Math.max(0, Math.floor((maxBoxHeight - totalTextHeight) / 2));
   return { lines, fontSize, lineHeight, startY };
 }
 
@@ -202,7 +202,7 @@ export interface ComposeSocialCardOptions {
  * Visual Layering:
  * 1. Pillar-specific background image (public/social/backgrounds/<pillar>.jpg)
  * 2. Vignette & contrast backdrop
- * 3. Article hero image frame (940x600, rounded corners, subtle border)
+ * 3. Article hero image frame (940x580, rounded corners, subtle border)
  * 4. LifeMode upper-left branding with pill contrast backing
  * 5. Pillar upper-right badge with pill contrast backing & accent dot
  * 6. Dedicated lower-mid title overlay card ensuring 100% legibility on light/dark backgrounds
@@ -237,9 +237,9 @@ export async function composeSocialCard(options: ComposeSocialCardOptions): Prom
       .toBuffer();
   }
 
-  // 2. Prepare article hero image (Width: 940, Height: 600)
+  // 2. Prepare article hero image (Width: 940, Height: 580)
   const heroWidth = 940;
-  const heroHeight = 600;
+  const heroHeight = 580;
   let heroImageBuffer: Buffer | null = null;
 
   if (options.articleImage) {
@@ -326,8 +326,8 @@ export async function composeSocialCard(options: ComposeSocialCardOptions): Prom
       .toBuffer();
   }
 
-  // 3. Compute Title Layout & Line Wrapping
-  const titleLayout = computeTitleLayout(title, 860, 240);
+  // 3. Compute Title Layout & Line Wrapping (Enhanced 1.5x typography scale)
+  const titleLayout = computeTitleLayout(title, 860, 310);
 
   // 4. Build Primary SVG Overlay (Header branding, pillar badge, title card, CTA)
   const titleLinesSvg = titleLayout.lines
@@ -336,6 +336,10 @@ export async function composeSocialCard(options: ComposeSocialCardOptions): Prom
       return `<text x="110" y="${lineY}" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="${titleLayout.fontSize}" font-weight="800" fill="#ffffff">${escapeXml(line)}</text>`;
     })
     .join('\n');
+
+  // Pillar badge dynamic width calculation for 2x typography scale
+  const pillarBadgeWidth = Math.max(160, Math.round(56 + theme.displayName.length * 20));
+  const ctaFontSize = ctaText.length > 40 ? 24 : 28;
 
   const overlaySvg = `
     <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
@@ -355,37 +359,37 @@ export async function composeSocialCard(options: ComposeSocialCardOptions): Prom
       <!-- Full-card ambient vignette for background depth -->
       <rect width="${width}" height="${height}" fill="url(#vignette)" />
 
-      <!-- Top Header Zone: LifeMode Branding (Upper-Left) -->
-      <g transform="translate(70, 75)">
-        <rect width="210" height="54" rx="16" fill="#0a0a0e" fill-opacity="0.75" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1.5" />
-        <text x="24" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="900" letter-spacing="4" fill="#ffffff">LIFEMODE</text>
+      <!-- Top Header Zone: LifeMode Branding (Upper-Left - Enhanced 2x scale) -->
+      <g transform="translate(70, 58)">
+        <rect width="280" height="66" rx="20" fill="#0a0a0e" fill-opacity="0.80" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1.5" />
+        <text x="28" y="47" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="900" letter-spacing="4" fill="#ffffff">LIFEMODE</text>
       </g>
 
-      <!-- Top Header Zone: Pillar Label & Accent Indicator (Upper-Right) -->
-      <g transform="translate(770, 75)">
-        <rect width="240" height="54" rx="16" fill="#0a0a0e" fill-opacity="0.75" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1.5" />
-        <circle cx="28" cy="27" r="6" fill="${theme.accentColor}" />
-        <text x="46" y="35" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="2.5" fill="${theme.accentColor}">${escapeXml(theme.displayName)}</text>
+      <!-- Top Header Zone: Pillar Label & Accent Indicator (Upper-Right - Enhanced 2x scale) -->
+      <g transform="translate(${1010 - pillarBadgeWidth}, 58)">
+        <rect width="${pillarBadgeWidth}" height="66" rx="20" fill="#0a0a0e" fill-opacity="0.80" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1.5" />
+        <circle cx="28" cy="33" r="8" fill="${theme.accentColor}" />
+        <text x="48" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="800" letter-spacing="2" fill="${theme.accentColor}">${escapeXml(theme.displayName)}</text>
       </g>
 
-      <!-- Hero Image Outer Border Frame (X: 70, Y: 160, W: 940, H: 600) -->
-      <rect x="70" y="160" width="940" height="600" rx="24" fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-width="2" />
+      <!-- Hero Image Outer Border Frame (X: 70, Y: 150, W: 940, H: 580) -->
+      <rect x="70" y="150" width="940" height="580" rx="24" fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-width="2" />
 
-      <!-- Dedicated Title Overlay Card (X: 70, Y: 785, W: 940, H: 395) -->
-      <rect x="70" y="785" width="940" height="395" rx="24" fill="url(#titleCardBackdrop)" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1.5" />
+      <!-- Dedicated Title Overlay Card (X: 70, Y: 755, W: 940, H: 425) -->
+      <rect x="70" y="755" width="940" height="425" rx="24" fill="url(#titleCardBackdrop)" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1.5" />
       
-      <!-- Category Eyebrow & Accent Bar -->
-      <text x="110" y="842" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="800" letter-spacing="3" fill="${theme.accentColor}">LIFEMODE ${escapeXml(theme.displayName)}</text>
-      <rect x="110" y="856" width="48" height="3" rx="1.5" fill="${theme.accentColor}" />
+      <!-- Category Eyebrow & Accent Bar (Enhanced 2x scale) -->
+      <text x="110" y="812" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="800" letter-spacing="3" fill="${theme.accentColor}">LIFEMODE ${escapeXml(theme.displayName)}</text>
+      <rect x="110" y="824" width="56" height="4" rx="2" fill="${theme.accentColor}" />
 
-      <!-- Rendered Wrapped Title Lines -->
+      <!-- Rendered Wrapped Title Lines (Enhanced 1.5x scale) -->
       ${titleLinesSvg}
 
-      <!-- Bottom Standard CTA Footer Bar (X: 70, Y: 1205, W: 940, H: 64) -->
+      <!-- Bottom Standard CTA Footer Bar (X: 70, Y: 1205, W: 940, H: 76 - Enhanced 2x scale) -->
       <g transform="translate(70, 1205)">
-        <rect width="940" height="64" rx="32" fill="#0a0a0e" fill-opacity="0.80" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1.2" />
-        <text x="40" y="39" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="600" fill="#d4d4d8">${escapeXml(ctaText)}</text>
-        <text x="900" y="39" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="800" letter-spacing="1" fill="${theme.accentColor}">lifemode.life &#x2192;</text>
+        <rect width="940" height="76" rx="38" fill="#0a0a0e" fill-opacity="0.80" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1.2" />
+        <text x="40" y="49" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="${ctaFontSize}" font-weight="600" fill="#d4d4d8">${escapeXml(ctaText)}</text>
+        <text x="900" y="49" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" letter-spacing="1" fill="${theme.accentColor}">lifemode.life &#x2192;</text>
       </g>
     </svg>
   `;
@@ -396,7 +400,7 @@ export async function composeSocialCard(options: ComposeSocialCardOptions): Prom
   const composites: OverlayOptions[] = [
     {
       input: heroImageBuffer,
-      top: 160,
+      top: 150,
       left: 70,
     },
     {

@@ -84,7 +84,7 @@ export function loadAIConfig(overrides: Partial<AIConfig> = {}): AIConfig {
       retryDelayMs: getEnvNumber('AI_RETRY_DELAY_MS', 1_000),
       dailyTotalTokenBudget: getEnvNumber('AI_DAILY_TOTAL_TOKEN_BUDGET', 2_000_000),
       requestsPerMinute: getEnvNumber('AI_RPM_LIMIT', 30),
-      requestsPerDay: getEnvNumber('AI_RPD_LIMIT', 1_000),
+      requestsPerDay: getEnvNumber('MAX_DAILY_AI_OPERATIONS', getEnvNumber('AI_RPD_LIMIT', 1_000)),
     },
   };
 

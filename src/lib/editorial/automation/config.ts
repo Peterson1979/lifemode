@@ -37,7 +37,10 @@ export function loadAutomationConfig(overrides: Partial<AutomationConfig> = {}):
   const envAccMaxOppRaw = process.env.LIFEMODE_AUTOMATION_ACCELERATION_MAX_OPPORTUNITIES ?? process.env.EDITORIAL_AUTOMATION_ACCELERATION_MAX_OPPORTUNITIES;
   const accelerationMaxOpportunities = overrides.accelerationMaxOpportunities ?? (envAccMaxOppRaw ? parseInt(envAccMaxOppRaw, 10) : 5);
 
-  const envDailyLimitRaw = process.env.LIFEMODE_DAILY_ARTICLE_LIMIT ?? process.env.DAILY_ARTICLE_LIMIT;
+  const envDailyLimitRaw =
+    process.env.MAX_DAILY_ARTICLES ??
+    process.env.LIFEMODE_DAILY_ARTICLE_LIMIT ??
+    process.env.DAILY_ARTICLE_LIMIT;
   const envMaxOppRaw = envDailyLimitRaw ?? process.env.LIFEMODE_AUTOMATION_MAX_OPPORTUNITIES ?? process.env.EDITORIAL_AUTOMATION_MAX_OPPORTUNITIES;
   const baseMaxOpp = envMaxOppRaw
     ? parseInt(envMaxOppRaw, 10)

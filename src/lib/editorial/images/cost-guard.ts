@@ -38,6 +38,16 @@ export interface CloudflareKVCostGuardOptions {
   customFetch?: typeof fetch;
 }
 
+export class CostGuardStoreError extends Error {
+  readonly cause?: unknown;
+
+  constructor(message: string, cause?: unknown) {
+    super(message);
+    this.name = 'CostGuardStoreError';
+    this.cause = cause;
+  }
+}
+
 /**
  * Cloudflare Workers KV storage adapter for production counters.
  * REST API:
@@ -83,14 +93,20 @@ export class CloudflareKVCostGuardStore implements ICostGuardStore {
       }
 
       if (!response.ok) {
-        return this.fallbackStore.get(key);
+        const errorText = await response.text().catch(() => '');
+        throw new CostGuardStoreError(
+          `Cloudflare KV GET failed HTTP ${response.status}: ${errorText.slice(0, 100)}`
+        );
       }
 
       const text = await response.text();
       const num = parseInt(text.trim(), 10);
       return isNaN(num) ? 0 : num;
-    } catch {
-      return this.fallbackStore.get(key);
+    } catch (err: any) {
+      if (err instanceof CostGuardStoreError) {
+        throw err;
+      }
+      throw new CostGuardStoreError(`Cloudflare KV GET network error: ${err?.message || String(err)}`, err);
     }
   }
 
@@ -102,8 +118,13 @@ export class CloudflareKVCostGuardStore implements ICostGuardStore {
     const current = await this.get(key);
     const updated = current + amount;
 
+    // Daily keys (lifemode:image-count:YYYY-MM-DD) expire after 60 days (5,184,000s)
+    // Monthly keys (lifemode:image-count:YYYY-MM) expire after 400 days (34,560,000s)
+    const isDaily = /:\d{4}-\d{2}-\d{2}$/.test(key);
+    const expirationTtl = isDaily ? 5_184_000 : 34_560_000;
+
     const fetchImpl = this.customFetch || globalThis.fetch.bind(globalThis);
-    const endpoint = `https://api.cloudflare.com/client/v4/accounts/${this.accountId}/storage/kv/namespaces/${this.namespaceId}/values/${encodeURIComponent(key)}`;
+    const endpoint = `https://api.cloudflare.com/client/v4/accounts/${this.accountId}/storage/kv/namespaces/${this.namespaceId}/values/${encodeURIComponent(key)}?expiration_ttl=${expirationTtl}`;
 
     try {
       const response = await fetchImpl(endpoint, {
@@ -116,12 +137,18 @@ export class CloudflareKVCostGuardStore implements ICostGuardStore {
       });
 
       if (!response.ok) {
-        return this.fallbackStore.increment(key, amount);
+        const errorText = await response.text().catch(() => '');
+        throw new CostGuardStoreError(
+          `Cloudflare KV PUT failed HTTP ${response.status}: ${errorText.slice(0, 100)}`
+        );
       }
 
       return updated;
-    } catch {
-      return this.fallbackStore.increment(key, amount);
+    } catch (err: any) {
+      if (err instanceof CostGuardStoreError) {
+        throw err;
+      }
+      throw new CostGuardStoreError(`Cloudflare KV PUT network error: ${err?.message || String(err)}`, err);
     }
   }
 
@@ -135,7 +162,7 @@ export class CloudflareKVCostGuardStore implements ICostGuardStore {
  */
 export interface CostGuardDecision {
   allowed: boolean;
-  reason?: 'DAILY_LIMIT_EXCEEDED' | 'MONTHLY_LIMIT_EXCEEDED' | 'GUARD_DISABLED';
+  reason?: 'DAILY_LIMIT_EXCEEDED' | 'MONTHLY_LIMIT_EXCEEDED' | 'GUARD_DISABLED' | 'STORE_UNAVAILABLE';
   dailyUsage: number;
   monthlyUsage: number;
   dailyLimit: number;
@@ -216,15 +243,36 @@ export class EditorialImageCostGuard {
    * Evaluates whether an image generation request is permitted under configured quotas.
    */
   async canGenerateImage(date: Date = new Date()): Promise<CostGuardDecision> {
-    const dailyUsage = await this.getDailyUsage(date);
-    const monthlyUsage = await this.getMonthlyUsage(date);
-
     if (!this.enabled) {
+      let dailyUsage = 0;
+      let monthlyUsage = 0;
+      try {
+        dailyUsage = await this.getDailyUsage(date);
+        monthlyUsage = await this.getMonthlyUsage(date);
+      } catch {}
       return {
         allowed: true,
         reason: 'GUARD_DISABLED',
         dailyUsage,
         monthlyUsage,
+        dailyLimit: this.dailyLimit,
+        monthlyLimit: this.monthlyLimit,
+      };
+    }
+
+    let dailyUsage = 0;
+    let monthlyUsage = 0;
+
+    try {
+      dailyUsage = await this.getDailyUsage(date);
+      monthlyUsage = await this.getMonthlyUsage(date);
+    } catch (err: any) {
+      // FAIL CLOSED: If the counter store cannot be reached or fails, block generation to protect against billable usage
+      return {
+        allowed: false,
+        reason: 'STORE_UNAVAILABLE',
+        dailyUsage: this.dailyLimit,
+        monthlyUsage: this.monthlyLimit,
         dailyLimit: this.dailyLimit,
         monthlyLimit: this.monthlyLimit,
       };
@@ -266,15 +314,30 @@ export class EditorialImageCostGuard {
    * that utilizes remaining monthly allowance without the daily 5-image restriction.
    */
   async canGenerateMaintenanceImage(date: Date = new Date()): Promise<CostGuardDecision> {
-    const dailyUsage = await this.getDailyUsage(date);
-    const monthlyUsage = await this.getMonthlyUsage(date);
-
     if (!this.enabled) {
       return {
         allowed: true,
         reason: 'GUARD_DISABLED',
-        dailyUsage,
-        monthlyUsage,
+        dailyUsage: 0,
+        monthlyUsage: 0,
+        dailyLimit: this.dailyLimit,
+        monthlyLimit: this.monthlyLimit,
+      };
+    }
+
+    let dailyUsage = 0;
+    let monthlyUsage = 0;
+
+    try {
+      dailyUsage = await this.getDailyUsage(date);
+      monthlyUsage = await this.getMonthlyUsage(date);
+    } catch (err: any) {
+      // FAIL CLOSED
+      return {
+        allowed: false,
+        reason: 'STORE_UNAVAILABLE',
+        dailyUsage: this.dailyLimit,
+        monthlyUsage: this.monthlyLimit,
         dailyLimit: this.dailyLimit,
         monthlyLimit: this.monthlyLimit,
       };
@@ -305,8 +368,12 @@ export class EditorialImageCostGuard {
    */
   async getRemainingMonthlyCapacity(date: Date = new Date()): Promise<number> {
     if (!this.enabled) return 999999;
-    const monthlyUsage = await this.getMonthlyUsage(date);
-    return Math.max(0, this.monthlyLimit - monthlyUsage);
+    try {
+      const monthlyUsage = await this.getMonthlyUsage(date);
+      return Math.max(0, this.monthlyLimit - monthlyUsage);
+    } catch {
+      return 0; // FAIL CLOSED: If counter store is down, report 0 remaining capacity
+    }
   }
 
   /**

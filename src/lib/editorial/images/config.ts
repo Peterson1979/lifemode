@@ -95,8 +95,14 @@ export function loadEditorialImageConfig(
   const costGuardEnabled = getEnv('LIFEMODE_IMAGE_COST_GUARD') !== undefined
     ? getEnvBoolean('LIFEMODE_IMAGE_COST_GUARD', true)
     : true;
-  const dailyLimit = Math.max(1, getEnvNumber('LIFEMODE_IMAGE_DAILY_LIMIT', 5));
-  const monthlyLimit = Math.max(1, getEnvNumber('LIFEMODE_IMAGE_MONTHLY_LIMIT', 120));
+  const dailyLimit = Math.max(
+    1,
+    getEnvNumber('MAX_DAILY_IMAGE_GENERATIONS', getEnvNumber('LIFEMODE_IMAGE_DAILY_LIMIT', 5))
+  );
+  const monthlyLimit = Math.max(
+    1,
+    getEnvNumber('MAX_MONTHLY_IMAGE_GENERATIONS', getEnvNumber('LIFEMODE_IMAGE_MONTHLY_LIMIT', 120))
+  );
   const kvNamespaceId =
     getEnv('CLOUDFLARE_KV_NAMESPACE_ID') ||
     getEnv('CF_KV_NAMESPACE_ID') ||
