@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-19T10:26:55.153Z",
+    "updatedAt": "2026-09-19T15:30:06.773Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1397,7 +1397,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-19T10:26:55.156Z",
+    "updatedAt": "2026-09-19T15:30:06.775Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1458,7 +1458,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-19T10:26:55.159Z",
+    "updatedAt": "2026-09-19T15:30:06.776Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1519,7 +1519,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-19T10:26:55.162Z",
+    "updatedAt": "2026-09-19T15:30:06.778Z",
     "revisionCyclesCount": 0
   },
   {
@@ -46240,9 +46240,10 @@
     "totalScore": 82.7,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-19T10:26:53.842Z",
-    "pinterestScore": 85.3
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-19T15:33:26.499Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260919-weather-forecast-today",
@@ -49680,7 +49681,8 @@
       }
     ],
     "queryVariants": [
-      "late summer harvest preserving heirloom produce and wild ferments"
+      "late summer harvest preserving heirloom produce and wild ferments",
+      "late summer harvest: preserving heirloom produce and wild ferments"
     ],
     "freshnessScore": 90,
     "createdAt": "2026-09-19T10:26:53.670Z",
@@ -49706,8 +49708,9 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-19T10:26:55.192Z",
-    "pinterestScore": 85.6
+    "updatedAt": "2026-09-19T15:30:06.808Z",
+    "pinterestScore": 85.6,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-food-drink-20260919-slow-autumn-hearth-hearty-legu",
@@ -49741,7 +49744,8 @@
       }
     ],
     "queryVariants": [
-      "slow autumn hearth hearty legume broths earthenware and root vegetables"
+      "slow autumn hearth hearty legume broths earthenware and root vegetables",
+      "slow autumn hearth: hearty legume broths, earthenware, and root vegetables"
     ],
     "freshnessScore": 90,
     "createdAt": "2026-09-19T10:26:53.670Z",
@@ -49767,7 +49771,1698 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-19T10:26:55.231Z",
-    "pinterestScore": 84.8
+    "updatedAt": "2026-09-19T15:30:06.840Z",
+    "pinterestScore": 84.8,
+    "revisionCyclesCount": 0
+  },
+  {
+    "id": "lm-now-20260919-premier-league-standings",
+    "canonicalTopic": "Premier League Standings",
+    "slug": "premier-league-standings",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-premier20league20",
+        "query": "Premier League Standings",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-19T15:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-19T15:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "premier league standings",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "premier league standings"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T15:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-19T15:30:06.193Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260919-pascal-gross",
+    "canonicalTopic": "Pascal Gross",
+    "slug": "pascal-gross",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-pascal20gross",
+        "query": "Pascal Gross",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-19T15:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-19T15:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "pascal gross",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "pascal gross"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T15:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-19T15:30:06.207Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260919-karl-anthony-towns",
+    "canonicalTopic": "Karl Anthony Towns",
+    "slug": "karl-anthony-towns",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-karl20anthony20to",
+        "query": "Karl Anthony Towns",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-19T15:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-19T15:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "karl anthony towns",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "karl anthony towns"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T15:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-19T15:30:06.223Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260919-deepika-padukone",
+    "canonicalTopic": "Deepika Padukone",
+    "slug": "deepika-padukone",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-deepika20padukon",
+        "query": "Deepika Padukone",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-19T15:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-19T15:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "deepika padukone",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "deepika padukone"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T15:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-19T15:30:06.237Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260919-georgia-vs-arkansas-prediction",
+    "canonicalTopic": "Georgia Vs Arkansas Prediction",
+    "slug": "georgia-vs-arkansas-prediction",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-georgia20vs20arka",
+        "query": "Georgia Vs Arkansas Prediction",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-19T15:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-19T15:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "georgia vs arkansas prediction",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "georgia vs arkansas prediction"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T15:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-19T15:30:06.259Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260919-wrexham",
+    "canonicalTopic": "Wrexham",
+    "slug": "wrexham",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-wrexham",
+        "query": "Wrexham",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-19T14:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-19T14:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "wrexham",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "wrexham"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T14:50:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-19T15:30:06.270Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260919-iowa-football-schedule",
+    "canonicalTopic": "Iowa Football Schedule",
+    "slug": "iowa-football-schedule",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-iowa20football20s",
+        "query": "Iowa Football Schedule",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-19T14:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-19T14:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "iowa football schedule",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "iowa football schedule"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T14:40:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-19T15:30:06.287Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260919-al-jazeera",
+    "canonicalTopic": "Al Jazeera",
+    "slug": "al-jazeera",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-al20jazeera",
+        "query": "Al Jazeera",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-19T14:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-19T14:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "al jazeera",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "al jazeera"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T14:40:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-19T15:30:06.298Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260919-julia-jones",
+    "canonicalTopic": "Julia Jones",
+    "slug": "julia-jones",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-julia20jones",
+        "query": "Julia Jones",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-19T14:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-19T14:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "julia jones",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "julia jones"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T14:40:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-19T15:30:06.310Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260919-meghan-markle",
+    "canonicalTopic": "Meghan Markle",
+    "slug": "meghan-markle",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-meghan20markle",
+        "query": "Meghan Markle",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-19T14:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-19T14:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "meghan markle",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "meghan markle"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T14:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-19T15:30:06.323Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-tech-ai-20260919-learning-another-language-may-",
+    "canonicalTopic": "Learning Another Language May Be One of the Best Ways to Keep Your Brain Healthy",
+    "slug": "learning-another-language-may-be-one-of-the-best-ways-to-keep-your-brain-healthy",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-1-Learning20another20lan",
+        "query": "Learning Another Language May Be One of the Best Ways to Keep Your Brain Healthy",
+        "sourceUrl": "https://arstechnica.com/science/2026/09/learning-another-language-may-be-one-of-the-best-ways-to-keep-your-brain-healthy/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-19T11:10:43.000Z",
+        "contentSnippet": "Research suggests that bilingualism can offer cognitive benefits.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-19T11:10:43.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Learning another language may be one of the best ways to keep your brain healthy",
+            "itemLink": "https://arstechnica.com/science/2026/09/learning-another-language-may-be-one-of-the-best-ways-to-keep-your-brain-healthy/",
+            "publishedDate": "2026-09-19T11:10:43.000Z",
+            "contentSnippet": "Research suggests that bilingualism can offer cognitive benefits.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Science",
+              "aging prevention",
+              "anti-aging",
+              "language",
+              "language learning",
+              "learning",
+              "syndication"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Science",
+            "aging prevention",
+            "anti-aging",
+            "language",
+            "language learning",
+            "learning",
+            "syndication"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "learning another language may be one of the best ways to keep your brain healthy"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T11:10:43.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Science",
+      "aging prevention",
+      "anti-aging",
+      "language",
+      "language learning",
+      "learning",
+      "syndication"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-19T15:30:06.364Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260919-rings-around-a-tiny-body-have-",
+    "canonicalTopic": "Rings Around a Tiny Body Have Changed over the Past Decade",
+    "slug": "rings-around-a-tiny-body-have-changed-over-the-past-decade",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-2-Rings20around20a20tiny20",
+        "query": "Rings Around a Tiny Body Have Changed over the Past Decade",
+        "sourceUrl": "https://arstechnica.com/science/2026/09/rings-around-a-tiny-body-have-changed-over-the-past-decade/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-19T10:00:06.000Z",
+        "contentSnippet": "Chariklo is only about 250 km across, but it has two rings, and they're changing.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-19T10:00:06.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Rings around a tiny body have changed over the past decade",
+            "itemLink": "https://arstechnica.com/science/2026/09/rings-around-a-tiny-body-have-changed-over-the-past-decade/",
+            "publishedDate": "2026-09-19T10:00:06.000Z",
+            "contentSnippet": "Chariklo is only about 250 km across, but it has two rings, and they're changing.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Science",
+              "asteroids",
+              "astronomy",
+              "centaurs",
+              "Chariklo",
+              "JWST",
+              "rings"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Science",
+            "asteroids",
+            "astronomy",
+            "centaurs",
+            "Chariklo",
+            "JWST",
+            "rings"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "rings around a tiny body have changed over the past decade"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T10:00:06.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Science",
+      "asteroids",
+      "astronomy",
+      "centaurs",
+      "Chariklo",
+      "JWST",
+      "rings"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-19T15:30:06.398Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260919-gemini-went-rogue-hacked-three",
+    "canonicalTopic": "Gemini Went Rogue Hacked Three Companies and Google Hid It",
+    "slug": "gemini-went-rogue-hacked-three-companies-and-google-hid-it",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-Gemini20went20rogue2C20h",
+        "query": "Gemini Went Rogue Hacked Three Companies and Google Hid It",
+        "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/997795/google-gemini-rogue-ai-hack",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-19T15:25:03.000Z",
+        "contentSnippet": "In May, Gemini broke containment and hacked three different companies, but Google didn't disclose the incident until the Wall Street Journal approached the company. The hacks happened during a test of the model's cybersecurity capabilities run by third-party Irregular, which was also involved in similar incidents involving Meta and OpenAI. According to WSJ, Google didn't […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-19T15:25:03.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Gemini went rogue, hacked three companies, and Google hid it",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/997795/google-gemini-rogue-ai-hack",
+            "publishedDate": "2026-09-19T15:25:03.000Z",
+            "contentSnippet": "In May, Gemini broke containment and hacked three different companies, but Google didn't disclose the incident until the Wall Street Journal approached the company. The hacks happened during a test of the model's cybersecurity capabilities run by third-party Irregular, which was also involved in similar incidents involving Meta and OpenAI. According to WSJ, Google didn't […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "Google",
+              "News",
+              "Security",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "Google",
+            "News",
+            "Security",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "gemini went rogue hacked three companies and google hid it"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T15:25:03.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "Google",
+      "News",
+      "Security",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-19T15:30:06.435Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260919-anamanaguchi-has-too-goddamn-m",
+    "canonicalTopic": "Anamanaguchi Has Too Goddamn Many Browser Tabs Open Right Now",
+    "slug": "anamanaguchi-has-too-goddamn-many-browser-tabs-open-right-now",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-Anamanaguchi20has20E28098to",
+        "query": "Anamanaguchi Has Too Goddamn Many Browser Tabs Open Right Now",
+        "sourceUrl": "https://www.theverge.com/entertainment/996855/anamanaguchi-anyway-yeah-i-guess-interview-music",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-19T15:00:00.000Z",
+        "contentSnippet": "Anamanaguchi, the band consisting of Peter Berkman, James DeVito, Luke Silas, and Ary Warnaar, are most known for their chiptune music. Like me, you might have first heard them in game soundtracks like 2010's Scott Pilgrim vs. the World: The Game or know of their collaboration with Hatsune Miku (which even made its way into […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-19T15:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Anamanaguchi has ‘too goddamn many’ browser tabs open right now",
+            "itemLink": "https://www.theverge.com/entertainment/996855/anamanaguchi-anyway-yeah-i-guess-interview-music",
+            "publishedDate": "2026-09-19T15:00:00.000Z",
+            "contentSnippet": "Anamanaguchi, the band consisting of Peter Berkman, James DeVito, Luke Silas, and Ary Warnaar, are most known for their chiptune music. Like me, you might have first heard them in game soundtracks like 2010's Scott Pilgrim vs. the World: The Game or know of their collaboration with Hatsune Miku (which even made its way into […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Entertainment",
+              "Interview",
+              "Music",
+              "Report"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Entertainment",
+            "Interview",
+            "Music",
+            "Report"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "anamanaguchi has too goddamn many browser tabs open right now"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T15:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Entertainment",
+      "Interview",
+      "Music",
+      "Report"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-19T15:30:06.470Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260919-the-colorful-unique-hyte-x50-p",
+    "canonicalTopic": "The Colorful Unique Hyte X50 Pc Case Is 50 Off",
+    "slug": "the-colorful-unique-hyte-x50-pc-case-is-50-off",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-The20colorful2C20unique",
+        "query": "The Colorful Unique Hyte X50 Pc Case Is 50 Off",
+        "sourceUrl": "https://www.theverge.com/gadgets/997467/hyte-x50-pc-case-deal-sale",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-19T15:00:00.000Z",
+        "contentSnippet": "The Hyte X50 is a PC case that really stands out from the typical black box design, and it’s $50 off at the company’s site until September 21st, 2026, bringing the price down to $99.99. This attractive case supports motherboards from ITX all the way up to the E-ATX form factors, and GPUs that are […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-19T15:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "The colorful, unique Hyte X50 PC case is $50 off",
+            "itemLink": "https://www.theverge.com/gadgets/997467/hyte-x50-pc-case-deal-sale",
+            "publishedDate": "2026-09-19T15:00:00.000Z",
+            "contentSnippet": "The Hyte X50 is a PC case that really stands out from the typical black box design, and it’s $50 off at the company’s site until September 21st, 2026, bringing the price down to $99.99. This attractive case supports motherboards from ITX all the way up to the E-ATX form factors, and GPUs that are […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Deals",
+              "Gadgets",
+              "Gaming",
+              "PC Gaming",
+              "Verge Shopping"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Deals",
+            "Gadgets",
+            "Gaming",
+            "PC Gaming",
+            "Verge Shopping"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the colorful unique hyte x50 pc case is 50 off"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T15:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Deals",
+      "Gadgets",
+      "Gaming",
+      "PC Gaming",
+      "Verge Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-19T15:30:06.501Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260919-does-ai-need-an-antitrust-exem",
+    "canonicalTopic": "Does Ai Need an Antitrust Exemption So It Doesnt Kill Everyone",
+    "slug": "does-ai-need-an-antitrust-exemption-so-it-doesnt-kill-everyone",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-4-Does20AI20need20an20anti",
+        "query": "Does Ai Need an Antitrust Exemption So It Doesnt Kill Everyone",
+        "sourceUrl": "https://www.theverge.com/podcast/997382/openai-microsoft-anthropic-elon-musk-cartel-ai-competition",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-19T14:00:00.000Z",
+        "contentSnippet": "Today on Decoder, we’ve got the first of a two-part series on the future of business, and I'm talking with Jonathan Kanter, the former antitrust chief for the US Department of Justice in the Biden administration. These days, he’s both a professor of law at WashU and professor of technology policy at Carnegie Mellon. The […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-19T14:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Does AI need an antitrust exemption so it doesn't kill everyone????",
+            "itemLink": "https://www.theverge.com/podcast/997382/openai-microsoft-anthropic-elon-musk-cartel-ai-competition",
+            "publishedDate": "2026-09-19T14:00:00.000Z",
+            "contentSnippet": "Today on Decoder, we’ve got the first of a two-part series on the future of business, and I'm talking with Jonathan Kanter, the former antitrust chief for the US Department of Justice in the Biden administration. These days, he’s both a professor of law at WashU and professor of technology policy at Carnegie Mellon. The […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "Antitrust",
+              "Decoder",
+              "Podcasts",
+              "Policy",
+              "Politics"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "Antitrust",
+            "Decoder",
+            "Podcasts",
+            "Policy",
+            "Politics"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "does ai need an antitrust exemption so it doesnt kill everyone"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T14:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "Antitrust",
+      "Decoder",
+      "Podcasts",
+      "Policy",
+      "Politics"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-19T15:30:06.538Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260919-its-not-just-lg-every-tv-compa",
+    "canonicalTopic": "Its Not Just Lg Every Tv Company Is Spying on You",
+    "slug": "its-not-just-lg-every-tv-company-is-spying-on-you",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-5-ItE28099s20not20just20LG20Ev",
+        "query": "Its Not Just Lg Every Tv Company Is Spying on You",
+        "sourceUrl": "https://www.theverge.com/tech/997682/every-tv-company-is-spying",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-19T13:00:00.000Z",
+        "contentSnippet": "The TV world has been a pot of controversy thanks to a two-hour-and-15-minute video from Gamers Nexus claiming LG TVs are nefariously spying on everything you do. They can record and store audio even when they seem to be off, track everything you watch, and could even be hacked remotely and turned into covert surveillance […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-19T13:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "It’s not just LG. Every TV company is spying on you",
+            "itemLink": "https://www.theverge.com/tech/997682/every-tv-company-is-spying",
+            "publishedDate": "2026-09-19T13:00:00.000Z",
+            "contentSnippet": "The TV world has been a pot of controversy thanks to a two-hour-and-15-minute video from Gamers Nexus claiming LG TVs are nefariously spying on everything you do. They can record and store audio even when they seem to be off, track everything you watch, and could even be hacked remotely and turned into covert surveillance […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Gadgets",
+              "LG",
+              "Tech",
+              "TVs"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Gadgets",
+            "LG",
+            "Tech",
+            "TVs"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "its not just lg every tv company is spying on you"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T13:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Gadgets",
+      "LG",
+      "Tech",
+      "TVs"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-19T15:30:06.569Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260919-the-most-comfortable-travel-pa",
+    "canonicalTopic": "The Most Comfortable Travel Pants That Arent Sweats or Leggings",
+    "slug": "the-most-comfortable-travel-pants-that-arent-sweats-or-leggings",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-The20Most20Comfortable",
+        "query": "The Most Comfortable Travel Pants That Arent Sweats or Leggings",
+        "sourceUrl": "https://www.cntraveler.com/story/the-best-travel-pants-according-to-our-editors",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-19T13:00:00.000Z",
+        "contentSnippet": "Elevate your in-flight style without sacrificing comfort.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-19T13:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "The Most Comfortable Travel Pants That Aren’t Sweats or Leggings",
+            "itemLink": "https://www.cntraveler.com/story/the-best-travel-pants-according-to-our-editors",
+            "publishedDate": "2026-09-19T13:00:00.000Z",
+            "contentSnippet": "Elevate your in-flight style without sacrificing comfort.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Shopping"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the most comfortable travel pants that arent sweats or leggings"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T13:00:00.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-19T15:30:06.607Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-life-20260919-someone-used-claude-to-build-a",
+    "canonicalTopic": "Someone Used Claude to Build a Potential Bioweapon the Real Threat Is Much Deeper",
+    "slug": "someone-used-claude-to-build-a-potential-bioweapon-the-real-threat-is-much-deeper",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-1-Someone20used20Claude20",
+        "query": "Someone Used Claude to Build a Potential Bioweapon the Real Threat Is Much Deeper",
+        "sourceUrl": "https://www.fastcompany.com/91608269/someone-used-claude-build-potential-bioweapon-real-threat-much-deeper",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-19T11:00:00.000Z",
+        "contentSnippet": "Today’s frontier AI models know everything–how to safely thaw a frozen chicken breast, re-shingle your roof, and treat your dog’s ragweed allergies, if my recent chat history is any indication. Apparently, they also know how to create fiendishly deadly bioweapons . That’s according to a recent announcement by Anthropic . According to the company, anonymous scientists attempted to use Anthropic’s flagship Claude model to conduct research that could have turned deadly. Anthropic blocked their efforts this time, and there’s no evidence that the scientists were actually trying to cause harm.&nbsp; But as frontier models get more powerful and better at science, the threat of an LLM imagining a truly lethal new virus or bacteria will only increase. Make it stronger According to Anthropic’s report, the potentially dangerous research that the company blocked varied tremendously. In one instance, scientists reportedly asked Claude to assist with a grant application for so-called “gain of function” research on the mosquito-borne Chikungunya virus. Gain of function research involves deliberately making a pathogen more deadly or easier to spread , in order to learn about how natural versions of the pathogen infect their hosts. Such research can have legitimate scientific purposes, and it’s possible that the scientists (who Anthropic did not identify) were indeed trying to write an application to fund their legitimate work. But asking for help with something nefarious in the guise of a request for some other form of assistance (like a grant application) is a classic example of “jailbreaking”—methods that can trick an LLM into providing information or guidance that its guardrails should prevent. In this case, Anthropic pointed out, a deadlier virus could have incredibly lethal consequences. “Because chikungunya circulates naturally, a deliberate release (as part of a bioweapon) would be difficult to distinguish from a natural outbreak,” Anthropic says in its report.&nbsp; In other words, a natural virus that already circulates in mosquitos could be made far deadlier overnight, and scientists would have no idea the “gain of function” was caused by AI’s meddling. Murder, or wrinkles? In another incident, Anthropic says that scientists tried to use Claude to develop “novel venoms and toxins.” This vein of research is especially alarming because it involves a “dual use” technology.&nbsp; As Anthropic points out, there are plenty of legitimate reasons to develop new toxins–Botox, for example, comes from a deadly bacteria toxin, but is also used ”to treat migraines, spasticity, and wrinkles.” But the same research that creates a more effective way to inject away your crow’s feet could also be used to create a more powerful tool for covert assassinations. Indeed, ricin (another natural toxin) was famously embedded in a weapon disguised as an umbrella and used to assassinate a journalist during the Cold War. Dual use technology presents an especially grave challenge for firms like Anthropic. The company doesn’t want to squash potentially promising scientific research (or drive big customers to a competitor like OpenAI) by shutting legitimate inquiries down. But if Anthropic misses a nefarious use of tech which could also have positive uses, the results could be dire–and deadly. Not going away In these instances, Anthropic says that it successfully blocked potentially harmful requests. But there’s no way to know how many similar requests made it past the company’s filters, or its technology’s guardrails. The specific instances shared in Anthropic’s report also highlight the challenges of policing LLMs. It’s easy enough to block a request like “make me a stronger version of COVID.”&nbsp; It’s far harder to know when potentially valuable scientific inquiries are actually masking an attempt to design a deadly toxin or develop a highly-contagious new pathogen. Before–as Anthropic itself admits–the company could hide behind the fact that its models simply weren’t that good at science. The design for a deadly new pathogen won’t do anyone any harm if the biology doesn’t work. As frontier models get better at scientific reasoning, though, the threat will only increase. And while highly-controlled models like Claude are easier to lock down, open-weight LLMs are only a few months behind today’s top frontier models, and often include almost no guardrails. As LLMs advance, we may reach a point where the only thing preventing bad actors from developing powerful new pathogens is their desire not to poison the world.&nbsp; For anyone with a dim view of human nature and a desire to keep the species humming, that will be little comfort.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-19T11:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Someone used Claude to build a potential bioweapon. The real threat is much deeper",
+            "itemLink": "https://www.fastcompany.com/91608269/someone-used-claude-build-potential-bioweapon-real-threat-much-deeper",
+            "publishedDate": "2026-09-19T11:00:00.000Z",
+            "contentSnippet": "Today’s frontier AI models know everything–how to safely thaw a frozen chicken breast, re-shingle your roof, and treat your dog’s ragweed allergies, if my recent chat history is any indication. Apparently, they also know how to create fiendishly deadly bioweapons . That’s according to a recent announcement by Anthropic . According to the company, anonymous scientists attempted to use Anthropic’s flagship Claude model to conduct research that could have turned deadly. Anthropic blocked their efforts this time, and there’s no evidence that the scientists were actually trying to cause harm.&nbsp; But as frontier models get more powerful and better at science, the threat of an LLM imagining a truly lethal new virus or bacteria will only increase. Make it stronger According to Anthropic’s report, the potentially dangerous research that the company blocked varied tremendously. In one instance, scientists reportedly asked Claude to assist with a grant application for so-called “gain of function” research on the mosquito-borne Chikungunya virus. Gain of function research involves deliberately making a pathogen more deadly or easier to spread , in order to learn about how natural versions of the pathogen infect their hosts. Such research can have legitimate scientific purposes, and it’s possible that the scientists (who Anthropic did not identify) were indeed trying to write an application to fund their legitimate work. But asking for help with something nefarious in the guise of a request for some other form of assistance (like a grant application) is a classic example of “jailbreaking”—methods that can trick an LLM into providing information or guidance that its guardrails should prevent. In this case, Anthropic pointed out, a deadlier virus could have incredibly lethal consequences. “Because chikungunya circulates naturally, a deliberate release (as part of a bioweapon) would be difficult to distinguish from a natural outbreak,” Anthropic says in its report.&nbsp; In other words, a natural virus that already circulates in mosquitos could be made far deadlier overnight, and scientists would have no idea the “gain of function” was caused by AI’s meddling. Murder, or wrinkles? In another incident, Anthropic says that scientists tried to use Claude to develop “novel venoms and toxins.” This vein of research is especially alarming because it involves a “dual use” technology.&nbsp; As Anthropic points out, there are plenty of legitimate reasons to develop new toxins–Botox, for example, comes from a deadly bacteria toxin, but is also used ”to treat migraines, spasticity, and wrinkles.” But the same research that creates a more effective way to inject away your crow’s feet could also be used to create a more powerful tool for covert assassinations. Indeed, ricin (another natural toxin) was famously embedded in a weapon disguised as an umbrella and used to assassinate a journalist during the Cold War. Dual use technology presents an especially grave challenge for firms like Anthropic. The company doesn’t want to squash potentially promising scientific research (or drive big customers to a competitor like OpenAI) by shutting legitimate inquiries down. But if Anthropic misses a nefarious use of tech which could also have positive uses, the results could be dire–and deadly. Not going away In these instances, Anthropic says that it successfully blocked potentially harmful requests. But there’s no way to know how many similar requests made it past the company’s filters, or its technology’s guardrails. The specific instances shared in Anthropic’s report also highlight the challenges of policing LLMs. It’s easy enough to block a request like “make me a stronger version of COVID.”&nbsp; It’s far harder to know when potentially valuable scientific inquiries are actually masking an attempt to design a deadly toxin or develop a highly-contagious new pathogen. Before–as Anthropic itself admits–the company could hide behind the fact that its models simply weren’t that good at science. The design for a deadly new pathogen won’t do anyone any harm if the biology doesn’t work. As frontier models get better at scientific reasoning, though, the threat will only increase. And while highly-controlled models like Claude are easier to lock down, open-weight LLMs are only a few months behind today’s top frontier models, and often include almost no guardrails. As LLMs advance, we may reach a point where the only thing preventing bad actors from developing powerful new pathogens is their desire not to poison the world.&nbsp; For anyone with a dim view of human nature and a desire to keep the species humming, that will be little comfort.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Tech"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "someone used claude to build a potential bioweapon the real threat is much deeper"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T11:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-19T15:30:06.653Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260919-6-tips-to-lower-your-sky-high-",
+    "canonicalTopic": "6 Tips to Lower Your Sky-high Grocery Bills",
+    "slug": "6-tips-to-lower-your-sky-high-grocery-bills",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-2-620tips20to20lower20your",
+        "query": "6 Tips to Lower Your Sky-high Grocery Bills",
+        "sourceUrl": "https://www.fastcompany.com/91609424/6-tips-to-lower-your-sky-high-grocery-bills",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-19T10:00:00.000Z",
+        "contentSnippet": "Last week, the U.S. Bureau of Labor Statistics released the most recent consumer price index , which tracks inflation of important consumer goods—including your groceries. The cost of food has risen sharply, according to the CPI, with the same cart of groceries costing 2.7% more in August 2026 than in August 2025. What’s more, food prices have increased by an eye-watering 33% since August 2019 . None of these statistics comes as a surprise to anyone who regularly goes grocery shopping. Everything from milk and beef to coffee and cereal to apples and potatoes takes a bigger bite from your grocery budget than it used to. And unlike previous price hikes that affected only one or two grocery departments—like when egg prices soared in 2025 —the current cost increases seem to hit nearly every aisle in your local supermarket. It’s much more difficult to adjust your grocery spending when every food’s price is rising. The average consumer doesn’t necessarily think about what’s behind the price tag on their Wheaties and bananas. But knowing the reasons behind these higher costs can help make grocery shopping less expensive, since you’ll know what to expect long before you’re facing down a $7 pound of ground beef . Here are the biggest drivers of high food costs, and what you can do to avoid paying too much for groceries. Climate change Several years ago, an acquaintance told me about stopping at a grocery store in a small town while she was on a road trip. She was mystified to find no fruit in the produce department. When she asked a worker where the fruit was, the grocery employee responded, “It’s winter! There’s no fruit.” This story reminded me just how much grocery shopping has changed since my childhood, when produce was available seasonally—or else you paid through the nose for a tiny, desiccated cantaloupe in February. These days, we expect grocery stores to have every possible food you might desire at any given time. This modern disconnect from the natural rhythms of food production can make consumers feel blindsided by climate-related price hikes—partially because it can take time to feel the effects. Beef prices, for example, are sky high in part because of the record drought in the U.S. in 2022 . Between the drought conditions, high grain prices, inflation, and rising interest rates, American cattle farmers have been reducing their herds—or getting out of the business altogether. This reduction in cattle means the U.S. herd is the smallest it’s been since 1951 . While many climate events can have more immediate effects on food prices—such as when a severe winter freeze might damage the Florida orange crop —the interconnected nature of food production means climate change may continue to affect prices long after the specific weather event has ended. Tariffs Since February 2025, the current administration has used tariffs as a major part of its foreign policy strategy. Tariffs are taxes on imported goods that increase the consumer’s cost, with the goal of encouraging more consumption of domestic goods. The average tariff rate on all imports is 9.6% , but some of our most important trading partners face much higher rates. Specifically, the administration has hit Mexico, China, and Canada —the three countries that account for the highest share of U.S. imports—with tariffs of 25%, 30%, and 35%, respectively. These tariffs can have a direct impact on grocery prices in the case of products we almost exclusively import, such as coffee and bananas . But tariffs for apparently unrelated products can also affect your grocery bill. In particular, tariffs on steel imports have led to higher prices for canned foods. As of August 2026, canned fruit and vegetable prices are up 4% compared with last year, while canned fish costs 6.1% more than it did in 2025. Energy prices When you throw a head of lettuce or a gallon of milk into your shopping cart, you’re probably not thinking about the journey it took before appearing on the shelf. But every single item in the grocery store arrived via truck, which means fluctuations in energy prices can be reflected in food prices. That’s why the recent spike in diesel prices to $6 per gallon could make a major dent in your grocery budget. The prices of perishable goods will increase first in response to higher diesel prices, since they have a shorter shelf life and must be restocked quickly. But elevated energy costs will eventually affect shelf-stable food prices, too, as stores need to restock these items. Even if we were only dealing with climate change, tariffs, or energy prices one at a time, we would still see higher grocery bills. But all three of these factors are concurrently hitting our food infrastructure, which makes it much more difficult for the average consumer to protect their grocery budget. 6 tips to save money when food prices spike There are still a number of strategies you can use to keep from weeping when you see your grocery bill every week. Here are some of the best ways to save money on groceries right now. Shop seasonally and locally, if possible: The less time your food has to spend in a truck, the less money the producers have to spend on fuel to get it to you. Buying produce when it’s in season means it’s more likely to be grown nearby, rather than halfway across the world. Go meatless: Switching out the meat for just one dinner per week can save you about $9 per week , or approximately $470 per year. Clean out your fridge and pantry: The average American family loses $1,500 per year to wasted food . If your kitchen is anything like mine, your cluttered refrigerator is also the place where fresh produce goes to become a science experiment. Regularly auditing your kitchen, which includes cleaning your fridge, freezer, and pantry, can help ensure you eat the food you buy and use up leftovers before they become sentient. Meal plan: Knowing what meals you’ll be eating for the week helps you avoid food waste and unnecessary purchases. (Just ask me why I have three open canisters of cinnamon in my pantry.) Embrace frozen produce: Fruits and vegetables from the freezer aisle are just as nutritious as their fresh counterparts, but they last longer and may be significantly cheaper. Trust your nose rather than the expiration date: We often treat sell-by or best-by dates on perishable items as expiration dates. But other than infant formula, these sell-by dates are unregulated and voluntarily chosen by the manufacturer. Which means your yogurt is fine the day after the date stamped on the lid—provided it’s been properly refrigerated. You can generally trust your senses to determine if the food is safe to eat after the sell-by date, as long as you know the product’s been properly stored. Don’t let grocery prices get you down Paying for groceries shouldn’t require a second mortgage. But the combined effects of climate change, tariffs, and energy prices are working to make your weekly trip to the supermarket a painful experience for your wallet. You don’t have to simply pay the higher prices. You can reduce your grocery costs by getting intentional about your food purchases. This includes everything from shopping seasonally and going meatless to cleaning out your fridge and planning your meals to buying frozen produce and eating products after the sell by date.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-19T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "6 tips to lower your sky-high grocery bills",
+            "itemLink": "https://www.fastcompany.com/91609424/6-tips-to-lower-your-sky-high-grocery-bills",
+            "publishedDate": "2026-09-19T10:00:00.000Z",
+            "contentSnippet": "Last week, the U.S. Bureau of Labor Statistics released the most recent consumer price index , which tracks inflation of important consumer goods—including your groceries. The cost of food has risen sharply, according to the CPI, with the same cart of groceries costing 2.7% more in August 2026 than in August 2025. What’s more, food prices have increased by an eye-watering 33% since August 2019 . None of these statistics comes as a surprise to anyone who regularly goes grocery shopping. Everything from milk and beef to coffee and cereal to apples and potatoes takes a bigger bite from your grocery budget than it used to. And unlike previous price hikes that affected only one or two grocery departments—like when egg prices soared in 2025 —the current cost increases seem to hit nearly every aisle in your local supermarket. It’s much more difficult to adjust your grocery spending when every food’s price is rising. The average consumer doesn’t necessarily think about what’s behind the price tag on their Wheaties and bananas. But knowing the reasons behind these higher costs can help make grocery shopping less expensive, since you’ll know what to expect long before you’re facing down a $7 pound of ground beef . Here are the biggest drivers of high food costs, and what you can do to avoid paying too much for groceries. Climate change Several years ago, an acquaintance told me about stopping at a grocery store in a small town while she was on a road trip. She was mystified to find no fruit in the produce department. When she asked a worker where the fruit was, the grocery employee responded, “It’s winter! There’s no fruit.” This story reminded me just how much grocery shopping has changed since my childhood, when produce was available seasonally—or else you paid through the nose for a tiny, desiccated cantaloupe in February. These days, we expect grocery stores to have every possible food you might desire at any given time. This modern disconnect from the natural rhythms of food production can make consumers feel blindsided by climate-related price hikes—partially because it can take time to feel the effects. Beef prices, for example, are sky high in part because of the record drought in the U.S. in 2022 . Between the drought conditions, high grain prices, inflation, and rising interest rates, American cattle farmers have been reducing their herds—or getting out of the business altogether. This reduction in cattle means the U.S. herd is the smallest it’s been since 1951 . While many climate events can have more immediate effects on food prices—such as when a severe winter freeze might damage the Florida orange crop —the interconnected nature of food production means climate change may continue to affect prices long after the specific weather event has ended. Tariffs Since February 2025, the current administration has used tariffs as a major part of its foreign policy strategy. Tariffs are taxes on imported goods that increase the consumer’s cost, with the goal of encouraging more consumption of domestic goods. The average tariff rate on all imports is 9.6% , but some of our most important trading partners face much higher rates. Specifically, the administration has hit Mexico, China, and Canada —the three countries that account for the highest share of U.S. imports—with tariffs of 25%, 30%, and 35%, respectively. These tariffs can have a direct impact on grocery prices in the case of products we almost exclusively import, such as coffee and bananas . But tariffs for apparently unrelated products can also affect your grocery bill. In particular, tariffs on steel imports have led to higher prices for canned foods. As of August 2026, canned fruit and vegetable prices are up 4% compared with last year, while canned fish costs 6.1% more than it did in 2025. Energy prices When you throw a head of lettuce or a gallon of milk into your shopping cart, you’re probably not thinking about the journey it took before appearing on the shelf. But every single item in the grocery store arrived via truck, which means fluctuations in energy prices can be reflected in food prices. That’s why the recent spike in diesel prices to $6 per gallon could make a major dent in your grocery budget. The prices of perishable goods will increase first in response to higher diesel prices, since they have a shorter shelf life and must be restocked quickly. But elevated energy costs will eventually affect shelf-stable food prices, too, as stores need to restock these items. Even if we were only dealing with climate change, tariffs, or energy prices one at a time, we would still see higher grocery bills. But all three of these factors are concurrently hitting our food infrastructure, which makes it much more difficult for the average consumer to protect their grocery budget. 6 tips to save money when food prices spike There are still a number of strategies you can use to keep from weeping when you see your grocery bill every week. Here are some of the best ways to save money on groceries right now. Shop seasonally and locally, if possible: The less time your food has to spend in a truck, the less money the producers have to spend on fuel to get it to you. Buying produce when it’s in season means it’s more likely to be grown nearby, rather than halfway across the world. Go meatless: Switching out the meat for just one dinner per week can save you about $9 per week , or approximately $470 per year. Clean out your fridge and pantry: The average American family loses $1,500 per year to wasted food . If your kitchen is anything like mine, your cluttered refrigerator is also the place where fresh produce goes to become a science experiment. Regularly auditing your kitchen, which includes cleaning your fridge, freezer, and pantry, can help ensure you eat the food you buy and use up leftovers before they become sentient. Meal plan: Knowing what meals you’ll be eating for the week helps you avoid food waste and unnecessary purchases. (Just ask me why I have three open canisters of cinnamon in my pantry.) Embrace frozen produce: Fruits and vegetables from the freezer aisle are just as nutritious as their fresh counterparts, but they last longer and may be significantly cheaper. Trust your nose rather than the expiration date: We often treat sell-by or best-by dates on perishable items as expiration dates. But other than infant formula, these sell-by dates are unregulated and voluntarily chosen by the manufacturer. Which means your yogurt is fine the day after the date stamped on the lid—provided it’s been properly refrigerated. You can generally trust your senses to determine if the food is safe to eat after the sell-by date, as long as you know the product’s been properly stored. Don’t let grocery prices get you down Paying for groceries shouldn’t require a second mortgage. But the combined effects of climate change, tariffs, and energy prices are working to make your weekly trip to the supermarket a painful experience for your wallet. You don’t have to simply pay the higher prices. You can reduce your grocery costs by getting intentional about your food purchases. This includes everything from shopping seasonally and going meatless to cleaning out your fridge and planning your meals to buying frozen produce and eating products after the sell by date.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Work Life"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Work Life"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "6 tips to lower your sky-high grocery bills"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T10:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Work Life"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-19T15:30:06.678Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-discover-20260919-if-do-transforms-neglected-bui",
+    "canonicalTopic": "If Do Transforms Neglected Building in Hastings into Genuinely Welcoming Community Centre",
+    "slug": "if-do-transforms-neglected-building-in-hastings-into-genuinely-welcoming-community-centre",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-IF_DO20transforms20neg",
+        "query": "If Do Transforms Neglected Building in Hastings into Genuinely Welcoming Community Centre",
+        "sourceUrl": "https://www.dezeen.com/2026/09/19/if-do-eagle-house/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-19T10:00:38.000Z",
+        "contentSnippet": "A green-concrete frontage marks the transformation of a neglected building in Hastings into Eagle House community centre, designed by London architecture studio IF_DO. Eagle House was completed for community-led developer Hastings Commons and provides a mixture of public space, work areas and youth facilities. Rather than demolish and replace the neglected Victorian building, IF_DO looked The post IF_DO transforms neglected building in Hastings into \"genuinely welcoming\" community centre appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-19T10:00:38.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "IF_DO transforms neglected building in Hastings into \"genuinely welcoming\" community centre",
+            "itemLink": "https://www.dezeen.com/2026/09/19/if-do-eagle-house/",
+            "publishedDate": "2026-09-19T10:00:38.000Z",
+            "contentSnippet": "A green-concrete frontage marks the transformation of a neglected building in Hastings into Eagle House community centre, designed by London architecture studio IF_DO. Eagle House was completed for community-led developer Hastings Commons and provides a mixture of public space, work areas and youth facilities. Rather than demolish and replace the neglected Victorian building, IF_DO looked The post IF_DO transforms neglected building in Hastings into \"genuinely welcoming\" community centre appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "UK",
+              "Community centres",
+              "Public and leisure",
+              "Adaptive reuse",
+              "IF_DO",
+              "Hastings"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "UK",
+            "Community centres",
+            "Public and leisure",
+            "Adaptive reuse",
+            "IF_DO",
+            "Hastings"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "if do transforms neglected building in hastings into genuinely welcoming community centre"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T10:00:38.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "UK",
+      "Community centres",
+      "Public and leisure",
+      "Adaptive reuse",
+      "IF_DO",
+      "Hastings"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-19T15:30:06.732Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260919-eight-green-roofed-homes-that-",
+    "canonicalTopic": "Eight Green-roofed Homes That Sprout from Their Surroundings",
+    "slug": "eight-green-roofed-homes-that-sprout-from-their-surroundings",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-2-Eight20green-roofed20h",
+        "query": "Eight Green-roofed Homes That Sprout from Their Surroundings",
+        "sourceUrl": "https://www.dezeen.com/2026/09/19/green-roof-houses-roundup/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-19T09:00:05.000Z",
+        "contentSnippet": "Our latest roundup collects houses topped with verdant green roofs, with some designed to blend into the natural landscape and others providing elevated garden space for families to gather. A green roof is a roof covered in vegetation that grows over a waterproof membrane and is designed to help absorb rainwater, improve insulation in the The post Eight green-roofed homes that sprout from their surroundings appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-19T09:00:05.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Eight green-roofed homes that sprout from their surroundings",
+            "itemLink": "https://www.dezeen.com/2026/09/19/green-roof-houses-roundup/",
+            "publishedDate": "2026-09-19T09:00:05.000Z",
+            "contentSnippet": "Our latest roundup collects houses topped with verdant green roofs, with some designed to blend into the natural landscape and others providing elevated garden space for families to gather. A green roof is a roof covered in vegetation that grows over a waterproof membrane and is designed to help absorb rainwater, improve insulation in the The post Eight green-roofed homes that sprout from their surroundings appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Houses",
+              "Green roofs",
+              "Roundups"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Houses",
+            "Green roofs",
+            "Roundups"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "eight green-roofed homes that sprout from their surroundings"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-19T09:00:05.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Houses",
+      "Green roofs",
+      "Roundups"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-19T15:30:06.766Z",
+    "pinterestScore": 79.2
   }
 ]
