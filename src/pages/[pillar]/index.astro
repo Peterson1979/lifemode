@@ -94,9 +94,6 @@ const breadcrumbSchema = generateBreadcrumbSchema([
     </div>
   </section>
 
-  <!-- Topic Data & Live Intelligence Section -->
-  <TopicDataSection pillar={pillar.slug as PillarSlug} pillarName={pillar.name} />
-
   <!-- Article Grid / Archive -->
   <section class="section">
     <div class="container">
@@ -205,4 +202,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
       )}
     </div>
   </section>
+
+  <!-- Topic Data & Live Intelligence Section (Placed at bottom before footer) -->
+  <TopicDataSection pillar={pillar.slug as PillarSlug} pillarName={pillar.name} />
 </BaseLayout>

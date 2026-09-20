@@ -8,6 +8,7 @@ export interface SelectionOptions {
   maxTopicsPerPillar?: number; // default max topics per pillar in one batch
   totalLimit?: number; // batch total limit
   existingPillarDistribution?: Partial<Record<PillarSlug, number>>;
+  existingPillarRecency?: Partial<Record<PillarSlug, number>>; // days since last publication in pillar
   enablePillarBalancing?: boolean; // default true
   requireVisualPotential?: boolean;
   feedbackSignals?: FeedbackSignalSummary;
@@ -15,10 +16,29 @@ export interface SelectionOptions {
 }
 
 /**
+ * Calculates a dynamic anti-starvation score boost for a pillar based on elapsed days since last publication.
+ * Ensures starved pillars (e.g. >3-7 days without publication) gain competitive priority
+ * while never bypassing baseline quality (raw score >= 80).
+ */
+export function calculatePillarStarvationBoost(
+  pillar: PillarSlug,
+  existingPillarRecency?: Partial<Record<PillarSlug, number>>
+): number {
+  if (!existingPillarRecency) return 0;
+  const daysSinceLast = existingPillarRecency[pillar];
+  if (daysSinceLast === undefined) return 0;
+
+  if (daysSinceLast >= 7) return 10;
+  if (daysSinceLast >= 5) return 6;
+  if (daysSinceLast >= 3) return 3;
+  return 0;
+}
+
+/**
  * Deterministically filters, ranks, and selects approved editorial topics from scored candidates.
  *
  * Implements lightweight, practical pillar balancing:
- * - Prefers underrepresented pillars when candidates have competitive scores (within ~5 points).
+ * - Prefers underrepresented and starved pillars when candidates have competitive scores.
  * - Prevents high-volume single-source topics from flooding a single pillar in one batch.
  * - Strict quality rule: Never approves or forces an inferior candidate (< 80) merely to balance pillars.
  * - Performance Feedback: Integrates bounded historical performance modifiers (+/- 10) without bypassing minimum quality or safety gates.
@@ -34,6 +54,7 @@ export function selectEditorialCandidates(
   const minScore = options.minScoreThreshold ?? 80;
   const enableBalancing = options.enablePillarBalancing ?? true;
   const existingDist = options.existingPillarDistribution || {};
+  const existingRecency = options.existingPillarRecency;
   const feedbackSignals = options.feedbackSignals;
   const applyFeedback = options.enablePerformanceFeedback ?? Boolean(feedbackSignals);
 
@@ -46,14 +67,15 @@ export function selectEditorialCandidates(
   const rejected: EditorialTopic[] = [];
   const deferred: EditorialTopic[] = [];
 
-  // 1. Evaluate performance feedback on candidates (if signals are available)
+  // 1. Evaluate performance feedback and anti-starvation boosts on candidates
   const enrichedCandidates: Array<EditorialTopic & { effectiveScore: number }> = candidates.map((topic) => {
     let performanceFeedback = topic.performanceFeedback;
     if (feedbackSignals && applyFeedback) {
       performanceFeedback = evaluateTopicPerformanceFeedback(topic, feedbackSignals);
     }
     const adjustment = performanceFeedback?.scoreAdjustment || 0;
-    const effectiveScore = Math.max(0, Math.min(100, Math.round((topic.totalScore + adjustment) * 10) / 10));
+    const starvationBoost = enableBalancing ? calculatePillarStarvationBoost(topic.pillar, existingRecency) : 0;
+    const effectiveScore = Math.max(0, Math.min(100, Math.round((topic.totalScore + adjustment + starvationBoost) * 10) / 10));
 
     return {
       ...topic,
@@ -95,7 +117,14 @@ export function selectEditorialCandidates(
       return b.freshnessScore - a.freshnessScore;
     }
 
-    // For competitively close scores (within 5 points), favor pillars with lower published count
+    // For competitively close scores (within 5 points), favor starved pillars with longer days since last publication
+    const recencyA = existingRecency?.[a.pillar] ?? 0;
+    const recencyB = existingRecency?.[b.pillar] ?? 0;
+    if (Math.abs(recencyA - recencyB) >= 1) {
+      return recencyB - recencyA; // Starved pillar ranks first
+    }
+
+    // Next favor pillars with lower total published count
     const countA = existingDist[a.pillar] || 0;
     const countB = existingDist[b.pillar] || 0;
     if (countA !== countB) {

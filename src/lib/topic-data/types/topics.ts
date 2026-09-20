@@ -70,22 +70,24 @@ export interface WeatherData {
 }
 
 /**
- * Air Quality reading.
+ * Current news item representation (FreeNewsAPI.ai).
  */
-export interface AirQualityReading {
-  city: string;
-  country: string;
-  aqi: number; // Air Quality Index
-  aqiCategory: 'Good' | 'Moderate' | 'Unhealthy for Sensitive Groups' | 'Unhealthy' | 'Very Unhealthy' | 'Hazardous';
-  pm25: number; // µg/m³
-  pm10?: number;
-  dominantPollutant?: string;
-  recordedAt: string; // ISO 8601
+export interface NewsItem {
+  id?: string;
+  title: string;
+  url: string;
+  publisher: string;
+  publishedAt: string; // ISO 8601
+  snippet?: string;
+  language?: string;
+  country?: string;
+  imageUrl?: string;
 }
 
-export interface AirQualityData {
-  readings: AirQualityReading[];
-  featuredCity?: AirQualityReading;
+export interface NewsData {
+  items: NewsItem[];
+  featuredItem?: NewsItem;
+  totalResults?: number;
 }
 
 /**

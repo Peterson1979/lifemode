@@ -181,8 +181,9 @@ export async function selectSocialOpportunities(
 
   // 2. Sort by publication freshness descending (newest first), then by composite social score
   eligible.sort((a, b) => {
-    if (b.pubTime !== a.pubTime) {
-      return b.pubTime - a.pubTime;
+    const timeDiff = b.pubTime - a.pubTime;
+    if (Math.abs(timeDiff) > 1000) {
+      return timeDiff;
     }
     return b.socialScore - a.socialScore;
   });

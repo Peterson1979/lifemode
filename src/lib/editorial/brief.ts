@@ -8,7 +8,9 @@ import type {
   SeoOpportunityMetadata,
   BriefAffiliateOpportunities,
   CommercialIntentType,
+  PillarSlug,
 } from './types.ts';
+import { VALID_PILLARS } from './types.ts';
 import type { EvidenceItem } from './research/types.ts';
 import { PILLARS } from '../../config/site.ts';
 import {
@@ -384,6 +386,143 @@ export function enrichBriefWithResearch(
 }
 
 /**
+ * Generates dynamic, organic, subject-grounded editorial title angles for articles.
+ * Avoids repetitive formulaic suffixes (e.g. ": What to Know") and adapts organically to pillar, intent, and subject matter.
+ */
+export function deriveEditorialTitleAngle(
+  topicOrCanonical: EditorialTopic | string,
+  formatOrPillar?: ArticleFormat | PillarSlug,
+  primaryIntent?: SearchIntent,
+  _evidence?: EvidenceItem[]
+): string {
+  const isTopicObj = typeof topicOrCanonical === 'object' && topicOrCanonical !== null;
+  const cleanTopic = (isTopicObj ? topicOrCanonical.canonicalTopic : String(topicOrCanonical)).trim();
+  const pillar = isTopicObj ? topicOrCanonical.pillar : (typeof formatOrPillar === 'string' && VALID_PILLARS.includes(formatOrPillar as any) ? formatOrPillar as PillarSlug : 'now');
+  const format = (isTopicObj ? (formatOrPillar as ArticleFormat) : 'standard') || 'standard';
+
+  if (isTopicObj && isPersonTopic(topicOrCanonical)) {
+    return generatePersonTitle(cleanTopic, {
+      format,
+      primaryIntent: primaryIntent || 'informational',
+      queryVariants: topicOrCanonical.queryVariants,
+      topicId: topicOrCanonical.id,
+    });
+  }
+
+  const lower = cleanTopic.toLowerCase();
+  // If the cleanTopic is already an organic, complete headline sentence
+  if (
+    lower.startsWith('how ') ||
+    lower.startsWith('why ') ||
+    lower.startsWith('what ') ||
+    lower.startsWith('the ') ||
+    lower.startsWith('inside ') ||
+    lower.startsWith('designing ') ||
+    lower.startsWith('building ') ||
+    lower.startsWith('a practical ') ||
+    lower.startsWith('10 ') ||
+    lower.startsWith('7 ')
+  ) {
+    return cleanTopic;
+  }
+
+  // Calculate stable hash from topic ID or canonical topic
+  const seedString = (isTopicObj ? topicOrCanonical.id : '') || cleanTopic;
+  let hash = 0;
+  for (let i = 0; i < seedString.length; i++) {
+    hash = (hash << 5) - hash + seedString.charCodeAt(i);
+    hash |= 0;
+  }
+  const entropy = Math.abs(hash);
+
+  // Pillar & format-aware dynamic headline angle catalog
+  switch (pillar) {
+    case 'now': {
+      const angles = [
+        `The Cultural Shift Toward ${cleanTopic}`,
+        `Why ${cleanTopic} Is Changing the Conversation`,
+        `Inside ${cleanTopic}: Key Shifts and Emerging Signals`,
+        `What's Behind the Momentum in ${cleanTopic}`,
+        `How ${cleanTopic} Is Reshaping Daily Routines`,
+        `${cleanTopic}: Key Developments, Context, and What's Ahead`,
+      ];
+      return angles[entropy % angles.length];
+    }
+    case 'wellbeing': {
+      const angles = [
+        `The Science Behind ${cleanTopic}: Mechanisms and Daily Impact`,
+        `A Practical Protocol for ${cleanTopic}`,
+        `Understanding ${cleanTopic}: Evidence-Based Health and Vitality`,
+        `How ${cleanTopic} Influences Long-Term Wellbeing`,
+        `The Physiology of ${cleanTopic}: Key Principles and Real Impact`,
+      ];
+      return angles[entropy % angles.length];
+    }
+    case 'travel': {
+      const angles = [
+        `A Thoughtful Traveler’s Guide to ${cleanTopic}`,
+        `The Quiet Appeal of ${cleanTopic}: Stays, Trails, and Solitude`,
+        `Inside ${cleanTopic}: Architecture, Culture, and Slow Exploration`,
+        `Navigating ${cleanTopic}: An Intentional Journey Blueprint`,
+        `${cleanTopic}: Solitary Landscapes, Local Craft, and Culture`,
+      ];
+      return angles[entropy % angles.length];
+    }
+    case 'food-drink': {
+      const angles = [
+        `The Craft of ${cleanTopic}: Technique, Flavor, and Culinary Science`,
+        `Why ${cleanTopic} Anchors Modern Culinary Culture`,
+        `The Fundamentals of ${cleanTopic}: A Minimalist Kitchen Guide`,
+        `Building Flavor with ${cleanTopic}: Essential Methods and Balance`,
+        `The Art of ${cleanTopic}: Heritage, Fermentation, and Daily Cooking`,
+      ];
+      return angles[entropy % angles.length];
+    }
+    case 'tech-ai': {
+      const angles = [
+        `A Practical Setup for ${cleanTopic}`,
+        `How ${cleanTopic} Works in Practice: Architectures and Benchmarks`,
+        `Inside ${cleanTopic}: Private Models, Hardware, and Local Performance`,
+        `Why ${cleanTopic} Is Reshaping Sovereign Computing`,
+        `The Engineering Behind ${cleanTopic}: Key Breakthroughs and Workflows`,
+      ];
+      return angles[entropy % angles.length];
+    }
+    case 'money': {
+      const angles = [
+        `A Practical Blueprint for ${cleanTopic}`,
+        `How ${cleanTopic} Impacts Cash Reserves and Liquidity`,
+        `Understanding ${cleanTopic}: Strategies for Long-Term Autonomy`,
+        `Why ${cleanTopic} Outperforms Conventional Financial Advice`,
+        `${cleanTopic}: Core Mechanics, Real Risks, and Strategic Asset Allocation`,
+      ];
+      return angles[entropy % angles.length];
+    }
+    case 'discover': {
+      const angles = [
+        `The Timeless Design of ${cleanTopic}`,
+        `Inside ${cleanTopic}: Proportions, Materials, and Craft`,
+        `The Philosophy of ${cleanTopic}: Cultural Heritage and Form`,
+        `A Curated Examination of ${cleanTopic}`,
+        `${cleanTopic}: Historic Proportions, Natural Materials, and Craftsmanship`,
+      ];
+      return angles[entropy % angles.length];
+    }
+    case 'life':
+    default: {
+      const angles = [
+        `Designing a Calmer Life with ${cleanTopic}`,
+        `The Principles of ${cleanTopic}: Practical Systems for Daily Focus`,
+        `How ${cleanTopic} Elevates Modern Living Spaces`,
+        `The Art of ${cleanTopic}: Restraint, Craft, and Daily Rituals`,
+        `A Minimalist Approach to ${cleanTopic}`,
+      ];
+      return angles[entropy % angles.length];
+    }
+  }
+}
+
+/**
  * Synthesizes a structured Editorial Brief V2 from an approved topic and optional research evidence.
  */
 export function synthesizeEditorialBrief(
@@ -398,39 +537,16 @@ export function synthesizeEditorialBrief(
 
   const estimatedWordCount = FORMAT_WORD_COUNT_MAP[format] || FORMAT_WORD_COUNT_MAP.standard;
 
-  // Title angle generation
-  const cleanTopic = topic.canonicalTopic.trim();
-  const isPerson = isPersonTopic(topic);
-  let titleAngle = cleanTopic;
+  // Evidence resolution
+  const effectiveEvidence = options.evidence || evidence || topic.evidence;
 
-  if (isPerson) {
-    titleAngle = generatePersonTitle(cleanTopic, {
-      format,
-      primaryIntent,
-      queryVariants: topic.queryVariants,
-      topicId: topic.id,
-    });
-  } else if (!cleanTopic.toLowerCase().startsWith('how ') && !cleanTopic.toLowerCase().startsWith('why ') && !cleanTopic.toLowerCase().startsWith('what ')) {
-    if (format === 'guide') {
-      titleAngle = `How to make the most of ${cleanTopic}`;
-    } else if (format === 'deep-dive') {
-      titleAngle = `${cleanTopic}: what it tells you and how it works`;
-    } else if (format === 'listicle') {
-      titleAngle = `Practical lessons and insights from ${cleanTopic}`;
-    } else if (format === 'curation') {
-      titleAngle = `The best approaches and insights for ${cleanTopic}`;
-    } else if (format === 'dispatch') {
-      titleAngle = `${cleanTopic}: what to know right now`;
-    } else {
-      titleAngle = `${cleanTopic}: what to know`;
-    }
-  }
+  // Title angle generation
+  const titleAngle = deriveEditorialTitleAngle(topic, format, primaryIntent, effectiveEvidence);
 
   const workingTitle = titleAngle;
   const recommendedAngle = deriveArticleAngle(topic, format, options.recommendedAngle);
   const readerProblem = deriveReaderProblem(topic, primaryIntent, options.readerProblem);
   const affiliateOpportunities = deriveCommercialIntent(topic);
-  const effectiveEvidence = options.evidence || evidence || topic.evidence;
   const sourceBackedFacts = extractSourceBackedFacts(effectiveEvidence);
   const keyClaims = deriveKeyClaims(topic, sourceBackedFacts, options.claimsRequiringEvidence);
   const evidenceLimitations = deriveEvidenceLimitations(effectiveEvidence, topic, riskLevel);
@@ -441,6 +557,7 @@ export function synthesizeEditorialBrief(
   const audience = options.audience || topic.targetAudience || 'Curious, thoughtful readers looking for practical ideas.';
 
   // Default outline structure
+  const isPerson = isPersonTopic(topic);
   const outlineSections = isPerson
     ? [
         {

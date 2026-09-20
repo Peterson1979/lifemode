@@ -1,10 +1,10 @@
 import type { PillarSlug } from '../../config/site.ts';
 import type { DataDomain } from './types/core.ts';
 import type { BaseTopicDataProvider } from './providers/base.ts';
+import { FreeNewsApiProvider } from './providers/news.ts';
 import { UsgsEarthquakeProvider } from './providers/earthquake.ts';
 import { FrankfurterFxProvider } from './providers/fx.ts';
 import { WeatherApiProvider } from './providers/weather.ts';
-import { OpenAqAirQualityProvider } from './providers/air-quality.ts';
 import { WorldBankEconomicProvider } from './providers/economic.ts';
 import { UsdaFoodDataProvider } from './providers/food.ts';
 import { GitHubTechActivityProvider } from './providers/tech.ts';
@@ -12,7 +12,7 @@ import { WikimediaKnowledgeProvider } from './providers/knowledge.ts';
 import { TopicDataCache, globalTopicDataCache } from './cache/store.ts';
 
 /**
- * Registry of all available data providers in LifeMode V1.
+ * Registry of all available data providers in LifeMode.
  */
 export class TopicDataProviderRegistry {
   private providers: Map<string, BaseTopicDataProvider<any>> = new Map();
@@ -20,20 +20,20 @@ export class TopicDataProviderRegistry {
   private domainMapping: Map<DataDomain, BaseTopicDataProvider<any>> = new Map();
 
   constructor(cache: TopicDataCache = globalTopicDataCache) {
+    const newsProvider = new FreeNewsApiProvider(cache);
     const earthquakeProvider = new UsgsEarthquakeProvider(cache);
     const fxProvider = new FrankfurterFxProvider(cache);
     const weatherProvider = new WeatherApiProvider(cache);
-    const airQualityProvider = new OpenAqAirQualityProvider(cache);
     const economicProvider = new WorldBankEconomicProvider(cache);
     const foodProvider = new UsdaFoodDataProvider(cache);
     const techProvider = new GitHubTechActivityProvider(cache);
     const knowledgeProvider = new WikimediaKnowledgeProvider(cache);
 
     const allProviders: BaseTopicDataProvider<any>[] = [
+      newsProvider,
       earthquakeProvider,
       fxProvider,
       weatherProvider,
-      airQualityProvider,
       economicProvider,
       foodProvider,
       techProvider,
@@ -46,10 +46,11 @@ export class TopicDataProviderRegistry {
     }
 
     // Explicit topic-to-provider mappings across all 8 LifeMode topics
-    this.pillarMapping.set('now', [earthquakeProvider, weatherProvider, airQualityProvider]);
+    // NOW Ordering Requirement: News must ALWAYS be the first displayed data source
+    this.pillarMapping.set('now', [newsProvider, weatherProvider, earthquakeProvider]);
     this.pillarMapping.set('money', [fxProvider, economicProvider]);
     this.pillarMapping.set('travel', [weatherProvider, earthquakeProvider, fxProvider]);
-    this.pillarMapping.set('wellbeing', [airQualityProvider, foodProvider]);
+    this.pillarMapping.set('wellbeing', [foodProvider, economicProvider]);
     this.pillarMapping.set('food-drink', [foodProvider]);
     this.pillarMapping.set('tech-ai', [techProvider]);
     this.pillarMapping.set('discover', [knowledgeProvider, economicProvider]);

@@ -3,10 +3,10 @@ import type { PillarSlug } from '../../config/site.ts';
 import type { TopicDataBlock } from '../../lib/topic-data/types/core.ts';
 import { globalTopicDataService } from '../../lib/topic-data/service.ts';
 import { isCurrentDataDomain } from '../../lib/topic-data/runtime-handler.ts';
+import NewsBlock from './blocks/NewsBlock.astro';
 import EarthquakeBlock from './blocks/EarthquakeBlock.astro';
 import FxBlock from './blocks/FxBlock.astro';
 import WeatherBlock from './blocks/WeatherBlock.astro';
-import AirQualityBlock from './blocks/AirQualityBlock.astro';
 import EconomicBlock from './blocks/EconomicBlock.astro';
 import FoodNutritionBlock from './blocks/FoodNutritionBlock.astro';
 import TechActivityBlock from './blocks/TechActivityBlock.astro';
@@ -43,9 +43,12 @@ const hasCurrentBlocks = blocks.some((b) => isCurrentDataDomain(b.domain));
     aria-label={`${pillarName || pillar} Data & Live Intelligence`}
   >
     <div class="container">
-      <div class="section-header">
+      <div class="section-header topic-data-header">
         <div>
-          <span class="section-kicker">Topic Intelligence</span>
+          <div class="kicker-wrapper">
+            <span class="pulse-indicator" aria-hidden="true"></span>
+            <span class="section-kicker">Topic Intelligence</span>
+          </div>
           <h2 class="section-title">Current & Reference Data</h2>
           <p class="section-subtitle">
             Curated, live and reference intelligence for {pillarName || pillar}
@@ -56,14 +59,14 @@ const hasCurrentBlocks = blocks.some((b) => isCurrentDataDomain(b.domain));
       <div class="topic-data-grid">
         {blocks.map((block) => {
           switch (block.domain) {
+            case 'news':
+              return <NewsBlock block={block as any} />;
             case 'earthquakes':
               return <EarthquakeBlock block={block as any} />;
             case 'fx':
               return <FxBlock block={block as any} />;
             case 'weather':
               return <WeatherBlock block={block as any} />;
-            case 'air_quality':
-              return <AirQualityBlock block={block as any} />;
             case 'economic':
               return <EconomicBlock block={block as any} />;
             case 'nutrition':
@@ -83,7 +86,7 @@ const hasCurrentBlocks = blocks.some((b) => isCurrentDataDomain(b.domain));
 
 {hasCurrentBlocks && (
   <script>
-    // Progressive runtime revalidation for current/live topic blocks (Weather, AQI, Earthquakes)
+    // Progressive runtime revalidation for current/live topic blocks (News, Weather, Earthquakes)
     (function () {
       const section = document.querySelector('.topic-data-section[data-has-current="true"]');
       if (!section) return;
@@ -132,16 +135,36 @@ const hasCurrentBlocks = blocks.some((b) => isCurrentDataDomain(b.domain));
 
 <style>
   .topic-data-section {
-    padding-top: var(--space-8, 2rem);
-    padding-bottom: var(--space-10, 2.5rem);
-    border-bottom: 1px solid var(--color-border, #e6ded2);
+    padding-top: var(--space-10, 2.5rem);
+    padding-bottom: var(--space-12, 3rem);
+    border-top: 1px solid var(--color-border, #e6ded2);
     background-color: var(--color-bg, #f8f5ee);
+  }
+
+  .topic-data-header {
+    margin-bottom: var(--space-8, 2rem);
+  }
+
+  .kicker-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: var(--space-2, 0.5rem);
+  }
+
+  .pulse-indicator {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-olive, #485c4b);
   }
 
   .topic-data-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: var(--space-6, 1.5rem);
+    align-items: start;
   }
 
   @media (max-width: 640px) {

@@ -42,6 +42,7 @@ export const FORMULAIC_TITLE_PATTERNS: RegExp[] = [
   /\ba\s+complete\s+guide\s+to\b/i,
   /\beverything\s+you\s+need\s+to\s+know\s+about\b/i,
   /\ball\s+you\s+need\s+to\s+know\b/i,
+  /:\s*(what to know|what you should know|what you need to know|what to know right now)$/i,
   /\bwhy\s+.+\s+are\s+essential\s+in\s+20\d\d\b/i,
   /\bmastering\s+.+:\s*a\s+(complete|definitive|modern)\s+guide\b/i,
   /:\s*a\s+definitive\s+guide\b/i,
@@ -55,23 +56,106 @@ export const FORMULAIC_TITLE_PATTERNS: RegExp[] = [
 ];
 
 export const GENERIC_EXCERPT_PATTERNS: RegExp[] = [
-  /^discover\s+(our|the)\s+editorial\s+guide/i,
-  /^explore\s+key\s+principles/i,
-  /curated\s+perspectives\s+for\s+modern\s+living/i,
-  /frameworks,\s+tools,?\s+and\s+aesthetics/i,
-  /shaping\s+modern\s+lifestyle\s+design/i,
-  /across\s+seven\s+curated\s+(editorial\s+)?pillars/i,
-  /^in\s+today's\s+(fast-paced\s+)?world/i,
-  /^when\s+it\s+comes\s+to/i,
-  /^it\s+(is|'s)\s+(worth\s+noting|important\s+to)/i,
-  /\bleverages?\s+seamless\s+tools\b/i,
-  /\bseamless\s+tools\s+to\s+elevate\b/i,
+  /\bdiscover\s+our\s+editorial\s+guide\b/i,
+  /\bexplore\s+key\s+principles\b/i,
+  /\bcurated\s+perspectives\s+for\b/i,
+  /\bin\s+today'?s\s+fast-paced\s+world\b/i,
+  /\bwhen\s+it\s+comes\s+to\b/i,
+  /\bit\s+is\s+important\s+to\b/i,
+  /\bleverages\s+seamless\s+tools\b/i,
+  /\belevate\s+your\b/i,
+  /in this article,?\s+we/i,
+  /read on to discover/i,
+  /dive into/i,
+  /explore the world of/i,
+  /everything you need to know/i,
+  /what you need to know/i,
 ];
+
+export interface RepetitivePatternResult {
+  isRepetitive: boolean;
+  pattern?: string;
+  matchCount?: number;
+  reason?: string;
+}
+
+/**
+ * Checks if a given title matches known formulaic or generic patterns.
+ */
+export function detectFormulaicTitle(title: string): boolean {
+  if (!title) return false;
+  return FORMULAIC_TITLE_PATTERNS.some((pattern) => pattern.test(title));
+}
+
+/**
+ * Extracts normalized structural skeleton pattern from a title for repetition tracking.
+ */
+export function extractTitleStructurePattern(title: string): string | null {
+  const trimmed = title.trim();
+  if (!trimmed) return null;
+
+  // 1. Check for colon-separated suffix patterns (e.g. "X: What to Know", "X: A Modern Guide")
+  const colonMatch = trimmed.match(/^([^:]+):\s*(.+)$/);
+  if (colonMatch) {
+    const suffix = colonMatch[2].toLowerCase().trim();
+    // Return generalized suffix pattern
+    return `: ${suffix}`;
+  }
+
+  // 2. Check for leading phrase patterns (e.g. "Why X Is ...", "Inside X: ...", "Exploring X ...", "The Shift Toward ...")
+  const leadingMatch = trimmed.match(/^(why|how|inside|exploring|discovering|understanding|the shift toward|what's behind|what is behind|a practical guide to|a guide to|the new)\b/i);
+  if (leadingMatch) {
+    return leadingMatch[1].toLowerCase();
+  }
+
+  return null;
+}
+
+/**
+ * Detects excessive reuse of identical structural title patterns across recent articles.
+ * Rejects or flags candidate titles that duplicate a pattern already used >= maxRepetitions times in the window.
+ */
+export function detectRepetitiveTitlePattern(
+  candidateTitle: string,
+  recentTitles: string[] = [],
+  maxRepetitions = 2
+): RepetitivePatternResult {
+  if (!candidateTitle || !recentTitles || recentTitles.length === 0) {
+    return { isRepetitive: false };
+  }
+
+  const candidatePattern = extractTitleStructurePattern(candidateTitle);
+  if (!candidatePattern) {
+    return { isRepetitive: false };
+  }
+
+  let matchCount = 0;
+  for (const recent of recentTitles) {
+    const recentPattern = extractTitleStructurePattern(recent);
+    if (recentPattern && recentPattern === candidatePattern) {
+      matchCount++;
+    }
+  }
+
+  if (matchCount >= maxRepetitions) {
+    return {
+      isRepetitive: true,
+      pattern: candidatePattern,
+      matchCount,
+      reason: `Title structure "${candidatePattern}" has been used in ${matchCount} recent articles (max allowed: ${maxRepetitions - 1}). Diverse editorial headlines are required.`,
+    };
+  }
+
+  return { isRepetitive: false, matchCount };
+}
 
 /**
  * Validates an article title against length, quality, and anti-formula rules.
  */
-export function validateTitle(title: string, options: { minLength?: number; maxLength?: number } = {}): { valid: boolean; errors: string[] } {
+export function validateTitle(
+  title: string,
+  options: { minLength?: number; maxLength?: number; recentTitles?: string[] } = {}
+): { valid: boolean; errors: string[] } {
   const errors: string[] = [];
   const trimmed = (title || '').trim();
   const minLength = options.minLength ?? 10;
@@ -94,6 +178,13 @@ export function validateTitle(title: string, options: { minLength?: number; maxL
     if (pattern.test(trimmed)) {
       errors.push(`Title matches formulaic template pattern: ${pattern.toString()}`);
       break;
+    }
+  }
+
+  if (options.recentTitles && options.recentTitles.length > 0) {
+    const repetition = detectRepetitiveTitlePattern(trimmed, options.recentTitles);
+    if (repetition.isRepetitive) {
+      errors.push(repetition.reason || 'Title uses a repetitive structural pattern.');
     }
   }
 

@@ -93,6 +93,7 @@ export interface EditorialValidationContext {
   tags?: string[];
   isAlreadyPublished?: boolean;
   isPerson?: boolean;
+  recentTitles?: string[];
 }
 
 export interface EditorialValidationOptions {

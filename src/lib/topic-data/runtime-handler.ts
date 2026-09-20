@@ -2,7 +2,7 @@ import { PILLAR_SLUGS, type PillarSlug } from '../../config/site.ts';
 import { TopicDataService, globalTopicDataService } from './service.ts';
 import type { DataDomain, TopicDataBlock } from './types/core.ts';
 
-export const CURRENT_DATA_DOMAINS: DataDomain[] = ['earthquakes', 'weather', 'air_quality'];
+export const CURRENT_DATA_DOMAINS: DataDomain[] = ['news', 'earthquakes', 'weather'];
 
 export function isCurrentDataDomain(domain: DataDomain): boolean {
   return CURRENT_DATA_DOMAINS.includes(domain);
@@ -49,11 +49,10 @@ export async function handleTopicDataApiRequest(
 
   const pillar = pillarParam as PillarSlug;
   const weatherApiKey = env.WEATHERAPI_API_KEY || (typeof process !== 'undefined' ? process.env?.WEATHERAPI_API_KEY : undefined);
-  const openAqApiKey = env.OPENAQ_API_KEY || (typeof process !== 'undefined' ? process.env?.OPENAQ_API_KEY : undefined);
 
   try {
     let blocks = await service.getTopicData(pillar, {
-      apiKey: weatherApiKey || openAqApiKey,
+      apiKey: weatherApiKey,
     });
 
     if (currentOnlyParam) {

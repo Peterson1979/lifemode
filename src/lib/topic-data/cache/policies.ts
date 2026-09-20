@@ -14,9 +14,9 @@ export const DOMAIN_FRESHNESS_POLICIES: Record<DataDomain, FreshnessTierConfig> 
     freshTtlSeconds: 30 * 60, // 30 minutes fresh
     graceTtlSeconds: 90 * 60, // 90 minutes stale grace (up to 2h total)
   },
-  air_quality: {
-    freshTtlSeconds: 30 * 60, // 30 minutes fresh
-    graceTtlSeconds: 90 * 60, // 90 minutes stale grace (up to 2h total)
+  news: {
+    freshTtlSeconds: 15 * 60, // 15 minutes fresh
+    graceTtlSeconds: 45 * 60, // 45 minutes stale grace (up to 1h total)
   },
 
   // Frequently updated reference data

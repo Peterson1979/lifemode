@@ -1,5 +1,5 @@
 ---
-title: "Sleep news: what to know"
+title: "The Latest Science on Sleep Quality, Dream Health, and Circadian Rhythms"
 description: "A clear guide to the latest science on sleep, light timing, and dream health, plus everyday steps to improve your nightly routine."
 pubDate: "2026-09-19T15:33:22.300Z"
 author: "LifeMode Editorial"

@@ -1,5 +1,5 @@
 ---
-title: "Weather NYC: what to know"
+title: "Understanding NYC's Shifting Weather: Heat Spikes, Storms, and Urban Prep"
 description: "Get the facts on New York’s latest heat waves, flash‑flood risks, and how the city’s climate is shifting – with clear, practical tips for staying safe."
 pubDate: "2026-09-16T11:00:13.792Z"
 author: "LifeMode Editorial"

@@ -5,7 +5,7 @@ import type {
   EditorialValidationResult,
   ValidatableArticle,
 } from './types.ts';
-import { countWords, FORMULAIC_TITLE_PATTERNS, GENERIC_EXCERPT_PATTERNS } from '../quality.ts';
+import { countWords, FORMULAIC_TITLE_PATTERNS, GENERIC_EXCERPT_PATTERNS, detectRepetitiveTitlePattern } from '../quality.ts';
 import { hasLeakedInternalMetadata } from '../sanitization.ts';
 import { VALID_PILLARS } from '../types.ts';
 import { isPersonTopic, PERSON_MIN_REQUIRED_SOURCES } from '../person-policy.ts';
@@ -241,6 +241,13 @@ export function validateEditorialArticle(
 
     if (isPerson && /^[A-Z][a-zà-ÿ]+(?:\s+[A-Z][a-zà-ÿ]+)+:\s*(?:what to know|what you should know)$/i.test(title)) {
       warnings.push(`Person-related article uses repetitive formulaic title pattern ("${title}"); varied editorial headlines are recommended.`);
+    }
+
+    if (context.recentTitles && context.recentTitles.length > 0) {
+      const repCheck = detectRepetitiveTitlePattern(title, context.recentTitles);
+      if (repCheck.isRepetitive) {
+        warnings.push(repCheck.reason || 'Article title matches a repetitive structural pattern used across recent articles.');
+      }
     }
   }
 

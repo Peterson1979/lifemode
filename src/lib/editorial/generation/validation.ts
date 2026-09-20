@@ -1,5 +1,5 @@
 import type { GeneratedArticle, GenerationRequest, GenerationValidationIssue, GenerationValidationReport } from './types.ts';
-import { countWords, FORMULAIC_TITLE_PATTERNS, GENERIC_EXCERPT_PATTERNS } from '../quality.ts';
+import { countWords, FORMULAIC_TITLE_PATTERNS, GENERIC_EXCERPT_PATTERNS, detectRepetitiveTitlePattern } from '../quality.ts';
 import { hasLeakedInternalMetadata } from '../sanitization.ts';
 import { validateEditorialArticle } from '../validation/validator.ts';
 
@@ -9,6 +9,7 @@ export interface ValidationRulesOptions {
   minWordCount?: number;
   requireH2?: boolean;
   disallowUnresolvedPlaceholders?: boolean;
+  recentTitles?: string[];
 }
 
 const DEFAULT_OPTIONS: ValidationRulesOptions = {
@@ -107,6 +108,18 @@ export function validateGeneratedArticle(
           severity: 'warning',
         });
         break;
+      }
+    }
+
+    if (opts.recentTitles && opts.recentTitles.length > 0) {
+      const repCheck = detectRepetitiveTitlePattern(title, opts.recentTitles);
+      if (repCheck.isRepetitive) {
+        issues.push({
+          field: 'title',
+          rule: 'REPETITIVE_TITLE_PATTERN',
+          message: repCheck.reason || 'Article title reuses a repetitive structural template.',
+          severity: 'warning',
+        });
       }
     }
   }

@@ -7,7 +7,7 @@ export * from './providers/base.ts';
 export * from './providers/earthquake.ts';
 export * from './providers/fx.ts';
 export * from './providers/weather.ts';
-export * from './providers/air-quality.ts';
+export * from './providers/news.ts';
 export * from './providers/economic.ts';
 export * from './providers/food.ts';
 export * from './providers/tech.ts';

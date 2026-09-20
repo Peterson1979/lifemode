@@ -4,10 +4,10 @@ import type { PillarSlug } from '../../../config/site.ts';
  * Supported data domains across the LifeMode Topic Data Layer.
  */
 export type DataDomain =
+  | 'news'
   | 'earthquakes'
   | 'weather'
   | 'fx'
-  | 'air_quality'
   | 'economic'
   | 'nutrition'
   | 'tech_activity'

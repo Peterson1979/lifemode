@@ -8,6 +8,7 @@ import type {
   AutomationStageResult,
 } from './types.ts';
 import type { EditorialTopic, PriorityTier, OpportunityType, PillarSlug } from '../types.ts';
+import { VALID_PILLARS } from '../types.ts';
 import { loadAutomationConfig } from './config.ts';
 import { runDiscoveryPipeline } from '../discovery/runner.ts';
 import { loadCandidates, saveCandidates, mergeCandidateTopic } from '../discovery/storage.ts';
@@ -458,9 +459,31 @@ export async function runEditorialAutomation(
     }
   }
 
+  const nowMs = Date.now();
   const existingPillarDistribution: Partial<Record<PillarSlug, number>> = {};
+  const latestPillarPubDate: Partial<Record<PillarSlug, number>> = {};
+
   for (const art of existingArticles) {
     existingPillarDistribution[art.pillar] = (existingPillarDistribution[art.pillar] || 0) + 1;
+    if (art.frontmatter?.pubDate) {
+      const pubMs = new Date(art.frontmatter.pubDate).getTime();
+      if (!isNaN(pubMs)) {
+        const currentLatest = latestPillarPubDate[art.pillar] || 0;
+        if (pubMs > currentLatest) {
+          latestPillarPubDate[art.pillar] = pubMs;
+        }
+      }
+    }
+  }
+
+  const existingPillarRecency: Partial<Record<PillarSlug, number>> = {};
+  for (const pillar of VALID_PILLARS) {
+    const latestMs = latestPillarPubDate[pillar];
+    if (latestMs) {
+      existingPillarRecency[pillar] = Math.max(0, (nowMs - latestMs) / (1000 * 60 * 60 * 24));
+    } else {
+      existingPillarRecency[pillar] = 30; // Unrepresented pillar receives maximum recency priority
+    }
   }
 
   // Load performance feedback signals if available
@@ -481,6 +504,7 @@ export async function runEditorialAutomation(
     minScoreThreshold: config.minScoreThreshold,
     totalLimit: config.maxOpportunities,
     existingPillarDistribution,
+    existingPillarRecency,
     enablePillarBalancing: true,
     feedbackSignals,
   });

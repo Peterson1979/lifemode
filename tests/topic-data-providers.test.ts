@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { UsgsEarthquakeProvider } from '../src/lib/topic-data/providers/earthquake.ts';
 import { FrankfurterFxProvider } from '../src/lib/topic-data/providers/fx.ts';
 import { WeatherApiProvider } from '../src/lib/topic-data/providers/weather.ts';
-import { OpenAqAirQualityProvider } from '../src/lib/topic-data/providers/air-quality.ts';
+import { FreeNewsApiProvider } from '../src/lib/topic-data/providers/news.ts';
 import { WorldBankEconomicProvider } from '../src/lib/topic-data/providers/economic.ts';
 import { UsdaFoodDataProvider } from '../src/lib/topic-data/providers/food.ts';
 import { GitHubTechActivityProvider } from '../src/lib/topic-data/providers/tech.ts';
@@ -208,38 +208,70 @@ test('6. WeatherAPI Provider: Rejects invalid or error response gracefully', asy
   assert.equal(block.error.code, 'UNAUTHORIZED');
 });
 
-test('7. OpenAQ Air Quality Provider: Computes EPA AQI category and PM2.5 readings', async () => {
+test('7. FreeNewsAPI Provider: Normalizes headline, publisher, publishedAt, URL, and filters duplicates', async () => {
   const cache = new TopicDataCache();
-  const provider = new OpenAqAirQualityProvider(cache);
+  const provider = new FreeNewsApiProvider(cache);
 
-  const mockOpenAq = {
-    results: [
+  const mockNews = {
+    status: 'success',
+    totalResults: 3,
+    articles: [
       {
-        city: 'Tokyo',
-        country: 'JP',
-        measurements: [
-          {
-            parameter: 'pm25',
-            value: 9.2,
-            lastUpdated: '2026-09-19T13:30:00Z',
-          },
-        ],
+        title: 'Global Renewable Energy Reaches New Milestone in 2026',
+        source: { name: 'Reuters' },
+        publishedAt: '2026-09-20T08:30:00Z',
+        url: 'https://reuters.com/business/energy/global-renewable-energy-2026-09-20',
+        description: 'Solar and wind output expanded by 22% year-over-year according to latest agency report.',
+      },
+      {
+        // Duplicate URL/title test
+        title: 'Global Renewable Energy Reaches New Milestone in 2026',
+        source: { name: 'Reuters News' },
+        publishedAt: '2026-09-20T08:35:00Z',
+        url: 'https://reuters.com/business/energy/global-renewable-energy-2026-09-20',
+        description: 'Duplicate article snippet.',
+      },
+      {
+        title: 'Urban Architecture Embraces Natural Timber and Calm Spaces',
+        source: { name: 'Architectural Digest' },
+        publishedAt: '2026-09-20T07:15:00Z',
+        url: 'https://architecturaldigest.com/story/timber-urban-design-2026',
+        description: 'Modern metropolitan builds increasingly prioritize biophilic mass timber over bare concrete.',
       },
     ],
   };
 
   const block = await provider.getDataBlock({
-    customFetch: createMockFetch(mockOpenAq),
+    customFetch: createMockFetch(mockNews),
     forceFresh: true,
   });
 
   assert.equal(block.status, 'available');
-  assert.equal(block.domain, 'air_quality');
+  assert.equal(block.domain, 'news');
+  assert.equal(block.source.id, 'freenewsapi');
   assert.ok(block.data);
-  assert.equal(block.data.readings.length, 1);
-  assert.equal(block.data.readings[0].city, 'Tokyo');
-  assert.equal(block.data.readings[0].pm25, 9.2);
-  assert.equal(block.data.readings[0].aqiCategory, 'Good');
+  // Duplicate should be filtered out (2 items remaining)
+  assert.equal(block.data.items.length, 2);
+  assert.equal(block.data.items[0].title, 'Global Renewable Energy Reaches New Milestone in 2026');
+  assert.equal(block.data.items[0].publisher, 'Reuters');
+  assert.equal(block.data.items[0].url, 'https://reuters.com/business/energy/global-renewable-energy-2026-09-20');
+  assert.ok(block.data.items[0].snippet?.includes('Solar and wind'));
+  assert.equal(block.data.items[1].publisher, 'Architectural Digest');
+  assert.ok(block.freshness.sourceUpdatedAt);
+});
+
+test('7b. FreeNewsAPI Provider: Handles empty or invalid response gracefully without fabricating news', async () => {
+  const cache = new TopicDataCache();
+  const provider = new FreeNewsApiProvider(cache);
+
+  const block = await provider.getDataBlock({
+    customFetch: createMockFetch({ status: 'error', message: 'Rate limit exceeded' }, 429),
+    forceFresh: true,
+  });
+
+  assert.equal(block.status, 'unavailable');
+  assert.equal(block.data, null);
+  assert.ok(block.error);
 });
 
 test('8. World Bank Economic Provider: Normalizes multi-country inflation indicators', async () => {

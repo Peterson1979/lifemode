@@ -128,8 +128,9 @@ export function isPersonTopic(input: PersonDetectionInput): boolean {
 const NON_PERSON_CONCEPT_WORDS = new Set([
   'guide', 'modern', 'series', 'watch', 'flight', 'islands', 'habits', 'living',
   'report', 'study', 'model', 'models', 'test', 'review', 'tech', 'architecture',
+  'architectural', 'timber', 'pavilion', 'pavilions', 'structure', 'structures', 'building',
   'spaces', 'workspaces', 'design', 'minimalist', 'mindful', 'audio', 'coastal',
-  'retreats', 'interiors', 'gardens', 'lighting', 'coffee', 'keyboards', 'desk',
+  'retreat', 'retreats', 'interiors', 'gardens', 'lighting', 'coffee', 'keyboards', 'desk',
   'quantum', 'entanglement', 'computing', 'physics', 'science', 'learning',
   'intelligence', 'network', 'networks', 'system', 'systems', 'memory', 'solitude',
   'focus', 'ritual', 'rituals', 'sleep', 'morning', 'movement', 'walking', 'health',
@@ -137,7 +138,16 @@ const NON_PERSON_CONCEPT_WORDS = new Set([
   'acoustics', 'sound', 'photography', 'camera', 'analog', 'digital', 'journaling',
   'tea', 'espresso', 'brewing', 'fermentation', 'recipes', 'cooking', 'dining',
   'travel', 'hotel', 'hotels', 'stays', 'beaches', 'mountains', 'trails', 'resorts',
-  'cities', 'culture', 'history', 'trends', 'signal', 'signals', 'zeitgeist',
+  'cities', 'culture', 'history', 'trends', 'signal', 'signals', 'zeitgeist', 'destination', 'destinations',
+  'solar', 'microgrid', 'resilience', 'energy', 'power', 'grid', 'climate', 'sustainability', 'sustainable',
+  'environment', 'environmental', 'urban', 'house', 'housing', 'heating', 'cooling', 'residential',
+  'geothermal', 'workstation', 'biophilic', 'workspace', 'calm', 'technology', 'devices', 'device',
+  'app', 'apps', 'cloud', 'automation', 'tools', 'tool', 'setup', 'setups', 'workflow', 'workflows',
+  'market', 'markets', 'economy', 'economic', 'finance', 'financial', 'investing', 'investment',
+  'funds', 'stocks', 'stock', 'wealth', 'money', 'crypto', 'estate', 'property', 'topic', 'topics',
+  'daily', 'first', 'second', 'third', 'forced', 'additional', 'attempt', 'project', 'editorial',
+  'weather', 'storm', 'storms', 'rainfall', 'temperature', 'forecast', 'forecasts', 'heat', 'waves',
+  'craft', 'artisan', 'minimalism', 'gear', 'essentials', 'routine', 'routines', 'practice', 'practices',
 ]);
 
   // 5. Named-entity heuristic:
@@ -216,7 +226,7 @@ export function generatePersonTitle(personName: string, context: PersonTitleCont
   const templates: Array<(name: string) => string> = [
     (n) => `Who Is ${n}? Career, Background and More`,
     (n) => `${n}: Career, Background and Latest Updates`,
-    (n) => `${n}: Career Highlights, Background and What to Know`,
+    (n) => `${n}: Career Highlights, Context and Current Work`,
     (n) => `Inside ${n}’s Career: Key Milestones and Background`,
     (n) => `${n}: Background, Career Journey and Recent Context`,
     (n) => `Who Is ${n}? Background, Milestones and Latest Overview`,

@@ -91,9 +91,15 @@ test('2. Failure Isolation: One provider failure does not break the other topic 
     maxRetries: 0,
   });
 
-  assert.equal(blocks.length, 3); // now has 3 providers: earthquakes, weather, air quality
-  const earthquakeBlock = blocks.find((b) => b.domain === 'earthquakes');
-  const weatherBlock = blocks.find((b) => b.domain === 'weather');
+  assert.equal(blocks.length, 3); // now has 3 providers: news, weather, earthquakes
+  const newsBlock = blocks[0];
+  const weatherBlock = blocks[1];
+  const earthquakeBlock = blocks[2];
+
+  // News must always be the first displayed data block in Now
+  assert.equal(newsBlock.domain, 'news', 'First block in Now must be News');
+  assert.equal(weatherBlock.domain, 'weather', 'Second block in Now must be Weather');
+  assert.equal(earthquakeBlock.domain, 'earthquakes', 'Third block in Now must be Earthquakes');
 
   assert.ok(earthquakeBlock);
   assert.equal(earthquakeBlock?.status, 'unavailable');
