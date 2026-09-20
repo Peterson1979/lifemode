@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-20T10:47:19.198Z",
+    "updatedAt": "2026-09-20T15:35:21.546Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1397,7 +1397,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-20T10:47:19.200Z",
+    "updatedAt": "2026-09-20T15:35:21.548Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1458,7 +1458,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-20T10:47:19.202Z",
+    "updatedAt": "2026-09-20T15:35:21.549Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1519,7 +1519,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-20T10:47:19.204Z",
+    "updatedAt": "2026-09-20T15:35:21.551Z",
     "revisionCyclesCount": 0
   },
   {
@@ -49709,7 +49709,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-20T10:47:19.233Z",
+    "updatedAt": "2026-09-20T15:35:21.580Z",
     "pinterestScore": 85.6,
     "revisionCyclesCount": 0
   },
@@ -49772,7 +49772,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-20T10:47:19.264Z",
+    "updatedAt": "2026-09-20T15:35:21.612Z",
     "pinterestScore": 84.8,
     "revisionCyclesCount": 0
   },
@@ -51828,9 +51828,10 @@
     "totalScore": 82.7,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-20T10:47:18.588Z",
-    "pinterestScore": 85.3
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-20T15:36:32.242Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260920-daycare",
@@ -53350,5 +53351,1301 @@
     "status": "SCORED",
     "updatedAt": "2026-09-20T10:47:19.193Z",
     "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-now-20260920-fenerbahe",
+    "canonicalTopic": "Fenerbahe",
+    "slug": "fenerbahe",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-fenerbahC3A7e",
+        "query": "Fenerbahe",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-20T15:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-20T15:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "fenerbahçe",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "fenerbahe"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-20T15:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-20T15:35:21.082Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260920-joe-burrow",
+    "canonicalTopic": "Joe Burrow",
+    "slug": "joe-burrow",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-joe20burrow",
+        "query": "Joe Burrow",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-20T15:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-20T15:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "joe burrow",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "joe burrow"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-20T15:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-20T15:35:21.105Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260920-chris-olave",
+    "canonicalTopic": "Chris Olave",
+    "slug": "chris-olave",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-chris20olave",
+        "query": "Chris Olave",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-20T14:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-20T14:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "chris olave",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "chris olave"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-20T14:50:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-20T15:35:21.121Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260920-indiana-fever-schedule",
+    "canonicalTopic": "Indiana Fever Schedule",
+    "slug": "indiana-fever-schedule",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-indiana20fever20s",
+        "query": "Indiana Fever Schedule",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-20T14:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-20T14:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "indiana fever schedule",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "indiana fever schedule"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-20T14:50:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-20T15:35:21.140Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260920-ladd-mcconkey",
+    "canonicalTopic": "Ladd Mcconkey",
+    "slug": "ladd-mcconkey",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-ladd20mcconkey",
+        "query": "Ladd Mcconkey",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-20T14:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-20T14:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "ladd mcconkey",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ladd mcconkey"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-20T14:50:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-20T15:35:21.159Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260920-kc-chiefs-schedule",
+    "canonicalTopic": "Kc Chiefs Schedule",
+    "slug": "kc-chiefs-schedule",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-kc20chiefs20sched",
+        "query": "Kc Chiefs Schedule",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-20T14:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-20T14:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "kc chiefs schedule",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "kc chiefs schedule"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-20T14:50:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-20T15:35:21.174Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260920-ravens-schedule",
+    "canonicalTopic": "Ravens Schedule",
+    "slug": "ravens-schedule",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-ravens20schedule",
+        "query": "Ravens Schedule",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-20T14:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-20T14:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "ravens schedule",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ravens schedule"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-20T14:50:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-20T15:35:21.194Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260920-cory-booker",
+    "canonicalTopic": "Cory Booker",
+    "slug": "cory-booker",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-cory20booker",
+        "query": "Cory Booker",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-20T14:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-20T14:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "cory booker",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "cory booker"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-20T14:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-20T15:35:21.217Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260920-andy-beshear",
+    "canonicalTopic": "Andy Beshear",
+    "slug": "andy-beshear",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-andy20beshear",
+        "query": "Andy Beshear",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-20T14:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-20T14:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "andy beshear",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "andy beshear"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-20T14:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-20T15:35:21.235Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260920-mustafa-suleyman",
+    "canonicalTopic": "Mustafa Suleyman",
+    "slug": "mustafa-suleyman",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-mustafa20suleyma",
+        "query": "Mustafa Suleyman",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-20T14:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-20T14:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "mustafa suleyman",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "mustafa suleyman"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-20T14:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-20T15:35:21.251Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-tech-ai-20260920-an-undercover-google-analyst-i",
+    "canonicalTopic": "An Undercover Google Analyst Infiltrated a Notorious Supply-chain Hacking Gang",
+    "slug": "an-undercover-google-analyst-infiltrated-a-notorious-supply-chain-hacking-gang",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-1-An20undercover20Google",
+        "query": "An Undercover Google Analyst Infiltrated a Notorious Supply-chain Hacking Gang",
+        "sourceUrl": "https://arstechnica.com/security/2026/09/an-undercover-google-analyst-infiltrated-a-notorious-supply-chain-hacking-gang/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-20T11:07:00.000Z",
+        "contentSnippet": "Google’s threat intelligence group said it had a mole inside TeamPCP's inner circle.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-20T11:07:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "An undercover Google analyst infiltrated a notorious supply-chain hacking gang",
+            "itemLink": "https://arstechnica.com/security/2026/09/an-undercover-google-analyst-infiltrated-a-notorious-supply-chain-hacking-gang/",
+            "publishedDate": "2026-09-20T11:07:00.000Z",
+            "contentSnippet": "Google’s threat intelligence group said it had a mole inside TeamPCP's inner circle.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Biz & IT",
+              "Google",
+              "Security",
+              "Mole",
+              "supply chain attack",
+              "supply chain hacking",
+              "syndication",
+              "teampcp"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Biz & IT",
+            "Google",
+            "Security",
+            "Mole",
+            "supply chain attack",
+            "supply chain hacking",
+            "syndication",
+            "teampcp"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "an undercover google analyst infiltrated a notorious supply-chain hacking gang"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-20T11:07:00.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Biz & IT",
+      "Google",
+      "Security",
+      "Mole",
+      "supply chain attack",
+      "supply chain hacking",
+      "syndication",
+      "teampcp"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-20T15:35:21.295Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260920-dont-call-it-an-suv-the-ferrar",
+    "canonicalTopic": "Dont Call It an Suv the Ferrari Purosangue Review",
+    "slug": "dont-call-it-an-suv-the-ferrari-purosangue-review",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-2-Dont20call20it20an20SUV",
+        "query": "Dont Call It an Suv the Ferrari Purosangue Review",
+        "sourceUrl": "https://arstechnica.com/cars/2026/09/dont-call-it-an-suv-the-ferrari-purosangue-review/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-20T10:00:02.000Z",
+        "contentSnippet": "Unlike previous Ferrari four-seaters, this one is better for humans than cargo.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-20T10:00:02.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Don't call it an SUV: The Ferrari Purosangue review",
+            "itemLink": "https://arstechnica.com/cars/2026/09/dont-call-it-an-suv-the-ferrari-purosangue-review/",
+            "publishedDate": "2026-09-20T10:00:02.000Z",
+            "contentSnippet": "Unlike previous Ferrari four-seaters, this one is better for humans than cargo.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Cars",
+              "car review",
+              "Ferrari Purosangue"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Cars",
+            "car review",
+            "Ferrari Purosangue"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dont call it an suv the ferrari purosangue review"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-20T10:00:02.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Cars",
+      "car review",
+      "Ferrari Purosangue"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-20T15:35:21.328Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260920-a24s-reputation-is-on-the-line",
+    "canonicalTopic": "A24s Reputation Is on the Line with the Scp Foundation Movie",
+    "slug": "a24s-reputation-is-on-the-line-with-the-scp-foundation-movie",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-A24E28099s20reputation20is20",
+        "query": "A24s Reputation Is on the Line with the Scp Foundation Movie",
+        "sourceUrl": "https://www.theverge.com/entertainment/997853/a24-scp-movie-creative-commons-license",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-20T12:45:48.000Z",
+        "contentSnippet": "After the success of Backrooms, it looks like A24 is trying to cash in on yet another internet horror craze with a new installment in the V/H/S horror anthology series set in the SCP Foundation universe. But as soon as it was announced, the backlash started, and V/H/S: SCP already appears to be on shaky […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-20T12:45:48.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "A24’s reputation is on the line with the SCP Foundation movie",
+            "itemLink": "https://www.theverge.com/entertainment/997853/a24-scp-movie-creative-commons-license",
+            "publishedDate": "2026-09-20T12:45:48.000Z",
+            "contentSnippet": "After the success of Backrooms, it looks like A24 is trying to cash in on yet another internet horror craze with a new installment in the V/H/S horror anthology series set in the SCP Foundation universe. But as soon as it was announced, the backlash started, and V/H/S: SCP already appears to be on shaky […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Culture",
+              "Entertainment",
+              "Film",
+              "Internet Culture",
+              "Report"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Culture",
+            "Entertainment",
+            "Film",
+            "Internet Culture",
+            "Report"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "a24s reputation is on the line with the scp foundation movie"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-20T12:45:48.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Culture",
+      "Entertainment",
+      "Film",
+      "Internet Culture",
+      "Report"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-20T15:35:21.365Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260920-a-great-new-video-game-movie",
+    "canonicalTopic": "A Great New Video Game Movie",
+    "slug": "a-great-new-video-game-movie",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-A20great20new20video20ga",
+        "query": "A Great New Video Game Movie",
+        "sourceUrl": "https://www.theverge.com/tech/997322/resident-evil-steam-frame-fire-emblem-fortunes-weave",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-20T12:00:00.000Z",
+        "contentSnippet": "Hi, friends! Welcome to Installer No. 144, your guide to the best and Verge-iest stuff in the world. (If you're new here, welcome, new tech season is here, and also you can read all the old editions at the Installer homepage.) This week, I flew out to Los Angeles to try on and write about […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-20T12:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "A great new video game movie",
+            "itemLink": "https://www.theverge.com/tech/997322/resident-evil-steam-frame-fire-emblem-fortunes-weave",
+            "publishedDate": "2026-09-20T12:00:00.000Z",
+            "contentSnippet": "Hi, friends! Welcome to Installer No. 144, your guide to the best and Verge-iest stuff in the world. (If you're new here, welcome, new tech season is here, and also you can read all the old editions at the Installer homepage.) This week, I flew out to Los Angeles to try on and write about […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Installer",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Installer",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "a great new video game movie"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-20T12:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Installer",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-20T15:35:21.387Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260920-the-hidden-monopoly-behind-you",
+    "canonicalTopic": "The Hidden Monopoly Behind Your Ti Graphing Calculator",
+    "slug": "the-hidden-monopoly-behind-your-ti-graphing-calculator",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-The20hidden20monopoly20",
+        "query": "The Hidden Monopoly Behind Your Ti Graphing Calculator",
+        "sourceUrl": "https://www.theverge.com/podcast/997725/the-hidden-monopoly-behind-your-ti-graphing-calculator",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-20T12:00:00.000Z",
+        "contentSnippet": "The same calculator has been on most kids' back to school shopping list since the early 2000's and the dominance of Texas Instruments' calculator division goes back even farther. In the next episode of Version History, David Pierce is joined by The Verge's Nilay Patel and Victoria Song to tell the story of TI graphing […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-20T12:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "The hidden monopoly behind your TI graphing calculator",
+            "itemLink": "https://www.theverge.com/podcast/997725/the-hidden-monopoly-behind-your-ti-graphing-calculator",
+            "publishedDate": "2026-09-20T12:00:00.000Z",
+            "contentSnippet": "The same calculator has been on most kids' back to school shopping list since the early 2000's and the dominance of Texas Instruments' calculator division goes back even farther. In the next episode of Version History, David Pierce is joined by The Verge's Nilay Patel and Victoria Song to tell the story of TI graphing […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Podcasts",
+              "Version History"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Podcasts",
+            "Version History"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the hidden monopoly behind your ti graphing calculator"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-20T12:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Podcasts",
+      "Version History"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-20T15:35:21.420Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260920-humans-not-rogue-ai-are-still-",
+    "canonicalTopic": "Humans Not Rogue Ai Are Still the Biggest Cybersecurity Risk to Energy Systems",
+    "slug": "humans-not-rogue-ai-are-still-the-biggest-cybersecurity-risk-to-energy-systems",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-4-Humans2C20not20rogue20AI",
+        "query": "Humans Not Rogue Ai Are Still the Biggest Cybersecurity Risk to Energy Systems",
+        "sourceUrl": "https://www.theverge.com/science/997834/ai-cyberattack-energy-critical-infrastructure",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-20T12:00:00.000Z",
+        "contentSnippet": "Before recent high-profile hacks raised the specter of AI possibly \"killing all humans,\" our energy systems were already disturbingly vulnerable to cyberattack - and the risk is growing. \"We were always prey. We were just kind of surviving at the appetite of our predators,\" Joshua Corman, executive in residence for public safety and resilience at […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-20T12:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Humans, not rogue AI, are still the biggest cybersecurity risk to energy systems",
+            "itemLink": "https://www.theverge.com/science/997834/ai-cyberattack-energy-critical-infrastructure",
+            "publishedDate": "2026-09-20T12:00:00.000Z",
+            "contentSnippet": "Before recent high-profile hacks raised the specter of AI possibly \"killing all humans,\" our energy systems were already disturbingly vulnerable to cyberattack - and the risk is growing. \"We were always prey. We were just kind of surviving at the appetite of our predators,\" Joshua Corman, executive in residence for public safety and resilience at […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "Energy",
+              "Policy",
+              "Science"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "Energy",
+            "Policy",
+            "Science"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "humans not rogue ai are still the biggest cybersecurity risk to energy systems"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-20T12:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "Energy",
+      "Policy",
+      "Science"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-20T15:35:21.463Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260920-all-roads-lead-to-cable",
+    "canonicalTopic": "All Roads Lead to Cable",
+    "slug": "all-roads-lead-to-cable",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-5-All20roads20lead20to20ca",
+        "query": "All Roads Lead to Cable",
+        "sourceUrl": "https://www.theverge.com/column/997843/streamers-cable-fast-channels",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-20T12:00:00.000Z",
+        "contentSnippet": "This is The Stepback, a weekly newsletter breaking down one essential story from the tech world. For more on streaming platforms, FAST channels, and the future of entertainment, follow Charles Pulliam-Moore. The Stepback arrives in our subscribers' inboxes at 8AM ET. Opt in for The Stepback here. How it started Before Netflix fully committed to […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-20T12:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "All roads lead to cable",
+            "itemLink": "https://www.theverge.com/column/997843/streamers-cable-fast-channels",
+            "publishedDate": "2026-09-20T12:00:00.000Z",
+            "contentSnippet": "This is The Stepback, a weekly newsletter breaking down one essential story from the tech world. For more on streaming platforms, FAST channels, and the future of entertainment, follow Charles Pulliam-Moore. The Stepback arrives in our subscribers' inboxes at 8AM ET. Opt in for The Stepback here. How it started Before Netflix fully committed to […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Column",
+              "Streaming",
+              "The Stepback"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Column",
+            "Streaming",
+            "The Stepback"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "all roads lead to cable"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-20T12:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Column",
+      "Streaming",
+      "The Stepback"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-20T15:35:21.482Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260920-trump-says-his-planned-triumph",
+    "canonicalTopic": "Trump Says His Planned Triumphal Arch Will Double As a Military Complex to Store Ammunition",
+    "slug": "trump-says-his-planned-triumphal-arch-will-double-as-a-military-complex-to-store-ammunition",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-4-Trump20says20his20plann",
+        "query": "Trump Says His Planned Triumphal Arch Will Double As a Military Complex to Store Ammunition",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cqdj4pez00dzo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-20T13:50:51.000Z",
+        "contentSnippet": "Trump said the updated plans were at the request of the US military and for national security purposes.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-20T13:50:51.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Trump says his planned triumphal arch will double as a military complex to store ammunition",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cqdj4pez00dzo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-20T13:50:51.000Z",
+            "contentSnippet": "Trump said the updated plans were at the request of the US military and for national security purposes.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "trump says his planned triumphal arch will double as a military complex to store ammunition"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-20T13:50:51.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-20T15:35:21.538Z",
+    "pinterestScore": 79.2
   }
 ]
