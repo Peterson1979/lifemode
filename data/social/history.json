@@ -208,5 +208,40 @@
     "overallStatus": "COMPLETED",
     "createdAt": "2026-09-19T16:01:37.912Z",
     "updatedAt": "2026-09-19T16:01:37.912Z"
+  },
+  {
+    "runId": "srun-1789921543643-cpujd",
+    "topicId": "lm-money-20260920-fidelity-bitcoin",
+    "pillar": "money",
+    "canonicalTopic": "Who is Fidelity Bitcoin? Background, milestones, and latest overview",
+    "contentHash": "c973f399263a9690f433aa3427d2befc3954998475e4508c1758c98781e22688",
+    "assetHash": "9c10be39b6359d2a14b47e7d59b62bb92464ba05041d0c9c269ea415f67f7c3d",
+    "idempotencyKey": "lm-soc-lm-money-20260920-fidelity-bitcoin-c973f399",
+    "targetPlatforms": [
+      "instagram",
+      "facebook"
+    ],
+    "platformResults": {
+      "instagram": {
+        "platform": "instagram",
+        "status": "PUBLISHED",
+        "postId": "18140981494593723",
+        "postUrl": "https://instagram.com/p/18140981494593723",
+        "publishedAt": "2026-09-20T16:25:50.485Z",
+        "idempotencyKey": "lm-soc-lm-money-20260920-fidelity-bitcoin-instagram-862aa06d88da"
+      },
+      "facebook": {
+        "platform": "facebook",
+        "status": "PUBLISHED",
+        "postId": "122321457368197726",
+        "postUrl": "https://facebook.com/122321457368197726",
+        "publishedAt": "2026-09-20T16:26:02.266Z",
+        "idempotencyKey": "lm-soc-lm-money-20260920-fidelity-bitcoin-facebook-38f2632ab367"
+      }
+    },
+    "reviewScore": 90,
+    "overallStatus": "COMPLETED",
+    "createdAt": "2026-09-20T16:26:08.724Z",
+    "updatedAt": "2026-09-20T16:26:08.724Z"
   }
 ]
