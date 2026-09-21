@@ -243,5 +243,40 @@
     "overallStatus": "COMPLETED",
     "createdAt": "2026-09-20T16:26:08.724Z",
     "updatedAt": "2026-09-20T16:26:08.724Z"
+  },
+  {
+    "runId": "srun-1790014666400-tnp0j",
+    "topicId": "lm-now-20260910-deepseek-v41-flash",
+    "pillar": "now",
+    "canonicalTopic": "Deepseek V41 Flash: what to know",
+    "contentHash": "cd8ef459c024eddfa0bb671c45b0d4439ff599d6369b46318ab4918d2b6c6b9f",
+    "assetHash": "0c7c36412675a49faebb4642394fd64f2c3d3bdb38eddeee19e1e5c8ed11d484",
+    "idempotencyKey": "lm-soc-lm-now-20260910-deepseek-v41-flash-cd8ef459",
+    "targetPlatforms": [
+      "instagram",
+      "facebook"
+    ],
+    "platformResults": {
+      "instagram": {
+        "platform": "instagram",
+        "status": "PUBLISHED",
+        "postId": "18124087382507662",
+        "postUrl": "https://instagram.com/p/18124087382507662",
+        "publishedAt": "2026-09-21T18:17:52.376Z",
+        "idempotencyKey": "lm-soc-lm-now-20260910-deepseek-v41-flash-instagram-82a9f74f1fd0"
+      },
+      "facebook": {
+        "platform": "facebook",
+        "status": "PUBLISHED",
+        "postId": "122321665550197726",
+        "postUrl": "https://facebook.com/122321665550197726",
+        "publishedAt": "2026-09-21T18:18:02.002Z",
+        "idempotencyKey": "lm-soc-lm-now-20260910-deepseek-v41-flash-facebook-1b74987e1591"
+      }
+    },
+    "reviewScore": 90,
+    "overallStatus": "COMPLETED",
+    "createdAt": "2026-09-21T18:18:08.654Z",
+    "updatedAt": "2026-09-21T18:18:08.654Z"
   }
 ]
