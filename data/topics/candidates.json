@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-20T15:35:21.546Z",
+    "updatedAt": "2026-09-21T12:11:45.570Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1397,7 +1397,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-20T15:35:21.548Z",
+    "updatedAt": "2026-09-21T12:11:45.572Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1458,7 +1458,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-20T15:35:21.549Z",
+    "updatedAt": "2026-09-21T12:11:45.574Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1519,7 +1519,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-20T15:35:21.551Z",
+    "updatedAt": "2026-09-21T12:11:45.575Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1700,8 +1700,8 @@
     "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-10T08:51:25.022Z",
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-21T12:17:09.261Z",
     "pinterestScore": 85.3,
     "revisionCyclesCount": 0
   },
@@ -8452,8 +8452,8 @@
     "totalScore": 85.4,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-11T07:28:52.787Z",
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-21T12:15:01.352Z",
     "pinterestScore": 85.3,
     "revisionCyclesCount": 0
   },
@@ -49709,7 +49709,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-20T15:35:21.580Z",
+    "updatedAt": "2026-09-21T12:11:45.604Z",
     "pinterestScore": 85.6,
     "revisionCyclesCount": 0
   },
@@ -49772,7 +49772,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-20T15:35:21.612Z",
+    "updatedAt": "2026-09-21T12:11:45.636Z",
     "pinterestScore": 84.8,
     "revisionCyclesCount": 0
   },
@@ -51706,9 +51706,10 @@
     "totalScore": 84,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-20T10:47:18.556Z",
-    "pinterestScore": 88.3
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-21T12:12:55.548Z",
+    "pinterestScore": 88.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260920-act",
@@ -54647,5 +54648,2430 @@
     "status": "SCORED",
     "updatedAt": "2026-09-20T15:35:21.538Z",
     "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-now-20260921-pelican",
+    "canonicalTopic": "Pelican",
+    "slug": "pelican",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-pelican",
+        "query": "Pelican",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-21T11:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-21T11:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "pelican",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "pelican"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T11:50:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-21T12:11:44.531Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260921-adam-sandler",
+    "canonicalTopic": "Adam Sandler",
+    "slug": "adam-sandler",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-adam20sandler",
+        "query": "Adam Sandler",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-21T11:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-21T11:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "adam sandler",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "adam sandler"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T11:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-21T12:11:44.557Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260921-nws",
+    "canonicalTopic": "Nws",
+    "slug": "nws",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-nws",
+        "query": "Nws",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-21T11:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-21T11:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "nws",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "nws"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T11:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-21T12:11:44.569Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260921-fat-bear-week",
+    "canonicalTopic": "Fat Bear Week",
+    "slug": "fat-bear-week",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-fat20bear20week",
+        "query": "Fat Bear Week",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-21T11:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-21T11:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "fat bear week",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "fat bear week"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T11:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-21T12:11:44.586Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260921-noaa",
+    "canonicalTopic": "Noaa",
+    "slug": "noaa",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-noaa",
+        "query": "Noaa",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-21T11:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-21T11:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "noaa",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "noaa"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T11:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-21T12:11:44.601Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260921-giants-vs-rams",
+    "canonicalTopic": "Giants Vs Rams",
+    "slug": "giants-vs-rams",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-giants20vs20rams",
+        "query": "Giants Vs Rams",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-21T11:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-21T11:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "giants vs rams",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "giants vs rams"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T11:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-21T12:11:44.621Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260921-silent-hill-townfall",
+    "canonicalTopic": "Silent Hill Townfall",
+    "slug": "silent-hill-townfall",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-silent20hill20tow",
+        "query": "Silent Hill Townfall",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-21T11:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-21T11:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "silent hill townfall",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "silent hill townfall"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T11:10:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-21T12:11:44.642Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260921-fall",
+    "canonicalTopic": "Fall",
+    "slug": "fall",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-fall",
+        "query": "Fall",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-21T10:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-21T10:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "fall",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "fall"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T10:50:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-21T12:11:44.652Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260921-fidelity-investments",
+    "canonicalTopic": "Fidelity Investments",
+    "slug": "fidelity-investments",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-fidelity20invest",
+        "query": "Fidelity Investments",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-21T10:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-21T10:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "fidelity investments",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "fidelity investments"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T10:40:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-21T12:11:44.671Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260921-strands-hint",
+    "canonicalTopic": "Strands Hint",
+    "slug": "strands-hint",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-strands20hint",
+        "query": "Strands Hint",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-21T10:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-21T10:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "strands hint",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "strands hint"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T10:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-21T12:11:44.684Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-tech-ai-20260921-teardown-details-the-iphone-18",
+    "canonicalTopic": "Teardown Details the Iphone 18 Pros Mechanical Camera",
+    "slug": "teardown-details-the-iphone-18-pros-mechanical-camera",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-Teardown20details20the",
+        "query": "Teardown Details the Iphone 18 Pros Mechanical Camera",
+        "sourceUrl": "https://www.theverge.com/tech/998108/apple-iphone-18-pro-max-camera-ifixit-teardown",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-21T10:57:27.000Z",
+        "contentSnippet": "iFixit's latest device teardown shows us the inner workings of the new variable aperture lens inside Apple's iPhone 18 Pro and 18 Pro Max, alongside some repair concerns to be mindful of. The adjustable mechanical iris opens and closes magnetically, controlling how much light should pass through to the sensor, featuring six leaf-like overlapping blades […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-21T10:57:27.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Teardown details the iPhone 18 Pro’s mechanical camera",
+            "itemLink": "https://www.theverge.com/tech/998108/apple-iphone-18-pro-max-camera-ifixit-teardown",
+            "publishedDate": "2026-09-21T10:57:27.000Z",
+            "contentSnippet": "iFixit's latest device teardown shows us the inner workings of the new variable aperture lens inside Apple's iPhone 18 Pro and 18 Pro Max, alongside some repair concerns to be mindful of. The adjustable mechanical iris opens and closes magnetically, controlling how much light should pass through to the sensor, featuring six leaf-like overlapping blades […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Apple",
+              "iPhone",
+              "News",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Apple",
+            "iPhone",
+            "News",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "teardown details the iphone 18 pros mechanical camera"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T10:57:27.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Apple",
+      "iPhone",
+      "News",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-21T12:11:44.721Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260921-un-says-ai-safeguards-cant-wai",
+    "canonicalTopic": "Un Says Ai Safeguards Cant Wait for Certainty",
+    "slug": "un-says-ai-safeguards-cant-wait-for-certainty",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-UN20says20AI20safeguard",
+        "query": "Un Says Ai Safeguards Cant Wait for Certainty",
+        "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/998090/un-ai-panel-hugging-face-hack-precautionary-principle",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-21T10:18:06.000Z",
+        "contentSnippet": "Governments need to rein in increasingly capable AI agents before their risks are fully understood, a United Nations scientific panel warned in the global organization's first major assessment of OpenAI's hack of Hugging Face earlier this year. The report cements AI's place on the global diplomatic agenda this week as leaders gather in New York […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-21T10:18:06.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "UN says AI safeguards can’t wait for certainty",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/998090/un-ai-panel-hugging-face-hack-precautionary-principle",
+            "publishedDate": "2026-09-21T10:18:06.000Z",
+            "contentSnippet": "Governments need to rein in increasingly capable AI agents before their risks are fully understood, a United Nations scientific panel warned in the global organization's first major assessment of OpenAI's hack of Hugging Face earlier this year. The report cements AI's place on the global diplomatic agenda this week as leaders gather in New York […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "News",
+              "OpenAI",
+              "Policy",
+              "Politics"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "News",
+            "OpenAI",
+            "Policy",
+            "Politics"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "un says ai safeguards cant wait for certainty"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T10:18:06.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "News",
+      "OpenAI",
+      "Policy",
+      "Politics"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-21T12:11:44.754Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260921-amazon-doesnt-trust-metas-muse",
+    "canonicalTopic": "Amazon Doesnt Trust Metas Muse Ai Agent",
+    "slug": "amazon-doesnt-trust-metas-muse-ai-agent",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-Amazon20doesnE28099t20trust",
+        "query": "Amazon Doesnt Trust Metas Muse Ai Agent",
+        "sourceUrl": "https://www.theverge.com/tech/998078/amazon-blocks-meta-muse-ai-agent-shopping",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-21T09:21:47.000Z",
+        "contentSnippet": "Meta's Muse AI agent has been blocked from shopping Amazon on behalf of its users, GeekWire reports. A popup message started appearing on Sunday for Muse users saying that \"continued access by an unauthorized AI agent violates Amazon's Conditions of Use, to which our customers have agreed.\" According to GeekWire, Meta didn't notify Amazon that […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-21T09:21:47.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Amazon doesn’t trust Meta’s Muse AI agent",
+            "itemLink": "https://www.theverge.com/tech/998078/amazon-blocks-meta-muse-ai-agent-shopping",
+            "publishedDate": "2026-09-21T09:21:47.000Z",
+            "contentSnippet": "Meta's Muse AI agent has been blocked from shopping Amazon on behalf of its users, GeekWire reports. A popup message started appearing on Sunday for Muse users saying that \"continued access by an unauthorized AI agent violates Amazon's Conditions of Use, to which our customers have agreed.\" According to GeekWire, Meta didn't notify Amazon that […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "Amazon",
+              "Meta",
+              "News",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "Amazon",
+            "Meta",
+            "News",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "amazon doesnt trust metas muse ai agent"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T09:21:47.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "Amazon",
+      "Meta",
+      "News",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-21T12:11:44.781Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260921-no-dogs-in-space-is-back-to-fe",
+    "canonicalTopic": "No Dogs in Space Is Back to Feed Your Need for Obsessive Music History",
+    "slug": "no-dogs-in-space-is-back-to-feed-your-need-for-obsessive-music-history",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-4-No20Dogs20in20Space20is20",
+        "query": "No Dogs in Space Is Back to Feed Your Need for Obsessive Music History",
+        "sourceUrl": "https://www.theverge.com/report/997948/no-dogs-in-space-is-back-punk-2-0-music-history-podcast",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-20T20:51:57.000Z",
+        "contentSnippet": "In August, I wrote about my love of the music history podcast No Dogs in Space, but mourned the fact that there hadn't been a new episode in over two years. Little did I know that hosts Carolina Hidalgo and Marcus Parks were gearing up to announce the show's return with season four, Punk 2.0. […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-20T20:51:57.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "No Dogs in Space is back to feed your need for obsessive music history",
+            "itemLink": "https://www.theverge.com/report/997948/no-dogs-in-space-is-back-punk-2-0-music-history-podcast",
+            "publishedDate": "2026-09-20T20:51:57.000Z",
+            "contentSnippet": "In August, I wrote about my love of the music history podcast No Dogs in Space, but mourned the fact that there hadn't been a new episode in over two years. Little did I know that hosts Carolina Hidalgo and Marcus Parks were gearing up to announce the show's return with season four, Punk 2.0. […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Entertainment",
+              "Interview",
+              "Music",
+              "Report"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Entertainment",
+            "Interview",
+            "Music",
+            "Report"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "no dogs in space is back to feed your need for obsessive music history"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-20T20:51:57.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Entertainment",
+      "Interview",
+      "Music",
+      "Report"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-21T12:11:44.823Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260921-no-one-is-surprised-that-nvidi",
+    "canonicalTopic": "No One Is Surprised That Nvidias Jensen Huang Thinks Ai Fears Are Overblown",
+    "slug": "no-one-is-surprised-that-nvidias-jensen-huang-thinks-ai-fears-are-overblown",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-5-No20one20is20surprised20",
+        "query": "No One Is Surprised That Nvidias Jensen Huang Thinks Ai Fears Are Overblown",
+        "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/997936/nvidia-jensen-huang-ai-fears-overblown",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-20T18:50:18.000Z",
+        "contentSnippet": "The man who may stand to make the most money from the AI boom seems to think he knows better than anyone else, including researchers who have studied and worked on AI for decades. In an interview with CBS Sunday Morning, he claimed there was a \"0% chance\" of AI being the end of the […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-20T18:50:18.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "No one is surprised that Nvidia’s Jensen Huang thinks AI fears are overblown",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/997936/nvidia-jensen-huang-ai-fears-overblown",
+            "publishedDate": "2026-09-20T18:50:18.000Z",
+            "contentSnippet": "The man who may stand to make the most money from the AI boom seems to think he knows better than anyone else, including researchers who have studied and worked on AI for decades. In an interview with CBS Sunday Morning, he claimed there was a \"0% chance\" of AI being the end of the […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "News",
+              "Nvidia",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "News",
+            "Nvidia",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "no one is surprised that nvidias jensen huang thinks ai fears are overblown"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-20T18:50:18.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "News",
+      "Nvidia",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-21T12:11:44.867Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260921-14-airbnbs-for-appreciating-fa",
+    "canonicalTopic": "14 Airbnbs for Appreciating Fall Foliage Across the Us",
+    "slug": "14-airbnbs-for-appreciating-fall-foliage-across-the-us",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-1420Airbnbs20for20Appre",
+        "query": "14 Airbnbs for Appreciating Fall Foliage Across the Us",
+        "sourceUrl": "https://www.cntraveler.com/gallery/airbnbs-for-spotting-autumn-leaves",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-20T16:30:00.000Z",
+        "contentSnippet": "From A-frame cabins with cedar saunas to off-grid mountain lodges, you'll fall for these chic, cozy stays with fantastic foliage.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-20T16:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "14 Airbnbs for Appreciating Fall Foliage Across the US",
+            "itemLink": "https://www.cntraveler.com/gallery/airbnbs-for-spotting-autumn-leaves",
+            "publishedDate": "2026-09-20T16:30:00.000Z",
+            "contentSnippet": "From A-frame cabins with cedar saunas to off-grid mountain lodges, you'll fall for these chic, cozy stays with fantastic foliage.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Places to Stay"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Places to Stay"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "14 airbnbs for appreciating fall foliage across the us"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-20T16:30:00.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Places to Stay"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-21T12:11:44.902Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260921-german-chancellor-merz-calls-s",
+    "canonicalTopic": "German Chancellor Merz Calls State Election a Disaster for His Party but Vows to Stay On",
+    "slug": "german-chancellor-merz-calls-state-election-a-disaster-for-his-party-but-vows-to-stay-on",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-1-German20Chancellor20Me",
+        "query": "German Chancellor Merz Calls State Election a Disaster for His Party but Vows to Stay On",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cvwyz29n0nn2o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-21T08:56:27.000Z",
+        "contentSnippet": "Exit polls show damaging losses for Merz's centre-right CDU party in the state of Mecklenburg-Vorpommern and Berlin.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-21T08:56:27.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "German Chancellor Merz calls state election a 'disaster' for his party but vows to stay on",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cvwyz29n0nn2o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-21T08:56:27.000Z",
+            "contentSnippet": "Exit polls show damaging losses for Merz's centre-right CDU party in the state of Mecklenburg-Vorpommern and Berlin.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "german chancellor merz calls state election a disaster for his party but vows to stay on"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T08:56:27.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-21T12:11:44.956Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260921-russias-elections-had-few-surp",
+    "canonicalTopic": "Russias Elections Had Few Surprises - but How the Kremlin Uses the Results Will Be Crucial",
+    "slug": "russias-elections-had-few-surprises-but-how-the-kremlin-uses-the-results-will-be-crucial",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-2-Russias20elections20h",
+        "query": "Russias Elections Had Few Surprises - but How the Kremlin Uses the Results Will Be Crucial",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cx4gqv239043o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-21T00:05:11.000Z",
+        "contentSnippet": "Vladimir Putin will likely use the result to claim most Russians back the so-called special military operation in Ukraine, writes the BBC's Steve Rosenberg.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-21T00:05:11.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Russia's elections had few surprises - but how the Kremlin uses the results will be crucial",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cx4gqv239043o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-21T00:05:11.000Z",
+            "contentSnippet": "Vladimir Putin will likely use the result to claim most Russians back the so-called special military operation in Ukraine, writes the BBC's Steve Rosenberg.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "russias elections had few surprises - but how the kremlin uses the results will be crucial"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T00:05:11.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-21T12:11:45.010Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260921-cnn-ms-now-and-politico-to-fil",
+    "canonicalTopic": "Cnn Ms Now and Politico to File Lawsuit Against Trumps White House Ban",
+    "slug": "cnn-ms-now-and-politico-to-file-lawsuit-against-trumps-white-house-ban",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-3-CNN2C20MS20NOW20and20Poli",
+        "query": "Cnn Ms Now and Politico to File Lawsuit Against Trumps White House Ban",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cm0e32rwvrryo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-21T11:42:35.000Z",
+        "contentSnippet": "The US media outlets say they are defending \"the principle that the government does not decide what the press reports or publishes\".",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-21T11:42:35.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "CNN, MS NOW and Politico to file lawsuit against Trump's White House ban",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cm0e32rwvrryo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-21T11:42:35.000Z",
+            "contentSnippet": "The US media outlets say they are defending \"the principle that the government does not decide what the press reports or publishes\".",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "cnn ms now and politico to file lawsuit against trumps white house ban"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T11:42:35.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-21T12:11:45.051Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260921-seven-ethiopian-rebel-groups-f",
+    "canonicalTopic": "Seven Ethiopian Rebel Groups Form New Alliance",
+    "slug": "seven-ethiopian-rebel-groups-form-new-alliance",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-4-Seven20Ethiopian20rebe",
+        "query": "Seven Ethiopian Rebel Groups Form New Alliance",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/ckp84pj8zpngo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-21T11:46:39.000Z",
+        "contentSnippet": "The groups have been active in Ethiopia's most populous regions for years and now say they will work together.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-21T11:46:39.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Seven Ethiopian rebel groups form new alliance",
+            "itemLink": "https://www.bbc.co.uk/news/articles/ckp84pj8zpngo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-21T11:46:39.000Z",
+            "contentSnippet": "The groups have been active in Ethiopia's most populous regions for years and now say they will work together.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "seven ethiopian rebel groups form new alliance"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T11:46:39.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-21T12:11:45.083Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260921-three-arrested-in-south-africa",
+    "canonicalTopic": "Three Arrested in South Africa over One of Nine Womens Body Finds",
+    "slug": "three-arrested-in-south-africa-over-one-of-nine-womens-body-finds",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-5-Three20arrested20in20So",
+        "query": "Three Arrested in South Africa over One of Nine Womens Body Finds",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/c617j2x01epjo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-21T10:35:01.000Z",
+        "contentSnippet": "The body of Jabulile Ntimba was the ninth to be found recently in an area east of Johannesburg.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-21T10:35:01.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Three arrested in South Africa over one of nine women's body finds",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c617j2x01epjo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-21T10:35:01.000Z",
+            "contentSnippet": "The body of Jabulile Ntimba was the ninth to be found recently in an area east of Johannesburg.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "three arrested in south africa over one of nine womens body finds"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T10:35:01.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-21T12:11:45.122Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260921-rx-architects-expands-sussex-h",
+    "canonicalTopic": "Rx Architects Expands Sussex Home with Extension Immersed in the Garden",
+    "slug": "rx-architects-expands-sussex-home-with-extension-immersed-in-the-garden",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-RX20Architects20expand",
+        "query": "Rx Architects Expands Sussex Home with Extension Immersed in the Garden",
+        "sourceUrl": "https://www.dezeen.com/2026/09/21/rx-architects-druim-extension/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-21T10:30:28.000Z",
+        "contentSnippet": "UK studio RX Architects has returned to a house it previously completed in Sussex to add an extension, designed to blend in with the existing timber-clad form. The original home, named Druim, was completed in 2020 on the Rye Nature Reserve in East Sussex. The project involved altering a half-built structure that had been sold The post RX Architects expands Sussex home with extension \"immersed in the garden\" appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-21T10:30:28.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "RX Architects expands Sussex home with extension \"immersed in the garden\"",
+            "itemLink": "https://www.dezeen.com/2026/09/21/rx-architects-druim-extension/",
+            "publishedDate": "2026-09-21T10:30:28.000Z",
+            "contentSnippet": "UK studio RX Architects has returned to a house it previously completed in Sussex to add an extension, designed to blend in with the existing timber-clad form. The original home, named Druim, was completed in 2020 on the Rye Nature Reserve in East Sussex. The project involved altering a half-built structure that had been sold The post RX Architects expands Sussex home with extension \"immersed in the garden\" appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Exclusives",
+              "Residential architecture and interiors",
+              "Extensions",
+              "Houses",
+              "Residential extensions",
+              "Sussex",
+              "British houses",
+              "Wooden architecture",
+              "RX Architects"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Exclusives",
+            "Residential architecture and interiors",
+            "Extensions",
+            "Houses",
+            "Residential extensions",
+            "Sussex",
+            "British houses",
+            "Wooden architecture",
+            "RX Architects"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "rx architects expands sussex home with extension immersed in the garden"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T10:30:28.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Exclusives",
+      "Residential architecture and interiors",
+      "Extensions",
+      "Houses",
+      "Residential extensions",
+      "Sussex",
+      "British houses",
+      "Wooden architecture",
+      "RX Architects"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-21T12:11:45.163Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260921-ual-turns-atterbury-flat-guest",
+    "canonicalTopic": "Ual Turns Atterbury Flat Guest Apartment into Riotous Student Design Archive",
+    "slug": "ual-turns-atterbury-flat-guest-apartment-into-riotous-student-design-archive",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-2-UAL20turns20Atterbury20",
+        "query": "Ual Turns Atterbury Flat Guest Apartment into Riotous Student Design Archive",
+        "sourceUrl": "https://www.dezeen.com/2026/09/21/ual-atterbury-flat-student-design-archive/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-21T10:15:44.000Z",
+        "contentSnippet": "The University of the Arts London has transformed a drab guest quarters at one of its colleges into a colourful showcase that lets visitors eat, sleep and bathe in student and graduate design. The two-bedroom Atterbury Flat – located on the Chelsea College of Arts campus, a Grade II listed former Royal Army Medical College The post UAL turns Atterbury Flat guest apartment into riotous student design archive appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-21T10:15:44.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "UAL turns Atterbury Flat guest apartment into riotous student design archive",
+            "itemLink": "https://www.dezeen.com/2026/09/21/ual-atterbury-flat-student-design-archive/",
+            "publishedDate": "2026-09-21T10:15:44.000Z",
+            "contentSnippet": "The University of the Arts London has transformed a drab guest quarters at one of its colleges into a colourful showcase that lets visitors eat, sleep and bathe in student and graduate design. The two-bedroom Atterbury Flat – located on the Chelsea College of Arts campus, a Grade II listed former Royal Army Medical College The post UAL turns Atterbury Flat guest apartment into riotous student design archive appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "Furniture",
+              "all",
+              "Lighting",
+              "Interiors",
+              "Homeware",
+              "Design",
+              "Central Saint Martins",
+              "Student projects",
+              "Archives",
+              "London College of Fashion",
+              "London",
+              "Architecture and design education",
+              "London Design Festival",
+              "Graduates",
+              "Apartments",
+              "Guesthouses",
+              "University of the Arts London",
+              "Chelsea College of Arts",
+              "UK"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "Furniture",
+            "all",
+            "Lighting",
+            "Interiors",
+            "Homeware",
+            "Design",
+            "Central Saint Martins",
+            "Student projects",
+            "Archives",
+            "London College of Fashion",
+            "London",
+            "Architecture and design education",
+            "London Design Festival",
+            "Graduates",
+            "Apartments",
+            "Guesthouses",
+            "University of the Arts London",
+            "Chelsea College of Arts",
+            "UK"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ual turns atterbury flat guest apartment into riotous student design archive"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T10:15:44.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "Furniture",
+      "all",
+      "Lighting",
+      "Interiors",
+      "Homeware",
+      "Design",
+      "Central Saint Martins",
+      "Student projects",
+      "Archives",
+      "London College of Fashion",
+      "London",
+      "Architecture and design education",
+      "London Design Festival",
+      "Graduates",
+      "Apartments",
+      "Guesthouses",
+      "University of the Arts London",
+      "Chelsea College of Arts",
+      "UK"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-21T12:11:45.206Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260921-dezeen-awards-2026-architectur",
+    "canonicalTopic": "Dezeen Awards 2026 Architecture Shortlist Announced",
+    "slug": "dezeen-awards-2026-architecture-shortlist-announced",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-3-Dezeen20Awards20202620a",
+        "query": "Dezeen Awards 2026 Architecture Shortlist Announced",
+        "sourceUrl": "https://www.dezeen.com/2026/09/21/dezeen-awards-2026-architecture-shortlist/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-21T10:00:50.000Z",
+        "contentSnippet": "Dezeen has announced the architecture shortlist for this year's Dezeen Awards, which includes buildings by Dorte Mandrup, Farshid Moussavi Architects and Herzog & de Meuron. The 152 shortlisted projects, which are in the running for awards in 19 different architecture project categories, are by studios located across 36 different countries, including China, Finland, Kuwait, Portugal, The post Dezeen Awards 2026 architecture shortlist announced appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-21T10:00:50.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Dezeen Awards 2026 architecture shortlist announced",
+            "itemLink": "https://www.dezeen.com/2026/09/21/dezeen-awards-2026-architecture-shortlist/",
+            "publishedDate": "2026-09-21T10:00:50.000Z",
+            "contentSnippet": "Dezeen has announced the architecture shortlist for this year's Dezeen Awards, which includes buildings by Dorte Mandrup, Farshid Moussavi Architects and Herzog & de Meuron. The 152 shortlisted projects, which are in the running for awards in 19 different architecture project categories, are by studios located across 36 different countries, including China, Finland, Kuwait, Portugal, The post Dezeen Awards 2026 architecture shortlist announced appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Dezeen Awards"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Dezeen Awards"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dezeen awards 2026 architecture shortlist announced"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T10:00:50.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Dezeen Awards"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-21T12:11:45.239Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260921-trump-triumphal-arch-to-become",
+    "canonicalTopic": "Trump Triumphal Arch to Become Top Grade Military Complex for Launching Drones",
+    "slug": "trump-triumphal-arch-to-become-top-grade-military-complex-for-launching-drones",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-4-Trump20triumphal20arch",
+        "query": "Trump Triumphal Arch to Become Top Grade Military Complex for Launching Drones",
+        "sourceUrl": "https://www.dezeen.com/2026/09/21/trump-triumphal-arch-military-base-washington-dc/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-21T09:48:50.000Z",
+        "contentSnippet": "US president Donald Trump has announced that the planned 250-foot-high triumphal arch in Washington DC, designed by Atlanta-based Harrison Design, will now be a military base with drones and snipers. According to Trump, who announced the plan in a Truth Social post yesterday, the change in the design was made at the request of the The post Trump triumphal arch to become \"top grade military complex\" for launching drones appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-21T09:48:50.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Trump triumphal arch to become \"top grade military complex\" for launching drones",
+            "itemLink": "https://www.dezeen.com/2026/09/21/trump-triumphal-arch-military-base-washington-dc/",
+            "publishedDate": "2026-09-21T09:48:50.000Z",
+            "contentSnippet": "US president Donald Trump has announced that the planned 250-foot-high triumphal arch in Washington DC, designed by Atlanta-based Harrison Design, will now be a military base with drones and snipers. According to Trump, who announced the plan in a Truth Social post yesterday, the change in the design was made at the request of the The post Trump triumphal arch to become \"top grade military complex\" for launching drones appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "News",
+              "USA",
+              "Washington DC",
+              "Donald Trump"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "News",
+            "USA",
+            "Washington DC",
+            "Donald Trump"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "trump triumphal arch to become top grade military complex for launching drones"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T09:48:50.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "News",
+      "USA",
+      "Washington DC",
+      "Donald Trump"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-21T12:11:45.283Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260921-dancers-pull-clothes-from-tate",
+    "canonicalTopic": "Dancers Pull Clothes from Tate Moderns Floor for Homme Pliss Issey Miyake Show",
+    "slug": "dancers-pull-clothes-from-tate-moderns-floor-for-homme-pliss-issey-miyake-show",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-5-Dancers20pull20clothes",
+        "query": "Dancers Pull Clothes from Tate Moderns Floor for Homme Pliss Issey Miyake Show",
+        "sourceUrl": "https://www.dezeen.com/2026/09/21/tate-modern-issey-miyake-performance/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-21T09:45:07.000Z",
+        "contentSnippet": "Fashion brand Homme Plissé Issey Miyake has created a capsule collection for London's Tate Modern art gallery, which was informed by Henri Matisse's artwork The Snail and revealed as part of a dance performance. The Japanese brand showed the collection in one of its Open Studio events, a global initiative by Issey Miyake to present The post Dancers pull clothes from Tate Modern's floor for Homme Plissé Issey Miyake show appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-21T09:45:07.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Dancers pull clothes from Tate Modern's floor for Homme Plissé Issey Miyake show",
+            "itemLink": "https://www.dezeen.com/2026/09/21/tate-modern-issey-miyake-performance/",
+            "publishedDate": "2026-09-21T09:45:07.000Z",
+            "contentSnippet": "Fashion brand Homme Plissé Issey Miyake has created a capsule collection for London's Tate Modern art gallery, which was informed by Henri Matisse's artwork The Snail and revealed as part of a dance performance. The Japanese brand showed the collection in one of its Open Studio events, a global initiative by Issey Miyake to present The post Dancers pull clothes from Tate Modern's floor for Homme Plissé Issey Miyake show appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Design",
+              "Installations",
+              "Fashion",
+              "Issey Miyake",
+              "Dance",
+              "Tate Modern"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Design",
+            "Installations",
+            "Fashion",
+            "Issey Miyake",
+            "Dance",
+            "Tate Modern"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dancers pull clothes from tate moderns floor for homme pliss issey miyake show"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T09:45:07.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Design",
+      "Installations",
+      "Fashion",
+      "Issey Miyake",
+      "Dance",
+      "Tate Modern"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-21T12:11:45.328Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-life-20260921-toys-r-us-expands-again-with-n",
+    "canonicalTopic": "Toys R Us Expands Again with New Store Openings List of Standalone Locations to Grow in 2026",
+    "slug": "toys-r-us-expands-again-with-new-store-openings-list-of-standalone-locations-to-grow-in-2026",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-1-Toys20E28098RE2809920Us20",
+        "query": "Toys R Us Expands Again with New Store Openings List of Standalone Locations to Grow in 2026",
+        "sourceUrl": "https://www.fastcompany.com/91609635/toy-r-us-coming-back-2026-list-new-store-locations-grows",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-21T11:06:00.000Z",
+        "contentSnippet": "Toys “R” Us has announced plans to expand its retail footprint nationwide. In partnership with Go! Retail Group, the toy retailer has plans to open 120 standalone U.S. stores just in time for the holiday season. The new stores will feature toys and collectibles from popular brands like Lego, Hot Wheels, Barbie, Pokémon, and others. Where adults can be a kid Some of the new stores will feature \"Creator Studios,\" which are described as dedicated spaces where toy brands, content creators, and influencers can host toy-related events and unveil new products. Some of the new locations will also feature cafes and candy shops. A growing retail footprint in 2026 Toys “R” Us currently operates 40 standalone stores and Toys “R” Us shop-in-shops in Macy’s stores nationwide. But by the holiday season, this expansion will bring the company’s standalone store count to 160, Toys \"R\" Us said in a press release. A store locator tool is available on the retailer's website. The toy company has not published a full list of the new store locations. Fast Company has reached out to Toys “R” Us for additional details. We will update the story if we receive a reply. More ways to shop The new standalone stores are just one part of the company's U.S. expansion. Toys \"R\" Us is also expanding in the travel retail market. In partnership with WHSmith North America, the toy retailer is opening new airport shop-in-shops at Orlando International Airport (MCO), which is one of the country's busiest airports. The first location opened in August, and a second location is scheduled to open next summer. Bankruptcy and beyond&nbsp; Toys “R” Us has come a long way in the last decade. In 2017, the toy retailer filed for Chapter 11 bankruptcy protection. In 2018, Toys “R” Us closed its remaining 700-plus stores, and in January 2019, Tru Kids Brands bought the Toys “R” Us brand and intellectual property. The brand was acquired by its current parent company, WHP Global, in March 2021. That August, the retailer announced a partnership with Macy's to open Toys “R” Us shop-in-shops in more than 400 Macy's stores nationwide in 2022. In mid-December 2021, the company opened a 20,000-square-foot superstore at American Dream Mall in East Rutherford, New Jersey. In the years since, Toys “R” Us has continued to expand its footprint through Macy's in-store shops, flagship stores, and seasonal locations. Last year, Toys “R” Us opened 20 seasonal holiday shops.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-21T11:06:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Toys ‘R’ Us expands again with new store openings: List of standalone locations to grow in 2026",
+            "itemLink": "https://www.fastcompany.com/91609635/toy-r-us-coming-back-2026-list-new-store-locations-grows",
+            "publishedDate": "2026-09-21T11:06:00.000Z",
+            "contentSnippet": "Toys “R” Us has announced plans to expand its retail footprint nationwide. In partnership with Go! Retail Group, the toy retailer has plans to open 120 standalone U.S. stores just in time for the holiday season. The new stores will feature toys and collectibles from popular brands like Lego, Hot Wheels, Barbie, Pokémon, and others. Where adults can be a kid Some of the new stores will feature \"Creator Studios,\" which are described as dedicated spaces where toy brands, content creators, and influencers can host toy-related events and unveil new products. Some of the new locations will also feature cafes and candy shops. A growing retail footprint in 2026 Toys “R” Us currently operates 40 standalone stores and Toys “R” Us shop-in-shops in Macy’s stores nationwide. But by the holiday season, this expansion will bring the company’s standalone store count to 160, Toys \"R\" Us said in a press release. A store locator tool is available on the retailer's website. The toy company has not published a full list of the new store locations. Fast Company has reached out to Toys “R” Us for additional details. We will update the story if we receive a reply. More ways to shop The new standalone stores are just one part of the company's U.S. expansion. Toys \"R\" Us is also expanding in the travel retail market. In partnership with WHSmith North America, the toy retailer is opening new airport shop-in-shops at Orlando International Airport (MCO), which is one of the country's busiest airports. The first location opened in August, and a second location is scheduled to open next summer. Bankruptcy and beyond&nbsp; Toys “R” Us has come a long way in the last decade. In 2017, the toy retailer filed for Chapter 11 bankruptcy protection. In 2018, Toys “R” Us closed its remaining 700-plus stores, and in January 2019, Tru Kids Brands bought the Toys “R” Us brand and intellectual property. The brand was acquired by its current parent company, WHP Global, in March 2021. That August, the retailer announced a partnership with Macy's to open Toys “R” Us shop-in-shops in more than 400 Macy's stores nationwide in 2022. In mid-December 2021, the company opened a 20,000-square-foot superstore at American Dream Mall in East Rutherford, New Jersey. In the years since, Toys “R” Us has continued to expand its footprint through Macy's in-store shops, flagship stores, and seasonal locations. Last year, Toys “R” Us opened 20 seasonal holiday shops.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "News"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "News"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "toys r us expands again with new store openings list of standalone locations to grow in 2026"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T11:06:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "News"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-21T12:11:45.384Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260921-nothings-going-to-feel-good-no",
+    "canonicalTopic": "Nothings Going to Feel Good Now for Workers Uncomfortable with Change Says Cisco Ceo",
+    "slug": "nothings-going-to-feel-good-now-for-workers-uncomfortable-with-change-says-cisco-ceo",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-2-E28098NothingE28099s20goi",
+        "query": "Nothings Going to Feel Good Now for Workers Uncomfortable with Change Says Cisco Ceo",
+        "sourceUrl": "https://www.fastcompany.com/91609742/nothings-going-to-feel-good-now-for-workers-uncomforable-with-change-says-cisco-ceo",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-21T11:00:00.000Z",
+        "contentSnippet": "Hello and welcome to&nbsp; Modern&nbsp;CEO !&nbsp;I’m&nbsp;Stephanie Mehta, CEO and chief content officer of Mansueto Ventures. Each week this newsletter explores inclusive approaches to leadership drawn from conversations with executives and entrepreneurs, and from the pages of Inc. and Fast Company . If you&nbsp;received&nbsp;this newsletter from a friend, you can sign up to get it yourself every Monday morning. Chuck Robbins has a unique perch from which to observe American businesses and their anxieties and approaches to artificial intelligence . As chairman and CEO of the tech giant Cisco, he leads a company that’s helping AI hyperscalers build their networks. Since January 2024, he’s also served as chair of the Business Roundtable (BRT), an association for more than 200 CEOs of America’s largest and most powerful corporations—a role he’ll relinquish at the end of this year. In an interview with Modern CEO , he reflected on his accomplishments leading BRT, his role as a sounding board for fellow chief executives, and what he makes of the current calls for a slowdown in AI. Edited excerpts follow. Modern CEO: &nbsp;What would you say has been a capstone accomplishment during your tenure&nbsp;as chair of the Business Roundtable?&nbsp; Chuck Robbins: I think the progrowth tax reform we worked on early in the administration was a capstone accomplishment. And then I’d say, in the last six months, we have also played a meaningful role in [helping] the business community [with] digesting the pace and dynamic environment that AI has brought to bear. For example, [when Anthropic’s Mythos dropped] just before one of the Business Roundtable quarterly meetings, [Citi CEO] Jane Fraser suggested we convene a discussion the following Wednesday morning for anyone who wanted to attend. It [included] me, Jane, [Visa CEO] Ryan McInerney, my chief security and trust lead, and a representative from a major bank. We had a very robust discussion for a 7:30 a.m. meeting. More than 100 CEOs showed up. MC: &nbsp;What are other CEOs asking you about AI, and how are you answering?&nbsp;&nbsp; CR: There are two categories of questions. Because Cisco was one of the original 11 Project Glasswing participants, our teams have an advanced view of these models, their capabilities, and how to deploy them internally to validate and test code. So CEOs ask us how they should think about model risk, open models, open-source and open-weight models, Chinese models, and U.S. models. The second category I would say is, “How do you think about AI from a productivity perspective?” But really, they’re asking, “What is Cisco doing that I should make sure we’re doing?” The most innovative companies in the world shouldn’t view this as a cost-reduction efficiency play. You should view this as an innovation enhancement play. You can do exactly what you’re doing today, perhaps with 20% fewer people—and I’m making that number up. Or you can do 20% more and deliver more innovation to your customers with the same number of people you have today. At Cisco, the clearest areas [for using AI] are coding and customer service. With coding, we have learned that if you let AI go unchecked, you may get&nbsp;a lot of&nbsp;code, but the bottleneck moves from writing code to verifying it, and eventually to customers’ ability to deploy the innovation.&nbsp;&nbsp; On the customer service side,&nbsp;we’ve&nbsp;deployed personalized agent technology&nbsp; for every employee &nbsp;in the company.&nbsp;It’s&nbsp;a bit of an automated way of helping our employees do things in a&nbsp;bunch of&nbsp;different ways. Our sales teams&nbsp;use&nbsp;it&nbsp;a lot. Your ability to prepare for a constructive meeting with a customer&nbsp;utilizing&nbsp;these agents is so different than it would have been three, four years ago.&nbsp;The research you&nbsp;have to&nbsp;do—connecting what’s happening in their business to the capabilities and solutions we have—you can do that in just a fraction of the time through your personalized agent.&nbsp;&nbsp; MC: &nbsp;What kind of mindset or cultural shift do you think [the world’s largest enterprises] need to make the leap to AI as a tool to enable innovation? It seems like companies need to think about themselves as being in a constant state of transformation.&nbsp; CR: &nbsp;I think,&nbsp;first of all, if you’re an employee who is uncomfortable with&nbsp;a lot of&nbsp;change and a constant dynamic environment, nothing’s going to feel good right now.&nbsp;The pace of change is too fast, too dynamic, and they’re going to have to figure out their role in this world we’re living in. For most companies,&nbsp;there are going to be industry leaders setting the pace,&nbsp;and you have no choice but to at least keep up.&nbsp;Given the attendance we saw at that early-morning [BRT] meeting, and the questions that they were asking, it’s clear that every CEO is concerned about how fast [AI] is moving and whether they’re keeping up and whether they have the cyber&nbsp;[capabilities] to defend their companies.&nbsp;&nbsp; In mid-September, after we spoke to Robbins, AI executives began calling for the industry to slow development of the technology. We went back to Robbins and asked for his take. He provided this written response:&nbsp; &nbsp; CR: We’re&nbsp;seeing incredible progress in AI, and when the people building the most advanced models are raising questions about the pace of development, we should listen. &nbsp; But I&nbsp;don’t&nbsp;think the most important question for our customers is whether the frontier models move faster or slower.&nbsp;They’re&nbsp;deploying AI today and want to know they can do that safely, securely,&nbsp;and within cost controls—regardless of which model they choose. Whether AI speeds up or slows down, our job is to make sure customers&nbsp;don’t&nbsp;have to choose between moving fast and moving safely. &nbsp; I’m&nbsp;biased,&nbsp;of course, but&nbsp;that’s&nbsp;where we think the network becomes strategically important. The network can see how AI agents and applications are behaving, what&nbsp;they’re&nbsp;connecting to, what data&nbsp;they’re accessing,&nbsp;and,&nbsp;critically,&nbsp;enforce what&nbsp;they’re&nbsp;allowed to do. So rather than relying solely on a model to behave as intended, you can put controls into the infrastructure around it—which also can help control costs of token usage.&nbsp;That’s&nbsp;what&nbsp;we’re&nbsp;building for our customers today. &nbsp; So,&nbsp;I’m&nbsp;less focused on whether the industry should broadly “slow down”&nbsp;and more&nbsp;focused&nbsp;on giving customers the visibility, security,&nbsp;control,&nbsp;and efficiency they need to move with confidence. &nbsp; MC: &nbsp;Affordability has become a key issue in the upcoming midterm elections.&nbsp;Is affordability a business issue, and how do you see American corporations contributing positively to the solution?&nbsp;&nbsp; CR: Obviously, it’s an issue. If you think back to 2017, we first became involved in homelessness in Silicon Valley and expanded [our efforts] beyond homelessness because cost of living was one of the causes of homelessness—it wasn’t the only cause, but when you visit an encampment and meet someone who sleeps in a tent, gets up every day, goes to work, and sends her daughter to school, that is an affordability situation. You have to have places where teachers, firefighters, and other people who serve the community can afford to live and raise families. What the business community should do is care enough to sit down and look at public-private possibilities to actually solve whatever issue exists . And hopefully the public sector leadership in the geography in which you’re operating is also open to finding pragmatic solutions. MC: &nbsp;What are you hearing from&nbsp;BRT&nbsp;members about the&nbsp;perception&nbsp;of brand USA globally? And are there things that the&nbsp;Business&nbsp;Roundtable can do to bolster the way the rest of the world thinks about&nbsp;it?&nbsp; CR: &nbsp;Some&nbsp;countries do view the United States differently today than they did&nbsp;a few&nbsp;years ago, and in&nbsp;many&nbsp;cases that affects how they interact with American companies. In technology, the whole notion of sovereign solutions is coming at you fast and furious—not only data [sovereignty] but control over cloud applications as well as privacy-related issues.&nbsp;Most countries&nbsp;aren’t&nbsp;going to have champions within every industry. If those champions are U.S.-based companies, then [other countries]&nbsp;have to&nbsp;decide, “Who do I trust to help me solve some of these problems?” From Cisco’s perspective,&nbsp;it’s&nbsp;helpful that&nbsp;we’ve&nbsp;been&nbsp;very active&nbsp;in investing in the communities where we&nbsp;operate&nbsp;around the world.&nbsp;We’ve&nbsp;built a level of trust around the world.&nbsp; MC: &nbsp;What is the future of globalism?&nbsp;&nbsp; CR: &nbsp;To my point earlier,&nbsp;some&nbsp;countries and continents do not have domestic intellectual property in certain areas of technology, and&nbsp;they’re&nbsp;going&nbsp;to&nbsp;have to lean on [U.S.-based companies]. I think&nbsp;we’re going to see the benefits of what&nbsp;we’ve&nbsp;had historically, with a filter of self-reliance, a nationalist view, resiliency—and not just resiliency of supply&nbsp;chain&nbsp;or natural disasters but also geopolitical dynamics.&nbsp; What do you think about pumping the brakes on AI? Amid calls to&nbsp;increase&nbsp;AI regulation and safeguards, Robbins says he sees Cisco’s job as ensuring that customers&nbsp;don’t&nbsp;have to choose between moving fast and moving safely. What is your response to recent warnings—and those who say those concerns are overblown?&nbsp;I’d&nbsp;love to hear your thoughts via email: stephaniemehta@mansueto.com .&nbsp;&nbsp; Read more: CEOs and AI&nbsp; 34 CEOs share&nbsp;their&nbsp; AI hopes and fears &nbsp;&nbsp; Ninety-seven percent &nbsp;of Inc. 5000 CEOs are using AI&nbsp; 7 CEOs on how&nbsp;they’re&nbsp;actually using&nbsp; AI to do their jobs &nbsp;",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-21T11:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "‘Nothing’s going to feel good now’ for workers uncomfortable with change, says Cisco CEO",
+            "itemLink": "https://www.fastcompany.com/91609742/nothings-going-to-feel-good-now-for-workers-uncomforable-with-change-says-cisco-ceo",
+            "publishedDate": "2026-09-21T11:00:00.000Z",
+            "contentSnippet": "Hello and welcome to&nbsp; Modern&nbsp;CEO !&nbsp;I’m&nbsp;Stephanie Mehta, CEO and chief content officer of Mansueto Ventures. Each week this newsletter explores inclusive approaches to leadership drawn from conversations with executives and entrepreneurs, and from the pages of Inc. and Fast Company . If you&nbsp;received&nbsp;this newsletter from a friend, you can sign up to get it yourself every Monday morning. Chuck Robbins has a unique perch from which to observe American businesses and their anxieties and approaches to artificial intelligence . As chairman and CEO of the tech giant Cisco, he leads a company that’s helping AI hyperscalers build their networks. Since January 2024, he’s also served as chair of the Business Roundtable (BRT), an association for more than 200 CEOs of America’s largest and most powerful corporations—a role he’ll relinquish at the end of this year. In an interview with Modern CEO , he reflected on his accomplishments leading BRT, his role as a sounding board for fellow chief executives, and what he makes of the current calls for a slowdown in AI. Edited excerpts follow. Modern CEO: &nbsp;What would you say has been a capstone accomplishment during your tenure&nbsp;as chair of the Business Roundtable?&nbsp; Chuck Robbins: I think the progrowth tax reform we worked on early in the administration was a capstone accomplishment. And then I’d say, in the last six months, we have also played a meaningful role in [helping] the business community [with] digesting the pace and dynamic environment that AI has brought to bear. For example, [when Anthropic’s Mythos dropped] just before one of the Business Roundtable quarterly meetings, [Citi CEO] Jane Fraser suggested we convene a discussion the following Wednesday morning for anyone who wanted to attend. It [included] me, Jane, [Visa CEO] Ryan McInerney, my chief security and trust lead, and a representative from a major bank. We had a very robust discussion for a 7:30 a.m. meeting. More than 100 CEOs showed up. MC: &nbsp;What are other CEOs asking you about AI, and how are you answering?&nbsp;&nbsp; CR: There are two categories of questions. Because Cisco was one of the original 11 Project Glasswing participants, our teams have an advanced view of these models, their capabilities, and how to deploy them internally to validate and test code. So CEOs ask us how they should think about model risk, open models, open-source and open-weight models, Chinese models, and U.S. models. The second category I would say is, “How do you think about AI from a productivity perspective?” But really, they’re asking, “What is Cisco doing that I should make sure we’re doing?” The most innovative companies in the world shouldn’t view this as a cost-reduction efficiency play. You should view this as an innovation enhancement play. You can do exactly what you’re doing today, perhaps with 20% fewer people—and I’m making that number up. Or you can do 20% more and deliver more innovation to your customers with the same number of people you have today. At Cisco, the clearest areas [for using AI] are coding and customer service. With coding, we have learned that if you let AI go unchecked, you may get&nbsp;a lot of&nbsp;code, but the bottleneck moves from writing code to verifying it, and eventually to customers’ ability to deploy the innovation.&nbsp;&nbsp; On the customer service side,&nbsp;we’ve&nbsp;deployed personalized agent technology&nbsp; for every employee &nbsp;in the company.&nbsp;It’s&nbsp;a bit of an automated way of helping our employees do things in a&nbsp;bunch of&nbsp;different ways. Our sales teams&nbsp;use&nbsp;it&nbsp;a lot. Your ability to prepare for a constructive meeting with a customer&nbsp;utilizing&nbsp;these agents is so different than it would have been three, four years ago.&nbsp;The research you&nbsp;have to&nbsp;do—connecting what’s happening in their business to the capabilities and solutions we have—you can do that in just a fraction of the time through your personalized agent.&nbsp;&nbsp; MC: &nbsp;What kind of mindset or cultural shift do you think [the world’s largest enterprises] need to make the leap to AI as a tool to enable innovation? It seems like companies need to think about themselves as being in a constant state of transformation.&nbsp; CR: &nbsp;I think,&nbsp;first of all, if you’re an employee who is uncomfortable with&nbsp;a lot of&nbsp;change and a constant dynamic environment, nothing’s going to feel good right now.&nbsp;The pace of change is too fast, too dynamic, and they’re going to have to figure out their role in this world we’re living in. For most companies,&nbsp;there are going to be industry leaders setting the pace,&nbsp;and you have no choice but to at least keep up.&nbsp;Given the attendance we saw at that early-morning [BRT] meeting, and the questions that they were asking, it’s clear that every CEO is concerned about how fast [AI] is moving and whether they’re keeping up and whether they have the cyber&nbsp;[capabilities] to defend their companies.&nbsp;&nbsp; In mid-September, after we spoke to Robbins, AI executives began calling for the industry to slow development of the technology. We went back to Robbins and asked for his take. He provided this written response:&nbsp; &nbsp; CR: We’re&nbsp;seeing incredible progress in AI, and when the people building the most advanced models are raising questions about the pace of development, we should listen. &nbsp; But I&nbsp;don’t&nbsp;think the most important question for our customers is whether the frontier models move faster or slower.&nbsp;They’re&nbsp;deploying AI today and want to know they can do that safely, securely,&nbsp;and within cost controls—regardless of which model they choose. Whether AI speeds up or slows down, our job is to make sure customers&nbsp;don’t&nbsp;have to choose between moving fast and moving safely. &nbsp; I’m&nbsp;biased,&nbsp;of course, but&nbsp;that’s&nbsp;where we think the network becomes strategically important. The network can see how AI agents and applications are behaving, what&nbsp;they’re&nbsp;connecting to, what data&nbsp;they’re accessing,&nbsp;and,&nbsp;critically,&nbsp;enforce what&nbsp;they’re&nbsp;allowed to do. So rather than relying solely on a model to behave as intended, you can put controls into the infrastructure around it—which also can help control costs of token usage.&nbsp;That’s&nbsp;what&nbsp;we’re&nbsp;building for our customers today. &nbsp; So,&nbsp;I’m&nbsp;less focused on whether the industry should broadly “slow down”&nbsp;and more&nbsp;focused&nbsp;on giving customers the visibility, security,&nbsp;control,&nbsp;and efficiency they need to move with confidence. &nbsp; MC: &nbsp;Affordability has become a key issue in the upcoming midterm elections.&nbsp;Is affordability a business issue, and how do you see American corporations contributing positively to the solution?&nbsp;&nbsp; CR: Obviously, it’s an issue. If you think back to 2017, we first became involved in homelessness in Silicon Valley and expanded [our efforts] beyond homelessness because cost of living was one of the causes of homelessness—it wasn’t the only cause, but when you visit an encampment and meet someone who sleeps in a tent, gets up every day, goes to work, and sends her daughter to school, that is an affordability situation. You have to have places where teachers, firefighters, and other people who serve the community can afford to live and raise families. What the business community should do is care enough to sit down and look at public-private possibilities to actually solve whatever issue exists . And hopefully the public sector leadership in the geography in which you’re operating is also open to finding pragmatic solutions. MC: &nbsp;What are you hearing from&nbsp;BRT&nbsp;members about the&nbsp;perception&nbsp;of brand USA globally? And are there things that the&nbsp;Business&nbsp;Roundtable can do to bolster the way the rest of the world thinks about&nbsp;it?&nbsp; CR: &nbsp;Some&nbsp;countries do view the United States differently today than they did&nbsp;a few&nbsp;years ago, and in&nbsp;many&nbsp;cases that affects how they interact with American companies. In technology, the whole notion of sovereign solutions is coming at you fast and furious—not only data [sovereignty] but control over cloud applications as well as privacy-related issues.&nbsp;Most countries&nbsp;aren’t&nbsp;going to have champions within every industry. If those champions are U.S.-based companies, then [other countries]&nbsp;have to&nbsp;decide, “Who do I trust to help me solve some of these problems?” From Cisco’s perspective,&nbsp;it’s&nbsp;helpful that&nbsp;we’ve&nbsp;been&nbsp;very active&nbsp;in investing in the communities where we&nbsp;operate&nbsp;around the world.&nbsp;We’ve&nbsp;built a level of trust around the world.&nbsp; MC: &nbsp;What is the future of globalism?&nbsp;&nbsp; CR: &nbsp;To my point earlier,&nbsp;some&nbsp;countries and continents do not have domestic intellectual property in certain areas of technology, and&nbsp;they’re&nbsp;going&nbsp;to&nbsp;have to lean on [U.S.-based companies]. I think&nbsp;we’re going to see the benefits of what&nbsp;we’ve&nbsp;had historically, with a filter of self-reliance, a nationalist view, resiliency—and not just resiliency of supply&nbsp;chain&nbsp;or natural disasters but also geopolitical dynamics.&nbsp; What do you think about pumping the brakes on AI? Amid calls to&nbsp;increase&nbsp;AI regulation and safeguards, Robbins says he sees Cisco’s job as ensuring that customers&nbsp;don’t&nbsp;have to choose between moving fast and moving safely. What is your response to recent warnings—and those who say those concerns are overblown?&nbsp;I’d&nbsp;love to hear your thoughts via email: stephaniemehta@mansueto.com .&nbsp;&nbsp; Read more: CEOs and AI&nbsp; 34 CEOs share&nbsp;their&nbsp; AI hopes and fears &nbsp;&nbsp; Ninety-seven percent &nbsp;of Inc. 5000 CEOs are using AI&nbsp; 7 CEOs on how&nbsp;they’re&nbsp;actually using&nbsp; AI to do their jobs &nbsp;",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Leadership"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Leadership"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "nothings going to feel good now for workers uncomfortable with change says cisco ceo"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T11:00:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Leadership"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-21T12:11:45.441Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260921-how-one-branding-agency-redesi",
+    "canonicalTopic": "How One Branding Agency Redesigned Its Website to Reduce Carbon Emissions",
+    "slug": "how-one-branding-agency-redesigned-its-website-to-reduce-carbon-emissions",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-3-How20one20branding20age",
+        "query": "How One Branding Agency Redesigned Its Website to Reduce Carbon Emissions",
+        "sourceUrl": "https://www.fastcompany.com/91608928/mek-australia-branding-low-carbon-website",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-21T10:30:00.000Z",
+        "contentSnippet": "After one Australian branding agency discovered its website produced more carbon than the average webpage, it redesigned it to be more efficient. In the process, the agency learned something about striking the right balance between sustainability and style. MEK is a Melbourne studio that's worked with clients like the conservation groups WWF Australia and Sea Shepherd . During a trivia night in 2022, its team learned that sending 100 emails has a bigger carbon footprint than driving one kilometer (five-eighths of a mile) in a car. That surprising statistic led the agency to audit its own website and learn that it produced more carbon than 76.5% of web pages tested on the online Website Carbon calculator . Websites can be made more sustainable by design , and there are even some digital fonts that use less energy than others . Digital technology is estimated to account for 3.7% of global greenhouse emissions, according to the Shift Project, a think tank. Reducing that through a more sustainably designed web is not just better for the planet, it's a faster experience for the user too. To go about redesigning its website , completed in 2023 and updated this year, MEK first examined what was making it score so poorly on the carbon calculator. The agency's homepage had a looped slideshow that included seven full-screen images and white backgrounds that looked clean but were more energy intensive than dark mode. It also found unnecessarily duplicated HTML tags that slowed the site down. There were several changes MEK could make to its site, but some came with aesthetic considerations—no small matter for any branding, creative, or design agency that uses its web page to showcase its taste and personality and wow and inspire potential clients. For MEK, striking the right balance between efficiency and design considerations was especially tricky when it came to font selection. Agency employees tried different fonts, shifting from the smart, confident sans serif Monument Grotesk to Arial , an overused sans serif disliked by designers and type snobs but widely available. Fonts like Arial that come in default mode on Macs, PCs, and smartphone operating systems use less energy because when you visit a web page that uses them, the browser doesn't have to make additional requests to servers. The problem for a branding agency, though, is that it looks basic. \"The most sustainable fonts are the system fonts already installed on devices because they don’t need to be downloaded, which uses less energy and therefore produces fewer emissions,\" says Mirella Arapian, MEK's founder and executive creative director, who led the project. \"However, these fonts offer less typographic control and are generally less expressive. Making them work well involves a high level of experience, and even then, they may not deliver the character a brand needs to be distinctive.\" MEK now uses Zalando Sans , a Google Font. Google Fonts are widely used and efficiently served and cached by web browsers. And many of them are created by reputable type foundries. The agency also cleaned up its duplicated HTML tags, set the page to dark mode with white text at 87% opacity, and improved the efficiency of its images. MEK's carbon performance has improved, from producing more carbon than 76.5% of web pages tested back in 2022 to being cleaner than&nbsp;74%&nbsp;of all web pages globally in 2026, according to a review on Website Carbon calculator. Arapian says MEK has incorporated its carbon-centered redesign learning into its work with clients, educating them about the environmental impact of their digital footprint and giving them the information they need to make informed choices. \"When we first set out with this project we wanted carbon emissions to be as low as possible, but through the process we realized that the goal isn’t to eliminate everything just because it has an environmental cost, but to be honest about whether it earns its place in the overall experience,\" she tells Fast Company . By making informed design choices, web designers can deliver an internet experience that's more efficient and looks good too.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-21T10:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "How one branding agency redesigned its website to reduce carbon emissions",
+            "itemLink": "https://www.fastcompany.com/91608928/mek-australia-branding-low-carbon-website",
+            "publishedDate": "2026-09-21T10:30:00.000Z",
+            "contentSnippet": "After one Australian branding agency discovered its website produced more carbon than the average webpage, it redesigned it to be more efficient. In the process, the agency learned something about striking the right balance between sustainability and style. MEK is a Melbourne studio that's worked with clients like the conservation groups WWF Australia and Sea Shepherd . During a trivia night in 2022, its team learned that sending 100 emails has a bigger carbon footprint than driving one kilometer (five-eighths of a mile) in a car. That surprising statistic led the agency to audit its own website and learn that it produced more carbon than 76.5% of web pages tested on the online Website Carbon calculator . Websites can be made more sustainable by design , and there are even some digital fonts that use less energy than others . Digital technology is estimated to account for 3.7% of global greenhouse emissions, according to the Shift Project, a think tank. Reducing that through a more sustainably designed web is not just better for the planet, it's a faster experience for the user too. To go about redesigning its website , completed in 2023 and updated this year, MEK first examined what was making it score so poorly on the carbon calculator. The agency's homepage had a looped slideshow that included seven full-screen images and white backgrounds that looked clean but were more energy intensive than dark mode. It also found unnecessarily duplicated HTML tags that slowed the site down. There were several changes MEK could make to its site, but some came with aesthetic considerations—no small matter for any branding, creative, or design agency that uses its web page to showcase its taste and personality and wow and inspire potential clients. For MEK, striking the right balance between efficiency and design considerations was especially tricky when it came to font selection. Agency employees tried different fonts, shifting from the smart, confident sans serif Monument Grotesk to Arial , an overused sans serif disliked by designers and type snobs but widely available. Fonts like Arial that come in default mode on Macs, PCs, and smartphone operating systems use less energy because when you visit a web page that uses them, the browser doesn't have to make additional requests to servers. The problem for a branding agency, though, is that it looks basic. \"The most sustainable fonts are the system fonts already installed on devices because they don’t need to be downloaded, which uses less energy and therefore produces fewer emissions,\" says Mirella Arapian, MEK's founder and executive creative director, who led the project. \"However, these fonts offer less typographic control and are generally less expressive. Making them work well involves a high level of experience, and even then, they may not deliver the character a brand needs to be distinctive.\" MEK now uses Zalando Sans , a Google Font. Google Fonts are widely used and efficiently served and cached by web browsers. And many of them are created by reputable type foundries. The agency also cleaned up its duplicated HTML tags, set the page to dark mode with white text at 87% opacity, and improved the efficiency of its images. MEK's carbon performance has improved, from producing more carbon than 76.5% of web pages tested back in 2022 to being cleaner than&nbsp;74%&nbsp;of all web pages globally in 2026, according to a review on Website Carbon calculator. Arapian says MEK has incorporated its carbon-centered redesign learning into its work with clients, educating them about the environmental impact of their digital footprint and giving them the information they need to make informed choices. \"When we first set out with this project we wanted carbon emissions to be as low as possible, but through the process we realized that the goal isn’t to eliminate everything just because it has an environmental cost, but to be honest about whether it earns its place in the overall experience,\" she tells Fast Company . By making informed design choices, web designers can deliver an internet experience that's more efficient and looks good too.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Design"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Design"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how one branding agency redesigned its website to reduce carbon emissions"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T10:30:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Design"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-21T12:11:45.484Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260921-12-top-ai-tips-from-high-perfo",
+    "canonicalTopic": "12 Top Ai Tips from High Performers",
+    "slug": "12-top-ai-tips-from-high-performers",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-4-1220top20AI20tips20from20",
+        "query": "12 Top Ai Tips from High Performers",
+        "sourceUrl": "https://www.fastcompany.com/91603166/12-strategies-high-performers-use-to-integrate-ai-into-their-daily-work-without-compromising-quality-yechnology-ai-adoption-quality-strategy",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-21T10:07:00.000Z",
+        "contentSnippet": "A clear performance gap is emerging in workplaces between those who actively use artificial intelligence to boost their output and those who avoid these tools entirely. Drawing on insights from industry experts, this article examines practical strategies that high performers use to integrate AI into their daily work without compromising quality or judgment. These approaches span everything from workflow automation and tool selection to quality control and team knowledge sharing. Test Tools to Deepen Legal Judgment The difference between AI amplifiers and AI avoiders is not comfort with technology. It is what each group thinks the tool is for. Avoiders assume AI is being pointed at their judgment, so resisting it protects their professional worth. Amplifiers understand it is being pointed at the mechanical work around their judgment, which frees the part they are actually valued for. Same tool, opposite conclusions, and the second group compounds while the first does not. In immigration law practice I have seen this play out concretely. A petition draft that takes more than 20 hours manually now takes around three. What the avoider hears in that sentence is that their expertise has been devalued by a factor of seven. What the amplifier hears is that they just got 17 hours back to spend on evidence strategy, on the recommender who needs persuading, on the client conversation nobody else can have. Here is where it shows up in performance. The amplifier does not just file faster. They start doing work that was previously impossible—running a completed section against the language U.S. Citizenship and Immigration Services actually uses in Requests for Evidence to find weaknesses before filing. Nobody did that manually at 11 p.m. on a deadline. It was theoretically possible and practically never happened. So the gap is not that one attorney is quicker. It is that one is catching problems the other will only discover in a denial. That compounds into advancement quickly. Within a year, the amplifier has handled more matters, seen more fact patterns, and built better judgment from the volume. The avoider protected their hours and got less experience for them. I would add something less comfortable. Some avoidance is well founded. I have watched tools produce petitions that read beautifully and were wrong in ways only a practitioner would catch, and attorneys filed them and took denials. Skepticism in regulated work is not a character flaw. The distinction that matters is between people who are skeptical and testing, and people who are skeptical and abstaining. The first group is amplifying. The second is just waiting. The advice I give firms is to stop asking for buy-in on the technology and pick one repetitive task the person already dislikes. Run the old way and the new way side by side, same case, same review at the end. People support what they can verify. Nobody converts from an argument. Mahmudul Hasan , founder and CEO, Clarvo Redesign Decisions, Not Broken Processes The difference isn't which tools they bought. It's whether they were willing to change how decisions actually get made. AI amplifiers redesign the work. AI avoiders digitize the same broken process and wonder why nothing changed. I saw this play out directly with a $75 million construction firm we worked with. They had project data spread across more than 15 disconnected systems. Managers were spending the better part of a week pulling reports together before leadership could even see where projects stood. By the time a billing issue surfaced, it was already days old. They weren't making slow decisions because they lacked information. They were making slow decisions because nobody had redesigned how information moved through the organization. An AI avoider organization would have added a dashboard on top of the same fragmented systems and called it transformation. We didn't do that. We mapped how decisions actually needed to move, built a unified command center around that flow, and compressed their billing cycle from 45 days to seven. Leadership went from a reporting lag of five to seven days, to real-time visibility. The documented annual savings came in at $890,000, not because the AI was impressive, but because the operating model underneath it finally made sense. That is the gap between amplifiers and avoiders. One group asks what they can automate. The other asks which decisions need to move faster, who should own them, and what the system needs to look like for that to actually happen. The tools are almost beside the point. The operating model is everything. Paul Malott , CEO, Automations 24, Inc. Challenge Outputs Before Client Delivery Amplifiers and avoiders split less on who opens the tool and more on who argues with the output instead of accepting it. Plenty of people use AI constantly and are still avoiders in every sense that matters. In my opinion, they just avoid the actual work. For example, I watched two account managers at the same ad agency handle a similar deliverable—a competitive landscape summary—within the same week. One ran it through AI, then spent 20 minutes checking two of its claims against the client's own numbers, and caught a stat that was subtly wrong before it went out. The other treated the AI draft as finished, sent it, and got called out by the client for a number that didn't match their own dashboard. Both of them used AI. Only one of them did the work that actually builds judgment. That's the divide showing up in who gets pulled into bigger accounts and who stays on the smaller ones: not comfort with the tool, but the habit of catching it being confidently wrong. Jeremy Swiller , founder & Chief Innovation Catalyst, Flux+Form Think With Technology to Expand Capability The biggest difference isn't who uses AI. It's who is learning to think with it. AI amplifiers use it to expand what they can explore, question, and create. Initially, they may not work faster. Sometimes we move a little slower because we know AI-generated work needs to be vetted, verified, and refined. The advantage is capability, not speed. I see this in our own work. AI can get us to a starting point much faster, but that doesn't necessarily mean we finish faster. We use that gained capacity to go further: ask better questions, explore more possibilities, apply judgment that AI doesn't have, challenge assumptions, and discover approaches that might not have surfaced otherwise. The time saved isn't the advantage. It's what becomes possible because of it. It's a matter of advancement. PwC's 2025 AI Jobs Barometer found that skills are changing 66% faster in the jobs most exposed to AI, while workers with AI skills command a 56% wage premium. The opportunity isn't simply becoming more productive . It's becoming capable of working at a higher level. I suspect that's where the real divide will emerge. AI avoiders may continue doing good work the way they always have. AI amplifiers are changing what they're capable of doing. Over several years, that difference compounds. Sheryle Gillihan , CEO, CauseLabs Show Workers Personal Upside The key differentiator between AI amplifiers and avoiders is how they answer the question, \"What's in it for me?\" Amplifiers see direct personal upside. Avoiders do not.&nbsp; For many avoiders, the hesitation is rational economics. For others, it is about craft and ownership, the work they built a career on, or the IP they would be handing to a model.&nbsp; The result can be a quiet resistance or a skewed review of AI tools to protect their own job. A friend in tech, working in business development, is responsible for winning clients, gathering requirements, and building highly custom systems for them. The company is pushing AI, but he is not on commission and will not be paid more. AI just means more clients and systems to manage for the same paycheck. He is being asked to work harder to widen the company's margin, with no bonus or promotion on the horizon. On the other hand, for amplifiers, AI is all about freedom to get work done and being the ones to make it happen. Inside their companies, good ideas that used to stall for lack of resources are suddenly buildable. The side projects and tedious backlog are suddenly doable. It feels superhuman. For example, I know engineers who chased a bug in their system for a year, one deemed too costly to fix, and Claude found and fixed it in a few hours. That kind of moment converts skeptics. But amplifying only pays off when you're accountable for the output. Everyone has the same AI tools, so raw, unreviewed AI work can lead to the same result, which is why the amplifiers who overtrust it are the first to ship AI slop. Companies wanting to gain the efficiencies of AI without sacrificing quality of work or the morale of their workforce need to communicate that this is not a zero-sum game, show how being more efficient will translate into direct personal upside and job security for each employee, and hold employees accountable for the work that they have AI produce. In the meantime, investing in AI skills is worth it, particularly learning to evaluate AI's output and make it better. Being an avoider is a precarious position. Job postings more and more ask for familiarity with AI, or a sense of how to integrate it well into a workflow. If you get the chance to bring AI into your current job, you will want that story ready for the next one. Avoidance rarely pays off in the long run, though it may hold off the inevitable long enough to figure out your next move. Josh Gafni , cofounder & CEO, McCoy Build Quality Controls Around Code My expertise is in running technical teams. One example I have from running a core dev team of about 10 people is that a year ago, when AI was not as good as it is now, we had a split into two camps: developers who want to code everything with AI and those who don't want to touch it because it only creates slop. The first group eventually agreed with the second group that AI produces slop and creates a lot of issues. But where the avoiders chose not to use AI, the amplifiers chose to use it and figure out how to compensate for that while still achieving the performance gains it gives. Specifically in our work, external quality controls and what we call deterministic quality controls—code quality, architecture, delivery pipelines, testing pipelines, and so on—became far more important. The motto is now that since you can produce an infinite amount of code, if you make bad code, you make a lot of it. The whole art now is architecting software and those quality control systems so they don't allow AI agents to produce the mess you don't want in your software. A real example of how this gap affects performance is that it creates a lot more of those most wanted and sought-after 10x developers. Junior people now create a lot of code, but it's bad and it breaks very fast. In our case, a junior person would start extremely well and build something that works, but then in two weeks, nobody knows what it's doing and nobody can maintain it. It becomes far faster to just code from scratch than to try and maintain their system. Senior people architect it well in a way that we still know what it's doing after a couple of months; it's still testable, controllable, and auditable. Now, a senior person is no longer constrained by the speed of typing and understanding the specifics of the programming language. They are constrained only by their speed of architecting and thinking, and that is a lot faster—like 10 times as fast as they were before. Eugene Tartakovskiy , founder, CEO & CTO, BeRelevant.ai Share Wins Across Teams I believe that \"AI amplifiers\" and \"AI avoiders\" isn't simply about who uses the technology and who doesn't. It's about the mindset these employees bring to AI. True AI amplifiers are highly motivated and generate their own use cases, refine their prompts, and integrate AI into their daily tasks. AI avoiders sit at the opposite end and tend to fall into two categories. One group resists AI because they are fearful of losing their job or overwhelmed with the mostly negative narrative in the news media. The other group may have tried using AI but had a poor experience and concluded it's not worth the effort because it simply doesn't work or live up to the hype. The challenge with avoiders is how they interact with the rest of their team. Some just ignore AI and continue to work the way they always have. They are passive avoiders who can eventually become curious users who may experiment with AI and may over time adopt a few use cases. But the more dangerous group of avoiders are the active ones who fight against AI. They may call out a colleague for their AI usage in a way that accuses them of cheating or questions whether their work deserves any credit. This is dangerous because it can cause champion or even curious users to conceal their AI usage or, worse, stop using the technology altogether to avoid the humiliation. This can hinder the transformation at the team, functional, and organizational level. That's one of the reasons the amplifiers have to play an important role for their team. If all they do is use AI for themselves, their expertise and value remains siloed. But if these amplifiers share their wins, pass along prompts and uses that worked for them, and encourage their teammates to try them for themselves, they can generate the visibility and excitement that can be the difference between a failed pilot or long-term organizational transformation. To me, the difference between how these two types of users approach AI is all about the mindset and how the organization presents its impact and use to their employees. Kristin Ginn , founder, trnsfrmAItn Keep Judgment in the Loop People assume the divide is about who's good with AI and who isn't. That's not really it. The real split is between people who use it to expand their judgment, and people who let their uncertainty about it keep them from engaging at all. AI amplifiers don't hand the technology their thinking. They use it to clear lower-value work, surface information faster, and test ideas, which frees up capacity for the parts of the job that still need a human. AI avoiders feel the same uncertainty. They just respond to it by protecting the way work has always been done. We felt that tension inside our own organization. Our technology leaders raised real concerns about cybersecurity, privacy, and data protection, the kind of caution you want from the people responsible for protecting an organization. Our operational leaders saw something else: a chance to free up staff time by handing AI the repetitive work, and to connect our systems so decisions could run on real-time data instead of last week's report. Neither side backed down, and honestly, neither should have. What actually moved things forward was that both stayed in the conversation instead of retreating to their corner. Our CIO's team didn't just say no; they helped build the guardrails, data-protection standards, access parameters, and human review before any AI-generated information touched a real decision. Our operational leaders didn't just race ahead; they learned to build inside those guardrails instead of around them. Early on, it genuinely felt like we might already be behind. That mix of real caution and real opportunity is what let us catch up without cutting corners. The people who ended up advancing weren't necessarily the earliest adopters, and they weren't always the most technically fluent. They were the ones who stayed in the harder middle ground, asking what could actually improve, what could go wrong, and what still needed a person to decide. If I had to name the real performance gap, that's it: less about who moves fastest with AI, more about who keeps their judgment attached to it. Gearl Loden , leadership consultant/speaker, Loden Leadership + Consulting Prepare Data Before You Trust It The divide isn't comfort with AI; it's more the discipline with the data underneath it. The avoiders skip the tool because it makes them nervous, and I get that. But the people who get a lift out of AI aren't the ones who trust it the most. They're the ones who did the boring prep, so the thing could be trusted in the first place. When you point AI at raw, ungoverned data, it hands back answers that are confident and wrong. Clean the data first, tag it, sort out who's allowed to see what, and the same tool starts giving you answers you can stand behind. The amplifier does that cleanup before turning anything on. The avoider skips straight to the shiny part and never does it. The gap shows up fast in healthcare. Two teams got the same analytics capability. The first aimed it at messy data, got answers that were subtly off, and stopped using it within a month. The second spent two weeks on data tagging and access controls before they switched it on. After that, a question that used to take days of back-and-forth report requests took about 30 minutes. Same capability, different prep, and that was the whole difference. Mark Sternig , CTO, Focus Embed Automation Into Daily Workflows AI amplifiers build AI into how they already work, making it their new daily default. AI avoiders try an AI tool once, decide the prompting takes more effort than just doing the task, and go back to what they know, whether that's a spreadsheet or other manual process. Fitting AI into how a team already works isn't always obvious, and reshaping processes around AI takes significant effort. People who skip AI integration won't fall behind on output today, but they will eventually, especially as organizations restructure around AI-native workflows. This AI divide seems to be driven more by familiarity with technology than specific AI skills. I've watched the extremes play out in my company. Some people run a stack of agents to handle small tasks all day, and others tried AI once, then defaulted to old methods, especially in functions like HR and accounting that were never particularly hands-on with technology to begin with. Older generations also got hit with this shift as adults instead of growing up alongside it, and that unfamiliarity compounds in a multigenerational workplace. In a recent interview, I witnessed a painful interaction demonstrating this gap. A candidate was asked which AI tool they prefer, whether Claude, ChatGPT, or something else, and the answer was \"whatever's on my iPad.\" In the cloud computing industry, we're full of early adopters, so it's easy to forget how uneven adoption still is everywhere else. Oscar Moncada , cofounder and CEO, Stratus10 Match Tools to the Task I think there are actually three groups here: AI amplifiers, AI avoiders, and what I call AI autopilots. AI amplifiers are people who are using AI to make themselves more productive and add value to their work. For example, in recruiting, there are so many tasks that take a lot of time. Transcribing is one of them. We use a tool that transcribes our meetings, gives us the notes, and gives us the next steps. And that is so much easier because you don't have to list everything yourself, and you're probably going to miss something, right? It's the same thing with creating job descriptions, candidate profiles, scorecards, and all that. You still need to do the human work first, which is understanding the role, what the company needs, what the candidate should look like, and all that. But once you have that, you can use AI to help you do the work around recruiting faster. So basically, you have your main job, which is recruiting, and then you have all these other tasks around recruiting that take up so much time. AI helps you cut down that time and become more productive. Then you have AI avoiders. These are people who don't want to use AI. They resist it because maybe they have strong opinions about AI, or they just don't believe they need it. And I don't think that's necessarily always a bad thing. For example, if you're a writer, your main work is writing, brainstorming, and organizing ideas. So maybe you don't want to use AI for those things because you don't want to outsource the actual thinking to AI. AI is not that good at writing anyway. So if using AI doesn't actually make you better at your main job, then I understand why you would avoid it. Then I think there's a third group, AI autopilots. These are people who just use AI everywhere because they feel like they have to use AI. They don't stop and ask, \"Does this actually make sense? Is this actually saving me time? Is this actually making my work better?\" And it actually does the opposite. It can make your work messier because you're using AI for something that you could have done better yourself, or you're using it for something that requires your own judgment and thinking. So I think it comes down to knowing where AI makes you better and where it doesn't. Sometimes using AI is what makes you more productive. Sometimes avoiding it is the better decision. And sometimes, you're just using it on autopilot because it's there. Friddy Hoegener , cofounder, SCOPE Recruiting Lead With Curiosity, Earn Influence The biggest difference I see between the two is curiosity, and that compounds into influence and advancement in the workplace. For example, an AI amplifier tries something, works out what helped, and tells the people around them how to do it. An avoider waits until a tool is mandated, then learns the minimum required. There is, of course, an output difference between these two, as AI is helping employees do more with the same or less time. I actually think the bigger effect is how each person is perceived. Sitting out reads as a lack of interest in getting better at your own work, and that impression attaches to everything else you do. It starts to function as a flag when promotions come up, because leaders begin wondering what else you are waiting to be told about. Avoiders also drift out of the conversation. When the rest of the team is trading what worked and what flopped, they have nothing to contribute. Makena Finger Zannini , CEO, The Boutique COO",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-21T10:07:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "12 top AI tips from high performers",
+            "itemLink": "https://www.fastcompany.com/91603166/12-strategies-high-performers-use-to-integrate-ai-into-their-daily-work-without-compromising-quality-yechnology-ai-adoption-quality-strategy",
+            "publishedDate": "2026-09-21T10:07:00.000Z",
+            "contentSnippet": "A clear performance gap is emerging in workplaces between those who actively use artificial intelligence to boost their output and those who avoid these tools entirely. Drawing on insights from industry experts, this article examines practical strategies that high performers use to integrate AI into their daily work without compromising quality or judgment. These approaches span everything from workflow automation and tool selection to quality control and team knowledge sharing. Test Tools to Deepen Legal Judgment The difference between AI amplifiers and AI avoiders is not comfort with technology. It is what each group thinks the tool is for. Avoiders assume AI is being pointed at their judgment, so resisting it protects their professional worth. Amplifiers understand it is being pointed at the mechanical work around their judgment, which frees the part they are actually valued for. Same tool, opposite conclusions, and the second group compounds while the first does not. In immigration law practice I have seen this play out concretely. A petition draft that takes more than 20 hours manually now takes around three. What the avoider hears in that sentence is that their expertise has been devalued by a factor of seven. What the amplifier hears is that they just got 17 hours back to spend on evidence strategy, on the recommender who needs persuading, on the client conversation nobody else can have. Here is where it shows up in performance. The amplifier does not just file faster. They start doing work that was previously impossible—running a completed section against the language U.S. Citizenship and Immigration Services actually uses in Requests for Evidence to find weaknesses before filing. Nobody did that manually at 11 p.m. on a deadline. It was theoretically possible and practically never happened. So the gap is not that one attorney is quicker. It is that one is catching problems the other will only discover in a denial. That compounds into advancement quickly. Within a year, the amplifier has handled more matters, seen more fact patterns, and built better judgment from the volume. The avoider protected their hours and got less experience for them. I would add something less comfortable. Some avoidance is well founded. I have watched tools produce petitions that read beautifully and were wrong in ways only a practitioner would catch, and attorneys filed them and took denials. Skepticism in regulated work is not a character flaw. The distinction that matters is between people who are skeptical and testing, and people who are skeptical and abstaining. The first group is amplifying. The second is just waiting. The advice I give firms is to stop asking for buy-in on the technology and pick one repetitive task the person already dislikes. Run the old way and the new way side by side, same case, same review at the end. People support what they can verify. Nobody converts from an argument. Mahmudul Hasan , founder and CEO, Clarvo Redesign Decisions, Not Broken Processes The difference isn't which tools they bought. It's whether they were willing to change how decisions actually get made. AI amplifiers redesign the work. AI avoiders digitize the same broken process and wonder why nothing changed. I saw this play out directly with a $75 million construction firm we worked with. They had project data spread across more than 15 disconnected systems. Managers were spending the better part of a week pulling reports together before leadership could even see where projects stood. By the time a billing issue surfaced, it was already days old. They weren't making slow decisions because they lacked information. They were making slow decisions because nobody had redesigned how information moved through the organization. An AI avoider organization would have added a dashboard on top of the same fragmented systems and called it transformation. We didn't do that. We mapped how decisions actually needed to move, built a unified command center around that flow, and compressed their billing cycle from 45 days to seven. Leadership went from a reporting lag of five to seven days, to real-time visibility. The documented annual savings came in at $890,000, not because the AI was impressive, but because the operating model underneath it finally made sense. That is the gap between amplifiers and avoiders. One group asks what they can automate. The other asks which decisions need to move faster, who should own them, and what the system needs to look like for that to actually happen. The tools are almost beside the point. The operating model is everything. Paul Malott , CEO, Automations 24, Inc. Challenge Outputs Before Client Delivery Amplifiers and avoiders split less on who opens the tool and more on who argues with the output instead of accepting it. Plenty of people use AI constantly and are still avoiders in every sense that matters. In my opinion, they just avoid the actual work. For example, I watched two account managers at the same ad agency handle a similar deliverable—a competitive landscape summary—within the same week. One ran it through AI, then spent 20 minutes checking two of its claims against the client's own numbers, and caught a stat that was subtly wrong before it went out. The other treated the AI draft as finished, sent it, and got called out by the client for a number that didn't match their own dashboard. Both of them used AI. Only one of them did the work that actually builds judgment. That's the divide showing up in who gets pulled into bigger accounts and who stays on the smaller ones: not comfort with the tool, but the habit of catching it being confidently wrong. Jeremy Swiller , founder & Chief Innovation Catalyst, Flux+Form Think With Technology to Expand Capability The biggest difference isn't who uses AI. It's who is learning to think with it. AI amplifiers use it to expand what they can explore, question, and create. Initially, they may not work faster. Sometimes we move a little slower because we know AI-generated work needs to be vetted, verified, and refined. The advantage is capability, not speed. I see this in our own work. AI can get us to a starting point much faster, but that doesn't necessarily mean we finish faster. We use that gained capacity to go further: ask better questions, explore more possibilities, apply judgment that AI doesn't have, challenge assumptions, and discover approaches that might not have surfaced otherwise. The time saved isn't the advantage. It's what becomes possible because of it. It's a matter of advancement. PwC's 2025 AI Jobs Barometer found that skills are changing 66% faster in the jobs most exposed to AI, while workers with AI skills command a 56% wage premium. The opportunity isn't simply becoming more productive . It's becoming capable of working at a higher level. I suspect that's where the real divide will emerge. AI avoiders may continue doing good work the way they always have. AI amplifiers are changing what they're capable of doing. Over several years, that difference compounds. Sheryle Gillihan , CEO, CauseLabs Show Workers Personal Upside The key differentiator between AI amplifiers and avoiders is how they answer the question, \"What's in it for me?\" Amplifiers see direct personal upside. Avoiders do not.&nbsp; For many avoiders, the hesitation is rational economics. For others, it is about craft and ownership, the work they built a career on, or the IP they would be handing to a model.&nbsp; The result can be a quiet resistance or a skewed review of AI tools to protect their own job. A friend in tech, working in business development, is responsible for winning clients, gathering requirements, and building highly custom systems for them. The company is pushing AI, but he is not on commission and will not be paid more. AI just means more clients and systems to manage for the same paycheck. He is being asked to work harder to widen the company's margin, with no bonus or promotion on the horizon. On the other hand, for amplifiers, AI is all about freedom to get work done and being the ones to make it happen. Inside their companies, good ideas that used to stall for lack of resources are suddenly buildable. The side projects and tedious backlog are suddenly doable. It feels superhuman. For example, I know engineers who chased a bug in their system for a year, one deemed too costly to fix, and Claude found and fixed it in a few hours. That kind of moment converts skeptics. But amplifying only pays off when you're accountable for the output. Everyone has the same AI tools, so raw, unreviewed AI work can lead to the same result, which is why the amplifiers who overtrust it are the first to ship AI slop. Companies wanting to gain the efficiencies of AI without sacrificing quality of work or the morale of their workforce need to communicate that this is not a zero-sum game, show how being more efficient will translate into direct personal upside and job security for each employee, and hold employees accountable for the work that they have AI produce. In the meantime, investing in AI skills is worth it, particularly learning to evaluate AI's output and make it better. Being an avoider is a precarious position. Job postings more and more ask for familiarity with AI, or a sense of how to integrate it well into a workflow. If you get the chance to bring AI into your current job, you will want that story ready for the next one. Avoidance rarely pays off in the long run, though it may hold off the inevitable long enough to figure out your next move. Josh Gafni , cofounder & CEO, McCoy Build Quality Controls Around Code My expertise is in running technical teams. One example I have from running a core dev team of about 10 people is that a year ago, when AI was not as good as it is now, we had a split into two camps: developers who want to code everything with AI and those who don't want to touch it because it only creates slop. The first group eventually agreed with the second group that AI produces slop and creates a lot of issues. But where the avoiders chose not to use AI, the amplifiers chose to use it and figure out how to compensate for that while still achieving the performance gains it gives. Specifically in our work, external quality controls and what we call deterministic quality controls—code quality, architecture, delivery pipelines, testing pipelines, and so on—became far more important. The motto is now that since you can produce an infinite amount of code, if you make bad code, you make a lot of it. The whole art now is architecting software and those quality control systems so they don't allow AI agents to produce the mess you don't want in your software. A real example of how this gap affects performance is that it creates a lot more of those most wanted and sought-after 10x developers. Junior people now create a lot of code, but it's bad and it breaks very fast. In our case, a junior person would start extremely well and build something that works, but then in two weeks, nobody knows what it's doing and nobody can maintain it. It becomes far faster to just code from scratch than to try and maintain their system. Senior people architect it well in a way that we still know what it's doing after a couple of months; it's still testable, controllable, and auditable. Now, a senior person is no longer constrained by the speed of typing and understanding the specifics of the programming language. They are constrained only by their speed of architecting and thinking, and that is a lot faster—like 10 times as fast as they were before. Eugene Tartakovskiy , founder, CEO & CTO, BeRelevant.ai Share Wins Across Teams I believe that \"AI amplifiers\" and \"AI avoiders\" isn't simply about who uses the technology and who doesn't. It's about the mindset these employees bring to AI. True AI amplifiers are highly motivated and generate their own use cases, refine their prompts, and integrate AI into their daily tasks. AI avoiders sit at the opposite end and tend to fall into two categories. One group resists AI because they are fearful of losing their job or overwhelmed with the mostly negative narrative in the news media. The other group may have tried using AI but had a poor experience and concluded it's not worth the effort because it simply doesn't work or live up to the hype. The challenge with avoiders is how they interact with the rest of their team. Some just ignore AI and continue to work the way they always have. They are passive avoiders who can eventually become curious users who may experiment with AI and may over time adopt a few use cases. But the more dangerous group of avoiders are the active ones who fight against AI. They may call out a colleague for their AI usage in a way that accuses them of cheating or questions whether their work deserves any credit. This is dangerous because it can cause champion or even curious users to conceal their AI usage or, worse, stop using the technology altogether to avoid the humiliation. This can hinder the transformation at the team, functional, and organizational level. That's one of the reasons the amplifiers have to play an important role for their team. If all they do is use AI for themselves, their expertise and value remains siloed. But if these amplifiers share their wins, pass along prompts and uses that worked for them, and encourage their teammates to try them for themselves, they can generate the visibility and excitement that can be the difference between a failed pilot or long-term organizational transformation. To me, the difference between how these two types of users approach AI is all about the mindset and how the organization presents its impact and use to their employees. Kristin Ginn , founder, trnsfrmAItn Keep Judgment in the Loop People assume the divide is about who's good with AI and who isn't. That's not really it. The real split is between people who use it to expand their judgment, and people who let their uncertainty about it keep them from engaging at all. AI amplifiers don't hand the technology their thinking. They use it to clear lower-value work, surface information faster, and test ideas, which frees up capacity for the parts of the job that still need a human. AI avoiders feel the same uncertainty. They just respond to it by protecting the way work has always been done. We felt that tension inside our own organization. Our technology leaders raised real concerns about cybersecurity, privacy, and data protection, the kind of caution you want from the people responsible for protecting an organization. Our operational leaders saw something else: a chance to free up staff time by handing AI the repetitive work, and to connect our systems so decisions could run on real-time data instead of last week's report. Neither side backed down, and honestly, neither should have. What actually moved things forward was that both stayed in the conversation instead of retreating to their corner. Our CIO's team didn't just say no; they helped build the guardrails, data-protection standards, access parameters, and human review before any AI-generated information touched a real decision. Our operational leaders didn't just race ahead; they learned to build inside those guardrails instead of around them. Early on, it genuinely felt like we might already be behind. That mix of real caution and real opportunity is what let us catch up without cutting corners. The people who ended up advancing weren't necessarily the earliest adopters, and they weren't always the most technically fluent. They were the ones who stayed in the harder middle ground, asking what could actually improve, what could go wrong, and what still needed a person to decide. If I had to name the real performance gap, that's it: less about who moves fastest with AI, more about who keeps their judgment attached to it. Gearl Loden , leadership consultant/speaker, Loden Leadership + Consulting Prepare Data Before You Trust It The divide isn't comfort with AI; it's more the discipline with the data underneath it. The avoiders skip the tool because it makes them nervous, and I get that. But the people who get a lift out of AI aren't the ones who trust it the most. They're the ones who did the boring prep, so the thing could be trusted in the first place. When you point AI at raw, ungoverned data, it hands back answers that are confident and wrong. Clean the data first, tag it, sort out who's allowed to see what, and the same tool starts giving you answers you can stand behind. The amplifier does that cleanup before turning anything on. The avoider skips straight to the shiny part and never does it. The gap shows up fast in healthcare. Two teams got the same analytics capability. The first aimed it at messy data, got answers that were subtly off, and stopped using it within a month. The second spent two weeks on data tagging and access controls before they switched it on. After that, a question that used to take days of back-and-forth report requests took about 30 minutes. Same capability, different prep, and that was the whole difference. Mark Sternig , CTO, Focus Embed Automation Into Daily Workflows AI amplifiers build AI into how they already work, making it their new daily default. AI avoiders try an AI tool once, decide the prompting takes more effort than just doing the task, and go back to what they know, whether that's a spreadsheet or other manual process. Fitting AI into how a team already works isn't always obvious, and reshaping processes around AI takes significant effort. People who skip AI integration won't fall behind on output today, but they will eventually, especially as organizations restructure around AI-native workflows. This AI divide seems to be driven more by familiarity with technology than specific AI skills. I've watched the extremes play out in my company. Some people run a stack of agents to handle small tasks all day, and others tried AI once, then defaulted to old methods, especially in functions like HR and accounting that were never particularly hands-on with technology to begin with. Older generations also got hit with this shift as adults instead of growing up alongside it, and that unfamiliarity compounds in a multigenerational workplace. In a recent interview, I witnessed a painful interaction demonstrating this gap. A candidate was asked which AI tool they prefer, whether Claude, ChatGPT, or something else, and the answer was \"whatever's on my iPad.\" In the cloud computing industry, we're full of early adopters, so it's easy to forget how uneven adoption still is everywhere else. Oscar Moncada , cofounder and CEO, Stratus10 Match Tools to the Task I think there are actually three groups here: AI amplifiers, AI avoiders, and what I call AI autopilots. AI amplifiers are people who are using AI to make themselves more productive and add value to their work. For example, in recruiting, there are so many tasks that take a lot of time. Transcribing is one of them. We use a tool that transcribes our meetings, gives us the notes, and gives us the next steps. And that is so much easier because you don't have to list everything yourself, and you're probably going to miss something, right? It's the same thing with creating job descriptions, candidate profiles, scorecards, and all that. You still need to do the human work first, which is understanding the role, what the company needs, what the candidate should look like, and all that. But once you have that, you can use AI to help you do the work around recruiting faster. So basically, you have your main job, which is recruiting, and then you have all these other tasks around recruiting that take up so much time. AI helps you cut down that time and become more productive. Then you have AI avoiders. These are people who don't want to use AI. They resist it because maybe they have strong opinions about AI, or they just don't believe they need it. And I don't think that's necessarily always a bad thing. For example, if you're a writer, your main work is writing, brainstorming, and organizing ideas. So maybe you don't want to use AI for those things because you don't want to outsource the actual thinking to AI. AI is not that good at writing anyway. So if using AI doesn't actually make you better at your main job, then I understand why you would avoid it. Then I think there's a third group, AI autopilots. These are people who just use AI everywhere because they feel like they have to use AI. They don't stop and ask, \"Does this actually make sense? Is this actually saving me time? Is this actually making my work better?\" And it actually does the opposite. It can make your work messier because you're using AI for something that you could have done better yourself, or you're using it for something that requires your own judgment and thinking. So I think it comes down to knowing where AI makes you better and where it doesn't. Sometimes using AI is what makes you more productive. Sometimes avoiding it is the better decision. And sometimes, you're just using it on autopilot because it's there. Friddy Hoegener , cofounder, SCOPE Recruiting Lead With Curiosity, Earn Influence The biggest difference I see between the two is curiosity, and that compounds into influence and advancement in the workplace. For example, an AI amplifier tries something, works out what helped, and tells the people around them how to do it. An avoider waits until a tool is mandated, then learns the minimum required. There is, of course, an output difference between these two, as AI is helping employees do more with the same or less time. I actually think the bigger effect is how each person is perceived. Sitting out reads as a lack of interest in getting better at your own work, and that impression attaches to everything else you do. It starts to function as a flag when promotions come up, because leaders begin wondering what else you are waiting to be told about. Avoiders also drift out of the conversation. When the rest of the team is trading what worked and what flopped, they have nothing to contribute. Makena Finger Zannini , CEO, The Boutique COO",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Technology"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Technology"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "12 top ai tips from high performers"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T10:07:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Technology"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-21T12:11:45.508Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260921-why-grit-starts-at-the-copy-ma",
+    "canonicalTopic": "Why Grit Starts at the Copy Machine Is Still Great Advice According to Evite Ceo David Yeom",
+    "slug": "why-grit-starts-at-the-copy-machine-is-still-great-advice-according-to-evite-ceo-david-yeom",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-5-Why20E28098Grit20starts20",
+        "query": "Why Grit Starts at the Copy Machine Is Still Great Advice According to Evite Ceo David Yeom",
+        "sourceUrl": "https://www.fastcompany.com/91597417/grit-starts-at-the-copy-machine-and-other-lessons-for-success-from-evite-ceo-david-yeom-evite-ceo-david-yeom-secrets-of-success",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-21T10:03:00.000Z",
+        "contentSnippet": "The first three days of my career were spent in front of a copy machine. I was fresh out of college, newly hired at Arthur Andersen in downtown Los Angeles, convinced I was about to dive headfirst into the high-stakes world of auditing and consulting.&nbsp; On my first day, I arrived prepared to use every tool I’d just learned at school to impress my peers and superiors. Instead, I stood there for three days, copying stack after stack of audit and tax documents. Thousands of pages. One after another. “Is this what I worked so hard at school for?” I wondered. I didn’t know it then, but that job set the tone for everything that came after. Pushing through fear Arthur Andersen was not a gentle entry into the professional landscape. Peak consulting season meant routine 100-hour work weeks. The environment was demanding, fast-paced, and intense. Though the copy machine days were humbling, what came next forced me to confront a major fear. At 22, I was deeply shy. Public speaking was something I dreaded. Yet the job required it, again and again, in the form of regular client and team presentations.&nbsp; I found myself at a fork in the road; push through the nerves, or fall behind. So I pushed through, again and again, regularly presenting to teams and clients. The more I presented, the more the nerves felt like something I could handle, until, over time, they stopped showing up completely. Angela Duckworth, a psychologist and University of Pennsylvania professor, defines grit as perseverance and passion. I'd venture to say it’s not even a trait you're born with. It's a muscle you build when a situation gives you no other choice. Those early years at Arthur Andersen didn't just teach me how to work hard—they rewired how I think about discomfort and fear, not as a barrier to my goals, but as a doorway to growth. The transformation from shy kid to CEO didn't happen overnight. It began at the copy machine, then evolved one uncomfortable presentation at a time, until confidence stopped being something I performed and started being something I'd earned.&nbsp; A risky bet I carried that grit forward for the next two decades. And when I decided to acquire Evite , I needed it more than ever. On paper, Evite looked like a risky bet. It was a legacy brand—beloved and nostalgic, but stuck. The product hadn't kept pace with how people actually communicate today. The business model needed a complete overhaul. A lot of people saw a company past its prime. I saw something different: a turnaround puzzle . The challenge wasn't just modernizing a product. It was rebuilding an entire operating model while keeping the heart of the brand intact. That required both lessons from Arthur Andersen: the patience to start at the beginning and understand every detail, and the grit to keep going when the outcome wasn't certain. The people factor The other thing Arthur Andersen gave me was people: talented, driven colleagues who made the 100-hour weeks bearable and the work better. I learned early that great things don't get built by individuals. They get built by groups of people who trust each other enough to work together. That's stayed with me. At Evite, we’re not building a brand in isolation. We’re doing it together—with the team, with our hosts, with the people who've relied on us for decades. If I could offer one piece of advice to someone starting out today, it's this: Talk to everyone, even if it scares you. Get to know the people ahead of you, the people beside you, the people you think you have nothing in common with. Building something—a career, a company, a team—is not a solo sport. You never know who's going to become your cofounder, your investor, or the colleague who makes you sharper every single day.&nbsp; It turns out, the grit to face your fears only gets stronger when you don't face them alone. My First Job is a recurring series in which prominent business leaders share what their first job was and what they learned from it.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-21T10:03:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Why ‘Grit starts at the copy machine,’ is still great advice, according to Evite CEO David Yeom",
+            "itemLink": "https://www.fastcompany.com/91597417/grit-starts-at-the-copy-machine-and-other-lessons-for-success-from-evite-ceo-david-yeom-evite-ceo-david-yeom-secrets-of-success",
+            "publishedDate": "2026-09-21T10:03:00.000Z",
+            "contentSnippet": "The first three days of my career were spent in front of a copy machine. I was fresh out of college, newly hired at Arthur Andersen in downtown Los Angeles, convinced I was about to dive headfirst into the high-stakes world of auditing and consulting.&nbsp; On my first day, I arrived prepared to use every tool I’d just learned at school to impress my peers and superiors. Instead, I stood there for three days, copying stack after stack of audit and tax documents. Thousands of pages. One after another. “Is this what I worked so hard at school for?” I wondered. I didn’t know it then, but that job set the tone for everything that came after. Pushing through fear Arthur Andersen was not a gentle entry into the professional landscape. Peak consulting season meant routine 100-hour work weeks. The environment was demanding, fast-paced, and intense. Though the copy machine days were humbling, what came next forced me to confront a major fear. At 22, I was deeply shy. Public speaking was something I dreaded. Yet the job required it, again and again, in the form of regular client and team presentations.&nbsp; I found myself at a fork in the road; push through the nerves, or fall behind. So I pushed through, again and again, regularly presenting to teams and clients. The more I presented, the more the nerves felt like something I could handle, until, over time, they stopped showing up completely. Angela Duckworth, a psychologist and University of Pennsylvania professor, defines grit as perseverance and passion. I'd venture to say it’s not even a trait you're born with. It's a muscle you build when a situation gives you no other choice. Those early years at Arthur Andersen didn't just teach me how to work hard—they rewired how I think about discomfort and fear, not as a barrier to my goals, but as a doorway to growth. The transformation from shy kid to CEO didn't happen overnight. It began at the copy machine, then evolved one uncomfortable presentation at a time, until confidence stopped being something I performed and started being something I'd earned.&nbsp; A risky bet I carried that grit forward for the next two decades. And when I decided to acquire Evite , I needed it more than ever. On paper, Evite looked like a risky bet. It was a legacy brand—beloved and nostalgic, but stuck. The product hadn't kept pace with how people actually communicate today. The business model needed a complete overhaul. A lot of people saw a company past its prime. I saw something different: a turnaround puzzle . The challenge wasn't just modernizing a product. It was rebuilding an entire operating model while keeping the heart of the brand intact. That required both lessons from Arthur Andersen: the patience to start at the beginning and understand every detail, and the grit to keep going when the outcome wasn't certain. The people factor The other thing Arthur Andersen gave me was people: talented, driven colleagues who made the 100-hour weeks bearable and the work better. I learned early that great things don't get built by individuals. They get built by groups of people who trust each other enough to work together. That's stayed with me. At Evite, we’re not building a brand in isolation. We’re doing it together—with the team, with our hosts, with the people who've relied on us for decades. If I could offer one piece of advice to someone starting out today, it's this: Talk to everyone, even if it scares you. Get to know the people ahead of you, the people beside you, the people you think you have nothing in common with. Building something—a career, a company, a team—is not a solo sport. You never know who's going to become your cofounder, your investor, or the colleague who makes you sharper every single day.&nbsp; It turns out, the grit to face your fears only gets stronger when you don't face them alone. My First Job is a recurring series in which prominent business leaders share what their first job was and what they learned from it.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Work Life"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Work Life"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "why grit starts at the copy machine is still great advice according to evite ceo david yeom"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-21T10:03:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Work Life"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-21T12:11:45.565Z",
+    "pinterestScore": 75.8
   }
 ]
