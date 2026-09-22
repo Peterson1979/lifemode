@@ -26,7 +26,7 @@ import {
 test('LifeMode Social Card Image Generation & Layout Test Suite', async (t) => {
 
   await t.test('1. All seven pillar background files exist on disk and map deterministically', async () => {
-    const pillars: PillarSlug[] = ['life', 'travel', 'tech-ai', 'money', 'wellbeing', 'discover', 'now'];
+    const pillars: PillarSlug[] = ['life', 'travel', 'food-drink', 'tech-ai', 'money', 'wellbeing', 'culture'];
 
     for (const pillar of pillars) {
       const relPath = PILLAR_BACKGROUND_FILES[pillar];
@@ -46,8 +46,8 @@ test('LifeMode Social Card Image Generation & Layout Test Suite', async (t) => {
     }
   });
 
-  await t.test('2. All eight pillar themes have defined accent colors and uppercase display names', () => {
-    const pillars: PillarSlug[] = ['life', 'travel', 'food-drink', 'tech-ai', 'money', 'wellbeing', 'discover', 'now'];
+  await t.test('2. All seven pillar themes have defined accent colors and uppercase display names', () => {
+    const pillars: PillarSlug[] = ['life', 'travel', 'food-drink', 'tech-ai', 'money', 'wellbeing', 'culture'];
 
     for (const pillar of pillars) {
       const theme = PILLAR_VISUAL_THEMES[pillar];
@@ -97,8 +97,8 @@ test('LifeMode Social Card Image Generation & Layout Test Suite', async (t) => {
     assert.equal(escaped.includes('"'), false);
   });
 
-  await t.test('5. composeSocialCard produces 1080x1350 JPEG with valid magic bytes across all 8 pillars', async () => {
-    const pillars: PillarSlug[] = ['life', 'travel', 'food-drink', 'tech-ai', 'money', 'wellbeing', 'discover', 'now'];
+  await t.test('5. composeSocialCard produces 1080x1350 JPEG with valid magic bytes across all 7 pillars', async () => {
+    const pillars: PillarSlug[] = ['life', 'travel', 'food-drink', 'tech-ai', 'money', 'wellbeing', 'culture'];
 
     for (const pillar of pillars) {
       const buffer = await composeSocialCard({
@@ -174,8 +174,8 @@ test('LifeMode Social Card Image Generation & Layout Test Suite', async (t) => {
   await t.test('8. FixtureSocialImageProvider generates valid 1080x1350 JPEG asset passing visual validation', async () => {
     const provider = new FixtureSocialImageProvider();
     const result = await provider.generateImage({
-      topicId: 'lm-now-2026-analog-turn',
-      pillar: 'now',
+      topicId: 'lm-culture-2026-analog-turn',
+      pillar: 'culture',
       prompt: 'High signal professionals returning to analog notebooks',
       format: '1080x1350',
       headlineOverlay: 'The Analog Turn in Knowledge Work',
@@ -401,13 +401,13 @@ test('LifeMode Social Card Image Generation & Layout Test Suite', async (t) => {
     assert.equal(igPkg.preparedPayload.image_url, expectedPublicUrl);
   });
 
-  await t.test('12. Non-Food articles (now, wellbeing, travel, life) propagate assigned production images unaffected while preserving selection limits', async () => {
+  await t.test('12. Non-Food articles (culture, wellbeing, travel, life) propagate assigned production images unaffected while preserving selection limits', async () => {
     const publishedTopics: EditorialTopic[] = [
       {
-        id: 'lm-now-20260910-jose-trevino',
-        canonicalTopic: 'Jose Trevino: what to know',
-        slug: 'jose-trevino-what-to-know',
-        pillar: 'now',
+        id: 'lm-culture-20260910-jose-trevino',
+        canonicalTopic: 'Jose Trevino: Cultural & Athletic Profile',
+        slug: 'jose-trevino-profile',
+        pillar: 'culture',
         sourceSignals: [],
         queryVariants: ['jose trevino catcher'],
         scoring: {
@@ -428,7 +428,7 @@ test('LifeMode Social Card Image Generation & Layout Test Suite', async (t) => {
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
         publishedAt: new Date().toISOString(),
-        tags: ['now', 'baseball', 'sports'],
+        tags: ['culture', 'baseball', 'sports'],
         articleImage: '/editorial/baseball-diamond-catcher-gear.jpg',
       } as any,
       {
@@ -470,7 +470,7 @@ test('LifeMode Social Card Image Generation & Layout Test Suite', async (t) => {
     });
 
     assert.equal(selected.length, 1, 'maxOpportunities: 1 must return exactly 1 opportunity');
-    assert.equal(selected[0].topicId, 'lm-now-20260910-jose-trevino');
+    assert.equal(selected[0].topicId, 'lm-culture-20260910-jose-trevino');
     assert.equal(selected[0].articleImage, '/editorial/baseball-diamond-catcher-gear.jpg');
 
     // B. Verify local image loading for existing non-Food article (/editorial/baseball-diamond-catcher-gear.jpg)

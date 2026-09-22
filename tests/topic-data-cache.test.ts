@@ -7,7 +7,7 @@ import type { TopicDataBlock } from '../src/lib/topic-data/types/core.ts';
 
 const dummyBlock: TopicDataBlock<{ testVal: string }> = {
   id: 'test-block-01',
-  pillar: 'now',
+  pillar: 'travel',
   domain: 'earthquakes',
   title: 'Earth Activity Test',
   status: 'available',

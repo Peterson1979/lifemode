@@ -32,7 +32,16 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
   <div class="container header-container">
     <!-- Brand Masthead -->
     <a href="/" class="brand-wrapper" aria-label="LifeMode Homepage">
-      <span class="brand-logo">LifeMode</span>
+      <img
+        src="/assets/branding/lifemode-logo.webp"
+        srcset="/assets/branding/lifemode-logo.png 1x, /assets/branding/lifemode-logo.webp 1x"
+        alt="LifeMode"
+        class="brand-logo-img"
+        width="180"
+        height="40"
+        loading="eager"
+        decoding="async"
+      />
     </a>
 
     <!-- Desktop Navigation -->
@@ -100,17 +109,22 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
     font-weight: 500;
   }
 
-  .brand-logo {
-    font-family: var(--font-display);
-    font-size: 2.25rem;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    color: var(--color-text-primary);
+  .brand-wrapper {
+    display: inline-flex;
+    align-items: center;
     text-decoration: none;
+    line-height: 1;
+  }
+
+  .brand-logo-img {
+    height: 38px;
+    width: auto;
+    max-height: 40px;
+    object-fit: contain;
     transition: opacity var(--transition-fast);
   }
 
-  .brand-logo:hover {
+  .brand-logo-img:hover {
     opacity: 0.85;
   }
 

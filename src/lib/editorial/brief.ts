@@ -437,34 +437,55 @@ export function deriveEditorialTitleAngle(
 
   // Pillar & format-aware dynamic headline angle catalog
   switch (pillar) {
-    case 'now': {
+    case 'tech-ai': {
       const angles = [
-        `The Cultural Shift Toward ${cleanTopic}`,
-        `Why ${cleanTopic} Is Changing the Conversation`,
-        `Inside ${cleanTopic}: Key Shifts and Emerging Signals`,
-        `What's Behind the Momentum in ${cleanTopic}`,
-        `How ${cleanTopic} Is Reshaping Daily Routines`,
-        `${cleanTopic}: Key Developments, Context, and What's Ahead`,
+        `How ${cleanTopic} Operates Under the Surface`,
+        `The Architecture Behind ${cleanTopic}`,
+        `Inside ${cleanTopic}: Technical Breakthroughs and Real Workflows`,
+        `Why ${cleanTopic} Matters for the Next Wave of Computing`,
+        `What Changed in ${cleanTopic}—and What Remains`,
+        `A Pragmatic Engineering Look at ${cleanTopic}`,
+        `Understanding ${cleanTopic}: Models, Hardware, and Performance`,
+        `The Emerging Shift in ${cleanTopic}`,
+        `Beyond the Benchmark: Real-World Testing of ${cleanTopic}`,
+      ];
+      return angles[entropy % angles.length];
+    }
+    case 'culture': {
+      const angles = [
+        `The Cultural Significance of ${cleanTopic}`,
+        `Inside ${cleanTopic}: Form, Space, and Craft`,
+        `Why ${cleanTopic} Captures the Contemporary Imagination`,
+        `The Aesthetics of ${cleanTopic}: Heritage and Modern Restraint`,
+        `A Discerning Study in ${cleanTopic}`,
+        `How ${cleanTopic} Shapes Modern Visual Culture`,
+        `The Philosophy of ${cleanTopic}: Architecture, Materiality, and Memory`,
+        `What ${cleanTopic} Tells Us About Contemporary Taste`,
+        `The Quiet Emergence of ${cleanTopic}`,
       ];
       return angles[entropy % angles.length];
     }
     case 'wellbeing': {
       const angles = [
-        `The Science Behind ${cleanTopic}: Mechanisms and Daily Impact`,
+        `The Physiology of ${cleanTopic}: Mechanisms and Daily Impact`,
         `A Practical Protocol for ${cleanTopic}`,
         `Understanding ${cleanTopic}: Evidence-Based Health and Vitality`,
         `How ${cleanTopic} Influences Long-Term Wellbeing`,
-        `The Physiology of ${cleanTopic}: Key Principles and Real Impact`,
+        `The Science Behind ${cleanTopic}: Habits, Sleep, and Recovery`,
+        `Why ${cleanTopic} Matters for Sustainable Health`,
+        `Navigating ${cleanTopic}: Principles and Common Pitfalls`,
       ];
       return angles[entropy % angles.length];
     }
     case 'travel': {
       const angles = [
-        `A Thoughtful Traveler’s Guide to ${cleanTopic}`,
+        `A Thoughtful Traveler’s Perspective on ${cleanTopic}`,
         `The Quiet Appeal of ${cleanTopic}: Stays, Trails, and Solitude`,
         `Inside ${cleanTopic}: Architecture, Culture, and Slow Exploration`,
         `Navigating ${cleanTopic}: An Intentional Journey Blueprint`,
-        `${cleanTopic}: Solitary Landscapes, Local Craft, and Culture`,
+        `${cleanTopic}: Solitary Landscapes, Local Craft, and Heritage`,
+        `The Timeless Geography of ${cleanTopic}`,
+        `Why ${cleanTopic} Rewards Slow, Deliberate Travel`,
       ];
       return angles[entropy % angles.length];
     }
@@ -475,36 +496,20 @@ export function deriveEditorialTitleAngle(
         `The Fundamentals of ${cleanTopic}: A Minimalist Kitchen Guide`,
         `Building Flavor with ${cleanTopic}: Essential Methods and Balance`,
         `The Art of ${cleanTopic}: Heritage, Fermentation, and Daily Cooking`,
-      ];
-      return angles[entropy % angles.length];
-    }
-    case 'tech-ai': {
-      const angles = [
-        `A Practical Setup for ${cleanTopic}`,
-        `How ${cleanTopic} Works in Practice: Architectures and Benchmarks`,
-        `Inside ${cleanTopic}: Private Models, Hardware, and Local Performance`,
-        `Why ${cleanTopic} Is Reshaping Sovereign Computing`,
-        `The Engineering Behind ${cleanTopic}: Key Breakthroughs and Workflows`,
+        `How ${cleanTopic} Transforms Everyday Cooking`,
+        `Understanding ${cleanTopic}: Ingredient Sourcing and Kitchen Chemistry`,
       ];
       return angles[entropy % angles.length];
     }
     case 'money': {
       const angles = [
-        `A Practical Blueprint for ${cleanTopic}`,
+        `A Practical Framework for ${cleanTopic}`,
         `How ${cleanTopic} Impacts Cash Reserves and Liquidity`,
-        `Understanding ${cleanTopic}: Strategies for Long-Term Autonomy`,
-        `Why ${cleanTopic} Outperforms Conventional Financial Advice`,
-        `${cleanTopic}: Core Mechanics, Real Risks, and Strategic Asset Allocation`,
-      ];
-      return angles[entropy % angles.length];
-    }
-    case 'discover': {
-      const angles = [
-        `The Timeless Design of ${cleanTopic}`,
-        `Inside ${cleanTopic}: Proportions, Materials, and Craft`,
-        `The Philosophy of ${cleanTopic}: Cultural Heritage and Form`,
-        `A Curated Examination of ${cleanTopic}`,
-        `${cleanTopic}: Historic Proportions, Natural Materials, and Craftsmanship`,
+        `Understanding ${cleanTopic}: Strategies for Financial Autonomy`,
+        `Why ${cleanTopic} Deserves a Closer Strategic Look`,
+        `${cleanTopic}: Core Mechanics, Real Risks, and Allocation Strategy`,
+        `The Long-Term Economics of ${cleanTopic}`,
+        `What Really Happens When You Implement ${cleanTopic}`,
       ];
       return angles[entropy % angles.length];
     }
@@ -516,6 +521,8 @@ export function deriveEditorialTitleAngle(
         `How ${cleanTopic} Elevates Modern Living Spaces`,
         `The Art of ${cleanTopic}: Restraint, Craft, and Daily Rituals`,
         `A Minimalist Approach to ${cleanTopic}`,
+        `The Architecture of Routine: Incorporating ${cleanTopic}`,
+        `Why Intentional Living Begins with ${cleanTopic}`,
       ];
       return angles[entropy % angles.length];
     }

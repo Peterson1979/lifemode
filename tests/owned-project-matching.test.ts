@@ -10,9 +10,9 @@ import {
 import { ECOSYSTEM_PROJECTS } from '../src/config/ecosystem.ts';
 
 test('Owned Projects Configuration Integrity', () => {
-  assert.equal(OWNED_PROJECTS.length, 4, 'Must configure exactly 4 owned projects');
+  assert.equal(OWNED_PROJECTS.length, 3, 'Must configure exactly 3 owned projects (without MatchSignal)');
 
-  const expectedIds = ['ai-zodiac', 'dreamly-ai', 'get-ai-set', 'match-signal'];
+  const expectedIds = ['ai-zodiac', 'dreamly-ai', 'get-ai-set'];
   for (const id of expectedIds) {
     const project = getOwnedProjectById(id);
     assert.ok(project, `Project with ID ${id} must exist in configuration`);
@@ -22,17 +22,16 @@ test('Owned Projects Configuration Integrity', () => {
   }
 
   // Verify backward compatible ECOSYSTEM_PROJECTS export
-  assert.equal(ECOSYSTEM_PROJECTS.length, 4, 'ECOSYSTEM_PROJECTS must contain 4 projects');
+  assert.equal(ECOSYSTEM_PROJECTS.length, 3, 'ECOSYSTEM_PROJECTS must contain 3 projects');
   assert.equal(ECOSYSTEM_PROJECTS[0].url, 'https://play.google.com/store/apps/details?id=com.oberon.aizodiac');
   assert.equal(ECOSYSTEM_PROJECTS[1].url, 'https://play.google.com/store/apps/details?id=com.oberon.dreamlyai');
   assert.equal(ECOSYSTEM_PROJECTS[2].url, 'https://www.getaiset.com/');
-  assert.equal(ECOSYSTEM_PROJECTS[3].url, 'https://matchsignal.pro');
 });
 
 test('Matching Rule: AI Zodiac (Astrology, Personality Archetypes & Self-Discovery)', () => {
   // Case 1: Astrology and birth charts
   const zodiacMatch = matchOwnedProject({
-    pillar: 'discover',
+    pillar: 'culture',
     title: 'Understanding Your Sun and Moon Signs: A Guide to Cosmic Archetypes',
     description: 'Explore the nuances of your birth chart and how astrological archetypes influence self-discovery.',
     tags: ['astrology', 'zodiac', 'birth chart', 'archetypes'],
@@ -50,14 +49,14 @@ test('Matching Rule: AI Zodiac (Astrology, Personality Archetypes & Self-Discove
   assert.ok(personalityMatch, 'Must match AI Zodiac for personality archetype topics');
   assert.equal(personalityMatch?.id, 'ai-zodiac');
 
-  // Case 3: Negative rejection (Architecture in discover should NOT match AI Zodiac)
+  // Case 3: Negative rejection (Architecture in culture should NOT match AI Zodiac)
   const nonMatch = matchOwnedProject({
-    pillar: 'discover',
+    pillar: 'culture',
     title: 'Japanese Minka Renovation: Blending Historic Timber with Modern Minimalism',
     description: 'A study in timber restoration, traditional joinery, and minimalist spatial design.',
     tags: ['architecture', 'design', 'japan', 'timber'],
   });
-  assert.equal(nonMatch, null, 'Architecture article in discover must NOT match AI Zodiac');
+  assert.equal(nonMatch, null, 'Architecture article in culture must NOT match AI Zodiac');
 });
 
 test('Matching Rule: Dreamly AI (Sleep, Dreams, Bedtime & Relaxation)', () => {
@@ -122,35 +121,22 @@ test('Matching Rule: GetAISet (AI Learning, Courses, Toolkits & Workflows)', () 
   assert.equal(tvMatch, null, 'Streaming entertainment article in tech-ai must NOT match GetAISet');
 });
 
-test('Matching Rule: MatchSignal (Sports Analytics, Match Predictions & Odds)', () => {
-  // Case 1: Cricket match tactical analysis & predictions
+test('MatchSignal Isolation: Sports betting or match predictions must NOT match any owned project', () => {
   const cricketMatch = matchOwnedProject({
-    pillar: 'now',
-    title: 'Pakistan vs England: A Modern Guide to Trends, Signals & Zeitgeist',
-    description: 'Tactical preview, pitch momentum analysis, and match predictions for the upcoming series.',
+    pillar: 'culture',
+    title: 'Pakistan vs England: Cricket Match Overview and Tactical Review',
+    description: 'Tactical preview, pitch momentum analysis, and match summary for the upcoming series.',
     tags: ['cricket match', 'sports analysis', 'match predictions', 'pakistan vs england'],
   });
-  assert.ok(cricketMatch, 'Must match MatchSignal for sports match analysis');
-  assert.equal(cricketMatch?.id, 'match-signal');
+  assert.equal(cricketMatch, null, 'Sports match article must not match MatchSignal or any project');
 
-  // Case 2: Sports data & betting odds
   const bettingMatch = matchOwnedProject({
-    pillar: 'now',
+    pillar: 'culture',
     title: 'Premier League Tactical Analysis and Match Odds Breakdown',
     description: 'Data-driven momentum signals, team stats, and predictive match analysis for matchday 12.',
     tags: ['sports', 'premier league analysis', 'match odds', 'tactical analysis'],
   });
-  assert.ok(bettingMatch, 'Must match MatchSignal for Premier League odds breakdown');
-  assert.equal(bettingMatch?.id, 'match-signal');
-
-  // Case 3: Negative rejection (Celebrity news in now should NOT match MatchSignal)
-  const celebrityMatch = matchOwnedProject({
-    pillar: 'now',
-    title: 'Tommy McMillen: What You Should Know',
-    description: 'A deep dive into recent cultural appearances, media conversations, and background timeline.',
-    tags: ['celebrity', 'culture', 'news', 'timeline'],
-  });
-  assert.equal(celebrityMatch, null, 'Celebrity news article in now must NOT match MatchSignal');
+  assert.equal(bettingMatch, null, 'Betting odds article must not match MatchSignal or any project');
 });
 
 test('Disambiguation: AI Learning (GetAISet) vs AI Self-Discovery (AI Zodiac)', () => {
@@ -165,7 +151,7 @@ test('Disambiguation: AI Learning (GetAISet) vs AI Self-Discovery (AI Zodiac)', 
 
   // AI Cosmic / Archetypes -> AI Zodiac
   const cosmicArticle = matchOwnedProject({
-    pillar: 'discover',
+    pillar: 'culture',
     title: 'AI and Cosmic Archetypes: Exploring Modern Astrology Tools',
     description: 'How AI conversational models map relational dynamics and horoscope charts.',
     tags: ['astrology', 'zodiac', 'cosmic patterns', 'self-discovery'],
@@ -186,10 +172,10 @@ test('Explicit Frontmatter Overrides (targetProject)', () => {
 
   // Explicit targetProject: 'none' disables promotion even on matching topics
   const disabledMatch = matchOwnedProject({
-    pillar: 'now',
-    title: 'Premier League Match Predictions and Odds Analysis',
-    description: 'Complete statistical breakdown and predictions.',
-    tags: ['sports', 'match predictions', 'odds'],
+    pillar: 'tech-ai',
+    title: 'Best AI Courses and Learning Paths for Beginners',
+    description: 'Comprehensive tutorials and roadmaps.',
+    tags: ['ai learning', 'ai courses'],
     targetProject: 'none',
   });
   assert.equal(disabledMatch, null, 'targetProject: "none" must safely disable promotion');
@@ -197,15 +183,15 @@ test('Explicit Frontmatter Overrides (targetProject)', () => {
 
 test('Diagnostic Evaluation Details', () => {
   const evalResult = evaluateOwnedProjectMatch({
-    pillar: 'now',
-    title: 'Champions League Tactical Analysis & Match Odds',
-    description: 'In-depth fixtures breakdown and soccer stats.',
-    tags: ['champions league', 'match odds', 'soccer stats'],
+    pillar: 'tech-ai',
+    title: 'Mastering AI Tools and Prompt Engineering Courses in 2026',
+    description: 'Curated list of AI learning platforms and beginner courses.',
+    tags: ['ai courses', 'ai learning', 'prompt engineering course'],
   });
 
   assert.ok(evalResult.project, 'Must return matched project');
-  assert.equal(evalResult.project?.id, 'match-signal');
+  assert.equal(evalResult.project?.id, 'get-ai-set');
   assert.ok(evalResult.score >= 35, 'Score must meet or exceed match threshold');
   assert.ok(evalResult.matchedKeywords.length > 0, 'Must record matched keywords');
-  assert.ok(evalResult.matchReason?.includes('MatchSignal'), 'Must include human-readable match reason');
+  assert.ok(evalResult.matchReason?.includes('GetAISet'), 'Must include human-readable match reason');
 });

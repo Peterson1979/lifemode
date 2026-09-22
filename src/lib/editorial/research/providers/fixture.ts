@@ -41,7 +41,7 @@ export class FixtureEditorialResearchProvider implements IEditorialResearchProvi
           },
         ];
 
-      case 'now':
+      case 'culture':
         return [
           {
             title: 'Digital Intentionality and Consumer Technology Shift Report 2026',

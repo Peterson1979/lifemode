@@ -135,13 +135,14 @@ export function selectEditorialCandidates(
     return b.freshnessScore - a.freshnessScore;
   });
 
-  // Determine dynamic max per pillar if not specified: min(3, ceil(totalLimit / 2))
-  const defaultMaxPerPillar = options.totalLimit && options.totalLimit > 2
-    ? Math.max(2, Math.ceil(options.totalLimit / 3))
-    : undefined;
+  // Determine dynamic max per pillar if not specified: strictly 1 when totalLimit <= 3 (enforcing topic diversity)
+  const defaultMaxPerPillar = options.totalLimit && options.totalLimit <= 3
+    ? 1
+    : (options.totalLimit ? Math.max(1, Math.ceil(options.totalLimit / 3)) : 1);
   const maxPerPillar = options.maxTopicsPerPillar ?? defaultMaxPerPillar;
+  const strictDiversity = maxPerPillar === 1 || (options.totalLimit !== undefined && options.totalLimit <= 3);
 
-  // Pass 1: Select up to maxPerPillar per pillar
+  // Pass 1: Select up to maxPerPillar per pillar (ensures 1 per pillar when totalLimit is 3)
   const remainingAfterPass1: EditorialTopic[] = [];
 
   for (const topic of sortedQualified) {
@@ -169,8 +170,8 @@ export function selectEditorialCandidates(
     });
   }
 
-  // Pass 2: If totalLimit not yet reached and we have remaining qualified candidates, fill capacity
-  if (options.totalLimit && approved.length < options.totalLimit) {
+  // Pass 2: If totalLimit not yet reached and strict diversity is NOT required, fill capacity with remaining
+  if (options.totalLimit && approved.length < options.totalLimit && !strictDiversity) {
     for (const topic of remainingAfterPass1) {
       if (approved.length >= options.totalLimit) {
         deferred.push({
@@ -194,7 +195,7 @@ export function selectEditorialCandidates(
       deferred.push({
         ...topic,
         status: 'DEFERRED',
-        deferReason: `Pillar ${topic.pillar} quota reached and batch filled`,
+        deferReason: `Pillar ${topic.pillar} quota reached (${pillarCounts[topic.pillar] || 0}/${maxPerPillar}) and topic diversity enforced`,
         updatedAt: new Date().toISOString(),
       });
     }

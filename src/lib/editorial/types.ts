@@ -77,6 +77,7 @@ export type SignalSourceType =
   | 'BING_WEBMASTER'
   | 'REDDIT_SOCIAL'
   | 'RSS_FEEDS'
+  | 'NEWS_API'
   | 'YOUTUBE_TRENDS'
   | 'SEASONAL_CALENDAR'
   | 'INTERNAL_ANALYTICS'

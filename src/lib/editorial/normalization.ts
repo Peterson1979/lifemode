@@ -120,8 +120,7 @@ const PILLAR_KEYWORDS: Record<PillarSlug, string[]> = {
   'tech-ai': ['tech', 'ai', 'artificial intelligence', 'gadget', 'software', 'prompt', 'automation', 'tool', 'app', 'hardware', 'llm', 'computing', 'digital', 'workflow'],
   money: ['money', 'finance', 'invest', 'wealth', 'budget', 'saving', 'portfolio', 'income', 'crypto', 'stock', 'tax', 'yield', 'treasury', 'cash', 'asset'],
   wellbeing: ['wellbeing', 'health', 'fitness', 'nutrition', 'workout', 'diet', 'sleep', 'mindfulness', 'longevity', 'mental', 'vitality', 'circadian', 'recovery', 'sauna', 'light'],
-  discover: ['discover', 'culture', 'book', 'art', 'design', 'architecture', 'film', 'curation', 'history', 'exhibition', 'minka', 'prefab', 'monograph', 'ceramic'],
-  now: ['now', 'trend', 'viral', 'season', 'summer', 'winter', 'autumn', 'spring', 'update', 'breaking', 'zeitgeist', 'shift', 'cultural', 'intentionality', 'friction'],
+  culture: ['culture', 'book', 'art', 'design', 'architecture', 'film', 'curation', 'history', 'exhibition', 'minka', 'prefab', 'monograph', 'ceramic', 'music', 'festival', 'zeitgeist', 'trend'],
   'food-drink': ['food', 'drink', 'recipe', 'cooking', 'ingredient', 'kitchen', 'cuisine', 'sourdough', 'fermentation', 'meal', 'baking', 'culinary', 'dish', 'beverage', 'tea', 'coffee'],
 };
 

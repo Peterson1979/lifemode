@@ -13,6 +13,7 @@ import {
   selectEditorialCandidates,
   type ArticlePerformanceRecord,
   type EditorialTopic,
+  type PillarSlug,
 } from '../src/lib/editorial/index.ts';
 
 async function createTempStoragePath(name = 'perf-test-'): Promise<{
@@ -32,7 +33,7 @@ async function createTempStoragePath(name = 'perf-test-'): Promise<{
 function createDummyTopic(
   id: string,
   canonicalTopic: string,
-  pillar: 'tech-ai' | 'travel' | 'life' | 'money' | 'wellbeing' | 'now',
+  pillar: PillarSlug,
   totalScore: number,
   overrides: Partial<EditorialTopic> = {}
 ): EditorialTopic {

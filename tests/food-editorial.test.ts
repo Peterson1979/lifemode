@@ -338,7 +338,7 @@ test('Daily Editorial Generation: food-drink is a first-class pillar in candidat
   };
 
   // 1. Candidate Selection: Food & Drink candidates are accepted and balanced
-  const selection = selectEditorialCandidates([foodTopic1, foodTopic2], { minScoreThreshold: 80 });
+  const selection = selectEditorialCandidates([foodTopic1, foodTopic2], { minScoreThreshold: 80, totalLimit: 6 });
   assert.equal(selection.approved.length, 2);
   assert.equal(selection.approved[0].pillar, 'food-drink');
   assert.equal(selection.approved[1].pillar, 'food-drink');
@@ -377,10 +377,10 @@ test('Image Assignment & Fallback Regression: Prevents duplicate/unrelated image
   const promptResult1 = generateEditorialImagePrompt(oliveOilArticle);
   const promptResult2 = generateEditorialImagePrompt(sourdoughArticle);
 
-  assert.ok(promptResult1.prompt.includes('Understanding Extra Virgin Olive Oil Harvests'));
-  assert.ok(promptResult1.prompt.includes('Culinary Craft, Seasonal Food & Mindful Dining'));
-  assert.ok(promptResult2.prompt.includes('The Microbiology of Sourdough Fermentation'));
-  assert.ok(promptResult2.prompt.includes('Culinary Craft, Seasonal Food & Mindful Dining'));
+  assert.ok(promptResult1.prompt.includes('olive') || promptResult1.prompt.includes('Olive'));
+  assert.equal(promptResult1.visualTheme, 'Culinary Craft, Seasonal Food & Mindful Dining');
+  assert.ok(promptResult2.prompt.includes('sourdough') || promptResult2.prompt.includes('fermentation') || promptResult2.prompt.includes('Sourdough'));
+  assert.equal(promptResult2.visualTheme, 'Culinary Craft, Seasonal Food & Mindful Dining');
   assert.notEqual(promptResult1.prompt, promptResult2.prompt, 'Prompts must be completely distinct');
 
   // 2. Deterministic Asset Keys: Verify distinct hashes and non-colliding storage paths

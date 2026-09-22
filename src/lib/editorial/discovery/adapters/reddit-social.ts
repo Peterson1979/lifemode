@@ -125,7 +125,7 @@ export class RedditSocialDiscoveryAdapter implements IDiscoveryAdapter {
               relativeInterest: relInterest,
               isBreakout: post.ups >= 300,
               visualPotentialScore:
-                community.pillar === 'discover' || community.pillar === 'travel' ? 90 : 70,
+                community.pillar === 'culture' || community.pillar === 'travel' ? 90 : 70,
             },
             geography: 'GLOBAL',
             language: 'en',

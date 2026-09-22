@@ -307,10 +307,10 @@ test('Image Backfill: selectBackfillCandidates filters and prioritizes correctly
       },
     },
     {
-      pillar: 'discover',
+      pillar: 'culture',
       slug: 'featured-article-no-image',
-      identity: { pillar: 'discover', slug: 'featured-article-no-image' },
-      filePath: '/content/discover/featured-article-no-image.md',
+      identity: { pillar: 'culture', slug: 'featured-article-no-image' },
+      filePath: '/content/culture/featured-article-no-image.md',
       content: 'Content...',
       frontmatter: {
         title: 'Featured Article',
@@ -602,8 +602,7 @@ test('Maintenance: findEmptyTopics correctly identifies empty topics without art
   assert.ok(report.emptyPillars.includes('money'));
   assert.ok(report.emptyPillars.includes('travel'));
   assert.ok(report.emptyPillars.includes('tech-ai'));
-  assert.ok(report.emptyPillars.includes('discover'));
-  assert.ok(report.emptyPillars.includes('now'));
+  assert.ok(report.emptyPillars.includes('culture'));
   assert.ok(!report.emptyPillars.includes('wellbeing'));
   assert.ok(!report.emptyPillars.includes('life'));
 
@@ -654,7 +653,7 @@ test('Maintenance: runMaintenanceBackfill in dry-run mode summarizes actions wit
   const repo = new FilesystemContentRepository({ contentRoot });
 
   await repo.create({
-    pillar: 'now',
+    pillar: 'tech-ai',
     slug: 'downdetector-guide-2026',
     content: '## Downdetector\n\nHow outages are tracked.',
     frontmatter: {
@@ -687,7 +686,7 @@ test('Maintenance: runMaintenanceBackfill in dry-run mode summarizes actions wit
   assert.ok(report.summary.includes('Downdetector'));
 
   // Content remains untouched
-  const article = await repo.get('now', 'downdetector-guide-2026');
+  const article = await repo.get('tech-ai', 'downdetector-guide-2026');
   assert.ok(article?.frontmatter.title.includes('A Modern Guide'));
 
   await fs.rm(tempDir, { recursive: true, force: true });

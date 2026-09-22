@@ -35,7 +35,8 @@ async function createTempWorkspace(prefix = 'lifemode-watchdog-test-'): Promise<
   await fs.mkdir(path.join(contentDir, 'life'), { recursive: true });
   await fs.mkdir(path.join(contentDir, 'money'), { recursive: true });
   await fs.mkdir(path.join(contentDir, 'wellbeing'), { recursive: true });
-  await fs.mkdir(path.join(contentDir, 'now'), { recursive: true });
+  await fs.mkdir(path.join(contentDir, 'food-drink'), { recursive: true });
+  await fs.mkdir(path.join(contentDir, 'culture'), { recursive: true });
 
   await execFileAsync('git', ['init', '-b', 'master'], { cwd: repoDir });
   await execFileAsync('git', ['config', 'user.name', 'LifeMode Watchdog Tester'], { cwd: repoDir });
@@ -220,7 +221,7 @@ test('3. Watchdog Recovery: Scheduled run was missed -> watchdog detects 0 artic
         new MockSignalAdapter([
           { query: 'Biophilic Workstation Architecture', pillar: 'tech-ai', score: 98 },
           { query: 'Passive House Heating Systems', pillar: 'life', score: 96 },
-          { query: 'Solar Microgrid Resilience', pillar: 'tech-ai', score: 94 },
+          { query: 'Solar Microgrid Resilience', pillar: 'travel', score: 94 },
         ]),
       ],
     });

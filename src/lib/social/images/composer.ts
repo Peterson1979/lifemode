@@ -40,15 +40,10 @@ export const PILLAR_VISUAL_THEMES: Record<PillarSlug, PillarVisualTheme> = {
     accentColor: '#FBBF24', // Amber
     accentBg: 'rgba(251, 191, 36, 0.2)',
   },
-  discover: {
-    displayName: 'DISCOVER',
-    accentColor: '#FB923C', // Orange
+  culture: {
+    displayName: 'CULTURE',
+    accentColor: '#FB923C', // Orange / Amber
     accentBg: 'rgba(251, 146, 60, 0.2)',
-  },
-  now: {
-    displayName: 'NOW',
-    accentColor: '#F43F5E', // Crimson
-    accentBg: 'rgba(244, 63, 94, 0.2)',
   },
 };
 
@@ -59,8 +54,7 @@ export const PILLAR_BACKGROUND_FILES: Record<PillarSlug, string> = {
   'tech-ai': 'public/social/backgrounds/tech-ai.jpg',
   money: 'public/social/backgrounds/money.jpg',
   wellbeing: 'public/social/backgrounds/wellbeing.jpg',
-  discover: 'public/social/backgrounds/discover.jpg',
-  now: 'public/social/backgrounds/now.jpg',
+  culture: 'public/social/backgrounds/culture.jpg',
 };
 
 /**

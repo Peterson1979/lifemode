@@ -4,7 +4,7 @@ description: "An inquiry into why writers, strategists, and knowledge workers ar
 pubDate: "2026-09-11T07:28:52.883Z"
 updatedDate: "2026-09-18"
 author: "LifeMode Editorial"
-tags: ["trends", "analog", "productivity", "focus", "work-culture"]
+tags: ["trends", "analog", "productivity", "focus", "work-culture", "culture"]
 featured: false
 draft: false
 format: "deep-dive"

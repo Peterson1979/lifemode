@@ -4,7 +4,7 @@ description: "Why people are intentionally introducing obstacles, delays, and ph
 pubDate: "2026-09-11T07:22:02.419Z"
 updatedDate: "2026-09-18"
 author: "LifeMode Editorial"
-tags: ["trends", "digital-wellbeing", "intentionality", "lifestyle", "philosophy"]
+tags: ["trends", "digital-wellbeing", "intentionality", "lifestyle", "philosophy", "culture"]
 featured: false
 draft: false
 format: "deep-dive"

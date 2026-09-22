@@ -4,7 +4,7 @@ description: "Explore the 2026 cultural shift toward digital intentionality—ho
 pubDate: "2026-09-09T19:14:31.643Z"
 updatedDate: "2026-09-12"
 author: "LifeMode Editorial"
-tags: ["trends","zeitgeist","lifestyle","culture"]
+tags: ["trends", "zeitgeist", "lifestyle", "culture"]
 featured: false
 draft: false
 format: "standard"

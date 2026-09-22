@@ -43,7 +43,7 @@ export function determineTargetPlatforms(topic: EditorialTopic): SocialPlatform[
   const socialScore = topic.scoring?.socialPotential ?? 0;
 
   // Visual/Design heavy topics naturally excel on Pinterest and Instagram
-  if (pinScore >= 70 || topic.pillar === 'discover' || topic.pillar === 'travel' || topic.pillar === 'life' || topic.pillar === 'food-drink') {
+  if (pinScore >= 70 || topic.pillar === 'culture' || topic.pillar === 'travel' || topic.pillar === 'life' || topic.pillar === 'food-drink') {
     platforms.push('pinterest');
   }
 

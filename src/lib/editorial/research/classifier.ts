@@ -59,8 +59,8 @@ export function evaluateResearchRequirement(
     };
   }
 
-  // 3. NOW pillar: current trends, current events, zeitgeist, 2026 claims
-  if (pillar === 'now' || canonical.includes('2026') || title.includes('2026') || canonical.includes('trend')) {
+  // 3. Culture & Trend topics: current trends, current events, zeitgeist, 2026 claims
+  if (pillar === 'culture' || canonical.includes('2026') || title.includes('2026') || canonical.includes('trend')) {
     return {
       required: true,
       reason: 'Current zeitgeist and forward-looking trend topics require verified external evidence.',

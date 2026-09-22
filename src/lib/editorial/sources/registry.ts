@@ -455,7 +455,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'official',
     reliability: 'high',
-    pillars: ['travel', 'discover'],
+    pillars: ['travel', 'culture'],
     domains: ['unesco.org', 'whc.unesco.org'],
     url: 'https://whc.unesco.org',
     topics: ['world-heritage', 'cultural-preservation', 'historic-sites', 'architecture'],
@@ -468,7 +468,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'academic',
     reliability: 'high',
-    pillars: ['travel', 'discover'],
+    pillars: ['travel', 'culture'],
     domains: ['tobunken.go.jp'],
     url: 'https://www.tobunken.go.jp/english/',
     topics: ['traditional-architecture', 'sukiya', 'japanese-craftsmanship', 'heritage-restoration'],
@@ -531,7 +531,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
   },
 
   // =========================================================================
-  // LIFE, DISCOVER & NOW (Aesthetics, Living & Cultural Zeitgeist)
+  // LIFE & CULTURE (Aesthetics, Living & Cultural Analysis)
   // =========================================================================
   {
     id: 'pew-research',
@@ -539,7 +539,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'academic',
     reliability: 'high',
-    pillars: ['now', 'life'],
+    pillars: ['culture', 'life'],
     domains: ['pewresearch.org'],
     url: 'https://www.pewresearch.org',
     topics: ['social-trends', 'digital-habits', 'demographics', 'technology-adoption', 'screen-time'],
@@ -552,7 +552,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'official',
     reliability: 'high',
-    pillars: ['now', 'tech-ai', 'life'],
+    pillars: ['culture', 'tech-ai', 'life'],
     domains: ['humanetech.com'],
     url: 'https://www.humanetech.com',
     topics: ['digital-intentionality', 'attention-economy', 'calm-computing', 'wellbeing-tech'],
@@ -565,7 +565,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'both',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['discover', 'life'],
+    pillars: ['culture', 'life'],
     domains: ['dezeen.com'],
     url: 'https://www.dezeen.com',
     feedUrl: 'https://www.dezeen.com/feed/',
@@ -579,7 +579,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'both',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['discover', 'life'],
+    pillars: ['culture', 'life'],
     domains: ['design-milk.com'],
     url: 'https://design-milk.com',
     feedUrl: 'https://design-milk.com/feed/',
@@ -593,7 +593,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'both',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['life', 'now'],
+    pillars: ['life', 'culture'],
     domains: ['fastcompany.com'],
     url: 'https://www.fastcompany.com',
     feedUrl: 'https://www.fastcompany.com/rss',
@@ -621,7 +621,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['now', 'life', 'travel'],
+    pillars: ['culture', 'life', 'travel'],
     domains: ['theguardian.com'],
     url: 'https://www.theguardian.com',
     topics: ['culture', 'lifestyle', 'environment', 'society'],
@@ -634,7 +634,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['now', 'life', 'travel'],
+    pillars: ['culture', 'life', 'travel'],
     domains: ['nytimes.com'],
     url: 'https://www.nytimes.com',
     topics: ['culture', 'trends', 'lifestyle', 'travel', 'books'],
@@ -789,7 +789,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['tech-ai', 'money', 'wellbeing', 'travel', 'life', 'discover', 'now', 'food-drink'],
+    pillars: ['tech-ai', 'money', 'wellbeing', 'travel', 'life', 'culture', 'food-drink'],
     domains: ['trends.google.com'],
     url: 'https://trends.google.com',
     description: 'Real-time search interest spikes and keyword breakout signals.',
@@ -802,7 +802,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['life', 'discover', 'travel', 'wellbeing', 'now', 'food-drink'],
+    pillars: ['life', 'culture', 'travel', 'wellbeing', 'food-drink'],
     domains: ['pinterest.com'],
     url: 'https://pinterest.com',
     description: 'Emerging visual aesthetics, interior design boards, and lifestyle curations.',
@@ -841,7 +841,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['now', 'life'],
+    pillars: ['life'],
     domains: ['reddit.com/r/simpleliving'],
     topics: ['slow-living', 'digital-detox', 'values'],
     description: 'Emerging cultural sentiment on slow living and conscious consumption.',
@@ -962,9 +962,9 @@ export const CURATED_TOPIC_EVIDENCE: CuratedTopicEvidenceSpec[] = [
       },
     ],
   },
-  // 5. Now / Digital Intentionality & Zeitgeist
+  // 5. Culture / Digital Intentionality & Zeitgeist
   {
-    pillar: 'now',
+    pillar: 'culture',
     keywords: ['digital', 'intentionality', 'cultural', 'shift', 'zeitgeist', 'trend'],
     evidence: [
       {

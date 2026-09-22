@@ -3,7 +3,7 @@ title: "San Jose Earthquakes: Tactical Shifts, Midfield Rebuilding, and Bay Area
 description: "A straight‑ahead look at the San Jose Earthquakes—team history, recent moves, how to catch a game, and why the club matters today."
 pubDate: "2026-09-15T16:49:02.926Z"
 author: "LifeMode Editorial"
-tags: ["US","now","trending"]
+tags: ["US", "trending", "culture"]
 featured: false
 draft: false
 format: "standard"

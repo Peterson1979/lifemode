@@ -28,7 +28,7 @@ export function transformSignalToCandidate(signal: DiscoverySignal): EditorialTo
   const relativeInterest = signal.metrics?.relativeInterest ?? 75;
   const growthRate = signal.metrics?.growthRate ?? 50;
   const visualScore = signal.metrics?.visualPotentialScore ?? (
-    signal.source === 'PINTEREST_TRENDS' ? 90 : (pillar === 'discover' || pillar === 'travel' ? 85 : 70)
+    signal.source === 'PINTEREST_TRENDS' ? 90 : (pillar === 'culture' || pillar === 'travel' ? 85 : 70)
   );
 
   let searchPotential = Math.min(100, Math.round(relativeInterest * 0.6 + Math.min(40, searchVol / 1000)));

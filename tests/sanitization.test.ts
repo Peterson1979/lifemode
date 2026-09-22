@@ -173,7 +173,7 @@ Japanese tea houses exemplify restrained proportions and natural materials.
 test('Sanitization - Production article now/the-2026-cultural-shift-toward-digital-intentionality is clean and valid', async () => {
   const articlePath = resolve(
     process.cwd(),
-    'src/content/now/the-2026-cultural-shift-toward-digital-intentionality.md'
+    'src/content/culture/the-2026-cultural-shift-toward-digital-intentionality.md'
   );
   const rawFile = await readFile(articlePath, 'utf-8');
 
@@ -184,7 +184,7 @@ test('Sanitization - Production article now/the-2026-cultural-shift-toward-digit
   assert.ok(!rawFile.includes('**Social Hooks**'));
 
   // Must parse cleanly into StoredArticle
-  const parsed = parseArticle(rawFile, 'now', 'the-2026-cultural-shift-toward-digital-intentionality', articlePath);
+  const parsed = parseArticle(rawFile, 'culture', 'the-2026-cultural-shift-toward-digital-intentionality', articlePath);
   assert.equal(parsed.frontmatter.title, 'The cultural shift toward digital intentionality');
   assert.equal(parsed.frontmatter.sources.length, 3);
   assert.ok(parsed.content.includes('## Introduction & Core Perspective'));

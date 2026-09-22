@@ -52,7 +52,7 @@ const SEASONAL_EDITORIAL_THEMES: SeasonalTheme[] = [
   // Spring / Q2 (Apr - May - Jun)
   {
     event: 'Spring Architectural & Interior Renewal',
-    pillar: 'discover',
+    pillar: 'culture',
     rawQuery: 'Modernist Biophilic Design: Integrating Natural Light and Sustainable Materials',
     targetMonths: [2, 3, 4],
     growthRate: 90,
@@ -94,7 +94,7 @@ const SEASONAL_EDITORIAL_THEMES: SeasonalTheme[] = [
   },
   {
     event: 'Mid-Year Lifestyle & Zeitgeist Shift',
-    pillar: 'now',
+    pillar: 'culture',
     rawQuery: 'The Analog Turn: Why High-Signal Professionals Are Embracing Tactile Objects',
     targetMonths: [5, 6, 7, 8, 9],
     growthRate: 110,
@@ -116,7 +116,7 @@ const SEASONAL_EDITORIAL_THEMES: SeasonalTheme[] = [
   },
   {
     event: 'End-of-Year Cultural Curation & Books',
-    pillar: 'discover',
+    pillar: 'culture',
     rawQuery: 'Curated Monograph Curation: Timeless Design and Photography Volumes',
     targetMonths: [9, 10, 11],
     growthRate: 85,

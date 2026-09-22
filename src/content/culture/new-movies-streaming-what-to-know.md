@@ -3,7 +3,7 @@ title: "Curating Cinema at Home: Mindful Streaming, Release Windows, and Screen 
 description: "Find out how to pick, plan, and watch new movies on streaming services while staying mindful and avoiding overload."
 pubDate: "2026-09-12T10:17:08.921Z"
 author: "LifeMode Editorial"
-tags: ["US","now","trending"]
+tags: ["US", "trending", "culture"]
 featured: false
 draft: false
 format: "standard"

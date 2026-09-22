@@ -66,7 +66,7 @@ test('1. RSS discovery adapter preserves rich provenance fields (sourceUrl, publ
         id: 'dezeen-test',
         name: 'Dezeen Architecture',
         url: 'https://www.dezeen.com/feed',
-        pillar: 'discover',
+        pillar: 'culture',
       },
     ],
   });
@@ -84,7 +84,7 @@ test('2. Candidate transform and cross-source corroboration retain provenance in
   const signal: DiscoverySignal = {
     source: 'RSS_FEEDS',
     rawQuery: 'Mindful Japanese Tea Pavilions: Sukiya Architecture Today',
-    category: 'discover',
+    category: 'culture',
     sourceUrl: 'https://www.dezeen.com/2026/02/10/japanese-tea-pavilions-architecture/',
     publisherName: 'Dezeen Architecture',
     publishedAt: '2026-02-10T09:00:00.000Z',
@@ -106,7 +106,7 @@ test('2. Candidate transform and cross-source corroboration retain provenance in
   const redditSignal: DiscoverySignal = {
     source: 'REDDIT_SOCIAL',
     rawQuery: 'Japanese tea house architecture discussion',
-    category: 'discover',
+    category: 'culture',
     timestamp: '2026-02-10T10:00:00.000Z',
   };
 
@@ -125,10 +125,10 @@ test('3. Candidate serialization and restoration preserves all provenance fields
 
   try {
     const topic: EditorialTopic = {
-      id: 'lm-discover-provenance-01',
+      id: 'lm-culture-provenance-01',
       canonicalTopic: 'Mindful Japanese Tea Pavilions: Sukiya Architecture Today',
       slug: 'mindful-japanese-tea-pavilions-sukiya-architecture-today',
-      pillar: 'discover',
+      pillar: 'culture',
       sourceSignals: [
         {
           source: 'RSS_FEEDS',

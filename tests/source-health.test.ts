@@ -38,7 +38,7 @@ const mockSource: EditorialSourceDefinition = {
   role: 'both',
   sourceType: 'reputable_media',
   reliability: 'high',
-  pillars: ['discover'],
+  pillars: ['culture'],
   domains: ['dezeen.com'],
   feedUrl: 'https://www.dezeen.com/feed/',
   url: 'https://www.dezeen.com',

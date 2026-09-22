@@ -45,15 +45,13 @@ export class TopicDataProviderRegistry {
       this.domainMapping.set(p.domain, p);
     }
 
-    // Explicit topic-to-provider mappings across all 8 LifeMode topics
-    // NOW Ordering Requirement: News must ALWAYS be the first displayed data source
-    this.pillarMapping.set('now', [newsProvider, weatherProvider, earthquakeProvider]);
+    // Explicit topic-to-provider mappings across all 7 LifeMode topics
     this.pillarMapping.set('money', [fxProvider, economicProvider]);
     this.pillarMapping.set('travel', [weatherProvider, earthquakeProvider, fxProvider]);
     this.pillarMapping.set('wellbeing', [foodProvider, economicProvider]);
     this.pillarMapping.set('food-drink', [foodProvider]);
-    this.pillarMapping.set('tech-ai', [techProvider]);
-    this.pillarMapping.set('discover', [knowledgeProvider, economicProvider]);
+    this.pillarMapping.set('tech-ai', [techProvider, newsProvider]);
+    this.pillarMapping.set('culture', [knowledgeProvider, economicProvider, newsProvider]);
     this.pillarMapping.set('life', [knowledgeProvider, economicProvider]);
   }
 

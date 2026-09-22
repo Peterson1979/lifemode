@@ -32,7 +32,7 @@ export class UsgsEarthquakeProvider extends BaseTopicDataProvider<EarthquakeFeed
   readonly providerId = 'usgs-earthquake';
   readonly name = 'USGS Earthquakes';
   readonly domain: DataDomain = 'earthquakes';
-  readonly defaultPillar: PillarSlug = 'now';
+  readonly defaultPillar: PillarSlug = 'travel';
 
   readonly source: DataSource = {
     id: 'usgs',

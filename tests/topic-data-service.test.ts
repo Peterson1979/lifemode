@@ -7,7 +7,7 @@ import { TopicDataCache } from '../src/lib/topic-data/cache/store.ts';
 import { handleTopicDataApiRequest, isCurrentDataDomain } from '../src/lib/topic-data/runtime-handler.ts';
 import type { PillarSlug } from '../src/config/site.ts';
 
-test('1. TopicDataService: Retrieves configured data blocks across all 8 LifeMode pillars', async () => {
+test('1. TopicDataService: Retrieves configured data blocks across all 7 LifeMode pillars', async () => {
   const cache = new TopicDataCache();
   const registry = new TopicDataProviderRegistry(cache);
   const service = new TopicDataService({ registry });
@@ -35,13 +35,12 @@ test('1. TopicDataService: Retrieves configured data blocks across all 8 LifeMod
     );
 
   const pillars: PillarSlug[] = [
-    'now',
     'money',
     'travel',
     'wellbeing',
     'food-drink',
     'tech-ai',
-    'discover',
+    'culture',
     'life',
   ];
 
@@ -85,29 +84,23 @@ test('2. Failure Isolation: One provider failure does not break the other topic 
     );
   };
 
-  const blocks = await service.getTopicData('now', {
+  const blocks = await service.getTopicData('travel', {
     customFetch: selectiveFetch,
     forceFresh: true,
     maxRetries: 0,
   });
 
-  assert.equal(blocks.length, 3); // now has 3 providers: news, weather, earthquakes
-  const newsBlock = blocks[0];
-  const weatherBlock = blocks[1];
-  const earthquakeBlock = blocks[2];
-
-  // News must always be the first displayed data block in Now
-  assert.equal(newsBlock.domain, 'news', 'First block in Now must be News');
-  assert.equal(weatherBlock.domain, 'weather', 'Second block in Now must be Weather');
-  assert.equal(earthquakeBlock.domain, 'earthquakes', 'Third block in Now must be Earthquakes');
-
-  assert.ok(earthquakeBlock);
-  assert.equal(earthquakeBlock?.status, 'unavailable');
-  assert.equal(earthquakeBlock?.data, null);
+  assert.equal(blocks.length, 3); // travel has 3 providers: weather, earthquakes, fx
+  const weatherBlock = blocks[0];
+  const earthquakeBlock = blocks[1];
 
   assert.ok(weatherBlock);
   assert.equal(weatherBlock?.status, 'available');
   assert.ok(weatherBlock?.data);
+
+  assert.ok(earthquakeBlock);
+  assert.equal(earthquakeBlock?.status, 'unavailable');
+  assert.equal(earthquakeBlock?.data, null);
 });
 
 test('3. Article Opt-In: getArticleData successfully resolves targeted queries', async () => {
@@ -158,7 +151,7 @@ test('4. Runtime Endpoint: handleTopicDataApiRequest returns normalized topic da
   assert.ok(body400.error.includes('Invalid or missing pillar'));
 
   // 2. Valid pillar with currentOnly=true
-  const validReq = new Request('https://lifemode.life/api/topic-data?pillar=now&currentOnly=true');
+  const validReq = new Request('https://lifemode.life/api/topic-data?pillar=travel&currentOnly=true');
   const res200 = await handleTopicDataApiRequest(validReq, { WEATHERAPI_API_KEY: 'test-key' }, service);
   assert.equal(res200.status, 200);
   assert.ok(res200.headers.get('Content-Type')?.includes('application/json'));
@@ -166,7 +159,7 @@ test('4. Runtime Endpoint: handleTopicDataApiRequest returns normalized topic da
 
   const body200 = await res200.json();
   assert.equal(body200.success, true);
-  assert.equal(body200.pillar, 'now');
+  assert.equal(body200.pillar, 'travel');
   assert.ok(Array.isArray(body200.blocks));
   // All returned blocks must be current data domains
   for (const block of body200.blocks) {

@@ -11,9 +11,9 @@ async function main() {
   const provider = new CloudflareWorkersAIImageProvider();
   const storage = new CloudflareR2SocialAssetStorageProvider();
 
-  const topicId = 'lm-now-20260912-new-movies-streaming';
+  const topicId = 'lm-culture-20260912-new-movies-streaming';
   const slug = 'new-movies-streaming-what-to-know';
-  const pillar = 'now';
+  const pillar = 'culture';
   const prompt = 'Editorial documentary photograph of a curated minimalist living room with a sleek ambient screen streaming cinema in soft evening light, calm technology aesthetic, 16:9, architectural digest style, no text';
 
   console.log('1. Generating image via Cloudflare Workers AI...');
@@ -66,9 +66,9 @@ async function main() {
   }
 
   console.log('4. Updating article frontmatter...');
-  const articlePath = resolve(process.cwd(), 'src', 'content', 'now', 'new-movies-streaming-what-to-know.md');
+  const articlePath = resolve(process.cwd(), 'src', 'content', 'culture', 'new-movies-streaming-what-to-know.md');
   const rawFile = await fs.readFile(articlePath, 'utf-8');
-  const parsed = parseArticle(rawFile, 'now', slug, articlePath);
+  const parsed = parseArticle(rawFile, 'culture', slug, articlePath);
 
   parsed.frontmatter.image = uploadResult.publicUrl;
   parsed.frontmatter.imageAlt = 'New movies streaming: what to know';
@@ -80,7 +80,7 @@ async function main() {
 
   console.log('5. Verification of updated file:');
   const verifiedRaw = await fs.readFile(articlePath, 'utf-8');
-  const verifiedParsed = parseArticle(verifiedRaw, 'now', slug, articlePath);
+  const verifiedParsed = parseArticle(verifiedRaw, 'culture', slug, articlePath);
   console.log('Updated image in frontmatter:', verifiedParsed.frontmatter.image);
   console.log('Done!');
 }

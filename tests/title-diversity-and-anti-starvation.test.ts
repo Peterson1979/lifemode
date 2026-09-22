@@ -10,12 +10,11 @@ import type { EditorialTopic } from '../src/lib/editorial/types.ts';
 test('1. Title Angle Generation: Produces diverse, substantive titles and avoids formulaic ": What to Know"', () => {
   const topics: Array<{ canonicalTopic: string; pillar: any }> = [
     { canonicalTopic: 'Global Sleep Hygiene Science', pillar: 'wellbeing' },
-    { canonicalTopic: 'Kyoto Tea House Architecture', pillar: 'discover' },
+    { canonicalTopic: 'Kyoto Tea House Architecture', pillar: 'culture' },
     { canonicalTopic: 'Minimalist Workspace Systems', pillar: 'life' },
     { canonicalTopic: 'Extra Virgin Olive Oil Standards', pillar: 'food-drink' },
     { canonicalTopic: 'Treasury Yield Curve Inversion', pillar: 'money' },
     { canonicalTopic: 'Autonomous Vehicle Deployment', pillar: 'tech-ai' },
-    { canonicalTopic: 'Coastal Storm Preparedness', pillar: 'now' },
     { canonicalTopic: 'Alps Alpine Train Routes', pillar: 'travel' },
   ];
 
@@ -90,32 +89,32 @@ test('4. Candidate Selection: Prevents starvation of underserved pillars while p
     updatedAt: new Date().toISOString(),
   });
 
-  // Now candidate with raw score 90 (recent publish = 0.5 days ago)
-  const nowCandidate = baseTopic('topic-now', 'now', 90, 'Severe Weather Alert');
+  // Tech candidate with raw score 90 (recent publish = 0.5 days ago)
+  const techCandidate = baseTopic('topic-tech', 'tech-ai', 90, 'Autonomous Vehicle Standards');
 
-  // Discover candidate with raw score 84 (starved = 8 days ago)
-  const discoverCandidate = baseTopic('topic-discover', 'discover', 84, 'Minimalist Wooden Pavilion');
+  // Culture candidate with raw score 84 (starved = 8 days ago)
+  const cultureCandidate = baseTopic('topic-culture', 'culture', 84, 'Minimalist Wooden Pavilion');
 
   // Low quality candidate with raw score 72 (starved = 10 days ago) - MUST NOT BE APPROVED
   const lowQualityStarved = baseTopic('topic-life', 'life', 72, 'Unverified Daily Routine');
 
   const existingPillarRecency = {
-    now: 0.5,
-    discover: 8.0, // Starved -> +10 boost -> effectiveScore = 94
+    'tech-ai': 0.5,
+    culture: 8.0, // Starved -> +10 boost -> effectiveScore = 94
     life: 10.0,    // Starved, but raw score 72 < 80 threshold
   };
 
-  const selection = selectEditorialCandidates([nowCandidate, discoverCandidate, lowQualityStarved], {
+  const selection = selectEditorialCandidates([techCandidate, cultureCandidate, lowQualityStarved], {
     minScoreThreshold: 80,
     totalLimit: 1, // Batch only selects 1 opportunity
     existingPillarRecency,
     enablePillarBalancing: true,
   });
 
-  // Starved Discover candidate (84 + 10 = 94 effective) wins over Now candidate (90)
+  // Starved Culture candidate (84 + 10 = 94 effective) wins over Tech candidate (90)
   assert.equal(selection.approved.length, 1);
-  assert.equal(selection.approved[0].pillar, 'discover', 'Starved Discover candidate should win candidate selection');
-  assert.equal(selection.approved[0].id, 'topic-discover');
+  assert.equal(selection.approved[0].pillar, 'culture', 'Starved Culture candidate should win candidate selection');
+  assert.equal(selection.approved[0].id, 'topic-culture');
 
   // Low quality candidate must be deferred even if starved
   const lifeDeferred = selection.deferred.find((d) => d.id === 'topic-life');

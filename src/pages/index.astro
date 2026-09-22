@@ -8,7 +8,7 @@ import { PILLARS, PILLAR_SLUGS, SITE_CONFIG, type PillarSlug } from '../config/s
 import { ECOSYSTEM_PROJECTS } from '../config/ecosystem';
 import { generateWebsiteSchema } from '../utils/seo';
 
-// Fetch articles from all 8 collections
+// Fetch articles from all 7 collections
 const [
   lifeDocs,
   travelDocs,
@@ -16,8 +16,7 @@ const [
   techAiDocs,
   moneyDocs,
   wellbeingDocs,
-  discoverDocs,
-  nowDocs,
+  cultureDocs,
 ] = await Promise.all([
   getCollection('life'),
   getCollection('travel'),
@@ -25,8 +24,7 @@ const [
   getCollection('tech-ai'),
   getCollection('money'),
   getCollection('wellbeing'),
-  getCollection('discover'),
-  getCollection('now'),
+  getCollection('culture'),
 ]);
 
 interface ArticleEntry {
@@ -55,22 +53,45 @@ const allArticles: ArticleEntry[] = [
   ...techAiDocs.map((doc) => ({ id: doc.id, pillar: 'tech-ai' as PillarSlug, data: doc.data })),
   ...moneyDocs.map((doc) => ({ id: doc.id, pillar: 'money' as PillarSlug, data: doc.data })),
   ...wellbeingDocs.map((doc) => ({ id: doc.id, pillar: 'wellbeing' as PillarSlug, data: doc.data })),
-  ...discoverDocs.map((doc) => ({ id: doc.id, pillar: 'discover' as PillarSlug, data: doc.data })),
-  ...nowDocs.map((doc) => ({ id: doc.id, pillar: 'now' as PillarSlug, data: doc.data })),
+  ...cultureDocs.map((doc) => ({ id: doc.id, pillar: 'culture' as PillarSlug, data: doc.data })),
 ].sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
 
-// Deduplicated article selection
+// Select the daily 3-article package with guaranteed distinct topics
+const dailyStories: ArticleEntry[] = [];
+const usedPillars = new Set<PillarSlug>();
 const displayedIds = new Set<string>();
 
-const leadArticle = allArticles.find((a) => a.data.featured) || allArticles[0];
-if (leadArticle) {
-  displayedIds.add(leadArticle.id);
+// 1. Pick the primary featured article (or newest article)
+const initialLead = allArticles.find((a) => a.data.featured) || allArticles[0];
+if (initialLead) {
+  dailyStories.push(initialLead);
+  usedPillars.add(initialLead.pillar);
+  displayedIds.add(initialLead.id);
 }
 
-const secondaryArticles = allArticles
-  .filter((a) => !displayedIds.has(a.id))
-  .slice(0, 2);
-secondaryArticles.forEach((a) => displayedIds.add(a.id));
+// 2. Complete the daily 3-article package with distinct topics
+for (const article of allArticles) {
+  if (dailyStories.length >= 3) break;
+  if (!displayedIds.has(article.id) && !usedPillars.has(article.pillar)) {
+    dailyStories.push(article);
+    usedPillars.add(article.pillar);
+    displayedIds.add(article.id);
+  }
+}
+
+// Fallback if needed to guarantee 3 stories
+if (dailyStories.length < 3) {
+  for (const article of allArticles) {
+    if (dailyStories.length >= 3) break;
+    if (!displayedIds.has(article.id)) {
+      dailyStories.push(article);
+      displayedIds.add(article.id);
+    }
+  }
+}
+
+const leadArticle = dailyStories[0];
+const secondaryArticles = dailyStories.slice(1, 3);
 
 const latestDispatches = allArticles
   .filter((a) => !displayedIds.has(a.id))

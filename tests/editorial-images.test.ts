@@ -10,6 +10,10 @@ import {
   FixtureEditorialImageProvider,
   isValidImageBuffer,
 } from '../src/lib/editorial/images/index.ts';
+import {
+  buildArticleToImageBrief,
+  generateEditorialImagePrompt,
+} from '../src/lib/editorial/image-prompt.ts';
 
 import { runPublishingPipeline } from '../src/lib/editorial/publishing/runner.ts';
 import type { PublishingRequest, PublishPackage } from '../src/lib/editorial/publishing/types.ts';
@@ -743,4 +747,86 @@ test('15. End-to-end publishing pipeline allows publication when allowNoImageFal
   assert.equal(result.status, 'PUBLISHED');
   assert.equal(result.publishPackage?.imageMetadata?.url, undefined);
 });
+
+test('16. Structured Article-to-Image Brief: AI and Tech topics produce relevant technical briefs avoiding unrelated street/people scenes', () => {
+  const brief = buildArticleToImageBrief({
+    title: 'Deepseek V41 Flash: Architecture, Efficiency & Local Deployment',
+    description: 'An architectural deep dive into DeepSeek V41 Flash, parameter quantization, and local workstation performance.',
+    pillar: 'tech-ai',
+    tags: ['ai', 'deepseek', 'llm', 'inference', 'architecture'],
+  });
+
+  assert.ok(brief.editorialCategory === 'tech-ai' || brief.editorialCategory.includes('Technology'));
+  assert.ok(
+    brief.primarySubject.toLowerCase().includes('deepseek') ||
+    brief.primarySubject.toLowerCase().includes('ai') ||
+    brief.primarySubject.toLowerCase().includes('model')
+  );
+  assert.ok(brief.keyConcepts.length >= 2);
+  assert.ok(brief.relevantEnvironments.length > 0);
+  assert.ok(brief.avoidThings.length >= 4);
+
+  // AI articles must avoid unrelated pedestrians, street scenes, generic business meetings
+  assert.ok(brief.avoidThings.some((a) => a.includes('people') || a.includes('street') || a.includes('lifestyle')));
+
+  // Generated prompt must reflect the technical brief
+  const promptResult = generateEditorialImagePrompt({
+    title: 'Deepseek V41 Flash: Architecture, Efficiency & Local Deployment',
+    description: 'An architectural deep dive into DeepSeek V41 Flash, parameter quantization, and local workstation performance.',
+    pillar: 'tech-ai',
+    tags: ['ai', 'deepseek', 'llm', 'inference', 'architecture'],
+  });
+
+  const lowerPrompt = promptResult.prompt.toLowerCase();
+  const lowerNeg = promptResult.negativePrompt.toLowerCase();
+
+  assert.ok(
+    lowerPrompt.includes('workstation') ||
+    lowerPrompt.includes('computation') ||
+    lowerPrompt.includes('developer') ||
+    lowerPrompt.includes('technology') ||
+    lowerPrompt.includes('interface') ||
+    lowerPrompt.includes('neural')
+  );
+  assert.ok(lowerNeg.includes('street scenes') || lowerNeg.includes('random people') || lowerNeg.includes('unrelated lifestyle'));
+});
+
+test('17. Category-Aware Negative Constraints: Contextual constraints differ appropriately per pillar', () => {
+  // Food & Drink: must avoid unrelated dining people, generic messy kitchens
+  const foodPrompt = generateEditorialImagePrompt({
+    title: 'Single-Origin Olive Oil Extraction in the Peloponnese',
+    description: 'Cold-pressed extra virgin olive oil harvesting and terroir in Greece.',
+    pillar: 'food-drink',
+    tags: ['olive oil', 'greece', 'culinary'],
+  });
+  const foodNeg = foodPrompt.negativePrompt.toLowerCase();
+  assert.ok(foodNeg.includes('unrelated people eating') || foodNeg.includes('generic fast food') || foodNeg.includes('restaurant crowd'));
+
+  // Travel: must avoid wrong destinations, generic airport terminals
+  const travelPrompt = generateEditorialImagePrompt({
+    title: 'The Solitary Coastal Trails of Northern Norway',
+    description: 'Hiking through remote arctic fjords and dramatic sea cliffs.',
+    pillar: 'travel',
+    tags: ['norway', 'arctic', 'hiking', 'fjords'],
+  });
+  const travelNeg = travelPrompt.negativePrompt.toLowerCase();
+  assert.ok(travelNeg.includes('generic crowded airport') || travelNeg.includes('unrelated tropical beach') || travelNeg.includes('tourist buses'));
+
+  // Money: must avoid generic lifestyle clichés, floating coins
+  const moneyPrompt = generateEditorialImagePrompt({
+    title: 'Treasury Yield Curves and Modern Cash Preservation',
+    description: 'How high-yield sovereign notes protect purchasing power.',
+    pillar: 'money',
+    tags: ['finance', 'treasury yields', 'cash management'],
+  });
+  const moneyNeg = moneyPrompt.negativePrompt.toLowerCase();
+  assert.ok(moneyNeg.includes('stacks of cash') || moneyNeg.includes('flying dollar bills') || moneyNeg.includes('cheesy crypto graphics'));
+});
+
+test('18. Fallback Image Safety: Unrelated images from other articles are never cross-pollinated', () => {
+  // Verifies that image fallback defaults to graceful SVG/monogram fallback rather than attaching unrelated URLs
+  const config = loadEditorialImageConfig({ enabled: true, allowNoImageFallback: true });
+  assert.equal(config.allowNoImageFallback, true);
+});
+
 

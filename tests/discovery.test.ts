@@ -186,7 +186,7 @@ test('Live RSS Feeds Adapter - Parses mock HTTP response and extracts signals', 
         id: 'dezeen-test',
         name: 'Dezeen Architecture',
         url: 'https://www.dezeen.com/feed/',
-        pillar: 'discover',
+        pillar: 'culture',
         categories: ['design', 'architecture'],
       },
     ],
@@ -195,7 +195,7 @@ test('Live RSS Feeds Adapter - Parses mock HTTP response and extracts signals', 
   assert.equal(result.status, 'AVAILABLE');
   assert.equal(result.signals.length, 2);
   assert.equal(result.signals[0].source, 'RSS_FEEDS');
-  assert.equal(result.signals[0].category, 'discover');
+  assert.equal(result.signals[0].category, 'culture');
   assert.equal(result.signals[0].rawQuery, 'Minimalist Japanese Timber Cabin in Nagano Forest & Mountains');
   assert.ok(result.signals[0].sourceUrl?.includes('minimalist-timber-cabin'));
   assert.equal(result.signals[0].metadata?.isLiveIngestion, true);
@@ -301,9 +301,9 @@ test('Keyword Pillar Classifier - Correctly categorizes trend titles', () => {
   assert.equal(classifyTrendingQueryPillar('Secluded Coastal Hotels and Train Journeys in Japan'), 'travel');
   assert.equal(classifyTrendingQueryPillar('Federal Reserve Interest Rates and Treasury Yields'), 'money');
   assert.equal(classifyTrendingQueryPillar('Circadian Rhythm Light Protocols and Deep Sleep Longevity'), 'wellbeing');
-  assert.equal(classifyTrendingQueryPillar('Minimalist Timber Pavilion Exhibition in Venice'), 'discover');
+  assert.equal(classifyTrendingQueryPillar('Minimalist Timber Pavilion Exhibition in Venice'), 'culture');
   assert.equal(classifyTrendingQueryPillar('Daily Morning Habits and Workspace Decluttering Routine'), 'life');
-  assert.equal(classifyTrendingQueryPillar('Cultural Festival and Zeitgeist Dispatch'), 'now');
+  assert.equal(classifyTrendingQueryPillar('Cultural Festival and Zeitgeist Dispatch'), 'culture');
 });
 
 test('Discovery Adapters - Seasonal Calendar generates timely signals for all pillars', async () => {

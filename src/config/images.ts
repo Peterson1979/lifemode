@@ -151,8 +151,8 @@ export const PILLAR_IMAGE_STYLES: Record<PillarSlug, PillarImageStyle> = {
       'A person sitting peacefully in meditation beside a tranquil natural reflecting pool',
     ],
   },
-  discover: {
-    pillar: 'discover',
+  culture: {
+    pillar: 'culture',
     theme: 'Curated Culture, Books & Design',
     palette: ['Warm Umber', 'Ochre Gold', 'Museum White', 'Aged Paper'],
     visualMotifs: [
@@ -168,25 +168,6 @@ export const PILLAR_IMAGE_STYLES: Record<PillarSlug, PillarImageStyle> = {
       'A solitary gallery visitor observing a contemporary minimalist sculpture in a sun-drenched museum',
       'A wooden workbench filled with architecture models, linen-bound books, and drafting instruments',
       'An iconic Scandinavian design chair positioned beside a floor-to-ceiling library wall',
-    ],
-  },
-  now: {
-    pillar: 'now',
-    theme: 'Cultural Signals & Modern Zeitgeist',
-    palette: ['Editorial Madder', 'Deep Charcoal', 'Concrete Grey', 'Warm Amber'],
-    visualMotifs: [
-      'Candid street documentary photography in bustling creative districts',
-      'Contemporary fashion and design pop-up concept spaces',
-      'Dynamic seasonal transition moments in urban environments',
-      'Authentic cultural gathering and reportage perspective',
-    ],
-    lighting: 'Dynamic natural daylight, crisp authentic street exposure',
-    cameraLens: '28mm / 35mm f/2.0 street documentary lens',
-    mood: 'Timely, vibrant, observant, energetic',
-    exampleScenes: [
-      'People gathered outside a contemporary espresso bar in Milan on a crisp autumn morning',
-      'A candid street view of a creative studio window in Tokyo reflecting golden evening sunlight',
-      'A modern outdoor cultural pavilion filled with visitors engaged in lively conversation',
     ],
   },
   'food-drink': {

@@ -3,7 +3,7 @@ title: "Pakistan vs England: what cultural contrasts reveal about intentional li
 description: "Explore how the cultural crossroads of Pakistan and England shape today’s minimalist lifestyle, tech habits, and digital wellbeing—an intentional guide for 2026."
 pubDate: "2026-09-12T05:45:14.276Z"
 author: "LifeMode Editorial"
-tags: ["US","now","trending"]
+tags: ["US", "trending", "culture"]
 featured: false
 draft: false
 format: "standard"

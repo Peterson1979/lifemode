@@ -3,7 +3,7 @@ title: "Meteor Showers: Science, Observation Guide, and History"
 description: "Explore the science, history, and cultural impact of meteor showers, the best times to watch them in 2026, and how a cyberattack shook the community."
 pubDate: "2026-09-18T10:44:40.794Z"
 author: "LifeMode Editorial"
-tags: ["US","now","trending"]
+tags: ["US", "trending", "culture"]
 featured: false
 draft: false
 format: "standard"

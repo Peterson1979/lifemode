@@ -18,7 +18,7 @@ export const DEFAULT_AFFILIATE_CATALOG: AffiliateCatalogItem[] = [
     id: 'aff-books-curated',
     name: 'Curated Non-Fiction & Independent Books',
     category: 'books',
-    applicablePillars: ['life', 'now', 'wellbeing', 'money', 'tech-ai', 'travel'],
+    applicablePillars: ['life', 'culture', 'wellbeing', 'money', 'tech-ai', 'travel'],
     applicableIntents: ['commercial-investigation', 'transactional'],
     applicableFormats: ['standard', 'guide', 'listicle', 'deep-dive', 'curation'],
     keywords: ['book', 'books', 'reading', 'author', 'literature', 'guidebook', 'monograph'],

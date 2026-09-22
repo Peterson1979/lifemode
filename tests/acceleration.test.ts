@@ -74,13 +74,13 @@ test('Pillar Balancing - Never approves a weak topic (< 80) merely to balance pi
     createDummyTopic('life-1', 'life', 92),
     createDummyTopic('life-2', 'life', 90),
     createDummyTopic('weak-money-1', 'money', 65), // Sub-threshold
-    createDummyTopic('weak-discover-1', 'discover', 55), // Rejected
+    createDummyTopic('weak-culture-1', 'culture', 55), // Rejected
   ];
 
   const { approved, rejected, deferred } = selectEditorialCandidates(candidates, {
     minScoreThreshold: 80,
     totalLimit: 4,
-    existingPillarDistribution: { life: 3, money: 0, discover: 0 },
+    existingPillarDistribution: { life: 3, money: 0, culture: 0 },
     enablePillarBalancing: true,
   });
 

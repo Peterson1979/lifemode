@@ -1,6 +1,6 @@
 import type { PillarSlug } from '../../config/site.ts';
 
-export type OwnedProjectId = 'ai-zodiac' | 'dreamly-ai' | 'get-ai-set' | 'match-signal';
+export type OwnedProjectId = 'ai-zodiac' | 'dreamly-ai' | 'get-ai-set';
 
 export interface OwnedProject {
   id: OwnedProjectId;

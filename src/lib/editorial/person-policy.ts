@@ -148,6 +148,9 @@ const NON_PERSON_CONCEPT_WORDS = new Set([
   'daily', 'first', 'second', 'third', 'forced', 'additional', 'attempt', 'project', 'editorial',
   'weather', 'storm', 'storms', 'rainfall', 'temperature', 'forecast', 'forecasts', 'heat', 'waves',
   'craft', 'artisan', 'minimalism', 'gear', 'essentials', 'routine', 'routines', 'practice', 'practices',
+  'olive', 'oil', 'extraction', 'harvest', 'harvesting', 'culinary', 'gastronomy', 'ingredient', 'ingredients',
+  'wine', 'dish', 'dishes', 'table', 'curation', 'preservation', 'yield', 'yields', 'treasury', 'inflation',
+  'rates', 'notes', 'bonds', 'currency', 'sovereign', 'portfolio', 'asset', 'assets', 'liquidity',
 ]);
 
   // 5. Named-entity heuristic:

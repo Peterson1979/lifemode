@@ -4,7 +4,7 @@ description: "A factual look at New York Yankees catcher José Trevino, his Plat
 pubDate: "2026-09-15T16:46:57.514Z"
 updatedDate: "2026-09-16T15:00:00.000Z"
 author: "LifeMode Editorial"
-tags: ["US","now","person","baseball","mlb"]
+tags: ["US", "person", "baseball", "mlb", "culture"]
 featured: false
 draft: false
 format: "standard"

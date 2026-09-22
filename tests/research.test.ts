@@ -45,10 +45,10 @@ const travelTopic: EditorialTopic = {
 };
 
 const nowTopic: EditorialTopic = {
-  id: 'lm-now-test-01',
+  id: 'lm-culture-test-01',
   canonicalTopic: 'The 2026 Cultural Shift Toward Digital Intentionality',
   slug: 'the-2026-cultural-shift-toward-digital-intentionality',
-  pillar: 'now',
+  pillar: 'culture',
   sourceSignals: [],
   queryVariants: ['digital intentionality', '2026 trends'],
   scoring: {

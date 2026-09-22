@@ -44,7 +44,7 @@ export class FreeNewsApiProvider extends BaseTopicDataProvider<NewsData> {
   readonly providerId = 'freenewsapi-news';
   readonly name = 'Free News API Global Index';
   readonly domain: DataDomain = 'news';
-  readonly defaultPillar: PillarSlug = 'now';
+  readonly defaultPillar: PillarSlug = 'culture';
 
   readonly source: DataSource = {
     id: 'freenewsapi',

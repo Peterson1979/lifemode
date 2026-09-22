@@ -35,8 +35,8 @@ async function createTempWorkspace(): Promise<{
   await fs.mkdir(path.join(contentDir, 'life'), { recursive: true });
   await fs.mkdir(path.join(contentDir, 'money'), { recursive: true });
   await fs.mkdir(path.join(contentDir, 'wellbeing'), { recursive: true });
-  await fs.mkdir(path.join(contentDir, 'now'), { recursive: true });
-  await fs.mkdir(path.join(contentDir, 'discover'), { recursive: true });
+  await fs.mkdir(path.join(contentDir, 'food-drink'), { recursive: true });
+  await fs.mkdir(path.join(contentDir, 'culture'), { recursive: true });
 
   // Initialize git repo with test user config
   await execFileAsync('git', ['init', '-b', 'master'], { cwd: repoDir });

@@ -7,7 +7,7 @@ export interface PillarConfig {
   bgLight: string;
 }
 
-export type PillarSlug = 'life' | 'travel' | 'food-drink' | 'tech-ai' | 'money' | 'wellbeing' | 'discover' | 'now';
+export type PillarSlug = 'life' | 'travel' | 'food-drink' | 'tech-ai' | 'money' | 'wellbeing' | 'culture';
 
 export const PILLARS: Record<PillarSlug, PillarConfig> = {
   life: {
@@ -58,21 +58,13 @@ export const PILLARS: Record<PillarSlug, PillarConfig> = {
     color: '#fbbf24', // Amber
     bgLight: 'rgba(251, 191, 36, 0.1)',
   },
-  discover: {
-    name: 'Discover',
-    slug: 'discover',
+  culture: {
+    name: 'Culture',
+    slug: 'culture',
     tagline: 'Culture, Books & Design',
     description: 'Architectural gems, curated literature, art exhibitions, and timeless curiosities.',
     color: '#fb923c', // Warm Ochre
     bgLight: 'rgba(251, 146, 60, 0.1)',
-  },
-  now: {
-    name: 'Now',
-    slug: 'now',
-    tagline: 'Trends, Signals & Zeitgeist',
-    description: 'Real-time pulses, seasonal guides, cultural signals, and timely stories.',
-    color: '#f43f5e', // Crimson
-    bgLight: 'rgba(244, 63, 94, 0.1)',
   },
 };
 
@@ -98,8 +90,7 @@ export const SITE_CONFIG = {
     { name: 'Tech & AI', href: '/tech-ai', slug: 'tech-ai' },
     { name: 'Money', href: '/money', slug: 'money' },
     { name: 'Wellbeing', href: '/wellbeing', slug: 'wellbeing' },
-    { name: 'Discover', href: '/discover', slug: 'discover' },
-    { name: 'Now', href: '/now', slug: 'now' },
+    { name: 'Culture', href: '/culture', slug: 'culture' },
   ],
   footerLinks: [
     { name: 'About', href: '/about' },

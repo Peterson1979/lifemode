@@ -83,7 +83,7 @@ export const articleSchema = z.object({
 
   // Owned Project routing (Optional explicit target or 'none')
   targetProject: z
-    .enum(['ai-zodiac', 'dreamly-ai', 'get-ai-set', 'match-signal', 'none'])
+    .enum(['ai-zodiac', 'dreamly-ai', 'get-ai-set', 'none'])
     .optional(),
 
   readingTime: z.string().optional(),
@@ -108,6 +108,5 @@ export const collections = {
   'tech-ai': createPillarCollection('tech-ai'),
   money: createPillarCollection('money'),
   wellbeing: createPillarCollection('wellbeing'),
-  discover: createPillarCollection('discover'),
-  now: createPillarCollection('now'),
+  culture: createPillarCollection('culture'),
 };

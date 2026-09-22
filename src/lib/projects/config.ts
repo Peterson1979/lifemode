@@ -8,7 +8,7 @@ export const OWNED_PROJECTS: OwnedProject[] = [
     description:
       'Nuanced personality mapping, relational dynamics, and cosmic archetypes explored through intelligent conversational frameworks.',
     url: 'https://play.google.com/store/apps/details?id=com.oberon.aizodiac',
-    relevantPillars: ['discover', 'wellbeing', 'life'],
+    relevantPillars: ['culture', 'wellbeing', 'life'],
     categories: ['Self-Discovery', 'Archetypes', 'Astrology', 'Personality'],
     ctaLabel: 'Discover AI Zodiac',
     ctaHeadline: 'Explore Personality Archetypes & Self-Discovery',
@@ -149,61 +149,12 @@ export const OWNED_PROJECTS: OwnedProject[] = [
     ],
     matchThreshold: 35,
   },
-  {
-    id: 'match-signal',
-    name: 'MatchSignal',
-    tagline: 'Sports Analytics & Strategic Data Insights',
-    description:
-      'Quantitative match signals, predictive momentum analytics, and data-driven sports intelligence for tactical enthusiasts.',
-    url: 'https://matchsignal.pro',
-    relevantPillars: ['now', 'discover', 'tech-ai'],
-    categories: ['Sports Analytics', 'Match Signals', 'Predictions', 'Data Intelligence'],
-    ctaLabel: 'Explore MatchSignal',
-    ctaHeadline: 'Data-Driven Sports Signals & Match Analytics',
-    ctaDescription:
-      'Explore tactical breakdowns, momentum indicators, and quantitative match analytics.',
-    keywords: [
-      'sports',
-      'sports analysis',
-      'match analysis',
-      'match predictions',
-      'game predictions',
-      'sports predictions',
-      'betting analysis',
-      'sports betting',
-      'odds',
-      'match odds',
-      'match preview',
-      'fixtures',
-      'tactical analysis',
-      'sports signals',
-      'game stats',
-      'sports data',
-      'soccer stats',
-      'football analytics',
-      'cricket match',
-      'premier league analysis',
-      'champions league',
-      'nba predictions',
-    ],
-    negativeKeywords: [
-      'sleep',
-      'dreams',
-      'astrology',
-      'horoscope',
-      'skincare',
-      'interior design',
-      'bedroom design',
-    ],
-    matchThreshold: 35,
-  },
 ];
 
 export const OWNED_PROJECT_MAP: Record<OwnedProjectId, OwnedProject> = {
   'ai-zodiac': OWNED_PROJECTS[0],
   'dreamly-ai': OWNED_PROJECTS[1],
   'get-ai-set': OWNED_PROJECTS[2],
-  'match-signal': OWNED_PROJECTS[3],
 };
 
 export function getOwnedProjectById(id: string): OwnedProject | null {

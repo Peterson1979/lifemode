@@ -35,7 +35,7 @@ export const DEFAULT_CURATED_RSS_FEEDS: ConfiguredRSSFeed[] = getDiscoveryFeedsF
 export const DEFAULT_CURATED_SUBREDDITS: ConfiguredRedditCommunity[] = [
   { subreddit: 'minimalism', pillar: 'life', sort: 'top', timeframe: 'day', minScore: 20 },
   { subreddit: 'productivity', pillar: 'life', sort: 'top', timeframe: 'day', minScore: 30 },
-  { subreddit: 'simpleliving', pillar: 'now', sort: 'top', timeframe: 'day', minScore: 25 },
+  { subreddit: 'simpleliving', pillar: 'life', sort: 'top', timeframe: 'day', minScore: 25 },
   { subreddit: 'solotravel', pillar: 'travel', sort: 'top', timeframe: 'day', minScore: 30 },
   { subreddit: 'travel', pillar: 'travel', sort: 'top', timeframe: 'day', minScore: 40 },
   { subreddit: 'LocalLLaMA', pillar: 'tech-ai', sort: 'top', timeframe: 'day', minScore: 35 },
@@ -43,8 +43,8 @@ export const DEFAULT_CURATED_SUBREDDITS: ConfiguredRedditCommunity[] = [
   { subreddit: 'personalfinance', pillar: 'money', sort: 'top', timeframe: 'day', minScore: 40 },
   { subreddit: 'FinancialPlanning', pillar: 'money', sort: 'top', timeframe: 'day', minScore: 25 },
   { subreddit: 'longevity', pillar: 'wellbeing', sort: 'top', timeframe: 'day', minScore: 20 },
-  { subreddit: 'RoomPorn', pillar: 'discover', sort: 'top', timeframe: 'day', minScore: 50 },
-  { subreddit: 'ArchitecturePorn', pillar: 'discover', sort: 'top', timeframe: 'day', minScore: 40 },
+  { subreddit: 'RoomPorn', pillar: 'culture', sort: 'top', timeframe: 'day', minScore: 50 },
+  { subreddit: 'ArchitecturePorn', pillar: 'culture', sort: 'top', timeframe: 'day', minScore: 40 },
   { subreddit: 'Cooking', pillar: 'food-drink', sort: 'top', timeframe: 'day', minScore: 40 },
   { subreddit: 'Sourdough', pillar: 'food-drink', sort: 'top', timeframe: 'day', minScore: 25 },
 ];

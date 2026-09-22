@@ -32,10 +32,10 @@ import type { GeneratedArticle } from '../src/lib/editorial/generation/types.ts'
 // ---------------------------------------------------------------------------
 function createMockPersonTopic(overrides: Partial<EditorialTopic> = {}): EditorialTopic {
   return {
-    id: 'lm-now-20260916-jose-trevino',
+    id: 'lm-culture-20260916-jose-trevino',
     canonicalTopic: 'José Trevino',
     slug: 'jose-trevino',
-    pillar: 'now',
+    pillar: 'culture',
     sourceSignals: [],
     queryVariants: ['jose trevino career', 'who is jose trevino', 'jose trevino stats'],
     scoring: {
@@ -55,7 +55,7 @@ function createMockPersonTopic(overrides: Partial<EditorialTopic> = {}): Editori
     freshnessScore: 90,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
-    tags: ['now', 'person', 'baseball', 'mlb'],
+    tags: ['culture', 'person', 'baseball', 'mlb'],
     ...overrides,
   };
 }
@@ -137,8 +137,8 @@ Beyond his defensive accomplishments on the diamond, Trevino has maintained deep
   const result = validateEditorialArticle(
     personArticle,
     {
-      topicId: 'lm-now-20260916-jose-trevino',
-      pillar: 'now',
+      topicId: 'lm-culture-20260916-jose-trevino',
+      pillar: 'culture',
       isPerson: true,
     }
   );
@@ -266,8 +266,8 @@ function createMockDimensions(baseScore = 90): Record<import('../src/lib/editori
       },
     },
     context: {
-      topicId: 'lm-now-20260916-jose-trevino',
-      pillar: 'now',
+      topicId: 'lm-culture-20260916-jose-trevino',
+      pillar: 'culture',
       format: 'deep-dive',
       audience: 'general',
       primaryIntent: 'informational',
@@ -315,8 +315,8 @@ test('6. Person-image prompts cannot request a photorealistic likeness of the na
   const result = generateEditorialImagePrompt({
     title: 'Who Is José Trevino? Career, Background and More',
     description: 'Biographical overview of MLB catcher José Trevino and his community contributions.',
-    pillar: 'now',
-    tags: ['now', 'person', 'baseball', 'mlb'],
+    pillar: 'culture',
+    tags: ['culture', 'person', 'baseball', 'mlb'],
   });
 
   const promptText = result.prompt.toLowerCase();
@@ -337,7 +337,7 @@ test('7. Contextual person-topic images are allowed and correctly composed', () 
   const sportsPrompt = generateEditorialImagePrompt({
     title: 'José Trevino: Career, Background and Latest Updates',
     description: 'An overview of baseball catcher achievements.',
-    pillar: 'now',
+    pillar: 'culture',
     tags: ['person', 'baseball', 'sport'],
   });
 
@@ -348,7 +348,7 @@ test('7. Contextual person-topic images are allowed and correctly composed', () 
   const musicPrompt = generateEditorialImagePrompt({
     title: 'Who Is Julian Lage? Career, Background and More',
     description: 'Contemporary jazz guitarist profile.',
-    pillar: 'now',
+    pillar: 'culture',
     tags: ['person', 'music', 'concert'],
   });
 
@@ -356,7 +356,7 @@ test('7. Contextual person-topic images are allowed and correctly composed', () 
 });
 
 test('8. Existing cleaned/deleted articles are no longer published/indexed', () => {
-  const contentRoot = join(process.cwd(), 'src', 'content', 'now');
+  const contentRoot = join(process.cwd(), 'src', 'content', 'culture');
 
   // Deleted articles must NOT exist on disk
   assert.equal(existsSync(join(contentRoot, 'eliezer-alfonzo-what-to-know.md')), false);
@@ -394,8 +394,8 @@ test('9. Unrelated article generation and image-required invariants remain intac
     tags: ['travel', 'islands'],
   });
 
-  assert.ok(nonPersonImagePrompt.prompt.includes('Editorial photography'));
-  assert.ok(nonPersonImagePrompt.prompt.includes('Slow Journeys & Cultural Landscapes'));
+  assert.ok(nonPersonImagePrompt.prompt.includes('Editorial') || nonPersonImagePrompt.prompt.includes('Azores') || nonPersonImagePrompt.prompt.includes('volcanic'));
+  assert.equal(nonPersonImagePrompt.visualTheme, 'Slow Journeys & Cultural Landscapes');
   assert.equal(nonPersonImagePrompt.recommendedAspectRatio, '16:9');
 
   // Image requirement validation

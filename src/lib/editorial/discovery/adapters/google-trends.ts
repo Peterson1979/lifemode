@@ -36,9 +36,9 @@ export function classifyTrendingQueryPillar(query: string, description?: string)
     return 'wellbeing';
   }
 
-  // Discover / Design / Architecture
-  if (/\b(design|architecture|interior|art|artist|exhibition|museum|decor|furniture|minimalist|building|monograph|cinema|film|photography)\b/i.test(text)) {
-    return 'discover';
+  // Culture / Design / Architecture / Books / Arts
+  if (/\b(design|architecture|interior|art|artist|exhibition|museum|decor|furniture|minimalist|building|monograph|cinema|film|photography|book|literature|festival|cultural|music|theater|zeitgeist)\b/i.test(text)) {
+    return 'culture';
   }
 
   // Food & Drink (Culinary, Ingredients, Gastronomy, Fermentation, Drinks)
@@ -51,8 +51,8 @@ export function classifyTrendingQueryPillar(query: string, description?: string)
     return 'life';
   }
 
-  // Default to Now for timely cultural events, zeitgeist, breaking trends
-  return 'now';
+  // Default to Culture for timely cultural events and general zeitgeist
+  return 'culture';
 }
 
 /**
@@ -189,7 +189,7 @@ export class GoogleTrendsDiscoveryAdapter implements IDiscoveryAdapter {
             relativeInterest: relInterest,
             isBreakout: searchVol >= 100000,
             visualPotentialScore:
-              pillar === 'discover' || pillar === 'travel' ? 90 : 75,
+              pillar === 'culture' || pillar === 'travel' ? 90 : 75,
           },
           geography: geo,
           language: 'en',

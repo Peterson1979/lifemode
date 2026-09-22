@@ -4,6 +4,7 @@ import PillarBadge from '../../components/PillarBadge.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import OwnedProjectCta from '../../components/OwnedProjectCta.astro';
 import RecipeDetails from '../../components/RecipeDetails.astro';
+import TopicDataSection from '../../components/topic-data/TopicDataSection.astro';
 import { getCollection, render } from 'astro:content';
 import { PILLARS, PILLAR_SLUGS, type PillarSlug } from '../../config/site';
 import { matchOwnedProject } from '../../lib/projects/index';
@@ -309,4 +310,7 @@ const combinedJsonLd = [contentJsonLd, breadcrumbJsonLd];
       </section>
     )}
   </div>
+
+  <!-- API / Current-Data / Topic Intelligence Block (Placed at bottom immediately above footer) -->
+  <TopicDataSection pillar={pillar.slug as PillarSlug} pillarName={pillar.name} />
 </BaseLayout>
