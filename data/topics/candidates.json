@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-22T11:06:05.852Z",
+    "updatedAt": "2026-09-22T16:26:29.641Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1397,7 +1397,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-22T11:06:05.854Z",
+    "updatedAt": "2026-09-22T16:26:29.642Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1458,7 +1458,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-22T11:06:05.856Z",
+    "updatedAt": "2026-09-22T16:26:29.644Z",
     "revisionCyclesCount": 0
   },
   {
@@ -1519,7 +1519,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-22T11:06:05.857Z",
+    "updatedAt": "2026-09-22T16:26:29.646Z",
     "revisionCyclesCount": 0
   },
   {
@@ -8847,11 +8847,37 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-h26m",
+        "query": "h&m",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-22T15:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-22T15:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "h&m",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "",
-      "내일 날씨"
+      "내일 날씨",
+      "h&m"
     ],
     "freshnessScore": 88,
     "createdAt": "2026-09-11T04:10:00.000Z",
@@ -8863,7 +8889,7 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 97,
+      "searchPotential": 100,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
@@ -8872,11 +8898,11 @@
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 85.4,
+    "totalScore": 86,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-11T07:28:52.805Z",
+    "updatedAt": "2026-09-22T16:26:28.093Z",
     "pinterestScore": 85.3,
     "revisionCyclesCount": 0
   },
@@ -49800,7 +49826,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-22T11:08:24.202Z",
+    "updatedAt": "2026-09-22T16:26:29.676Z",
     "pinterestScore": 85.6,
     "revisionCyclesCount": 0
   },
@@ -49863,7 +49889,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-22T11:06:05.918Z",
+    "updatedAt": "2026-09-22T16:26:29.709Z",
     "pinterestScore": 84.8,
     "revisionCyclesCount": 0
   },
@@ -57466,9 +57492,10 @@
     "totalScore": 82.7,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-22T11:06:04.419Z",
-    "pinterestScore": 85.3
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-22T16:27:40.554Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-money-20260922-sndk-stock",
@@ -57527,9 +57554,10 @@
     "totalScore": 82.7,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-22T11:06:04.431Z",
-    "pinterestScore": 85.3
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-22T16:29:45.493Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260922-deportacin",
@@ -61055,5 +61083,3086 @@
     "status": "SCORED",
     "updatedAt": "2026-09-22T11:06:05.848Z",
     "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-now-20260922-icc",
+    "canonicalTopic": "Icc",
+    "slug": "icc",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-icc",
+        "query": "Icc",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-22T15:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-22T15:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "icc",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "icc"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T15:40:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-22T16:26:28.120Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260922-united-nations",
+    "canonicalTopic": "United Nations",
+    "slug": "united-nations",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-united20nations",
+        "query": "United Nations",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-22T15:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-22T15:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "united nations",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "united nations"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T15:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-22T16:26:28.141Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260922-hayden-panettiere",
+    "canonicalTopic": "Hayden Panettiere",
+    "slug": "hayden-panettiere",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-hayden20panettie",
+        "query": "Hayden Panettiere",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-22T15:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-22T15:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "hayden panettiere",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "hayden panettiere"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T15:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-22T16:26:28.159Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260922-schd",
+    "canonicalTopic": "Schd",
+    "slug": "schd",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-schd",
+        "query": "Schd",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-22T15:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-22T15:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "schd",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "schd"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T15:00:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-22T16:26:28.179Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260922-halo",
+    "canonicalTopic": "Halo",
+    "slug": "halo",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-halo",
+        "query": "Halo",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-22T14:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-22T14:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "halo",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "halo"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T14:50:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-22T16:26:28.191Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260922-maria-sakkari",
+    "canonicalTopic": "Maria Sakkari",
+    "slug": "maria-sakkari",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-maria20sakkari",
+        "query": "Maria Sakkari",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-22T14:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-22T14:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "maria sakkari",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "maria sakkari"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T14:40:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-22T16:26:28.206Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260922-tsla",
+    "canonicalTopic": "Tsla",
+    "slug": "tsla",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-tsla",
+        "query": "Tsla",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-22T14:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-22T14:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "tsla",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "tsla"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T14:30:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-22T16:26:28.218Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-money-20260922-nasdaq",
+    "canonicalTopic": "Nasdaq",
+    "slug": "nasdaq",
+    "pillar": "money",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-nasdaq",
+        "query": "Nasdaq",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-22T14:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-22T14:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "nasdaq",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "money",
+          "curatedTags": [
+            "US",
+            "money",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "nasdaq"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T14:20:00.000Z",
+    "tags": [
+      "US",
+      "money",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-22T16:26:28.231Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-now-20260922-msft",
+    "canonicalTopic": "Msft",
+    "slug": "msft",
+    "pillar": "now",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-msft",
+        "query": "Msft",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-22T14:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-22T14:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "msft",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "now",
+          "curatedTags": [
+            "US",
+            "now",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "msft"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T14:20:00.000Z",
+    "tags": [
+      "US",
+      "now",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-22T16:26:28.242Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-tech-ai-20260922-shuffling-the-deck-chairs-xbox",
+    "canonicalTopic": "Shuffling the Deck Chairs Xbox Continues Its Reset with Dramatic Restructuring",
+    "slug": "shuffling-the-deck-chairs-xbox-continues-its-reset-with-dramatic-restructuring",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-1-Shuffling20the20deck20c",
+        "query": "Shuffling the Deck Chairs Xbox Continues Its Reset with Dramatic Restructuring",
+        "sourceUrl": "https://arstechnica.com/gaming/2026/09/shuffling-the-deck-chairs-xbox-continues-its-reset-with-dramatic-restructuring/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-22T15:30:53.000Z",
+        "contentSnippet": "Activision gets Halo , Obsidian becomes part of Bethesda, and more internal shake-ups.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T15:30:53.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Shuffling the deck chairs: Xbox continues its \"reset\" with dramatic restructuring",
+            "itemLink": "https://arstechnica.com/gaming/2026/09/shuffling-the-deck-chairs-xbox-continues-its-reset-with-dramatic-restructuring/",
+            "publishedDate": "2026-09-22T15:30:53.000Z",
+            "contentSnippet": "Activision gets Halo , Obsidian becomes part of Bethesda, and more internal shake-ups.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Gaming",
+              "Activision",
+              "bethesda",
+              "Double Fine",
+              "Halo",
+              "microsoft",
+              "obsidian",
+              "Rare"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Gaming",
+            "Activision",
+            "bethesda",
+            "Double Fine",
+            "Halo",
+            "microsoft",
+            "obsidian",
+            "Rare"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "shuffling the deck chairs xbox continues its reset with dramatic restructuring"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T15:30:53.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Gaming",
+      "Activision",
+      "bethesda",
+      "Double Fine",
+      "Halo",
+      "microsoft",
+      "obsidian",
+      "Rare"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:28.294Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260922-protests-for-germanys-car-indu",
+    "canonicalTopic": "Protests for Germanys Car Industry As Job Losses Loom",
+    "slug": "protests-for-germanys-car-industry-as-job-losses-loom",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-2-Protests20for20Germany",
+        "query": "Protests for Germanys Car Industry As Job Losses Loom",
+        "sourceUrl": "https://arstechnica.com/cars/2026/09/protests-for-germanys-car-industry-as-job-losses-loom/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-22T14:40:47.000Z",
+        "contentSnippet": "A combination of Chinese competition and US tariffs is causing problems in Germany.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T14:40:47.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Protests for Germany’s car industry as job losses loom",
+            "itemLink": "https://arstechnica.com/cars/2026/09/protests-for-germanys-car-industry-as-job-losses-loom/",
+            "publishedDate": "2026-09-22T14:40:47.000Z",
+            "contentSnippet": "A combination of Chinese competition and US tariffs is causing problems in Germany.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Cars",
+              "auto industry"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Cars",
+            "auto industry"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "protests for germanys car industry as job losses loom"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T14:40:47.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Cars",
+      "auto industry"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:28.334Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260922-trumps-sneaky-plan-to-gut-enda",
+    "canonicalTopic": "Trumps Sneaky Plan to Gut Endangered Species Act Draws from 1995 Scalia Dissent",
+    "slug": "trumps-sneaky-plan-to-gut-endangered-species-act-draws-from-1995-scalia-dissent",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-3-TrumpE28099s20sneaky20pla",
+        "query": "Trumps Sneaky Plan to Gut Endangered Species Act Draws from 1995 Scalia Dissent",
+        "sourceUrl": "https://arstechnica.com/tech-policy/2026/09/trumps-sneaky-plan-to-gut-endangered-species-act-draws-from-1995-scalia-dissent/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-22T14:29:15.000Z",
+        "contentSnippet": "Trump adopts Scalia’s ire for feds protecting populations of endangered animals.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T14:29:15.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Trump’s sneaky plan to gut Endangered Species Act draws from 1995 Scalia dissent",
+            "itemLink": "https://arstechnica.com/tech-policy/2026/09/trumps-sneaky-plan-to-gut-endangered-species-act-draws-from-1995-scalia-dissent/",
+            "publishedDate": "2026-09-22T14:29:15.000Z",
+            "contentSnippet": "Trump adopts Scalia’s ire for feds protecting populations of endangered animals.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Policy",
+              "Antonin Scalia",
+              "endangered species",
+              "endangered species act",
+              "fish and wildlife service",
+              "Supreme Court",
+              "threatened species",
+              "trump administration"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Policy",
+            "Antonin Scalia",
+            "endangered species",
+            "endangered species act",
+            "fish and wildlife service",
+            "Supreme Court",
+            "threatened species",
+            "trump administration"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "trumps sneaky plan to gut endangered species act draws from 1995 scalia dissent"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T14:29:15.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Policy",
+      "Antonin Scalia",
+      "endangered species",
+      "endangered species act",
+      "fish and wildlife service",
+      "Supreme Court",
+      "threatened species",
+      "trump administration"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:28.385Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260922-dysons-most-overengineered-gad",
+    "canonicalTopic": "Dysons Most Overengineered Gadget May Have a Waterproofing Problem",
+    "slug": "dysons-most-overengineered-gadget-may-have-a-waterproofing-problem",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-4-DysonE28099s20most20overe",
+        "query": "Dysons Most Overengineered Gadget May Have a Waterproofing Problem",
+        "sourceUrl": "https://arstechnica.com/gadgets/2026/09/its-500-toothbrush-disappeared-from-stores-dyson-wont-fully-explain-why/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-22T13:33:16.000Z",
+        "contentSnippet": "Dyson admits a component issue but won't say what's failing in its $500 toothbrush.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T13:33:16.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Dyson’s most overengineered gadget may have a waterproofing problem",
+            "itemLink": "https://arstechnica.com/gadgets/2026/09/its-500-toothbrush-disappeared-from-stores-dyson-wont-fully-explain-why/",
+            "publishedDate": "2026-09-22T13:33:16.000Z",
+            "contentSnippet": "Dyson admits a component issue but won't say what's failing in its $500 toothbrush.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "AI",
+              "Tech",
+              "dyson",
+              "enshittification",
+              "syndication",
+              "Toothbrush"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "AI",
+            "Tech",
+            "dyson",
+            "enshittification",
+            "syndication",
+            "Toothbrush"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dysons most overengineered gadget may have a waterproofing problem"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T13:33:16.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "AI",
+      "Tech",
+      "dyson",
+      "enshittification",
+      "syndication",
+      "Toothbrush"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:28.432Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260922-nasa-chief-im-only-interested-",
+    "canonicalTopic": "Nasa Chief Im Only Interested in Good Deals from International Partners",
+    "slug": "nasa-chief-im-only-interested-in-good-deals-from-international-partners",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-5-NASA20chief3A20Im20only",
+        "query": "Nasa Chief Im Only Interested in Good Deals from International Partners",
+        "sourceUrl": "https://arstechnica.com/space/2026/09/nasa-chief-im-only-interested-in-good-deals-from-international-partners/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-22T11:00:37.000Z",
+        "contentSnippet": "\"There was absolutely a time where we were trying to make everyone happy.\"",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T11:00:37.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "NASA chief: I'm only interested in \"good deals\" from international partners",
+            "itemLink": "https://arstechnica.com/space/2026/09/nasa-chief-im-only-interested-in-good-deals-from-international-partners/",
+            "publishedDate": "2026-09-22T11:00:37.000Z",
+            "contentSnippet": "\"There was absolutely a time where we were trying to make everyone happy.\"",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Space",
+              "artemis",
+              "china",
+              "european space agency",
+              "jared isaacman",
+              "military space",
+              "moon",
+              "moon base",
+              "NASA",
+              "Shackleton crater"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Space",
+            "artemis",
+            "china",
+            "european space agency",
+            "jared isaacman",
+            "military space",
+            "moon",
+            "moon base",
+            "NASA",
+            "Shackleton crater"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "nasa chief im only interested in good deals from international partners"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T11:00:37.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Space",
+      "artemis",
+      "china",
+      "european space agency",
+      "jared isaacman",
+      "military space",
+      "moon",
+      "moon base",
+      "NASA",
+      "Shackleton crater"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:28.481Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260922-roundtables-the-deadly-failure",
+    "canonicalTopic": "Roundtables the Deadly Failures of the Virtual Border Wall",
+    "slug": "roundtables-the-deadly-failures-of-the-virtual-border-wall",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-1-Roundtables3A20The20De",
+        "query": "Roundtables the Deadly Failures of the Virtual Border Wall",
+        "sourceUrl": "https://www.technologyreview.com/2026/09/22/1144890/roundtables-the-deadly-failures-of-the-virtual-border-wall/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-09-22T13:42:05.000Z",
+        "contentSnippet": "The US has spent billions building a “virtual wall” of surveillance towers along its southern border over the past 25 years, promising they will help detect and apprehend border crossers and save lives. But a groundbreaking investigation by MIT Technology Review has documented over a thousand people who moved through areas watched by these towers…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T13:42:05.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "Roundtables: The Deadly Failures of The Virtual Border Wall",
+            "itemLink": "https://www.technologyreview.com/2026/09/22/1144890/roundtables-the-deadly-failures-of-the-virtual-border-wall/",
+            "publishedDate": "2026-09-22T13:42:05.000Z",
+            "contentSnippet": "The US has spent billions building a “virtual wall” of surveillance towers along its southern border over the past 25 years, promising they will help detect and apprehend border crossers and save lives. But a groundbreaking investigation by MIT Technology Review has documented over a thousand people who moved through areas watched by these towers…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "Artificial intelligence",
+              "AI",
+              "artificial intelligence",
+              "Roundtables",
+              "Subscriber-Only Stories"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "Artificial intelligence",
+            "AI",
+            "artificial intelligence",
+            "Roundtables",
+            "Subscriber-Only Stories"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "roundtables the deadly failures of the virtual border wall"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T13:42:05.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "Artificial intelligence",
+      "AI",
+      "artificial intelligence",
+      "Roundtables",
+      "Subscriber-Only Stories"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:28.524Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260922-the-download-why-ais-latest-br",
+    "canonicalTopic": "The Download Why Ais Latest Breakthroughs and Fears May Be More Hype Than Reality",
+    "slug": "the-download-why-ais-latest-breakthroughs-and-fears-may-be-more-hype-than-reality",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-2-The20Download3A20why20",
+        "query": "The Download Why Ais Latest Breakthroughs and Fears May Be More Hype Than Reality",
+        "sourceUrl": "https://www.technologyreview.com/2026/09/22/1144910/the-download-dont-believe-ai-hype/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-09-22T12:10:00.000Z",
+        "contentSnippet": "This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. Don’t be fooled by this summer of AI hype —Timnit Gebru, executive director of the Distributed AI Research Institute (DAIR), and Emily M. Bender, professor of linguistics at the University of…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T12:10:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "The Download: why AI’s latest breakthroughs and fears may be more hype than reality",
+            "itemLink": "https://www.technologyreview.com/2026/09/22/1144910/the-download-dont-believe-ai-hype/",
+            "publishedDate": "2026-09-22T12:10:00.000Z",
+            "contentSnippet": "This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. Don’t be fooled by this summer of AI hype —Timnit Gebru, executive director of the Distributed AI Research Institute (DAIR), and Emily M. Bender, professor of linguistics at the University of…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "The Download"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "The Download"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the download why ais latest breakthroughs and fears may be more hype than reality"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T12:10:00.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "The Download"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:28.577Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260922-dont-be-fooled-by-this-summer-",
+    "canonicalTopic": "Dont Be Fooled by This Summer of Ai Hype",
+    "slug": "dont-be-fooled-by-this-summer-of-ai-hype",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-3-DonE28099t20be20fooled",
+        "query": "Dont Be Fooled by This Summer of Ai Hype",
+        "sourceUrl": "https://www.technologyreview.com/2026/09/22/1144867/dont-be-fooled-summer-ai-hype/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-09-22T11:04:51.000Z",
+        "contentSnippet": "It’s been a busy few months for AI hype. At the end of April, Anthropic claimed that its model Claude Mythos is better at finding software vulnerabilities than most security experts. Then we had the OpenAI–Hugging Face hacking incident, after which Anthropic (proudly) and Meta (reluctantly) disclosed similar incidents involving their models. This was followed…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T11:04:51.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "Don’t be fooled by this summer of AI hype",
+            "itemLink": "https://www.technologyreview.com/2026/09/22/1144867/dont-be-fooled-summer-ai-hype/",
+            "publishedDate": "2026-09-22T11:04:51.000Z",
+            "contentSnippet": "It’s been a busy few months for AI hype. At the end of April, Anthropic claimed that its model Claude Mythos is better at finding software vulnerabilities than most security experts. Then we had the OpenAI–Hugging Face hacking incident, after which Anthropic (proudly) and Meta (reluctantly) disclosed similar incidents involving their models. This was followed…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "Artificial intelligence",
+              "App",
+              "Opinion"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "Artificial intelligence",
+            "App",
+            "Opinion"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dont be fooled by this summer of ai hype"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T11:04:51.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "Artificial intelligence",
+      "App",
+      "Opinion"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:28.608Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260922-rivians-r2-beat-its-own-climat",
+    "canonicalTopic": "Rivians R2 Beat Its Own Climate Goals Four Years Early",
+    "slug": "rivians-r2-beat-its-own-climate-goals-four-years-early",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-RivianE28099s20R220beat20its",
+        "query": "Rivians R2 Beat Its Own Climate Goals Four Years Early",
+        "sourceUrl": "https://www.theverge.com/transportation/998762/rivian-r2-climate-impact-carbon-lifecycle-half",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-22T16:03:45.000Z",
+        "contentSnippet": "Rivian always planned for its all-important R2 vehicle to be less expensive than its pricey R1 predecessors, but also less polluting. The production process for the R2 would rely on more renewable energy, and the vehicle itself would feature more recycled and biodegradable materials than the models that came before it. With this and a […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T16:03:45.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Rivian’s R2 beat its own climate goals four years early",
+            "itemLink": "https://www.theverge.com/transportation/998762/rivian-r2-climate-impact-carbon-lifecycle-half",
+            "publishedDate": "2026-09-22T16:03:45.000Z",
+            "contentSnippet": "Rivian always planned for its all-important R2 vehicle to be less expensive than its pricey R1 predecessors, but also less polluting. The production process for the R2 would rely on more renewable energy, and the vehicle itself would feature more recycled and biodegradable materials than the models that came before it. With this and a […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Climate",
+              "Electric Cars",
+              "News",
+              "Science",
+              "Transportation"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Climate",
+            "Electric Cars",
+            "News",
+            "Science",
+            "Transportation"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "rivians r2 beat its own climate goals four years early"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T16:03:45.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Climate",
+      "Electric Cars",
+      "News",
+      "Science",
+      "Transportation"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:28.650Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260922-trump-says-the-us-is-officiall",
+    "canonicalTopic": "Trump Says the Us Is Officially Renaming Ai to Super Intelligence",
+    "slug": "trump-says-the-us-is-officially-renaming-ai-to-super-intelligence",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-Trump20says20the20US20is",
+        "query": "Trump Says the Us Is Officially Renaming Ai to Super Intelligence",
+        "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/998816/donald-trump-ai-super-intelligence",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-22T16:01:10.000Z",
+        "contentSnippet": "In a speech Tuesday morning at the UN General Assembly, Donald Trump railed against Iran, \"globalists,\" climate change, and transgender people while also claiming that the US is now \"officially\" renaming artificial intelligence to \"super intelligence.\" Oddly, this wasn't one of the entries in the poll Trump posted a few days ago when he started […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T16:01:10.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Trump says the US is officially renaming AI to ‘super intelligence’",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/998816/donald-trump-ai-super-intelligence",
+            "publishedDate": "2026-09-22T16:01:10.000Z",
+            "contentSnippet": "In a speech Tuesday morning at the UN General Assembly, Donald Trump railed against Iran, \"globalists,\" climate change, and transgender people while also claiming that the US is now \"officially\" renaming artificial intelligence to \"super intelligence.\" Oddly, this wasn't one of the entries in the poll Trump posted a few days ago when he started […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "News",
+              "Policy",
+              "Politics"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "News",
+            "Policy",
+            "Politics"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "trump says the us is officially renaming ai to super intelligence"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T16:01:10.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "News",
+      "Policy",
+      "Politics"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:28.696Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260922-xbox-is-barely-xbox-anymore",
+    "canonicalTopic": "Xbox Is Barely Xbox Anymore",
+    "slug": "xbox-is-barely-xbox-anymore",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-Xbox20is20barely20Xbox20",
+        "query": "Xbox Is Barely Xbox Anymore",
+        "sourceUrl": "https://www.theverge.com/games/998758/xbox-activision-blizzard",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-22T14:50:00.000Z",
+        "contentSnippet": "Xbox has become a shell of its former self - and things are only getting worse. As part of its planned cuts impacting around 3,200 workers, the company announced today more changes that will further dilute the brand. Studios are being consolidated, others are on the brink of being closed altogether, and Xbox's most iconic […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T14:50:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Xbox is barely Xbox anymore",
+            "itemLink": "https://www.theverge.com/games/998758/xbox-activision-blizzard",
+            "publishedDate": "2026-09-22T14:50:00.000Z",
+            "contentSnippet": "Xbox has become a shell of its former self - and things are only getting worse. As part of its planned cuts impacting around 3,200 workers, the company announced today more changes that will further dilute the brand. Studios are being consolidated, others are on the brink of being closed altogether, and Xbox's most iconic […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Analysis",
+              "Entertainment",
+              "Gaming",
+              "Report",
+              "Xbox"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Analysis",
+            "Entertainment",
+            "Gaming",
+            "Report",
+            "Xbox"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "xbox is barely xbox anymore"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T14:50:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Analysis",
+      "Entertainment",
+      "Gaming",
+      "Report",
+      "Xbox"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:28.721Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260922-xbox-is-merging-its-forza-deve",
+    "canonicalTopic": "Xbox Is Merging Its Forza Developers into a Single Studio",
+    "slug": "xbox-is-merging-its-forza-developers-into-a-single-studio",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-4-Xbox20is20merging20its20",
+        "query": "Xbox Is Merging Its Forza Developers into a Single Studio",
+        "sourceUrl": "https://www.theverge.com/news/998592/xbox-is-merging-its-forza-developers-into-a-single-studio",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-22T14:01:17.000Z",
+        "contentSnippet": "Microsoft is uniting its two Forza developers into a single studio today, as part of a massive restructuring of Xbox. Playground Games, which develops Forza Horizon, and Turn 10 Studios, creators of Forza Motorsport, are merging together to focus on Forza Horizon and Fable. \"Playground and Turn 10 will come together as one studio focused […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T14:01:17.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Xbox is merging its Forza developers into a single studio",
+            "itemLink": "https://www.theverge.com/news/998592/xbox-is-merging-its-forza-developers-into-a-single-studio",
+            "publishedDate": "2026-09-22T14:01:17.000Z",
+            "contentSnippet": "Microsoft is uniting its two Forza developers into a single studio today, as part of a massive restructuring of Xbox. Playground Games, which develops Forza Horizon, and Turn 10 Studios, creators of Forza Motorsport, are merging together to focus on Forza Horizon and Fable. \"Playground and Turn 10 will come together as one studio focused […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Gaming",
+              "Microsoft",
+              "News",
+              "Tech",
+              "Xbox"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Gaming",
+            "Microsoft",
+            "News",
+            "Tech",
+            "Xbox"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "xbox is merging its forza developers into a single studio"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T14:01:17.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Gaming",
+      "Microsoft",
+      "News",
+      "Tech",
+      "Xbox"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:28.766Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260922-microsoft-is-laying-off-268-xb",
+    "canonicalTopic": "Microsoft Is Laying Off 268 Xbox Staffers and Ninja Theory May Close",
+    "slug": "microsoft-is-laying-off-268-xbox-staffers-and-ninja-theory-may-close",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-5-Microsoft20is20laying20",
+        "query": "Microsoft Is Laying Off 268 Xbox Staffers and Ninja Theory May Close",
+        "sourceUrl": "https://www.theverge.com/news/998589/microsoft-xbox-layoffs-ninja-theory-closure",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-22T14:01:16.000Z",
+        "contentSnippet": "Microsoft is laying off around 260 Xbox employees today, as part of an ongoing \"reset\" of its gaming business. 1,600 Xbox employees were impacted by layoffs in July, with Xbox CEO Asha Sharma describing the cuts as \"the most significant restructure in Xbox history.\" Today's layoffs are part of the 3,200 roles that were previously […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T14:01:16.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Microsoft is laying off 268 Xbox staffers and Ninja Theory may close",
+            "itemLink": "https://www.theverge.com/news/998589/microsoft-xbox-layoffs-ninja-theory-closure",
+            "publishedDate": "2026-09-22T14:01:16.000Z",
+            "contentSnippet": "Microsoft is laying off around 260 Xbox employees today, as part of an ongoing \"reset\" of its gaming business. 1,600 Xbox employees were impacted by layoffs in July, with Xbox CEO Asha Sharma describing the cuts as \"the most significant restructure in Xbox history.\" Today's layoffs are part of the 3,200 roles that were previously […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Gaming",
+              "Microsoft",
+              "News",
+              "Tech",
+              "Xbox"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Gaming",
+            "Microsoft",
+            "News",
+            "Tech",
+            "Xbox"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "microsoft is laying off 268 xbox staffers and ninja theory may close"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T14:01:16.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Gaming",
+      "Microsoft",
+      "News",
+      "Tech",
+      "Xbox"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:28.813Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260922-hotelscom-coupons-30-off-in-se",
+    "canonicalTopic": "Hotelscom Coupons 30 Off in September 2026",
+    "slug": "hotelscom-coupons-30-off-in-september-2026",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-Hotelscom20Coupons3A20",
+        "query": "Hotelscom Coupons 30 Off in September 2026",
+        "sourceUrl": "https://www.cntraveler.com/story/hotels-com-coupon",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-22T14:36:46.000Z",
+        "contentSnippet": "Save up to 30% on trips this fall with a verified Hotels.com promo code. Whether it’s a dream getaway or a relaxing staycation, find great deals from Hotels.com.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T14:36:46.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Hotels.com Coupons: 30% Off in September 2026",
+            "itemLink": "https://www.cntraveler.com/story/hotels-com-coupon",
+            "publishedDate": "2026-09-22T14:36:46.000Z",
+            "contentSnippet": "Save up to 30% on trips this fall with a verified Hotels.com promo code. Whether it’s a dream getaway or a relaxing staycation, find great deals from Hotels.com.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Shopping"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "hotelscom coupons 30 off in september 2026"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T14:36:46.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:28.846Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260922-is-the-new-bis-weekender-worth",
+    "canonicalTopic": "Is the New Bis Weekender Worth the Upgrade I Took It on the Road to Find Out",
+    "slug": "is-the-new-bis-weekender-worth-the-upgrade-i-took-it-on-the-road-to-find-out",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-2-Is20the20New20BC3A9is20Week",
+        "query": "Is the New Bis Weekender Worth the Upgrade I Took It on the Road to Find Out",
+        "sourceUrl": "https://www.cntraveler.com/story/is-the-new-beis-weekender-worth-the-upgrade-i-took-it-on-the-road-to-find-out",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-22T13:00:00.000Z",
+        "contentSnippet": "Béis heard the complaints—here's what they did to improve, plus how it fared on the road.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T13:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Is the New Béis Weekender Worth the Upgrade? I Took It on the Road to Find Out",
+            "itemLink": "https://www.cntraveler.com/story/is-the-new-beis-weekender-worth-the-upgrade-i-took-it-on-the-road-to-find-out",
+            "publishedDate": "2026-09-22T13:00:00.000Z",
+            "contentSnippet": "Béis heard the complaints—here's what they did to improve, plus how it fared on the road.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Shopping"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "is the new bis weekender worth the upgrade i took it on the road to find out"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T13:00:00.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:28.898Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260922-parsons-researchers-warn-of-pl",
+    "canonicalTopic": "Parsons Researchers Warn of Plastic Toxicity in American Manufactured Homes",
+    "slug": "parsons-researchers-warn-of-plastic-toxicity-in-american-manufactured-homes",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-Parsons20researchers20",
+        "query": "Parsons Researchers Warn of Plastic Toxicity in American Manufactured Homes",
+        "sourceUrl": "https://www.dezeen.com/2026/09/22/parsons-plastic-toxicity-american-manufactured-homes/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-22T15:00:43.000Z",
+        "contentSnippet": "Researchers at Parsons School of Design's Healthy Material Lab have released a study that raises concerns about the \"many substances harmful to human health\" in a typical prefabricated American home. Called Manufactured Homes: An Analysis of Health and Environmental Impacts of Common Building Materials, the study highlighted potential negative health effects associated with manufactured homes. The post Parsons researchers warn of plastic toxicity in American manufactured homes appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T15:00:43.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Parsons researchers warn of plastic toxicity in American manufactured homes",
+            "itemLink": "https://www.dezeen.com/2026/09/22/parsons-plastic-toxicity-american-manufactured-homes/",
+            "publishedDate": "2026-09-22T15:00:43.000Z",
+            "contentSnippet": "Researchers at Parsons School of Design's Healthy Material Lab have released a study that raises concerns about the \"many substances harmful to human health\" in a typical prefabricated American home. Called Manufactured Homes: An Analysis of Health and Environmental Impacts of Common Building Materials, the study highlighted potential negative health effects associated with manufactured homes. The post Parsons researchers warn of plastic toxicity in American manufactured homes appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Health",
+              "Parsons School of Design",
+              "Plastic",
+              "Prefabricated buildings",
+              "USA"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Health",
+            "Parsons School of Design",
+            "Plastic",
+            "Prefabricated buildings",
+            "USA"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "parsons researchers warn of plastic toxicity in american manufactured homes"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T15:00:43.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Health",
+      "Parsons School of Design",
+      "Plastic",
+      "Prefabricated buildings",
+      "USA"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:28.950Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-discover-20260922-dezeen-showroom-new-releases-n",
+    "canonicalTopic": "Dezeen Showroom New Releases Newsletter Includes Oak Modular Kitchen",
+    "slug": "dezeen-showroom-new-releases-newsletter-includes-oak-modular-kitchen",
+    "pillar": "discover",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-2-Dezeen20Showroom20New20",
+        "query": "Dezeen Showroom New Releases Newsletter Includes Oak Modular Kitchen",
+        "sourceUrl": "https://www.dezeen.com/2026/09/22/dezeen-showroom-new-releases-summer-2026/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-22T13:00:58.000Z",
+        "contentSnippet": "The summer 2026 installation of the Dezeen Showroom New Releases newsletter includes a modular kitchen crafted from oak. Subscribe to Dezeen Showroom New Releases now! From tall, wall-mounted cabinets to open shelving, Danish interior design studio Vermland crafts each of its modular kitchens from oak. The kitchens are among five pieces featured in this iteration The post Dezeen Showroom New Releases newsletter includes oak modular kitchen appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T13:00:58.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Dezeen Showroom New Releases newsletter includes oak modular kitchen",
+            "itemLink": "https://www.dezeen.com/2026/09/22/dezeen-showroom-new-releases-summer-2026/",
+            "publishedDate": "2026-09-22T13:00:58.000Z",
+            "contentSnippet": "The summer 2026 installation of the Dezeen Showroom New Releases newsletter includes a modular kitchen crafted from oak. Subscribe to Dezeen Showroom New Releases now! From tall, wall-mounted cabinets to open shelving, Danish interior design studio Vermland crafts each of its modular kitchens from oak. The kitchens are among five pieces featured in this iteration The post Dezeen Showroom New Releases newsletter includes oak modular kitchen appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Design",
+              "Dezeen Showroom",
+              "Dezeen Showroom New Releases"
+            ]
+          },
+          "suggestedPillar": "discover",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Design",
+            "Dezeen Showroom",
+            "Dezeen Showroom New Releases"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dezeen showroom new releases newsletter includes oak modular kitchen"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T13:00:58.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Design",
+      "Dezeen Showroom",
+      "Dezeen Showroom New Releases"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:28.997Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260922-sri-lanka-court-convicts-15-me",
+    "canonicalTopic": "Sri Lanka Court Convicts 15 Men over Deadly Easter Sunday Bombings",
+    "slug": "sri-lanka-court-convicts-15-men-over-deadly-easter-sunday-bombings",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-1-Sri20Lanka20court20conv",
+        "query": "Sri Lanka Court Convicts 15 Men over Deadly Easter Sunday Bombings",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cqy7z275yx65o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-22T14:03:20.000Z",
+        "contentSnippet": "Three churches and three luxury hotels were targeted in the 2019 attacks which killed 270.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T14:03:20.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Sri Lanka court convicts 15 men over deadly Easter Sunday bombings",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cqy7z275yx65o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-22T14:03:20.000Z",
+            "contentSnippet": "Three churches and three luxury hotels were targeted in the 2019 attacks which killed 270.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "sri lanka court convicts 15 men over deadly easter sunday bombings"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T14:03:20.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:29.045Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260922-developing-el-nio-becomes-stro",
+    "canonicalTopic": "Developing El Nio Becomes Strongest on Record Weeks Before Expected Peak",
+    "slug": "developing-el-nio-becomes-strongest-on-record-weeks-before-expected-peak",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-3-Developing20El20NiC3B1o20b",
+        "query": "Developing El Nio Becomes Strongest on Record Weeks Before Expected Peak",
+        "sourceUrl": "https://www.bbc.co.uk/weather/articles/cmvgy4nv9d62o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-22T12:54:14.000Z",
+        "contentSnippet": "Scientists say the developing El Niño is now the strongest on record with weather impacts already being felt around the world.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T12:54:14.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Developing El Niño becomes strongest on record weeks before expected peak",
+            "itemLink": "https://www.bbc.co.uk/weather/articles/cmvgy4nv9d62o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-22T12:54:14.000Z",
+            "contentSnippet": "Scientists say the developing El Niño is now the strongest on record with weather impacts already being felt around the world.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "developing el nio becomes strongest on record weeks before expected peak"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T12:54:14.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:29.096Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260922-lindsay-clancys-lawyer-asks-ju",
+    "canonicalTopic": "Lindsay Clancys Lawyer Asks Judge to Investigate Juror and Check His Phone",
+    "slug": "lindsay-clancys-lawyer-asks-judge-to-investigate-juror-and-check-his-phone",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-5-Lindsay20Clancys20law",
+        "query": "Lindsay Clancys Lawyer Asks Judge to Investigate Juror and Check His Phone",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cm4gvyw80dp2o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-22T13:58:42.000Z",
+        "contentSnippet": "The attorney wants the court to look at the juror's mobile phone use and answers on questionnaires.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T13:58:42.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Lindsay Clancy's lawyer asks judge to investigate juror and check his phone",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cm4gvyw80dp2o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-22T13:58:42.000Z",
+            "contentSnippet": "The attorney wants the court to look at the juror's mobile phone use and answers on questionnaires.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "lindsay clancys lawyer asks judge to investigate juror and check his phone"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T13:58:42.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:29.147Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-life-20260922-this-un-week-bill-gates-is-tou",
+    "canonicalTopic": "This Un Week Bill Gates Is Touting a New Coalition That Aims to Make Ai More Inclusive",
+    "slug": "this-un-week-bill-gates-is-touting-a-new-coalition-that-aims-to-make-ai-more-inclusive",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-1-This20UN20week2C20Bill20G",
+        "query": "This Un Week Bill Gates Is Touting a New Coalition That Aims to Make Ai More Inclusive",
+        "sourceUrl": "https://www.fastcompany.com/91611049/this-un-week-bill-gates-touting-new-coalition-aims-make-ai-more-inclusive",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-22T16:05:18.000Z",
+        "contentSnippet": "Bill Gates told his foundation's Goalkeepers gathering that \"increased generosity\" and \"the smart use of AI \" together could accelerate the fight against inequality , urging the world's richest countries to expand international aid and apply artificial intelligence toward what he considers \"lifesaving innovations.\" \"We failed to build in the right human values and ways of keeping our moral code controlling what these AIs do,\" Gates, the foundation's chair, said during a Monday conversation with political commentator Van Jones at Jazz at Lincoln Center in New York. The Gates Foundation's annual event, usually hosted the week of the United Nations' high-level meetings, opened with a reminder: 26 of the world's 34 wealthiest nations decreased development aid to poorer countries last year. Meanwhile, the U.N. has warned that progress on its sustainable development goals—lofty targets to reduce poverty, improve health and protect the environment by 2030—is \"slow and uneven.\" The contraction comes at a time when Gates suggested \"we have some of the best innovations ever to improve people's lives.\" His foundation spent much of its two-hour event elevating educators, farmers and health workers who are using AI to identify students' learning gaps, combat pest infestations and better recall patients' medical records. The Gates Foundation also touted its new coalition of Anthropic, Google, OpenAI Foundation and dozens of other organizations working to make AI more accessible in underrepresented languages. The partners—60 in total, according to Monday's announcement—include frontier AI labs, corporations, philanthropies and others already working to expand the number of languages available in AI tools that the Gates Foundation believes could combat global inequality. The coalition aims to reach more than 3 billion people over five years by better coordinating existing efforts. It's work that must continue \"full speed ahead,\" according to Gates Foundation CEO Mark Suzman, even as some of the largest AI companies urge their industry to slow down development of advanced models. Governments must regulate the impacts on cybersecurity or children's development, he said, while they extend AI's humanitarian applications to poor communities currently \"shut out\" from the technology. \"Even if AI was frozen right now—which I don't expect and I am not calling for—we would want to be building these language sets and making them usable with the tools that we have available right now,\" Suzman told The Associated Press. The collaboration follows last week's Goalkeepers report, where the foundation committed $1 billion toward AI-focused efforts to improve health outcomes, upgrade educational tools and inform small farmers' practices around the world. Unrepresentative language data could lead a model to mistranslate a pregnant Malawi woman saying her \"water has broken\" into the direct English that she'd \"thrown away water,\" the report warned. The \"original sin\" is that many AI tools were trained on language data scraped from the internet, according to Mozilla Data Collective CEO E.M. Lewis-Jong, whose company was incubated by the Mozilla Foundation and is now a subsidiary of the not-for-profit Mozilla.org. The data-sharing platform seeks to help communities upload cultural and linguistic data sets on their own terms rather than have that data taken from the web without their explicit consent. \"The internet is not a representative space,\" she said. \"Why would you think that you were going to get a culturally diverse and representative system out of something that was predominantly trained on Reddit?\" Details such as the coalition's governance are still getting hammered out, according to Suzman. A secretariat will track each signatory's commitments and the Gates Foundation may nudge partners to fill larger gaps when necessary. Google, a member of the coalition, has been funding an effort to collect more than 150,000 hours of audio across every district in India. Known as Project Vaani, the push underscores the need to gather speech data on dialects within languages, according to Google senior vice president James Manyika. To get there, he said, Google is working with local partners to record speech in the field. Anthropic, whose CEO published an essay calling for industrywide cooperation on decelerating advancements, was already working with the foundation to speed up vaccine developments and bolster its chatbot's data set of local crops. Elizabeth Kelly, the head of beneficial deployments at Anthropic, acknowledged the company's products \"lag in many African languages in particular.\" \"We're acutely aware that we can't achieve any of the benefits we want to see in terms of improving patient outcomes or improving literacy and numeracy for students across the globe unless we actually get this language piece right,\" she told AP. Associated Press coverage of philanthropy and nonprofits receives support through the AP's collaboration with The Conversation US, with funding from Lilly Endowment Inc. The AP is solely responsible for this content. For all of AP's philanthropy coverage, visit https://apnews.com/hub/philanthropy . —James Pollard, Associated Press",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T16:05:18.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "This UN week, Bill Gates is touting a new coalition that aims to make AI more inclusive",
+            "itemLink": "https://www.fastcompany.com/91611049/this-un-week-bill-gates-touting-new-coalition-aims-make-ai-more-inclusive",
+            "publishedDate": "2026-09-22T16:05:18.000Z",
+            "contentSnippet": "Bill Gates told his foundation's Goalkeepers gathering that \"increased generosity\" and \"the smart use of AI \" together could accelerate the fight against inequality , urging the world's richest countries to expand international aid and apply artificial intelligence toward what he considers \"lifesaving innovations.\" \"We failed to build in the right human values and ways of keeping our moral code controlling what these AIs do,\" Gates, the foundation's chair, said during a Monday conversation with political commentator Van Jones at Jazz at Lincoln Center in New York. The Gates Foundation's annual event, usually hosted the week of the United Nations' high-level meetings, opened with a reminder: 26 of the world's 34 wealthiest nations decreased development aid to poorer countries last year. Meanwhile, the U.N. has warned that progress on its sustainable development goals—lofty targets to reduce poverty, improve health and protect the environment by 2030—is \"slow and uneven.\" The contraction comes at a time when Gates suggested \"we have some of the best innovations ever to improve people's lives.\" His foundation spent much of its two-hour event elevating educators, farmers and health workers who are using AI to identify students' learning gaps, combat pest infestations and better recall patients' medical records. The Gates Foundation also touted its new coalition of Anthropic, Google, OpenAI Foundation and dozens of other organizations working to make AI more accessible in underrepresented languages. The partners—60 in total, according to Monday's announcement—include frontier AI labs, corporations, philanthropies and others already working to expand the number of languages available in AI tools that the Gates Foundation believes could combat global inequality. The coalition aims to reach more than 3 billion people over five years by better coordinating existing efforts. It's work that must continue \"full speed ahead,\" according to Gates Foundation CEO Mark Suzman, even as some of the largest AI companies urge their industry to slow down development of advanced models. Governments must regulate the impacts on cybersecurity or children's development, he said, while they extend AI's humanitarian applications to poor communities currently \"shut out\" from the technology. \"Even if AI was frozen right now—which I don't expect and I am not calling for—we would want to be building these language sets and making them usable with the tools that we have available right now,\" Suzman told The Associated Press. The collaboration follows last week's Goalkeepers report, where the foundation committed $1 billion toward AI-focused efforts to improve health outcomes, upgrade educational tools and inform small farmers' practices around the world. Unrepresentative language data could lead a model to mistranslate a pregnant Malawi woman saying her \"water has broken\" into the direct English that she'd \"thrown away water,\" the report warned. The \"original sin\" is that many AI tools were trained on language data scraped from the internet, according to Mozilla Data Collective CEO E.M. Lewis-Jong, whose company was incubated by the Mozilla Foundation and is now a subsidiary of the not-for-profit Mozilla.org. The data-sharing platform seeks to help communities upload cultural and linguistic data sets on their own terms rather than have that data taken from the web without their explicit consent. \"The internet is not a representative space,\" she said. \"Why would you think that you were going to get a culturally diverse and representative system out of something that was predominantly trained on Reddit?\" Details such as the coalition's governance are still getting hammered out, according to Suzman. A secretariat will track each signatory's commitments and the Gates Foundation may nudge partners to fill larger gaps when necessary. Google, a member of the coalition, has been funding an effort to collect more than 150,000 hours of audio across every district in India. Known as Project Vaani, the push underscores the need to gather speech data on dialects within languages, according to Google senior vice president James Manyika. To get there, he said, Google is working with local partners to record speech in the field. Anthropic, whose CEO published an essay calling for industrywide cooperation on decelerating advancements, was already working with the foundation to speed up vaccine developments and bolster its chatbot's data set of local crops. Elizabeth Kelly, the head of beneficial deployments at Anthropic, acknowledged the company's products \"lag in many African languages in particular.\" \"We're acutely aware that we can't achieve any of the benefits we want to see in terms of improving patient outcomes or improving literacy and numeracy for students across the globe unless we actually get this language piece right,\" she told AP. Associated Press coverage of philanthropy and nonprofits receives support through the AP's collaboration with The Conversation US, with funding from Lilly Endowment Inc. The AP is solely responsible for this content. For all of AP's philanthropy coverage, visit https://apnews.com/hub/philanthropy . —James Pollard, Associated Press",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Tech"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "this un week bill gates is touting a new coalition that aims to make ai more inclusive"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T16:05:18.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:29.217Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260922-tgi-fridays-store-closures-see",
+    "canonicalTopic": "Tgi Fridays Store Closures See an Updated List of Doomed Locations As Footprint Continues to Shrink",
+    "slug": "tgi-fridays-store-closures-see-an-updated-list-of-doomed-locations-as-footprint-continues-to-shrink",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-2-TGI20Fridays20store20cl",
+        "query": "Tgi Fridays Store Closures See an Updated List of Doomed Locations As Footprint Continues to Shrink",
+        "sourceUrl": "https://www.fastcompany.com/91610958/tgi-fridays-closing-stores-updated-list-doomed-locations-for-2026",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-22T15:36:00.000Z",
+        "contentSnippet": "TGI Fridays has continued to see its physical U.S. store footprint shrink since it filed for Chapter 11 bankruptcy protection in late 2024. According to the casual dining chain's latest franchise disclosure document (FDD), which was amended earlier this month, the company operated 80 U.S. restaurants at the end of fiscal year 2025, a net loss of 39 locations compared with the 119 restaurants it operated at the start of the year. However, the amended document also shows that at least nine additional stores have closed this year so far, bringing TGI Fridays' U.S. store count down to 71.&nbsp; Which Fridays stores have closed in 2026? The document's amended details reveal that five TGI Fridays franchisees have closed nine restaurants so far this year. Those restaurants were located in seven states: Florida: 2 Georgia: 1 Indiana: 1 Massachusetts: 2 North Carolina: 1 Ohio: 1 Pennsylvania: 1 TGI Fridays went from 39 to zero company-owned locations in 2025 All of Fridays' store locations are now franchise-owned. According to the FDD, 11 company-owned locations closed last year. Here's how many locations shuttered, by state: Maryland: 3 Nevada: 4 New York: 3 Tennessee: 1 Additionally, as a result of the bankruptcy proceedings, 28 company-owned locations were sold to franchisees. Here's how many restaurants were sold to franchisees, by state: California: 4 Maryland: 6 New Jersey: 4 New York: 2 Pennsylvania: 2 Texas: 5 Virginia: 5 TGI Fridays closed 28 franchised locations in 2025 A total of 28 franchised locations closed across 15 states last year. Here's how many franchised locations closed by state: California: 1 Delaware: 1 Florida: 6 Illinois: 4 Indiana: 1 Massachusetts: 1 Michigan: 1 Minnesota: 1 Missouri: 3 New Hampshire: 1 New Jersey: 1 North Carolina: 1 Ohio: 2 Tennessee: 1 Virginia: 3 What's next for the casual dining chain? TGI Fridays is now owned by Sugarloaf Hospitality and led by CEO Ray Blanchette. Its latest FDD outlined zero projected franchised openings and zero company-owned openings for 2026. In July, Fast Company reported on TGI Fridays store closures. At that time, a company spokesperson confirmed that there were 76 U.S. locations in operation. Based on the information presented in the amended disclosure document, five additional stores have closed since then. Fast Company reached out to TGI Fridays for more information on restaurant closures so far in 2026. We'll update the story if we receive a reply.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T15:36:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "TGI Fridays store closures: See an updated list of doomed locations as footprint continues to shrink",
+            "itemLink": "https://www.fastcompany.com/91610958/tgi-fridays-closing-stores-updated-list-doomed-locations-for-2026",
+            "publishedDate": "2026-09-22T15:36:00.000Z",
+            "contentSnippet": "TGI Fridays has continued to see its physical U.S. store footprint shrink since it filed for Chapter 11 bankruptcy protection in late 2024. According to the casual dining chain's latest franchise disclosure document (FDD), which was amended earlier this month, the company operated 80 U.S. restaurants at the end of fiscal year 2025, a net loss of 39 locations compared with the 119 restaurants it operated at the start of the year. However, the amended document also shows that at least nine additional stores have closed this year so far, bringing TGI Fridays' U.S. store count down to 71.&nbsp; Which Fridays stores have closed in 2026? The document's amended details reveal that five TGI Fridays franchisees have closed nine restaurants so far this year. Those restaurants were located in seven states: Florida: 2 Georgia: 1 Indiana: 1 Massachusetts: 2 North Carolina: 1 Ohio: 1 Pennsylvania: 1 TGI Fridays went from 39 to zero company-owned locations in 2025 All of Fridays' store locations are now franchise-owned. According to the FDD, 11 company-owned locations closed last year. Here's how many locations shuttered, by state: Maryland: 3 Nevada: 4 New York: 3 Tennessee: 1 Additionally, as a result of the bankruptcy proceedings, 28 company-owned locations were sold to franchisees. Here's how many restaurants were sold to franchisees, by state: California: 4 Maryland: 6 New Jersey: 4 New York: 2 Pennsylvania: 2 Texas: 5 Virginia: 5 TGI Fridays closed 28 franchised locations in 2025 A total of 28 franchised locations closed across 15 states last year. Here's how many franchised locations closed by state: California: 1 Delaware: 1 Florida: 6 Illinois: 4 Indiana: 1 Massachusetts: 1 Michigan: 1 Minnesota: 1 Missouri: 3 New Hampshire: 1 New Jersey: 1 North Carolina: 1 Ohio: 2 Tennessee: 1 Virginia: 3 What's next for the casual dining chain? TGI Fridays is now owned by Sugarloaf Hospitality and led by CEO Ray Blanchette. Its latest FDD outlined zero projected franchised openings and zero company-owned openings for 2026. In July, Fast Company reported on TGI Fridays store closures. At that time, a company spokesperson confirmed that there were 76 U.S. locations in operation. Based on the information presented in the amended disclosure document, five additional stores have closed since then. Fast Company reached out to TGI Fridays for more information on restaurant closures so far in 2026. We'll update the story if we receive a reply.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "News"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "News"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "tgi fridays store closures see an updated list of doomed locations as footprint continues to shrink"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T15:36:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "News"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:29.287Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260922-reinventing-the-customer-exper",
+    "canonicalTopic": "Reinventing the Customer Experience with Ai",
+    "slug": "reinventing-the-customer-experience-with-ai",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-3-Reinventing20the20cust",
+        "query": "Reinventing the Customer Experience with Ai",
+        "sourceUrl": "https://www.fastcompany.com/91611077/reinventing-the-customer-experience-with-ai",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-22T15:04:56.000Z",
+        "contentSnippet": "This session celebrates a new Fast Company recognition program: Fast Company Pacesetters. These are executives who are innovating at the intersection of AI , technology, and the customer experience. How can companies use AI to remove friction without sacrificing trust? What does it mean to design experiences that are not only smarter, but truly natural? If you have customers, you won’t want to miss the insights these leaders will deliver. Pacesetters is presented by TCS.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T15:04:56.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Reinventing the customer experience with AI",
+            "itemLink": "https://www.fastcompany.com/91611077/reinventing-the-customer-experience-with-ai",
+            "publishedDate": "2026-09-22T15:04:56.000Z",
+            "contentSnippet": "This session celebrates a new Fast Company recognition program: Fast Company Pacesetters. These are executives who are innovating at the intersection of AI , technology, and the customer experience. How can companies use AI to remove friction without sacrificing trust? What does it mean to design experiences that are not only smarter, but truly natural? If you have customers, you won’t want to miss the insights these leaders will deliver. Pacesetters is presented by TCS.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Technology"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Technology"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "reinventing the customer experience with ai"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T15:04:56.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Technology"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:29.319Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260922-fall-equinox-2026-what-it-mean",
+    "canonicalTopic": "Fall Equinox 2026 What It Means and When It Happens",
+    "slug": "fall-equinox-2026-what-it-means-and-when-it-happens",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-4-Fall20Equinox2020263A20W",
+        "query": "Fall Equinox 2026 What It Means and When It Happens",
+        "sourceUrl": "https://www.fastcompany.com/91611012/fall-equinox-2026-tonight-what-it-means-why-when-it-happens",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-22T14:29:00.000Z",
+        "contentSnippet": "While many parts of the country are still experiencing hot weather, it's comforting to know cooler temperatures could be on the way with the changing times. Today (Tuesday, September 22, 2026) marks the Fall Equinox, or the official beginning of astronomical autumn, in the Northern Hemisphere. This means sweaters, pumpkin-flavored snacks , and cozy fires can’t be too far away. (The opposite is true for those in the Southern Hemisphere.) Let’s take a look at the science behind this occasion so you can wow everyone in the office with your seasonal know-how. What are the two different ways to measure seasons? Most modern humans measure the seasons in one of two ways. Meteorologists have a cut-and-dried approach that focuses on annual temperatures, whole calendar months, and keeping clean records. Winter is December, January, February, followed by spring in March, April, May. Summer begins on June 1 and lasts until August 31. Fall begins on September 1 and ends on November 30. However, astronomers use the position of Earth in relation to the sun to determine seasons. When you measure this way, the exact dates change a bit each year. This is because the 365-day calendar does not perfectly match up with the Earth’s orbit. There is an extra six hours every year, which is why every four years a leap day is added. What does the fall equinox actually mean? The Earth is tilted 23.4 degrees on its axis while it orbits the sun. This is how we get seasons. Now imagine the equator stretching into space. At the precise moment of the fall equinox , neither hemisphere is tilted toward the sun. Additionally, that bright star crosses the celestial equator. Gradually, the Northern Hemisphere becomes tilted away. Days become shorter and nights come quicker. When is the official time of the Fall Equinox? According to NASA , the exact time of the fall equinox is tonight at 8:05 p.m. ET. Visually, there isn’t a big benefit to being outside at this moment, but maybe make a mental note to get out some extra blankets. It may seem too soon, but like they foretold on both House of the Dragon and Game of Thrones , “winter is coming.”",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T14:29:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Fall Equinox 2026: What it means and when it happens",
+            "itemLink": "https://www.fastcompany.com/91611012/fall-equinox-2026-tonight-what-it-means-why-when-it-happens",
+            "publishedDate": "2026-09-22T14:29:00.000Z",
+            "contentSnippet": "While many parts of the country are still experiencing hot weather, it's comforting to know cooler temperatures could be on the way with the changing times. Today (Tuesday, September 22, 2026) marks the Fall Equinox, or the official beginning of astronomical autumn, in the Northern Hemisphere. This means sweaters, pumpkin-flavored snacks , and cozy fires can’t be too far away. (The opposite is true for those in the Southern Hemisphere.) Let’s take a look at the science behind this occasion so you can wow everyone in the office with your seasonal know-how. What are the two different ways to measure seasons? Most modern humans measure the seasons in one of two ways. Meteorologists have a cut-and-dried approach that focuses on annual temperatures, whole calendar months, and keeping clean records. Winter is December, January, February, followed by spring in March, April, May. Summer begins on June 1 and lasts until August 31. Fall begins on September 1 and ends on November 30. However, astronomers use the position of Earth in relation to the sun to determine seasons. When you measure this way, the exact dates change a bit each year. This is because the 365-day calendar does not perfectly match up with the Earth’s orbit. There is an extra six hours every year, which is why every four years a leap day is added. What does the fall equinox actually mean? The Earth is tilted 23.4 degrees on its axis while it orbits the sun. This is how we get seasons. Now imagine the equator stretching into space. At the precise moment of the fall equinox , neither hemisphere is tilted toward the sun. Additionally, that bright star crosses the celestial equator. Gradually, the Northern Hemisphere becomes tilted away. Days become shorter and nights come quicker. When is the official time of the Fall Equinox? According to NASA , the exact time of the fall equinox is tonight at 8:05 p.m. ET. Visually, there isn’t a big benefit to being outside at this moment, but maybe make a mental note to get out some extra blankets. It may seem too soon, but like they foretold on both House of the Dragon and Game of Thrones , “winter is coming.”",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "News"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "News"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "fall equinox 2026 what it means and when it happens"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T14:29:00.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "News"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:29.360Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260922-jeff-bezos-repeated-these-2-wo",
+    "canonicalTopic": "Jeff Bezos Repeated These 2 Words for 30 Years They Built Amazon",
+    "slug": "jeff-bezos-repeated-these-2-words-for-30-years-they-built-amazon",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-fast-company-5-Jeff20Bezos20repeated20",
+        "query": "Jeff Bezos Repeated These 2 Words for 30 Years They Built Amazon",
+        "sourceUrl": "https://www.fastcompany.com/91610407/jeff-bezos-repeated-these-2-words-for-30-years-they-built-amazon",
+        "publisherName": "Fast Company",
+        "publishedAt": "2026-09-22T14:25:43.000Z",
+        "contentSnippet": "Jeff Bezos has repeated the same mantra for three decades: two words he credits with Amazon’s astonishing growth from a Seattle garage to the world’s largest company . Amazon just claimed the No. 1 spot on Fortune’s annual Global 500 list, which ranks companies by annual revenue. &nbsp; In a rare sit-down interview to mark the milestone, Bezos reflected on the principles that drove Amazon’s success.&nbsp; The conversation covered innovations that fueled the company’s growth, such as cloud computing , robotics, logistics, and AI . But Bezos repeatedly returned to one overarching principle that shaped Amazon from its first day and continues to guide the company’s decisions today.&nbsp; Customer obsession&nbsp; Customer obsession isn’t a marketing slogan. It’s not a mission statement. According to Bezos, it’s the guiding principle behind every major decision Amazon has made. &nbsp; In fact, it’s so important to Amazon’s history and its future, Bezos repeated the phrase 10 times in the same interview.&nbsp; The interview should remind founders to find the one principle that matters most because it’ll drive every decision your team makes, even when you’re not there.&nbsp; Why Jeff Bezos created a repeatable mantra&nbsp; Customer obsession isn’t a new saying for Bezos. It’s a founding principle that Bezos articulated publicly in his first shareholder letter in 1997.&nbsp; In my research for The Bezos Blueprint , which explores the storytelling and communication strategies that fueled Amazon’s growth, I analyzed all the shareholder letters Bezos wrote and published from 1997 to 2021, when he stepped down as CEO.&nbsp; One of Bezos’ greatest strengths as a communicator wasn’t inventing new marketing slogans. Instead, it was identifying the right phrase once and repeating it for decades.&nbsp; Bezos’ 1997 letter contains 25 references to “customer,” which he went on to use more than 500 times across all his letters. &nbsp; To put that into perspective, the phrase “cloud” or “cloud computing” appears just 24 times, even though Amazon’s cloud division (AWS) is growing at a “breakneck pace.”&nbsp; The principle that outlasted every innovation In 1997, Bezos explained why customer obsession was crucial. He said if a company does everything with the customer in mind, it will lead to “repeat purchases and word of mouth” growth.&nbsp; Bezos later wrote, “Customers are always beautifully, wonderfully dissatisfied, even when they report being happy and business is great. Even when they don’t yet know it, customers want something better, and your desire to delight customers will drive you to invent on their behalf.”&nbsp; Amazon has changed and expanded since 1997. It went from a startup to an e-commerce giant, a cloud computing pioneer, and an AI company. &nbsp; Over decades, the technology changed, but the founding principle stayed the same.&nbsp; Every founder needs a defining principle on repeat&nbsp; Bezos played the role of Amazon’s repeater-in-chief. Every founder should take on this role because a guiding principle doesn’t take hold on its own. It must be consistently and frequently articulated, heard, read, and understood.&nbsp; What’s your mantra?&nbsp; For Bezos, obsessing over every aspect of customer experience was the top job. Your mantra might be different. The key is to identify your guiding principles or “obsession.” &nbsp; Once you land on it, repeat it—not just once or twice but in every meaningful conversation, presentation, or memo. Identifying the principle that should guide all your company’s decisions isn’t always easy. Start with the audience, in most cases your employees or teammates. Can they answer the question, “What matters most around here?”&nbsp; Herb Kelleher, the founder of Southwest Airlines, was known for building a company with an “employee first” philosophy. He took every opportunity to articulate it. &nbsp; “If you truly treat your employees that way, they will treat your customers well,” he once said. “Your customers will come back, and that’s what makes your shareholders happy.”&nbsp; John Mackey, the co-founder of Whole Foods,&nbsp; defined the company’s organizing principle as “nourishing people and the planet.” &nbsp; Mackey explained that the phrase was “more than a slogan. It became our company’s mantra.”&nbsp; Bezos, Kelleher, and Mackey had different missions, but they used the same communication discipline—relentlessly communicating an overarching principle that guided every major decision. Find your defining principle. Make it short enough to remember, meaningful enough to guide decisions, and important enough to repeat ten times in a single conversation.&nbsp; —Carmine Gallo This article originally appeared on Fast Company ’s sister website, Inc.com. &nbsp; Inc. is the voice of the American entrepreneur. We inspire, inform, and document the most fascinating people in business: the risk-takers, the innovators, and the ultra-driven go-getters that represent the most dynamic force in the American economy.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T14:25:43.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.fastcompany.com/rss",
+            "feedTitle": "Fast Company",
+            "itemTitle": "Jeff Bezos repeated these 2 words for 30 years. They built Amazon",
+            "itemLink": "https://www.fastcompany.com/91610407/jeff-bezos-repeated-these-2-words-for-30-years-they-built-amazon",
+            "publishedDate": "2026-09-22T14:25:43.000Z",
+            "contentSnippet": "Jeff Bezos has repeated the same mantra for three decades: two words he credits with Amazon’s astonishing growth from a Seattle garage to the world’s largest company . Amazon just claimed the No. 1 spot on Fortune’s annual Global 500 list, which ranks companies by annual revenue. &nbsp; In a rare sit-down interview to mark the milestone, Bezos reflected on the principles that drove Amazon’s success.&nbsp; The conversation covered innovations that fueled the company’s growth, such as cloud computing , robotics, logistics, and AI . But Bezos repeatedly returned to one overarching principle that shaped Amazon from its first day and continues to guide the company’s decisions today.&nbsp; Customer obsession&nbsp; Customer obsession isn’t a marketing slogan. It’s not a mission statement. According to Bezos, it’s the guiding principle behind every major decision Amazon has made. &nbsp; In fact, it’s so important to Amazon’s history and its future, Bezos repeated the phrase 10 times in the same interview.&nbsp; The interview should remind founders to find the one principle that matters most because it’ll drive every decision your team makes, even when you’re not there.&nbsp; Why Jeff Bezos created a repeatable mantra&nbsp; Customer obsession isn’t a new saying for Bezos. It’s a founding principle that Bezos articulated publicly in his first shareholder letter in 1997.&nbsp; In my research for The Bezos Blueprint , which explores the storytelling and communication strategies that fueled Amazon’s growth, I analyzed all the shareholder letters Bezos wrote and published from 1997 to 2021, when he stepped down as CEO.&nbsp; One of Bezos’ greatest strengths as a communicator wasn’t inventing new marketing slogans. Instead, it was identifying the right phrase once and repeating it for decades.&nbsp; Bezos’ 1997 letter contains 25 references to “customer,” which he went on to use more than 500 times across all his letters. &nbsp; To put that into perspective, the phrase “cloud” or “cloud computing” appears just 24 times, even though Amazon’s cloud division (AWS) is growing at a “breakneck pace.”&nbsp; The principle that outlasted every innovation In 1997, Bezos explained why customer obsession was crucial. He said if a company does everything with the customer in mind, it will lead to “repeat purchases and word of mouth” growth.&nbsp; Bezos later wrote, “Customers are always beautifully, wonderfully dissatisfied, even when they report being happy and business is great. Even when they don’t yet know it, customers want something better, and your desire to delight customers will drive you to invent on their behalf.”&nbsp; Amazon has changed and expanded since 1997. It went from a startup to an e-commerce giant, a cloud computing pioneer, and an AI company. &nbsp; Over decades, the technology changed, but the founding principle stayed the same.&nbsp; Every founder needs a defining principle on repeat&nbsp; Bezos played the role of Amazon’s repeater-in-chief. Every founder should take on this role because a guiding principle doesn’t take hold on its own. It must be consistently and frequently articulated, heard, read, and understood.&nbsp; What’s your mantra?&nbsp; For Bezos, obsessing over every aspect of customer experience was the top job. Your mantra might be different. The key is to identify your guiding principles or “obsession.” &nbsp; Once you land on it, repeat it—not just once or twice but in every meaningful conversation, presentation, or memo. Identifying the principle that should guide all your company’s decisions isn’t always easy. Start with the audience, in most cases your employees or teammates. Can they answer the question, “What matters most around here?”&nbsp; Herb Kelleher, the founder of Southwest Airlines, was known for building a company with an “employee first” philosophy. He took every opportunity to articulate it. &nbsp; “If you truly treat your employees that way, they will treat your customers well,” he once said. “Your customers will come back, and that’s what makes your shareholders happy.”&nbsp; John Mackey, the co-founder of Whole Foods,&nbsp; defined the company’s organizing principle as “nourishing people and the planet.” &nbsp; Mackey explained that the phrase was “more than a slogan. It became our company’s mantra.”&nbsp; Bezos, Kelleher, and Mackey had different missions, but they used the same communication discipline—relentlessly communicating an overarching principle that guided every major decision. Find your defining principle. Make it short enough to remember, meaningful enough to guide decisions, and important enough to repeat ten times in a single conversation.&nbsp; —Carmine Gallo This article originally appeared on Fast Company ’s sister website, Inc.com. &nbsp; Inc. is the voice of the American entrepreneur. We inspire, inform, and document the most fascinating people in business: the risk-takers, the innovators, and the ultra-driven go-getters that represent the most dynamic force in the American economy.",
+            "categories": [
+              "productivity",
+              "work",
+              "design",
+              "lifestyle",
+              "innovation",
+              "Leadership"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "productivity",
+            "work",
+            "design",
+            "lifestyle",
+            "innovation",
+            "Leadership"
+          ],
+          "feedName": "Fast Company",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "jeff bezos repeated these 2 words for 30 years they built amazon"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T14:25:43.000Z",
+    "tags": [
+      "productivity",
+      "work",
+      "design",
+      "lifestyle",
+      "innovation",
+      "Leadership"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:29.407Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260922-10-homebrew-hacks-every-mac-po",
+    "canonicalTopic": "10 Homebrew Hacks Every Mac Power User Should Know",
+    "slug": "10-homebrew-hacks-every-mac-power-user-should-know",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-1-1020Homebrew20Hacks20",
+        "query": "10 Homebrew Hacks Every Mac Power User Should Know",
+        "sourceUrl": "https://lifehacker.com/tech/10-homebrew-hacks-every-mac-power-user-should-know?utm_medium=RSS",
+        "publisherName": "Lifehacker",
+        "publishedAt": "2026-09-22T16:00:00.000Z",
+        "contentSnippet": "Homebrew, the best package manager for Mac, just got better.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T16:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "10 'Homebrew' Hacks Every Mac Power User Should Know",
+            "itemLink": "https://lifehacker.com/tech/10-homebrew-hacks-every-mac-power-user-should-know?utm_medium=RSS",
+            "publishedDate": "2026-09-22T16:00:00.000Z",
+            "contentSnippet": "Homebrew, the best package manager for Mac, just got better.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life-systems",
+              "Apple"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life-systems",
+            "Apple"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "10 homebrew hacks every mac power user should know"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T16:00:00.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life-systems",
+      "Apple"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:29.448Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260922-apple-is-bringing-back-an-appl",
+    "canonicalTopic": "Apple Is Bringing Back an Apple Watch Feature It Took Away with Watchos 27",
+    "slug": "apple-is-bringing-back-an-apple-watch-feature-it-took-away-with-watchos-27",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-2-Apple20Is20Bringing20Ba",
+        "query": "Apple Is Bringing Back an Apple Watch Feature It Took Away with Watchos 27",
+        "sourceUrl": "https://lifehacker.com/tech/apple-bringing-this-apple-watch-feature?utm_medium=RSS",
+        "publisherName": "Lifehacker",
+        "publishedAt": "2026-09-22T15:30:00.000Z",
+        "contentSnippet": "watchOS 27.2 makes it easy to switch apps again.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T15:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "Apple Is Bringing Back an Apple Watch Feature It Took Away With watchOS 27",
+            "itemLink": "https://lifehacker.com/tech/apple-bringing-this-apple-watch-feature?utm_medium=RSS",
+            "publishedDate": "2026-09-22T15:30:00.000Z",
+            "contentSnippet": "watchOS 27.2 makes it easy to switch apps again.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life-systems",
+              "Apple"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life-systems",
+            "Apple"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "apple is bringing back an apple watch feature it took away with watchos 27"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T15:30:00.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life-systems",
+      "Apple"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:29.498Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260922-this-tapo-robot-vacuum-and-mop",
+    "canonicalTopic": "This Tapo Robot Vacuum and Mop Combo Is 100 Off Right Now",
+    "slug": "this-tapo-robot-vacuum-and-mop-combo-is-100-off-right-now",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-3-This20Tapo20Robot20Vacu",
+        "query": "This Tapo Robot Vacuum and Mop Combo Is 100 Off Right Now",
+        "sourceUrl": "https://lifehacker.com/tech/tapo-robot-vacuum-and-mop-combo-deal-september-2026?utm_medium=RSS",
+        "publisherName": "Lifehacker",
+        "publishedAt": "2026-09-22T13:00:33.000Z",
+        "contentSnippet": "It's great for households with mostly hard floors, pets, and little patience for emptying bins or rinsing mop pads.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T13:00:33.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "This Tapo Robot Vacuum and Mop Combo Is $100 Off Right Now",
+            "itemLink": "https://lifehacker.com/tech/tapo-robot-vacuum-and-mop-combo-deal-september-2026?utm_medium=RSS",
+            "publishedDate": "2026-09-22T13:00:33.000Z",
+            "contentSnippet": "It's great for households with mostly hard floors, pets, and little patience for emptying bins or rinsing mop pads.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life-systems",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life-systems",
+            "Tech"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "this tapo robot vacuum and mop combo is 100 off right now"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T13:00:33.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life-systems",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:29.542Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260922-this-fitbit-smartwatch-for-kid",
+    "canonicalTopic": "This Fitbit Smartwatch for Kids Is 65 Off Right Now",
+    "slug": "this-fitbit-smartwatch-for-kids-is-65-off-right-now",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-4-This20Fitbit20Smartwat",
+        "query": "This Fitbit Smartwatch for Kids Is 65 Off Right Now",
+        "sourceUrl": "https://lifehacker.com/tech/fitbit-google-ace-lte-kids-smartwatch-deal-september-2026?utm_medium=RSS",
+        "publisherName": "Lifehacker",
+        "publishedAt": "2026-09-22T12:30:31.000Z",
+        "contentSnippet": "This kid-friendly smartwatch has GPS tracking and movement-based games.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T12:30:31.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "This Fitbit Smartwatch for Kids Is $65 Off Right Now",
+            "itemLink": "https://lifehacker.com/tech/fitbit-google-ace-lte-kids-smartwatch-deal-september-2026?utm_medium=RSS",
+            "publishedDate": "2026-09-22T12:30:31.000Z",
+            "contentSnippet": "This kid-friendly smartwatch has GPS tracking and movement-based games.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life-systems",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life-systems",
+            "Tech"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "this fitbit smartwatch for kids is 65 off right now"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T12:30:31.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life-systems",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:29.583Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-life-20260922-peloton-just-launched-its-firs",
+    "canonicalTopic": "Peloton Just Launched Its First Foldable and Most Affordable Treadmill to Date",
+    "slug": "peloton-just-launched-its-first-foldable-and-most-affordable-treadmill-to-date",
+    "pillar": "life",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-lifehacker-5-Peloton20Just20Launche",
+        "query": "Peloton Just Launched Its First Foldable and Most Affordable Treadmill to Date",
+        "sourceUrl": "https://lifehacker.com/health/peloton-new-treadmills-launch?utm_medium=RSS",
+        "publisherName": "Lifehacker",
+        "publishedAt": "2026-09-22T12:00:00.000Z",
+        "contentSnippet": "Peloton's new treadmills span a wide range, from a space-saving $2,195 foldable to a $6,695 powerhouse.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-22T12:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://lifehacker.com/rss",
+            "feedTitle": "Lifehacker",
+            "itemTitle": "Peloton Just Launched Its First Foldable and Most Affordable Treadmill to Date",
+            "itemLink": "https://lifehacker.com/health/peloton-new-treadmills-launch?utm_medium=RSS",
+            "publishedDate": "2026-09-22T12:00:00.000Z",
+            "contentSnippet": "Peloton's new treadmills span a wide range, from a space-saving $2,195 foldable to a $6,695 powerhouse.",
+            "categories": [
+              "habits",
+              "productivity",
+              "organization",
+              "life-systems",
+              "Fitness"
+            ]
+          },
+          "suggestedPillar": "life",
+          "curatedTags": [
+            "habits",
+            "productivity",
+            "organization",
+            "life-systems",
+            "Fitness"
+          ],
+          "feedName": "Lifehacker",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "peloton just launched its first foldable and most affordable treadmill to date"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-22T12:00:00.000Z",
+    "tags": [
+      "habits",
+      "productivity",
+      "organization",
+      "life-systems",
+      "Fitness"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-22T16:26:29.636Z",
+    "pinterestScore": 75.8
   }
 ]
