@@ -16,7 +16,7 @@ const [
   techAiDocs,
   moneyDocs,
   wellbeingDocs,
-  cultureDocs,
+  entertainmentDocs,
 ] = await Promise.all([
   getCollection('style'),
   getCollection('travel'),
@@ -24,7 +24,7 @@ const [
   getCollection('tech-ai'),
   getCollection('money'),
   getCollection('wellbeing'),
-  getCollection('culture'),
+  getCollection('entertainment'),
 ]);
 
 interface ArticleEntry {
@@ -55,7 +55,7 @@ const allArticles: ArticleEntry[] = [
   ...techAiDocs.map((doc) => ({ id: doc.id, pillar: 'tech-ai' as PillarSlug, data: doc.data })),
   ...moneyDocs.map((doc) => ({ id: doc.id, pillar: 'money' as PillarSlug, data: doc.data })),
   ...wellbeingDocs.map((doc) => ({ id: doc.id, pillar: 'wellbeing' as PillarSlug, data: doc.data })),
-  ...cultureDocs.map((doc) => ({ id: doc.id, pillar: 'culture' as PillarSlug, data: doc.data })),
+  ...entertainmentDocs.map((doc) => ({ id: doc.id, pillar: 'entertainment' as PillarSlug, data: doc.data })),
 ];
 
 // Deduplicate all non-draft articles and sort deterministically by publication date (newest first)

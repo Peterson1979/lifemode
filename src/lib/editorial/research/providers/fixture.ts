@@ -41,25 +41,25 @@ export class FixtureEditorialResearchProvider implements IEditorialResearchProvi
           },
         ];
 
-      case 'culture':
+      case 'entertainment':
         return [
           {
-            title: 'Digital Intentionality and Consumer Technology Shift Report 2026',
-            url: 'https://wgsn.com/reports/2026-digital-intentionality-consumer-shift',
-            publisher: 'WGSN & Digital Culture Institute',
+            title: 'Contemporary Entertainment & Screen Arts Industry Report',
+            url: 'https://variety.com/reports/contemporary-screen-arts-industry-trends',
+            publisher: 'Variety Industry Intelligence',
             publishedAt: '2026-02-01T00:00:00.000Z',
             accessedAt: now,
-            claimSummary: 'Empirical survey data showing a 34% year-over-year increase in screen time boundaries, notification pruning, and calm tech workflows among knowledge professionals.',
+            claimSummary: 'Authoritative reporting on international film festivals, cinematic storytelling approaches, television production benchmarks, and actor retrospectives.',
             sourceType: 'industry',
             reliability: 'high',
           },
           {
-            title: 'The Psychology of Calm Technology in Modern Workspaces',
-            url: 'https://mit.edu/research/calm-technology-workplace-wellbeing',
-            publisher: 'MIT Center for Digital Wellbeing',
+            title: 'Oral History & Archives of Contemporary Screen Culture',
+            url: 'https://bfi.org.uk/research/contemporary-screen-culture',
+            publisher: 'British Film Institute (BFI)',
             publishedAt: '2025-10-10T00:00:00.000Z',
             accessedAt: now,
-            claimSummary: 'Academic findings demonstrating reduced cognitive fatigue and enhanced creative focus when adopting analog-first morning rituals.',
+            claimSummary: 'Curated critical analysis and verified background on directing methodologies, casting histories, and pop-cultural impact.',
             sourceType: 'academic',
             reliability: 'high',
           },

@@ -64,16 +64,16 @@ export function classifyNewsPillar(title: string, snippet: string = ''): PillarS
     return 'style';
   }
 
-  // Culture & Design
+  // Entertainment & Pop Culture
   if (
-    /\b(culture|art|architecture|design|book|exhibition|cinema|film|museum|music|photography|theatre|heritage|literature|gallery)\b/.test(
+    /\b(entertainment|celebrity|actor|actress|hollywood|cinema|film|movie|television|tv series|music|album|concert|theatre|awards|emmy|oscar|grammy|pop culture|interviews|showbiz)\b/.test(
       text
     )
   ) {
-    return 'culture';
+    return 'entertainment';
   }
 
-  return 'culture';
+  return 'entertainment';
 }
 
 /**

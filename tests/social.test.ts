@@ -2935,21 +2935,21 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     await fs.rm(tempDir, { recursive: true, force: true });
   });
 
-  await t.test('76. Higher frequency topics (Style, Culture, Food & Drink, Travel, Wellbeing) remain eligible and preferred', async () => {
+  await t.test('76. Higher frequency topics (Style, Entertainment, Food & Drink, Travel, Wellbeing) remain eligible and preferred', async () => {
     const styleTopic = createMockTopic({ id: 'top-style', pillar: 'style', totalScore: 85, status: 'PUBLISHED', publishedAt: '2026-09-23T08:00:00Z' });
-    const cultureTopic = createMockTopic({ id: 'top-culture', pillar: 'culture', totalScore: 85, status: 'PUBLISHED', publishedAt: '2026-09-23T08:00:00Z' });
+    const entertainmentTopic = createMockTopic({ id: 'top-entertainment', pillar: 'entertainment', totalScore: 85, status: 'PUBLISHED', publishedAt: '2026-09-23T08:00:00Z' });
     const foodTopic = createMockTopic({ id: 'top-food', pillar: 'food-drink', totalScore: 85, status: 'PUBLISHED', publishedAt: '2026-09-23T08:00:00Z' });
     const travelTopic = createMockTopic({ id: 'top-travel', pillar: 'travel', totalScore: 85, status: 'PUBLISHED', publishedAt: '2026-09-23T08:00:00Z' });
     const wellbeingTopic = createMockTopic({ id: 'top-wellbeing', pillar: 'wellbeing', totalScore: 85, status: 'PUBLISHED', publishedAt: '2026-09-23T08:00:00Z' });
 
-    const selected = await selectSocialOpportunities([styleTopic, cultureTopic, foodTopic, travelTopic, wellbeingTopic], {
+    const selected = await selectSocialOpportunities([styleTopic, entertainmentTopic, foodTopic, travelTopic, wellbeingTopic], {
       maxOpportunities: 3,
       publishedOnly: true,
     });
 
     assert.equal(selected.length, 3);
     const selectedPillars = selected.map((s) => s.pillar);
-    assert.ok(selectedPillars.every((p) => ['style', 'culture', 'food-drink', 'travel', 'wellbeing'].includes(p)));
+    assert.ok(selectedPillars.every((p) => ['style', 'entertainment', 'food-drink', 'travel', 'wellbeing'].includes(p)));
   });
 
   await t.test('77. Validation gate detects and rejects leaked external API telemetry data in social copy', () => {

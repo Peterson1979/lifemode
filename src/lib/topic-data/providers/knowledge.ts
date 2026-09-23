@@ -24,7 +24,7 @@ export class WikimediaKnowledgeProvider extends BaseTopicDataProvider<KnowledgeF
   readonly providerId = 'wikimedia-knowledge';
   readonly name = 'Wikimedia Open Knowledge';
   readonly domain: DataDomain = 'knowledge';
-  readonly defaultPillar: PillarSlug = 'culture';
+  readonly defaultPillar: PillarSlug = 'entertainment';
 
   readonly source: DataSource = {
     id: 'wikimedia',

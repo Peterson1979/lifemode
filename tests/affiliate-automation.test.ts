@@ -23,7 +23,7 @@ const mockCommercialBookTopic: EditorialTopic = {
   id: 'topic-living-books-001',
   canonicalTopic: 'Best Architecture and Design Books for Thoughtful Homes',
   slug: 'best-architecture-and-design-books-for-thoughtful-homes',
-  pillar: 'culture',
+  pillar: 'entertainment',
   sourceSignals: [],
   queryVariants: ['best design books 2026', 'architecture monographs home', 'thoughtful living books'],
   scoring: {
@@ -44,7 +44,7 @@ const mockCommercialBookTopic: EditorialTopic = {
   createdAt: '2026-09-13T10:00:00.000Z',
   updatedAt: '2026-09-13T10:00:00.000Z',
   primaryIntent: 'commercial',
-  tags: ['culture', 'books', 'architecture', 'design', 'home'],
+  tags: ['entertainment', 'books', 'architecture', 'design', 'home'],
 };
 
 const mockTransactionalCoffeeTopic: EditorialTopic = {
@@ -242,7 +242,7 @@ test('8. Unresolved destination URLs cannot become links and never generate fake
       id: 'aff-unresolved-lighting',
       name: 'Artisan Architectural Desk Lamps',
       category: 'workspace',
-      applicablePillars: ['culture'],
+      applicablePillars: ['entertainment'],
       applicableIntents: ['commercial-investigation'],
       keywords: ['architecture', 'design', 'home'],
       enabled: true,

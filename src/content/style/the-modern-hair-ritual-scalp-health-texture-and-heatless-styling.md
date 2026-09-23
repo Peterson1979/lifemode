@@ -37,15 +37,11 @@ For decades, standard hair routines focused on heat-driven discipline: flat iron
 
 The modern philosophy of hair care treats hair not as dead fiber to be forcibly reshaped, but as an organic ecosystem rooted in scalp health. By embracing natural texture and low-manipulation styling, hair regains its natural shine, volume, and movement.
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                      THE HEALTHY HAIR ECOSYSTEM                        │
-├────────────────────────────────────────────────────────────────────────┤
-│  1. THE ROOT & SCALP      │ Follicle oxygenation, sebum microbiome     │
-│  2. THE SHAFT (Keratin)   │ Cuticle alignment, moisture-protein balance│
-│  3. THE ENDS (Oldest)     │ Lipid sealing, friction protection         │
-└────────────────────────────────────────────────────────────────────────┘
-```
+| Ecosystem Tier | Biological Focus | Core Objective |
+| :--- | :--- | :--- |
+| **1. The Root & Scalp** | Follicle oxygenation and microbiome balance | Clear sebum buildup without stripping natural lipids |
+| **2. The Shaft (Keratin)** | Cuticle alignment and moisture retention | Prevent thermal degradation and maintain elasticity |
+| **3. The Ends (Oldest Fiber)** | Lipid barrier sealing and mechanical protection | Minimize friction and prevent split ends |
 
 ---
 
@@ -53,20 +49,11 @@ The modern philosophy of hair care treats hair not as dead fiber to be forcibly 
 
 The scalp is an extension of facial skin, containing a dense network of sebaceous glands and hair follicles. When product residues, dry shampoo powders, and oxidized sebum accumulate, follicular micro-inflammation can weaken the hair root.
 
-```
-┌─────────────────────────┬────────────────────────────┬──────────────────────┐
-│ SCALP HABIT             │ MECHANISM                  │ FREQUENCY            │
-├─────────────────────────┼────────────────────────────┼──────────────────────┤
-│ Clarifying Wash         │ Chelating wash removes     │ Once every 7–10 days │
-│                         │ hard water mineral buildup │                      │
-├─────────────────────────┼────────────────────────────┼──────────────────────┤
-│ Scalp Massage           │ Boosts microcirculation &  │ 3–5 minutes before   │
-│ (Fingertips or Silicone)│ stimulates follicle anchor │ washing              │
-├─────────────────────────┼────────────────────────────┼──────────────────────┤
-│ Salicylic Scalp Exfoliant│ Dissolves dead skin flakes │ Once weekly          │
-│                         │ without abrasive grit      │                      │
-└─────────────────────────┴────────────────────────────┴──────────────────────┘
-```
+| Scalp Habit | Biological Mechanism | Target Frequency |
+| :--- | :--- | :--- |
+| **Clarifying Wash** | Chelating surfactants remove mineral and product buildup | Once every 7–10 days |
+| **Manual Scalp Massage** | Stimulates capillary blood circulation around follicle roots | 3–5 minutes before washing |
+| **Salicylic Acid Exfoliation** | Dissolves dead skin flakes and clears follicular funnels | Once weekly |
 
 ---
 
@@ -84,15 +71,11 @@ Not all hair absorbs and retains moisture the same way. Identifying your hair's 
 
 Working with your natural hair wave or curl pattern saves time in the morning while preventing long-term heat degradation.
 
-```
- ┌──────────────────────┐    ┌──────────────────────┐    ┌──────────────────────┐
- │ 1. MICROFIBER WRAP   │    │ 2. LEAVE-IN RAKE     │    │ 3. AIR-DRY / DIFFUSE │
- ├──────────────────────┤    ├──────────────────────┤    ├──────────────────────┤
- │ Squeeze out water    │───►│ Rake leave-in cream  │───►│ Air-dry undisturbed; │
- │ gently; never rub    │    │ through damp strands │    │ scrunch with drops   │
- │ with rough terrycloth│    │ with wide-tooth comb │    │ of oil once dry      │
- └──────────────────────┘    └──────────────────────┘    └──────────────────────┘
-```
+| Step | Technique | Method |
+| :--- | :--- | :--- |
+| **1. Microfiber Wrap** | Squeeze out moisture gently | Avoid aggressive friction; never rub with rough terrycloth |
+| **2. Leave-In Distribution** | Rake hydrating milk through damp strands | Use a seamless wide-tooth comb for even coverage |
+| **3. Undisturbed Air-Dry** | Allow hair to dry without touching | Scrunch with 1–2 drops of botanical oil once 100% dry |
 
 ### Techniques for Effortless Texture
 * **The Silk Heatless Curl Ribbon:** Wrapping slightly damp hair around a soft silk ribbon or robe belt before bed creates smooth, bouncy waves overnight without a single second of heat styling.

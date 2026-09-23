@@ -13,7 +13,8 @@ export interface SelectionOptions {
   requireVisualPotential?: boolean;
   feedbackSignals?: FeedbackSignalSummary;
   enablePerformanceFeedback?: boolean; // default true if feedbackSignals provided
-  guaranteedPillar?: PillarSlug | null; // e.g. 'style' for daily generation
+  guaranteedPillar?: PillarSlug | null; // e.g. 'style' (backward compatibility)
+  guaranteedPillars?: PillarSlug[]; // e.g. ['style', 'entertainment'] for daily generation
 }
 
 /**
@@ -39,7 +40,7 @@ export function calculatePillarStarvationBoost(
  * Deterministically filters, ranks, and selects approved editorial topics from scored candidates.
  *
  * Implements lightweight, practical pillar balancing:
- * - When guaranteedPillar is specified (e.g. 'style'), guarantees exactly 1 slot for that pillar
+ * - When guaranteedPillars is specified (e.g. ['style', 'entertainment']), guarantees exactly 1 slot for each
  *   and allocates remaining slots across other rotating active topics.
  * - Prevents high-volume single-source topics from flooding a single pillar in one batch.
  * - Filters out removed/inactive pillars (such as 'life').
@@ -60,7 +61,8 @@ export function selectEditorialCandidates(
   const existingRecency = options.existingPillarRecency;
   const feedbackSignals = options.feedbackSignals;
   const applyFeedback = options.enablePerformanceFeedback ?? Boolean(feedbackSignals);
-  const guaranteedPillar = options.guaranteedPillar;
+  const rawGuaranteed = options.guaranteedPillars || (options.guaranteedPillar ? [options.guaranteedPillar] : []);
+  const guaranteedPillars = Array.from(new Set(rawGuaranteed.filter(Boolean))) as PillarSlug[];
 
   const pillarCounts: Partial<Record<PillarSlug, number>> = {};
   for (const pillar of VALID_PILLARS) {
@@ -161,33 +163,41 @@ export function selectEditorialCandidates(
   const maxPerPillar = options.maxTopicsPerPillar ?? defaultMaxPerPillar;
   const strictDiversity = maxPerPillar === 1 || (options.totalLimit !== undefined && options.totalLimit <= 3);
 
-  // 4. Guaranteed Pillar Allocation (e.g. exactly 1 for 'style' if requested and available)
+  // 4. Guaranteed Pillars Allocation (e.g. exactly 1 for 'style', 1 for 'entertainment')
   const candidatesToProcess: Array<EditorialTopic & { effectiveScore: number }> = [];
 
-  if (guaranteedPillar && options.totalLimit && options.totalLimit >= 1) {
-    const guaranteedCandidates = sortedQualified.filter((t) => t.pillar === guaranteedPillar);
-    const nonGuaranteedCandidates = sortedQualified.filter((t) => t.pillar !== guaranteedPillar);
+  if (guaranteedPillars.length > 0 && options.totalLimit && options.totalLimit >= 1) {
+    let guaranteedSlotsFilled = 0;
 
-    if (guaranteedCandidates.length > 0) {
-      const topGuaranteed = guaranteedCandidates[0];
-      pillarCounts[guaranteedPillar] = 1;
-      approved.push({
-        ...topGuaranteed,
-        status: 'APPROVED',
-        updatedAt: new Date().toISOString(),
-      });
+    for (const gp of guaranteedPillars) {
+      if (options.totalLimit && approved.length >= options.totalLimit) break;
 
-      // Defer remaining candidates of the guaranteed pillar to prevent generating a 2nd topic for it
-      for (let i = 1; i < guaranteedCandidates.length; i++) {
-        deferred.push({
-          ...guaranteedCandidates[i],
-          status: 'DEFERRED',
-          deferReason: `Guaranteed pillar ${guaranteedPillar} daily quota (1) met`,
+      const guaranteedCandidates = sortedQualified.filter((t) => t.pillar === gp);
+      if (guaranteedCandidates.length > 0) {
+        const topGuaranteed = guaranteedCandidates[0];
+        pillarCounts[gp] = 1;
+        approved.push({
+          ...topGuaranteed,
+          status: 'APPROVED',
           updatedAt: new Date().toISOString(),
         });
-      }
+        guaranteedSlotsFilled++;
 
-      // Remaining slots to be filled by non-guaranteed candidates
+        // Defer remaining candidates of this guaranteed pillar
+        for (let i = 1; i < guaranteedCandidates.length; i++) {
+          deferred.push({
+            ...guaranteedCandidates[i],
+            status: 'DEFERRED',
+            deferReason: `Guaranteed pillar ${gp} daily quota (1) met`,
+            updatedAt: new Date().toISOString(),
+          });
+        }
+      }
+    }
+
+    // Remaining slots to be filled by non-guaranteed candidates
+    const nonGuaranteedCandidates = sortedQualified.filter((t) => !guaranteedPillars.includes(t.pillar));
+    if (guaranteedSlotsFilled > 0) {
       candidatesToProcess.push(...nonGuaranteedCandidates);
     } else {
       candidatesToProcess.push(...sortedQualified);

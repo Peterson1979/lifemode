@@ -2,7 +2,7 @@ import type { AutomationConfig, ScheduledAutomationConfig } from './types.ts';
 
 const DEFAULT_CONFIG: AutomationConfig = {
   enabled: false,
-  maxOpportunities: 1,
+  maxOpportunities: 3,
   dailyArticleLimit: 3,
   dryRun: true,
   minScoreThreshold: 80,

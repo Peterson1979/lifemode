@@ -36,15 +36,11 @@ Open almost any wardrobe, and you will likely discover a familiar paradox: dozen
 
 A capsule wardrobe solves this tension by replacing quantity with coherence. Rather than treating clothes as disposable novelties, building a modular wardrobe centers on a cohesive palette, tactile natural materials, and silhouettes that interchange effortlessly.
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                      THE CAPSULE FOUNDATION MODEL                      │
-├────────────────────────────────────────────────────────────────────────┤
-│  1. BASE PALETTE (60%)    │ Black, Navy, Off-White, Charcoal, Camel    │
-│  2. ACCENT TONES (20%)    │ Olive, Terracotta, Slate Blue, Ochre       │
-│  3. TEXTURE & WEAVE (20%) │ Brushed Wool, Heavy Linen, Crisp Poplin    │
-└────────────────────────────────────────────────────────────────────────┘
-```
+| Wardrobe Tier | Target Ratio | Recommended Composition |
+| :--- | :--- | :--- |
+| **Base Palette** | 60% of wardrobe | Black, Navy, Off-White, Charcoal, Camel |
+| **Accent Tones** | 20% of wardrobe | Olive, Terracotta, Slate Blue, Ochre |
+| **Texture & Weave** | 20% of wardrobe | Brushed Wool, Heavy Linen, Crisp Poplin |
 
 ---
 
@@ -60,18 +56,14 @@ When architects, designers, and creative directors settle on a consistent way of
 
 A practical seasonal capsule typically consists of 28 to 32 core pieces, excluding workout gear, loungewear, and formal evening attire. The goal is complete modularity: every top should pair naturally with at least three different bottoms.
 
-```
-┌───────────────────────────┬────────────────────────────────────────────┐
-│ CATEGORY                  │ RECOMMENDED ALLOCATION                     │
-├───────────────────────────┼────────────────────────────────────────────┤
-│ Tops & Shirting           │ 6 items (Oxford shirts, heavy tees, knits) │
-│ Mid-Layers & Sweaters     │ 4 items (Cardigans, crewnecks, overshirts) │
-│ Trousers & Bottoms        │ 5 items (Tailored wool, raw denim, chinos) │
-│ Outerwear                 │ 3 items (Trench, tailored wool coat, blouson│
-│ Footwear                  │ 4 pairs (Loafers, leather sneakers, boots) │
-│ Core Accessories          │ 4 items (Leather belt, scarf, everyday bag)│
-└───────────────────────────┴────────────────────────────────────────────┘
-```
+| Category | Allocation | Recommended Essentials |
+| :--- | :--- | :--- |
+| **Tops & Shirting** | 6 items | Oxford cotton shirts, heavyweight tees, fine-gauge knits |
+| **Mid-Layers & Sweaters** | 4 items | Button cardigans, crewnecks, structured overshirts |
+| **Trousers & Bottoms** | 5 items | Tailored wool trousers, raw selvedge denim, straight chinos |
+| **Outerwear** | 3 items | Classic trench, tailored wool overcoat, lightweight blouson |
+| **Footwear** | 4 pairs | Leather loafers, minimal sneakers, Goodyear-welted boots |
+| **Core Accessories** | 4 items | Bridle leather belt, seasonal scarf, everyday structured bag |
 
 ### 1. The Power of a Cohesive Color Palette
 The secret to seamless outfit combinations lies in restricting your palette. Anchor your wardrobe in two to three neutral foundation colors (such as deep navy, warm stone, and rich espresso), and introduce one or two muted accent shades that harmonize across seasons (such as sage or dusty rust). When hues share similar undertones, clash becomes virtually impossible.
@@ -89,14 +81,11 @@ Fast fashion garments frequently rely on synthetic polyester blends that pill, t
 
 Building a functional capsule does not require throwing away everything you own to buy new designer garments. In fact, the most sustainable and rewarding capsule begins with a disciplined audit of what you already have.
 
-```
-   STEP 1: Full Extraction         STEP 2: Tri-Category Sort      STEP 3: The 30-Day Test Box
- ┌──────────────────────────┐    ┌───────────────────────────┐   ┌──────────────────────────┐
- │ Empty closet completely. │───►│ • Keep (fits + loved)     │──►│ Place "maybe" items in a │
- │ Assess every garment     │    │ • Donate / Recycle        │   │ box. If untouched in 30  │
- │ in natural daylight.     │    │ • Seasonal Storage / Box  │   │ days, let them go.       │
- └──────────────────────────┘    └───────────────────────────┘   └──────────────────────────┘
-```
+| Phase | Action | Purpose |
+| :--- | :--- | :--- |
+| **Step 1: Full Extraction** | Empty closet completely | Assess every garment in natural daylight |
+| **Step 2: Tri-Category Sort** | Keep, Donate, or Store | Eliminate ill-fitting or unworn items |
+| **Step 3: The 30-Day Test Box** | Quarantine undecided pieces | If untouched in 30 days, let them go |
 
 ### The Three-Pile Sorting Protocol
 1. **The Core Keepers:** Garments that fit your present body comfortably, have been worn within the past four weeks, and make you feel composed.

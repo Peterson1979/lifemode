@@ -25,10 +25,10 @@ sources:
     url: "https://jcadonline.com"
   - name: "Harvard Health Publishing – The Science of Anti-Aging Skincare Formulations"
     url: "https://www.health.harvard.edu"
-image: "https://images.unsplash.com/photo-1608248597359-0097c55c065f?auto=format&fit=crop&w=1200&q=80"
-imageAlt: "Minimalist skincare formulation droppers and clear serum pipettes"
-imageSource: "Photo by Mathilde Langevin on Unsplash (Free)"
-imageSourceUrl: "https://unsplash.com/photos/a-bottle-of-skin-care-product-sitting-on-top-of-a-table-8Z4eQcNqVUs"
+image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1200&q=80"
+imageAlt: "Clear glass dropper bottle with active botanical skincare serum on clean surface"
+imageSource: "Photo by Sarah Chai on Unsplash (Free)"
+imageSourceUrl: "https://unsplash.com/photos/clear-glass-dropper-bottle-on-white-surface-k42v73GZqN0"
 imageLicense: "Unsplash License (Free)"
 version: 1
 lifecycleStatus: "STORED"
@@ -38,15 +38,11 @@ Skincare marketing has transformed ingredient lists into an overwhelming lexicon
 
 Navigating skincare actives requires understanding what each ingredient actually does at a cellular level and how to schedule them harmoniously.
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                   THE THREE PILLARS OF EVIDENCE-BASED ACTIVES          │
-├────────────────────────────────────────────────────────────────────────┤
-│  1. ANTIOXIDANTS (Protection - AM)  │ L-Ascorbic Acid, Ectoin, Resveratrol │
-│  2. RETINOIDS (Cell Turnover - PM)  │ Retinal, Retinol, Tretinoin          │
-│  3. EXFOLIATING ACIDS (Desquamation)│ AHAs (Glycolic/Lactic), BHA (Salicylic)│
-└────────────────────────────────────────────────────────────────────────┘
-```
+| Active Category | Primary Biological Function | Ideal Application Window |
+| :--- | :--- | :--- |
+| **1. Antioxidants** | Neutralizes free radicals and photoprotects collagen | Morning (AM) under sunscreen |
+| **2. Retinoids** | Accelerates cellular turnover and stimulates collagen | Evening (PM) on dry skin |
+| **3. Hydroxy Acids** | Dissolves intercellular desmosomes to exfoliate dead cells | Evening (PM) 1–2 times weekly |
 
 ---
 
@@ -54,12 +50,12 @@ Navigating skincare actives requires understanding what each ingredient actually
 
 Retinoids (Vitamin A derivatives) remain the single most extensively researched category in topical dermatology. They bind to nuclear retinoic acid receptors (RAR) in skin cells, accelerating cellular turnover, boosting collagen synthesis, and normalizing sebum flow.
 
-```
-  THE VITAMIN A CONVERSION CASCADE:
-  
-  Retinyl Palmitate ──► Retinol ──► Retinaldehyde (Retinal) ──► Retinoic Acid
-  (Very Gentle)        (Slow)       (Fast & Highly Potent)      (Direct Cellular Action)
-```
+| Form of Vitamin A | Conversion Steps to Retinoic Acid | Potency & Tolerance Profile |
+| :--- | :--- | :--- |
+| **Retinyl Palmitate** | 3 steps (very slow) | Very mild; suitable for reactive or dry skin |
+| **Retinol** | 2 steps (moderate) | Widely available gold-standard starter formulation |
+| **Retinaldehyde (Retinal)** | 1 step (rapid) | Works up to 11x faster than retinol with minimal irritation |
+| **Tretinoin (Retinoic Acid)** | 0 steps (direct action) | Prescription strength; highly potent cellular renewal |
 
 * **Retinal (Retinaldehyde):** Requires only one biological conversion step to become retinoic acid. It works up to 11 times faster than standard retinol with less superficial flaking and boasts natural antibacterial properties.
 * **Retinol:** Requires two conversion steps. Gentle and widely tolerated for beginners.
@@ -71,20 +67,11 @@ Retinoids (Vitamin A derivatives) remain the single most extensively researched 
 
 While retinoids excel at nighttime cellular repair, antioxidants provide daytime defense against UV-induced free radicals and atmospheric pollution.
 
-```
-┌──────────────────┬─────────────────────────────────┬─────────────────────────┐
-│ ANTIOXIDANT TYPE │ STABILITY & FORMULATION         │ KEY BENEFITS            │
-├──────────────────┼─────────────────────────────────┼─────────────────────────┤
-│ Pure L-Ascorbic  │ Highly potent; requires low pH  │ Maximum brightening &   │
-│ Acid (10–15%)    │ (<3.5); oxidizes quickly        │ collagen stimulation    │
-├──────────────────┼─────────────────────────────────┼─────────────────────────┤
-│ Vitamin C Esters │ Oil-soluble, highly stable,     │ Gentle on sensitive skin│
-│ (THD Ascorbate)  │ neutral pH formulation          │ with deep lipid delivery│
-├──────────────────┼─────────────────────────────────┼─────────────────────────┤
-│ Niacinamide      │ Water-soluble Vitamin B3,       │ Strengthens barrier,    │
-│ (2–5%)           │ extraordinarily stable          │ balances sebum & pores  │
-└──────────────────┴─────────────────────────────────┴─────────────────────────┘
-```
+| Antioxidant Molecule | Formulation Stability | Key Physiological Benefits |
+| :--- | :--- | :--- |
+| **Pure L-Ascorbic Acid (10–15%)** | Low pH required (<3.5); sensitive to light | Maximum collagen stimulation and pigment brightening |
+| **Lipid-Soluble Vitamin C (THD Ascorbate)** | High stability; neutral pH | Deep penetration; gentle on sensitive skin |
+| **Niacinamide (Vitamin B3, 2–5%)** | Exceptionally stable; neutral pH | Reinforces lipid barrier, reduces redness, balances sebum |
 
 ---
 
@@ -92,15 +79,11 @@ While retinoids excel at nighttime cellular repair, antioxidants provide daytime
 
 Physical scrubs with crushed shells create microscopic tears in delicate skin tissue. Chemical exfoliants gently dissolve the intercellular desmosomes (protein bonds) that hold dead, dull skin cells together.
 
-```
- ┌──────────────────────┐    ┌──────────────────────┐    ┌──────────────────────┐
- │    AHAs (GLYCOLIC)   │    │    BHA (SALICYLIC)   │    │     PHAs (GLUCONO)   │
- ├──────────────────────┤    ├──────────────────────┤    ├──────────────────────┤
- │ Water-soluble;       │    │ Oil-soluble;         │    │ Large molecular size;│
- │ exfoliates surface;  │    │ penetrates pores;    │    │ ultra-gentle; locks  │
- │ boosts hydration     │    │ dissolves blackheads │    │ in surface moisture  │
- └──────────────────────┘    └──────────────────────┘    └──────────────────────┘
-```
+| Exfoliant Class | Chemical Properties | Target Action |
+| :--- | :--- | :--- |
+| **Alpha-Hydroxy Acids (AHAs: Glycolic/Lactic)** | Water-soluble | Exfoliates outer surface texture and boosts skin hydration |
+| **Beta-Hydroxy Acid (BHA: Salicylic Acid)** | Oil-soluble | Penetrates deep inside pores to dissolve sebum plugs and blackheads |
+| **Poly-Hydroxy Acids (PHAs: Gluconolactone)** | Large molecular size | Ultra-gentle surface renewal ideal for barrier-compromised skin |
 
 * **Glycolic Acid (AHA):** Smallest molecular size, penetrating deeply to smooth texture and brighten tone.
 * **Lactic Acid (AHA):** Larger molecule with intrinsic humectant properties, ideal for drier or sensitive skin.
@@ -112,17 +95,13 @@ Physical scrubs with crushed shells create microscopic tears in delicate skin ti
 
 To maximize results without overloading your skin, use an alternating circadian schedule:
 
-```
-┌───────────┬───────────────────────────────┬──────────────────────────────────┐
-│ DAY       │ MORNING ROUTINE               │ EVENING ROUTINE                  │
-├───────────┼───────────────────────────────┼──────────────────────────────────┤
-│ Monday    │ Vitamin C + Hydrator + SPF    │ Retinoid Night                   │
-│ Tuesday   │ Niacinamide + Hydrator + SPF  │ Barrier Recovery (Ceramides)     │
-│ Wednesday │ Vitamin C + Hydrator + SPF    │ Gentle Exfoliation (AHA / BHA)   │
-│ Thursday  │ Niacinamide + Hydrator + SPF  │ Barrier Recovery (Ceramides)     │
-│ Friday    │ Vitamin C + Hydrator + SPF    │ Retinoid Night                   │
-│ Weekend   │ Hydration Focus + SPF         │ Nourishing Recovery / Moisture   │
-└───────────┴───────────────────────────────┴──────────────────────────────────┘
-```
+| Day of the Week | Morning Routine (Protection) | Evening Routine (Repair) |
+| :--- | :--- | :--- |
+| **Monday** | Vitamin C + Hydrating Serum + SPF 50 | Retinoid Night |
+| **Tuesday** | Niacinamide + Barrier Cream + SPF 50 | Barrier Recovery (Ceramides & Panthenol) |
+| **Wednesday** | Vitamin C + Hydrating Serum + SPF 50 | Gentle Exfoliation (AHA / BHA) |
+| **Thursday** | Niacinamide + Barrier Cream + SPF 50 | Barrier Recovery (Ceramides & Panthenol) |
+| **Friday** | Vitamin C + Hydrating Serum + SPF 50 | Retinoid Night |
+| **Weekend** | Gentle Hydration Focus + SPF 50 | Nourishing Barrier Recovery & Rest |
 
 By respecting the biochemistry of topical actives, skincare shifts from an unpredictable gamble into a precise, sustainable ritual of skin vitality.

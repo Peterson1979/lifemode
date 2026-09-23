@@ -41,9 +41,9 @@ ${evidenceBlock}
    - All social copy must be strictly article-driven, derived solely from the authoritative published LifeMode article provided above.
    - NEVER inject external live API telemetry, market tickers, or unrelated third-party data.
    - No sensational clickbait, no exaggerated or fabricated claims, no made-up statistics not found in the article data.
-6. Style & Beauty Positioning:
-   - Strictly non-promotional editorial tone. No "buy this now", affiliate ad language, fake expertise, or influencer clichés.
-   - Explore fashion trends, tactile tailoring, everyday outfit formulas, skincare rituals, ingredient science, haircare, and fragrance culture with accessible elegance.
+6. Pillar Positioning Standards:
+   - Style & Beauty: Strictly non-promotional editorial tone. Explore fashion trends, tactile tailoring, everyday outfit formulas, skincare rituals, ingredient science, haircare, and fragrance culture with accessible elegance.
+   - Entertainment: Intelligent, mainstream lifestyle magazine editorial coverage of celebrity stories, profiles, cinema, television, music, and pop culture. Engaging and high-signal without low-quality gossip or cheap rumors.
 7. Visual First: The visual concept must describe an aesthetically stunning, calm editorial photograph or 3D architectural scene.
 8. Image Text Overlay: Short, legible, punchy headline only (max 6-8 words). NEVER paragraphs or internal metadata.
 

@@ -51,14 +51,14 @@ const SEASONAL_EDITORIAL_THEMES: SeasonalTheme[] = [
 
   // Spring / Q2 (Apr - May - Jun)
   {
-    event: 'Spring Architectural & Interior Renewal',
-    pillar: 'culture',
-    rawQuery: 'Modernist Biophilic Design: Integrating Natural Light and Sustainable Materials',
+    event: 'Spring Film Festivals & Screen Arts',
+    pillar: 'entertainment',
+    rawQuery: 'Cannes and Spring Screen Arts: Emerging Directors and Cinematic Storytelling',
     targetMonths: [2, 3, 4],
     growthRate: 90,
     relativeInterest: 92,
     visualPotentialScore: 96,
-    tags: ['design', 'architecture', 'biophilic', 'interiors'],
+    tags: ['cinema', 'film', 'entertainment', 'festivals'],
   },
   {
     event: 'Spring Slow Travel & Cultural Dispatches',
@@ -93,14 +93,14 @@ const SEASONAL_EDITORIAL_THEMES: SeasonalTheme[] = [
     tags: ['travel', 'mediterranean', 'retreats', 'architecture'],
   },
   {
-    event: 'Mid-Year Lifestyle & Zeitgeist Shift',
-    pillar: 'culture',
-    rawQuery: 'The Analog Turn: Why High-Signal Professionals Are Embracing Tactile Objects',
+    event: 'Summer Cinema & Pop Culture Retrospective',
+    pillar: 'entertainment',
+    rawQuery: 'Summer Blockbusters and Independent Cinema: Contemporary Screen Storytelling',
     targetMonths: [5, 6, 7, 8, 9],
     growthRate: 110,
     relativeInterest: 95,
     visualPotentialScore: 90,
-    tags: ['trends', 'zeitgeist', 'analog', 'culture'],
+    tags: ['entertainment', 'cinema', 'movies', 'pop-culture'],
   },
 
   // Autumn / Q4 (Sep - Oct - Nov - Dec)
@@ -115,14 +115,14 @@ const SEASONAL_EDITORIAL_THEMES: SeasonalTheme[] = [
     tags: ['style', 'fashion', 'tailoring', 'beauty'],
   },
   {
-    event: 'End-of-Year Cultural Curation & Books',
-    pillar: 'culture',
-    rawQuery: 'Curated Monograph Curation: Timeless Design and Photography Volumes',
+    event: 'Autumn Awards Season & Celebrity Profiles',
+    pillar: 'entertainment',
+    rawQuery: 'Autumn Film Awards Season: Leading Actors, Directors, and Cultural Milestones',
     targetMonths: [9, 10, 11],
     growthRate: 85,
     relativeInterest: 88,
     visualPotentialScore: 92,
-    tags: ['books', 'curation', 'art', 'design'],
+    tags: ['entertainment', 'awards', 'celebrity', 'film'],
   },
   {
     event: 'Winter Longevity & Cold Adaptations',

@@ -122,7 +122,7 @@ export class RSSFeedsDiscoveryAdapter implements IDiscoveryAdapter {
               relativeInterest: 80,
               isBreakout: false,
               visualPotentialScore:
-                feed.pillar === 'culture' || feed.pillar === 'travel' ? 92 : 75,
+                feed.pillar === 'entertainment' || feed.pillar === 'travel' || feed.pillar === 'style' ? 92 : 75,
             },
             geography: 'GLOBAL',
             language: 'en',

@@ -37,16 +37,11 @@ In the modern pursuit of glowing skin, the most common pitfall is not neglect, b
 
 The skin is not a blank canvas to be scrubbed into submission; it is a dynamic, living biological shield. Protecting and reinforcing this shield is the foundational principle of all effective skincare.
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                   THE BRICK-AND-MORTAR BARRIER MODEL                   │
-├────────────────────────────────────────────────────────────────────────┤
-│  CORNEOCYTES ("Bricks")   │ Flattened protein-rich cellular envelopes  │
-│  LIPID MATRIX ("Mortar")  │ Ceramides (50%), Cholesterol (25%),        │
-│                           │ Free Fatty Acids (15%)                     │
-│  ACID MANTLE (pH 4.5–5.5) │ Acidic protective biofilm deterring microbes│
-└────────────────────────────────────────────────────────────────────────┘
-```
+| Structural Component | Biological Makeup | Physiological Role |
+| :--- | :--- | :--- |
+| **Corneocytes ("Bricks")** | Keratin-packed flattened cellular envelopes | Physical shield against external mechanical stressors |
+| **Lipid Matrix ("Mortar")** | Ceramides (50%), Cholesterol (25%), Fatty Acids (15%) | Prevents transepidermal water loss and locks in hydration |
+| **Acid Mantle (pH 4.5–5.5)** | Acidic protective hydro-lipid biofilm | Inhibits pathogenic bacteria and regulates desquamation enzymes |
 
 ---
 
@@ -66,20 +61,11 @@ When this lipid matrix is intact, it prevents **Transepidermal Water Loss (TEWL)
 
 How do you know if your skin barrier is impaired rather than simply experiencing normal blemishes? Watch for these characteristic symptoms:
 
-```
-┌───────────────────────────┬────────────────────────────────────────────┐
-│ COMPROMISED BARRIER SIGN  │ COMMON MISINTERPRETATION                   │
-├───────────────────────────┼────────────────────────────────────────────┤
-│ Burning or stinging from  │ "The active ingredients are working"       │
-│ gentle water or basic cream│ (In reality, nerve endings are exposed)    │
-├───────────────────────────┼────────────────────────────────────────────┤
-│ Shiny, plastic-like sheen │ "Healthy glass skin"                       │
-│ accompanied by tightness  │ (In reality, severe stratum corneum thinning│
-├───────────────────────────┼────────────────────────────────────────────┤
-│ Sudden cluster breakouts  │ "Normal purging"                           │
-│ and rough sand-like texture│ (In reality, micro-fissure inflammation)  │
-└───────────────────────────┴────────────────────────────────────────────┘
-```
+| Compromised Barrier Sign | Common Misinterpretation | Biological Reality |
+| :--- | :--- | :--- |
+| **Burning or stinging from gentle moisturizers** | "The active ingredients are working" | Exposed sensory nerve endings due to lipid depletion |
+| **Shiny, plastic-like surface with tight sensation** | "Desirable glass skin glow" | Severe thinning and flattening of the stratum corneum |
+| **Sudden cluster breakouts & rough texture** | "Normal skin purging" | Micro-fissure inflammation and bacterial entry |
 
 ---
 
@@ -87,17 +73,11 @@ How do you know if your skin barrier is impaired rather than simply experiencing
 
 Restoring a weakened barrier requires providing the skin with three complementary categories of ingredients:
 
-```
- ┌──────────────────────┐    ┌──────────────────────┐    ┌──────────────────────┐
- │    1. HUMECTANTS     │    │     2. EMOLLIENTS    │    │    3. OCCLUSIVES     │
- ├──────────────────────┤    ├──────────────────────┤    ├──────────────────────┤
- │ Draw water into the  │───►│ Smooth rough gaps &  │───►│ Form a protective    │
- │ epidermis from below │    │ restore lipid matrix │    │ seal to lock water in│
- │ • Glycerin           │    │ • Ceramides (1, 3, 6)│    │ • Squalane           │
- │ • Hyaluronic Acid    │    │ • Cholesterol        │    │ • Shea Butter        │
- │ • Beta-Glucan        │    │ • Fatty Acids        │    │ • Petrolatum         │
- └──────────────────────┘    └──────────────────────┘    └──────────────────────┘
-```
+| Hydration Class | Biological Function | Key Ingredients |
+| :--- | :--- | :--- |
+| **1. Humectants** | Draw ambient water molecules into the epidermis | Glycerin, Hyaluronic Acid, Beta-Glucan, Panthenol |
+| **2. Emollients** | Fill micro-fissures and restore intercellular lipids | Ceramides (1, 3, 6-II), Cholesterol, Free Fatty Acids |
+| **3. Occlusives** | Form a physical, breathable seal to prevent water loss | Plant Squalane, Jojoba Oil, Shea Butter, Pure Petrolatum |
 
 ### Humectants (Water Magnets)
 Glycerin and beta-glucan attract ambient water molecules into the stratum corneum. In dry climates, always apply humectants to damp skin and immediately follow with an emollient cream to prevent the humectant from evaporating water out of deeper layers.
@@ -114,17 +94,12 @@ Lightweight plant squalane, jojoba oil, or pure petrolatum form a physical, brea
 
 If your skin is currently stinging, irritated, or stripped, pause all active exfoliants and implement a restorative reset:
 
-```
-  MORNING ROUTINE:
-  1. Rinse face with lukewarm water only (skip cleanser if dry).
-  2. Apply a rich soothing moisturizer with ceramides and glycerin.
-  3. Apply a mineral or gentle organic SPF 30–50 broad-spectrum sunscreen.
-
-  EVENING ROUTINE:
-  1. Cleanse gently using a non-foaming, pH-balanced cream or gentle oil cleanser.
-  2. Pat skin lightly (leave slightly damp).
-  3. Apply barrier repair cream containing ceramides, panthenol (Pro-Vitamin B5), and squalane.
-  4. (Optional) In severe dry spots, dab a microscopic layer of pure petrolatum or balm overnight.
-```
+| Time of Day | Step | Recommended Action |
+| :--- | :--- | :--- |
+| **Morning** | 1. Gentle Rinse | Use lukewarm water only (skip cleanser if dry) |
+| **Morning** | 2. Hydrate & Protect | Apply ceramide-rich cream followed by gentle SPF 30–50 |
+| **Evening** | 1. Mild Cleanse | Use non-foaming, pH-balanced cream or cleansing balm |
+| **Evening** | 2. Lipid Barrier Cream | Apply panthenol, ceramide, and squalane emulsion to damp skin |
+| **Evening** | 3. Targeted Occlusive | (Optional) Dab microscopic layer of balm on dry flakes |
 
 By prioritizing the biological integrity of the skin over aggressive chemical interventions, the skin regains its natural radiance, suppleness, and defensive resilience.

@@ -22,7 +22,7 @@ export const RESTRICTED_PILLAR_COOLDOWN_DAYS = 14;
 
 export const HIGH_FREQUENCY_SOCIAL_PILLARS: PillarSlug[] = [
   'style',
-  'culture',
+  'entertainment',
   'food-drink',
   'travel',
   'wellbeing',
@@ -43,7 +43,7 @@ export function calculateSocialScore(topic: EditorialTopic): number {
     totalScore * 0.25 +
     freshness * 0.15;
 
-  // Strategic frequency weighting: Style, Culture, Food & Drink, Travel, Wellbeing
+  // Strategic frequency weighting: Style, Entertainment, Food & Drink, Travel, Wellbeing
   const isHighFrequency = HIGH_FREQUENCY_SOCIAL_PILLARS.includes(topic.pillar);
   const multiplier = isHighFrequency ? 1.05 : 1.0;
 
@@ -59,7 +59,7 @@ export function determineTargetPlatforms(topic: EditorialTopic): SocialPlatform[
   const socialScore = topic.scoring?.socialPotential ?? 0;
 
   // Visual/Design/Style heavy topics naturally excel on Pinterest and Instagram
-  if (pinScore >= 70 || topic.pillar === 'style' || topic.pillar === 'culture' || topic.pillar === 'travel' || topic.pillar === 'food-drink') {
+  if (pinScore >= 70 || topic.pillar === 'style' || topic.pillar === 'entertainment' || topic.pillar === 'travel' || topic.pillar === 'food-drink') {
     platforms.push('pinterest');
   }
 

@@ -37,16 +37,11 @@ When observing someone whose personal style feels effortless, you will rarely fi
 
 Accessories are the punctuation marks of an ensemble. A simple white T-shirt and raw denim can look ordinary or exceptional depending entirely on the quality and restraint of the supporting details.
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                    THE RESTRAINT FORMULA FOR ACCENTS                   │
-├────────────────────────────────────────────────────────────────────────┤
-│  THE "RULE OF THREE": Max 3 intentional focal accents per outfit:      │
-│  1. Footwear & Belt harmony (Leather / Suede)                          │
-│  2. Hardware & Metal coherence (Solid Brass, Silver, Matte Black)      │
-│  3. One Personal Signature (Timepiece, Eyewear, or Scarf)              │
-└────────────────────────────────────────────────────────────────────────┘
-```
+| Accent Element | Guiding Principle | Target Placement |
+| :--- | :--- | :--- |
+| **1. Leather & Footwear** | Match tone family (rich browns, blacks, or tans) | Belt, watch strap, shoes, bag |
+| **2. Hardware & Metal** | Maintain cohesive metal finish | Brass/gold with warm tones; silver/steel with cool tones |
+| **3. Personal Signature** | Limit to 1 distinct statement piece | Heritage timepiece, tailored eyewear, or woven scarf |
 
 ---
 
@@ -65,20 +60,11 @@ In contrast, full-grain, vegetable-tanned leather preserves the tightest, most d
 
 Footwear does not merely protect the feet; it establishes the aesthetic tone and formality of everything above it.
 
-```
-┌──────────────────────┬────────────────────────────┬──────────────────────────┐
-│ FOOTWEAR TYPE        │ CHARACTERISTICS            │ STYLING ROLE             │
-├──────────────────────┼────────────────────────────┼──────────────────────────┤
-│ Goodyear-Welted Boot │ Resoleable, rugged,        │ Grounds heavy wools, raw │
-│ (Derby / Chelsea)    │ heavy lug or Dainite sole  │ denim, and winter layers │
-├──────────────────────┼────────────────────────────┼──────────────────────────┤
-│ Classic Loafer       │ Low profile, apron stitch, │ Bridges casual denim with│
-│ (Penny or Tassel)    │ supple calfskin or suede   │ tailored trousers        │
-├──────────────────────┼────────────────────────────┼──────────────────────────┤
-│ Clean Minimal Sneaker│ Low-top, cupsole, minimal  │ Softens rigid tailoring; │
-│ (White or Gum sole)  │ branding, premium leather  │ effortless daily uniform │
-└──────────────────────┴────────────────────────────┴──────────────────────────┘
-```
+| Footwear Type | Key Characteristics | Styling Role |
+| :--- | :--- | :--- |
+| **Goodyear-Welted Boot** (Derby / Chelsea) | Resoleable, rugged construction, durable Dainite or leather sole | Grounds heavy wools, raw denim, and winter layers |
+| **Classic Loafer** (Penny or Tassel) | Low profile, apron stitch, supple calfskin or suede | Bridges casual denim with tailored trousers |
+| **Clean Minimal Sneaker** (White / Gum sole) | Low-top, cupsole, minimal branding, premium leather | Softens rigid tailoring for an effortless daily uniform |
 
 ### Caring for Footwear
 Investing in high-grade leather footwear is only worthwhile if maintained:
@@ -92,16 +78,10 @@ Investing in high-grade leather footwear is only worthwhile if maintained:
 
 Jewelry on both men and women is most powerful when it feels like an organic extension of the wearer rather than decorative costume.
 
-```
-  METAL COHERENCE STRATEGY:
-  
-  Opt for warm metal harmony:    OR    Opt for cool metal harmony:
-  ┌─────────────────────────┐          ┌─────────────────────────┐
-  │ • Antique brass buckle  │          │ • Brushed steel buckle  │
-  │ • Yellow gold band      │          │ • Silver signet ring    │
-  │ • Warm tortoiseshell    │          │ • Titanium watch case   │
-  └─────────────────────────┘          └─────────────────────────┘
-```
+| Metal Tone Family | Recommended Hardware | Ideal Color Match |
+| :--- | :--- | :--- |
+| **Warm Harmony** | Solid antique brass, yellow gold, copper | Earth tones, olive, camel, cream, espresso leather |
+| **Cool Harmony** | Brushed stainless steel, sterling silver, titanium | Navy, charcoal, crisp white, black bridle leather |
 
 * **The Minimalist Timepiece:** A 36mm to 40mm case with a clean dial, uncluttered typography, and a leather or Milanese mesh strap complements virtually any wrist size without drawing unwarranted attention.
 * **Rings and Cuffs:** A simple hammered sterling silver band or a classic signet ring carries quiet gravitas. Avoid stacking heavy multiple rings on every finger.

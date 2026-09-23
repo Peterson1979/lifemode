@@ -92,29 +92,29 @@ test('4. Candidate Selection: Prevents starvation of underserved pillars while p
   // Tech candidate with raw score 90 (recent publish = 0.5 days ago)
   const techCandidate = baseTopic('topic-tech', 'tech-ai', 90, 'Autonomous Vehicle Standards');
 
-  // Culture candidate with raw score 84 (starved = 8 days ago)
-  const cultureCandidate = baseTopic('topic-culture', 'culture', 84, 'Minimalist Wooden Pavilion');
+  // Entertainment candidate with raw score 84 (starved = 8 days ago)
+  const entertainmentCandidate = baseTopic('topic-entertainment', 'entertainment', 84, 'Minimalist Cinema Pavilion');
 
   // Low quality candidate with raw score 72 (starved = 10 days ago) - MUST NOT BE APPROVED
   const lowQualityStarved = baseTopic('topic-wellbeing', 'wellbeing', 72, 'Unverified Daily Routine');
 
   const existingPillarRecency = {
     'tech-ai': 0.5,
-    culture: 8.0, // Starved -> +10 boost -> effectiveScore = 94
+    entertainment: 8.0, // Starved -> +10 boost -> effectiveScore = 94
     wellbeing: 10.0, // Starved, but raw score 72 < 80 threshold
   };
 
-  const selection = selectEditorialCandidates([techCandidate, cultureCandidate, lowQualityStarved], {
+  const selection = selectEditorialCandidates([techCandidate, entertainmentCandidate, lowQualityStarved], {
     minScoreThreshold: 80,
     totalLimit: 1, // Batch only selects 1 opportunity
     existingPillarRecency,
     enablePillarBalancing: true,
   });
 
-  // Starved Culture candidate (84 + 10 = 94 effective) wins over Tech candidate (90)
+  // Starved Entertainment candidate (84 + 10 = 94 effective) wins over Tech candidate (90)
   assert.equal(selection.approved.length, 1);
-  assert.equal(selection.approved[0].pillar, 'culture', 'Starved Culture candidate should win candidate selection');
-  assert.equal(selection.approved[0].id, 'topic-culture');
+  assert.equal(selection.approved[0].pillar, 'entertainment', 'Starved Entertainment candidate should win candidate selection');
+  assert.equal(selection.approved[0].id, 'topic-entertainment');
 
   // Low quality candidate must be deferred even if starved
   const wellbeingDeferred = selection.deferred.find((d) => d.id === 'topic-wellbeing');

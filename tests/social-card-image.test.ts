@@ -26,7 +26,7 @@ import {
 test('LifeMode Social Card Image Generation & Layout Test Suite', async (t) => {
 
   await t.test('1. All seven pillar background files exist on disk and map deterministically', async () => {
-    const pillars: PillarSlug[] = ['style', 'travel', 'food-drink', 'tech-ai', 'money', 'wellbeing', 'culture'];
+    const pillars: PillarSlug[] = ['style', 'travel', 'food-drink', 'tech-ai', 'money', 'wellbeing', 'entertainment'];
 
     for (const pillar of pillars) {
       const relPath = PILLAR_BACKGROUND_FILES[pillar];
@@ -47,7 +47,7 @@ test('LifeMode Social Card Image Generation & Layout Test Suite', async (t) => {
   });
 
   await t.test('2. All seven pillar themes have defined accent colors and uppercase display names', () => {
-    const pillars: PillarSlug[] = ['style', 'travel', 'food-drink', 'tech-ai', 'money', 'wellbeing', 'culture'];
+    const pillars: PillarSlug[] = ['style', 'travel', 'food-drink', 'tech-ai', 'money', 'wellbeing', 'entertainment'];
 
     for (const pillar of pillars) {
       const theme = PILLAR_VISUAL_THEMES[pillar];
@@ -98,7 +98,7 @@ test('LifeMode Social Card Image Generation & Layout Test Suite', async (t) => {
   });
 
   await t.test('5. composeSocialCard produces 1080x1350 JPEG with valid magic bytes across all 7 pillars', async () => {
-    const pillars: PillarSlug[] = ['style', 'travel', 'food-drink', 'tech-ai', 'money', 'wellbeing', 'culture'];
+    const pillars: PillarSlug[] = ['style', 'travel', 'food-drink', 'tech-ai', 'money', 'wellbeing', 'entertainment'];
 
     for (const pillar of pillars) {
       const buffer = await composeSocialCard({
@@ -174,8 +174,8 @@ test('LifeMode Social Card Image Generation & Layout Test Suite', async (t) => {
   await t.test('8. FixtureSocialImageProvider generates valid 1080x1350 JPEG asset passing visual validation', async () => {
     const provider = new FixtureSocialImageProvider();
     const result = await provider.generateImage({
-      topicId: 'lm-culture-2026-analog-turn',
-      pillar: 'culture',
+      topicId: 'lm-entertainment-2026-analog-turn',
+      pillar: 'entertainment',
       prompt: 'High signal professionals returning to analog notebooks',
       format: '1080x1350',
       headlineOverlay: 'The Analog Turn in Knowledge Work',

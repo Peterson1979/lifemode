@@ -83,7 +83,8 @@ export function deriveArticleAngle(topic: EditorialTopic, format: ArticleFormat,
   const pillarAngles: Record<string, string> = {
     'tech-ai': 'Pragmatic technical analysis emphasizing real-world workflows, architecture, and verifiable capabilities.',
     money: 'Disciplined, evidence-grounded strategic guidance prioritizing sustainable financial clarity and risk mitigation.',
-    life: 'Human-centered lifestyle perspective focusing on intentional daily practices, design, and tangible routines.',
+    style: 'Refined, practical perspective covering fashion, personal style, wardrobe curation, skincare, beauty rituals, and aesthetics.',
+    entertainment: 'Engaging, intelligent lifestyle-magazine-style editorial perspective exploring celebrity stories, profiles, cinema, television, music, and pop culture.',
     wellbeing: 'Balanced, science-aware wellness guidance grounded in sustainable daily habits and professional caution.',
     travel: 'Curated, design-conscious experiential exploration prioritizing architectural detail and authentic atmosphere.',
     now: 'Insightful contemporary cultural observation dissecting emerging behavioral shifts and modern zeitgeist.',
@@ -451,17 +452,22 @@ export function deriveEditorialTitleAngle(
       ];
       return angles[entropy % angles.length];
     }
-    case 'culture': {
+    case 'entertainment': {
       const angles = [
-        `The Cultural Significance of ${cleanTopic}`,
-        `Inside ${cleanTopic}: Form, Space, and Craft`,
-        `Why ${cleanTopic} Captures the Contemporary Imagination`,
-        `The Aesthetics of ${cleanTopic}: Heritage and Modern Restraint`,
-        `A Discerning Study in ${cleanTopic}`,
-        `How ${cleanTopic} Shapes Modern Visual Culture`,
-        `The Philosophy of ${cleanTopic}: Architecture, Materiality, and Memory`,
-        `What ${cleanTopic} Tells Us About Contemporary Taste`,
-        `The Quiet Emergence of ${cleanTopic}`,
+        `Inside ${cleanTopic}: Story, Spotlight, and Cultural Impact`,
+        `Why ${cleanTopic} Is Captivating Audiences`,
+        `The Story Behind ${cleanTopic}: Careers, Craft, and Milestones`,
+        `How ${cleanTopic} Defined a Moment in Entertainment`,
+        `A Closer Look at ${cleanTopic}: Performance, Vision, and Evolution`,
+        `What ${cleanTopic} Reveals About Modern Pop Culture`,
+        `The Enduring Appeal of ${cleanTopic}`,
+        `Behind the Scenes of ${cleanTopic}: Creative Risks and Cultural Resonance`,
+        `Why ${cleanTopic} Still Resonates with Fans and Critics`,
+        `The Evolution of ${cleanTopic}: From Breakthrough to Enduring Legacy`,
+        `The Creative Partnership Behind ${cleanTopic}`,
+        `How ${cleanTopic} Reshaped Modern Viewing Habits`,
+        `Inside the Private Discipline and Routine of ${cleanTopic}`,
+        `The Cultural Phenomenon of ${cleanTopic}`,
       ];
       return angles[entropy % angles.length];
     }

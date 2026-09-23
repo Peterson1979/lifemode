@@ -103,11 +103,12 @@ const createPillarCollection = (pillarName: string) =>
 
 export const collections = {
   style: createPillarCollection('style'),
+  entertainment: createPillarCollection('entertainment'),
+  culture: createPillarCollection('culture'),
   life: createPillarCollection('life'),
   travel: createPillarCollection('travel'),
   'food-drink': createPillarCollection('food-drink'),
   'tech-ai': createPillarCollection('tech-ai'),
   money: createPillarCollection('money'),
   wellbeing: createPillarCollection('wellbeing'),
-  culture: createPillarCollection('culture'),
 };

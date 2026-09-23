@@ -40,7 +40,7 @@ test('1. TopicDataService: Retrieves configured data blocks across all 7 LifeMod
     'wellbeing',
     'food-drink',
     'tech-ai',
-    'culture',
+    'entertainment',
     'style',
   ];
 

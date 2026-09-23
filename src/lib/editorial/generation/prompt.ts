@@ -307,11 +307,35 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
     systemPromptParts.push(
       '',
       '### STYLE & BEAUTY EDITORIAL POLICY:',
-      '- Scope: Covers fashion, personal style, clothing and outfit trends, accessories, beauty, skincare, makeup, hair and hair trends, beauty routines, fragrance, beauty trends, style and beauty culture, relevant celebrity style/beauty when appropriate, and contemporary style/beauty trends.',
+      '- Scope: Covers fashion, personal style, clothing and outfit trends, accessories, beauty, skincare, makeup, hair and hair trends, beauty routines, fragrance, beauty trends, style and beauty culture, relevant celebrity style/beauty when genuinely relevant, and contemporary style/beauty trends.',
       '- Positioning & Reader Voice: Written for ordinary readers. Keep the content useful, interesting, globally relevant, accessible, and contemporary rather than sounding like an exclusive fashion-industry trade publication.',
       '- Non-Promotional Standard: Strictly editorial rather than promotional. No advertising disguised as editorial, no forced product recommendations, no repetitive commercial brand pitching. Focus on practical principles, textile craftsmanship, ingredient functions, aesthetic fit, and sustainable daily habits.',
       '- Jargon & Trend Moderation: Avoid industry jargon unless genuinely useful. Avoid turning every article into a formulaic trend report.',
-      '- Celebrity Coverage: When celebrity style/beauty appears, treat it as a thoughtful editorial subject exploring cultural context or aesthetic craft, not as celebrity-news spam.'
+      '- Distinction from Entertainment: Style = fashion + beauty + style culture. Do NOT turn every Style article into celebrity content; only reference celebrity style/beauty when genuinely relevant.'
+    );
+  }
+
+  if (request.pillar === 'entertainment') {
+    systemPromptParts.push(
+      '',
+      '### ENTERTAINMENT EDITORIAL POLICY & SPECTRUM FRAMEWORK (MANDATORY PERMANENT STANDARD):',
+      '- Strategic Mandate: Entertainment is a broad, mainstream lifestyle-magazine editorial pillar. It must permanently rotate across the complete entertainment spectrum rather than narrowing into only film-craft essays or superficial celebrity news.',
+      '- Permanent 9-Segment Entertainment Framework (Continuously Rotated):',
+      '  1. Celebrity & Public Figures: In-depth actor/musician/creator profiles, career turning points, artistic reinventions, personal/professional stories, and substantive interviews.',
+      '  2. Celebrity Relationships & Family: Nuanced, fact-grounded coverage of high-interest relationships, marriages, parenthood, and creative partnerships. Never speculation, unsupported rumors, or intrusive gossip.',
+      '  3. Film: Significant films, cinematic directors, actor performances, filmmaking movements, behind-the-scenes production stories, and screen culture.',
+      '  4. Television & Streaming: Prestige miniseries, groundbreaking series, changing viewer habits, showrunners, actors, and streaming culture.',
+      '  5. Music: Musicians, bands, landmark albums, musical movements, live concert performance, music history, and acoustic/listening culture.',
+      '  6. Awards & Major Events: Major film/TV/music ceremonies (Oscars, Grammys, Emmys, festivals, premieres), historical context, and broader cultural significance.',
+      '  7. Celebrity Lifestyle: Thoughtful, non-promotional explorations of creative workspaces, daily routines, artistic disciplines, architecture, travel, and personal passions.',
+      '  8. Pop Culture & Fandom: Changing ideas of fame, fandom sociology, viral entertainment phenomena, nostalgia, and how contemporary audiences consume entertainment.',
+      '  9. Entertainment History & Cultural Context: Film/music/theatre history, physical preservation, animation craft, stage vs. screen acting, and evolving media formats.',
+      '- Positioning & Reader Voice: Intelligent, culturally curious, measured, and engaging lifestyle-magazine editorial. Avoid low-quality gossip, sensationalism, clickbait, and promotional PR copy.',
+      '- Absolute Factual Integrity: For real contemporary people and events, ground all details strictly in reliable, verifiable facts. Never invent relationships, quotes, projects, release dates, or biographical claims.',
+      '- Permanent Distinction from Style:',
+      '  * Style = Fashion, personal style, beauty, skincare, makeup, hair, fragrance, aesthetic culture, and wardrobe curation.',
+      '  * Entertainment = Celebrity, film, television, music, performers, awards, events, relationships/family, pop culture, and entertainment history/craft.',
+      '  * Celebrity fashion/beauty belongs in Style only when the true subject is fashion or beauty. A broader celebrity profile, career retrospective, or relationship story belongs strictly in Entertainment.'
     );
   }
 

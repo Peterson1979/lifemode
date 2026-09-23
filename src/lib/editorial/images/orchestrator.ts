@@ -11,6 +11,7 @@ import { BFLImageProvider } from './providers/bfl.ts';
 import { CloudflareR2SocialAssetStorageProvider } from '../../social/images/storage/r2.ts';
 import type { ISocialAssetStorageProvider } from '../../social/images/storage/contracts.ts';
 import { EditorialImageCostGuard } from './cost-guard.ts';
+import { generateEditorialImagePrompt } from '../image-prompt.ts';
 
 export interface EditorialImageOrchestratorOptions {
   dryRun?: boolean;
@@ -108,7 +109,12 @@ export async function orchestrateEditorialImage(
   // 3. Prepare Image Generation Input
   const prompt =
     publishPackage.imageMetadata?.prompt ||
-    `Editorial documentary photography for ${publishPackage.title}.`;
+    generateEditorialImagePrompt({
+      title: publishPackage.title,
+      description: publishPackage.description,
+      pillar: publishPackage.pillar,
+      tags: publishPackage.tags,
+    }).prompt;
 
   const input: EditorialImageGenerationInput = {
     topicId: publishPackage.topicId,

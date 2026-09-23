@@ -8,7 +8,7 @@ export const OWNED_PROJECTS: OwnedProject[] = [
     description:
       'Nuanced personality mapping, relational dynamics, and cosmic archetypes explored through intelligent conversational frameworks.',
     url: 'https://play.google.com/store/apps/details?id=com.oberon.aizodiac',
-    relevantPillars: ['culture', 'wellbeing', 'style'],
+    relevantPillars: ['entertainment', 'wellbeing', 'style'],
     categories: ['Self-Discovery', 'Archetypes', 'Astrology', 'Personality'],
     ctaLabel: 'Discover AI Zodiac',
     ctaHeadline: 'Explore Personality Archetypes & Self-Discovery',

@@ -37,15 +37,11 @@ The difference between looking effortlessly put-together and appearing slightly 
 
 Ready-to-wear clothing is manufactured around standardized statistical averages. Mass production demands that a jacket or pair of trousers accommodate as broad a range of human torsos and leg lengths as possible. The inevitable result is that an off-the-rack garment fits almost nobody perfectly. Understanding the mechanics of garment construction and establishing a relationship with a local tailor is the single most effective style upgrade any person can make.
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                      THE TAILORING HIERARCHY OF FIT                    │
-├────────────────────────────────────────────────────────────────────────┤
-│  LEVEL 1: CRITICAL (Costly/Impossible to alter)  │ Shoulder seam & Collar│
-│  LEVEL 2: ESSENTIAL (Inexpensive & Transformative)│ Hem length & Taper    │
-│  LEVEL 3: DETAIL (Refining personal geometry)    │ Waist & Sleeve pitch  │
-└────────────────────────────────────────────────────────────────────────┘
-```
+| Fit Priority Level | Alteration Type | Typical Complexity & Cost | Key Visual Impact |
+| :--- | :--- | :--- | :--- |
+| **Level 1: Critical** | Shoulder seam & collar alignment | High (cost-prohibitive) | Determines whether the garment drapes naturally |
+| **Level 2: Essential** | Hem length & leg taper | Low (inexpensive) | Eliminates messy breaks and sharpens the silhouette |
+| **Level 3: Detail** | Waist suppression & sleeve length | Low-Medium | Personalizes proportions to your anatomy |
 
 ---
 
@@ -63,20 +59,11 @@ When evaluating a jacket, coat, or structured blazer, always inspect the shoulde
 
 Trousers dictate the visual foundation of an outfit. The modern silhouette has moved decisively away from ultra-tight low-rise trousers toward higher rises, clean pleats, and fluid, straight-leg cuts that lengthen the legs and allow fabrics to drape naturally.
 
-```
-┌─────────────────┬───────────────────────────────────┬──────────────────────┐
-│ HEM BREAK STYLE │ FABRIC INTERACTION                │ BEST SUITED FOR      │
-├─────────────────┼───────────────────────────────────┼──────────────────────┤
-│ No Break        │ Trousers skim top of the shoe     │ Cropped chinos,      │
-│                 │ cleanly without folding           │ loafers, clean boots │
-├─────────────────┼───────────────────────────────────┼──────────────────────┤
-│ Slight Break    │ Front crease forms one gentle,    │ Tailored wool suits, │
-│                 │ subtle fold above the instep      │ modern work trousers │
-├─────────────────┼───────────────────────────────────┼──────────────────────┤
-│ Full Break      │ Heavy fabric pools over the shoe  │ Vintage cuts, relaxed│
-│                 │ in multiple folds                 │ streetwear denim     │
-└─────────────────┴───────────────────────────────────┴──────────────────────┘
-```
+| Hem Break Style | Fabric Interaction | Best Suited For |
+| :--- | :--- | :--- |
+| **No Break** | Trousers skim top of the shoe cleanly without folding | Cropped chinos, leather loafers, clean boots |
+| **Slight Break** | Front crease forms one gentle, subtle fold above instep | Tailored wool suits, modern work trousers |
+| **Full Break** | Heavy fabric pools over the shoe in multiple folds | Vintage cuts, relaxed streetwear denim |
 
 ### The Importance of the Rise
 The rise—the distance from the crotch seam to the top of the waistband—determines where trousers sit on the torso. Mid-to-high-rise trousers sit comfortably near the natural waist (around the navel), avoiding the unflattering "torso-shortening" effect caused by low-rise waistbands resting on the hips.
@@ -87,14 +74,11 @@ The rise—the distance from the crotch seam to the top of the waistband—deter
 
 If you have a modest wardrobe budget, allocating a small fraction toward tailoring will yield far greater returns than purchasing new clothes. Three alterations offer the highest visual impact per dollar:
 
-```
-  1. HEMMING TROUSERS           2. SLIMMING SLEEVE WIDTH       3. NIPPING THE WAIST
- ┌───────────────────────┐    ┌───────────────────────┐    ┌───────────────────────┐
- │ Shortening hem to     │    │ Tapering overly baggy │    │ Adding subtle waist   │
- │ eliminate messy folds │───►│ sleeves creates lean, │───►│ suppression brings   │
- │ around footwear.      │    │ intentional lines.    │    │ structural balance.   │
- └───────────────────────┘    └───────────────────────┘    └───────────────────────┘
-```
+| Step | Alteration | Method | Impact |
+| :--- | :--- | :--- | :--- |
+| **1** | Hemming Trousers | Shorten hem to eliminate messy folds around shoes | Creates clean vertical lines and elongates legs |
+| **2** | Slimming Sleeves | Taper overly wide sleeves to natural arm contours | Removes billowing excess fabric |
+| **3** | Nipping the Waist | Add subtle vertical darts to jacket or shirt back | Restores structural balance and prevents parachute effect |
 
 ### Alteration 1: Hemming and Cuffs
 Shortening trousers to a clean "no break" or "slight break" immediately sharpens the overall look. Adding a 1.5-inch to 2-inch cuff (turn-up) to wool or heavy cotton trousers adds downward weight, helping the fabric hang straight and crisp.

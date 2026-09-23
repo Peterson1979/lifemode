@@ -45,8 +45,10 @@ export const DEFAULT_CURATED_SUBREDDITS: ConfiguredRedditCommunity[] = [
   { subreddit: 'personalfinance', pillar: 'money', sort: 'top', timeframe: 'day', minScore: 40 },
   { subreddit: 'FinancialPlanning', pillar: 'money', sort: 'top', timeframe: 'day', minScore: 25 },
   { subreddit: 'longevity', pillar: 'wellbeing', sort: 'top', timeframe: 'day', minScore: 20 },
-  { subreddit: 'RoomPorn', pillar: 'culture', sort: 'top', timeframe: 'day', minScore: 50 },
-  { subreddit: 'ArchitecturePorn', pillar: 'culture', sort: 'top', timeframe: 'day', minScore: 40 },
+  { subreddit: 'entertainment', pillar: 'entertainment', sort: 'top', timeframe: 'day', minScore: 40 },
+  { subreddit: 'movies', pillar: 'entertainment', sort: 'top', timeframe: 'day', minScore: 50 },
+  { subreddit: 'television', pillar: 'entertainment', sort: 'top', timeframe: 'day', minScore: 40 },
+  { subreddit: 'popculturechat', pillar: 'entertainment', sort: 'top', timeframe: 'day', minScore: 40 },
   { subreddit: 'Cooking', pillar: 'food-drink', sort: 'top', timeframe: 'day', minScore: 40 },
   { subreddit: 'Sourdough', pillar: 'food-drink', sort: 'top', timeframe: 'day', minScore: 25 },
 ];

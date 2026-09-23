@@ -74,13 +74,13 @@ test('Pillar Balancing - Never approves a weak topic (< 80) merely to balance pi
     createDummyTopic('style-1', 'style', 92),
     createDummyTopic('style-2', 'style', 90),
     createDummyTopic('weak-money-1', 'money', 65), // Sub-threshold
-    createDummyTopic('weak-culture-1', 'culture', 55), // Rejected
+    createDummyTopic('weak-entertainment-1', 'entertainment', 55), // Rejected
   ];
 
   const { approved, rejected, deferred } = selectEditorialCandidates(candidates, {
     minScoreThreshold: 80,
     totalLimit: 4,
-    existingPillarDistribution: { style: 3, money: 0, culture: 0 },
+    existingPillarDistribution: { style: 3, money: 0, entertainment: 0 },
     enablePillarBalancing: true,
   });
 
@@ -97,7 +97,7 @@ test('Initial Content Acceleration - Configures higher opportunity capacity safe
   // Default config without acceleration
   const normalConfig = loadAutomationConfig({});
   assert.equal(normalConfig.accelerationEnabled, false);
-  assert.equal(normalConfig.maxOpportunities, 1);
+  assert.equal(normalConfig.maxOpportunities, 3);
 
   // Accelerated config via override or environment
   const acceleratedConfig = loadAutomationConfig({

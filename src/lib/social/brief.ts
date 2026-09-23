@@ -8,7 +8,7 @@ export function buildSocialBrief(opportunity: SocialOpportunity): SocialBrief {
 
   const audienceMap: Record<string, string> = {
     style: 'Everyday readers, style-conscious individuals, and beauty enthusiasts seeking accessible fashion, mindful skincare routines, and contemporary aesthetic inspiration.',
-    culture: 'Cultural curators, architecture enthusiasts, and thoughtful readers exploring modern design, books, cinema, and zeitgeist ideas.',
+    entertainment: 'Curious readers and pop-culture enthusiasts seeking engaging, high-signal celebrity profiles, film and television stories, music culture, and contemporary entertainment.',
     travel: 'Slow travelers, architecture lovers, and curious explorers valuing seclusion and cultural authenticity.',
     'tech-ai': 'Forward-looking builders, knowledge workers, and privacy-conscious users adopting calm technology.',
     money: 'Financially intentional individuals seeking anti-fragile asset allocations and treasury strategies.',
@@ -20,7 +20,7 @@ export function buildSocialBrief(opportunity: SocialOpportunity): SocialBrief {
 
   const aestheticStyleMap: Record<string, string> = {
     style: 'Luminous diffused daylight, tactile tailoring textures, minimalist skincare flacons, artisanal fragrance bottles, and effortless contemporary personal style.',
-    culture: 'Editorial documentary photography, museum-grade monograph layouts, sculptural architecture, tactile textures, and contemporary cultural moments.',
+    entertainment: 'Cinematic atmospheric lighting, behind-the-scenes film sets, elegant celebrity portraiture, rich typography, and contemporary entertainment moments.',
     travel: 'Architectural landscape, serene misty coastlines, quiet sukiya tea houses, solitary natural vistas.',
     'tech-ai': 'Sleek hardware workstations, ambient computing, dark mode interfaces, subtle LED warmth, calm setups.',
     money: 'Understated elegance, structured monochrome layouts, architectural financial charts, clean typography.',

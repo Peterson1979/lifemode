@@ -32,10 +32,10 @@ import type { GeneratedArticle } from '../src/lib/editorial/generation/types.ts'
 // ---------------------------------------------------------------------------
 function createMockPersonTopic(overrides: Partial<EditorialTopic> = {}): EditorialTopic {
   return {
-    id: 'lm-culture-20260916-jose-trevino',
+    id: 'lm-entertainment-20260916-jose-trevino',
     canonicalTopic: 'José Trevino',
     slug: 'jose-trevino',
-    pillar: 'culture',
+    pillar: 'entertainment',
     sourceSignals: [],
     queryVariants: ['jose trevino career', 'who is jose trevino', 'jose trevino stats'],
     scoring: {
@@ -55,7 +55,7 @@ function createMockPersonTopic(overrides: Partial<EditorialTopic> = {}): Editori
     freshnessScore: 90,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
-    tags: ['culture', 'person', 'baseball', 'mlb'],
+    tags: ['entertainment', 'person', 'baseball', 'mlb'],
     ...overrides,
   };
 }
@@ -137,8 +137,8 @@ Beyond his defensive accomplishments on the diamond, Trevino has maintained deep
   const result = validateEditorialArticle(
     personArticle,
     {
-      topicId: 'lm-culture-20260916-jose-trevino',
-      pillar: 'culture',
+      topicId: 'lm-entertainment-20260916-jose-trevino',
+      pillar: 'entertainment',
       isPerson: true,
     }
   );
@@ -266,8 +266,8 @@ function createMockDimensions(baseScore = 90): Record<import('../src/lib/editori
       },
     },
     context: {
-      topicId: 'lm-culture-20260916-jose-trevino',
-      pillar: 'culture',
+      topicId: 'lm-entertainment-20260916-jose-trevino',
+      pillar: 'entertainment',
       format: 'deep-dive',
       audience: 'general',
       primaryIntent: 'informational',

@@ -37,15 +37,11 @@ Transitional weather—the crisp mornings that give way to warm afternoons, or d
 
 By understanding how fabric weights, collar geometries, and tactile textures interact, you can navigate changing temperatures comfortably while constructing visually rich, dimensional outfits.
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                     THE THREE-TIER LAYERING SYSTEM                     │
-├────────────────────────────────────────────────────────────────────────┤
-│  LAYER 1: BASE (Breathability & Comfort)  │ High-GSM Cotton, Fine Silk │
-│  LAYER 2: MID (Thermoregulation & Texture)│ Merino, Waffle, Cardigan   │
-│  LAYER 3: SHELL (Structure & Protection)  │ Wool Coat, Trench, Blouson │
-└────────────────────────────────────────────────────────────────────────┘
-```
+| Layer Tier | Functional Role | Recommended Materials |
+| :--- | :--- | :--- |
+| **Layer 1: Base** | Breathability, sweat wicking, next-to-skin comfort | High-GSM combed cotton, fine-spun silk, merino tee |
+| **Layer 2: Mid** | Thermoregulation, insulation, tactile texture | Merino cardigans, waffle knits, unlined chore coats |
+| **Layer 3: Shell** | Weather protection, silhouette structure, drape | Melton wool overcoats, water-repellent trench, waxed cotton |
 
 ---
 
@@ -65,20 +61,11 @@ Violating this order (such as wearing a thick, bulky sweater underneath a tight,
 
 An outfit composed entirely of smooth, flat cotton can feel lifeless and flat. Combining contrasting textures creates depth and visual interest without needing loud colors or busy prints.
 
-```
-┌──────────────────┬────────────────────────────────┬──────────────────────────┐
-│ TEXTURE FAMILY   │ FABRIC EXAMPLES                │ VISUAL & TACTILE ROLE    │
-├──────────────────┼────────────────────────────────┼──────────────────────────┤
-│ Coarse & Matte   │ Heavy Donegal tweed, corduroy, │ Grounds the outfit with  │
-│                  │ raw denim, boiled wool         │ rustic weight & warmth   │
-├──────────────────┼────────────────────────────────┼──────────────────────────┤
-│ Crisp & Smooth   │ Cotton Oxford shirting, poplin,│ Provides clean edges,    │
-│                  │ structured chino twill         │ sharp lines & contrast   │
-├──────────────────┼────────────────────────────────┼──────────────────────────┤
-│ Soft & Dimensional│ Brushed cashmere, mohair,     │ Adds tactile luxury &    │
-│                  │ waffle knit, ribbed merino     │ catches soft light       │
-└──────────────────┴────────────────────────────────┴──────────────────────────┘
-```
+| Texture Family | Fabric Examples | Visual & Tactile Role |
+| :--- | :--- | :--- |
+| **Coarse & Matte** | Heavy Donegal tweed, corduroy, raw denim, boiled wool | Grounds the outfit with rustic weight, warmth, and depth |
+| **Crisp & Smooth** | Cotton Oxford shirting, poplin, structured chino twill | Provides clean edges, sharp collar lines, and contrast |
+| **Soft & Dimensional** | Brushed cashmere, mohair, waffle knit, ribbed merino | Catches diffused light and adds tactile comfort |
 
 ### High-Impact Layering Combinations
 1. **The Modern Academic:** A crisp white Oxford cotton button-down under a charcoal brushed Shetland wool crewneck, framed by a cognac corduroy overshirt.
@@ -91,13 +78,11 @@ An outfit composed entirely of smooth, flat cotton can feel lifeless and flat. C
 
 The neckline is where multiple layers converge and where visual harmony is won or lost. When layering tops, ensure each collar style complements the next rather than competing for space:
 
-```
-  COLLAR STACKING PROTOCOL:
-  
-  Outer: Wide Notch Lapel (Overcoat)
-    └── Mid: V-Neck Button Cardigan
-          └── Base: Band-Collar Grandad Shirt (or Crisp Crewneck)
-```
+| Layer Position | Collar Style | Recommended Pairing |
+| :--- | :--- | :--- |
+| **Outer Layer** | Wide Notch Lapel (Overcoat) | Frames mid-layer cleanly without crowding neck |
+| **Mid Layer** | V-Neck Button Cardigan | Creates vertical V-opening that showcases shirt |
+| **Base Layer** | Band-Collar or Classic Oxford | Points rest smoothly against chest |
 
 * **V-Necks and Crewnecks:** A crewneck tee under a V-neck sweater creates a clean, classic framing. Conversely, a crewneck sweater layered over an open shirt collar lets the shirt points frame the jawline neatly.
 * **Turtlenecks as Universal Anchors:** A fine-gauge rollneck worn beneath an unbuttoned casual overshirt or unstructured blazer instantly elevates casual pieces into sharp evening attire.

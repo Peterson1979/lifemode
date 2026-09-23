@@ -36,16 +36,12 @@ The heavy, multi-layered "full-coverage" makeup trend—characterized by thick m
 
 A minimalist makeup routine is not about spending forty minutes at a vanity. It is a streamlined five-minute ritual that enhances natural features using cream-based textures and strategic placement.
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                   THE 5-MINUTE SKIN-FIRST FRAMEWORK                    │
-├────────────────────────────────────────────────────────────────────────┤
-│  STEP 1: PREPARATION (60s)  │ Hydrating mist, rich moisturizer, SPF    │
-│  STEP 2: TARGETING (90s)    │ Pinpoint concealing on redness & shadows │
-│  STEP 3: ENLIVENING (90s)   │ Sheer cream blush on apples & brow bones │
-│  STEP 4: FRAMING (60s)      │ Brushed-up tinted brow gel & curled lash │
-└────────────────────────────────────────────────────────────────────────┘
-```
+| Step Number & Focus | Estimated Time | Key Products | Target Outcome |
+| :--- | :--- | :--- | :--- |
+| **1. Skin Preparation** | 60 seconds | Hydrating mist, ceramide moisturizer, SPF | Plump, dewy canvas that prevents product clinging |
+| **2. Pinpoint Concealing** | 90 seconds | Cream concealer, fine detail brush | Erases redness and shadows while leaving rest of face bare |
+| **3. Enlivening Flush** | 90 seconds | Multi-use cream blush / balm | Warm flush tapped on upper cheekbones and lips |
+| **4. Eye & Brow Framing** | 60 seconds | Mechanical lash curler, tinted brow gel | Opens eyes and neatens facial frame effortlessly |
 
 ---
 
@@ -62,17 +58,10 @@ The secret to makeup that melts seamlessly into skin is proper prep. When skin i
 
 Instead of slathering a heavy foundation layer across your entire face, adopt the technique used by editorial makeup artists: **pinpoint concealing**.
 
-```
-┌──────────────────┬─────────────────────────────────┬─────────────────────────┐
-│ TECHNIQUE        │ APPLICATION METHOD              │ VISUAL ADVANTAGE        │
-├──────────────────┼─────────────────────────────────┼─────────────────────────┤
-│ Blanket Base     │ Heavy liquid foundation over    │ Flat, mask-like finish; │
-│                  │ all cheeks, forehead, and chin  │ erases natural dimension│
-├──────────────────┼─────────────────────────────────┼─────────────────────────┤
-│ Pinpoint Conceal │ Tiny dot of high-pigment cream  │ Real skin remains bare; │
-│                  │ only on blemishes & dark corners│ imperceptible coverage  │
-└──────────────────┴─────────────────────────────────┴─────────────────────────┘
-```
+| Base Technique | Application Method | Visual Advantage |
+| :--- | :--- | :--- |
+| **Blanket Foundation** | Heavy liquid foundation over all cheeks, forehead, and chin | Flat, mask-like finish; erases natural dimension |
+| **Pinpoint Concealing** | Tiny dot of high-pigment cream only on blemishes & dark corners | Real skin remains bare; coverage looks completely natural |
 
 * **Under-Eye Inner Corners:** Apply a tiny dot of creamy concealer only to the blue/purple shadow at the very inner hollow of the tear duct—not across the entire under-eye triangle.
 * **Around the Nostrils:** Lightly pat away redness around the nasal folds to immediately brighten the center of the face.
@@ -84,15 +73,11 @@ Instead of slathering a heavy foundation layer across your entire face, adopt th
 
 Powders often absorb natural skin oils and can emphasize fine texture in daylight. Cream and liquid formulations mimic the natural lipid sheen of healthy skin:
 
-```
- ┌──────────────────────┐    ┌──────────────────────┐    ┌──────────────────────┐
- │   1. CREAM BLUSH     │    │   2. MULTI-USE TINT  │    │   3. CLEAR BROW WAX  │
- ├──────────────────────┤    ├──────────────────────┤    ├──────────────────────┤
- │ Tap warm terracotta  │───►│ Dab the same shade   │───►│ Brush brow hairs     │
- │ or berry balm onto   │    │ lightly across lips  │    │ upward to lift the   │
- │ upper cheekbones     │    │ for tonal harmony    │    │ arch of the eye      │
- └──────────────────────┘    └──────────────────────┘    └──────────────────────┘
-```
+| Cream Product | Application Method | Aesthetic Benefit |
+| :--- | :--- | :--- |
+| **Cream Blush** | Tap warm terracotta or berry balm onto upper cheekbones | Creates natural warmth and lifts facial structure |
+| **Multi-Use Tint** | Dab the same shade lightly across lips with fingertips | Ensures cohesive, monochromatic harmony across the face |
+| **Clear Brow Wax** | Brush brow hairs upward and outward | Lifts the arch of the eye without stiff crunchiness |
 
 ---
 

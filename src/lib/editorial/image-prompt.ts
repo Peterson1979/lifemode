@@ -41,9 +41,8 @@ export interface EditorialImagePromptResult {
  */
 function normalizePillar(pillar: string): PillarSlug {
   const p = pillar.toLowerCase().trim();
-  if (p === 'discover') return 'culture';
-  if (p === 'now') return 'culture';
-  const valid: PillarSlug[] = ['style', 'travel', 'food-drink', 'tech-ai', 'money', 'wellbeing', 'culture'];
+  if (p === 'discover' || p === 'now' || p === 'culture') return 'entertainment';
+  const valid: PillarSlug[] = ['style', 'travel', 'food-drink', 'tech-ai', 'money', 'wellbeing', 'entertainment'];
   return valid.includes(p as PillarSlug) ? (p as PillarSlug) : 'style';
 }
 
@@ -138,17 +137,61 @@ export function buildArticleToImageBrief(input: ImagePromptInput): ArticleToImag
       break;
     }
 
-    case 'culture': {
-      keyConcepts.push('contemporary culture', 'architectural proportions', 'curated design', 'material craftsmanship');
-      relevantObjects.push('sculptural design objects', 'curated art monographs', 'mid-century timber chair', 'linen-bound books', 'gallery installations');
-      relevantEnvironments.push('sun-drenched modern art gallery', 'architectural library with natural skylights', 'minimalist design atelier');
-      visualMetaphors.push('timeless restraint', 'museum aesthetic', 'cultural depth');
-      contextualAvoid.push(
-        'generic business stock photography',
-        'unrelated street crowds',
-        'commercial advertising banners',
-        'cluttered retail spaces'
-      );
+    case 'entertainment': {
+      const isAstronomy = /\b(meteor|perseid|geminid|stargazing|astronomy|night sky|celestial|telescope|eclipse|comet|aurora|cosmos|space|shooting star)\b/.test(text);
+      const isMusic = /\b(music|album|concert|song|musician|band|soundtrack|vinyl|acoustic|composer|singer)\b/.test(text);
+      const isFilmTv = /\b(film|movie|cinema|actor|actress|director|television|series|hollywood|screenplay|streaming)\b/.test(text);
+
+      if (isAstronomy) {
+        keyConcepts.push('night-sky observation', 'celestial astronomy', 'meteor showers', 'stargazing in dark sky sanctuaries', 'atmospheric cosmos');
+        relevantObjects.push('astronomy telescope', 'meteor streaks across starry night sky', 'star trails above mountain silhouette', 'field observation notebook', 'optical binoculars');
+        relevantEnvironments.push('remote mountain observatory under deep star-filled sky', 'dark sky reserve terrace overlooking Milky Way', 'open meadow under midnight celestial canopy');
+        visualMetaphors.push('cosmic scale', 'quiet wonder', 'clear pristine night atmosphere');
+        contextualAvoid.push(
+          'generic office desk',
+          'hand holding pen',
+          'office cubicle',
+          'coffee cup on blank table',
+          'daytime office meeting',
+          'generic business suits',
+          'unrelated indoor models',
+          'shopping malls'
+        );
+      } else if (isMusic) {
+        keyConcepts.push('musical artistry', 'sound composition', 'acoustic performance', 'live performance atmosphere');
+        relevantObjects.push('vintage archtop acoustic guitar', 'analog audio mixing console', 'brass microphone in soft stage lighting', 'vinyl record on turntable');
+        relevantEnvironments.push('sunlit music recording atelier', 'intimate historic acoustic hall', 'warm atmospheric sound studio');
+        visualMetaphors.push('creative resonance', 'sound texture', 'timeless musical craft');
+        contextualAvoid.push(
+          'generic office desk',
+          'hand holding pen',
+          'low-res concert crowd phone screens',
+          'garish club strobe lights'
+        );
+      } else if (isFilmTv) {
+        keyConcepts.push('cinema and screen culture', 'filmmaking craft', 'cinematic storytelling', 'directing and acting');
+        relevantObjects.push('35mm cinema camera', 'director viewfinder', 'archival film canister', 'theatrical script with handwritten notes', 'clapperboard');
+        relevantEnvironments.push('atmospheric film screening room', 'intimate cinema projection booth', 'cinematic soundstage with soft tungsten lighting');
+        visualMetaphors.push('cinematic mood', 'creative depth', 'timeless visual storytelling');
+        contextualAvoid.push(
+          'generic office desk',
+          'hand holding pen',
+          'generic paparazzi flash chaos',
+          'low-res tabloid screenshots'
+        );
+      } else {
+        keyConcepts.push('contemporary entertainment', 'cultural storytelling', 'celebrity profiles and interviews', 'creative arts');
+        relevantObjects.push('curated cultural monograph', 'editorial portraiture camera', 'acoustic instrument', 'theatrical script folio');
+        relevantEnvironments.push('sunlit green room atelier', 'historic theatre balcony', 'intimate portraiture studio', 'atmospheric screening lounge');
+        visualMetaphors.push('cultural resonance', 'timeless storytelling', 'editorial intimacy');
+        contextualAvoid.push(
+          'generic office desk with pen',
+          'generic paparazzi flash chaos',
+          'low-res tabloid screenshots',
+          'tacky red-carpet logos',
+          'commercial billboard clutter'
+        );
+      }
       break;
     }
 
@@ -317,3 +360,77 @@ export function generateEditorialImagePrompt(
     brief,
   };
 }
+
+export interface SemanticImageValidationResult {
+  valid: boolean;
+  score: number;
+  reason?: string;
+  suggestedFocus?: string[];
+}
+
+/**
+ * Validates that an article's hero image is semantically relevant to its subject matter,
+ * preventing technically valid but editorially disconnected imagery (e.g. office desks for astronomy).
+ */
+export function validateImageSemanticRelevance(
+  title: string,
+  _pillar: string,
+  imageMetadata?: { url?: string; alt?: string; prompt?: string; source?: string }
+): SemanticImageValidationResult {
+  if (!imageMetadata?.url || imageMetadata.url.trim().length === 0) {
+    return { valid: true, score: 100 };
+  }
+
+  const titleLower = title.toLowerCase();
+  const altLower = (imageMetadata.alt || '').toLowerCase();
+  const promptLower = (imageMetadata.prompt || '').toLowerCase();
+  const urlLower = imageMetadata.url.toLowerCase();
+  const imageSignals = `${altLower} ${promptLower} ${urlLower}`;
+
+  // 1. Celestial / Astronomy topics (meteors, stars, telescopes, night sky, eclipses)
+  const isAstronomyTopic = /\b(meteor|perseid|geminid|stargazing|astronomy|night sky|celestial|telescope|eclipse|comet|aurora|cosmos|shooting star)\b/.test(titleLower);
+  if (isAstronomyTopic) {
+    const hasIrrelevantOfficeSignals = /\b(desk|pen|hand holding|writing note|laptop keyboard|office meeting|coffee cup|business suit|shopping)\b/.test(imageSignals);
+    const hasNightSkySignals = /\b(sky|star|meteor|night|space|celestial|galaxy|astronomy|telescope|constellation|mountain|aurora|milky way|dark)\b/.test(imageSignals);
+
+    if (hasIrrelevantOfficeSignals && !hasNightSkySignals) {
+      return {
+        valid: false,
+        score: 20,
+        reason: `Image content ("${imageMetadata.alt || imageMetadata.prompt || 'generic desk/pen image'}") is editorially irrelevant to astronomy/night sky topic "${title}". Expected night sky, stars, or celestial observation imagery.`,
+        suggestedFocus: ['meteor showers', 'night sky / stars', 'astronomy observation', 'telescope / stargazing'],
+      };
+    }
+  }
+
+  // 2. Culinary / Food & Drink topics
+  const isFoodTopic = /\b(sourdough|fermentation|recipe|cooking|olive oil|wine|baking|culinary|chef|ingredients|dining)\b/.test(titleLower);
+  if (isFoodTopic) {
+    const hasIrrelevantTechSignals = /\b(circuit board|skyscraper|cryptocurrency|server rack|highway|airport|car engine)\b/.test(imageSignals);
+    if (hasIrrelevantTechSignals) {
+      return {
+        valid: false,
+        score: 30,
+        reason: `Image content is editorially irrelevant to culinary topic "${title}". Expected food, ingredients, or artisan kitchen imagery.`,
+        suggestedFocus: ['artisan kitchen', 'culinary ingredients', 'table setting'],
+      };
+    }
+  }
+
+  // 3. Style & Beauty topics (skincare, beauty, hair, tailoring)
+  const isBeautyTopic = /\b(skincare|retinoid|serum|ceramide|moisturizer|haircare|fragrance|perfume|makeup)\b/.test(titleLower);
+  if (isBeautyTopic) {
+    const hasIrrelevantIndustrialSignals = /\b(bulldozer|heavy machinery|airplane cockpit|freeway traffic|cargo ship)\b/.test(imageSignals);
+    if (hasIrrelevantIndustrialSignals) {
+      return {
+        valid: false,
+        score: 30,
+        reason: `Image content is editorially irrelevant to beauty/skincare topic "${title}". Expected skincare, vanity, or beauty formulation imagery.`,
+        suggestedFocus: ['amber glass flacons', 'minimalist vanity', 'botanical skincare texture'],
+      };
+    }
+  }
+
+  return { valid: true, score: 100 };
+}
+

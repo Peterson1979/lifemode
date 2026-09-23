@@ -1288,7 +1288,7 @@ test('38. AIRouterGenerationProvider recovers gracefully from MALFORMED_OUTPUT v
   const result = await provider.generate({
     topicId: 'lm-test-malformed-recovery',
     titleAngle: 'Eliezer Alfonzo: What to Know in 2026',
-    pillar: 'culture',
+    pillar: 'entertainment',
     format: 'standard',
     audience: 'Baseball fans and sports followers',
     primaryIntent: 'informational',
@@ -1320,7 +1320,7 @@ test('39. AIRouterGenerationProvider recovers gracefully from RATE_LIMIT via fal
   const result = await provider.generate({
     topicId: 'lm-test-rate-limit-recovery',
     titleAngle: 'Jose Trevino: Career Evolution in 2026',
-    pillar: 'culture',
+    pillar: 'entertainment',
     format: 'standard',
     audience: 'Sports readers',
     primaryIntent: 'informational',

@@ -307,10 +307,10 @@ test('Image Backfill: selectBackfillCandidates filters and prioritizes correctly
       },
     },
     {
-      pillar: 'culture',
+      pillar: 'entertainment',
       slug: 'featured-article-no-image',
-      identity: { pillar: 'culture', slug: 'featured-article-no-image' },
-      filePath: '/content/culture/featured-article-no-image.md',
+      identity: { pillar: 'entertainment', slug: 'featured-article-no-image' },
+      filePath: '/content/entertainment/featured-article-no-image.md',
       content: 'Content...',
       frontmatter: {
         title: 'Featured Article',
@@ -602,7 +602,7 @@ test('Maintenance: findEmptyTopics correctly identifies empty topics without art
   assert.ok(report.emptyPillars.includes('money'));
   assert.ok(report.emptyPillars.includes('travel'));
   assert.ok(report.emptyPillars.includes('tech-ai'));
-  assert.ok(report.emptyPillars.includes('culture'));
+  assert.ok(report.emptyPillars.includes('entertainment'));
   assert.ok(!report.emptyPillars.includes('wellbeing'));
   assert.ok(!report.emptyPillars.includes('style'));
 

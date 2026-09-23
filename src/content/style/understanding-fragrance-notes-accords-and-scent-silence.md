@@ -37,15 +37,11 @@ Of all the senses, the olfactory system is uniquely wired directly to the limbic
 
 Yet for many, selecting a fragrance remains an intimidating experience in department store aisles clouded with overwhelming synthetic sprays. Understanding the architecture of scent allows you to demystify perfume and discover a fragrance that feels like an authentic personal signature.
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                      THE CLASSICAL OLFACTORY PYRAMID                   │
-├────────────────────────────────────────────────────────────────────────┤
-│  TOP NOTES (First 15–30 mins)   │ Citrus (Bergamot), Herbs, Aldehydes  │
-│  HEART NOTES (2–4 hours)        │ Florals (Iris, Rose), Spices, Green  │
-│  BASE NOTES (4–12+ hours)       │ Woods (Sandalwood), Resins, Vetiver  │
-└────────────────────────────────────────────────────────────────────────┘
-```
+| Pyramid Stage | Lifespan on Skin | Typical Aromatic Notes |
+| :--- | :--- | :--- |
+| **Top Notes (Head)** | First 15–30 minutes | Bergamot, Lemon, Pink Pepper, Lavender, Neroli |
+| **Heart Notes (Heart)** | 2–4 hours | Florentine Iris, Damask Rose, Cardamom, Clary Sage |
+| **Base Notes (Drydown)** | 4–12+ hours | Sandalwood, Haitian Vetiver, Cedar, Benzoin, Clean Musks |
 
 ---
 
@@ -63,23 +59,12 @@ A well-crafted fragrance is not a static scent; it is a temporal narrative that 
 
 Modern perfumery organizes scents into several primary families:
 
-```
-┌─────────────────┬────────────────────────────────┬───────────────────────────┐
-│ FAMILY          │ KEY AROMATIC NOTES             │ CHARACTER & VIBE          │
-├─────────────────┼────────────────────────────────┼───────────────────────────┤
-│ Woody           │ Cedar, Sandalwood, Vetiver,    │ Grounded, architectural,  │
-│                 │ Cypress, Gaiac wood            │ contemplative, dry        │
-├─────────────────┼────────────────────────────────┼───────────────────────────┤
-│ Aromatic / Fougère│ Lavender, Oakmoss, Coumarin, │ Fresh, barber-shop crisp, │
-│                 │ Sage, Rosemary                 │ clean, herbaceous         │
-├─────────────────┼────────────────────────────────┼───────────────────────────┤
-│ Chypre          │ Bergamot, Labdanum, Patchouli, │ Sophisticated, earthy,    │
-│                 │ Citrus-Oakmoss contrast        │ vintage elegance          │
-├─────────────────┼────────────────────────────────┼───────────────────────────┤
-│ Ambery / Resin  │ Benzoin, Vanilla, Frankincense,│ Warm, enveloping, sweet,  │
-│                 │ Myrrh, Tobacco                 │ nocturnal, cozy           │
-└─────────────────┴────────────────────────────────┴───────────────────────────┘
-```
+| Fragrance Family | Key Aromatic Notes | Olfactory Character & Mood |
+| :--- | :--- | :--- |
+| **Woody** | Cedar, Sandalwood, Vetiver, Cypress, Hinoki | Grounded, architectural, contemplative, dry |
+| **Aromatic / Fougère** | French Lavender, Oakmoss, Coumarin, Rosemary | Fresh, crisp, clean, classic barber-shop elegance |
+| **Chypre** | Bergamot, Labdanum, Patchouli, Oakmoss | Sophisticated, earthy, complex, timeless |
+| **Ambery / Resinous** | Benzoin, Vanilla, Frankincense, Myrrh, Tobacco | Warm, enveloping, nocturnal, cozy |
 
 ---
 
@@ -87,15 +72,11 @@ Modern perfumery organizes scents into several primary families:
 
 The percentage of pure aromatic fragrance oils diluted in alcohol determines both the longevity and the projection of a bottle:
 
-```
- ┌──────────────────────┐    ┌──────────────────────┐    ┌──────────────────────┐
- │   EAU DE TOILETTE    │    │    EAU DE PARFUM     │    │   EXTRAIT DE PARFUM  │
- ├──────────────────────┤    ├──────────────────────┤    ├──────────────────────┤
- │ 8–15% Concentration  │───►│ 15–20% Concentration │───►│ 20–40% Concentration │
- │ Radiant projection;  │    │ Rich heart & base;   │    │ Sits close to skin;  │
- │ lasts 3–5 hours      │    │ lasts 6–8 hours      │    │ lasts 12–24 hours    │
- └──────────────────────┘    └──────────────────────┘    └──────────────────────┘
-```
+| Concentration Level | Pure Oil Ratio | Approximate Longevity | Projection Characteristics |
+| :--- | :--- | :--- | :--- |
+| **Eau de Toilette (EDT)** | 8–15% | 3–5 hours | Radiant, airy initial projection |
+| **Eau de Parfum (EDP)** | 15–20% | 6–8 hours | Rich heart notes with balanced sillage |
+| **Extrait de Parfum** | 20–40% | 12–24 hours | Sits close to skin with intimate longevity |
 
 ---
 

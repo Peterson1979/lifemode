@@ -46,13 +46,13 @@ export function classifyTrendingQueryPillar(query: string, description?: string)
     return 'style';
   }
 
-  // Culture / Design / Architecture / Books / Arts
-  if (/\b(design|architecture|interior|art|artist|exhibition|museum|decor|furniture|minimalist|building|monograph|cinema|film|photography|book|literature|festival|cultural|music|theater|zeitgeist)\b/i.test(text)) {
-    return 'culture';
+  // Entertainment / Pop Culture / Film / Music / Celebrity
+  if (/\b(entertainment|celebrity|actor|actress|hollywood|cinema|film|movie|television|tv|music|album|concert|award|awards|emmy|oscar|grammy|pop culture|interviews|showbiz|artist)\b/i.test(text)) {
+    return 'entertainment';
   }
 
-  // Default to Culture for timely cultural events and general zeitgeist
-  return 'culture';
+  // Default to Entertainment for timely general pop culture / entertainment trends
+  return 'entertainment';
 }
 
 /**
@@ -189,7 +189,7 @@ export class GoogleTrendsDiscoveryAdapter implements IDiscoveryAdapter {
             relativeInterest: relInterest,
             isBreakout: searchVol >= 100000,
             visualPotentialScore:
-              pillar === 'culture' || pillar === 'travel' ? 90 : 75,
+              pillar === 'entertainment' || pillar === 'travel' || pillar === 'style' ? 90 : 75,
           },
           geography: geo,
           language: 'en',

@@ -7,7 +7,7 @@ export interface PillarConfig {
   bgLight: string;
 }
 
-export type PillarSlug = 'style' | 'travel' | 'food-drink' | 'tech-ai' | 'money' | 'wellbeing' | 'culture';
+export type PillarSlug = 'style' | 'travel' | 'food-drink' | 'tech-ai' | 'money' | 'wellbeing' | 'entertainment';
 
 export const PILLARS: Record<PillarSlug, PillarConfig> = {
   style: {
@@ -58,11 +58,11 @@ export const PILLARS: Record<PillarSlug, PillarConfig> = {
     color: '#d97706', // Vital Amber
     bgLight: 'rgba(217, 119, 6, 0.08)',
   },
-  culture: {
-    name: 'Culture',
-    slug: 'culture',
-    tagline: 'Culture, Books & Design',
-    description: 'Architectural gems, curated literature, art exhibitions, and timeless curiosities.',
+  entertainment: {
+    name: 'Entertainment',
+    slug: 'entertainment',
+    tagline: 'Celebrity Stories, Cinema & Pop Culture',
+    description: 'Celebrity profiles and interviews, film and television, music, awards, celebrity lifestyle, and contemporary pop culture.',
     color: '#c026d3', // Rich Fuchsia
     bgLight: 'rgba(192, 38, 211, 0.08)',
   },
@@ -74,7 +74,7 @@ export const SITE_CONFIG = {
   name: 'LifeMode',
   slogan: 'Ideas for living well now',
   title: 'LifeMode — Ideas for living well now',
-  description: 'Ideas, guides, and discoveries across style, beauty, technology, travel, personal finance, wellbeing, and culture.',
+  description: 'Ideas, guides, and discoveries across style, beauty, technology, travel, personal finance, wellbeing, and entertainment.',
   siteUrl:
     (typeof import.meta !== 'undefined' && (import.meta as any).env?.PUBLIC_SITE_URL) ||
     ((globalThis as any).process?.env?.PUBLIC_SITE_URL as string) ||
@@ -90,7 +90,7 @@ export const SITE_CONFIG = {
     { name: 'Tech & AI', href: '/tech-ai', slug: 'tech-ai' },
     { name: 'Money', href: '/money', slug: 'money' },
     { name: 'Wellbeing', href: '/wellbeing', slug: 'wellbeing' },
-    { name: 'Culture', href: '/culture', slug: 'culture' },
+    { name: 'Entertainment', href: '/entertainment', slug: 'entertainment' },
   ],
   footerLinks: [
     { name: 'About', href: '/about' },

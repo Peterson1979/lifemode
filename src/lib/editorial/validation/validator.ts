@@ -9,6 +9,7 @@ import { countWords, FORMULAIC_TITLE_PATTERNS, GENERIC_EXCERPT_PATTERNS, detectR
 import { hasLeakedInternalMetadata } from '../sanitization.ts';
 import { VALID_PILLARS } from '../types.ts';
 import { isPersonTopic, PERSON_MIN_REQUIRED_SOURCES } from '../person-policy.ts';
+import { validateImageSemanticRelevance } from '../image-prompt.ts';
 
 const PLACEHOLDER_PATTERNS: RegExp[] = [
   /\{\{[^}]+\}\}/,
@@ -456,7 +457,7 @@ export function validateEditorialArticle(
   }
 
   // ----------------------------------------------------
-  // 7. IMAGE PUBLICATION REQUIREMENT CHECK
+  // 7. IMAGE PUBLICATION REQUIREMENT & SEMANTIC RELEVANCE CHECK
   // ----------------------------------------------------
   const hasValidImageUrl = Boolean(
     context.imageMetadata?.url &&
@@ -470,8 +471,30 @@ export function validateEditorialArticle(
       errors.push('Article publication requires a valid hero image URL, but none was provided.');
       checks.image = false;
     } else {
-      checks.image = true;
+      // Validate semantic relevance: image must be contextually appropriate for subject matter
+      const semanticCheck = validateImageSemanticRelevance(
+        article.title || '',
+        context.pillar || '',
+        context.imageMetadata
+      );
+      if (!semanticCheck.valid) {
+        errors.push(`Hero image failed semantic relevance validation: ${semanticCheck.reason}`);
+        checks.image = false;
+      } else {
+        checks.image = true;
+      }
     }
+  } else if (hasValidImageUrl) {
+    // Even when optional, if an image is provided it must not be severely irrelevant
+    const semanticCheck = validateImageSemanticRelevance(
+      article.title || '',
+      context.pillar || '',
+      context.imageMetadata
+    );
+    if (!semanticCheck.valid) {
+      warnings.push(`Hero image may have semantic relevance issues: ${semanticCheck.reason}`);
+    }
+    checks.image = true;
   } else {
     checks.image = true;
   }

@@ -37,15 +37,10 @@ For nearly two decades, the global apparel industry operated on an unsustainable
 
 Yet an undeniable cultural recalibration is underway. Across the world, a growing movement of discerning individuals is stepping away from the disposable conveyor belt. In its place is a resurgence of **tactile style**: an appreciation for heavy natural weaves, visible mending, artisanal construction, and garments that age gracefully alongside their owners.
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                   THE PARADIGM SHIFT IN PERSONAL DRESSING              │
-├────────────────────────────────────────────────────────────────────────┤
-│  THE DISPOSABLE MODEL (Past)  │ Hyper-trends, Synthetic blends, Churn  │
-│  THE TACTILE MODEL (Present)  │ Heavy natural fibers, Repair, Patina   │
-│  EMOTIONAL DURABILITY         │ Clothing as personal biography         │
-└────────────────────────────────────────────────────────────────────────┘
-```
+| Wardrobe Paradigm | Manufacturing Model | Material Focus | Cultural Relationship |
+| :--- | :--- | :--- | :--- |
+| **Fast Trend Model (Past)** | 52 micro-seasons / year | Synthetic polyester & nylon blends | Disposability, novelty, algorithm-driven churn |
+| **Tactile Slow Model (Present)** | Enduring modular capsules | Heavyweight natural wool, linen, raw denim | Craftsmanship, visible repair, personal patina |
 
 ---
 
@@ -65,20 +60,11 @@ In contrast, natural fibers possess intrinsic sensory warmth and mechanical dura
 
 In academic textile studies, researchers distinguish between physical durability (whether a seam holds) and **emotional durability** (whether a wearer continues to cherish the garment).
 
-```
-┌─────────────────────┬─────────────────────────────────┬──────────────────────┐
-│ REPAIR METHOD       │ ORIGIN & TECHNIQUE              │ CULTURAL PHILOSOPHY  │
-├─────────────────────┼─────────────────────────────────┼──────────────────────┤
-│ Sashiko & Boro      │ Traditional Japanese embroidery │ Honoring wear;       │
-│ Stitching           │ reinforcing worn indigo fabrics │ beauty in imperfection│
-├─────────────────────┼─────────────────────────────────┼──────────────────────┤
-│ Visible Darning     │ Contrast wool yarn woven into   │ Celebrates the life  │
-│                     │ worn sweater elbows or heels    │ of the knit          │
-├─────────────────────┼─────────────────────────────────┼──────────────────────┤
-│ Cobbler Resoling    │ Replacing worn soles on         │ Restores footwear    │
-│                     │ Goodyear-welted shoes           │ for another decade   │
-└─────────────────────┴─────────────────────────────────┴──────────────────────┘
-```
+| Repair Method | Cultural Origin & Technique | Practical Application |
+| :--- | :--- | :--- |
+| **Sashiko & Boro Stitching** | Traditional Japanese running stitch reinforcement | Strengthens frayed denim, heavy cotton, and jackets |
+| **Visible Darning** | Woven contrasting yarn grid over knit holes | Restores worn wool elbows, cuffs, and knitwear heels |
+| **Cobbler Resoling** | Replacing outer soles on Goodyear-welted shoes | Extends leather footwear lifespan across decades |
 
 When a beloved chore jacket or wool sweater tears, repairing it with contrast stitching transforms the flaw into a unique design feature. The garment ceases to be anonymous merchandise; it becomes a tangible artifact of personal history.
 
@@ -88,13 +74,12 @@ When a beloved chore jacket or wool sweater tears, repairing it with contrast st
 
 The rise of curated vintage markets and peer-to-peer archival platforms reflects a broader cultural desire for discovery over mass consumption. Rather than purchasing a newly minted replica of a classic military trench or trench coat, shoppers seek out decades-old originals constructed with heavier gauge stitching and genuine horn buttons.
 
-```
-  THE SLOW WARDROBE LIFECYCLE:
-  
-  Curated Acquisition ──► Mindful Daily Wear ──► Preventive Care ──► Repair & Patina
-        ▲                                                                    │
-        └──────────────────────── Secondary Re-circulation ──────────────────┘
-```
+| Lifecycle Stage | Key Action | Enduring Benefit |
+| :--- | :--- | :--- |
+| **1. Curated Acquisition** | Select 100% natural monomaterial garments | Maximum durability and future recyclability |
+| **2. Mindful Daily Wear** | Rotate across seasons and allow fabrics to rest | Reduces mechanical fiber fatigue |
+| **3. Preventative Care** | Use cedar blocks, garment brushes, and spot cleaning | Avoids harsh laundry agitation |
+| **4. Repair & Patina** | Mend seams and resole footwear when worn | Creates emotional durability and personal biography |
 
 ---
 
