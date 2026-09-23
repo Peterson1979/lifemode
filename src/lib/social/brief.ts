@@ -7,7 +7,8 @@ export function buildSocialBrief(opportunity: SocialOpportunity): SocialBrief {
   const briefId = `sbrief-${Date.now()}-${opportunity.slug.slice(0, 20)}`;
 
   const audienceMap: Record<string, string> = {
-    life: 'Intentional professionals, design enthusiasts, and mindful urbanites seeking calm living rituals.',
+    style: 'Everyday readers, style-conscious individuals, and beauty enthusiasts seeking accessible fashion, mindful skincare routines, and contemporary aesthetic inspiration.',
+    culture: 'Cultural curators, architecture enthusiasts, and thoughtful readers exploring modern design, books, cinema, and zeitgeist ideas.',
     travel: 'Slow travelers, architecture lovers, and curious explorers valuing seclusion and cultural authenticity.',
     'tech-ai': 'Forward-looking builders, knowledge workers, and privacy-conscious users adopting calm technology.',
     money: 'Financially intentional individuals seeking anti-fragile asset allocations and treasury strategies.',
@@ -18,7 +19,8 @@ export function buildSocialBrief(opportunity: SocialOpportunity): SocialBrief {
   };
 
   const aestheticStyleMap: Record<string, string> = {
-    life: 'Minimalist interior, natural oak, warm ambient lighting, tactile everyday objects, uncluttered workspace.',
+    style: 'Luminous diffused daylight, tactile tailoring textures, minimalist skincare flacons, artisanal fragrance bottles, and effortless contemporary personal style.',
+    culture: 'Editorial documentary photography, museum-grade monograph layouts, sculptural architecture, tactile textures, and contemporary cultural moments.',
     travel: 'Architectural landscape, serene misty coastlines, quiet sukiya tea houses, solitary natural vistas.',
     'tech-ai': 'Sleek hardware workstations, ambient computing, dark mode interfaces, subtle LED warmth, calm setups.',
     money: 'Understated elegance, structured monochrome layouts, architectural financial charts, clean typography.',

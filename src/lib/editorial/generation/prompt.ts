@@ -308,9 +308,10 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
       '',
       '### STYLE & BEAUTY EDITORIAL POLICY:',
       '- Scope: Covers fashion, personal style, clothing and outfit trends, accessories, beauty, skincare, makeup, hair and hair trends, beauty routines, fragrance, beauty trends, style and beauty culture, relevant celebrity style/beauty when appropriate, and contemporary style/beauty trends.',
-      '- Accessibility & Voice: Keep the content editorial, useful, contemporary, and understandable for ordinary readers rather than sounding like an exclusive fashion-industry trade publication.',
-      '- Non-Promotional Standard: Do not make the content sound like advertising, PR press releases, sponsored promotion, or product pitching. Focus on practical principles, textile craftsmanship, ingredient functions, aesthetic fit, and sustainable daily habits.',
-      '- Balance: Do not make every Style article about celebrities; rotate naturally across the broader scope of personal style, beauty rituals, and aesthetic craft.'
+      '- Positioning & Reader Voice: Written for ordinary readers. Keep the content useful, interesting, globally relevant, accessible, and contemporary rather than sounding like an exclusive fashion-industry trade publication.',
+      '- Non-Promotional Standard: Strictly editorial rather than promotional. No advertising disguised as editorial, no forced product recommendations, no repetitive commercial brand pitching. Focus on practical principles, textile craftsmanship, ingredient functions, aesthetic fit, and sustainable daily habits.',
+      '- Jargon & Trend Moderation: Avoid industry jargon unless genuinely useful. Avoid turning every article into a formulaic trend report.',
+      '- Celebrity Coverage: When celebrity style/beauty appears, treat it as a thoughtful editorial subject exploring cultural context or aesthetic craft, not as celebrity-news spam.'
     );
   }
 

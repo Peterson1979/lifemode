@@ -1,13 +1,14 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { createHash } from 'node:crypto';
-import type { SocialManifestEntry, SocialPlatform } from '../types.ts';
+import type { PillarSlug, SocialManifestEntry, SocialPlatform } from '../types.ts';
 
 export interface ISocialHistoryRepository {
   loadHistory(): Promise<SocialManifestEntry[]>;
   saveHistory(history: SocialManifestEntry[]): Promise<void>;
   recordEntry(entry: SocialManifestEntry): Promise<void>;
   isTopicRecentlyPublished(topicId: string, withinDays?: number): Promise<boolean>;
+  isPillarRecentlyPublished(pillar: PillarSlug, withinDays?: number, referenceDate?: Date | string): Promise<boolean>;
   isPlatformPublished(topicId: string, platform: SocialPlatform): Promise<boolean>;
   isContentDuplicate(contentHash: string): Promise<boolean>;
   isAssetDuplicate(assetHash: string): Promise<boolean>;
@@ -109,6 +110,32 @@ export class FilesystemSocialHistoryRepository implements ISocialHistoryReposito
         item.targetPlatforms.every((p) => item.platformResults?.[p]?.status === 'PUBLISHED');
       const anyPublished = Object.values(item.platformResults || {}).some((r) => r?.status === 'PUBLISHED');
       return itemTime >= cutoff && (item.overallStatus === 'COMPLETED' || allTargetPublished || anyPublished);
+    });
+  }
+
+  async isPillarRecentlyPublished(
+    pillar: PillarSlug,
+    withinDays: number = 14,
+    referenceDate?: Date | string
+  ): Promise<boolean> {
+    const history = await this.loadHistory();
+    const refTime = referenceDate ? new Date(referenceDate).getTime() : Date.now();
+    const cutoff = refTime - withinDays * 24 * 60 * 60 * 1000;
+
+    return history.some((item) => {
+      if (item.pillar !== pillar) return false;
+      const itemTime = new Date(item.updatedAt || item.createdAt).getTime();
+      if (isNaN(itemTime)) return false;
+      if (itemTime < cutoff || itemTime > refTime + 60000) return false;
+
+      const allTargetPublished =
+        item.targetPlatforms &&
+        item.targetPlatforms.length > 0 &&
+        item.targetPlatforms.every((p) => item.platformResults?.[p]?.status === 'PUBLISHED');
+      const anyPublished = Object.values(item.platformResults || {}).some((r) => r?.status === 'PUBLISHED');
+      const completedStatus = item.overallStatus === 'COMPLETED' || item.overallStatus === 'PARTIAL';
+
+      return completedStatus || allTargetPublished || anyPublished;
     });
   }
 

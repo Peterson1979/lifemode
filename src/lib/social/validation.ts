@@ -29,6 +29,8 @@ const FORBIDDEN_METADATA_PATTERNS = [
   /\bOpportunity\s*Type\b/i,
   /\bScore\s*:\s*\d+/i,
   /\bTelemetry\b/i,
+  /\bTopic\s*Data\s*(?:API|Service|Provider)\b/i,
+  /\b(?:USGS|Frankfurter|WeatherAPI|FoodData)\s*(?:Feed|API|Telemetry)\b/i,
 ];
 
 /**

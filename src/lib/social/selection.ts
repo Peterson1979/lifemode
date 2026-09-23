@@ -17,6 +17,17 @@ export interface SocialSelectionOptions {
   configuredPlatforms?: SocialPlatform[];
 }
 
+export const RESTRICTED_SOCIAL_PILLARS: PillarSlug[] = ['tech-ai', 'money'];
+export const RESTRICTED_PILLAR_COOLDOWN_DAYS = 14;
+
+export const HIGH_FREQUENCY_SOCIAL_PILLARS: PillarSlug[] = [
+  'style',
+  'culture',
+  'food-drink',
+  'travel',
+  'wellbeing',
+];
+
 /**
  * Calculates a composite social ranking score for a candidate topic.
  */
@@ -26,12 +37,17 @@ export function calculateSocialScore(topic: EditorialTopic): number {
   const totalScore = topic.totalScore ?? 80;
   const freshness = topic.freshnessScore ?? 80;
 
-  return Math.round(
+  const baseScore =
     socialPot * 0.35 +
     pinPot * 0.25 +
     totalScore * 0.25 +
-    freshness * 0.15
-  );
+    freshness * 0.15;
+
+  // Strategic frequency weighting: Style, Culture, Food & Drink, Travel, Wellbeing
+  const isHighFrequency = HIGH_FREQUENCY_SOCIAL_PILLARS.includes(topic.pillar);
+  const multiplier = isHighFrequency ? 1.05 : 1.0;
+
+  return Math.round(baseScore * multiplier);
 }
 
 /**
@@ -91,6 +107,9 @@ export async function selectSocialOpportunities(
     const effectiveTotalScore = topic.totalScore ?? 80;
     if (effectiveTotalScore < minScore) continue;
 
+    // Filter out inactive / removed pillars
+    if ((topic.pillar as string) === 'life') continue;
+
     // In published-only mode, only consider topics that are actually published
     if (publishedOnly && topic.status !== 'PUBLISHED') {
       continue;
@@ -120,6 +139,20 @@ export async function selectSocialOpportunities(
     // Filter by pillar if specified
     if (options.categoryFilter && options.categoryFilter.length > 0) {
       if (!options.categoryFilter.includes(topic.pillar)) continue;
+    }
+
+    // Restricted Topics Cooldown Gate: Tech & AI and Money restricted to max 1 social appearance per rolling 14-day window
+    if (RESTRICTED_SOCIAL_PILLARS.includes(topic.pillar)) {
+      if (historyRepo) {
+        const isRestrictedInCooldown = await historyRepo.isPillarRecentlyPublished(
+          topic.pillar,
+          RESTRICTED_PILLAR_COOLDOWN_DAYS,
+          options.referenceDate
+        );
+        if (isRestrictedInCooldown) {
+          continue;
+        }
+      }
     }
 
     // Freshness Gate: Validate publication timestamp
@@ -198,6 +231,11 @@ export async function selectSocialOpportunities(
     const topic = item.topic;
     const currentPillarCount = pillarCounts[topic.pillar] || 0;
 
+    // Restricted pillar limit: maximum 1 appearance per run
+    if (RESTRICTED_SOCIAL_PILLARS.includes(topic.pillar) && currentPillarCount >= 1) {
+      continue;
+    }
+
     // Avoid dominating with more than 1 per pillar unless candidate pool is small
     if (
       max > 1 &&
@@ -243,6 +281,9 @@ export async function selectSocialOpportunities(
       if (selected.some((s) => s.topicId === item.topic.id)) continue;
 
       const topic = item.topic;
+      if (RESTRICTED_SOCIAL_PILLARS.includes(topic.pillar) && (pillarCounts[topic.pillar] || 0) >= 1) {
+        continue;
+      }
       const destinationUrl = `${baseUrl}/${topic.pillar}/${topic.slug}`;
 
       selected.push({

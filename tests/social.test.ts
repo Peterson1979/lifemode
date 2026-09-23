@@ -2790,4 +2790,174 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     assert.equal(selected.length, 1);
     assert.equal(selected[0].topicId, 'lm-life-20260914-23h-old');
   });
+
+  await t.test('73. Style pillar social brief & fixture generation produces dedicated Style/Beauty captions', async () => {
+    const styleTopic = createMockTopic({
+      id: 'lm-style-capsule-wardrobe',
+      canonicalTopic: 'The Curated Capsule Wardrobe and Barrier Skincare',
+      pillar: 'style',
+      slug: 'curated-capsule-wardrobe-barrier-skincare',
+      status: 'PUBLISHED',
+      totalScore: 90,
+    });
+
+    const brief = buildSocialBrief({
+      topicId: styleTopic.id,
+      canonicalTopic: styleTopic.canonicalTopic,
+      pillar: 'style',
+      slug: styleTopic.slug,
+      totalScore: 90,
+      socialPotential: 92,
+      pinterestPotential: 90,
+      opportunityType: 'ARTICLE_AND_SOCIAL',
+      targetPlatforms: ['facebook', 'instagram', 'pinterest'],
+      destinationUrl: 'https://lifemode.life/style/curated-capsule-wardrobe-barrier-skincare',
+      tags: ['style', 'skincare', 'wardrobe'],
+    });
+
+    assert.ok(brief.targetAudience.includes('Everyday readers'));
+    assert.ok(brief.visualGuidelines.aestheticStyle.includes('Luminous diffused daylight'));
+
+    const genProvider = new FixtureSocialGenerationProvider();
+    const result = await genProvider.generateSocialContent(brief);
+    assert.equal(result.success, true);
+    assert.ok(result.content);
+    assert.ok(result.content.shortCaption.includes('contemporary personal style'));
+    assert.ok(result.content.extendedCaption?.includes('capsule tailoring'));
+  });
+
+  await t.test('74. Rolling 14-day cooldown: Tech & AI is strictly excluded if published within 14 days', async () => {
+    const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lm-social-cooldown-tech-'));
+    const repo = new FilesystemSocialHistoryRepository(tempDir);
+
+    const refDate = new Date('2026-09-20T12:00:00.000Z');
+
+    // Record a Tech & AI publication 5 days prior to refDate
+    await repo.recordEntry({
+      runId: 'srun-prev-tech',
+      topicId: 'lm-tech-prev-01',
+      pillar: 'tech-ai',
+      canonicalTopic: 'Local AI Models Privacy Setup',
+      contentHash: 'hash-tech-1',
+      assetHash: 'asset-tech-1',
+      idempotencyKey: 'lm-soc-tech-prev-01-fb-1',
+      targetPlatforms: ['facebook', 'instagram'],
+      platformResults: {
+        facebook: {
+          platform: 'facebook',
+          status: 'PUBLISHED',
+          publishedAt: '2026-09-15T12:00:00.000Z',
+          idempotencyKey: 'lm-soc-tech-prev-01-fb-1',
+        },
+      },
+      reviewScore: 90,
+      overallStatus: 'COMPLETED',
+      createdAt: '2026-09-15T12:00:00.000Z',
+      updatedAt: '2026-09-15T12:00:00.000Z',
+    });
+
+    const isTechCoolingDown = await repo.isPillarRecentlyPublished('tech-ai', 14, refDate);
+    assert.equal(isTechCoolingDown, true);
+
+    const isStyleCoolingDown = await repo.isPillarRecentlyPublished('style', 14, refDate);
+    assert.equal(isStyleCoolingDown, false);
+
+    // Provide candidates: 1 Tech topic and 1 Style topic
+    const techCandidate = createMockTopic({
+      id: 'lm-tech-new-01',
+      pillar: 'tech-ai',
+      status: 'PUBLISHED',
+      publishedAt: '2026-09-20T10:00:00.000Z',
+      totalScore: 95, // Higher raw score
+    });
+    const styleCandidate = createMockTopic({
+      id: 'lm-style-new-01',
+      pillar: 'style',
+      status: 'PUBLISHED',
+      publishedAt: '2026-09-20T10:00:00.000Z',
+      totalScore: 88,
+    });
+
+    const selected = await selectSocialOpportunities([techCandidate, styleCandidate], {
+      maxOpportunities: 1,
+      referenceDate: refDate,
+      historyRepository: repo,
+      publishedOnly: true,
+    });
+
+    // Tech must be excluded due to 14-day rolling cooldown, so Style is selected
+    assert.equal(selected.length, 1);
+    assert.equal(selected[0].pillar, 'style');
+    assert.equal(selected[0].topicId, 'lm-style-new-01');
+
+    await fs.rm(tempDir, { recursive: true, force: true });
+  });
+
+  await t.test('75. Rolling 14-day cooldown: Money is strictly excluded if published within 14 days and allowed after 14 days', async () => {
+    const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lm-social-cooldown-money-'));
+    const repo = new FilesystemSocialHistoryRepository(tempDir);
+
+    const refDate1 = new Date('2026-09-20T12:00:00.000Z');
+
+    // Record a Money publication 8 days prior to refDate1
+    await repo.recordEntry({
+      runId: 'srun-prev-money',
+      topicId: 'lm-money-prev-01',
+      pillar: 'money',
+      canonicalTopic: 'High Yield Cash Buffer Strategy',
+      contentHash: 'hash-money-1',
+      assetHash: 'asset-money-1',
+      idempotencyKey: 'lm-soc-money-prev-01-fb-1',
+      targetPlatforms: ['facebook', 'instagram'],
+      platformResults: {
+        facebook: {
+          platform: 'facebook',
+          status: 'PUBLISHED',
+          publishedAt: '2026-09-12T12:00:00.000Z',
+          idempotencyKey: 'lm-soc-money-prev-01-fb-1',
+        },
+      },
+      reviewScore: 88,
+      overallStatus: 'COMPLETED',
+      createdAt: '2026-09-12T12:00:00.000Z',
+      updatedAt: '2026-09-12T12:00:00.000Z',
+    });
+
+    // At day 8, Money is in cooldown
+    const isMoneyCooling = await repo.isPillarRecentlyPublished('money', 14, refDate1);
+    assert.equal(isMoneyCooling, true);
+
+    // At day 20 (past 14-day window), Money is eligible again
+    const refDate2 = new Date('2026-10-05T12:00:00.000Z');
+    const isMoneyEligibleLater = await repo.isPillarRecentlyPublished('money', 14, refDate2);
+    assert.equal(isMoneyEligibleLater, false);
+
+    await fs.rm(tempDir, { recursive: true, force: true });
+  });
+
+  await t.test('76. Higher frequency topics (Style, Culture, Food & Drink, Travel, Wellbeing) remain eligible and preferred', async () => {
+    const styleTopic = createMockTopic({ id: 'top-style', pillar: 'style', totalScore: 85, status: 'PUBLISHED', publishedAt: '2026-09-23T08:00:00Z' });
+    const cultureTopic = createMockTopic({ id: 'top-culture', pillar: 'culture', totalScore: 85, status: 'PUBLISHED', publishedAt: '2026-09-23T08:00:00Z' });
+    const foodTopic = createMockTopic({ id: 'top-food', pillar: 'food-drink', totalScore: 85, status: 'PUBLISHED', publishedAt: '2026-09-23T08:00:00Z' });
+    const travelTopic = createMockTopic({ id: 'top-travel', pillar: 'travel', totalScore: 85, status: 'PUBLISHED', publishedAt: '2026-09-23T08:00:00Z' });
+    const wellbeingTopic = createMockTopic({ id: 'top-wellbeing', pillar: 'wellbeing', totalScore: 85, status: 'PUBLISHED', publishedAt: '2026-09-23T08:00:00Z' });
+
+    const selected = await selectSocialOpportunities([styleTopic, cultureTopic, foodTopic, travelTopic, wellbeingTopic], {
+      maxOpportunities: 3,
+      publishedOnly: true,
+    });
+
+    assert.equal(selected.length, 3);
+    const selectedPillars = selected.map((s) => s.pillar);
+    assert.ok(selectedPillars.every((p) => ['style', 'culture', 'food-drink', 'travel', 'wellbeing'].includes(p)));
+  });
+
+  await t.test('77. Validation gate detects and rejects leaked external API telemetry data in social copy', () => {
+    const leakedContent = createMockValidSocialContent({
+      shortCaption: 'Live USGS GeoJSON telemetry confirms magnitude 5.2 event in northern California today.',
+    });
+    const result = validateSocialContent(leakedContent);
+    assert.equal(result.valid, false);
+    assert.ok(result.errors.some((e) => e.includes('Forbidden internal metadata pattern detected')));
+  });
 });
