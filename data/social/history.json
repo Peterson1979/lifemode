@@ -278,5 +278,40 @@
     "overallStatus": "COMPLETED",
     "createdAt": "2026-09-21T18:18:08.654Z",
     "updatedAt": "2026-09-21T18:18:08.654Z"
+  },
+  {
+    "runId": "srun-1790184307877-jezc1",
+    "topicId": "lm-entertainment-20260923-tactile-genius-stop-motion",
+    "pillar": "entertainment",
+    "canonicalTopic": "The Tactile Genius of Stop-Motion Animation: The Enduring Charm of Handcrafted Worlds",
+    "contentHash": "de33ddb937f0542182aa759429e4b025a7dd5d5b51cb5325aaf7aacf7010c89a",
+    "assetHash": "34177b8041f2f27c100bc69f7e0d3f12b43b7372990a8bf37d88441ca054dace",
+    "idempotencyKey": "lm-soc-lm-entertainment-20260923-tactile-genius-stop-motion-de33ddb9",
+    "targetPlatforms": [
+      "instagram",
+      "facebook"
+    ],
+    "platformResults": {
+      "instagram": {
+        "platform": "instagram",
+        "status": "PUBLISHED",
+        "postId": "17960205093236872",
+        "postUrl": "https://instagram.com/p/17960205093236872",
+        "publishedAt": "2026-09-23T17:25:14.248Z",
+        "idempotencyKey": "lm-soc-lm-entertainment-20260923-tactile-genius-stop-motion-instagram-ee7eed489a9a"
+      },
+      "facebook": {
+        "platform": "facebook",
+        "status": "PUBLISHED",
+        "postId": "122322083660197726",
+        "postUrl": "https://facebook.com/122322083660197726",
+        "publishedAt": "2026-09-23T17:25:25.945Z",
+        "idempotencyKey": "lm-soc-lm-entertainment-20260923-tactile-genius-stop-motion-facebook-6b75e92e3ce7"
+      }
+    },
+    "reviewScore": 89,
+    "overallStatus": "COMPLETED",
+    "createdAt": "2026-09-23T17:25:31.610Z",
+    "updatedAt": "2026-09-23T17:25:31.610Z"
   }
 ]
