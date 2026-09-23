@@ -3,7 +3,7 @@ title: "Who Is José Trevino? Career, Background and Community Impact"
 description: "A factual look at New York Yankees catcher José Trevino, his Platinum Glove defensive leadership, and his Roberto Clemente Award nomination."
 pubDate: "2026-09-15T16:46:57.514Z"
 updatedDate: "2026-09-16T15:00:00.000Z"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags: ["US", "person", "baseball", "mlb", "culture"]
 featured: false
 draft: false
@@ -24,8 +24,6 @@ imageSource: "Contextual Editorial Photography / LifeMode"
 version: 2
 lifecycleStatus: "PUBLISHED"
 ---
-
-## Introduction
 
 José Trevino has established himself as one of Major League Baseball’s most respected defensive catchers and clubhouse leaders. Born in Corpus Christi, Texas, Trevino’s journey through collegiate baseball at Oral Roberts University to the major leagues exemplifies how technical mastery, pitch framing, and community commitment define modern athletic professionalism. Nominated for the Roberto Clemente Award—baseball's premier honor for sportsmanship and civic contribution—Trevino combines on-field precision with sustained youth mentorship off the diamond.
 

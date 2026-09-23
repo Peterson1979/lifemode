@@ -39,7 +39,7 @@ export function loadPublishingConfig(overrides: Partial<PublishingConfig> = {}):
   const defaultConfig: PublishingConfig = {
     provider: getEnv('PUBLISHING_PROVIDER', 'fixture'),
     dryRun: getEnv('PUBLISHING_DRY_RUN') ? getEnvBoolean('PUBLISHING_DRY_RUN', true) : true,
-    defaultAuthor: getEnv('PUBLISHING_DEFAULT_AUTHOR', 'LifeMode Editorial'),
+    defaultAuthor: getEnv('PUBLISHING_DEFAULT_AUTHOR', 'LifeMode'),
     allowNoImageFallback: getEnv('PUBLISHING_ALLOW_NO_IMAGE_FALLBACK')
       ? getEnvBoolean('PUBLISHING_ALLOW_NO_IMAGE_FALLBACK', false)
       : (getEnv('LIFEMODE_IMAGE_ALLOW_NO_IMAGE_FALLBACK') ? getEnvBoolean('LIFEMODE_IMAGE_ALLOW_NO_IMAGE_FALLBACK', false) : false),

@@ -3,7 +3,7 @@ title: "Designing a contemplative workspace with acoustic warmth and natural woo
 description: "A practical guide to creating a calm, focused home workspace using acoustic softening, natural timber, layered lighting, and intentional visual boundaries."
 pubDate: "2026-09-11T06:56:33.292Z"
 updatedDate: "2026-09-18"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags: ["workspace", "focus", "interior-design", "habits", "craft"]
 featured: false
 draft: false

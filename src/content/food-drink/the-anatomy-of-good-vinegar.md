@@ -2,7 +2,7 @@
 title: "The Chemistry of Acidity: What Separates True Vinegar From Industrial Acid"
 description: "From the solera casks of Modena and Jerez to raw living cider mothers, how slow acetification creates complex flavor rather than one-dimensional burn."
 pubDate: "2026-09-18T15:30:00.000Z"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags:
   - "food-drink"
   - "ingredients"

@@ -2,7 +2,7 @@
 title: "The Modern Coffee Ritual: Extraction, Water Chemistry, and Slow Mornings"
 description: "Beyond caffeine delivery: how grind distribution, extraction physics, and water mineral hardness transform daily manual pour-over brewing into a meditative ritual."
 pubDate: "2026-09-18T15:45:00.000Z"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags:
   - "food-drink"
   - "drinks"

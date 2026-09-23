@@ -2,7 +2,7 @@
 title: "Sourdough vs. Commercial Bread: Digestibility, Flavor, and the Cost of Speed"
 description: "Why the 1961 Chorleywood process transformed supermarket bread, how slow fermentation alters glycemic impact, and how to identify real artisan loaves."
 pubDate: "2026-09-18T15:05:00.000Z"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags:
   - "food-drink"
   - "food-wellbeing"

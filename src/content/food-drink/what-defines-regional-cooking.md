@@ -2,7 +2,7 @@
 title: "What Defines a Regional Cuisine: Climate, Geography, and Micro-Tradition"
 description: "Why national cuisines are an illusion, and how microclimates, historic trade corridors, and local geography create hyper-distinct culinary identities."
 pubDate: "2026-09-18T15:40:00.000Z"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags:
   - "food-drink"
   - "food-culture"

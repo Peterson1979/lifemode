@@ -3,7 +3,7 @@ title: "Morning sunlight and adenosine: a simple protocol for morning clarity"
 description: "Understand how early morning light sets your circadian clock, influences sleep pressure, and clears morning grogginess through a practical, realistic daily routine."
 pubDate: "2026-09-11T06:54:27.269Z"
 updatedDate: "2026-09-18"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags: ["wellbeing", "sleep", "circadian-rhythm", "morning-routine"]
 featured: false
 draft: false

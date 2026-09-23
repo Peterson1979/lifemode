@@ -15,9 +15,11 @@ export async function getStaticPaths() {
       const pillar = PILLARS[slug];
       // @ts-ignore
       const rawArticles = await getCollection(slug);
-      const articles = rawArticles.sort(
-        (a: any, b: any) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
-      );
+      const articles = rawArticles
+        .filter((a: any) => !a.data.draft)
+        .sort(
+          (a: any, b: any) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+        );
       return {
         params: { pillar: slug },
         props: { pillar, articles },
@@ -61,7 +63,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 ---
 
 <BaseLayout
-  title={`${pillar.name} — ${pillar.tagline} | LifeMode`}
+  title={`${pillar.name} | LifeMode`}
   description={pillar.description}
   jsonLd={breadcrumbSchema}
 >
@@ -85,24 +87,20 @@ const breadcrumbSchema = generateBreadcrumbSchema([
       <h1 class="hero-heading" style="margin-bottom: var(--space-3);">
         {pillar.name}
       </h1>
-      <p style="font-family: var(--font-serif); font-size: 1.35rem; font-style: italic; color: var(--color-text-secondary); margin-bottom: var(--space-4); max-width: 680px;">
-        "{pillar.tagline}"
-      </p>
-      <p class="hero-lead" style="max-width: 720px; margin-bottom: 0;">
+      <p class="hero-lead" style="max-width: 760px; margin-bottom: 0;">
         {pillar.description}
       </p>
     </div>
   </section>
 
-  <!-- Article Grid / Archive -->
+  <!-- Article Grid -->
   <section class="section">
     <div class="container">
       <div class="section-header">
         <div>
-          <span class="section-kicker">Articles</span>
-          <h2 class="section-title">Articles in {pillar.name}</h2>
+          <h2 class="section-title">{pillar.name} Stories</h2>
           <p class="section-subtitle">
-            Showing {articles.length} {articles.length === 1 ? 'article' : 'articles'}
+            {articles.length} {articles.length === 1 ? 'article' : 'articles'}
           </p>
         </div>
       </div>
@@ -174,13 +172,13 @@ const breadcrumbSchema = generateBreadcrumbSchema([
       ) : (
         <div class="empty-state-card">
           <div class="empty-state-icon">
-            <span style="font-family: var(--font-display); font-size: 2.2rem; font-style: italic; color: var(--color-olive); font-weight: 700;">LM</span>
+            <span style={`font-family: var(--font-display); font-size: 2.5rem; font-style: italic; color: ${pillar.color}; font-weight: 700;`}>LM</span>
           </div>
-          <h3 style="font-family: var(--font-display); font-size: 1.4rem; margin-bottom: var(--space-2); color: var(--color-text-primary);">
+          <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; margin-bottom: var(--space-2); color: var(--color-text-primary);">
             Articles coming soon
           </h3>
           <p style="color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.6; max-width: 480px; margin-inline: auto; margin-bottom: var(--space-6);">
-            Articles for {pillar.name} will appear here soon.
+            Articles and practical guides for {pillar.name} will appear here soon.
           </p>
           <a href="/" class="btn btn-outline">Return to homepage</a>
         </div>
@@ -191,8 +189,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         <div style="margin-top: var(--space-16); padding-top: var(--space-10); border-top: 1px solid var(--color-border);">
           <div class="section-header">
             <div>
-              <span class="section-kicker">From our projects</span>
-              <h2 class="section-title">Apps & tools</h2>
+              <h2 class="section-title">Apps &amp; Tools for {pillar.name}</h2>
             </div>
           </div>
           <div style="max-width: 680px;">
@@ -203,6 +200,6 @@ const breadcrumbSchema = generateBreadcrumbSchema([
     </div>
   </section>
 
-  <!-- Topic Data & Live Intelligence Section (Placed at bottom before footer) -->
+  <!-- Topic Data & Live Intelligence Section -->
   <TopicDataSection pillar={pillar.slug as PillarSlug} pillarName={pillar.name} />
 </BaseLayout>

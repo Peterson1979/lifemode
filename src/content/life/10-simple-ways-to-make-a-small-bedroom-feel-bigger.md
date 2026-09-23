@@ -3,7 +3,7 @@ title: "10 Simple Ways to Make a Small Bedroom Feel Bigger"
 description: "An intentional design guide to maximizing light, airflow, and spatial calm in compact bedrooms without clutter or compromise."
 pubDate: "2026-09-09T16:46:44.508Z"
 updatedDate: "2026-09-09"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags: ["life","interior-design","small-spaces","minimalism"]
 featured: false
 draft: false

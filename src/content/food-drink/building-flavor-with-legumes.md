@@ -2,7 +2,7 @@
 title: "How Mediterranean and Middle Eastern Cuisines Build Flavor Around Legumes"
 description: "From aromatic sofritos and spiced blooming to tahini emulsions and preserved citrus, how traditional foodways transform humble pulses into centerpieces."
 pubDate: "2026-09-18T15:15:00.000Z"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags:
   - "food-drink"
   - "food-culture"

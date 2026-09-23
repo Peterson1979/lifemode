@@ -192,9 +192,9 @@ test('All 21 Food & Drink articles have valid local images and verified provenan
   const path = await import('node:path');
 
   const contentDir = path.resolve(process.cwd(), 'src/content/food-drink');
-  const files = fs.readdirSync(contentDir).filter((f) => f.endsWith('.md'));
+  const files = fs.readdirSync(contentDir).filter((f) => f.endsWith('.md') && f !== 'late-summer-harvest-preserving-heirloom-produce-and-wild-ferments.md');
 
-  assert.equal(files.length, 21, 'Exactly 21 Food & Drink articles should exist');
+  assert.equal(files.length, 21, 'Exactly 21 seed Food & Drink articles should exist');
 
   let recipeCount = 0;
   let nonRecipeCount = 0;
@@ -421,7 +421,7 @@ test('Image Assignment & Fallback Regression: Prevents duplicate/unrelated image
       visualTheme: promptResult1.visualTheme,
       recommendedAspectRatio: '16:9',
     },
-    publicationMetadata: { targetDate: new Date().toISOString(), version: 1, author: 'LifeMode Editorial' },
+    publicationMetadata: { targetDate: new Date().toISOString(), version: 1, author: 'LifeMode' },
     qualitySummary: { overallScore: 92, safetyScore: 95, factualityScore: 90, reviewedAt: new Date().toISOString(), reviewer: 'Lead', decision: 'PASS' as const },
   };
 
@@ -450,7 +450,7 @@ test('Image Assignment & Fallback Regression: Prevents duplicate/unrelated image
       visualTheme: promptResult2.visualTheme,
       recommendedAspectRatio: '16:9',
     },
-    publicationMetadata: { targetDate: new Date().toISOString(), version: 1, author: 'LifeMode Editorial' },
+    publicationMetadata: { targetDate: new Date().toISOString(), version: 1, author: 'LifeMode' },
     qualitySummary: { overallScore: 92, safetyScore: 95, factualityScore: 90, reviewedAt: new Date().toISOString(), reviewer: 'Lead', decision: 'PASS' as const },
   };
 

@@ -2,7 +2,7 @@
 title: "Understanding Extra Virgin Olive Oil: Polyphenols, Harvest Timing, and Real Flavor"
 description: "How early-harvest milling, cultivar characteristics, and oleocanthal chemistry define true extra virgin olive oil, and how to store and cook with it properly."
 pubDate: "2026-09-18T15:20:00.000Z"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags:
   - "food-drink"
   - "ingredients"

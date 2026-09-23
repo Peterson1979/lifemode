@@ -37,6 +37,7 @@ interface ArticleEntry {
     updatedDate?: Date;
     author?: string;
     featured?: boolean;
+    draft?: boolean;
     image?: string;
     imageAlt?: string;
     imagePrompt?: string;
@@ -46,6 +47,7 @@ interface ArticleEntry {
   };
 }
 
+// Gather all articles from all collections
 const allArticles: ArticleEntry[] = [
   ...lifeDocs.map((doc) => ({ id: doc.id, pillar: 'life' as PillarSlug, data: doc.data })),
   ...travelDocs.map((doc) => ({ id: doc.id, pillar: 'travel' as PillarSlug, data: doc.data })),
@@ -54,47 +56,39 @@ const allArticles: ArticleEntry[] = [
   ...moneyDocs.map((doc) => ({ id: doc.id, pillar: 'money' as PillarSlug, data: doc.data })),
   ...wellbeingDocs.map((doc) => ({ id: doc.id, pillar: 'wellbeing' as PillarSlug, data: doc.data })),
   ...cultureDocs.map((doc) => ({ id: doc.id, pillar: 'culture' as PillarSlug, data: doc.data })),
-].sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+];
 
-// Select the daily 3-article package with guaranteed distinct topics
-const dailyStories: ArticleEntry[] = [];
-const usedPillars = new Set<PillarSlug>();
-const displayedIds = new Set<string>();
-
-// 1. Pick the primary featured article (or newest article)
-const initialLead = allArticles.find((a) => a.data.featured) || allArticles[0];
-if (initialLead) {
-  dailyStories.push(initialLead);
-  usedPillars.add(initialLead.pillar);
-  displayedIds.add(initialLead.id);
-}
-
-// 2. Complete the daily 3-article package with distinct topics
+// Deduplicate all non-draft articles and sort deterministically by publication date (newest first)
+const seenIds = new Set<string>();
+const uniqueArticles: ArticleEntry[] = [];
 for (const article of allArticles) {
-  if (dailyStories.length >= 3) break;
-  if (!displayedIds.has(article.id) && !usedPillars.has(article.pillar)) {
-    dailyStories.push(article);
-    usedPillars.add(article.pillar);
-    displayedIds.add(article.id);
+  if (!article.data.draft && !seenIds.has(article.id)) {
+    seenIds.add(article.id);
+    uniqueArticles.push(article);
   }
 }
 
-// Fallback if needed to guarantee 3 stories
-if (dailyStories.length < 3) {
-  for (const article of allArticles) {
-    if (dailyStories.length >= 3) break;
-    if (!displayedIds.has(article.id)) {
-      dailyStories.push(article);
-      displayedIds.add(article.id);
-    }
-  }
-}
+uniqueArticles.sort((a, b) => {
+  const timeA = new Date(a.data.pubDate).getTime();
+  const timeB = new Date(b.data.pubDate).getTime();
+  if (timeB !== timeA) return timeB - timeA;
+  return a.id.localeCompare(b.id);
+});
 
-const leadArticle = dailyStories[0];
-const secondaryArticles = dailyStories.slice(1, 3);
+// Deterministic Latest-3 Featured package:
+// Automatically driven by the latest 3 unique articles from daily content refresh
+const leadArticle = uniqueArticles[0] || null;
+const secondaryArticles = uniqueArticles
+  .filter((a) => a.id !== leadArticle?.id)
+  .slice(0, 2);
 
-const latestDispatches = allArticles
-  .filter((a) => !displayedIds.has(a.id))
+const featuredIds = new Set<string>();
+if (leadArticle) featuredIds.add(leadArticle.id);
+secondaryArticles.forEach((a) => featuredIds.add(a.id));
+
+// Latest stories section displays the subsequent recent articles (deduplicated against featured)
+const latestDispatches = uniqueArticles
+  .filter((a) => !featuredIds.has(a.id))
   .slice(0, 6);
 
 const websiteSchema = generateWebsiteSchema();
@@ -105,22 +99,19 @@ const websiteSchema = generateWebsiteSchema();
   description={SITE_CONFIG.description}
   jsonLd={websiteSchema}
 >
-  <!-- Issue Header / Editorial Intro -->
+  <!-- Main Intro Header -->
   <section class="hero-editorial">
     <div class="container">
-      <div class="hero-kicker-wrap">
-        <span class="hero-tag">LifeMode</span>
-      </div>
       <h1 class="hero-heading">
         Ideas for living well now
       </h1>
       <p class="hero-lead">
-        Practical guides, thoughtful tools, and clear ideas across technology, travel, money, wellbeing, and everyday life.
+        Practical guides, thoughtful tools, and clear ideas across technology, travel, food &amp; drink, personal finance, wellbeing, and everyday life.
       </p>
 
       <!-- Topic Quick Nav Ribbon -->
       <div class="hero-pillar-ribbon">
-        <span class="ribbon-label">Topics:</span>
+        <span class="ribbon-label">Explore Topics:</span>
         <div class="ribbon-badges">
           {PILLAR_SLUGS.map((slug) => (
             <PillarBadge pillar={slug} size="sm" />
@@ -130,14 +121,14 @@ const websiteSchema = generateWebsiteSchema();
     </div>
   </section>
 
-  <!-- Lead Story & Secondary Features (Asymmetric Magazine Composition) -->
+  <!-- Featured 3-Article Magazine Package (Dominant Lead + 2 Secondary Stories) -->
   {leadArticle ? (
     <section class="section">
       <div class="container">
         <div class="section-header">
           <div>
             <span class="section-kicker">Featured</span>
-            <h2 class="section-title">Featured story</h2>
+            <h2 class="section-title">Today's Highlights</h2>
           </div>
           <a href={`/${leadArticle.pillar}`} class="section-link">
             Explore {PILLARS[leadArticle.pillar]?.name || leadArticle.pillar} &rarr;
@@ -167,7 +158,7 @@ const websiteSchema = generateWebsiteSchema();
           <!-- Secondary Companion Stories -->
           {secondaryArticles.length > 0 && (
             <div class="secondary-col">
-              <span class="secondary-header-kicker">More stories</span>
+              <span class="secondary-header-kicker">More Recent Stories</span>
               {secondaryArticles.map((article) => (
                 <ArticleCard
                   pillar={article.pillar}
@@ -205,13 +196,13 @@ const websiteSchema = generateWebsiteSchema();
 
   <!-- Latest Stories (Deduplicated Grid) -->
   {latestDispatches.length > 0 && (
-    <section class="section" style="padding-top: var(--space-6);">
+    <section class="section latest-stories-section">
       <div class="container">
         <div class="section-header">
           <div>
-            <span class="section-kicker">Latest</span>
-            <h2 class="section-title">Latest stories</h2>
-            <p class="section-subtitle">Recent articles and guides</p>
+            <span class="section-kicker">Fresh Perspectives</span>
+            <h2 class="section-title">Latest Stories</h2>
+            <p class="section-subtitle">Recent articles, deep dives, and practical guides</p>
           </div>
         </div>
 
@@ -243,8 +234,8 @@ const websiteSchema = generateWebsiteSchema();
       <div class="section-header">
         <div>
           <span class="section-kicker">Topics</span>
-          <h2 class="section-title">Explore topics</h2>
-          <p class="section-subtitle">Browse stories across our main subjects</p>
+          <h2 class="section-title">Explore Topics</h2>
+          <p class="section-subtitle">Browse stories across all LifeMode subjects</p>
         </div>
       </div>
 
@@ -252,17 +243,20 @@ const websiteSchema = generateWebsiteSchema();
         {PILLAR_SLUGS.map((slug) => {
           const pillar = PILLARS[slug];
           return (
-            <article class="pillar-card" style={`--pillar-color: ${pillar.color};`}>
-              <div class="pillar-card-header">
-                <PillarBadge pillar={slug} size="sm" asLink={false} />
-              </div>
-              <h3 class="pillar-card-title">{pillar.tagline}</h3>
-              <p class="pillar-card-desc">{pillar.description}</p>
-              <div class="pillar-card-footer">
-                <a href={`/${pillar.slug}`} class="pillar-card-link">
-                  <span>Explore {pillar.name}</span>
-                  <span aria-hidden="true">&rarr;</span>
-                </a>
+            <article class="pillar-card" style={`--pillar-color: ${pillar.color}; --pillar-bg: ${pillar.bgLight};`}>
+              <div class="pillar-accent-bar" style={`background-color: ${pillar.color};`}></div>
+              <div class="pillar-card-content">
+                <div class="pillar-card-header">
+                  <PillarBadge pillar={slug} size="sm" asLink={false} />
+                </div>
+                <h3 class="pillar-card-title">{pillar.tagline}</h3>
+                <p class="pillar-card-desc">{pillar.description}</p>
+                <div class="pillar-card-footer">
+                  <a href={`/${pillar.slug}`} class="pillar-card-link">
+                    <span>Explore {pillar.name}</span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </a>
+                </div>
               </div>
             </article>
           );
@@ -276,9 +270,9 @@ const websiteSchema = generateWebsiteSchema();
     <div class="container">
       <div class="section-header">
         <div>
-          <span class="section-kicker">From our projects</span>
-          <h2 class="section-title">Apps & tools</h2>
-          <p class="section-subtitle">Helpful tools and companion projects built by our team</p>
+          <span class="section-kicker">Interactive</span>
+          <h2 class="section-title">Apps &amp; Tools</h2>
+          <p class="section-subtitle">Helpful tools and interactive experiences built by our team</p>
         </div>
       </div>
 
@@ -299,60 +293,62 @@ const websiteSchema = generateWebsiteSchema();
   .hero-pillar-ribbon {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.85rem;
     flex-wrap: wrap;
-    padding-top: var(--space-5);
+    padding-top: var(--space-6);
     border-top: 1px solid var(--color-border);
   }
 
   .ribbon-label {
     font-family: var(--font-sans);
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     color: var(--color-text-muted);
   }
 
   .ribbon-badges {
     display: flex;
-    gap: 0.85rem;
+    gap: 0.65rem;
     flex-wrap: wrap;
   }
 
   .lead-single-wrap {
-    max-width: 860px;
+    max-width: 880px;
     margin: 0 auto;
   }
 
   .secondary-col {
     display: flex;
     flex-direction: column;
-    gap: var(--space-6);
+    gap: var(--space-5);
   }
 
   .secondary-header-kicker {
     font-family: var(--font-sans);
     font-size: 0.725rem;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--color-text-muted);
     padding-bottom: var(--space-2);
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 2px solid var(--color-border);
   }
 
   .empty-state-editorial {
     padding: var(--space-16) var(--space-8);
     text-align: center;
-    background-color: var(--color-surface-subtle);
+    background-color: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
   }
 
   .empty-state-title {
     font-family: var(--font-display);
-    font-size: 2rem;
+    font-size: 2.2rem;
+    font-weight: 700;
     color: var(--color-text-primary);
     margin-top: 0.5rem;
     margin-bottom: 0.75rem;
@@ -366,9 +362,13 @@ const websiteSchema = generateWebsiteSchema();
     margin: 0 auto;
   }
 
+  .latest-stories-section {
+    padding-top: var(--space-6);
+  }
+
   /* Pillar Showcase Section */
   .pillar-showcase-section {
-    background-color: var(--color-surface-subtle);
+    background-color: #f1f5f9;
     border-top: 1px solid var(--color-border);
     border-bottom: 1px solid var(--color-border);
   }
@@ -382,29 +382,43 @@ const websiteSchema = generateWebsiteSchema();
   .pillar-card {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    padding: 1.75rem;
+    border-radius: var(--radius-md);
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: border-color var(--transition-fast), transform var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
   }
 
   .pillar-card:hover {
     border-color: var(--color-border-hover);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .pillar-accent-bar {
+    height: 4px;
+    width: 100%;
+  }
+
+  .pillar-card-content {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
   }
 
   .pillar-card-header {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.85rem;
   }
 
   .pillar-card-title {
     font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: 1.3rem;
+    font-weight: 700;
     color: var(--color-text-primary);
     margin-bottom: 0.5rem;
-    line-height: 1.3;
+    line-height: 1.25;
   }
 
   .pillar-card-desc {
@@ -424,10 +438,10 @@ const websiteSchema = generateWebsiteSchema();
   .pillar-card-link {
     font-family: var(--font-sans);
     font-size: 0.775rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
+    font-weight: 800;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--pillar-color, var(--color-olive));
+    color: var(--pillar-color, var(--color-primary-accent));
     text-decoration: none;
     display: inline-flex;
     align-items: center;

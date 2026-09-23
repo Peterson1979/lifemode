@@ -95,7 +95,7 @@ export class FilesystemContentRepository implements IContentRepository {
         description: article.frontmatter.description.trim(),
         pubDate: article.frontmatter.pubDate || todayDate,
         updatedDate: article.frontmatter.updatedDate,
-        author: article.frontmatter.author || 'LifeMode Editorial',
+        author: article.frontmatter.author || 'LifeMode',
         tags: Array.isArray(article.frontmatter.tags) ? [...article.frontmatter.tags] : [],
         featured: Boolean(article.frontmatter.featured),
         draft: Boolean(article.frontmatter.draft),

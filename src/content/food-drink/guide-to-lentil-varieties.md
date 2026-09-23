@@ -2,7 +2,7 @@
 title: "A Comparative Guide to Lentil Varieties: French Green, Beluga, Brown, and Red"
 description: "From the mineral firmness of Puy to the creamy disintegration of split red dal, how seed coat chemistry dictates cooking technique, texture, and flavor."
 pubDate: "2026-09-18T15:10:00.000Z"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags:
   - "food-drink"
   - "ingredients"

@@ -2,7 +2,7 @@
 title: "Why Sourdough Became a Global Food Culture"
 description: "How wild fermentation, heritage grains, and the quest for tactile craft transformed a simple loaf into a worldwide culinary ritual."
 pubDate: "2026-09-18T14:00:00.000Z"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags:
   - "food-drink"
   - "food-culture"

@@ -15,56 +15,56 @@ export const PILLARS: Record<PillarSlug, PillarConfig> = {
     slug: 'life',
     tagline: 'Living, Habits & Daily Rituals',
     description: 'Intentional living, home aesthetics, productivity systems, and modern daily rituals.',
-    color: '#fb7185', // Rose
-    bgLight: 'rgba(251, 113, 133, 0.1)',
+    color: '#e11d48', // Vibrant Crimson Rose
+    bgLight: 'rgba(225, 29, 72, 0.08)',
   },
   travel: {
     name: 'Travel',
     slug: 'travel',
     tagline: 'Destinations & Global Journeys',
     description: 'Curated itineraries, boutique stays, slow travel, and smart destination intelligence.',
-    color: '#38bdf8', // Sky
-    bgLight: 'rgba(56, 189, 248, 0.1)',
+    color: '#0284c7', // Electric Cerulean
+    bgLight: 'rgba(2, 132, 199, 0.08)',
   },
   'food-drink': {
     name: 'Food & Drink',
     slug: 'food-drink',
     tagline: 'Culinary Craft, Recipes & Living Well',
     description: 'Thoughtful recipes, seasonal cooking, food culture, drinks, kitchen essentials, and mindful culinary journeys.',
-    color: '#ea580c', // Warm Terracotta Ochre
-    bgLight: 'rgba(234, 88, 12, 0.1)',
+    color: '#ea580c', // Warm Terracotta Paprika
+    bgLight: 'rgba(234, 88, 12, 0.08)',
   },
   'tech-ai': {
     name: 'Tech & AI',
     slug: 'tech-ai',
     tagline: 'Intelligent Tools & Innovation',
     description: 'Emerging artificial intelligence, practical software tools, and modern digital lifestyles.',
-    color: '#a78bfa', // Violet
-    bgLight: 'rgba(167, 139, 250, 0.1)',
+    color: '#7c3aed', // Digital Violet
+    bgLight: 'rgba(124, 58, 237, 0.08)',
   },
   money: {
     name: 'Money',
     slug: 'money',
     tagline: 'Wealth, Strategy & Freedom',
     description: 'Personal finance frameworks, strategic investing, and digital economy navigation.',
-    color: '#34d399', // Emerald
-    bgLight: 'rgba(52, 211, 153, 0.1)',
+    color: '#059669', // Emerald Slate
+    bgLight: 'rgba(5, 150, 105, 0.08)',
   },
   wellbeing: {
     name: 'Wellbeing',
     slug: 'wellbeing',
     tagline: 'Health, Vitality & Mindset',
     description: 'Evidence-based longevity, mental resilience, fitness protocols, and holistic health.',
-    color: '#fbbf24', // Amber
-    bgLight: 'rgba(251, 191, 36, 0.1)',
+    color: '#d97706', // Vital Amber
+    bgLight: 'rgba(217, 119, 6, 0.08)',
   },
   culture: {
     name: 'Culture',
     slug: 'culture',
     tagline: 'Culture, Books & Design',
     description: 'Architectural gems, curated literature, art exhibitions, and timeless curiosities.',
-    color: '#fb923c', // Warm Ochre
-    bgLight: 'rgba(251, 146, 60, 0.1)',
+    color: '#c026d3', // Rich Fuchsia
+    bgLight: 'rgba(192, 38, 211, 0.08)',
   },
 };
 

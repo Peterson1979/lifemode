@@ -2,7 +2,7 @@
 title: "Delta Flight 2311 Rapid Descent: what to know"
 description: "A practical overview of delta flight 2311 rapid descent: what to know, covering essential methods and everyday applications."
 pubDate: "2026-09-20T10:50:42.928Z"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags: ["US","travel","trending"]
 featured: false
 draft: false

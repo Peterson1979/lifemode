@@ -2,7 +2,7 @@
 title: "Josh Hartnett: Canadian actor stars in Netflix’s underwater thriller Below"
 description: "Josh Hartnett, now a Canadian actor, leads Netflix’s suspenseful series Below. Discover his background, recent career highlights, and what the show offers."
 pubDate: "2026-09-16T20:58:37.615Z"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags: ["US", "trending", "culture"]
 featured: false
 draft: false

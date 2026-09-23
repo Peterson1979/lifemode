@@ -2,7 +2,7 @@
 title: "Smartphone Market Trends: Key Players, Pricing Pressure, and Shifting Global Demand"
 description: "Discover how Samsung, Apple, and new Indian brands shape the shrinking smartphone market, and learn practical insights for investors, consumers, and developers."
 pubDate: "2026-09-19T10:34:15.886Z"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags: ["US","money","trending"]
 featured: false
 draft: false
@@ -26,7 +26,6 @@ version: 1
 lifecycleStatus: "STORED"
 ---
 
-## Introduction
 Smartphones now sit at the core of global connectivity.  Yet the industry that once promised limitless expansion is tightening.  Omdia forecasts a 12 % contraction in overall volume by 2026 as brands shift toward higher‑price models.  Samsung remains the top seller in the first half of 2026, while India’s affordable segment attracts a wave of new entrants.  Apple’s latest iPhone launch has stirred debate about its impact on price‑sensitive consumers.  These trends illustrate a market that is moving from pure quantity to careful value creation.
 
 ## Market Landscape

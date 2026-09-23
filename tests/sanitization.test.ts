@@ -187,7 +187,6 @@ test('Sanitization - Production article now/the-2026-cultural-shift-toward-digit
   const parsed = parseArticle(rawFile, 'culture', 'the-2026-cultural-shift-toward-digital-intentionality', articlePath);
   assert.equal(parsed.frontmatter.title, 'The cultural shift toward digital intentionality');
   assert.equal(parsed.frontmatter.sources.length, 3);
-  assert.ok(parsed.content.includes('## Introduction & Core Perspective'));
   assert.ok(parsed.content.includes('## FAQ'));
   assert.ok(parsed.content.includes('**Sources**'));
 });

@@ -36,7 +36,7 @@ const sampleFrontmatter: StoredArticleFrontmatter = {
   title: 'Minimalist Workspaces and Local AI in 2026',
   description: 'An editorial guide on configuring intentional workstations with quiet local AI hardware.',
   pubDate: '2026-09-09',
-  author: 'LifeMode Editorial',
+  author: 'LifeMode',
   tags: ['workspaces', 'minimalism', 'hardware'],
   featured: true,
   draft: false,
@@ -78,7 +78,7 @@ test('LifeMode Article Serializer', async (t) => {
     assert.ok(serialized.includes('title: "Minimalist Workspaces and Local AI in 2026"'));
     assert.ok(serialized.includes('description: "An editorial guide on configuring intentional workstations with quiet local AI hardware."'));
     assert.ok(serialized.includes('pubDate: "2026-09-09"'));
-    assert.ok(serialized.includes('author: "LifeMode Editorial"'));
+    assert.ok(serialized.includes('author: "LifeMode"'));
     assert.ok(serialized.includes('tags: ["workspaces","minimalism","hardware"]'));
     assert.ok(serialized.includes('featured: true'));
     assert.ok(serialized.includes('draft: false'));
@@ -404,7 +404,7 @@ test('Publishing V1 Integration Adapter', async (t) => {
     publicationMetadata: {
       targetDate: '2026-09-09',
       version: 1,
-      author: 'LifeMode Editorial',
+      author: 'LifeMode',
     },
     qualitySummary: {
       overallScore: 92,

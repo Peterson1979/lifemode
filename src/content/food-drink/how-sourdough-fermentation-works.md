@@ -2,7 +2,7 @@
 title: "The Biology of Sourdough: How Wild Yeasts, Acid, and Time Transform Flour"
 description: "An exploration of the microbial ecology inside a sourdough starter, the chemistry of gluten relaxation, and why slow fermentation unlocks complex aroma."
 pubDate: "2026-09-18T15:00:00.000Z"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags:
   - "food-drink"
   - "cooking"

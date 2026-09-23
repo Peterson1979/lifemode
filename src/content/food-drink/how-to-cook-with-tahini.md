@@ -2,7 +2,7 @@
 title: "The Art of Cooking With Tahini: Emulsions, Savory Sauces, and Dessert Balance"
 description: "The chemistry of sesame paste, why adding liquid initially seizes the emulsion before turning silky, and how to use tahini across savory and sweet cooking."
 pubDate: "2026-09-18T15:25:00.000Z"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags:
   - "food-drink"
   - "ingredients"

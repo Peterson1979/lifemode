@@ -376,7 +376,7 @@ test('18. Generation prompt builder communicates target vs minimum word counts a
   assert.ok(payload.userPrompt.includes('TARGET WORD COUNT: Approximately 1200 words'));
   assert.ok(payload.userPrompt.includes('ABSOLUTE MINIMUM ACCEPTABLE WORD COUNT: 800 words'));
   assert.ok(payload.userPrompt.includes('Internal Structural & Length Allocation Plan'));
-  assert.ok(payload.userPrompt.includes('Introduction (~15%'));
+  assert.ok(payload.userPrompt.includes('Opening Context (~15%'));
   assert.ok(payload.userPrompt.includes('Core Major Sections (~70%'));
   assert.ok(payload.userPrompt.includes('Conclusion & Practical Takeaways (~15%'));
   assert.ok(payload.userPrompt.includes('Do NOT output these planning notes'));
@@ -388,8 +388,8 @@ test('19. Generation prompt builder enforces depth directives and zero-filler/ze
   // System prompt guidelines
   assert.ok(payload.systemPrompt.includes('Complete Article Requirement'));
   assert.ok(payload.systemPrompt.includes('Section-by-Section Depth'));
-  assert.ok(payload.systemPrompt.includes('Substantive Introduction & Conclusion'));
-  assert.ok(payload.systemPrompt.includes('Natural Editorial Prose & Zero Filler'));
+  assert.ok(payload.systemPrompt.includes('Opening & Conclusion Directives'));
+  assert.ok(payload.systemPrompt.includes('Natural Editorial Writing & Zero AI Clichés'));
   assert.ok(payload.systemPrompt.includes('Factuality & Evidence'));
   assert.ok(payload.systemPrompt.includes('JSON Schema Conformance'));
 });

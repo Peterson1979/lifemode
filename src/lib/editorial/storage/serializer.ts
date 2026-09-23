@@ -70,7 +70,7 @@ export function serializeArticle(input: {
     lines.push(`updatedDate: ${JSON.stringify(frontmatter.updatedDate)}`);
   }
 
-  lines.push(`author: ${JSON.stringify(frontmatter.author || 'LifeMode Editorial')}`);
+  lines.push(`author: ${JSON.stringify(frontmatter.author || 'LifeMode')}`);
   lines.push(`tags: ${JSON.stringify(frontmatter.tags || [])}`);
   lines.push(`featured: ${Boolean(frontmatter.featured)}`);
   lines.push(`draft: ${Boolean(frontmatter.draft)}`);
@@ -217,7 +217,7 @@ export function parseArticle(
     description: parsedData.description.trim(),
     pubDate: parsedData.pubDate,
     updatedDate: parsedData.updatedDate,
-    author: parsedData.author || 'LifeMode Editorial',
+    author: parsedData.author || 'LifeMode',
     tags: Array.isArray(parsedData.tags) ? parsedData.tags : [],
     featured: Boolean(parsedData.featured),
     draft: Boolean(parsedData.draft),

@@ -3,7 +3,7 @@ title: "The analog turn: why high-signal professionals are returning to tactile 
 description: "An inquiry into why writers, strategists, and knowledge workers are integrating paper notebooks, physical planners, and single-purpose tools back into their daily workflows."
 pubDate: "2026-09-11T07:28:52.883Z"
 updatedDate: "2026-09-18"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags: ["trends", "analog", "productivity", "focus", "work-culture", "culture"]
 featured: false
 draft: false

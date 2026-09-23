@@ -3,7 +3,7 @@ title: "The quietest islands in the Azores: hot springs, volcanic trails, and so
 description: "A guide to the quieter, more remote islands of the Azores archipelago, exploring volcanic landscapes, solitary trails, and the practical trade-offs of Atlantic island travel."
 pubDate: "2026-09-11T06:56:33.888Z"
 updatedDate: "2026-09-18"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags: ["travel", "azores", "islands", "slow-travel", "nature"]
 featured: false
 draft: false

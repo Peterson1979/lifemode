@@ -7,10 +7,6 @@ export interface Props {
 }
 
 const { project, compact = false } = Astro.props;
-
-if (!project) {
-  // Safe no-op when no project is provided
-}
 ---
 
 {project && (
@@ -60,14 +56,16 @@ if (!project) {
   .owned-project-cta {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     padding: var(--space-6);
-    transition: border-color var(--transition-fast), transform var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
   }
 
   .owned-project-cta:hover {
     border-color: var(--color-border-hover);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
   }
 
   .cta-header {
@@ -76,13 +74,13 @@ if (!project) {
     align-items: center;
     margin-bottom: var(--space-3);
     font-size: 0.7rem;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.1em;
   }
 
   .cta-kicker {
-    color: var(--color-olive);
+    color: var(--color-primary-accent);
   }
 
   .cta-categories {
@@ -92,7 +90,7 @@ if (!project) {
   .cta-title {
     font-family: var(--font-display);
     font-size: 1.35rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: -0.015em;
     margin-bottom: 0.25rem;
   }
@@ -104,7 +102,7 @@ if (!project) {
   }
 
   .cta-title-link:hover {
-    color: var(--color-olive);
+    color: var(--color-primary-accent);
   }
 
   .cta-tagline {
@@ -131,10 +129,10 @@ if (!project) {
   .cta-link {
     font-family: var(--font-sans);
     font-size: 0.775rem;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: var(--color-olive);
+    color: var(--color-primary-accent);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -143,7 +141,6 @@ if (!project) {
   }
 
   .cta-link:hover {
-    color: var(--color-primary-hover);
     gap: 0.55rem;
   }
 

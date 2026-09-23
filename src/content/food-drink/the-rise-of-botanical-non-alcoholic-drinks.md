@@ -2,7 +2,7 @@
 title: "The Rise of Botanical Non-Alcoholic Drinks: Complexity Without Alcohol"
 description: "How steam distillation, fruit vinegars, and bitter botanical extractions are replacing sugary mocktails with sophisticated, adult zero-proof beverages."
 pubDate: "2026-09-18T15:50:00.000Z"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags:
   - "food-drink"
   - "drinks"

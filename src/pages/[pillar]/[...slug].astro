@@ -27,7 +27,7 @@ export async function getStaticPaths() {
     for (const entry of rawEntries) {
       // Get related entries from the same pillar (excluding current)
       const relatedEntries = rawEntries
-        .filter((e: any) => e.id !== entry.id)
+        .filter((e: any) => e.id !== entry.id && !e.data.draft)
         .slice(0, 3);
 
       paths.push({
@@ -173,17 +173,17 @@ const combinedJsonLd = [contentJsonLd, breadcrumbJsonLd];
         <!-- Byline & Editorial Metadata Bar -->
         <div class="article-byline-bar">
           <div class="article-byline-meta">
-            <span>By <strong style="color: var(--color-text-primary); font-family: var(--font-sans);">{entry.data.author || 'LifeMode Editorial'}</strong></span>
+            <span>By <strong style="color: var(--color-text-primary); font-family: var(--font-sans);">{entry.data.author || 'LifeMode'}</strong></span>
             <span style="color: var(--color-text-dim);">&bull;</span>
-            <span>Published on <time datetime={toISODate(entry.data.pubDate)} style="color: var(--color-text-primary);">{pubDateFormatted}</time></span>
+            <span>Published on <time datetime={toISODate(entry.data.pubDate)} style="color: var(--color-text-primary); font-weight: 600;">{pubDateFormatted}</time></span>
             {updatedDateFormatted && entry.data.updatedDate && (
               <>
                 <span style="color: var(--color-text-dim);">&bull;</span>
-                <span>Updated <time datetime={toISODate(entry.data.updatedDate)} style="color: var(--color-text-primary);">{updatedDateFormatted}</time></span>
+                <span>Updated <time datetime={toISODate(entry.data.updatedDate)} style="color: var(--color-text-primary); font-weight: 600;">{updatedDateFormatted}</time></span>
               </>
             )}
           </div>
-          <div style="font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-olive);">
+          <div style={`font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: ${pillar.color};`}>
             LifeMode &bull; {pillar.name}
           </div>
         </div>
@@ -199,7 +199,7 @@ const combinedJsonLd = [contentJsonLd, breadcrumbJsonLd];
             loading="eager"
           />
           {entry.data.imageSource && (
-            <figcaption class="article-hero-caption" style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--color-text-dim, #71717a); text-align: right;">
+            <figcaption class="article-hero-caption" style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--color-text-dim, #94a3b8); text-align: right; padding-right: 0.5rem;">
               Photo / Source: {entry.data.imageSource}
             </figcaption>
           )}
@@ -208,8 +208,8 @@ const combinedJsonLd = [contentJsonLd, breadcrumbJsonLd];
         <div class="article-hero-media">
           <div class="article-hero-fallback">
             <div style="text-align: center; padding: var(--space-8);">
-              <span style="font-family: var(--font-display); font-size: 2.5rem; font-style: italic; font-weight: 700; color: var(--color-text-muted); display: block; margin-bottom: 0.25rem;">LM</span>
-              <span style="font-family: var(--font-sans); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-text-muted);">
+              <span style={`font-family: var(--font-display); font-size: 2.8rem; font-style: italic; font-weight: 700; color: ${pillar.color}; display: block; margin-bottom: 0.25rem;`}>LM</span>
+              <span style="font-family: var(--font-sans); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-text-muted);">
                 {pillar.name}
               </span>
             </div>
@@ -230,13 +230,13 @@ const combinedJsonLd = [contentJsonLd, breadcrumbJsonLd];
       <!-- Visible Sources & Research Grounding Section -->
       {entry.data.sources && entry.data.sources.length > 0 && (
         <section class="article-sources-section" style="margin-top: var(--space-8); margin-bottom: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--color-border);">
-          <h2 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 600; color: var(--color-text-primary); margin-bottom: var(--space-3); letter-spacing: -0.01em;">
-            Sources
+          <h2 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: var(--space-3); letter-spacing: -0.01em;">
+            Sources &amp; References
           </h2>
           <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem;">
             {entry.data.sources.map((source: { name: string; url: string }) => (
-              <li style="font-size: 0.8125rem; color: var(--color-text-muted); display: flex; align-items: baseline; gap: 0.5rem;">
-                <span style="color: var(--color-olive);">&bull;</span>
+              <li style="font-size: 0.85rem; color: var(--color-text-muted); display: flex; align-items: baseline; gap: 0.5rem;">
+                <span style={`color: ${pillar.color};`}>&bull;</span>
                 {source.url ? (
                   <a
                     href={source.url}
@@ -261,7 +261,7 @@ const combinedJsonLd = [contentJsonLd, breadcrumbJsonLd];
           <a href={`/${pillar.slug}`} class="btn btn-outline" style="font-size: 0.8125rem;">
             &larr; More in {pillar.name}
           </a>
-          <a href="/" class="btn btn-outline" style="font-size: 0.8125rem; color: var(--color-olive);">
+          <a href="/" class="btn btn-outline" style="font-size: 0.8125rem; color: var(--color-primary-accent);">
             All stories &rarr;
           </a>
         </div>
@@ -282,7 +282,7 @@ const combinedJsonLd = [contentJsonLd, breadcrumbJsonLd];
       <section style="margin-top: var(--space-16); padding-top: var(--space-10); border-top: 1px solid var(--color-border);">
         <div class="section-header">
           <div>
-            <span class="section-kicker">More stories</span>
+            <span class="section-kicker">Related Stories</span>
             <h2 class="section-title">More in {pillar.name}</h2>
           </div>
           <a href={`/${pillar.slug}`} class="section-link">
@@ -311,6 +311,6 @@ const combinedJsonLd = [contentJsonLd, breadcrumbJsonLd];
     )}
   </div>
 
-  <!-- API / Current-Data / Topic Intelligence Block (Placed at bottom immediately above footer) -->
+  <!-- API / Current-Data / Topic Intelligence Block -->
   <TopicDataSection pillar={pillar.slug as PillarSlug} pillarName={pillar.name} />
 </BaseLayout>

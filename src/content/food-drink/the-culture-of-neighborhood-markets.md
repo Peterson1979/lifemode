@@ -2,7 +2,7 @@
 title: "Why Neighborhood Markets Anchor the World's Great Food Cultures"
 description: "From the covered halls of Lyon and Barcelona to the morning wet markets of Kyoto, how physical market ecosystems preserve regional culinary biodiversity and daily rhythm."
 pubDate: "2026-09-18T15:35:00.000Z"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags:
   - "food-drink"
   - "food-culture"

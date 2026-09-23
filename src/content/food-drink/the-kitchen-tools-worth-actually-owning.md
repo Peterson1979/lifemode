@@ -2,7 +2,7 @@
 title: "The Kitchen Tools Worth Actually Owning: A Minimalist Culinary Guide"
 description: "Why stripping your kitchen down to high-utility, enduring cookware sharpens cooking technique, saves space, and brings calm to daily meal preparation."
 pubDate: "2026-09-18T14:15:00.000Z"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags:
   - "food-drink"
   - "kitchen"

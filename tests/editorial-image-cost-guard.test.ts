@@ -74,7 +74,7 @@ function createSamplePublishPackage(): PublishPackage {
     publicationMetadata: {
       targetDate: '2026-09-11T12:00:00.000Z',
       version: 1,
-      author: 'LifeMode Editorial',
+      author: 'LifeMode',
     },
     qualitySummary: {
       overallScore: 92,

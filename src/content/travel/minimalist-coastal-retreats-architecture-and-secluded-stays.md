@@ -3,7 +3,7 @@ title: "Minimalist coastal retreats: secluded architecture across the Mediterran
 description: "An architectural exploration of minimalist coastal design across the Mediterranean, examining vernacular materials, light, thermal mass, and the art of secluded living."
 pubDate: "2026-09-10T11:45:56.317Z"
 updatedDate: "2026-09-18"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags: ["travel", "mediterranean", "architecture", "design", "slow-travel"]
 featured: false
 draft: false

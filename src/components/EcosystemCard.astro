@@ -11,7 +11,7 @@ const { project, compact = false } = Astro.props;
 
 <article class={`ecosystem-card ${compact ? 'ecosystem-card-compact' : ''}`}>
   <div class="ecosystem-header">
-    <span class="ecosystem-kicker">Project</span>
+    <span class="ecosystem-kicker">App &amp; Tool</span>
     <span class="ecosystem-categories">
       {project.categories.slice(0, 2).join(' / ')}
     </span>
@@ -38,16 +38,18 @@ const { project, compact = false } = Astro.props;
   .ecosystem-card {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     padding: var(--space-6);
     display: flex;
     flex-direction: column;
-    transition: border-color var(--transition-fast), transform var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
   }
 
   .ecosystem-card:hover {
     border-color: var(--color-border-hover);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
   }
 
   .ecosystem-header {
@@ -56,13 +58,13 @@ const { project, compact = false } = Astro.props;
     align-items: center;
     margin-bottom: var(--space-3);
     font-size: 0.7rem;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.1em;
   }
 
   .ecosystem-kicker {
-    color: var(--color-olive);
+    color: var(--color-primary-accent);
   }
 
   .ecosystem-categories {
@@ -71,9 +73,9 @@ const { project, compact = false } = Astro.props;
 
   .ecosystem-title {
     font-family: var(--font-display);
-    font-size: 1.35rem;
-    font-weight: 600;
-    letter-spacing: -0.015em;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     margin-bottom: 0.25rem;
   }
 
@@ -84,12 +86,12 @@ const { project, compact = false } = Astro.props;
   }
 
   .ecosystem-title-link:hover {
-    color: var(--color-olive);
+    color: var(--color-primary-accent);
   }
 
   .ecosystem-tagline {
     font-family: var(--font-serif);
-    font-size: 0.925rem;
+    font-size: 0.95rem;
     font-style: italic;
     color: var(--color-text-secondary);
     margin-bottom: var(--space-3);
@@ -106,17 +108,17 @@ const { project, compact = false } = Astro.props;
 
   .ecosystem-footer {
     margin-top: auto;
-    padding-top: var(--space-3);
+    padding-top: var(--space-4);
     border-top: 1px solid var(--color-border-subtle);
   }
 
   .ecosystem-link {
     font-family: var(--font-sans);
     font-size: 0.775rem;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: var(--color-olive);
+    color: var(--color-primary-accent);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -125,12 +127,11 @@ const { project, compact = false } = Astro.props;
   }
 
   .ecosystem-link:hover {
-    color: var(--color-primary-hover);
-    gap: 0.55rem;
+    gap: 0.6rem;
   }
 
   .link-arrow {
-    font-size: 1em;
+    font-size: 1.1em;
   }
 
   /* Compact Variant */

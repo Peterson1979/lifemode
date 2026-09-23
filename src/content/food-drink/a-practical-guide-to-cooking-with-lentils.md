@@ -2,7 +2,7 @@
 title: "A Practical Guide to Cooking With Lentils: Varieties, Texture, and Flavor"
 description: "How to choose, season, and cook different lentil varieties to draw out their earthy depth, creamy textures, and remarkable nutritional density."
 pubDate: "2026-09-18T14:30:00.000Z"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags:
   - "food-drink"
   - "ingredients"

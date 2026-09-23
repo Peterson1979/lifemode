@@ -11,68 +11,95 @@ const { pillar, size = 'sm', asLink = true } = Astro.props;
 const pillarConfig = PILLARS[pillar as PillarSlug] || {
   name: pillar,
   slug: pillar,
-  color: 'var(--color-olive)',
-  bgLight: 'rgba(72, 92, 75, 0.08)',
+  color: 'var(--color-primary-accent)',
+  bgLight: 'rgba(37, 99, 235, 0.08)',
 };
 ---
 
 {asLink ? (
   <a
     href={`/${pillarConfig.slug}`}
-    class={`pillar-kicker pillar-kicker-${size}`}
-    style={`--kicker-color: ${pillarConfig.color};`}
+    class={`pillar-badge pillar-badge-${size}`}
+    style={`--badge-color: ${pillarConfig.color}; --badge-bg: ${pillarConfig.bgLight};`}
   >
-    <span class="kicker-bullet">&bull;</span>
-    <span>{pillarConfig.name}</span>
+    <span class="badge-dot" aria-hidden="true"></span>
+    <span class="badge-label">{pillarConfig.name}</span>
   </a>
 ) : (
   <span
-    class={`pillar-kicker pillar-kicker-${size}`}
-    style={`--kicker-color: ${pillarConfig.color};`}
+    class={`pillar-badge pillar-badge-${size}`}
+    style={`--badge-color: ${pillarConfig.color}; --badge-bg: ${pillarConfig.bgLight};`}
   >
-    <span class="kicker-bullet">&bull;</span>
-    <span>{pillarConfig.name}</span>
+    <span class="badge-dot" aria-hidden="true"></span>
+    <span class="badge-label">{pillarConfig.name}</span>
   </span>
 )}
 
 <style>
-  .pillar-kicker {
+  .pillar-badge {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
     font-family: var(--font-sans);
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--kicker-color, var(--color-olive));
+    letter-spacing: 0.08em;
+    color: var(--badge-color);
+    background-color: var(--badge-bg);
+    border: 1px solid color-mix(in srgb, var(--badge-color) 25%, transparent);
+    border-radius: var(--radius-full);
     text-decoration: none;
     line-height: 1;
     white-space: nowrap;
-    transition: color var(--transition-fast), opacity var(--transition-fast);
+    transition: all var(--transition-fast);
   }
 
-  .pillar-kicker:hover {
-    opacity: 0.8;
+  .pillar-badge:hover {
+    background-color: color-mix(in srgb, var(--badge-color) 16%, transparent);
+    border-color: color-mix(in srgb, var(--badge-color) 45%, transparent);
+    transform: translateY(-1px);
   }
 
-  .kicker-bullet {
-    font-size: 0.9em;
-    opacity: 0.7;
+  .badge-dot {
+    display: inline-block;
+    border-radius: 50%;
+    background-color: var(--badge-color);
+    box-shadow: 0 0 6px color-mix(in srgb, var(--badge-color) 60%, transparent);
   }
 
-  .pillar-kicker-xs {
-    font-size: 0.65rem;
+  .pillar-badge-xs {
+    font-size: 0.625rem;
+    padding: 0.2rem 0.5rem;
+  }
+  .pillar-badge-xs .badge-dot {
+    width: 4px;
+    height: 4px;
   }
 
-  .pillar-kicker-sm {
-    font-size: 0.725rem;
+  .pillar-badge-sm {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.65rem;
+  }
+  .pillar-badge-sm .badge-dot {
+    width: 5px;
+    height: 5px;
   }
 
-  .pillar-kicker-md {
-    font-size: 0.8rem;
+  .pillar-badge-md {
+    font-size: 0.775rem;
+    padding: 0.35rem 0.85rem;
+  }
+  .pillar-badge-md .badge-dot {
+    width: 6px;
+    height: 6px;
   }
 
-  .pillar-kicker-lg {
-    font-size: 0.875rem;
+  .pillar-badge-lg {
+    font-size: 0.85rem;
+    padding: 0.45rem 1rem;
+  }
+  .pillar-badge-lg .badge-dot {
+    width: 7px;
+    height: 7px;
   }
 </style>

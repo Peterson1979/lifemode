@@ -2,7 +2,7 @@
 title: "Late summer harvest: preserving heirloom produce and wild ferments"
 description: "Explore how to capture the taste of late‑summer heirloom crops and turn wild ferments into lasting pantry staples, with concrete steps and sensory details."
 pubDate: "2026-09-22T11:08:19.864Z"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags: ["food-drink","seasonal-food","fermentation","harvest"]
 featured: false
 draft: false

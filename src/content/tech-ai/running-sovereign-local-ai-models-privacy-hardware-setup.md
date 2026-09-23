@@ -3,7 +3,7 @@ title: "A practical setup for running sovereign AI models locally"
 description: "Explore how to run AI models on your own hardware for complete privacy, learn benchmarked performance, and discover everyday use cases that fit a minimalist, intentional lifestyle."
 pubDate: "2026-09-11T10:45:50.307Z"
 updatedDate: "2026-09-12"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags: ["tech-ai","privacy","local-llm","hardware"]
 featured: false
 draft: false
@@ -23,7 +23,6 @@ version: 2
 lifecycleStatus: "STORED"
 ---
 
-## Introduction & Core Perspective
 The world of AI feels increasingly opaque. Models trained on global data centers, shielded behind layers of telemetry, raise questions that no one in the average home can ignore. Running sovereign local AI models—those that stay on your device, never send data to a cloud, and are under your full control—offers a radical shift. It’s not a fringe tech experiment; it’s an emerging lifestyle choice that aligns with minimalist living, data privacy, and a desire for intentional tech use.
 
 Sovereignty in this context means ownership of the data, the model weights, and the inference process. You decide which prompts, which contexts, and which conversations get processed. By contrast, cloud‑based APIs hand your inputs to third‑party servers, logging every keystroke. In a world where privacy breaches and algorithmic bias are headline news, this hands‑on control can become a cornerstone of modern self‑care.

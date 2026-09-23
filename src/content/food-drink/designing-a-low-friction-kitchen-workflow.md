@@ -2,7 +2,7 @@
 title: "Designing a Low-Friction Kitchen: Mise en Place, Counter Space, and Daily Rhythm"
 description: "How professional kitchen ergonomics, zoned prep triangles, and minimalist counter hygiene remove cognitive friction and make daily home cooking effortless."
 pubDate: "2026-09-18T15:55:00.000Z"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags:
   - "food-drink"
   - "kitchen"

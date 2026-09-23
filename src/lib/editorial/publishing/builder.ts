@@ -15,7 +15,7 @@ export function buildPublishPackage(
   const { article, review, context } = request;
 
   const targetDate = options.targetDate || new Date().toISOString();
-  const author = options.author || 'LifeMode Editorial';
+  const author = options.author || 'LifeMode';
   const id = `pub-${context.topicId}-${article.slug}`;
 
   const { cleanContent, extractedMetadata } = sanitizeArticleContent(article.content || '');

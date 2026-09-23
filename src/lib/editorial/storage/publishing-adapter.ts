@@ -23,7 +23,7 @@ export function publishPackageToStoredArticleInput(
       title: pkg.title,
       description: pkg.description,
       pubDate: pkg.publicationMetadata?.targetDate || new Date().toISOString().split('T')[0],
-      author: pkg.publicationMetadata?.author || 'LifeMode Editorial',
+      author: pkg.publicationMetadata?.author || 'LifeMode',
       tags: pkg.tags || [],
       featured: false,
       draft: false,

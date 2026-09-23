@@ -3,7 +3,7 @@ title: "The counter-culture of friction: why people are intentionally slowing do
 description: "Why people are intentionally introducing obstacles, delays, and physical boundaries into their digital lives to reclaim focus, discernment, and cognitive autonomy."
 pubDate: "2026-09-11T07:22:02.419Z"
 updatedDate: "2026-09-18"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags: ["trends", "digital-wellbeing", "intentionality", "lifestyle", "philosophy", "culture"]
 featured: false
 draft: false

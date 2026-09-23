@@ -2,7 +2,7 @@
 title: "Who is Fidelity Bitcoin? Background, milestones, and latest overview"
 description: "Fidelity’s Bitcoin ETF, FBTC, launched in 2023. Here’s a clear look at its launch, recent outflows, impact, and what investors should know."
 pubDate: "2026-09-20T15:36:27.453Z"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags: ["US","money","trending"]
 featured: false
 draft: false
@@ -26,7 +26,6 @@ version: 1
 lifecycleStatus: "STORED"
 ---
 
-## Introduction
 Fidelity Investments has become a visible name in the crypto world with the launch of its Bitcoin exchange‑traded product, FBTC. The move marked one of the largest institutional entries into Bitcoin‑based securities in 2023. The product’s performance, liquidity movements, and the broader market context give investors a concrete frame to gauge the viability of Bitcoin as a mainstream asset. Understanding where FBTC sits in Fidelity’s portfolio, what it offers, and the recent shifts in investor behavior is essential for anyone considering a position in crypto‑linked ETFs.
 
 ## Background & career context

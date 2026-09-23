@@ -2,7 +2,7 @@
 title: "The high‑yield cash buffer: why a liquid reserve beats rigid budgeting"
 description: "Learn how a flexible, high‑yield cash reserve outperforms strict budgeting for modern households and independent professionals."
 pubDate: "2026-09-12"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags: ["money","finance","savings","banking","wealth"]
 featured: false
 draft: false
@@ -22,7 +22,6 @@ version: 1
 lifecycleStatus: "STORED"
 ---
 
-## Introduction
 Cash management for the independent professional and the modern household is no longer about packing every dollar into a spreadsheet.  The real advantage comes from a liquid reserve that earns a decent return while staying fully accessible.  A high‑yield cash buffer lets you cover emergencies, seize opportunities, and keep your financial flow smooth.  In this article we explain why a flexible reserve beats rigid budgeting, outline a proven framework, and give you concrete actions to start building it now.
 
 ## Background & Core Context

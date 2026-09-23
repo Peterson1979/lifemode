@@ -164,7 +164,7 @@ const hasQuickFacts =
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-card);
   }
 
   .recipe-meta-grid {
@@ -185,7 +185,7 @@ const hasQuickFacts =
   .recipe-meta-label {
     font-family: var(--font-sans);
     font-size: 0.725rem;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--color-text-muted);
@@ -194,7 +194,7 @@ const hasQuickFacts =
   .recipe-meta-val {
     font-family: var(--font-sans);
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--color-text-primary);
   }
 
@@ -209,7 +209,7 @@ const hasQuickFacts =
   .recipe-dietary-label {
     font-family: var(--font-sans);
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--color-text-muted);
@@ -224,12 +224,12 @@ const hasQuickFacts =
   .badge-dietary {
     font-family: var(--font-sans);
     font-size: 0.725rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: capitalize;
-    color: var(--color-olive);
-    background-color: rgba(72, 92, 75, 0.08);
-    border: 1px solid rgba(72, 92, 75, 0.18);
-    padding: 0.2rem 0.6rem;
+    color: var(--pillar-food-drink, #ea580c);
+    background-color: rgba(234, 88, 12, 0.08);
+    border: 1px solid rgba(234, 88, 12, 0.2);
+    padding: 0.2rem 0.65rem;
     border-radius: var(--radius-full);
   }
 
@@ -243,7 +243,7 @@ const hasQuickFacts =
   .recipe-section-heading {
     font-family: var(--font-display);
     font-size: 1.35rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: -0.015em;
     color: var(--color-text-primary);
     margin-bottom: var(--space-4);
@@ -253,7 +253,7 @@ const hasQuickFacts =
   }
 
   .heading-accent {
-    color: var(--pillar-food-drink, #c2593f);
+    color: var(--pillar-food-drink, #ea580c);
   }
 
   .recipe-ingredients-list {
@@ -280,8 +280,8 @@ const hasQuickFacts =
   }
 
   .ingredient-bullet {
-    color: var(--pillar-food-drink, #c2593f);
-    font-weight: 700;
+    color: var(--pillar-food-drink, #ea580c);
+    font-weight: 800;
   }
 
   .recipe-directions-list {
@@ -306,10 +306,10 @@ const hasQuickFacts =
     border-radius: 50%;
     background-color: var(--color-surface-subtle);
     border: 1px solid var(--color-border);
-    color: var(--pillar-food-drink, #c2593f);
+    color: var(--pillar-food-drink, #ea580c);
     font-family: var(--font-sans);
     font-size: 0.8125rem;
-    font-weight: 700;
+    font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -327,8 +327,8 @@ const hasQuickFacts =
   .recipe-provenance-box {
     background-color: var(--color-surface-subtle);
     border: 1px solid var(--color-border);
-    border-left: 3px solid var(--pillar-food-drink, #c2593f);
-    border-radius: var(--radius-xs);
+    border-left: 3px solid var(--pillar-food-drink, #ea580c);
+    border-radius: var(--radius-sm);
     padding: var(--space-5);
   }
 
@@ -344,20 +344,20 @@ const hasQuickFacts =
   .provenance-kicker {
     font-family: var(--font-sans);
     font-size: 0.725rem;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--pillar-food-drink, #c2593f);
+    color: var(--pillar-food-drink, #ea580c);
   }
 
   .provenance-license-badge {
     font-family: var(--font-sans);
     font-size: 0.7rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--color-text-muted);
     background-color: var(--color-surface);
     padding: 0.15rem 0.5rem;
-    border-radius: var(--radius-xs);
+    border-radius: var(--radius-full);
     border: 1px solid var(--color-border-subtle);
   }
 
@@ -377,7 +377,7 @@ const hasQuickFacts =
   .provenance-source-link {
     font-family: var(--font-sans);
     font-size: 0.775rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--color-text-primary);
     text-decoration: underline;
     text-underline-offset: 3px;
@@ -385,7 +385,7 @@ const hasQuickFacts =
   }
 
   .provenance-source-link:hover {
-    color: var(--pillar-food-drink, #c2593f);
+    color: var(--pillar-food-drink, #ea580c);
   }
 
   @media (min-width: 768px) {

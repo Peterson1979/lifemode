@@ -3,7 +3,7 @@ title: "Building a personal library of design and architecture monographs"
 description: "How to curate a meaningful, working personal library of art, architecture, and photography monographs without falling into the trap of decorative status consumption."
 pubDate: "2026-09-11T06:56:34.443Z"
 updatedDate: "2026-09-18"
-author: "LifeMode Editorial"
+author: "LifeMode"
 tags: ["books", "curation", "architecture", "design", "photography", "culture"]
 featured: false
 draft: false
