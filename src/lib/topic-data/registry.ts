@@ -52,7 +52,7 @@ export class TopicDataProviderRegistry {
     this.pillarMapping.set('food-drink', [foodProvider]);
     this.pillarMapping.set('tech-ai', [techProvider, newsProvider]);
     this.pillarMapping.set('culture', [knowledgeProvider, economicProvider, newsProvider]);
-    this.pillarMapping.set('life', [knowledgeProvider, economicProvider]);
+    this.pillarMapping.set('style', [knowledgeProvider, economicProvider]);
   }
 
   /**

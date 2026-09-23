@@ -43,8 +43,8 @@ function normalizePillar(pillar: string): PillarSlug {
   const p = pillar.toLowerCase().trim();
   if (p === 'discover') return 'culture';
   if (p === 'now') return 'culture';
-  const valid: PillarSlug[] = ['life', 'travel', 'food-drink', 'tech-ai', 'money', 'wellbeing', 'culture'];
-  return valid.includes(p as PillarSlug) ? (p as PillarSlug) : 'life';
+  const valid: PillarSlug[] = ['style', 'travel', 'food-drink', 'tech-ai', 'money', 'wellbeing', 'culture'];
+  return valid.includes(p as PillarSlug) ? (p as PillarSlug) : 'style';
 }
 
 /**
@@ -186,12 +186,36 @@ export function buildArticleToImageBrief(input: ImagePromptInput): ArticleToImag
       break;
     }
 
-    case 'life':
+    case 'style': {
+      const isBeauty = /\b(beauty|skincare|makeup|cosmetics|serum|hair|haircare|fragrance|perfume|routine|dermatology|moisturizer|cleanser|lipstick|scent)\b/.test(text);
+      if (isBeauty) {
+        keyConcepts.push('beauty rituals', 'skincare formulations', 'fragrance notes', 'clean cosmetic aesthetics', 'hair texture and care');
+        relevantObjects.push('amber glass dropper flacons', 'minimalist ceramic vanity tray', 'textured cream formulations', 'sculptural perfume flacon', 'soft cosmetic brushes', 'botanical facial oils');
+        relevantEnvironments.push('sunlit minimalist bathroom vanity', 'warm marble dressing table with morning daylight', 'botanical skincare studio');
+        visualMetaphors.push('luminous skin texture', 'tactile organic ingredients', 'clean thoughtful self-care');
+      } else {
+        keyConcepts.push('contemporary personal style', 'capsule wardrobe curation', 'tailored silhouette', 'textile craftsmanship', 'essential accessories');
+        relevantObjects.push('tactile linen tailoring', 'leather strap timepiece', 'curated outerwear', 'fine wool knitwear', 'minimalist leather tote');
+        relevantEnvironments.push('sunlit contemporary wardrobe room', 'architectural boutique fitting studio', 'candid city street at golden hour');
+        visualMetaphors.push('effortless elegance', 'tactile material quality', 'individual expression');
+      }
+      contextualAvoid.push(
+        'overly photoshopped commercial cosmetic ads',
+        'harsh flash runway models',
+        'generic supermarket beauty aisles',
+        'unrelated corporate offices',
+        'garish neon clothing',
+        'plastic-looking synthetic skin retouching',
+        'celebrity impersonation / fake likenesses'
+      );
+      break;
+    }
+
     default: {
-      keyConcepts.push('intentional living', 'daily rituals', 'home aesthetics', 'calm focus');
-      relevantObjects.push('open journal with fountain pen', 'ceramic coffee cup', 'natural oak tabletop', 'potted botanical plant');
-      relevantEnvironments.push('sunlit Scandinavian interior', 'morning domestic breakfast nook', 'decluttered minimalist studio');
-      visualMetaphors.push('simplicity, balance, warm tactile presence');
+      keyConcepts.push('contemporary aesthetic', 'material craft', 'calm focus', 'curated lifestyle');
+      relevantObjects.push('tactile design objects', 'ceramic vessels', 'natural wood surfaces', 'minimalist accessories');
+      relevantEnvironments.push('sunlit architectural interior', 'creative design studio', 'decluttered minimalist space');
+      visualMetaphors.push('balance, restraint, warm tactile presence');
       contextualAvoid.push(
         'cluttered disordered spaces',
         'generic office cubicles',
@@ -225,7 +249,7 @@ export function generateEditorialImagePrompt(
   input: ImagePromptInput
 ): EditorialImagePromptResult {
   const brief = buildArticleToImageBrief(input);
-  const pillarStyle = PILLAR_IMAGE_STYLES[brief.editorialCategory as PillarSlug] || PILLAR_IMAGE_STYLES.life;
+  const pillarStyle = PILLAR_IMAGE_STYLES[brief.editorialCategory as PillarSlug] || PILLAR_IMAGE_STYLES.style;
   const ratioKey = input.aspectRatio || 'hero';
   const recommendedAspectRatio = EDITORIAL_ASPECT_RATIOS[ratioKey] || EDITORIAL_ASPECT_RATIOS.hero;
 

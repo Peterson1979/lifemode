@@ -278,9 +278,9 @@ test('6. Negative Feedback: Categories with n >= 3 and low avg score modestly re
 test('7. Bounded Feedback: Total score modifier strictly clamped between -8 and +10', () => {
   const extremePositiveSignals = aggregateFeedbackSignals(
     Array(10).fill(null).map((_, i) => ({
-      articleSlug: `life/masterpiece-${i}`,
+      articleSlug: `style/masterpiece-${i}`,
       topicId: `top-l${i}`,
-      pillar: 'life',
+      pillar: 'style',
       primaryIntent: 'inspirational',
       publicationDate: '2026-09-01',
       metrics: { views: 100000, clicks: 5000, conversions: 500, engagement: 100, affiliateClicks: 200 },
@@ -289,7 +289,7 @@ test('7. Bounded Feedback: Total score modifier strictly clamped between -8 and 
     }))
   );
 
-  const testTopic = createDummyTopic('cand-life-extreme', 'Ultimate Morning Protocol', 'life', 90, {
+  const testTopic = createDummyTopic('cand-style-extreme', 'Ultimate Morning Protocol', 'style', 90, {
     primaryIntent: 'inspirational',
     tags: ['super-tag-1', 'super-tag-2'],
   });
@@ -407,17 +407,17 @@ test('9. Quality Gate Precedence: Feedback CANNOT resurrect a candidate with raw
 test('10. Provider Fixture & Determinism: Repeated aggregation and scoring produces identical outputs', async () => {
   const provider = new FixturePerformanceProvider([
     {
-      articleSlug: 'life/mindful-morning',
-      topicId: 'top-life-1',
-      pillar: 'life',
+      articleSlug: 'style/mindful-morning',
+      topicId: 'top-style-1',
+      pillar: 'style',
       publicationDate: '2026-09-01',
       metrics: { views: 800, clicks: 40, ctr: 0.05, engagement: 78 },
       measuredAt: '2026-09-10T12:00:00Z',
     },
   ]);
 
-  const record1 = await provider.fetchArticlePerformance('life/mindful-morning');
-  const record2 = await provider.fetchArticlePerformance('life/mindful-morning');
+  const record1 = await provider.fetchArticlePerformance('style/mindful-morning');
+  const record2 = await provider.fetchArticlePerformance('style/mindful-morning');
 
   assert.deepEqual(record1, record2);
 

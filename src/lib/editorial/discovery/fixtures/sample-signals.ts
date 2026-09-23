@@ -7,8 +7,8 @@ import type { DiscoverySignal } from '../types.ts';
 export const FIXTURE_DISCOVERY_SIGNALS: DiscoverySignal[] = [
   {
     source: 'FIXTURE',
-    sourceId: 'fix-life-001',
-    rawQuery: 'Minimalist Morning Routines for Creative Clarity',
+    sourceId: 'fix-style-001',
+    rawQuery: 'The Curated Capsule Wardrobe and Barrier-Restoring Skincare',
     timestamp: '2026-09-09T10:00:00.000Z',
     metrics: {
       growthRate: 55,
@@ -19,11 +19,11 @@ export const FIXTURE_DISCOVERY_SIGNALS: DiscoverySignal[] = [
     },
     geography: 'US',
     language: 'en',
-    category: 'life',
+    category: 'style',
     metadata: {
       isFixture: true,
-      suggestedPillar: 'life',
-      curatedTags: ['routines', 'minimalism', 'clarity'],
+      suggestedPillar: 'style',
+      curatedTags: ['style', 'fashion', 'skincare', 'beauty'],
     },
   },
   {

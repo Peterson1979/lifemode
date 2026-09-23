@@ -41,7 +41,7 @@ test('1. TopicDataService: Retrieves configured data blocks across all 7 LifeMod
     'food-drink',
     'tech-ai',
     'culture',
-    'life',
+    'style',
   ];
 
   for (const pillar of pillars) {

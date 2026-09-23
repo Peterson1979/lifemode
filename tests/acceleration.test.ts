@@ -36,18 +36,18 @@ function createDummyTopic(id: string, pillar: PillarSlug, score: number): Editor
 
 test('Pillar Balancing - Distributes selections across pillars when scores are competitive', () => {
   const candidates: EditorialTopic[] = [
-    createDummyTopic('life-1', 'life', 88),
-    createDummyTopic('life-2', 'life', 87),
-    createDummyTopic('life-3', 'life', 86),
-    createDummyTopic('life-4', 'life', 85),
+    createDummyTopic('style-1', 'style', 88),
+    createDummyTopic('style-2', 'style', 87),
+    createDummyTopic('style-3', 'style', 86),
+    createDummyTopic('style-4', 'style', 85),
     createDummyTopic('travel-1', 'travel', 87),
     createDummyTopic('tech-1', 'tech-ai', 86),
     createDummyTopic('wellbeing-1', 'wellbeing', 85),
   ];
 
-  // If life is heavily represented in existing articles (e.g. 5 articles already published in life)
+  // If style is heavily represented in existing articles (e.g. 5 articles already published in style)
   const existingDist: Partial<Record<PillarSlug, number>> = {
-    life: 5,
+    style: 5,
     travel: 0,
     'tech-ai': 0,
     wellbeing: 0,
@@ -62,7 +62,7 @@ test('Pillar Balancing - Distributes selections across pillars when scores are c
 
   assert.equal(approved.length, 4);
 
-  // Verifies that underrepresented pillars (travel, tech, wellbeing) are selected alongside life
+  // Verifies that underrepresented pillars (travel, tech, wellbeing) are selected alongside style
   const approvedPillars = approved.map((a) => a.pillar);
   assert.ok(approvedPillars.includes('travel'));
   assert.ok(approvedPillars.includes('tech-ai'));
@@ -71,8 +71,8 @@ test('Pillar Balancing - Distributes selections across pillars when scores are c
 
 test('Pillar Balancing - Never approves a weak topic (< 80) merely to balance pillars', () => {
   const candidates: EditorialTopic[] = [
-    createDummyTopic('life-1', 'life', 92),
-    createDummyTopic('life-2', 'life', 90),
+    createDummyTopic('style-1', 'style', 92),
+    createDummyTopic('style-2', 'style', 90),
     createDummyTopic('weak-money-1', 'money', 65), // Sub-threshold
     createDummyTopic('weak-culture-1', 'culture', 55), // Rejected
   ];
@@ -80,7 +80,7 @@ test('Pillar Balancing - Never approves a weak topic (< 80) merely to balance pi
   const { approved, rejected, deferred } = selectEditorialCandidates(candidates, {
     minScoreThreshold: 80,
     totalLimit: 4,
-    existingPillarDistribution: { life: 3, money: 0, culture: 0 },
+    existingPillarDistribution: { style: 3, money: 0, culture: 0 },
     enablePillarBalancing: true,
   });
 

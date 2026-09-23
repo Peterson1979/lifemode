@@ -10,10 +10,10 @@ export interface PillarVisualTheme {
 }
 
 export const PILLAR_VISUAL_THEMES: Record<PillarSlug, PillarVisualTheme> = {
-  life: {
-    displayName: 'LIFE',
-    accentColor: '#FB7185', // Rose
-    accentBg: 'rgba(251, 113, 133, 0.2)',
+  style: {
+    displayName: 'STYLE',
+    accentColor: '#E11D48', // Vibrant Rose
+    accentBg: 'rgba(225, 29, 72, 0.2)',
   },
   travel: {
     displayName: 'TRAVEL',
@@ -48,7 +48,7 @@ export const PILLAR_VISUAL_THEMES: Record<PillarSlug, PillarVisualTheme> = {
 };
 
 export const PILLAR_BACKGROUND_FILES: Record<PillarSlug, string> = {
-  life: 'public/social/backgrounds/life.jpg',
+  style: 'public/social/backgrounds/style.jpg',
   travel: 'public/social/backgrounds/travel.jpg',
   'food-drink': 'public/social/backgrounds/food-drink.jpg',
   'tech-ai': 'public/social/backgrounds/tech-ai.jpg',
@@ -86,7 +86,7 @@ export async function loadLocalImage(imagePath: string, baseDir = process.cwd())
  * Resolves the absolute path to a pillar-specific background image.
  */
 export function resolvePillarBackgroundPath(pillar: PillarSlug, baseDir = process.cwd()): string {
-  const relPath = PILLAR_BACKGROUND_FILES[pillar] || PILLAR_BACKGROUND_FILES.life;
+  const relPath = PILLAR_BACKGROUND_FILES[pillar] || PILLAR_BACKGROUND_FILES.style;
   return path.resolve(baseDir, relPath);
 }
 
@@ -205,10 +205,10 @@ export interface ComposeSocialCardOptions {
 export async function composeSocialCard(options: ComposeSocialCardOptions): Promise<Buffer> {
   const width = 1080;
   const height = options.format === '1080x1080' ? 1080 : 1350;
-  const pillar = options.pillar || 'life';
-  const theme = PILLAR_VISUAL_THEMES[pillar] || PILLAR_VISUAL_THEMES.life;
+  const pillar = options.pillar || 'style';
+  const theme = PILLAR_VISUAL_THEMES[pillar] || PILLAR_VISUAL_THEMES.style;
   const ctaText = options.ctaText || 'Read the complete guide on lifemode.life';
-  const title = options.title || options.headlineOverlay || 'Intentional Living & Design';
+  const title = options.title || options.headlineOverlay || 'Contemporary Style & Beauty';
 
   // 1. Resolve & load pillar background
   const bgPath = resolvePillarBackgroundPath(pillar, options.baseDir);

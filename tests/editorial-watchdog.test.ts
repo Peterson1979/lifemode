@@ -32,7 +32,7 @@ async function createTempWorkspace(prefix = 'lifemode-watchdog-test-'): Promise<
 
   await fs.mkdir(path.join(contentDir, 'tech-ai'), { recursive: true });
   await fs.mkdir(path.join(contentDir, 'travel'), { recursive: true });
-  await fs.mkdir(path.join(contentDir, 'life'), { recursive: true });
+  await fs.mkdir(path.join(contentDir, 'style'), { recursive: true });
   await fs.mkdir(path.join(contentDir, 'money'), { recursive: true });
   await fs.mkdir(path.join(contentDir, 'wellbeing'), { recursive: true });
   await fs.mkdir(path.join(contentDir, 'food-drink'), { recursive: true });
@@ -61,7 +61,7 @@ class MockSignalAdapter implements IDiscoveryAdapter {
   readonly name = 'Mock Signal Adapter';
   private queries: Array<{ query: string; pillar: string; score: number }>;
 
-  constructor(queryOrQueries: string | Array<{ query: string; pillar: string; score: number }>, pillar = 'life', score = 95) {
+  constructor(queryOrQueries: string | Array<{ query: string; pillar: string; score: number }>, pillar = 'style', score = 95) {
     if (typeof queryOrQueries === 'string') {
       this.queries = [{ query: queryOrQueries, pillar, score }];
     } else {
@@ -119,7 +119,7 @@ test('1. checkDailyRunStatus: Correctly distinguishes empty vs completed daily p
     // Create 3 articles to satisfy the production daily limit of 3
     for (let i = 1; i <= 3; i++) {
       await repository.create({
-        pillar: 'life',
+        pillar: 'style',
         slug: `mindful-morning-rituals-${i}`,
         frontmatter: {
           title: `Mindful Morning Rituals ${i}`,
@@ -437,7 +437,7 @@ test('8. Force override: force: true allows manual execution even when quota is 
   try {
     // Pre-populate article
     await repository.create({
-      pillar: 'life',
+      pillar: 'style',
       slug: 'existing-article-today',
       frontmatter: {
         title: 'Existing Article Today',

@@ -305,7 +305,7 @@ export function deriveDoNotClaimConstraints(
     constraints.push('Do not guarantee returns, predict market movements with certainty, or provide individualized financial or investment advice.');
   }
 
-  if (topic.pillar === 'wellbeing' || topic.pillar === 'life' || /\b(health|diet|supplement|therapy|medical|fitness|cure|treatment)\b/.test(lowerTopic)) {
+  if (topic.pillar === 'wellbeing' || /\b(health|diet|supplement|therapy|medical|fitness|cure|treatment)\b/.test(lowerTopic)) {
     constraints.push('Do not imply medical certainty, diagnose conditions, prescribe treatments, or present lifestyle interventions as medical cures.');
   }
 
@@ -513,16 +513,28 @@ export function deriveEditorialTitleAngle(
       ];
       return angles[entropy % angles.length];
     }
-    case 'life':
+    case 'style': {
+      const angles = [
+        `The Modern Approach to ${cleanTopic}`,
+        `How ${cleanTopic} Is Shaping Contemporary Style and Beauty`,
+        `The Essentials of ${cleanTopic}: A Thoughtful Guide`,
+        `Building an Intentional Wardrobe: The Role of ${cleanTopic}`,
+        `Inside ${cleanTopic}: Routines, Formulas, and Everyday Application`,
+        `The Craft of ${cleanTopic}: Texture, Formulation, and Personal Expression`,
+        `A Practical Guide to ${cleanTopic} for Modern Living`,
+        `Why ${cleanTopic} Is Redefining Modern Daily Aesthetics`,
+      ];
+      return angles[entropy % angles.length];
+    }
     default: {
       const angles = [
-        `Designing a Calmer Life with ${cleanTopic}`,
-        `The Principles of ${cleanTopic}: Practical Systems for Daily Focus`,
-        `How ${cleanTopic} Elevates Modern Living Spaces`,
-        `The Art of ${cleanTopic}: Restraint, Craft, and Daily Rituals`,
-        `A Minimalist Approach to ${cleanTopic}`,
-        `The Architecture of Routine: Incorporating ${cleanTopic}`,
-        `Why Intentional Living Begins with ${cleanTopic}`,
+        `A Thoughtful Guide to ${cleanTopic}`,
+        `The Principles of ${cleanTopic}: Practical Perspectives`,
+        `How ${cleanTopic} Elevates Modern Daily Living`,
+        `The Art of ${cleanTopic}: Restraint, Craft, and Purpose`,
+        `A Contemporary Perspective on ${cleanTopic}`,
+        `The Foundations of ${cleanTopic}: Essential Insights`,
+        `Why Modern Living Begins with ${cleanTopic}`,
       ];
       return angles[entropy % angles.length];
     }

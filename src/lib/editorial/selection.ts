@@ -13,6 +13,7 @@ export interface SelectionOptions {
   requireVisualPotential?: boolean;
   feedbackSignals?: FeedbackSignalSummary;
   enablePerformanceFeedback?: boolean; // default true if feedbackSignals provided
+  guaranteedPillar?: PillarSlug | null; // e.g. 'style' for daily generation
 }
 
 /**
@@ -38,8 +39,10 @@ export function calculatePillarStarvationBoost(
  * Deterministically filters, ranks, and selects approved editorial topics from scored candidates.
  *
  * Implements lightweight, practical pillar balancing:
- * - Prefers underrepresented and starved pillars when candidates have competitive scores.
+ * - When guaranteedPillar is specified (e.g. 'style'), guarantees exactly 1 slot for that pillar
+ *   and allocates remaining slots across other rotating active topics.
  * - Prevents high-volume single-source topics from flooding a single pillar in one batch.
+ * - Filters out removed/inactive pillars (such as 'life').
  * - Strict quality rule: Never approves or forces an inferior candidate (< 80) merely to balance pillars.
  * - Performance Feedback: Integrates bounded historical performance modifiers (+/- 10) without bypassing minimum quality or safety gates.
  */
@@ -57,6 +60,7 @@ export function selectEditorialCandidates(
   const existingRecency = options.existingPillarRecency;
   const feedbackSignals = options.feedbackSignals;
   const applyFeedback = options.enablePerformanceFeedback ?? Boolean(feedbackSignals);
+  const guaranteedPillar = options.guaranteedPillar;
 
   const pillarCounts: Partial<Record<PillarSlug, number>> = {};
   for (const pillar of VALID_PILLARS) {
@@ -68,7 +72,20 @@ export function selectEditorialCandidates(
   const deferred: EditorialTopic[] = [];
 
   // 1. Evaluate performance feedback and anti-starvation boosts on candidates
-  const enrichedCandidates: Array<EditorialTopic & { effectiveScore: number }> = candidates.map((topic) => {
+  const enrichedCandidates: Array<EditorialTopic & { effectiveScore: number }> = [];
+
+  for (const topic of candidates) {
+    // Inactive / removed pillar check (e.g. 'life' is removed)
+    if (!VALID_PILLARS.includes(topic.pillar as PillarSlug) || (topic.pillar as string) === 'life') {
+      rejected.push({
+        ...topic,
+        status: 'REJECTED',
+        rejectionReason: `Pillar "${topic.pillar}" is inactive or removed`,
+        updatedAt: new Date().toISOString(),
+      });
+      continue;
+    }
+
     let performanceFeedback = topic.performanceFeedback;
     if (feedbackSignals && applyFeedback) {
       performanceFeedback = evaluateTopicPerformanceFeedback(topic, feedbackSignals);
@@ -77,12 +94,12 @@ export function selectEditorialCandidates(
     const starvationBoost = enableBalancing ? calculatePillarStarvationBoost(topic.pillar, existingRecency) : 0;
     const effectiveScore = Math.max(0, Math.min(100, Math.round((topic.totalScore + adjustment + starvationBoost) * 10) / 10));
 
-    return {
+    enrichedCandidates.push({
       ...topic,
       performanceFeedback,
       effectiveScore,
-    };
-  });
+    });
+  }
 
   // 2. Separate candidates into rejected, sub-threshold, and qualified
   // Safety rule: Raw score < 60 or REJECT priority tier is NEVER approved by feedback
@@ -109,7 +126,7 @@ export function selectEditorialCandidates(
   }
 
   // 3. Sort qualified candidates with performance feedback and pillar balancing
-  const sortedQualified = [...qualified].sort((a, b) => {
+  const sortFn = (a: EditorialTopic & { effectiveScore: number }, b: EditorialTopic & { effectiveScore: number }) => {
     // If effective scores differ significantly (> 5 points), highest effective score strictly wins
     const scoreDiff = b.effectiveScore - a.effectiveScore;
     if (Math.abs(scoreDiff) > 5 || !enableBalancing) {
@@ -133,7 +150,9 @@ export function selectEditorialCandidates(
 
     if (scoreDiff !== 0) return scoreDiff;
     return b.freshnessScore - a.freshnessScore;
-  });
+  };
+
+  const sortedQualified = [...qualified].sort(sortFn);
 
   // Determine dynamic max per pillar if not specified: strictly 1 when totalLimit <= 3 (enforcing topic diversity)
   const defaultMaxPerPillar = options.totalLimit && options.totalLimit <= 3
@@ -142,10 +161,45 @@ export function selectEditorialCandidates(
   const maxPerPillar = options.maxTopicsPerPillar ?? defaultMaxPerPillar;
   const strictDiversity = maxPerPillar === 1 || (options.totalLimit !== undefined && options.totalLimit <= 3);
 
-  // Pass 1: Select up to maxPerPillar per pillar (ensures 1 per pillar when totalLimit is 3)
+  // 4. Guaranteed Pillar Allocation (e.g. exactly 1 for 'style' if requested and available)
+  const candidatesToProcess: Array<EditorialTopic & { effectiveScore: number }> = [];
+
+  if (guaranteedPillar && options.totalLimit && options.totalLimit >= 1) {
+    const guaranteedCandidates = sortedQualified.filter((t) => t.pillar === guaranteedPillar);
+    const nonGuaranteedCandidates = sortedQualified.filter((t) => t.pillar !== guaranteedPillar);
+
+    if (guaranteedCandidates.length > 0) {
+      const topGuaranteed = guaranteedCandidates[0];
+      pillarCounts[guaranteedPillar] = 1;
+      approved.push({
+        ...topGuaranteed,
+        status: 'APPROVED',
+        updatedAt: new Date().toISOString(),
+      });
+
+      // Defer remaining candidates of the guaranteed pillar to prevent generating a 2nd topic for it
+      for (let i = 1; i < guaranteedCandidates.length; i++) {
+        deferred.push({
+          ...guaranteedCandidates[i],
+          status: 'DEFERRED',
+          deferReason: `Guaranteed pillar ${guaranteedPillar} daily quota (1) met`,
+          updatedAt: new Date().toISOString(),
+        });
+      }
+
+      // Remaining slots to be filled by non-guaranteed candidates
+      candidatesToProcess.push(...nonGuaranteedCandidates);
+    } else {
+      candidatesToProcess.push(...sortedQualified);
+    }
+  } else {
+    candidatesToProcess.push(...sortedQualified);
+  }
+
+  // Pass 1: Select up to maxPerPillar per pillar for remaining slots
   const remainingAfterPass1: EditorialTopic[] = [];
 
-  for (const topic of sortedQualified) {
+  for (const topic of candidatesToProcess) {
     if (options.totalLimit && approved.length >= options.totalLimit) {
       deferred.push({
         ...topic,

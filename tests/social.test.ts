@@ -50,7 +50,7 @@ function createMockTopic(overrides: Partial<EditorialTopic> = {}): EditorialTopi
     id: `top-${Math.random().toString(36).slice(2, 8)}`,
     slug: 'calm-workspace-design-principles',
     canonicalTopic: 'Calm Workspace Design Principles',
-    pillar: 'life',
+    pillar: 'style',
     totalScore: 88,
     freshnessScore: 90,
     opportunityType: 'ARTICLE_AND_SOCIAL',
@@ -89,7 +89,7 @@ function createMockTopic(overrides: Partial<EditorialTopic> = {}): EditorialTopi
 function createMockValidSocialContent(overrides: Partial<GeneratedSocialContent> = {}): GeneratedSocialContent {
   return {
     topicId: 'top-12345',
-    pillar: 'life',
+    pillar: 'style',
     concept: 'Creating intentional calm workspaces through minimal tactile essentials.',
     hook: 'How your physical desk setup dictates your daily cognitive clarity.',
     title: 'Calm Workspace Design Principles',
@@ -266,7 +266,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     await repo.recordEntry({
       runId: 'r1',
       topicId: 'top-dup-1',
-      pillar: 'life',
+      pillar: 'style',
       canonicalTopic: 'Calm Workspace Design Principles',
       contentHash: hash,
       assetHash: 'asset-hash-1',
@@ -615,7 +615,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     const buffer = Buffer.from('mock-image-bytes');
     const result = await r2Provider.uploadAsset({
       topicId: 'calm-desk-principles',
-      pillar: 'life',
+      pillar: 'style',
       assetHash: 'a1b2c3d4e5f60718293a4b5c6d7e8f90',
       buffer,
       mimeType: 'image/jpeg',
@@ -647,7 +647,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
 
     const result = await unconfiguredProvider.uploadAsset({
       topicId: 'top-1',
-      pillar: 'life',
+      pillar: 'style',
       assetHash: '1234567890abcdef',
       buffer: Buffer.from('test'),
       mimeType: 'image/jpeg',
@@ -679,7 +679,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
 
     const result = await r2Provider.uploadAsset({
       topicId: 'top-fail',
-      pillar: 'life',
+      pillar: 'style',
       assetHash: 'failhash12345678',
       buffer: Buffer.from('test-bytes'),
       mimeType: 'image/jpeg',
@@ -1398,7 +1398,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     // Seed 3 published articles for today to meet quota (3/3)
     for (let i = 1; i <= 3; i++) {
       await contentRepo.create({
-        pillar: 'life',
+        pillar: 'style',
         slug: `daily-published-article-${i}`,
         content: `Body for article ${i}`,
         frontmatter: {
@@ -1406,7 +1406,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
           description: `Description for article ${i}`,
           pubDate: todayStr,
           author: 'LifeMode',
-          tags: ['life', 'design'],
+          tags: ['style', 'design'],
           featured: false,
           draft: false,
           format: 'standard',
@@ -1711,7 +1711,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     const provider = new FixtureSocialImageProvider();
     const result = await provider.generateImage({
       topicId: 'calm-living-spaces',
-      pillar: 'life',
+      pillar: 'style',
       prompt: 'The Architecture of Calm Workspaces',
       format: '1080x1350',
       headlineOverlay: 'The Architecture of Calm Workspaces',
@@ -1910,15 +1910,15 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     const brief = buildSocialBrief({
       topicId: 'top-fallback-test',
       canonicalTopic: 'Mindful Morning Rituals for Remote Professionals',
-      pillar: 'life',
+      pillar: 'style',
       slug: 'mindful-morning-rituals',
       totalScore: 88,
       socialPotential: 90,
       pinterestPotential: 85,
       opportunityType: 'ARTICLE_AND_SOCIAL',
       targetPlatforms: ['facebook', 'instagram'],
-      destinationUrl: 'https://lifemode.life/life/mindful-morning-rituals',
-      tags: ['life', 'mindfulness'],
+      destinationUrl: 'https://lifemode.life/style/mindful-morning-rituals',
+      tags: ['style', 'mindfulness'],
     });
 
     // Mock router simulating total failure / 429 rate limit exhaustion
@@ -1942,7 +1942,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     assert.equal(result.success, true);
     assert.ok(result.content);
     assert.equal(result.content.topicId, 'top-fallback-test');
-    assert.equal(result.content.pillar, 'life');
+    assert.equal(result.content.pillar, 'style');
     assert.ok(result.content.shortCaption.length > 20);
 
     // Validate the resulting content passes full LifeMode validation
@@ -1955,14 +1955,14 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     const brief = buildSocialBrief({
       topicId: 'top-ai-pref-test',
       canonicalTopic: 'Architectural Silence in Minimalist Homes',
-      pillar: 'life',
+      pillar: 'style',
       slug: 'architectural-silence',
       totalScore: 92,
       socialPotential: 95,
       pinterestPotential: 90,
       opportunityType: 'ARTICLE_AND_SOCIAL',
       targetPlatforms: ['facebook', 'instagram', 'pinterest'],
-      destinationUrl: 'https://lifemode.life/life/architectural-silence',
+      destinationUrl: 'https://lifemode.life/style/architectural-silence',
       tags: ['design', 'architecture'],
     });
 
@@ -2477,7 +2477,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     await historyRepo.recordEntry({
       runId: 'srun-prev-1',
       topicId,
-      pillar: 'life',
+      pillar: 'style',
       canonicalTopic: 'Already Published Topic',
       contentHash: 'hash-abc',
       assetHash: 'hash-xyz',
@@ -2634,7 +2634,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     await historyRepo.recordEntry({
       runId: 'srun-retry-1',
       topicId,
-      pillar: 'life',
+      pillar: 'style',
       canonicalTopic: topic.canonicalTopic,
       contentHash: 'hash-abc',
       assetHash: 'hash-xyz',
@@ -2677,7 +2677,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     await historyRepo.recordEntry({
       runId: 'srun-retry-2',
       topicId,
-      pillar: 'life',
+      pillar: 'style',
       canonicalTopic: topic.canonicalTopic,
       contentHash: 'hash-abc',
       assetHash: 'hash-xyz',

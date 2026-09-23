@@ -10,7 +10,7 @@ import { generateWebsiteSchema } from '../utils/seo';
 
 // Fetch articles from all 7 collections
 const [
-  lifeDocs,
+  styleDocs,
   travelDocs,
   foodDrinkDocs,
   techAiDocs,
@@ -18,7 +18,7 @@ const [
   wellbeingDocs,
   cultureDocs,
 ] = await Promise.all([
-  getCollection('life'),
+  getCollection('style'),
   getCollection('travel'),
   getCollection('food-drink'),
   getCollection('tech-ai'),
@@ -49,7 +49,7 @@ interface ArticleEntry {
 
 // Gather all articles from all collections
 const allArticles: ArticleEntry[] = [
-  ...lifeDocs.map((doc) => ({ id: doc.id, pillar: 'life' as PillarSlug, data: doc.data })),
+  ...styleDocs.map((doc) => ({ id: doc.id, pillar: 'style' as PillarSlug, data: doc.data })),
   ...travelDocs.map((doc) => ({ id: doc.id, pillar: 'travel' as PillarSlug, data: doc.data })),
   ...foodDrinkDocs.map((doc) => ({ id: doc.id, pillar: 'food-drink' as PillarSlug, data: doc.data })),
   ...techAiDocs.map((doc) => ({ id: doc.id, pillar: 'tech-ai' as PillarSlug, data: doc.data })),

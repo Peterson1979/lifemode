@@ -213,7 +213,7 @@ test('Live RSS Feeds Adapter - Isolates feed HTTP errors and reports failure whe
         id: 'broken-feed',
         name: 'Broken Feed',
         url: 'https://broken.example.com/rss',
-        pillar: 'life',
+        pillar: 'style',
       },
     ],
   });
@@ -233,7 +233,7 @@ test('Live Reddit Social Adapter - Ingests public JSON and filters stickied/NSFW
 
   const adapter = new RedditSocialDiscoveryAdapter(mockFetch);
   const result = await adapter.fetchSignals({
-    communities: [{ subreddit: 'minimalism', pillar: 'life', minScore: 50 }],
+    communities: [{ subreddit: 'malefashionadvice', pillar: 'style', minScore: 50 }],
   });
 
   assert.equal(result.status, 'AVAILABLE');
@@ -242,7 +242,7 @@ test('Live Reddit Social Adapter - Ingests public JSON and filters stickied/NSFW
 
   const signal = result.signals[0];
   assert.equal(signal.source, 'REDDIT_SOCIAL');
-  assert.equal(signal.category, 'life');
+  assert.equal(signal.category, 'style');
   assert.equal(
     signal.rawQuery,
     'The Single-Tasking Reset: How I Eliminated Screen Overwhelm and Restored Focus'
@@ -263,7 +263,7 @@ test('Live Reddit Social Adapter - Handles 429 rate limit gracefully', async () 
 
   const adapter = new RedditSocialDiscoveryAdapter(rateLimitedFetch);
   const result = await adapter.fetchSignals({
-    communities: [{ subreddit: 'minimalism', pillar: 'life' }],
+    communities: [{ subreddit: 'malefashionadvice', pillar: 'style' }],
   });
 
   assert.equal(result.status, 'PROVIDER_UNAVAILABLE');
@@ -302,7 +302,7 @@ test('Keyword Pillar Classifier - Correctly categorizes trend titles', () => {
   assert.equal(classifyTrendingQueryPillar('Federal Reserve Interest Rates and Treasury Yields'), 'money');
   assert.equal(classifyTrendingQueryPillar('Circadian Rhythm Light Protocols and Deep Sleep Longevity'), 'wellbeing');
   assert.equal(classifyTrendingQueryPillar('Minimalist Timber Pavilion Exhibition in Venice'), 'culture');
-  assert.equal(classifyTrendingQueryPillar('Daily Morning Habits and Workspace Decluttering Routine'), 'life');
+  assert.equal(classifyTrendingQueryPillar('Minimalist Wardrobe Capsule and Barrier Repair Skincare Routine'), 'style');
   assert.equal(classifyTrendingQueryPillar('Cultural Festival and Zeitgeist Dispatch'), 'culture');
 });
 

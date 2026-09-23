@@ -242,7 +242,7 @@ test('5. Web research provider strictly excludes discovery-only signals (Reddit,
     id: 'lm-trend-signals-01',
     canonicalTopic: 'The Minimalist Espresso Setup of 2026',
     slug: 'the-minimalist-espresso-setup-of-2026',
-    pillar: 'life',
+    pillar: 'style',
     sourceSignals: [
       {
         source: 'REDDIT_SOCIAL',

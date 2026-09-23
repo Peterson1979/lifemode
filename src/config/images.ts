@@ -56,23 +56,25 @@ export const GLOBAL_IMAGE_GUIDELINES = {
  * Pillar-specific visual styles and aesthetic guidelines.
  */
 export const PILLAR_IMAGE_STYLES: Record<PillarSlug, PillarImageStyle> = {
-  life: {
-    pillar: 'life',
-    theme: 'Intentional Living & Daily Rituals',
-    palette: ['Warm Linen', 'Terracotta Rose', 'Soft Birch', 'Clay Taupe'],
+  style: {
+    pillar: 'style',
+    theme: 'Contemporary Fashion, Personal Style & Beauty Aesthetics',
+    palette: ['Terracotta Rose', 'Warm Alabaster', 'Silk Charcoal', 'Soft Amber', 'Muted Olive'],
     visualMotifs: [
-      'Sunlit morning domestic spaces',
-      'Ceramic cups, brewing coffee, open notebooks',
-      'Tactile organic textiles, natural wood tabletops',
-      'Candid human presence in serene architectural interiors',
+      'Tactile fabric textures, tailored garments, and contemporary capsule wardrobe details',
+      'Artisanal skincare bottles, amber glass dropper flacons, and minimalist beauty trays',
+      'Natural makeup palettes, cosmetic brushes, and textured skincare formulations',
+      'Clean modern vanity spaces with natural daylight and subtle architectural mirrors',
+      'Natural hair textures, minimalist accessories, and elegant fragrance bottles',
     ],
-    lighting: 'Golden morning light filtering through linen curtains, warm soft shadows',
-    cameraLens: '50mm f/1.8 prime lens, intimate eye-level perspective',
-    mood: 'Tranquil, intentional, tactile, warm',
+    lighting: 'Soft diffused natural window daylight, luminous skin tones, and gentle warm shadows',
+    cameraLens: '50mm or 85mm f/1.8 prime lens, beautiful documentary depth of field and tactile detail',
+    mood: 'Effortless, contemporary, luminous, tactile, editorial',
     exampleScenes: [
-      'A quiet morning kitchen counter with hand-poured coffee, an open journal, and soft window light',
-      'A minimalist Scandinavian living room with natural oak furniture and potted olive plant',
-      'Hands arranging ceramics on a textured lime-washed plaster table',
+      'A minimalist stone bathroom vanity with amber skincare bottles, ceramic tray, and morning side light',
+      'Close-up of tactile linen tailoring, a leather strap wristwatch, and curated everyday accessories',
+      'Glass fragrance bottle and botanical skincare balms arranged on a sunlit textured plaster surface',
+      'Artful flat-lay of clean makeup essentials and soft bristle brushes on neutral linen fabric',
     ],
   },
   travel: {

@@ -506,6 +506,7 @@ export async function runEditorialAutomation(
     existingPillarDistribution,
     existingPillarRecency,
     enablePillarBalancing: true,
+    guaranteedPillar: 'style',
     feedbackSignals,
   });
 

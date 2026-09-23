@@ -443,9 +443,9 @@ test('9. Summary formatting produces clear, structured human-readable text', () 
     skippedCount: 7,
     opportunities: [
       {
-        topicId: 'lm-life-01',
+        topicId: 'lm-style-01',
         canonicalTopic: 'Calm Morning Routines',
-        pillar: 'life',
+        pillar: 'style',
         status: 'DRY_RUN',
         stageResults: {
           DISCOVERY: { stage: 'DISCOVERY', status: 'SUCCESS', durationMs: 10 },

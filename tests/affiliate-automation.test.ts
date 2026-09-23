@@ -23,7 +23,7 @@ const mockCommercialBookTopic: EditorialTopic = {
   id: 'topic-living-books-001',
   canonicalTopic: 'Best Architecture and Design Books for Thoughtful Homes',
   slug: 'best-architecture-and-design-books-for-thoughtful-homes',
-  pillar: 'life',
+  pillar: 'culture',
   sourceSignals: [],
   queryVariants: ['best design books 2026', 'architecture monographs home', 'thoughtful living books'],
   scoring: {
@@ -44,14 +44,14 @@ const mockCommercialBookTopic: EditorialTopic = {
   createdAt: '2026-09-13T10:00:00.000Z',
   updatedAt: '2026-09-13T10:00:00.000Z',
   primaryIntent: 'commercial',
-  tags: ['life', 'books', 'architecture', 'design', 'home'],
+  tags: ['culture', 'books', 'architecture', 'design', 'home'],
 };
 
 const mockTransactionalCoffeeTopic: EditorialTopic = {
   id: 'topic-living-coffee-001',
   canonicalTopic: 'Specialty Coffee Grinders and Precision Brewing Gear',
   slug: 'specialty-coffee-grinders-and-precision-brewing-gear',
-  pillar: 'life',
+  pillar: 'food-drink',
   sourceSignals: [],
   queryVariants: ['best coffee grinder', 'espresso grinder comparison', 'pour over kettle'],
   scoring: {
@@ -72,7 +72,7 @@ const mockTransactionalCoffeeTopic: EditorialTopic = {
   createdAt: '2026-09-13T10:00:00.000Z',
   updatedAt: '2026-09-13T10:00:00.000Z',
   primaryIntent: 'transactional',
-  tags: ['life', 'coffee', 'gear', 'kitchen'],
+  tags: ['food-drink', 'coffee', 'gear', 'kitchen'],
 };
 
 const mockInformationalTopic: EditorialTopic = {
@@ -142,9 +142,9 @@ test('1. Central affiliate catalog passes schema validation and integrity checks
   // Validate rejection of broken catalog items
   const brokenCatalog: any[] = [
     { id: '', name: 'Broken', category: '', applicablePillars: ['invalid-pillar'], applicableIntents: [] },
-    { id: 'dup-1', name: 'Valid 1', category: 'books', applicablePillars: ['life'], applicableIntents: ['transactional'], enabled: true },
-    { id: 'dup-1', name: 'Duplicate 1', category: 'books', applicablePillars: ['life'], applicableIntents: ['transactional'], enabled: true },
-    { id: 'bad-url', name: 'Bad URL', category: 'books', applicablePillars: ['life'], applicableIntents: ['transactional'], approvedDestinationUrl: 'not-a-url', enabled: true },
+    { id: 'dup-1', name: 'Valid 1', category: 'books', applicablePillars: ['culture'], applicableIntents: ['transactional'], enabled: true },
+    { id: 'dup-1', name: 'Duplicate 1', category: 'books', applicablePillars: ['culture'], applicableIntents: ['transactional'], enabled: true },
+    { id: 'bad-url', name: 'Bad URL', category: 'books', applicablePillars: ['culture'], applicableIntents: ['transactional'], approvedDestinationUrl: 'not-a-url', enabled: true },
   ];
 
   const brokenReport = validateAffiliateCatalog(brokenCatalog);
@@ -176,10 +176,10 @@ test('3. Pillar matching restricts catalog items to their declared applicable pi
   assert.equal(result.hasMatches, true);
   const matchedPillars = result.matchedOpportunities.map((o) => o.programId);
 
-  // aff-tech-hardware is tech-ai only; must not appear for living pillar
+  // aff-tech-hardware is tech-ai only; must not appear for food-drink pillar
   assert.ok(!matchedPillars.includes('aff-tech-hardware'));
 
-  // aff-coffee-gear is living/life/travel; must match
+  // aff-coffee-gear is food-drink/travel/style; must match
   assert.ok(matchedPillars.includes('aff-coffee-gear'));
 });
 
@@ -242,7 +242,7 @@ test('8. Unresolved destination URLs cannot become links and never generate fake
       id: 'aff-unresolved-lighting',
       name: 'Artisan Architectural Desk Lamps',
       category: 'workspace',
-      applicablePillars: ['life'],
+      applicablePillars: ['culture'],
       applicableIntents: ['commercial-investigation'],
       keywords: ['architecture', 'design', 'home'],
       enabled: true,

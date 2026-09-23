@@ -19,14 +19,14 @@ interface SeasonalTheme {
 const SEASONAL_EDITORIAL_THEMES: SeasonalTheme[] = [
   // Winter / Q1 (Jan - Feb - Mar)
   {
-    event: 'New Year Intentional Habits & Clarity',
-    pillar: 'life',
-    rawQuery: 'Reset Rituals: Intentional Habits and Decluttering for the New Season',
+    event: 'New Year Wardrobe Capsule & Skincare Reset',
+    pillar: 'style',
+    rawQuery: 'Wardrobe Reset: Curating a Tactile Capsule Wardrobe and Winter Skin Routine',
     targetMonths: [0, 1, 2],
     growthRate: 85,
     relativeInterest: 90,
     visualPotentialScore: 88,
-    tags: ['habits', 'intentional-living', 'reset', 'productivity'],
+    tags: ['style', 'capsule-wardrobe', 'skincare', 'reset'],
   },
   {
     event: 'Cold Weather Restorative Wellness',
@@ -105,14 +105,14 @@ const SEASONAL_EDITORIAL_THEMES: SeasonalTheme[] = [
 
   // Autumn / Q4 (Sep - Oct - Nov - Dec)
   {
-    event: 'Autumn Deep Focus & Workspace Architecture',
-    pillar: 'life',
-    rawQuery: 'The Contemplative Workspace: Acoustic Comfort, Natural Wood, and Focus Ergonomics',
+    event: 'Autumn Layering & Tactile Tailoring',
+    pillar: 'style',
+    rawQuery: 'The Art of Autumn Layering: Natural Wool, Structured Tailoring, and Seasonal Hair Care',
     targetMonths: [8, 9, 10],
     growthRate: 88,
     relativeInterest: 92,
     visualPotentialScore: 94,
-    tags: ['workspace', 'focus', 'interiors', 'life'],
+    tags: ['style', 'fashion', 'tailoring', 'beauty'],
   },
   {
     event: 'End-of-Year Cultural Curation & Books',

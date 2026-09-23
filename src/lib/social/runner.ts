@@ -258,15 +258,15 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
       {
         topicId: 'lm-test-storage-r2-verification',
         canonicalTopic: 'The Art of Intentional Living in the Modern Era',
-        pillar: 'life',
+        pillar: 'style',
         slug: 'the-art-of-intentional-living-in-the-modern-era',
         totalScore: 90,
         socialPotential: 90,
         pinterestPotential: 90,
         opportunityType: 'ARTICLE_AND_SOCIAL',
         targetPlatforms: ['facebook', 'instagram', 'pinterest'],
-        destinationUrl: `${config.baseUrl}/life/the-art-of-intentional-living-in-the-modern-era`,
-        tags: ['life', 'mindfulness', 'design'],
+        destinationUrl: `${config.baseUrl}/style/the-art-of-intentional-living-in-the-modern-era`,
+        tags: ['style', 'mindfulness', 'design'],
       },
     ];
   }

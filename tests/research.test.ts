@@ -75,7 +75,7 @@ const lifeTopic: EditorialTopic = {
   id: 'lm-life-test-01',
   canonicalTopic: 'Minimalist Morning Routines for Creative Clarity',
   slug: 'minimalist-morning-routines-for-creative-clarity',
-  pillar: 'life',
+  pillar: 'style',
   sourceSignals: [],
   queryVariants: ['minimalist morning routines'],
   scoring: {

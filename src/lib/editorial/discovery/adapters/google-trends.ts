@@ -36,19 +36,19 @@ export function classifyTrendingQueryPillar(query: string, description?: string)
     return 'wellbeing';
   }
 
-  // Culture / Design / Architecture / Books / Arts
-  if (/\b(design|architecture|interior|art|artist|exhibition|museum|decor|furniture|minimalist|building|monograph|cinema|film|photography|book|literature|festival|cultural|music|theater|zeitgeist)\b/i.test(text)) {
-    return 'culture';
-  }
-
   // Food & Drink (Culinary, Ingredients, Gastronomy, Fermentation, Drinks)
   if (/\b(food|drink|drinks|recipe|recipes|cooking|cook|ingredient|ingredients|kitchen|cuisine|sourdough|fermentation|coffee|tea|wine|olive oil|tahini|vinegar|lentil|lentils|baking|culinary|chef|dining|meal|dish)\b/i.test(text)) {
     return 'food-drink';
   }
 
-  // Life / Intentionality
-  if (/\b(habit|routine|productivity|focus|workspace|lifestyle|declutter|career|home|garden|craft)\b/i.test(text)) {
-    return 'life';
+  // Style & Beauty (Fashion, Personal Style, Skincare, Hair, Fragrance & Aesthetics)
+  if (/\b(style|fashion|outfit|wardrobe|clothing|garment|linen|tailoring|beauty|skincare|makeup|cosmetics|serum|hair|haircare|fragrance|perfume|cologne|accessories|jewelry|footwear|shoes|boots|dermatology)\b/i.test(text)) {
+    return 'style';
+  }
+
+  // Culture / Design / Architecture / Books / Arts
+  if (/\b(design|architecture|interior|art|artist|exhibition|museum|decor|furniture|minimalist|building|monograph|cinema|film|photography|book|literature|festival|cultural|music|theater|zeitgeist)\b/i.test(text)) {
+    return 'culture';
   }
 
   // Default to Culture for timely cultural events and general zeitgeist

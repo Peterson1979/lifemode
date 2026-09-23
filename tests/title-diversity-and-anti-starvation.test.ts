@@ -11,7 +11,7 @@ test('1. Title Angle Generation: Produces diverse, substantive titles and avoids
   const topics: Array<{ canonicalTopic: string; pillar: any }> = [
     { canonicalTopic: 'Global Sleep Hygiene Science', pillar: 'wellbeing' },
     { canonicalTopic: 'Kyoto Tea House Architecture', pillar: 'culture' },
-    { canonicalTopic: 'Minimalist Workspace Systems', pillar: 'life' },
+    { canonicalTopic: 'Minimalist Wardrobe Systems', pillar: 'style' },
     { canonicalTopic: 'Extra Virgin Olive Oil Standards', pillar: 'food-drink' },
     { canonicalTopic: 'Treasury Yield Curve Inversion', pillar: 'money' },
     { canonicalTopic: 'Autonomous Vehicle Deployment', pillar: 'tech-ai' },
@@ -54,11 +54,11 @@ test('2. Title Pattern Detection: Flags formulaic patterns and excessive repetit
 });
 
 test('3. Anti-Starvation Boost: Accurately calculates dynamic boost based on elapsed days', () => {
-  assert.equal(calculatePillarStarvationBoost('life', undefined), 0);
-  assert.equal(calculatePillarStarvationBoost('life', { life: 1 }), 0);
-  assert.equal(calculatePillarStarvationBoost('life', { life: 3.5 }), 3);
-  assert.equal(calculatePillarStarvationBoost('life', { life: 5.5 }), 6);
-  assert.equal(calculatePillarStarvationBoost('life', { life: 8.0 }), 10);
+  assert.equal(calculatePillarStarvationBoost('style', undefined), 0);
+  assert.equal(calculatePillarStarvationBoost('style', { style: 1 }), 0);
+  assert.equal(calculatePillarStarvationBoost('style', { style: 3.5 }), 3);
+  assert.equal(calculatePillarStarvationBoost('style', { style: 5.5 }), 6);
+  assert.equal(calculatePillarStarvationBoost('style', { style: 8.0 }), 10);
 });
 
 test('4. Candidate Selection: Prevents starvation of underserved pillars while preserving minimum quality bar', () => {
@@ -96,12 +96,12 @@ test('4. Candidate Selection: Prevents starvation of underserved pillars while p
   const cultureCandidate = baseTopic('topic-culture', 'culture', 84, 'Minimalist Wooden Pavilion');
 
   // Low quality candidate with raw score 72 (starved = 10 days ago) - MUST NOT BE APPROVED
-  const lowQualityStarved = baseTopic('topic-life', 'life', 72, 'Unverified Daily Routine');
+  const lowQualityStarved = baseTopic('topic-wellbeing', 'wellbeing', 72, 'Unverified Daily Routine');
 
   const existingPillarRecency = {
     'tech-ai': 0.5,
     culture: 8.0, // Starved -> +10 boost -> effectiveScore = 94
-    life: 10.0,    // Starved, but raw score 72 < 80 threshold
+    wellbeing: 10.0, // Starved, but raw score 72 < 80 threshold
   };
 
   const selection = selectEditorialCandidates([techCandidate, cultureCandidate, lowQualityStarved], {
@@ -117,8 +117,8 @@ test('4. Candidate Selection: Prevents starvation of underserved pillars while p
   assert.equal(selection.approved[0].id, 'topic-culture');
 
   // Low quality candidate must be deferred even if starved
-  const lifeDeferred = selection.deferred.find((d) => d.id === 'topic-life');
-  assert.ok(lifeDeferred, 'Raw score < 80 must be deferred despite starvation');
+  const wellbeingDeferred = selection.deferred.find((d) => d.id === 'topic-wellbeing');
+  assert.ok(wellbeingDeferred, 'Raw score < 80 must be deferred despite starvation');
 });
 
 test('5. Food & Drink Integration: Active RSS feeds exist in SOURCE_REGISTRY and getDiscoveryFeedsFromRegistry', () => {

@@ -816,7 +816,7 @@ test('27. AIRouterGenerationProvider does not pass partial or malformed article 
     async () => provider.generate({
       topicId: 'lm-test-01',
       titleAngle: 'Test Angle',
-      pillar: 'life',
+      pillar: 'style',
       format: 'guide',
       audience: 'General readers',
       primaryIntent: 'informational',
@@ -1416,7 +1416,7 @@ test('41. AIRouterReviewProvider falls back to deterministic review when AI Rout
   const reviewProvider = new AIRouterReviewProvider(failingRouter);
   const reviewResult = await reviewProvider.review({
     topicId: 'lm-test-review-fallback',
-    pillar: 'life',
+    pillar: 'style',
     format: 'standard',
     audience: 'General',
     primaryIntent: 'informational',

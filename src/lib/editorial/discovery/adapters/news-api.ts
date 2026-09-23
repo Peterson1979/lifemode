@@ -55,6 +55,15 @@ export function classifyNewsPillar(title: string, snippet: string = ''): PillarS
     return 'wellbeing';
   }
 
+  // Style & Beauty
+  if (
+    /\b(style|fashion|skincare|beauty|makeup|hair|fragrance|cosmetics|wardrobe|outfit|textiles|accessories|dermatology)\b/.test(
+      text
+    )
+  ) {
+    return 'style';
+  }
+
   // Culture & Design
   if (
     /\b(culture|art|architecture|design|book|exhibition|cinema|film|museum|music|photography|theatre|heritage|literature|gallery)\b/.test(
@@ -62,11 +71,6 @@ export function classifyNewsPillar(title: string, snippet: string = ''): PillarS
     )
   ) {
     return 'culture';
-  }
-
-  // Default to Culture for broader arts/entertainment/human-interest news, or Life for daily practices
-  if (/\b(routine|habit|home|living|interior|craft|simplicity|minimalism)\b/.test(text)) {
-    return 'life';
   }
 
   return 'culture';

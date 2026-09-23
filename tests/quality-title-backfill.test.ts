@@ -257,10 +257,10 @@ test('Image Backfill: selectBackfillCandidates filters and prioritizes correctly
       },
     },
     {
-      pillar: 'life',
+      pillar: 'style',
       slug: 'older-article-no-image',
-      identity: { pillar: 'life', slug: 'older-article-no-image' },
-      filePath: '/content/life/older-article-no-image.md',
+      identity: { pillar: 'style', slug: 'older-article-no-image' },
+      filePath: '/content/style/older-article-no-image.md',
       content: 'Content...',
       frontmatter: {
         title: 'Older Article',
@@ -391,7 +391,7 @@ test('Image Backfill: runImageBackfill generates images and updates article repo
   });
 
   await repository.create({
-    pillar: 'life',
+    pillar: 'style',
     slug: 'lighting-setup',
     content: '## Lighting Setup\n\nPractical layered lighting tips.',
     frontmatter: {
@@ -450,7 +450,7 @@ test('Image Backfill: runImageBackfill generates images and updates article repo
   assert.strictEqual(updatedArticle1.frontmatter.featured, true);
   assert.strictEqual(updatedArticle1.content, '## Keyboard Guide\n\nA deep dive into switch mechanisms.');
 
-  const updatedArticle2 = await repository.get('life', 'lighting-setup');
+  const updatedArticle2 = await repository.get('style', 'lighting-setup');
   assert.ok(updatedArticle2);
   assert.ok(updatedArticle2.frontmatter.image);
 
@@ -592,7 +592,7 @@ test('Maintenance: findEmptyTopics correctly identifies empty topics without art
     frontmatter: { title: 'Sleep Hygiene Basics', description: 'Good sleep advice for modern people.' },
   });
   await repo.create({
-    pillar: 'life',
+    pillar: 'style',
     slug: 'desk-organization',
     content: 'Body',
     frontmatter: { title: 'Organizing a Small Desk', description: 'Practical tips for clean desk spaces.' },
@@ -604,7 +604,7 @@ test('Maintenance: findEmptyTopics correctly identifies empty topics without art
   assert.ok(report.emptyPillars.includes('tech-ai'));
   assert.ok(report.emptyPillars.includes('culture'));
   assert.ok(!report.emptyPillars.includes('wellbeing'));
-  assert.ok(!report.emptyPillars.includes('life'));
+  assert.ok(!report.emptyPillars.includes('style'));
 
   // Money planned topic is high-yield cash buffer
   const moneyPlan = report.plannedArticles.find((p) => p.pillar === 'money');

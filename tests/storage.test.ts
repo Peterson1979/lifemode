@@ -187,13 +187,13 @@ test('Path Security and Slug Validation', async (t) => {
   });
 
   await t.test('rejects relative traversal in slug', () => {
-    assert.throws(() => resolveSafeArticlePath(contentRoot, 'life', '../../secret'), /Invalid slug/);
-    assert.throws(() => resolveSafeArticlePath(contentRoot, 'life', '..\\..\\secret'), /Invalid slug/);
-    assert.throws(() => resolveSafeArticlePath(contentRoot, 'life', '../escape'), /Invalid slug/);
+    assert.throws(() => resolveSafeArticlePath(contentRoot, 'style', '../../secret'), /Invalid slug/);
+    assert.throws(() => resolveSafeArticlePath(contentRoot, 'style', '..\\..\\secret'), /Invalid slug/);
+    assert.throws(() => resolveSafeArticlePath(contentRoot, 'style', '../escape'), /Invalid slug/);
   });
 
   await t.test('rejects encoded traversal sequences', () => {
-    assert.throws(() => resolveSafeArticlePath(contentRoot, 'life', '%2e%2e%2fpasswd'), /Invalid slug/);
+    assert.throws(() => resolveSafeArticlePath(contentRoot, 'style', '%2e%2e%2fpasswd'), /Invalid slug/);
   });
 
   await t.test('rejects invalid pillar names', () => {
@@ -262,7 +262,7 @@ test('FilesystemContentRepository CRUD and Idempotency', async (t) => {
     });
 
     await t.test('get: returns null for non-existent article', async () => {
-      const missing = await repo.get('life', 'non-existent-article');
+      const missing = await repo.get('style', 'non-existent-article');
       assert.strictEqual(missing, null);
     });
 

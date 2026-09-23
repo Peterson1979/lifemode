@@ -7,15 +7,15 @@ export interface PillarConfig {
   bgLight: string;
 }
 
-export type PillarSlug = 'life' | 'travel' | 'food-drink' | 'tech-ai' | 'money' | 'wellbeing' | 'culture';
+export type PillarSlug = 'style' | 'travel' | 'food-drink' | 'tech-ai' | 'money' | 'wellbeing' | 'culture';
 
 export const PILLARS: Record<PillarSlug, PillarConfig> = {
-  life: {
-    name: 'Life',
-    slug: 'life',
-    tagline: 'Living, Habits & Daily Rituals',
-    description: 'Intentional living, home aesthetics, productivity systems, and modern daily rituals.',
-    color: '#e11d48', // Vibrant Crimson Rose
+  style: {
+    name: 'Style',
+    slug: 'style',
+    tagline: 'Fashion, Personal Style & Beauty',
+    description: 'Contemporary fashion, personal style, skincare, beauty routines, fragrance, and modern aesthetic culture.',
+    color: '#e11d48', // Vibrant Rose
     bgLight: 'rgba(225, 29, 72, 0.08)',
   },
   travel: {
@@ -74,7 +74,7 @@ export const SITE_CONFIG = {
   name: 'LifeMode',
   slogan: 'Ideas for living well now',
   title: 'LifeMode — Ideas for living well now',
-  description: 'Ideas, guides, and discoveries across technology, travel, personal finance, wellbeing, and everyday life.',
+  description: 'Ideas, guides, and discoveries across style, beauty, technology, travel, personal finance, wellbeing, and culture.',
   siteUrl:
     (typeof import.meta !== 'undefined' && (import.meta as any).env?.PUBLIC_SITE_URL) ||
     ((globalThis as any).process?.env?.PUBLIC_SITE_URL as string) ||
@@ -84,7 +84,7 @@ export const SITE_CONFIG = {
   twitterHandle: '@LifeModeMag',
   author: 'LifeMode Editorial',
   navLinks: [
-    { name: 'Life', href: '/life', slug: 'life' },
+    { name: 'Style', href: '/style', slug: 'style' },
     { name: 'Travel', href: '/travel', slug: 'travel' },
     { name: 'Food & Drink', href: '/food-drink', slug: 'food-drink' },
     { name: 'Tech & AI', href: '/tech-ai', slug: 'tech-ai' },

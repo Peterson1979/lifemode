@@ -33,9 +33,11 @@ import { getDiscoveryFeedsFromRegistry } from '../sources/registry.ts';
 export const DEFAULT_CURATED_RSS_FEEDS: ConfiguredRSSFeed[] = getDiscoveryFeedsFromRegistry();
 
 export const DEFAULT_CURATED_SUBREDDITS: ConfiguredRedditCommunity[] = [
-  { subreddit: 'minimalism', pillar: 'life', sort: 'top', timeframe: 'day', minScore: 20 },
-  { subreddit: 'productivity', pillar: 'life', sort: 'top', timeframe: 'day', minScore: 30 },
-  { subreddit: 'simpleliving', pillar: 'life', sort: 'top', timeframe: 'day', minScore: 25 },
+  { subreddit: 'malefashionadvice', pillar: 'style', sort: 'top', timeframe: 'day', minScore: 25 },
+  { subreddit: 'femalefashionadvice', pillar: 'style', sort: 'top', timeframe: 'day', minScore: 25 },
+  { subreddit: 'SkincareAddiction', pillar: 'style', sort: 'top', timeframe: 'day', minScore: 30 },
+  { subreddit: 'MakeupAddiction', pillar: 'style', sort: 'top', timeframe: 'day', minScore: 25 },
+  { subreddit: 'fragrance', pillar: 'style', sort: 'top', timeframe: 'day', minScore: 20 },
   { subreddit: 'solotravel', pillar: 'travel', sort: 'top', timeframe: 'day', minScore: 30 },
   { subreddit: 'travel', pillar: 'travel', sort: 'top', timeframe: 'day', minScore: 40 },
   { subreddit: 'LocalLLaMA', pillar: 'tech-ai', sort: 'top', timeframe: 'day', minScore: 35 },

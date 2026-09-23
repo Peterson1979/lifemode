@@ -36,7 +36,7 @@ async function main() {
 
   const uploadResult = await storage.uploadAsset({
     topicId: 'test-topic',
-    pillar: 'life',
+    pillar: 'style',
     assetHash,
     buffer: imageResult.imageBuffer,
     mimeType: imageResult.mimeType || 'image/jpeg',

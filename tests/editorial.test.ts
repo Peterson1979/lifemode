@@ -76,7 +76,7 @@ test('Editorial Scoring - calculateTotalScore', () => {
     id: 'lm-test-topic',
     canonicalTopic: 'Test Topic',
     slug: 'test-topic',
-    pillar: 'life' as const,
+    pillar: 'style' as const,
     sourceSignals: [],
     queryVariants: ['test topic query'],
     freshnessScore: 80,

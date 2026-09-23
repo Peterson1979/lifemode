@@ -115,7 +115,12 @@ export function slugify(text: string): string {
  * Keyword-based heuristic to infer the most appropriate LifeMode pillar if unspecified.
  */
 const PILLAR_KEYWORDS: Record<PillarSlug, string[]> = {
-  life: ['life', 'home', 'living', 'routine', 'habit', 'decor', 'minimalism', 'productivity', 'organization', 'space', 'workspace', 'desk', 'declutter', 'bedroom', 'interior'],
+  style: [
+    'style', 'fashion', 'outfit', 'wardrobe', 'clothing', 'garment', 'linen', 'tailoring', 'capsule',
+    'beauty', 'skincare', 'makeup', 'cosmetics', 'serum', 'moisturizer', 'cleanser', 'sunscreen',
+    'hair', 'haircare', 'haircut', 'shampoo', 'scalp', 'fragrance', 'perfume', 'cologne', 'scent',
+    'accessories', 'jewelry', 'footwear', 'shoes', 'boots', 'dermatology', 'grooming', 'trend',
+  ],
   travel: ['travel', 'trip', 'destination', 'hotel', 'flight', 'itinerary', 'vacation', 'resort', 'city', 'explore', 'island', 'coastal', 'stay', 'kyoto', 'azores', 'europe'],
   'tech-ai': ['tech', 'ai', 'artificial intelligence', 'gadget', 'software', 'prompt', 'automation', 'tool', 'app', 'hardware', 'llm', 'computing', 'digital', 'workflow'],
   money: ['money', 'finance', 'invest', 'wealth', 'budget', 'saving', 'portfolio', 'income', 'crypto', 'stock', 'tax', 'yield', 'treasury', 'cash', 'asset'],
@@ -127,7 +132,7 @@ const PILLAR_KEYWORDS: Record<PillarSlug, string[]> = {
 /**
  * Infers the closest matching pillar from query keywords using weighted scoring.
  */
-export function inferPillarFromKeywords(text: string, defaultPillar: PillarSlug = 'life'): PillarSlug {
+export function inferPillarFromKeywords(text: string, defaultPillar: PillarSlug = 'style'): PillarSlug {
   const lower = text.toLowerCase();
 
   let bestPillar = defaultPillar;
