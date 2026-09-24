@@ -313,5 +313,40 @@
     "overallStatus": "COMPLETED",
     "createdAt": "2026-09-23T17:25:31.610Z",
     "updatedAt": "2026-09-23T17:25:31.610Z"
+  },
+  {
+    "runId": "srun-1790271004143-11tm7",
+    "topicId": "lm-entertainment-20260924-summer-blockbusters-and-indepe",
+    "pillar": "entertainment",
+    "canonicalTopic": "Inside summer blockbusters and indie cinema: how contemporary storytelling shapes our culture",
+    "contentHash": "d75ebe6f66b3578c041591945da1ee4923831a94c6060e34855e512a8e47128d",
+    "assetHash": "c81a93a119b8bd21c7c35efca3a72d47ec320620acb7bd9eb8fa8c727854f66c",
+    "idempotencyKey": "lm-soc-lm-entertainment-20260924-summer-blockbusters-and-indepe-d75ebe6f",
+    "targetPlatforms": [
+      "instagram",
+      "facebook"
+    ],
+    "platformResults": {
+      "instagram": {
+        "platform": "instagram",
+        "status": "PUBLISHED",
+        "postId": "18021578510875542",
+        "postUrl": "https://instagram.com/p/18021578510875542",
+        "publishedAt": "2026-09-24T17:30:10.912Z",
+        "idempotencyKey": "lm-soc-lm-entertainment-20260924-summer-blockbusters-and-indepe-instagram-ccad0a8becca"
+      },
+      "facebook": {
+        "platform": "facebook",
+        "status": "PUBLISHED",
+        "postId": "122322294878197726",
+        "postUrl": "https://facebook.com/122322294878197726",
+        "publishedAt": "2026-09-24T17:30:20.683Z",
+        "idempotencyKey": "lm-soc-lm-entertainment-20260924-summer-blockbusters-and-indepe-facebook-0f6e2eaaa30a"
+      }
+    },
+    "reviewScore": 90,
+    "overallStatus": "COMPLETED",
+    "createdAt": "2026-09-24T17:30:26.106Z",
+    "updatedAt": "2026-09-24T17:30:26.106Z"
   }
 ]
