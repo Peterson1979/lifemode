@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-25T11:20:20.691Z",
+    "updatedAt": "2026-09-25T16:44:24.038Z",
     "revisionCyclesCount": 0
   },
   {
@@ -49852,7 +49852,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-25T11:20:20.886Z",
+    "updatedAt": "2026-09-25T16:44:24.227Z",
     "pinterestScore": 85.6,
     "revisionCyclesCount": 0
   },
@@ -49915,7 +49915,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-25T11:20:20.920Z",
+    "updatedAt": "2026-09-25T16:44:24.261Z",
     "pinterestScore": 84.8,
     "revisionCyclesCount": 0
   },
@@ -64515,9 +64515,10 @@
     "totalScore": 84,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-24T11:15:12.610Z",
-    "pinterestScore": 88.3
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-25T16:45:36.616Z",
+    "pinterestScore": 88.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-entertainment-20260924-when-is-daylight-savings-time",
@@ -69246,7 +69247,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-25T11:20:20.737Z",
+    "updatedAt": "2026-09-25T16:44:24.085Z",
     "pinterestScore": 87.8,
     "revisionCyclesCount": 0
   },
@@ -69309,7 +69310,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-25T11:20:20.806Z",
+    "updatedAt": "2026-09-25T16:44:24.148Z",
     "pinterestScore": 84.6,
     "revisionCyclesCount": 0
   },
@@ -69372,7 +69373,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-25T11:20:20.854Z",
+    "updatedAt": "2026-09-25T16:44:24.195Z",
     "pinterestScore": 82.9,
     "revisionCyclesCount": 0
   },
@@ -75468,12 +75469,51 @@
           "feedName": "Vogue Style & Culture",
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-3-Moschino20Spring202027",
+        "query": "Moschino Spring 2027 Ready-to-Wear",
+        "sourceUrl": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/moschino",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-25T16:40:25.000Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T16:40:25.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Moschino Spring 2027 Ready-to-Wear",
+            "itemLink": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/moschino",
+            "publishedDate": "2026-09-25T16:40:25.000Z",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
-      "blumarine spring 2027 ready-to-wear"
+      "blumarine spring 2027 ready-to-wear",
+      "moschino spring 2027 ready-to-wear"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-25T11:18:56.000Z",
     "tags": [
       "fashion-trends",
@@ -75491,16 +75531,17 @@
       "socialPotential": 80,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 88
     },
-    "totalScore": 77.4,
+    "totalScore": 77.6,
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-09-25T11:20:19.476Z",
-    "pinterestScore": 79.2
+    "updatedAt": "2026-09-25T16:44:23.050Z",
+    "pinterestScore": 79.2,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-style-20260925-sportmax-spring-2027-ready-to-",
@@ -77608,6 +77649,3160 @@
     "opportunityType": "ARTICLE",
     "status": "SCORED",
     "updatedAt": "2026-09-25T11:20:20.689Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-cubs-vs-red-sox",
+    "canonicalTopic": "Cubs Vs Red Sox",
+    "slug": "cubs-vs-red-sox",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-cubs20vs20red20sox",
+        "query": "Cubs Vs Red Sox",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-25T16:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-25T16:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "cubs vs red sox",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "cubs vs red sox"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T16:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-25T16:44:21.824Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260925-supreme-court",
+    "canonicalTopic": "Supreme Court",
+    "slug": "supreme-court",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-supreme20court",
+        "query": "Supreme Court",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-25T16:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-25T16:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "supreme court",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "supreme court"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T16:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-25T16:44:21.852Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260925-royal-family-news",
+    "canonicalTopic": "Royal Family News",
+    "slug": "royal-family-news",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-royal20family20ne",
+        "query": "Royal Family News",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-25T16:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-25T16:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "royal family news",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "royal family news"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T16:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-25T16:44:21.877Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260925-mark-consuelos-foot-procedure",
+    "canonicalTopic": "Mark Consuelos Foot Procedure",
+    "slug": "mark-consuelos-foot-procedure",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-mark20consuelos20",
+        "query": "Mark Consuelos Foot Procedure",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-25T16:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-25T16:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "mark consuelos foot procedure",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "mark consuelos foot procedure"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T16:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-25T16:44:21.909Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260925-cuba",
+    "canonicalTopic": "Cuba",
+    "slug": "cuba",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-cuba",
+        "query": "Cuba",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-25T16:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-25T16:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "cuba",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "cuba"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T16:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-25T16:44:21.925Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260925-georgia-vs-northern-ireland",
+    "canonicalTopic": "Georgia Vs Northern Ireland",
+    "slug": "georgia-vs-northern-ireland",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-georgia20vs20nort",
+        "query": "Georgia Vs Northern Ireland",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-25T15:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-25T15:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "georgia vs northern ireland",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "georgia vs northern ireland"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T15:40:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-25T16:44:21.954Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-tech-ai-20260925-google-ai",
+    "canonicalTopic": "Google Ai",
+    "slug": "google-ai",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-google20ai",
+        "query": "Google Ai",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-25T15:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-25T15:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "google ai",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "US",
+            "tech-ai",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "google ai"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T15:40:00.000Z",
+    "tags": [
+      "US",
+      "tech-ai",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-25T16:44:21.974Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-entertainment-20260925-pardon",
+    "canonicalTopic": "Pardon",
+    "slug": "pardon",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-pardon",
+        "query": "Pardon",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-25T15:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-25T15:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "pardon",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "pardon"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T15:30:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-25T16:44:21.992Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260925-nintendo-switch-news",
+    "canonicalTopic": "Nintendo Switch News",
+    "slug": "nintendo-switch-news",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-nintendo20switch",
+        "query": "Nintendo Switch News",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-25T15:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-25T15:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "nintendo switch news",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "nintendo switch news"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T15:30:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-25T16:44:22.019Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-tech-ai-20260925-the-download-the-pentagons-ai-",
+    "canonicalTopic": "The Download the Pentagons Ai-powered Lie Detector and Young Organ Limits",
+    "slug": "the-download-the-pentagons-ai-powered-lie-detector-and-young-organ-limits",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-1-The20Download3A20the20",
+        "query": "The Download the Pentagons Ai-powered Lie Detector and Young Organ Limits",
+        "sourceUrl": "https://www.technologyreview.com/2026/09/25/1145157/the-download-pentagon-ai-lie-detector-young-organ-limits/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-09-25T12:10:00.000Z",
+        "contentSnippet": "This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. The Pentagon wants $30 million to build an AI-powered lie detector The US government wants to spend $30.3 million over the next five years on an improved lie detector, according to…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T12:10:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "The Download: the Pentagon’s AI-powered lie detector and young organ limits",
+            "itemLink": "https://www.technologyreview.com/2026/09/25/1145157/the-download-pentagon-ai-lie-detector-young-organ-limits/",
+            "publishedDate": "2026-09-25T12:10:00.000Z",
+            "contentSnippet": "This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. The Pentagon wants $30 million to build an AI-powered lie detector The US government wants to spend $30.3 million over the next five years on an improved lie detector, according to…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "The Download"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "The Download"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the download the pentagons ai-powered lie detector and young organ limits"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T12:10:00.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "The Download"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:22.083Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260925-sony-and-umg-are-suing-suno-ag",
+    "canonicalTopic": "Sony and Umg Are Suing Suno Again",
+    "slug": "sony-and-umg-are-suing-suno-again",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-Sony20and20UMG20are20sui",
+        "query": "Sony and Umg Are Suing Suno Again",
+        "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/1000758/suno-sony-umg-lawsuit-ai-music",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-25T15:51:56.000Z",
+        "contentSnippet": "Sony and Universal Music Group filed yet another suit against Suno. The labels claim its new v6 model still infringes on their copyrights because it's trained on user outputs from previous models, which were themselves trained on unlicensed music ripped from YouTube and other sources. Sony and UMG are notable holdouts who did not sign […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T15:51:56.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Sony and UMG are suing Suno again",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/1000758/suno-sony-umg-lawsuit-ai-music",
+            "publishedDate": "2026-09-25T15:51:56.000Z",
+            "contentSnippet": "Sony and Universal Music Group filed yet another suit against Suno. The labels claim its new v6 model still infringes on their copyrights because it's trained on user outputs from previous models, which were themselves trained on unlicensed music ripped from YouTube and other sources. Sony and UMG are notable holdouts who did not sign […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "Entertainment",
+              "Law",
+              "Music",
+              "News",
+              "Policy"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "Entertainment",
+            "Law",
+            "Music",
+            "News",
+            "Policy"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "sony and umg are suing suno again"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T15:51:56.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "Entertainment",
+      "Law",
+      "Music",
+      "News",
+      "Policy"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:22.124Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260925-one-company-is-at-the-center-o",
+    "canonicalTopic": "One Company Is at the Center of a Wave of Rogue Ai Attacks",
+    "slug": "one-company-is-at-the-center-of-a-wave-of-rogue-ai-attacks",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-One20company20is20at20th",
+        "query": "One Company Is at the Center of a Wave of Rogue Ai Attacks",
+        "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/1000644/irregular-rogue-ai-cyberattacks-hacking-openai-meta-anthropic-google",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-25T15:39:48.000Z",
+        "contentSnippet": "In July, OpenAI revealed that its AI agents had attacked Hugging Face without permission, sparking widespread concerns about AI safety. Since then, a string of similar incidents involving agents from Meta, Anthropic, Google, and other companies has fueled further fears about rogue AI. As disclosures implicating numerous AI models trickled out over the past few […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T15:39:48.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "One company is at the center of a wave of rogue AI attacks",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/1000644/irregular-rogue-ai-cyberattacks-hacking-openai-meta-anthropic-google",
+            "publishedDate": "2026-09-25T15:39:48.000Z",
+            "contentSnippet": "In July, OpenAI revealed that its AI agents had attacked Hugging Face without permission, sparking widespread concerns about AI safety. Since then, a string of similar incidents involving agents from Meta, Anthropic, Google, and other companies has fueled further fears about rogue AI. As disclosures implicating numerous AI models trickled out over the past few […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "Report",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "Report",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "one company is at the center of a wave of rogue ai attacks"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T15:39:48.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "Report",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:22.177Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260925-cricuts-new-compact-crafter-pr",
+    "canonicalTopic": "Cricuts New Compact Crafter Prints Cuts and Laminates Stickers",
+    "slug": "cricuts-new-compact-crafter-prints-cuts-and-laminates-stickers",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-Cricuts20new20compact",
+        "query": "Cricuts New Compact Crafter Prints Cuts and Laminates Stickers",
+        "sourceUrl": "https://www.theverge.com/tech/1000655/cricut-sticker-pix-print-cut-crafting-printer-machines-stickers",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-25T14:21:25.000Z",
+        "contentSnippet": "Cricut announced its first crafting machines with printing capabilities that are primarily designed as all-in-one solutions for turning photos and other images into precut stickers. The Cricut StickerPix Print plus Cut and Cricut StickerPix Print are also two of the smallest machines in the company's current lineup and seem ideal for those whose crafting aspirations […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T14:21:25.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Cricut's new compact crafter prints, cuts, and laminates stickers",
+            "itemLink": "https://www.theverge.com/tech/1000655/cricut-sticker-pix-print-cut-crafting-printer-machines-stickers",
+            "publishedDate": "2026-09-25T14:21:25.000Z",
+            "contentSnippet": "Cricut announced its first crafting machines with printing capabilities that are primarily designed as all-in-one solutions for turning photos and other images into precut stickers. The Cricut StickerPix Print plus Cut and Cricut StickerPix Print are also two of the smallest machines in the company's current lineup and seem ideal for those whose crafting aspirations […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Gadgets",
+              "News",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Gadgets",
+            "News",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "cricuts new compact crafter prints cuts and laminates stickers"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T14:21:25.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Gadgets",
+      "News",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:22.235Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260925-gamings-biggest-horror-series-",
+    "canonicalTopic": "Gamings Biggest Horror Series Are More Vital Than Ever",
+    "slug": "gamings-biggest-horror-series-are-more-vital-than-ever",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-4-GamingE28099s20biggest20hor",
+        "query": "Gamings Biggest Horror Series Are More Vital Than Ever",
+        "sourceUrl": "https://www.theverge.com/entertainment/1000595/silent-hill-townfall-resident-evil",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-25T14:10:00.000Z",
+        "contentSnippet": "For the third year in a row, I've been scared out of my wits by a new Silent Hill game. First it was the modern remake of Silent Hill 2, then the Japan-set spinoff Silent Hill F. Now I find myself slowly crawling through a quaint Scottish town in Silent Hill: Townfall, trying my best […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T14:10:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Gaming’s biggest horror series are more vital than ever",
+            "itemLink": "https://www.theverge.com/entertainment/1000595/silent-hill-townfall-resident-evil",
+            "publishedDate": "2026-09-25T14:10:00.000Z",
+            "contentSnippet": "For the third year in a row, I've been scared out of my wits by a new Silent Hill game. First it was the modern remake of Silent Hill 2, then the Japan-set spinoff Silent Hill F. Now I find myself slowly crawling through a quaint Scottish town in Silent Hill: Townfall, trying my best […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Analysis",
+              "Entertainment",
+              "Gaming",
+              "Report"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Analysis",
+            "Entertainment",
+            "Gaming",
+            "Report"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "gamings biggest horror series are more vital than ever"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T14:10:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Analysis",
+      "Entertainment",
+      "Gaming",
+      "Report"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:22.287Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260925-can-apple-homes-ai-camera-feat",
+    "canonicalTopic": "Can Apple Homes Ai Camera Features Outsmart Amazons and Googles I Put Them to the Test",
+    "slug": "can-apple-homes-ai-camera-features-outsmart-amazons-and-googles-i-put-them-to-the-test",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-5-Can20Apple20HomeE28099s20AI2",
+        "query": "Can Apple Homes Ai Camera Features Outsmart Amazons and Googles I Put Them to the Test",
+        "sourceUrl": "https://www.theverge.com/tech/1000321/apple-intelligence-home-security-camera-amazon-ring-alexa-google-nest-gemini-home-review",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-25T13:00:00.000Z",
+        "contentSnippet": "A few years back, I was at a beachside Easter egg hunt, watching my kids dash through sand dunes searching for sweet treats. My phone buzzed in my pocket; I ignored it. A moment later, it buzzed again. I pulled it out, glanced down, and saw a \"motion detected\" notification from my security camera. \"Just […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T13:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Can Apple Home’s AI camera features outsmart Amazon’s and Google’s? I put them to the test",
+            "itemLink": "https://www.theverge.com/tech/1000321/apple-intelligence-home-security-camera-amazon-ring-alexa-google-nest-gemini-home-review",
+            "publishedDate": "2026-09-25T13:00:00.000Z",
+            "contentSnippet": "A few years back, I was at a beachside Easter egg hunt, watching my kids dash through sand dunes searching for sweet treats. My phone buzzed in my pocket; I ignored it. A moment later, it buzzed again. I pulled it out, glanced down, and saw a \"motion detected\" notification from my security camera. \"Just […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "Apple",
+              "Reviews",
+              "Smart Home",
+              "Smartwatch Reviews",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "Apple",
+            "Reviews",
+            "Smart Home",
+            "Smartwatch Reviews",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "can apple homes ai camera features outsmart amazons and googles i put them to the test"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T13:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "Apple",
+      "Reviews",
+      "Smart Home",
+      "Smartwatch Reviews",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:22.369Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260925-in-heart-of-the-beast-new-zeal",
+    "canonicalTopic": "In Heart of the Beast New Zealands South Island Makes a Compelling Dupe for Alaska",
+    "slug": "in-heart-of-the-beast-new-zealands-south-island-makes-a-compelling-dupe-for-alaska",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-In20Heart20of20the20Beas",
+        "query": "In Heart of the Beast New Zealands South Island Makes a Compelling Dupe for Alaska",
+        "sourceUrl": "https://www.cntraveler.com/story/in-heart-of-the-beast-new-zealands-south-island-makes-a-compelling-dupe-for-alaska",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-25T16:11:04.000Z",
+        "contentSnippet": "The survival thriller doubles as a heartwarming animal flick about the bond between human and dog.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T16:11:04.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "In Heart of the Beast, New Zealand's South Island Makes a Compelling Dupe for Alaska",
+            "itemLink": "https://www.cntraveler.com/story/in-heart-of-the-beast-new-zealands-south-island-makes-a-compelling-dupe-for-alaska",
+            "publishedDate": "2026-09-25T16:11:04.000Z",
+            "contentSnippet": "The survival thriller doubles as a heartwarming animal flick about the bond between human and dog.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Inspiration / Style & Culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Inspiration / Style & Culture"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "in heart of the beast new zealands south island makes a compelling dupe for alaska"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T16:11:04.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Inspiration / Style & Culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:22.438Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260925-how-an-olympic-gold-medalist-s",
+    "canonicalTopic": "How an Olympic Gold Medalist Spends Her Family Vacation on Kauai with Three Teenagers",
+    "slug": "how-an-olympic-gold-medalist-spends-her-family-vacation-on-kauai-with-three-teenagers",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-2-How20an20Olympic20Gold20",
+        "query": "How an Olympic Gold Medalist Spends Her Family Vacation on Kauai with Three Teenagers",
+        "sourceUrl": "https://www.cntraveler.com/story/how-an-olympic-gold-medalist-spends-family-vacation-on-kauai-with-three-teenagers",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-25T15:59:38.000Z",
+        "contentSnippet": "For Olympic Gold Medalist Kerri Walsh Jennings, a return to the island she loves most became something she hadn't planned for: an unscheduled, unhurried week with that reminded her what's truly valuable in life",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T15:59:38.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "How an Olympic Gold Medalist Spends Her Family Vacation on Kauai With Three Teenagers",
+            "itemLink": "https://www.cntraveler.com/story/how-an-olympic-gold-medalist-spends-family-vacation-on-kauai-with-three-teenagers",
+            "publishedDate": "2026-09-25T15:59:38.000Z",
+            "contentSnippet": "For Olympic Gold Medalist Kerri Walsh Jennings, a return to the island she loves most became something she hadn't planned for: an unscheduled, unhurried week with that reminded her what's truly valuable in life",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Inspiration",
+              "Inspiration / Family Travel"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Inspiration",
+            "Inspiration / Family Travel"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how an olympic gold medalist spends her family vacation on kauai with three teenagers"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T15:59:38.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Inspiration",
+      "Inspiration / Family Travel"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:22.508Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260925-the-travel-backpacks-our-edito",
+    "canonicalTopic": "The Travel Backpacks Our Editors Are Obsessed with After Months—and Even Years—of Testing",
+    "slug": "the-travel-backpacks-our-editors-are-obsessed-with-after-months-and-even-years-of-testing",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-3-The20Travel20Backpacks",
+        "query": "The Travel Backpacks Our Editors Are Obsessed with After Months—and Even Years—of Testing",
+        "sourceUrl": "https://www.cntraveler.com/story/best-travel-backpacks",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-25T15:58:40.000Z",
+        "contentSnippet": "Looking for a new travel backpack? Here's what our editors puts on their backs.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T15:58:40.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "The Travel Backpacks Our Editors Are Obsessed With After Months—and Even Years—of Testing",
+            "itemLink": "https://www.cntraveler.com/story/best-travel-backpacks",
+            "publishedDate": "2026-09-25T15:58:40.000Z",
+            "contentSnippet": "Looking for a new travel backpack? Here's what our editors puts on their backs.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Shopping"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the travel backpacks our editors are obsessed with after months—and even years—of testing"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T15:58:40.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:22.593Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260925-qatar-airways-promo-code-up-to",
+    "canonicalTopic": "Qatar Airways Promo Code Up to 20 Off in 2026",
+    "slug": "qatar-airways-promo-code-up-to-20-off-in-2026",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-4-Qatar20Airways20Promo20",
+        "query": "Qatar Airways Promo Code Up to 20 Off in 2026",
+        "sourceUrl": "https://www.cntraveler.com/story/qatar-airways-promo-code",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-25T14:03:38.000Z",
+        "contentSnippet": "Whether you’re traveling for study or leisure, use Qatar Airways coupon codes or flash sales to unlock exclusive fares at up to 15% off, student discounts of up to 20%, extra baggage allowances, and Privilege Club rewards this fall.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T14:03:38.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Qatar Airways Promo Code: Up to 20% Off in 2026",
+            "itemLink": "https://www.cntraveler.com/story/qatar-airways-promo-code",
+            "publishedDate": "2026-09-25T14:03:38.000Z",
+            "contentSnippet": "Whether you’re traveling for study or leisure, use Qatar Airways coupon codes or flash sales to unlock exclusive fares at up to 15% off, student discounts of up to 20%, extra baggage allowances, and Privilege Club rewards this fall.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Shopping"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "qatar airways promo code up to 20 off in 2026"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T14:03:38.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:22.641Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260925-an-essential-guide-to-the-amal",
+    "canonicalTopic": "An Essential Guide to the Amalfi Coast—italys Definition of Dolce Vita Glam",
+    "slug": "an-essential-guide-to-the-amalfi-coast-italys-definition-of-dolce-vita-glam",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-5-An20Essential20Guide20t",
+        "query": "An Essential Guide to the Amalfi Coast—italys Definition of Dolce Vita Glam",
+        "sourceUrl": "https://www.cntraveler.com/story/an-essential-guide-to-the-amalfi-coast-which-is-even-better-in-fall",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-25T13:42:01.000Z",
+        "contentSnippet": "The seaside stretch skirting the Sorrentine Peninsula rose to international fame in the 1950s and ‘60s, but the cliffside paradise claims a rich history dating back to the Middle Ages.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T13:42:01.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "An Essential Guide to the Amalfi Coast—Italy’s Definition of Dolce Vita Glam",
+            "itemLink": "https://www.cntraveler.com/story/an-essential-guide-to-the-amalfi-coast-which-is-even-better-in-fall",
+            "publishedDate": "2026-09-25T13:42:01.000Z",
+            "contentSnippet": "The seaside stretch skirting the Sorrentine Peninsula rose to international fame in the 1950s and ‘60s, but the cliffside paradise claims a rich history dating back to the Middle Ages.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Destinations"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Destinations"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "an essential guide to the amalfi coast—italys definition of dolce vita glam"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T13:42:01.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Destinations"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:22.706Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260925-special-agents-blood-and-urine",
+    "canonicalTopic": "Special Agents Blood and Urine Test Results Stolen in Fbi Hack",
+    "slug": "special-agents-blood-and-urine-test-results-stolen-in-fbi-hack",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-1-Special20agents20bloo",
+        "query": "Special Agents Blood and Urine Test Results Stolen in Fbi Hack",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cw62me2vlj07o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-25T13:56:16.000Z",
+        "contentSnippet": "Experts say the hack could leave agents vulnerable to scams, blackmail and targeted attacks.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T13:56:16.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Special agents' blood and urine test results stolen in FBI hack",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cw62me2vlj07o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-25T13:56:16.000Z",
+            "contentSnippet": "Experts say the hack could leave agents vulnerable to scams, blackmail and targeted attacks.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "special agents blood and urine test results stolen in fbi hack"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T13:56:16.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:22.764Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260925-supreme-court-revives-controve",
+    "canonicalTopic": "Supreme Court Revives Controversial Us Data System for Citizenship Checks",
+    "slug": "supreme-court-revives-controversial-us-data-system-for-citizenship-checks",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-4-Supreme20Court20revive",
+        "query": "Supreme Court Revives Controversial Us Data System for Citizenship Checks",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/ck05rrj3jeylo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-25T16:35:01.000Z",
+        "contentSnippet": "The system uses citizenship information and other sensitive data to filter alleged non-citizen voting.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T16:35:01.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Supreme Court revives controversial US data system for citizenship checks",
+            "itemLink": "https://www.bbc.co.uk/news/articles/ck05rrj3jeylo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-25T16:35:01.000Z",
+            "contentSnippet": "The system uses citizenship information and other sensitive data to filter alleged non-citizen voting.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "supreme court revives controversial us data system for citizenship checks"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T16:35:01.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:22.827Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260925-students-strike-across-germany",
+    "canonicalTopic": "Students Strike Across Germany in Protest Against Military Service",
+    "slug": "students-strike-across-germany-in-protest-against-military-service",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-5-Students20strike20acro",
+        "query": "Students Strike Across Germany in Protest Against Military Service",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cxnvlnve52qdo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-25T15:36:22.000Z",
+        "contentSnippet": "A law establishing voluntary military service came into effect in January, but protest organisers fear compulsory service could follow.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T15:36:22.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Students strike across Germany in protest against military service",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cxnvlnve52qdo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-25T15:36:22.000Z",
+            "contentSnippet": "A law establishing voluntary military service came into effect in January, but protest organisers fear compulsory service could follow.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "students strike across germany in protest against military service"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T15:36:22.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:22.886Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260925-melania-trump-peng-liyuan-and-",
+    "canonicalTopic": "Melania Trump Peng Liyuan and Two Very Different Takes on First Lady Style",
+    "slug": "melania-trump-peng-liyuan-and-two-very-different-takes-on-first-lady-style",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-1-Melania20Trump2C20Peng20",
+        "query": "Melania Trump Peng Liyuan and Two Very Different Takes on First Lady Style",
+        "sourceUrl": "https://www.vogue.com/article/melania-trump-peng-liyuan-first-lady-style",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-25T16:27:07.000Z",
+        "contentSnippet": "As the Chinese First Lady returned to Washington for the first time in more than a decade, two wardrobes offered very different ideas about fashion and diplomacy.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T16:27:07.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Melania Trump, Peng Liyuan, and Two Very Different Takes on First Lady Style",
+            "itemLink": "https://www.vogue.com/article/melania-trump-peng-liyuan-first-lady-style",
+            "publishedDate": "2026-09-25T16:27:07.000Z",
+            "contentSnippet": "As the Chinese First Lady returned to Washington for the first time in more than a decade, two wardrobes offered very different ideas about fashion and diplomacy.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Fashion"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Fashion"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "melania trump peng liyuan and two very different takes on first lady style"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T16:27:07.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Fashion"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:22.951Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260925-everything-daisy-edgar-jones-i",
+    "canonicalTopic": "Everything Daisy Edgar-jones Is Wearing to Promote Sense and Sensibility",
+    "slug": "everything-daisy-edgar-jones-is-wearing-to-promote-sense-and-sensibility",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-2-Everything20Daisy20Edg",
+        "query": "Everything Daisy Edgar-jones Is Wearing to Promote Sense and Sensibility",
+        "sourceUrl": "https://www.vogue.com/slideshow/daisy-edgar-jones-sense-and-sensibility-press-tour",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-25T16:27:05.000Z",
+        "contentSnippet": "From Vivienne Westwood corsetry to angelic Stella McCartney, see every look worn by Daisy Edgar-Jones on the ‘Sense And Sensibility’ press tour.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T16:27:05.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Everything Daisy Edgar-Jones Is Wearing to Promote ‘Sense And Sensibility’",
+            "itemLink": "https://www.vogue.com/slideshow/daisy-edgar-jones-sense-and-sensibility-press-tour",
+            "publishedDate": "2026-09-25T16:27:05.000Z",
+            "contentSnippet": "From Vivienne Westwood corsetry to angelic Stella McCartney, see every look worn by Daisy Edgar-Jones on the ‘Sense And Sensibility’ press tour.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Fashion / Celebrity Style",
+              "Fashion"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Fashion / Celebrity Style",
+            "Fashion"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "everything daisy edgar-jones is wearing to promote sense and sensibility"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T16:27:05.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Fashion / Celebrity Style",
+      "Fashion"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:23.014Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260925-elisabetta-franchi-spring-2027",
+    "canonicalTopic": "Elisabetta Franchi Spring 2027 Ready-to-wear",
+    "slug": "elisabetta-franchi-spring-2027-ready-to-wear",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-4-Elisabetta20Franchi20S",
+        "query": "Elisabetta Franchi Spring 2027 Ready-to-wear",
+        "sourceUrl": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/elisabetta-franchi",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-25T16:40:25.000Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T16:40:25.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Elisabetta Franchi Spring 2027 Ready-to-Wear",
+            "itemLink": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/elisabetta-franchi",
+            "publishedDate": "2026-09-25T16:40:25.000Z",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "elisabetta franchi spring 2027 ready-to-wear"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T16:40:25.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Runway"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:23.088Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260925-the-allure-2026-best-of-beauty",
+    "canonicalTopic": "The Allure 2026 Best of Beauty Box Review",
+    "slug": "the-allure-2026-best-of-beauty-box-review",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-1-The20Allure20202620Best",
+        "query": "The Allure 2026 Best of Beauty Box Review",
+        "sourceUrl": "https://www.allure.com/story/best-of-beauty-limited-edition-box-2026",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-25T16:35:46.000Z",
+        "contentSnippet": "How do you celebrate 30 years of the Best of Beauty? With 30 award-winning products and one epic box.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T16:35:46.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "The Allure 2026 Best of Beauty Box Review",
+            "itemLink": "https://www.allure.com/story/best-of-beauty-limited-edition-box-2026",
+            "publishedDate": "2026-09-25T16:35:46.000Z",
+            "contentSnippet": "How do you celebrate 30 years of the Best of Beauty? With 30 award-winning products and one epic box.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Beauty Products / Beauty Product Reviews",
+              "Best of Beauty 2026"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Beauty Products / Beauty Product Reviews",
+            "Best of Beauty 2026"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the allure 2026 best of beauty box review"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T16:35:46.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Beauty Products / Beauty Product Reviews",
+      "Best of Beauty 2026"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:23.124Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260925-olandria-turned-a-waist-length",
+    "canonicalTopic": "Olandria Turned a Waist-length Mullet into a High-fashion Moment — See Photos",
+    "slug": "olandria-turned-a-waist-length-mullet-into-a-high-fashion-moment-see-photos",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-2-Olandria20Turned20a20Wa",
+        "query": "Olandria Turned a Waist-length Mullet into a High-fashion Moment — See Photos",
+        "sourceUrl": "https://www.allure.com/story/olandria-mullet-milan-fashion-week",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-25T14:57:29.000Z",
+        "contentSnippet": "Business in the front, formal gala in the back.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T14:57:29.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "Olandria Turned a Waist-Length Mullet Into a High-Fashion Moment — See Photos",
+            "itemLink": "https://www.allure.com/story/olandria-mullet-milan-fashion-week",
+            "publishedDate": "2026-09-25T14:57:29.000Z",
+            "contentSnippet": "Business in the front, formal gala in the back.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Hair"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Hair"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "olandria turned a waist-length mullet into a high-fashion moment — see photos"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T14:57:29.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Hair"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:23.180Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260925-laminex-colour-collection-2027",
+    "canonicalTopic": "Laminex Colour Collection 2027 by Laminex",
+    "slug": "laminex-colour-collection-2027-by-laminex",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-Laminex20Colour20Colle",
+        "query": "Laminex Colour Collection 2027 by Laminex",
+        "sourceUrl": "https://www.dezeen.com/2026/09/25/laminex-colour-collection-2027-dezeen-showroom/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-25T13:00:39.000Z",
+        "contentSnippet": "Dezeen Showroom: Australian surface brand Laminex has released its 2027 Colour Collection, adding 10 new designs inspired by the country's landscape to its laminate range. Six solid colours and four wood grains make up the Laminex Colour Collection 2027, ranging from the alpine white of High Country to the deep ochre of Red Centre, and The post Laminex Colour Collection 2027 by Laminex appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T13:00:39.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Laminex Colour Collection 2027 by Laminex",
+            "itemLink": "https://www.dezeen.com/2026/09/25/laminex-colour-collection-2027-dezeen-showroom/",
+            "publishedDate": "2026-09-25T13:00:39.000Z",
+            "contentSnippet": "Dezeen Showroom: Australian surface brand Laminex has released its 2027 Colour Collection, adding 10 new designs inspired by the country's landscape to its laminate range. Six solid colours and four wood grains make up the Laminex Colour Collection 2027, ranging from the alpine white of High Country to the deep ochre of Red Centre, and The post Laminex Colour Collection 2027 by Laminex appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "Laminex",
+              "all",
+              "Products",
+              "Design",
+              "Do not show on the Homepage",
+              "Dezeen Showroom",
+              "Surfaces"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "Laminex",
+            "all",
+            "Products",
+            "Design",
+            "Do not show on the Homepage",
+            "Dezeen Showroom",
+            "Surfaces"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "laminex colour collection 2027 by laminex"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T13:00:39.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "Laminex",
+      "all",
+      "Products",
+      "Design",
+      "Do not show on the Homepage",
+      "Dezeen Showroom",
+      "Surfaces"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:23.225Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-spains-begin-again-films-board",
+    "canonicalTopic": "Spains Begin Again Films Boards Brazilian Basketball Biopic Paula & Hortncia – the Last Chance Exclusive",
+    "slug": "spains-begin-again-films-boards-brazilian-basketball-biopic-paula-hortncia-the-last-chance-exclusive",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-1-SpainE28099s20Be",
+        "query": "Spains Begin Again Films Boards Brazilian Basketball Biopic Paula & Hortncia – the Last Chance Exclusive",
+        "sourceUrl": "https://variety.com/2026/film/global/begin-again-films-paula-hortencia-the-last-chance-1236875707/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-25T16:33:48.000Z",
+        "contentSnippet": "Spain-based Begin Again Films secured an international sales deal for “Paula & Hortência – The Last Chance.’ The film, directed by Georgia Guerra-Peixe Joca, is a biopic on the life of the two titular legends of Brazilian women’s basketball. The film will star Tainá Müller (“Good Morning, Verônica”) and Juliana Didone (“Maybe a Love Story”) […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T16:33:48.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Spain’s Begin Again Films Boards Brazilian Basketball Biopic ‘Paula & Hortência – The Last Chance’ (EXCLUSIVE)",
+            "itemLink": "https://variety.com/2026/film/global/begin-again-films-paula-hortencia-the-last-chance-1236875707/",
+            "publishedDate": "2026-09-25T16:33:48.000Z",
+            "contentSnippet": "Spain-based Begin Again Films secured an international sales deal for “Paula & Hortência – The Last Chance.’ The film, directed by Georgia Guerra-Peixe Joca, is a biopic on the life of the two titular legends of Brazilian women’s basketball. The film will star Tainá Müller (“Good Morning, Verônica”) and Juliana Didone (“Maybe a Love Story”) […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Global",
+              "Markets & Festivals",
+              "News",
+              "Brazil",
+              "Rio Film Festival",
+              "San Sebastian Film Festival",
+              "Trema"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Global",
+            "Markets & Festivals",
+            "News",
+            "Brazil",
+            "Rio Film Festival",
+            "San Sebastian Film Festival",
+            "Trema"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "spains begin again films boards brazilian basketball biopic paula & hortncia – the last chance exclusive"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T16:33:48.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Global",
+      "Markets & Festivals",
+      "News",
+      "Brazil",
+      "Rio Film Festival",
+      "San Sebastian Film Festival",
+      "Trema"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:23.314Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-la-mayoral-candidate-nithya-ra",
+    "canonicalTopic": "La Mayoral Candidate Nithya Raman Turns to Microdramas to Power Youth Vote",
+    "slug": "la-mayoral-candidate-nithya-raman-turns-to-microdramas-to-power-youth-vote",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-2-LA20Mayoral20Can",
+        "query": "La Mayoral Candidate Nithya Raman Turns to Microdramas to Power Youth Vote",
+        "sourceUrl": "https://variety.com/2026/politics/news/nithya-raman-microdramas-1236873525/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-25T16:15:00.000Z",
+        "contentSnippet": "It's an unseasonably warm September day in Chatsworth, and the air conditioning at the Capital Arts soundstages has gone out. The crew has one day to churn out four microdramas for Nithya Raman's campaign for Los Angeles mayor. They are running a little behind schedule. \"Quiet please!\" \"We're having fun!\" shouts director Ryan Wagner. \"Even […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T16:15:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "L.A. Mayoral Candidate Nithya Raman Turns to Microdramas to Power Youth Vote",
+            "itemLink": "https://variety.com/2026/politics/news/nithya-raman-microdramas-1236873525/",
+            "publishedDate": "2026-09-25T16:15:00.000Z",
+            "contentSnippet": "It's an unseasonably warm September day in Chatsworth, and the air conditioning at the Capital Arts soundstages has gone out. The crew has one day to churn out four microdramas for Nithya Raman's campaign for Los Angeles mayor. They are running a little behind schedule. \"Quiet please!\" \"We're having fun!\" shouts director Ryan Wagner. \"Even […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "Nithya Raman"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "Nithya Raman"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "la mayoral candidate nithya raman turns to microdramas to power youth vote"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T16:15:00.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "Nithya Raman"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:23.386Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-evil-dead-burn-sets-hbo-max-re",
+    "canonicalTopic": "Evil Dead Burn Sets Hbo Max Release Date in Time for Halloween",
+    "slug": "evil-dead-burn-sets-hbo-max-release-date-in-time-for-halloween",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-3-E28098Evil20Dead",
+        "query": "Evil Dead Burn Sets Hbo Max Release Date in Time for Halloween",
+        "sourceUrl": "https://variety.com/2026/film/news/evil-dead-burn-hbo-max-release-date-streaming-1236839235/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-25T16:04:38.000Z",
+        "contentSnippet": "One of the year's scariest movies will be ready to stream before Halloween: “Evil Dead Burn” will be released on HBO Max on Oct. 2. The third movie since the \"Evil Dead\" series reboot in 2013 (and sixth film in the franchise overall) had its theatrical release July 10. Directed by Sébastien Vaniček, “Evil Dead […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T16:04:38.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "‘Evil Dead Burn’ Sets HBO Max Release Date in Time for Halloween",
+            "itemLink": "https://variety.com/2026/film/news/evil-dead-burn-hbo-max-release-date-streaming-1236839235/",
+            "publishedDate": "2026-09-25T16:04:38.000Z",
+            "contentSnippet": "One of the year's scariest movies will be ready to stream before Halloween: “Evil Dead Burn” will be released on HBO Max on Oct. 2. The third movie since the \"Evil Dead\" series reboot in 2013 (and sixth film in the franchise overall) had its theatrical release July 10. Directed by Sébastien Vaniček, “Evil Dead […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "Evil Dead Burn",
+              "Sam Raimi"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "Evil Dead Burn",
+            "Sam Raimi"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "evil dead burn sets hbo max release date in time for halloween"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T16:04:38.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "Evil Dead Burn",
+      "Sam Raimi"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:23.459Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-heres-where-to-buy-new-york-kn",
+    "canonicalTopic": "Heres Where to Buy New York Knicks Home Opener Tickets at Madison Square Garden Online",
+    "slug": "heres-where-to-buy-new-york-knicks-home-opener-tickets-at-madison-square-garden-online",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-4-Heres20Where20to",
+        "query": "Heres Where to Buy New York Knicks Home Opener Tickets at Madison Square Garden Online",
+        "sourceUrl": "https://variety.com/2026/shopping/news/new-york-knicks-home-opener-2026-msg-tickets-buy-online-1236874638/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-25T16:00:05.000Z",
+        "contentSnippet": "The hottest ticket in New York City is to the Knicks home opener at Madison Square Garden on Tuesday, Oct. 20. Since winning the NBA Finals against the San Antonio Spurs back in June, the Knicks have become the toast of New York with good vibes around the city, massive TV ratings and even Jalen […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T16:00:05.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Here's Where to Buy New York Knicks Home Opener Tickets at Madison Square Garden Online",
+            "itemLink": "https://variety.com/2026/shopping/news/new-york-knicks-home-opener-2026-msg-tickets-buy-online-1236874638/",
+            "publishedDate": "2026-09-25T16:00:05.000Z",
+            "contentSnippet": "The hottest ticket in New York City is to the Knicks home opener at Madison Square Garden on Tuesday, Oct. 20. Since winning the NBA Finals against the San Antonio Spurs back in June, the Knicks have become the toast of New York with good vibes around the city, massive TV ratings and even Jalen […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "Basketball",
+              "Madison Square Garden",
+              "NBA",
+              "New York Knicks",
+              "NOADS",
+              "Sports",
+              "Tickets"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "Basketball",
+            "Madison Square Garden",
+            "NBA",
+            "New York Knicks",
+            "NOADS",
+            "Sports",
+            "Tickets"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "heres where to buy new york knicks home opener tickets at madison square garden online"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T16:00:05.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "Basketball",
+      "Madison Square Garden",
+      "NBA",
+      "New York Knicks",
+      "NOADS",
+      "Sports",
+      "Tickets"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:23.546Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-montclair-film-festival-sets-2",
+    "canonicalTopic": "Montclair Film Festival Sets 2026 Lineup with La Bola Negra I Play Rocky the Debut and More Exclusive",
+    "slug": "montclair-film-festival-sets-2026-lineup-with-la-bola-negra-i-play-rocky-the-debut-and-more-exclusive",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-5-Montclair20Film2",
+        "query": "Montclair Film Festival Sets 2026 Lineup with La Bola Negra I Play Rocky the Debut and More Exclusive",
+        "sourceUrl": "https://variety.com/2026/film/awards/montclair-film-festival-2026-lineup-la-bola-negra-play-rocky-1236874680/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-25T16:00:00.000Z",
+        "contentSnippet": "The Montclair Film Festival has unveiled the complete lineup for its 2026 edition, bringing a slate of international premieres, awards season contenders, documentaries and independent films to New Jersey. Among the highlights are Javier Calvo and Javier Ambrossi’s “La Bola Negra,” Peter Farrelly’s “I Play Rocky,” Jesse Eisenberg’s “The Debut,” Sian Heder’s “Being Heumann,” James […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T16:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Montclair Film Festival Sets 2026 Lineup With ‘La Bola Negra,’ ‘I Play Rocky,’ ‘The Debut’ and More (EXCLUSIVE)",
+            "itemLink": "https://variety.com/2026/film/awards/montclair-film-festival-2026-lineup-la-bola-negra-play-rocky-1236874680/",
+            "publishedDate": "2026-09-25T16:00:00.000Z",
+            "contentSnippet": "The Montclair Film Festival has unveiled the complete lineup for its 2026 edition, bringing a slate of international premieres, awards season contenders, documentaries and independent films to New Jersey. Among the highlights are Javier Calvo and Javier Ambrossi’s “La Bola Negra,” Peter Farrelly’s “I Play Rocky,” Jesse Eisenberg’s “The Debut,” Sian Heder’s “Being Heumann,” James […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Awards",
+              "News",
+              "I Play Rocky",
+              "La bola negra",
+              "Montclair Film Festival",
+              "The Debut"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Awards",
+            "News",
+            "I Play Rocky",
+            "La bola negra",
+            "Montclair Film Festival",
+            "The Debut"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "montclair film festival sets 2026 lineup with la bola negra i play rocky the debut and more exclusive"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T16:00:00.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Awards",
+      "News",
+      "I Play Rocky",
+      "La bola negra",
+      "Montclair Film Festival",
+      "The Debut"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:23.640Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-top-hollywood-publicist-allege",
+    "canonicalTopic": "Top Hollywood Publicist Alleged to Have Hid Evidence About Role in Celebrity Smear Sites",
+    "slug": "top-hollywood-publicist-alleged-to-have-hid-evidence-about-role-in-celebrity-smear-sites",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-1-Top20Hollywood20Pub",
+        "query": "Top Hollywood Publicist Alleged to Have Hid Evidence About Role in Celebrity Smear Sites",
+        "sourceUrl": "https://www.hollywoodreporter.com/business/business-news/top-hollywood-publicist-alleged-celebrity-smear-sites-1236709454/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-25T16:40:58.000Z",
+        "contentSnippet": "In new court filings, Melissa Nathan is accused of committing perjury about her link to websites that have lodged anonymous complaints against prominent individuals and companies. Nathan has denied involvement.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T16:40:58.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Top Hollywood Publicist Alleged to Have Hid Evidence About Role In Celebrity Smear Sites",
+            "itemLink": "https://www.hollywoodreporter.com/business/business-news/top-hollywood-publicist-alleged-celebrity-smear-sites-1236709454/",
+            "publishedDate": "2026-09-25T16:40:58.000Z",
+            "contentSnippet": "In new court filings, Melissa Nathan is accused of committing perjury about her link to websites that have lodged anonymous complaints against prominent individuals and companies. Nathan has denied involvement.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Business",
+              "Business News",
+              "Bryan Freedman"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Business",
+            "Business News",
+            "Bryan Freedman"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "top hollywood publicist alleged to have hid evidence about role in celebrity smear sites"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T16:40:58.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Business",
+      "Business News",
+      "Bryan Freedman"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:23.727Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-the-traitors-new-blood-premier",
+    "canonicalTopic": "The Traitors New Blood Premiere Ratings Get a Big Assist from Streaming",
+    "slug": "the-traitors-new-blood-premiere-ratings-get-a-big-assist-from-streaming",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-2-The20Traitors3A20Ne",
+        "query": "The Traitors New Blood Premiere Ratings Get a Big Assist from Streaming",
+        "sourceUrl": "https://www.hollywoodreporter.com/tv/tv-news/traitors-new-blood-premiere-ratings-peacock-1236709962/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-25T16:31:22.000Z",
+        "contentSnippet": "Peacock, home of the O.G. 'Traitors,' helps the two-episode debut climb into respectable territory.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T16:31:22.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "'The Traitors: New Blood' Premiere Ratings Get a Big Assist From Streaming",
+            "itemLink": "https://www.hollywoodreporter.com/tv/tv-news/traitors-new-blood-premiere-ratings-peacock-1236709962/",
+            "publishedDate": "2026-09-25T16:31:22.000Z",
+            "contentSnippet": "Peacock, home of the O.G. 'Traitors,' helps the two-episode debut climb into respectable territory.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "TV",
+              "TV News",
+              "NBC",
+              "Peacock",
+              "The Traitors",
+              "The Traitors: New Blood",
+              "TV Ratings"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "TV",
+            "TV News",
+            "NBC",
+            "Peacock",
+            "The Traitors",
+            "The Traitors: New Blood",
+            "TV Ratings"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the traitors new blood premiere ratings get a big assist from streaming"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T16:31:22.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "TV",
+      "TV News",
+      "NBC",
+      "Peacock",
+      "The Traitors",
+      "The Traitors: New Blood",
+      "TV Ratings"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:23.793Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-inside-the-new-york-times-100-",
+    "canonicalTopic": "Inside the New York Times 100 Best Tv Shows of the 21st Century List and Why the Times Is All-in on Canon",
+    "slug": "inside-the-new-york-times-100-best-tv-shows-of-the-21st-century-list-and-why-the-times-is-all-in-on-canon",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-3-Inside20The20New20Y",
+        "query": "Inside the New York Times 100 Best Tv Shows of the 21st Century List and Why the Times Is All-in on Canon",
+        "sourceUrl": "https://www.hollywoodreporter.com/business/business-news/inside-ny-times-100-best-tv-shows-of-the-21st-century-list-1236709926/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-25T16:15:08.000Z",
+        "contentSnippet": "Times canon editor Gilbert Cruz talks about the unusual new position, and how the Gray Lady is leaning into videos to help its storytelling.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T16:15:08.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Inside The New York Times 100 Best TV Shows of the 21st Century List, and Why the Times Is All-In On \"Canon\"",
+            "itemLink": "https://www.hollywoodreporter.com/business/business-news/inside-ny-times-100-best-tv-shows-of-the-21st-century-list-1236709926/",
+            "publishedDate": "2026-09-25T16:15:08.000Z",
+            "contentSnippet": "Times canon editor Gilbert Cruz talks about the unusual new position, and how the Gray Lady is leaning into videos to help its storytelling.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Business",
+              "Business News",
+              "The New York Times"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Business",
+            "Business News",
+            "The New York Times"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "inside the new york times 100 best tv shows of the 21st century list and why the times is all-in on canon"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T16:15:08.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Business",
+      "Business News",
+      "The New York Times"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:23.886Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-avengers-endgame-returns-to-bo",
+    "canonicalTopic": "Avengers Endgame Returns to Box Office with 38m Previews As Brad Pitt Robert Pattinson Join Fray",
+    "slug": "avengers-endgame-returns-to-box-office-with-38m-previews-as-brad-pitt-robert-pattinson-join-fray",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-4-Avengers3A20Endgame",
+        "query": "Avengers Endgame Returns to Box Office with 38m Previews As Brad Pitt Robert Pattinson Join Fray",
+        "sourceUrl": "https://www.hollywoodreporter.com/movies/movie-news/avengers-endgame-encore-box-office-previews-primetime-beast-1236709715/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-25T16:08:41.000Z",
+        "contentSnippet": "'Heart of the Beast,' 'Primetime' and 'Forgotten Island' are among the newcomers for the crowded weekend.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T16:08:41.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "'Avengers: Endgame' Returns to Box Office With $3.8M Previews as Brad Pitt, Robert Pattinson Join Fray",
+            "itemLink": "https://www.hollywoodreporter.com/movies/movie-news/avengers-endgame-encore-box-office-previews-primetime-beast-1236709715/",
+            "publishedDate": "2026-09-25T16:08:41.000Z",
+            "contentSnippet": "'Heart of the Beast,' 'Primetime' and 'Forgotten Island' are among the newcomers for the crowded weekend.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Movie News",
+              "Movies",
+              "Avengers: Endgame",
+              "box office",
+              "Brad Pitt",
+              "H.E.R.",
+              "Heart of the Beast",
+              "Liza Soberano",
+              "Marvel Studios",
+              "Primetime",
+              "Robert Pattinson"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Movie News",
+            "Movies",
+            "Avengers: Endgame",
+            "box office",
+            "Brad Pitt",
+            "H.E.R.",
+            "Heart of the Beast",
+            "Liza Soberano",
+            "Marvel Studios",
+            "Primetime",
+            "Robert Pattinson"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "avengers endgame returns to box office with 38m previews as brad pitt robert pattinson join fray"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T16:08:41.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Movie News",
+      "Movies",
+      "Avengers: Endgame",
+      "box office",
+      "Brad Pitt",
+      "H.E.R.",
+      "Heart of the Beast",
+      "Liza Soberano",
+      "Marvel Studios",
+      "Primetime",
+      "Robert Pattinson"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:23.976Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-elizabeth-holmes-documentary-g",
+    "canonicalTopic": "Elizabeth Holmes Documentary Gets R-rating for Graphic Nudity",
+    "slug": "elizabeth-holmes-documentary-gets-r-rating-for-graphic-nudity",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-5-Elizabeth20Holmes20",
+        "query": "Elizabeth Holmes Documentary Gets R-rating for Graphic Nudity",
+        "sourceUrl": "https://www.hollywoodreporter.com/movies/movie-news/elizabeth-holmes-documentary-r-rating-graphic-nudity-1236709939/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-25T15:54:34.000Z",
+        "contentSnippet": "'You Can See Everything' gets a rather unexpected advisory from the MPA, and fans have plenty of thoughts.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T15:54:34.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Elizabeth Holmes Documentary Gets R-Rating for \"Graphic Nudity\"",
+            "itemLink": "https://www.hollywoodreporter.com/movies/movie-news/elizabeth-holmes-documentary-r-rating-graphic-nudity-1236709939/",
+            "publishedDate": "2026-09-25T15:54:34.000Z",
+            "contentSnippet": "'You Can See Everything' gets a rather unexpected advisory from the MPA, and fans have plenty of thoughts.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Movie News",
+              "Movies",
+              "A24",
+              "Elizabeth Holmes",
+              "Nathan Fielder",
+              "You Can See Everything"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Movie News",
+            "Movies",
+            "A24",
+            "Elizabeth Holmes",
+            "Nathan Fielder",
+            "You Can See Everything"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "elizabeth holmes documentary gets r-rating for graphic nudity"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T15:54:34.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Movie News",
+      "Movies",
+      "A24",
+      "Elizabeth Holmes",
+      "Nathan Fielder",
+      "You Can See Everything"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T16:44:24.036Z",
     "pinterestScore": 79.2
   }
 ]
