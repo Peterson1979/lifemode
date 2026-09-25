@@ -348,5 +348,40 @@
     "overallStatus": "COMPLETED",
     "createdAt": "2026-09-24T17:30:26.106Z",
     "updatedAt": "2026-09-24T17:30:26.106Z"
+  },
+  {
+    "runId": "srun-1790357354953-povy1",
+    "topicId": "lm-entertainment-20260924-alexandra-eala",
+    "pillar": "entertainment",
+    "canonicalTopic": "Alexandra Eala: Rising Star of the Hard‑Court Swing",
+    "contentHash": "a8216f792de0d47315ea4801eb665f32aa850226914a77978f6f32da3e19e0d5",
+    "assetHash": "73658b58356957e31d87121a4fc34989b2158ec3bedf94257527d850469128f0",
+    "idempotencyKey": "lm-soc-lm-entertainment-20260924-alexandra-eala-a8216f79",
+    "targetPlatforms": [
+      "instagram",
+      "facebook"
+    ],
+    "platformResults": {
+      "instagram": {
+        "platform": "instagram",
+        "status": "PUBLISHED",
+        "postId": "18097401518636846",
+        "postUrl": "https://instagram.com/p/18097401518636846",
+        "publishedAt": "2026-09-25T17:29:20.616Z",
+        "idempotencyKey": "lm-soc-lm-entertainment-20260924-alexandra-eala-instagram-41b4b05b0354"
+      },
+      "facebook": {
+        "platform": "facebook",
+        "status": "PUBLISHED",
+        "postId": "122322497390197726",
+        "postUrl": "https://facebook.com/122322497390197726",
+        "publishedAt": "2026-09-25T17:29:30.685Z",
+        "idempotencyKey": "lm-soc-lm-entertainment-20260924-alexandra-eala-facebook-891059a9709c"
+      }
+    },
+    "reviewScore": 90,
+    "overallStatus": "COMPLETED",
+    "createdAt": "2026-09-25T17:29:42.274Z",
+    "updatedAt": "2026-09-25T17:29:42.274Z"
   }
 ]
