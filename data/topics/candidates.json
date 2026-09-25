@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-24T16:38:51.338Z",
+    "updatedAt": "2026-09-25T11:20:20.691Z",
     "revisionCyclesCount": 0
   },
   {
@@ -49852,7 +49852,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-24T16:38:51.518Z",
+    "updatedAt": "2026-09-25T11:20:20.886Z",
     "pinterestScore": 85.6,
     "revisionCyclesCount": 0
   },
@@ -49915,7 +49915,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-24T16:38:51.550Z",
+    "updatedAt": "2026-09-25T11:20:20.920Z",
     "pinterestScore": 84.8,
     "revisionCyclesCount": 0
   },
@@ -55066,12 +55066,37 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-noaa",
+        "query": "noaa",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-25T11:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-25T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "noaa",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "noaa"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-21T11:20:00.000Z",
     "tags": [
       "US",
@@ -55081,21 +55106,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-21T12:11:44.601Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-25T11:20:18.297Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260921-giants-vs-rams",
@@ -61620,9 +61646,12 @@
     "totalScore": 82.7,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-22T16:26:28.231Z",
-    "pinterestScore": 85.3
+    "status": "REJECTED",
+    "updatedAt": "2026-09-25T11:26:42.973Z",
+    "pinterestScore": 85.3,
+    "rejectionReason": "AI Review decision was REJECT (score: 55) after 1 quality revision",
+    "revisionCyclesCount": 1,
+    "revisionAttempted": true
   },
   {
     "id": "lm-now-20260922-msft",
@@ -64336,9 +64365,10 @@
     "totalScore": 84,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-24T11:15:12.557Z",
-    "pinterestScore": 88.3
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-25T11:23:35.888Z",
+    "pinterestScore": 88.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-food-drink-20260924-dunkin-free-coffee",
@@ -64423,8 +64453,8 @@
     "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-24T11:15:12.652Z",
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-25T11:30:59.016Z",
     "pinterestScore": 85.3,
     "revisionCyclesCount": 0
   },
@@ -69216,7 +69246,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-24T16:42:09.316Z",
+    "updatedAt": "2026-09-25T11:20:20.737Z",
     "pinterestScore": 87.8,
     "revisionCyclesCount": 0
   },
@@ -69279,7 +69309,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-24T16:40:04.801Z",
+    "updatedAt": "2026-09-25T11:20:20.806Z",
     "pinterestScore": 84.6,
     "revisionCyclesCount": 0
   },
@@ -69342,7 +69372,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-24T16:38:51.488Z",
+    "updatedAt": "2026-09-25T11:20:20.854Z",
     "pinterestScore": 82.9,
     "revisionCyclesCount": 0
   },
@@ -73020,6 +73050,4564 @@
     "opportunityType": "ARTICLE",
     "status": "SCORED",
     "updatedAt": "2026-09-24T16:38:51.335Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-david-rubenstein",
+    "canonicalTopic": "David Rubenstein",
+    "slug": "david-rubenstein",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-david20rubenstei",
+        "query": "David Rubenstein",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-25T11:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-25T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "david rubenstein",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "david rubenstein"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T11:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-25T11:20:18.261Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260925-leylah-fernandez",
+    "canonicalTopic": "Leylah Fernandez",
+    "slug": "leylah-fernandez",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-leylah20fernande",
+        "query": "Leylah Fernandez",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-25T11:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-25T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "leylah fernandez",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "leylah fernandez"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T11:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-25T11:20:18.285Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260925-andrey-rublev",
+    "canonicalTopic": "Andrey Rublev",
+    "slug": "andrey-rublev",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-andrey20rublev",
+        "query": "Andrey Rublev",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-25T11:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-25T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "andrey rublev",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "andrey rublev"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T11:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-25T11:20:18.320Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260925-sat-score",
+    "canonicalTopic": "Sat Score",
+    "slug": "sat-score",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-sat20score",
+        "query": "Sat Score",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-25T11:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-25T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "sat score",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "sat score"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T11:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-25T11:20:18.337Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260925-steve-alford",
+    "canonicalTopic": "Steve Alford",
+    "slug": "steve-alford",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-steve20alford",
+        "query": "Steve Alford",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-25T11:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-25T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "steve alford",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "steve alford"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T11:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-25T11:20:18.354Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260925-aidan-oconnell",
+    "canonicalTopic": "Aidan Oconnell",
+    "slug": "aidan-oconnell",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-aidan20oconnell",
+        "query": "Aidan Oconnell",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-25T11:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-25T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "aidan o'connell",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "aidan oconnell"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T11:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-25T11:20:18.372Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260925-dolly-parton",
+    "canonicalTopic": "Dolly Parton",
+    "slug": "dolly-parton",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-dolly20parton",
+        "query": "Dolly Parton",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-25T10:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-25T10:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "dolly parton",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dolly parton"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T10:50:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-25T11:20:18.389Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260925-mirra-andreeva",
+    "canonicalTopic": "Mirra Andreeva",
+    "slug": "mirra-andreeva",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-mirra20andreeva",
+        "query": "Mirra Andreeva",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-25T10:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-25T10:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "mirra andreeva",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "mirra andreeva"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T10:50:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-25T11:20:18.407Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260925-mary-barth-budenholzer",
+    "canonicalTopic": "Mary Barth Budenholzer",
+    "slug": "mary-barth-budenholzer",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-mary20barth20bude",
+        "query": "Mary Barth Budenholzer",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-25T10:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-25T10:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "mary barth budenholzer",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "mary barth budenholzer"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T10:30:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-25T11:20:18.429Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-tech-ai-20260925-the-pentagon-wants-30-million-",
+    "canonicalTopic": "The Pentagon Wants 30 Million to Build an Ai-powered Lie Detector",
+    "slug": "the-pentagon-wants-30-million-to-build-an-ai-powered-lie-detector",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-1-The20Pentagon20wants20",
+        "query": "The Pentagon Wants 30 Million to Build an Ai-powered Lie Detector",
+        "sourceUrl": "https://www.technologyreview.com/2026/09/25/1145144/pentagon-ai-lie-detector/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-09-25T09:16:25.000Z",
+        "contentSnippet": "The US government wants to spend $30.3 million over the next five years on an improved form of lie detector, according to a Department of Defense budget request. The program, called “Polygraph+” or “Polygraph Next”, will focus on scoring algorithms that use artificial intelligence and machine learning and on a technique called “standoff sensing”, which…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T09:16:25.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "The Pentagon wants $30 million to build an AI-powered lie detector",
+            "itemLink": "https://www.technologyreview.com/2026/09/25/1145144/pentagon-ai-lie-detector/",
+            "publishedDate": "2026-09-25T09:16:25.000Z",
+            "contentSnippet": "The US government wants to spend $30.3 million over the next five years on an improved form of lie detector, according to a Department of Defense budget request. The program, called “Polygraph+” or “Polygraph Next”, will focus on scoring algorithms that use artificial intelligence and machine learning and on a technique called “standoff sensing”, which…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "Artificial intelligence",
+              "App",
+              "Summary"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "Artificial intelligence",
+            "App",
+            "Summary"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the pentagon wants 30 million to build an ai-powered lie detector"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T09:16:25.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "Artificial intelligence",
+      "App",
+      "Summary"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:18.475Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260925-young-organs-may-not-be-a-foun",
+    "canonicalTopic": "Young Organs May Not Be a Fountain of Youth for Recipients",
+    "slug": "young-organs-may-not-be-a-fountain-of-youth-for-recipients",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-2-Young20organs20may20no",
+        "query": "Young Organs May Not Be a Fountain of Youth for Recipients",
+        "sourceUrl": "https://www.technologyreview.com/2026/09/25/1145083/young-organs-may-not-be-a-fountain-of-youth-for-recipients/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-09-25T09:00:00.000Z",
+        "contentSnippet": "Around this time last year I was attending an aging conference in Manchester, listening to a talk about fly aging, when my phone started pinging. News outlets were reporting that a hot mic had caught Russia’s and China’s leaders discussing the possibility of living forever. “With the developments of biotechnology, human organs can be continuously…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T09:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "Young organs may not be a fountain of youth for recipients",
+            "itemLink": "https://www.technologyreview.com/2026/09/25/1145083/young-organs-may-not-be-a-fountain-of-youth-for-recipients/",
+            "publishedDate": "2026-09-25T09:00:00.000Z",
+            "contentSnippet": "Around this time last year I was attending an aging conference in Manchester, listening to a talk about fly aging, when my phone started pinging. News outlets were reporting that a hot mic had caught Russia’s and China’s leaders discussing the possibility of living forever. “With the developments of biotechnology, human organs can be continuously…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "Biotechnology and health",
+              "App",
+              "Summary",
+              "The Checkup"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "Biotechnology and health",
+            "App",
+            "Summary",
+            "The Checkup"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "young organs may not be a fountain of youth for recipients"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T09:00:00.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "Biotechnology and health",
+      "App",
+      "Summary",
+      "The Checkup"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:18.517Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260925-cdc-opens-state-ordering-for-c",
+    "canonicalTopic": "Cdc Opens State Ordering for Covid-19 Vaccines After Unexplained Delay",
+    "slug": "cdc-opens-state-ordering-for-covid-19-vaccines-after-unexplained-delay",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-1-CDC20opens20state20orde",
+        "query": "Cdc Opens State Ordering for Covid-19 Vaccines After Unexplained Delay",
+        "sourceUrl": "https://arstechnica.com/health/2026/09/cdc-opens-state-ordering-for-covid-19-vaccines-after-unexplained-delay/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-24T22:29:48.000Z",
+        "contentSnippet": "Health department previously blamed delay on \"not yet finalized procurement decisions.\"",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-24T22:29:48.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "CDC opens state ordering for COVID-19 vaccines after unexplained delay",
+            "itemLink": "https://arstechnica.com/health/2026/09/cdc-opens-state-ordering-for-covid-19-vaccines-after-unexplained-delay/",
+            "publishedDate": "2026-09-24T22:29:48.000Z",
+            "contentSnippet": "Health department previously blamed delay on \"not yet finalized procurement decisions.\"",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Health",
+              "CDC",
+              "COVID-19"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Health",
+            "CDC",
+            "COVID-19"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "cdc opens state ordering for covid-19 vaccines after unexplained delay"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-24T22:29:48.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Health",
+      "CDC",
+      "COVID-19"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:18.567Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260925-donald-ducks-uncle-was-partly-",
+    "canonicalTopic": "Donald Ducks Uncle Was Partly Based on Wernher Von Braun",
+    "slug": "donald-ducks-uncle-was-partly-based-on-wernher-von-braun",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-2-Donald20Ducks20uncle20",
+        "query": "Donald Ducks Uncle Was Partly Based on Wernher Von Braun",
+        "sourceUrl": "https://arstechnica.com/space/2026/09/disneys-ludwig-von-drake-was-inspired-by-rocket-scientists-65-years-ago/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-24T21:40:07.000Z",
+        "contentSnippet": "Introducing the \"world-famous authority on outer space...\"",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-24T21:40:07.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Donald Duck's uncle was partly based on Wernher von Braun",
+            "itemLink": "https://arstechnica.com/space/2026/09/disneys-ludwig-von-drake-was-inspired-by-rocket-scientists-65-years-ago/",
+            "publishedDate": "2026-09-24T21:40:07.000Z",
+            "contentSnippet": "Introducing the \"world-famous authority on outer space...\"",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Space",
+              "animation",
+              "Bill Berg",
+              "Disneyland TV series",
+              "Heinz Haber",
+              "Inside Outer Space",
+              "Ludwig von Drake",
+              "Man and the Moon",
+              "Man in Space",
+              "Mars and Beyond",
+              "Milt Kahl",
+              "NASA",
+              "nbc",
+              "outer space",
+              "Paul Frees",
+              "rocket scientists",
+              "Space Age",
+              "Space exploration",
+              "space history",
+              "space race",
+              "Walt Disney",
+              "Ward Kimball",
+              "Wernher von Braun",
+              "Willy Ley",
+              "Wonderful World of Color"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Space",
+            "animation",
+            "Bill Berg",
+            "Disneyland TV series",
+            "Heinz Haber",
+            "Inside Outer Space",
+            "Ludwig von Drake",
+            "Man and the Moon",
+            "Man in Space",
+            "Mars and Beyond",
+            "Milt Kahl",
+            "NASA",
+            "nbc",
+            "outer space",
+            "Paul Frees",
+            "rocket scientists",
+            "Space Age",
+            "Space exploration",
+            "space history",
+            "space race",
+            "Walt Disney",
+            "Ward Kimball",
+            "Wernher von Braun",
+            "Willy Ley",
+            "Wonderful World of Color"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "donald ducks uncle was partly based on wernher von braun"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-24T21:40:07.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Space",
+      "animation",
+      "Bill Berg",
+      "Disneyland TV series",
+      "Heinz Haber",
+      "Inside Outer Space",
+      "Ludwig von Drake",
+      "Man and the Moon",
+      "Man in Space",
+      "Mars and Beyond",
+      "Milt Kahl",
+      "NASA",
+      "nbc",
+      "outer space",
+      "Paul Frees",
+      "rocket scientists",
+      "Space Age",
+      "Space exploration",
+      "space history",
+      "space race",
+      "Walt Disney",
+      "Ward Kimball",
+      "Wernher von Braun",
+      "Willy Ley",
+      "Wonderful World of Color"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:18.610Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260925-f-droid-gets-its-biggest-updat",
+    "canonicalTopic": "F-droid Gets Its Biggest Update in a Decade with New Ui and Smoother App Installs",
+    "slug": "f-droid-gets-its-biggest-update-in-a-decade-with-new-ui-and-smoother-app-installs",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-3-F-Droid20gets20its20big",
+        "query": "F-droid Gets Its Biggest Update in a Decade with New Ui and Smoother App Installs",
+        "sourceUrl": "https://arstechnica.com/gadgets/2026/09/f-droid-gets-its-biggest-update-in-a-decade-with-new-ui-and-smoother-app-installs/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-24T19:30:42.000Z",
+        "contentSnippet": "F-Droid's Android app store has been rebuilt from the ground up.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-24T19:30:42.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "F-Droid gets its biggest update in a decade with new UI and smoother app installs",
+            "itemLink": "https://arstechnica.com/gadgets/2026/09/f-droid-gets-its-biggest-update-in-a-decade-with-new-ui-and-smoother-app-installs/",
+            "publishedDate": "2026-09-24T19:30:42.000Z",
+            "contentSnippet": "F-Droid's Android app store has been rebuilt from the ground up.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Google",
+              "Tech",
+              "app stores",
+              "apps",
+              "f-droid"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Google",
+            "Tech",
+            "app stores",
+            "apps",
+            "f-droid"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "f-droid gets its biggest update in a decade with new ui and smoother app installs"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-24T19:30:42.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Google",
+      "Tech",
+      "app stores",
+      "apps",
+      "f-droid"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:18.665Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260925-new-york-defies-trump-admin-as",
+    "canonicalTopic": "New York Defies Trump Admin Asks Court to Shut Down Polymarket Gambling",
+    "slug": "new-york-defies-trump-admin-asks-court-to-shut-down-polymarket-gambling",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-4-New20York20defies20Trum",
+        "query": "New York Defies Trump Admin Asks Court to Shut Down Polymarket Gambling",
+        "sourceUrl": "https://arstechnica.com/tech-policy/2026/09/new-york-asks-court-to-shut-down-polymarkets-illegal-gambling-operation/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-24T19:07:19.000Z",
+        "contentSnippet": "New York sues Polymarket as Trump admin tries to override state gambling laws.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-24T19:07:19.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "New York defies Trump admin, asks court to shut down Polymarket gambling",
+            "itemLink": "https://arstechnica.com/tech-policy/2026/09/new-york-asks-court-to-shut-down-polymarkets-illegal-gambling-operation/",
+            "publishedDate": "2026-09-24T19:07:19.000Z",
+            "contentSnippet": "New York sues Polymarket as Trump admin tries to override state gambling laws.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Policy",
+              "new york",
+              "polymarket",
+              "prediction market"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Policy",
+            "new york",
+            "polymarket",
+            "prediction market"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "new york defies trump admin asks court to shut down polymarket gambling"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-24T19:07:19.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Policy",
+      "new york",
+      "polymarket",
+      "prediction market"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:18.713Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260925-we-have-a-trailer-for-musk-doc",
+    "canonicalTopic": "We Have a Trailer for Musk Documentary Elon Called a Hit Piece",
+    "slug": "we-have-a-trailer-for-musk-documentary-elon-called-a-hit-piece",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-5-We20have20a20trailer20fo",
+        "query": "We Have a Trailer for Musk Documentary Elon Called a Hit Piece",
+        "sourceUrl": "https://arstechnica.com/culture/2026/09/we-have-a-trailer-for-musk-documentary-elon-called-a-hit-piece/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-24T18:52:23.000Z",
+        "contentSnippet": "Oscar-winning documentarian Alex Gibney focuses on the world's wealthiest man.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-24T18:52:23.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "We have a trailer for Musk documentary Elon called a \"hit piece\"",
+            "itemLink": "https://arstechnica.com/culture/2026/09/we-have-a-trailer-for-musk-documentary-elon-called-a-hit-piece/",
+            "publishedDate": "2026-09-24T18:52:23.000Z",
+            "contentSnippet": "Oscar-winning documentarian Alex Gibney focuses on the world's wealthiest man.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Culture",
+              "Alex Gibney",
+              "Bleecker Street",
+              "documentaries",
+              "Elon Musk",
+              "Musk documentary",
+              "technology",
+              "Trailers"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Culture",
+            "Alex Gibney",
+            "Bleecker Street",
+            "documentaries",
+            "Elon Musk",
+            "Musk documentary",
+            "technology",
+            "Trailers"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "we have a trailer for musk documentary elon called a hit piece"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-24T18:52:23.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Culture",
+      "Alex Gibney",
+      "Bleecker Street",
+      "documentaries",
+      "Elon Musk",
+      "Musk documentary",
+      "technology",
+      "Trailers"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:18.759Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260925-heres-the-tesla-semi-again",
+    "canonicalTopic": "Heres the Tesla Semi Again",
+    "slug": "heres-the-tesla-semi-again",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-HereE28099s20the20Tesla20Sem",
+        "query": "Heres the Tesla Semi Again",
+        "sourceUrl": "https://www.theverge.com/transportation/1000317/tesla-semi-launch-customer-delivery-freight-battery-engineer",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-25T02:12:57.000Z",
+        "contentSnippet": "Remember the Tesla Semi? The long-gestating, heavy-duty truck first introduced in concept form in 2017 is finally in volume production as of April 2026 - nearly a decade after its initial introduction. On Thursday evening, the company held yet another event for the Semi to demonstrate to customers and investors that the long wait was […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T02:12:57.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Here’s the Tesla Semi… again",
+            "itemLink": "https://www.theverge.com/transportation/1000317/tesla-semi-launch-customer-delivery-freight-battery-engineer",
+            "publishedDate": "2026-09-25T02:12:57.000Z",
+            "contentSnippet": "Remember the Tesla Semi? The long-gestating, heavy-duty truck first introduced in concept form in 2017 is finally in volume production as of April 2026 - nearly a decade after its initial introduction. On Thursday evening, the company held yet another event for the Semi to demonstrate to customers and investors that the long wait was […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Electric Cars",
+              "News",
+              "Tesla",
+              "Transportation"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Electric Cars",
+            "News",
+            "Tesla",
+            "Transportation"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "heres the tesla semi again"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T02:12:57.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Electric Cars",
+      "News",
+      "Tesla",
+      "Transportation"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:18.786Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260925-microsoft-is-killing-off-the-c",
+    "canonicalTopic": "Microsoft Is Killing Off the Copilot Plus Pc Brand",
+    "slug": "microsoft-is-killing-off-the-copilot-plus-pc-brand",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-Microsoft20is20killing",
+        "query": "Microsoft Is Killing Off the Copilot Plus Pc Brand",
+        "sourceUrl": "https://www.theverge.com/tech/1000495/microsoft-is-killing-off-the-copilot-plus-pc-brand",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-25T01:25:53.000Z",
+        "contentSnippet": "Remember when Microsoft wanted everyone to know that \"Copilot Plus PCs\" were the ones to get, because those were the PCs that that'd have enough built-in AI muscle to get things done? Two and a half years later, Microsoft and Qualcomm seem to be admitting the brand is already dead. Windows Central's Zac Bowden reports […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T01:25:53.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Microsoft is killing off the ‘Copilot Plus PC’ brand",
+            "itemLink": "https://www.theverge.com/tech/1000495/microsoft-is-killing-off-the-copilot-plus-pc-brand",
+            "publishedDate": "2026-09-25T01:25:53.000Z",
+            "contentSnippet": "Remember when Microsoft wanted everyone to know that \"Copilot Plus PCs\" were the ones to get, because those were the PCs that that'd have enough built-in AI muscle to get things done? Two and a half years later, Microsoft and Qualcomm seem to be admitting the brand is already dead. Windows Central's Zac Bowden reports […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Microsoft",
+              "News",
+              "Tech",
+              "Windows"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Microsoft",
+            "News",
+            "Tech",
+            "Windows"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "microsoft is killing off the copilot plus pc brand"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T01:25:53.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Microsoft",
+      "News",
+      "Tech",
+      "Windows"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:18.827Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260925-meta-employees-ordered-attorne",
+    "canonicalTopic": "Meta Employees Ordered Attorney/client Privilege Hats While Fighting Child Safety Disclosures",
+    "slug": "meta-employees-ordered-attorney-client-privilege-hats-while-fighting-child-safety-disclosures",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-Meta20employees20order",
+        "query": "Meta Employees Ordered Attorney/client Privilege Hats While Fighting Child Safety Disclosures",
+        "sourceUrl": "https://www.theverge.com/tech/1000370/meta-instagram-attorney-client-privilege-hats",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-24T23:50:55.000Z",
+        "contentSnippet": "Meta's lawyers have argued that certain evidence should be withheld from public view on the grounds of attorney-client privilege in the ongoing lawsuits over alleged harm to teens' safety and mental health. Lawyers suing the company said this week that the label has been applied far too broadly, while pointing to a recently unsealed document […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-24T23:50:55.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Meta employees ordered ‘attorney/client privilege’ hats while fighting child safety disclosures",
+            "itemLink": "https://www.theverge.com/tech/1000370/meta-instagram-attorney-client-privilege-hats",
+            "publishedDate": "2026-09-24T23:50:55.000Z",
+            "contentSnippet": "Meta's lawyers have argued that certain evidence should be withheld from public view on the grounds of attorney-client privilege in the ongoing lawsuits over alleged harm to teens' safety and mental health. Lawyers suing the company said this week that the label has been applied far too broadly, while pointing to a recently unsealed document […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Instagram",
+              "Law",
+              "Meta",
+              "News",
+              "Policy",
+              "Social Media",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Instagram",
+            "Law",
+            "Meta",
+            "News",
+            "Policy",
+            "Social Media",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "meta employees ordered attorney/client privilege hats while fighting child safety disclosures"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-24T23:50:55.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Instagram",
+      "Law",
+      "Meta",
+      "News",
+      "Policy",
+      "Social Media",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:18.897Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260925-qualcomms-new-elite-sound-chip",
+    "canonicalTopic": "Qualcomms New Elite Sound Chip Might Finally Deliver the Wi-fi Earbud Dream",
+    "slug": "qualcomms-new-elite-sound-chip-might-finally-deliver-the-wi-fi-earbud-dream",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-4-QualcommE28099s20new20E28098",
+        "query": "Qualcomms New Elite Sound Chip Might Finally Deliver the Wi-fi Earbud Dream",
+        "sourceUrl": "https://www.theverge.com/tech/1000443/qualcomms-new-elite-sound-chip-might-finally-deliver-the-wi-fi-earbud-dream",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-24T23:42:39.000Z",
+        "contentSnippet": "What if your wireless earbuds - or audio glasses - could stream high-quality lossless audio that doesn't cut out when you leave your phone on the bedside charger or buried in the couch? Qualcomm's new Snapdragon Sound Elite Gen 2 is its first to integrate \"micro-power Wi-Fi 6E\" right into the chip, so they can […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-24T23:42:39.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Qualcomm’s new ‘Elite’ sound chip might finally deliver the Wi-Fi earbud dream",
+            "itemLink": "https://www.theverge.com/tech/1000443/qualcomms-new-elite-sound-chip-might-finally-deliver-the-wi-fi-earbud-dream",
+            "publishedDate": "2026-09-24T23:42:39.000Z",
+            "contentSnippet": "What if your wireless earbuds - or audio glasses - could stream high-quality lossless audio that doesn't cut out when you leave your phone on the bedside charger or buried in the couch? Qualcomm's new Snapdragon Sound Elite Gen 2 is its first to integrate \"micro-power Wi-Fi 6E\" right into the chip, so they can […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Gadgets",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Gadgets",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "qualcomms new elite sound chip might finally deliver the wi-fi earbud dream"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-24T23:42:39.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Gadgets",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:18.949Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260925-microsoft-puts-brad-smith-in-c",
+    "canonicalTopic": "Microsoft Puts Brad Smith in Charge of Communications",
+    "slug": "microsoft-puts-brad-smith-in-charge-of-communications",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-5-Microsoft20puts20Brad20",
+        "query": "Microsoft Puts Brad Smith in Charge of Communications",
+        "sourceUrl": "https://www.theverge.com/news/1000374/microsoft-comms-pr-brad-smith-cela",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-24T22:08:22.000Z",
+        "contentSnippet": "Microsoft is moving its communications group out of marketing and into its Corporate, External, and Legal Affairs (CELA) organization. The surprise change will see Microsoft vice chair and president Brad Smith oversee communications, while the company searches for a replacement for Frank Shaw, chief communications officer, who is departing later this year. Microsoft CEO Satya […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-24T22:08:22.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Microsoft puts Brad Smith in charge of communications",
+            "itemLink": "https://www.theverge.com/news/1000374/microsoft-comms-pr-brad-smith-cela",
+            "publishedDate": "2026-09-24T22:08:22.000Z",
+            "contentSnippet": "Microsoft is moving its communications group out of marketing and into its Corporate, External, and Legal Affairs (CELA) organization. The surprise change will see Microsoft vice chair and president Brad Smith oversee communications, while the company searches for a replacement for Frank Shaw, chief communications officer, who is departing later this year. Microsoft CEO Satya […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Microsoft",
+              "News",
+              "Policy",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Microsoft",
+            "News",
+            "Policy",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "microsoft puts brad smith in charge of communications"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-24T22:08:22.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Microsoft",
+      "News",
+      "Policy",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:18.991Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260925-trump-and-xi-exchange-warm-wor",
+    "canonicalTopic": "Trump and Xi Exchange Warm Words at State Dinner but Little Progress on Key Issues",
+    "slug": "trump-and-xi-exchange-warm-words-at-state-dinner-but-little-progress-on-key-issues",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-1-Trump20and20Xi20exchang",
+        "query": "Trump and Xi Exchange Warm Words at State Dinner but Little Progress on Key Issues",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cxq63dqp93n1o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-25T10:36:55.000Z",
+        "contentSnippet": "Despite diplomatic niceties and gifts, little was shared on substantial issues separating the leaders.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T10:36:55.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Trump and Xi exchange warm words at state dinner but little progress on key issues",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cxq63dqp93n1o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-25T10:36:55.000Z",
+            "contentSnippet": "Despite diplomatic niceties and gifts, little was shared on substantial issues separating the leaders.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "trump and xi exchange warm words at state dinner but little progress on key issues"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T10:36:55.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.043Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260925-xi-got-trumps-red-carpet-welco",
+    "canonicalTopic": "Xi Got Trumps Red Carpet Welcome - but Not Everything He Wanted",
+    "slug": "xi-got-trumps-red-carpet-welcome-but-not-everything-he-wanted",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-2-Xi20got20Trumps20red20c",
+        "query": "Xi Got Trumps Red Carpet Welcome - but Not Everything He Wanted",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cr93e4x7kdjjo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-25T03:57:09.000Z",
+        "contentSnippet": "China wanted progress on trade, technology and Taiwan - but hasn't got as much as it would have hoped for.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T03:57:09.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Xi got Trump's red carpet welcome - but not everything he wanted",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cr93e4x7kdjjo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-25T03:57:09.000Z",
+            "contentSnippet": "China wanted progress on trade, technology and Taiwan - but hasn't got as much as it would have hoped for.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "xi got trumps red carpet welcome - but not everything he wanted"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T03:57:09.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.089Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260925-netanyahu-defends-israeli-mili",
+    "canonicalTopic": "Netanyahu Defends Israeli Military Action As Delegates Walk Out Before Un Speech",
+    "slug": "netanyahu-defends-israeli-military-action-as-delegates-walk-out-before-un-speech",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-3-Netanyahu20defends20Is",
+        "query": "Netanyahu Defends Israeli Military Action As Delegates Walk Out Before Un Speech",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/c3y0z7kxlegdo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-25T00:44:04.000Z",
+        "contentSnippet": "The Israeli leader labels those who left his speech at the UN General Assembly as \"moral cowards\".",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T00:44:04.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Netanyahu defends Israeli military action as delegates walk out before UN speech",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c3y0z7kxlegdo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-25T00:44:04.000Z",
+            "contentSnippet": "The Israeli leader labels those who left his speech at the UN General Assembly as \"moral cowards\".",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "netanyahu defends israeli military action as delegates walk out before un speech"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T00:44:04.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.142Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260925-hundreds-of-thousands-expected",
+    "canonicalTopic": "Hundreds of Thousands Expected in Paris for Popes Visit",
+    "slug": "hundreds-of-thousands-expected-in-paris-for-popes-visit",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-5-Hundreds20of20thousand",
+        "query": "Hundreds of Thousands Expected in Paris for Popes Visit",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cmq8j904212po?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-25T09:35:37.000Z",
+        "contentSnippet": "The highpoint of his time in Paris will be a giant Mass attended by more than half a million people.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T09:35:37.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Hundreds of thousands expected in Paris for Pope's visit",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cmq8j904212po?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-25T09:35:37.000Z",
+            "contentSnippet": "The highpoint of his time in Paris will be a giant Mass attended by more than half a million people.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "hundreds of thousands expected in paris for popes visit"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T09:35:37.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.185Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260925-the-best-airbnbs-in-madrid-acr",
+    "canonicalTopic": "The Best Airbnbs in Madrid Across the Citys Top Neighborhoods",
+    "slug": "the-best-airbnbs-in-madrid-across-the-citys-top-neighborhoods",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-The20Best20Airbnbs20in20",
+        "query": "The Best Airbnbs in Madrid Across the Citys Top Neighborhoods",
+        "sourceUrl": "https://www.cntraveler.com/gallery/best-airbnbs-in-madrid",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-25T03:55:23.000Z",
+        "contentSnippet": "Tap into local life with these beautiful Madrid Airbnbs—complete with historic balconies, contemporary interiors, and unbeatable central locations.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T03:55:23.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "The Best Airbnbs in Madrid Across the City's Top Neighborhoods",
+            "itemLink": "https://www.cntraveler.com/gallery/best-airbnbs-in-madrid",
+            "publishedDate": "2026-09-25T03:55:23.000Z",
+            "contentSnippet": "Tap into local life with these beautiful Madrid Airbnbs—complete with historic balconies, contemporary interiors, and unbeatable central locations.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Places to Stay",
+              "Destinations"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Places to Stay",
+            "Destinations"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the best airbnbs in madrid across the citys top neighborhoods"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T03:55:23.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Places to Stay",
+      "Destinations"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.231Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260925-11-airbnbs-around-the-world-th",
+    "canonicalTopic": "11 Airbnbs Around the World That Are Practically Floating on Water",
+    "slug": "11-airbnbs-around-the-world-that-are-practically-floating-on-water",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-2-1120Airbnbs20Around20th",
+        "query": "11 Airbnbs Around the World That Are Practically Floating on Water",
+        "sourceUrl": "https://www.cntraveler.com/gallery/airbnbs-around-the-world-that-are-practically-floating-on-water",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-25T00:27:08.000Z",
+        "contentSnippet": "From overwater bungalows in Washington to hilltop hideaways in Greece, these Airbnbs are the ultimate blue escapes.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T00:27:08.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "11 Airbnbs Around the World That Are Practically Floating on Water",
+            "itemLink": "https://www.cntraveler.com/gallery/airbnbs-around-the-world-that-are-practically-floating-on-water",
+            "publishedDate": "2026-09-25T00:27:08.000Z",
+            "contentSnippet": "From overwater bungalows in Washington to hilltop hideaways in Greece, these Airbnbs are the ultimate blue escapes.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Destinations",
+              "Places to Stay"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Destinations",
+            "Places to Stay"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "11 airbnbs around the world that are practically floating on water"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T00:27:08.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Destinations",
+      "Places to Stay"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.278Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260925-brooklinen-discount-codes-for-",
+    "canonicalTopic": "Brooklinen Discount Codes for September 2026 Cond Nast Traveler",
+    "slug": "brooklinen-discount-codes-for-september-2026-cond-nast-traveler",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-3-Brooklinen20Discount20",
+        "query": "Brooklinen Discount Codes for September 2026 Cond Nast Traveler",
+        "sourceUrl": "https://www.cntraveler.com/story/brooklinen-discount-code",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-24T20:33:52.000Z",
+        "contentSnippet": "Save on bedding and bath essentials, plus essentials like towels and travel pillows, with verified Brooklinen promo codes and coupons for up to 15% off, 30% off bundles, up to 78% off in seasonal sales, and email sign-up offers this fall.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-24T20:33:52.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Brooklinen Discount Codes for September 2026 | Condé Nast Traveler",
+            "itemLink": "https://www.cntraveler.com/story/brooklinen-discount-code",
+            "publishedDate": "2026-09-24T20:33:52.000Z",
+            "contentSnippet": "Save on bedding and bath essentials, plus essentials like towels and travel pillows, with verified Brooklinen promo codes and coupons for up to 15% off, 30% off bundles, up to 78% off in seasonal sales, and email sign-up offers this fall.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Shopping"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "brooklinen discount codes for september 2026 cond nast traveler"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-24T20:33:52.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.325Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260925-xcaret-promo-code-20-off-septe",
+    "canonicalTopic": "Xcaret Promo Code 20 Off September 2026 Cond Nast Traveler",
+    "slug": "xcaret-promo-code-20-off-september-2026-cond-nast-traveler",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-4-Xcaret20Promo20Code3A202",
+        "query": "Xcaret Promo Code 20 Off September 2026 Cond Nast Traveler",
+        "sourceUrl": "https://www.cntraveler.com/story/xcaret-promo-code",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-24T20:20:52.000Z",
+        "contentSnippet": "Save up to 20% on your next getaway to Cancún, Riviera Maya, and more destinations with Xcaret discount codes this fall.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-24T20:20:52.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Xcaret Promo Code: 20% Off | September 2026 | Condé Nast Traveler",
+            "itemLink": "https://www.cntraveler.com/story/xcaret-promo-code",
+            "publishedDate": "2026-09-24T20:20:52.000Z",
+            "contentSnippet": "Save up to 20% on your next getaway to Cancún, Riviera Maya, and more destinations with Xcaret discount codes this fall.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Shopping"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "xcaret promo code 20 off september 2026 cond nast traveler"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-24T20:20:52.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.372Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260925-how-this-small-rule-could-chan",
+    "canonicalTopic": "How This Small Rule Could Change What Airlines Owe Passengers During Flight Delays and Cancellations",
+    "slug": "how-this-small-rule-could-change-what-airlines-owe-passengers-during-flight-delays-and-cancellations",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-5-How20This20Small20Rule20",
+        "query": "How This Small Rule Could Change What Airlines Owe Passengers During Flight Delays and Cancellations",
+        "sourceUrl": "https://www.cntraveler.com/story/how-this-small-rule-could-change-what-airlines-owe-passengers-during-flight-delays-and-cancellations",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-24T20:16:37.000Z",
+        "contentSnippet": "The new DOT rule, which goes into effect on October 19, may change when airlines are required to provide free meal vouchers and hotel stays. Here's what to know.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-24T20:16:37.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "How This Small Rule Could Change What Airlines Owe Passengers During Flight Delays and Cancellations",
+            "itemLink": "https://www.cntraveler.com/story/how-this-small-rule-could-change-what-airlines-owe-passengers-during-flight-delays-and-cancellations",
+            "publishedDate": "2026-09-24T20:16:37.000Z",
+            "contentSnippet": "The new DOT rule, which goes into effect on October 19, may change when airlines are required to provide free meal vouchers and hotel stays. Here's what to know.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "News & Advice"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "News & Advice"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how this small rule could change what airlines owe passengers during flight delays and cancellations"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-24T20:16:37.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "News & Advice"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.445Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260925-blumarine-spring-2027-ready-to",
+    "canonicalTopic": "Blumarine Spring 2027 Ready-to-wear",
+    "slug": "blumarine-spring-2027-ready-to-wear",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-1-Blumarine20Spring20202",
+        "query": "Blumarine Spring 2027 Ready-to-wear",
+        "sourceUrl": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/blumarine",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-25T11:18:56.000Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T11:18:56.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Blumarine Spring 2027 Ready-to-Wear",
+            "itemLink": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/blumarine",
+            "publishedDate": "2026-09-25T11:18:56.000Z",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "blumarine spring 2027 ready-to-wear"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T11:18:56.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Runway"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.476Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260925-sportmax-spring-2027-ready-to-",
+    "canonicalTopic": "Sportmax Spring 2027 Ready-to-wear",
+    "slug": "sportmax-spring-2027-ready-to-wear",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-2-Sportmax20Spring202027",
+        "query": "Sportmax Spring 2027 Ready-to-wear",
+        "sourceUrl": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/sportmax",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-25T11:18:56.000Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T11:18:56.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Sportmax Spring 2027 Ready-to-Wear",
+            "itemLink": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/sportmax",
+            "publishedDate": "2026-09-25T11:18:56.000Z",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "sportmax spring 2027 ready-to-wear"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T11:18:56.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Runway"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.506Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260925-30-long-sleeve-wedding-guest-d",
+    "canonicalTopic": "30 Long-sleeve Wedding Guest Dresses for Every Kind of Ceremony",
+    "slug": "30-long-sleeve-wedding-guest-dresses-for-every-kind-of-ceremony",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-3-3020Long-Sleeve20Weddi",
+        "query": "30 Long-sleeve Wedding Guest Dresses for Every Kind of Ceremony",
+        "sourceUrl": "https://www.vogue.com/slideshow/best-long-sleeve-wedding-guest-dresses",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-25T10:00:00.000Z",
+        "contentSnippet": "Stay stylishly covered this fall and shop our edit of the best long-sleeve wedding guest dresses, from brands like Alaïa, Zimmermann, and Staud.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "30 Long-Sleeve Wedding Guest Dresses for Every Kind of Ceremony",
+            "itemLink": "https://www.vogue.com/slideshow/best-long-sleeve-wedding-guest-dresses",
+            "publishedDate": "2026-09-25T10:00:00.000Z",
+            "contentSnippet": "Stay stylishly covered this fall and shop our edit of the best long-sleeve wedding guest dresses, from brands like Alaïa, Zimmermann, and Staud.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Weddings",
+              "Fashion",
+              "Shopping",
+              "Shopping / Fashion"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Weddings",
+            "Fashion",
+            "Shopping",
+            "Shopping / Fashion"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "30 long-sleeve wedding guest dresses for every kind of ceremony"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T10:00:00.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Weddings",
+      "Fashion",
+      "Shopping",
+      "Shopping / Fashion"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.552Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260925-the-22-best-airbnbs-in-london-",
+    "canonicalTopic": "The 22 Best Airbnbs in London from Victorian Townhomes to Spacious Lofts",
+    "slug": "the-22-best-airbnbs-in-london-from-victorian-townhomes-to-spacious-lofts",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-4-The202220Best20Airbnbs20",
+        "query": "The 22 Best Airbnbs in London from Victorian Townhomes to Spacious Lofts",
+        "sourceUrl": "https://www.vogue.com/article/best-london-airbnbs",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-25T10:00:00.000Z",
+        "contentSnippet": "The best airbnbs in London plant visitors in the heart of this vibrant capital—here’s where to stay, according to Vogue.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "The 22 Best Airbnbs in London, From Victorian Townhomes to Spacious Lofts",
+            "itemLink": "https://www.vogue.com/article/best-london-airbnbs",
+            "publishedDate": "2026-09-25T10:00:00.000Z",
+            "contentSnippet": "The best airbnbs in London plant visitors in the heart of this vibrant capital—here’s where to stay, according to Vogue.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Living / Travel",
+              "Shopping",
+              "travel_destination"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Living / Travel",
+            "Shopping",
+            "travel_destination"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the 22 best airbnbs in london from victorian townhomes to spacious lofts"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T10:00:00.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Living / Travel",
+      "Shopping",
+      "travel_destination"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.602Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260925-how-primetime-reeled-in-merrit",
+    "canonicalTopic": "How Primetime Reeled in Merritt Wever",
+    "slug": "how-primetime-reeled-in-merritt-wever",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-5-How20E28098PrimetimeE28099",
+        "query": "How Primetime Reeled in Merritt Wever",
+        "sourceUrl": "https://www.vogue.com/article/merritt-wever-primetime-trailer",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-25T10:00:00.000Z",
+        "contentSnippet": "“There’s much to be said for watching a film and not having seen anything like it before,” Wever says of “Primetime,” her new film starring Robert Pattinson and directed by Lance Oppenheim.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "How ‘Primetime’ Reeled In Merritt Wever",
+            "itemLink": "https://www.vogue.com/article/merritt-wever-primetime-trailer",
+            "publishedDate": "2026-09-25T10:00:00.000Z",
+            "contentSnippet": "“There’s much to be said for watching a film and not having seen anything like it before,” Wever says of “Primetime,” her new film starring Robert Pattinson and directed by Lance Oppenheim.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Culture / TV & Movies"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Culture / TV & Movies"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how primetime reeled in merritt wever"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T10:00:00.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Culture / TV & Movies"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.635Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260925-9-best-serums-for-aging-skin-t",
+    "canonicalTopic": "9 Best Serums for Aging Skin That Target Dryness Fine Lines and Laxity",
+    "slug": "9-best-serums-for-aging-skin-that-target-dryness-fine-lines-and-laxity",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-1-920Best20Serums20for20Ag",
+        "query": "9 Best Serums for Aging Skin That Target Dryness Fine Lines and Laxity",
+        "sourceUrl": "https://www.allure.com/story/serums-for-mature-skin",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-24T18:26:26.000Z",
+        "contentSnippet": "It’s less about erasing years and more about keeping skin comfortable and smooth.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-24T18:26:26.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "9 Best Serums for Aging Skin That Target Dryness, Fine Lines, and Laxity",
+            "itemLink": "https://www.allure.com/story/serums-for-mature-skin",
+            "publishedDate": "2026-09-24T18:26:26.000Z",
+            "contentSnippet": "It’s less about erasing years and more about keeping skin comfortable and smooth.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Skin",
+              "Skin / Aging",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Skin",
+            "Skin / Aging",
+            "Shopping"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "9 best serums for aging skin that target dryness fine lines and laxity"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-24T18:26:26.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Skin",
+      "Skin / Aging",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.685Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260925-11-k-beauty-best-of-beauty-win",
+    "canonicalTopic": "11 K-beauty Best of Beauty Winners 2026 That Earned Glowing Reviews",
+    "slug": "11-k-beauty-best-of-beauty-winners-2026-that-earned-glowing-reviews",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-2-1120K-Beauty20Best20of20",
+        "query": "11 K-beauty Best of Beauty Winners 2026 That Earned Glowing Reviews",
+        "sourceUrl": "https://www.allure.com/story/korean-beauty-best-of-beauty-award-winners",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-24T18:22:00.000Z",
+        "contentSnippet": "No plane ticket to Seoul needed.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-24T18:22:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "11 K-Beauty Best of Beauty Winners 2026 That Earned Glowing Reviews",
+            "itemLink": "https://www.allure.com/story/korean-beauty-best-of-beauty-award-winners",
+            "publishedDate": "2026-09-24T18:22:00.000Z",
+            "contentSnippet": "No plane ticket to Seoul needed.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Best of Beauty 2026",
+              "Shopping",
+              "Skin",
+              "Makeup",
+              "Hair"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Best of Beauty 2026",
+            "Shopping",
+            "Skin",
+            "Makeup",
+            "Hair"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "11 k-beauty best of beauty winners 2026 that earned glowing reviews"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-24T18:22:00.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Best of Beauty 2026",
+      "Shopping",
+      "Skin",
+      "Makeup",
+      "Hair"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.733Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260925-zara-larsson-put-her-spin-on-p",
+    "canonicalTopic": "Zara Larsson Put Her Spin on Pink Hair for the Allure Cover—see the Photos",
+    "slug": "zara-larsson-put-her-spin-on-pink-hair-for-the-allure-cover-see-the-photos",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-3-Zara20Larsson20Put20Her",
+        "query": "Zara Larsson Put Her Spin on Pink Hair for the Allure Cover—see the Photos",
+        "sourceUrl": "https://www.allure.com/story/zara-larsson-pink-hair-allure-cover",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-24T17:14:46.000Z",
+        "contentSnippet": "Hairstylist Iggy Rosales brought 10-plus wigs to set to find exactly the right ones.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-24T17:14:46.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "Zara Larsson Put Her Spin on Pink Hair for the \"Allure\" Cover—See the Photos",
+            "itemLink": "https://www.allure.com/story/zara-larsson-pink-hair-allure-cover",
+            "publishedDate": "2026-09-24T17:14:46.000Z",
+            "contentSnippet": "Hairstylist Iggy Rosales brought 10-plus wigs to set to find exactly the right ones.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Hair",
+              "Hair / Color",
+              "Hair / Style"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Hair",
+            "Hair / Color",
+            "Hair / Style"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "zara larsson put her spin on pink hair for the allure cover—see the photos"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-24T17:14:46.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Hair",
+      "Hair / Color",
+      "Hair / Style"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.787Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260925-london-home-renovation-by-poly",
+    "canonicalTopic": "London Home Renovation by Polysmiths Uses Light As the Primary Material",
+    "slug": "london-home-renovation-by-polysmiths-uses-light-as-the-primary-material",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-London20home20renovati",
+        "query": "London Home Renovation by Polysmiths Uses Light As the Primary Material",
+        "sourceUrl": "https://www.dezeen.com/2026/09/25/polysmiths-pine-house/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-25T10:30:03.000Z",
+        "contentSnippet": "Lime-plastered brickwork, timber boards and cork panels were used to help capture the changing light at Pine House, a terraced home in London renovated by local architecture studio Polysmiths. Located in Peckham, the project set out to tackle what Polysmiths founder Charles Wu described as the \"well-known limitations\" of London's ubiquitous Victorian terraces. This included The post London home renovation by Polysmiths uses \"light as the primary material\" appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T10:30:03.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "London home renovation by Polysmiths uses \"light as the primary material\"",
+            "itemLink": "https://www.dezeen.com/2026/09/25/polysmiths-pine-house/",
+            "publishedDate": "2026-09-25T10:30:03.000Z",
+            "contentSnippet": "Lime-plastered brickwork, timber boards and cork panels were used to help capture the changing light at Pine House, a terraced home in London renovated by local architecture studio Polysmiths. Located in Peckham, the project set out to tackle what Polysmiths founder Charles Wu described as the \"well-known limitations\" of London's ubiquitous Victorian terraces. This included The post London home renovation by Polysmiths uses \"light as the primary material\" appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "British houses",
+              "London houses",
+              "London house extensions",
+              "Polysmiths",
+              "London",
+              "Residential architecture and interiors",
+              "Residential extensions"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "British houses",
+            "London houses",
+            "London house extensions",
+            "Polysmiths",
+            "London",
+            "Residential architecture and interiors",
+            "Residential extensions"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "london home renovation by polysmiths uses light as the primary material"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T10:30:03.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "British houses",
+      "London houses",
+      "London house extensions",
+      "Polysmiths",
+      "London",
+      "Residential architecture and interiors",
+      "Residential extensions"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.839Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260925-meta-debuts-tamagotchi-style-a",
+    "canonicalTopic": "Meta Debuts Tamagotchi-style Ai Agent",
+    "slug": "meta-debuts-tamagotchi-style-ai-agent",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-2-Meta20debuts20Tamagotc",
+        "query": "Meta Debuts Tamagotchi-style Ai Agent",
+        "sourceUrl": "https://www.dezeen.com/2026/09/25/meta-debuts-tamagotchi-style-ai-agent/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-25T10:15:05.000Z",
+        "contentSnippet": "Meta is creating a tiny, portable Muse Charm device for carrying around the company's AI agent, chief executive Mark Zuckerberg has announced. Produced by Meta's new design team, led by former Apple design chief Alan Dye, the device resembles an Apple Watch but with a small lanyard instead of a strap. A customisable cartoon character The post Meta debuts Tamagotchi-style AI agent appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T10:15:05.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Meta debuts Tamagotchi-style AI agent",
+            "itemLink": "https://www.dezeen.com/2026/09/25/meta-debuts-tamagotchi-style-ai-agent/",
+            "publishedDate": "2026-09-25T10:15:05.000Z",
+            "contentSnippet": "Meta is creating a tiny, portable Muse Charm device for carrying around the company's AI agent, chief executive Mark Zuckerberg has announced. Produced by Meta's new design team, led by former Apple design chief Alan Dye, the device resembles an Apple Watch but with a small lanyard instead of a strap. A customisable cartoon character The post Meta debuts Tamagotchi-style AI agent appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Design",
+              "Technology",
+              "News",
+              "Artificial intelligence (AI)",
+              "Gadgets",
+              "Meta",
+              "Product design",
+              "Technology and Design",
+              "Virtual pets"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Design",
+            "Technology",
+            "News",
+            "Artificial intelligence (AI)",
+            "Gadgets",
+            "Meta",
+            "Product design",
+            "Technology and Design",
+            "Virtual pets"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "meta debuts tamagotchi-style ai agent"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T10:15:05.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Design",
+      "Technology",
+      "News",
+      "Artificial intelligence (AI)",
+      "Gadgets",
+      "Meta",
+      "Product design",
+      "Technology and Design",
+      "Virtual pets"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.871Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260925-splitting-cells-informs-shangh",
+    "canonicalTopic": "Splitting Cells Informs Shanghai Research Campus Interconnected Buildings",
+    "slug": "splitting-cells-informs-shanghai-research-campus-interconnected-buildings",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-3-Splitting20cells20info",
+        "query": "Splitting Cells Informs Shanghai Research Campus Interconnected Buildings",
+        "sourceUrl": "https://www.dezeen.com/2026/09/25/bdp-research-campus-chia-tai-tianqing-pharmaceutical-group-shanghai/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-25T09:33:17.000Z",
+        "contentSnippet": "Architecture studio BDP has unveiled a pharmaceutical research campus in Shanghai, China, comprised of interconnected buildings that evoke the movement of cell division. Located within Hongqiao International Central Business District in west Shanghai, the 186,000-square-metre research and development headquarters was developed for Chia Tai Tianqing Pharmaceutical Group (CTTQ), one of China's leading pharmaceutical companies. BDP's The post Splitting cells informs Shanghai research campus' interconnected buildings appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T09:33:17.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Splitting cells informs Shanghai research campus' interconnected buildings",
+            "itemLink": "https://www.dezeen.com/2026/09/25/bdp-research-campus-chia-tai-tianqing-pharmaceutical-group-shanghai/",
+            "publishedDate": "2026-09-25T09:33:17.000Z",
+            "contentSnippet": "Architecture studio BDP has unveiled a pharmaceutical research campus in Shanghai, China, comprised of interconnected buildings that evoke the movement of cell division. Located within Hongqiao International Central Business District in west Shanghai, the 186,000-square-metre research and development headquarters was developed for Chia Tai Tianqing Pharmaceutical Group (CTTQ), one of China's leading pharmaceutical companies. BDP's The post Splitting cells informs Shanghai research campus' interconnected buildings appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Exclusives",
+              "BDP",
+              "China",
+              "Office architecture",
+              "Shanghai",
+              "Skybridges"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Exclusives",
+            "BDP",
+            "China",
+            "Office architecture",
+            "Shanghai",
+            "Skybridges"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "splitting cells informs shanghai research campus interconnected buildings"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T09:33:17.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Exclusives",
+      "BDP",
+      "China",
+      "Office architecture",
+      "Shanghai",
+      "Skybridges"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.924Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260925-resku-20-fabric-by-camira",
+    "canonicalTopic": "Resku 20 Fabric by Camira",
+    "slug": "resku-20-fabric-by-camira",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-4-ReSKU202020fabric20by20",
+        "query": "Resku 20 Fabric by Camira",
+        "sourceUrl": "https://www.dezeen.com/2026/09/25/resku-20-fabric-camira-dezeen-showroom/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-25T09:30:25.000Z",
+        "contentSnippet": "Dezeen Showroom: recycled wool and renewable flax come together in a warm melange of colour in British textile brand Camira's ReSKU 2.0 fabric. ReSKU 2.0 was launched to celebrate Camira's 50th anniversary in 2024 and inspired by the brand's original 1998 ReSKU fabric, made from recycled army jumpers. For ReSKU 2.0, the brand combined recycled The post ReSKU 2.0 fabric by Camira appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T09:30:25.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "ReSKU 2.0 fabric by Camira",
+            "itemLink": "https://www.dezeen.com/2026/09/25/resku-20-fabric-camira-dezeen-showroom/",
+            "publishedDate": "2026-09-25T09:30:25.000Z",
+            "contentSnippet": "Dezeen Showroom: recycled wool and renewable flax come together in a warm melange of colour in British textile brand Camira's ReSKU 2.0 fabric. ReSKU 2.0 was launched to celebrate Camira's 50th anniversary in 2024 and inspired by the brand's original 1998 ReSKU fabric, made from recycled army jumpers. For ReSKU 2.0, the brand combined recycled The post ReSKU 2.0 fabric by Camira appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "Fabrics",
+              "all",
+              "Products",
+              "Design",
+              "Do not show on the Homepage",
+              "Dezeen Showroom",
+              "Textiles and soft furnishings",
+              "Camira",
+              "Textiles",
+              "Fabric"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "Fabrics",
+            "all",
+            "Products",
+            "Design",
+            "Do not show on the Homepage",
+            "Dezeen Showroom",
+            "Textiles and soft furnishings",
+            "Camira",
+            "Textiles",
+            "Fabric"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "resku 20 fabric by camira"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T09:30:25.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "Fabrics",
+      "all",
+      "Products",
+      "Design",
+      "Do not show on the Homepage",
+      "Dezeen Showroom",
+      "Textiles and soft furnishings",
+      "Camira",
+      "Textiles",
+      "Fabric"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.950Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260925-will-the-iphone-duo-send-foldi",
+    "canonicalTopic": "Will the Iphone Duo Send Folding Smartphones Mainstream",
+    "slug": "will-the-iphone-duo-send-folding-smartphones-mainstream",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-5-Will20the20iPhone20Duo20",
+        "query": "Will the Iphone Duo Send Folding Smartphones Mainstream",
+        "sourceUrl": "https://www.dezeen.com/2026/09/25/iphone-duo-folding-smartphones-washington-triumphal-arch-dezeen-weekly/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-25T09:00:55.000Z",
+        "contentSnippet": "Has Apple just triggered another paradigm shift in smartphone design? And what's behind Donald Trump's plans for his triumphal arch to be a base for drones and snipers? Listen to the latest episode of Dezeen Weekly now. In this episode, Dezeen editor Tom Ravenscroft joins features editor Nat Barker and design editor Jennifer Hahn to discuss The post Will the iPhone Duo send folding smartphones mainstream? appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T09:00:55.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Will the iPhone Duo send folding smartphones mainstream?",
+            "itemLink": "https://www.dezeen.com/2026/09/25/iphone-duo-folding-smartphones-washington-triumphal-arch-dezeen-weekly/",
+            "publishedDate": "2026-09-25T09:00:55.000Z",
+            "contentSnippet": "Has Apple just triggered another paradigm shift in smartphone design? And what's behind Donald Trump's plans for his triumphal arch to be a base for drones and snipers? Listen to the latest episode of Dezeen Weekly now. In this episode, Dezeen editor Tom Ravenscroft joins features editor Nat Barker and design editor Jennifer Hahn to discuss The post Will the iPhone Duo send folding smartphones mainstream? appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "Dezeen Weekly",
+              "all",
+              "Architecture",
+              "Design",
+              "Technology",
+              "Podcasts",
+              "Smartphones",
+              "Apple",
+              "iPhone"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "Dezeen Weekly",
+            "all",
+            "Architecture",
+            "Design",
+            "Technology",
+            "Podcasts",
+            "Smartphones",
+            "Apple",
+            "iPhone"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "will the iphone duo send folding smartphones mainstream"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T09:00:55.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "Dezeen Weekly",
+      "all",
+      "Architecture",
+      "Design",
+      "Technology",
+      "Podcasts",
+      "Smartphones",
+      "Apple",
+      "iPhone"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:19.993Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-in-finnish-body-horror-tick-fe",
+    "canonicalTopic": "In Finnish Body Horror Tick Fever Lyme Disease Is the Least of Your Worries Exclusive",
+    "slug": "in-finnish-body-horror-tick-fever-lyme-disease-is-the-least-of-your-worries-exclusive",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-1-In20Finnish20Bod",
+        "query": "In Finnish Body Horror Tick Fever Lyme Disease Is the Least of Your Worries Exclusive",
+        "sourceUrl": "https://variety.com/2026/film/global/horror-tick-fever-sebastian-granskog-finnish-film-affair-1236875421/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-25T11:19:20.000Z",
+        "contentSnippet": "No one likes ticks – least of all “Tick Fever” director Sebastian Granskog. “Every Finn has learned to live in fear of ticks since the summers of their childhood. It’s a tiny insect that latches onto your body, breaks through your skin, starts drinking your blood and grows bigger as it takes what it wants […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T11:19:20.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "In Finnish Body Horror ‘Tick Fever,’ Lyme Disease Is the Least of Your Worries (EXCLUSIVE)",
+            "itemLink": "https://variety.com/2026/film/global/horror-tick-fever-sebastian-granskog-finnish-film-affair-1236875421/",
+            "publishedDate": "2026-09-25T11:19:20.000Z",
+            "contentSnippet": "No one likes ticks – least of all “Tick Fever” director Sebastian Granskog. “Every Finn has learned to live in fear of ticks since the summers of their childhood. It’s a tiny insect that latches onto your body, breaks through your skin, starts drinking your blood and grows bigger as it takes what it wants […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Global",
+              "Markets & Festivals",
+              "News",
+              "Finnish Film Affair",
+              "Horror",
+              "Nordic Genre Lab",
+              "Tick Fever"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Global",
+            "Markets & Festivals",
+            "News",
+            "Finnish Film Affair",
+            "Horror",
+            "Nordic Genre Lab",
+            "Tick Fever"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "in finnish body horror tick fever lyme disease is the least of your worries exclusive"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T11:19:20.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Global",
+      "Markets & Festivals",
+      "News",
+      "Finnish Film Affair",
+      "Horror",
+      "Nordic Genre Lab",
+      "Tick Fever"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:20.065Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-ecam-incubator-film-project-ou",
+    "canonicalTopic": "Ecam Incubator Film Project Our Raised Skin Explores the Male Body and the Fear of Its Touch",
+    "slug": "ecam-incubator-film-project-our-raised-skin-explores-the-male-body-and-the-fear-of-its-touch",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-2-ECAM20Incubator2",
+        "query": "Ecam Incubator Film Project Our Raised Skin Explores the Male Body and the Fear of Its Touch",
+        "sourceUrl": "https://variety.com/2026/film/global/paolo-natale-ecam-incubator-project-our-raised-skin-1236871913/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-25T11:11:30.000Z",
+        "contentSnippet": "Director Paolo Natale’s experimental hybrid documentary/video-essay, \"Our Raised Skin\" (\"Nuestra Piel Levantada\"), is currently in advanced development as part of Madrid Film School’s (ECAM) incubator program. It's one of the five projects selected for La Incubadora's ninth edition. \"The film reflects on and questions self-perception, asking at what point in childhood we go from being […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T11:11:30.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "ECAM Incubator Film Project ‘Our Raised Skin' Explores the Male Body and the Fear of Its Touch",
+            "itemLink": "https://variety.com/2026/film/global/paolo-natale-ecam-incubator-project-our-raised-skin-1236871913/",
+            "publishedDate": "2026-09-25T11:11:30.000Z",
+            "contentSnippet": "Director Paolo Natale’s experimental hybrid documentary/video-essay, \"Our Raised Skin\" (\"Nuestra Piel Levantada\"), is currently in advanced development as part of Madrid Film School’s (ECAM) incubator program. It's one of the five projects selected for La Incubadora's ninth edition. \"The film reflects on and questions self-perception, asking at what point in childhood we go from being […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Global",
+              "News",
+              "ECAM",
+              "ECAM Incubator"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Global",
+            "News",
+            "ECAM",
+            "ECAM Incubator"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ecam incubator film project our raised skin explores the male body and the fear of its touch"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T11:11:30.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Global",
+      "News",
+      "ECAM",
+      "ECAM Incubator"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:20.139Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-rio-film-festival-head-on-book",
+    "canonicalTopic": "Rio Film Festival Head on Bookending Fest with La Bola Negra and Club Kid Expanding Premire Brasil I Dont Want a Festival By-the-book",
+    "slug": "rio-film-festival-head-on-bookending-fest-with-la-bola-negra-and-club-kid-expanding-premire-brasil-i-dont-want-a-festival-by-the-book",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-3-Rio20Film20Festi",
+        "query": "Rio Film Festival Head on Bookending Fest with La Bola Negra and Club Kid Expanding Premire Brasil I Dont Want a Festival By-the-book",
+        "sourceUrl": "https://variety.com/2026/film/global/rio-film-festival-la-bola-negra-club-kid-premiere-brasil-1236874167/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-25T11:11:28.000Z",
+        "contentSnippet": "If you ever attended a major film festival in the last three decades, chances are you came across an auburn-haired woman sporting fashionable big glasses and pristinely curated outfits from some of Brazil’s most exciting up-and-coming fashion designers. This is Ilda Santiago, the artistic director of Brazil’s leading Rio Film Festival. The programming veteran has […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T11:11:28.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Rio Film Festival Head on Bookending Fest With ‘La Bola Negra’ and ‘Club Kid,’ Expanding Premiére Brasil: ‘I Don’t Want a Festival By-the-Book’",
+            "itemLink": "https://variety.com/2026/film/global/rio-film-festival-la-bola-negra-club-kid-premiere-brasil-1236874167/",
+            "publishedDate": "2026-09-25T11:11:28.000Z",
+            "contentSnippet": "If you ever attended a major film festival in the last three decades, chances are you came across an auburn-haired woman sporting fashionable big glasses and pristinely curated outfits from some of Brazil’s most exciting up-and-coming fashion designers. This is Ilda Santiago, the artistic director of Brazil’s leading Rio Film Festival. The programming veteran has […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Global",
+              "Markets & Festivals",
+              "News",
+              "Brazil",
+              "Club Kid",
+              "Ilda Santiago",
+              "La bola negra",
+              "Rio Film Festival"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Global",
+            "Markets & Festivals",
+            "News",
+            "Brazil",
+            "Club Kid",
+            "Ilda Santiago",
+            "La bola negra",
+            "Rio Film Festival"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "rio film festival head on bookending fest with la bola negra and club kid expanding premire brasil i dont want a festival by-the-book"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T11:11:28.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Global",
+      "Markets & Festivals",
+      "News",
+      "Brazil",
+      "Club Kid",
+      "Ilda Santiago",
+      "La bola negra",
+      "Rio Film Festival"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:20.231Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-tokyo-film-festival-unveils-mi",
+    "canonicalTopic": "Tokyo Film Festival Unveils Mizoguchi Retrospective Anime Award Symposium and Teens Cinema Workshop Milestone",
+    "slug": "tokyo-film-festival-unveils-mizoguchi-retrospective-anime-award-symposium-and-teens-cinema-workshop-milestone",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-4-Tokyo20Film20Fes",
+        "query": "Tokyo Film Festival Unveils Mizoguchi Retrospective Anime Award Symposium and Teens Cinema Workshop Milestone",
+        "sourceUrl": "https://variety.com/2026/film/festivals/tokyo-film-festival-mizoguchi-tribute-anime-award-symposium-1236875451/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-25T11:01:56.000Z",
+        "contentSnippet": "The 39th Tokyo International Film Festival has announced a slate of cultural programs running alongside its main competition, headlined by a 13-film retrospective honoring Mizoguchi Kenji on the 70th anniversary of his death, a symposium exploring a potential new international anime award, and a 10th-anniversary celebration of its Teens Cinema Workshop. The Mizoguchi tribute, staged […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T11:01:56.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Tokyo Film Festival Unveils Mizoguchi Retrospective, Anime Award Symposium and Teens Cinema Workshop Milestone",
+            "itemLink": "https://variety.com/2026/film/festivals/tokyo-film-festival-mizoguchi-tribute-anime-award-symposium-1236875451/",
+            "publishedDate": "2026-09-25T11:01:56.000Z",
+            "contentSnippet": "The 39th Tokyo International Film Festival has announced a slate of cultural programs running alongside its main competition, headlined by a 13-film retrospective honoring Mizoguchi Kenji on the 70th anniversary of his death, a symposium exploring a potential new international anime award, and a 10th-anniversary celebration of its Teens Cinema Workshop. The Mizoguchi tribute, staged […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Asia",
+              "Festivals",
+              "Global",
+              "News",
+              "Mizoguchi Kenji",
+              "Tokyo International Film Festival"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Asia",
+            "Festivals",
+            "Global",
+            "News",
+            "Mizoguchi Kenji",
+            "Tokyo International Film Festival"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "tokyo film festival unveils mizoguchi retrospective anime award symposium and teens cinema workshop milestone"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T11:01:56.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Asia",
+      "Festivals",
+      "Global",
+      "News",
+      "Mizoguchi Kenji",
+      "Tokyo International Film Festival"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:20.310Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-my-octopus-teacher-outfit-off-",
+    "canonicalTopic": "My Octopus Teacher Outfit Off the Fence Boards Viviane Davillas Intersex Doc Let Us Be Ahead of Rio Film Festival Exclusive",
+    "slug": "my-octopus-teacher-outfit-off-the-fence-boards-viviane-davillas-intersex-doc-let-us-be-ahead-of-rio-film-festival-exclusive",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-5-E28098My20Octopu",
+        "query": "My Octopus Teacher Outfit Off the Fence Boards Viviane Davillas Intersex Doc Let Us Be Ahead of Rio Film Festival Exclusive",
+        "sourceUrl": "https://variety.com/2026/film/global/my-octopus-teacher-off-the-fence-viviane-davilla-let-us-be-1236874106/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-25T10:58:44.000Z",
+        "contentSnippet": "Off the Fence (OTF), the leading storytelling media group and co-producer of Oscar-winning documentary “My Octopus Teacher,” has boarded Viviane D’Avilla’s “Let Us Be.” The documentary, which world premiered at Raindance and will have its Latin American premiere at the Rio Film Festival, follows the lives of intersex individuals across the world. D’Avilla’s directorial debut […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T10:58:44.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "‘My Octopus Teacher’ Outfit Off The Fence Boards Viviane D’Avilla’s Intersex Doc ‘Let Us Be’ Ahead of Rio Film Festival (EXCLUSIVE)",
+            "itemLink": "https://variety.com/2026/film/global/my-octopus-teacher-off-the-fence-viviane-davilla-let-us-be-1236874106/",
+            "publishedDate": "2026-09-25T10:58:44.000Z",
+            "contentSnippet": "Off the Fence (OTF), the leading storytelling media group and co-producer of Oscar-winning documentary “My Octopus Teacher,” has boarded Viviane D’Avilla’s “Let Us Be.” The documentary, which world premiered at Raindance and will have its Latin American premiere at the Rio Film Festival, follows the lives of intersex individuals across the world. D’Avilla’s directorial debut […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Global",
+              "Markets & Festivals",
+              "News",
+              "Mipcom",
+              "Off The Fence",
+              "Rio Film Festival"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Global",
+            "Markets & Festivals",
+            "News",
+            "Mipcom",
+            "Off The Fence",
+            "Rio Film Festival"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "my octopus teacher outfit off the fence boards viviane davillas intersex doc let us be ahead of rio film festival exclusive"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T10:58:44.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Global",
+      "Markets & Festivals",
+      "News",
+      "Mipcom",
+      "Off The Fence",
+      "Rio Film Festival"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:20.397Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-abbey-road-photography-awards-",
+    "canonicalTopic": "Abbey Road Photography Awards Announce 2026 Winners",
+    "slug": "abbey-road-photography-awards-announce-2026-winners",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-rolling-stone-culture-1-Abbey20Road20Pho",
+        "query": "Abbey Road Photography Awards Announce 2026 Winners",
+        "sourceUrl": "https://www.rollingstone.com/music/music-news/abbey-road-photography-awards-winners-2026-1235630896/",
+        "publisherName": "Rolling Stone",
+        "publishedAt": "2026-09-25T08:34:38.000Z",
+        "contentSnippet": "Japanese photographer Masayoshi Sukita was presented with the Lifetime Achievement Award, while Roberta Bayley received this year’s ICON award",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T08:34:38.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.rollingstone.com/feed/",
+            "feedTitle": "Rolling Stone",
+            "itemTitle": "Abbey Road Photography Awards Announce 2026 Winners",
+            "itemLink": "https://www.rollingstone.com/music/music-news/abbey-road-photography-awards-winners-2026-1235630896/",
+            "publishedDate": "2026-09-25T08:34:38.000Z",
+            "contentSnippet": "Japanese photographer Masayoshi Sukita was presented with the Lifetime Achievement Award, while Roberta Bayley received this year’s ICON award",
+            "categories": [
+              "music",
+              "pop-culture",
+              "film",
+              "artists",
+              "interviews",
+              "Music",
+              "Music News",
+              "Abbey Road",
+              "Abbey Road Studios",
+              "Nile Rodgers"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "music",
+            "pop-culture",
+            "film",
+            "artists",
+            "interviews",
+            "Music",
+            "Music News",
+            "Abbey Road",
+            "Abbey Road Studios",
+            "Nile Rodgers"
+          ],
+          "feedName": "Rolling Stone",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "abbey road photography awards announce 2026 winners"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T08:34:38.000Z",
+    "tags": [
+      "music",
+      "pop-culture",
+      "film",
+      "artists",
+      "interviews",
+      "Music",
+      "Music News",
+      "Abbey Road",
+      "Abbey Road Studios",
+      "Nile Rodgers"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:20.438Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-jimmy-kimmel-live-sets-brookly",
+    "canonicalTopic": "Jimmy Kimmel Live Sets Brooklyn Week Lineup with Zohran Mamdani Bruce Springsteen",
+    "slug": "jimmy-kimmel-live-sets-brooklyn-week-lineup-with-zohran-mamdani-bruce-springsteen",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-rolling-stone-culture-2-Jimmy20Kimmel20L",
+        "query": "Jimmy Kimmel Live Sets Brooklyn Week Lineup with Zohran Mamdani Bruce Springsteen",
+        "sourceUrl": "https://www.rollingstone.com/tv-movies/tv-movie-news/jimmy-kimmel-live-brooklyn-week-lineup-mamdani-springsteen-1235631644/",
+        "publisherName": "Rolling Stone",
+        "publishedAt": "2026-09-25T07:38:04.000Z",
+        "contentSnippet": "Paul McCartney, Seth Meyers, Tom Morello, John Oliver, and Bernie Sanders will also appear as part of the special week of shows",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T07:38:04.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.rollingstone.com/feed/",
+            "feedTitle": "Rolling Stone",
+            "itemTitle": "'Jimmy Kimmel Live' Sets Brooklyn Week Lineup With Zohran Mamdani, Bruce Springsteen",
+            "itemLink": "https://www.rollingstone.com/tv-movies/tv-movie-news/jimmy-kimmel-live-brooklyn-week-lineup-mamdani-springsteen-1235631644/",
+            "publishedDate": "2026-09-25T07:38:04.000Z",
+            "contentSnippet": "Paul McCartney, Seth Meyers, Tom Morello, John Oliver, and Bernie Sanders will also appear as part of the special week of shows",
+            "categories": [
+              "music",
+              "pop-culture",
+              "film",
+              "artists",
+              "interviews",
+              "TV & Movies",
+              "TV & Movies News",
+              "Bruce Springsteen",
+              "Donald Trump",
+              "Jimmy Kimmel",
+              "Jimmy Kimmel Live",
+              "Paul McCartney",
+              "Zohran Mamdani"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "music",
+            "pop-culture",
+            "film",
+            "artists",
+            "interviews",
+            "TV & Movies",
+            "TV & Movies News",
+            "Bruce Springsteen",
+            "Donald Trump",
+            "Jimmy Kimmel",
+            "Jimmy Kimmel Live",
+            "Paul McCartney",
+            "Zohran Mamdani"
+          ],
+          "feedName": "Rolling Stone",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "jimmy kimmel live sets brooklyn week lineup with zohran mamdani bruce springsteen"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T07:38:04.000Z",
+    "tags": [
+      "music",
+      "pop-culture",
+      "film",
+      "artists",
+      "interviews",
+      "TV & Movies",
+      "TV & Movies News",
+      "Bruce Springsteen",
+      "Donald Trump",
+      "Jimmy Kimmel",
+      "Jimmy Kimmel Live",
+      "Paul McCartney",
+      "Zohran Mamdani"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:20.494Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-late-night-hosts-take-aim-at-t",
+    "canonicalTopic": "Late-night Hosts Take Aim at Trumps Meeting with Chinas President Xi",
+    "slug": "late-night-hosts-take-aim-at-trumps-meeting-with-chinas-president-xi",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-rolling-stone-culture-3-Late-Night20Host",
+        "query": "Late-night Hosts Take Aim at Trumps Meeting with Chinas President Xi",
+        "sourceUrl": "https://www.rollingstone.com/tv-movies/tv-movie-news/late-night-hosts-donald-trump-president-xi-meeting-1235631641/",
+        "publisherName": "Rolling Stone",
+        "publishedAt": "2026-09-25T07:13:49.000Z",
+        "contentSnippet": "\"If they send Trump pandas he's definitely going to eat them,\" Jimmy Kimmel quipped",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T07:13:49.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.rollingstone.com/feed/",
+            "feedTitle": "Rolling Stone",
+            "itemTitle": "Late-Night Hosts Take Aim at Trump's Meeting With China's President Xi",
+            "itemLink": "https://www.rollingstone.com/tv-movies/tv-movie-news/late-night-hosts-donald-trump-president-xi-meeting-1235631641/",
+            "publishedDate": "2026-09-25T07:13:49.000Z",
+            "contentSnippet": "\"If they send Trump pandas he's definitely going to eat them,\" Jimmy Kimmel quipped",
+            "categories": [
+              "music",
+              "pop-culture",
+              "film",
+              "artists",
+              "interviews",
+              "TV & Movies",
+              "TV & Movies News",
+              "Donald Trump",
+              "Jimmy Kimmel Live",
+              "Late Night",
+              "Late-Night TV",
+              "The Daily Show",
+              "The Tonight Show"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "music",
+            "pop-culture",
+            "film",
+            "artists",
+            "interviews",
+            "TV & Movies",
+            "TV & Movies News",
+            "Donald Trump",
+            "Jimmy Kimmel Live",
+            "Late Night",
+            "Late-Night TV",
+            "The Daily Show",
+            "The Tonight Show"
+          ],
+          "feedName": "Rolling Stone",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "late-night hosts take aim at trumps meeting with chinas president xi"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T07:13:49.000Z",
+    "tags": [
+      "music",
+      "pop-culture",
+      "film",
+      "artists",
+      "interviews",
+      "TV & Movies",
+      "TV & Movies News",
+      "Donald Trump",
+      "Jimmy Kimmel Live",
+      "Late Night",
+      "Late-Night TV",
+      "The Daily Show",
+      "The Tonight Show"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:20.545Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-jane-doe-who-accused-jay-z-of-",
+    "canonicalTopic": "Jane Doe Who Accused Jay-z of Sexual Assault Fully Recants No Truth to Any of My Claims",
+    "slug": "jane-doe-who-accused-jay-z-of-sexual-assault-fully-recants-no-truth-to-any-of-my-claims",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-rolling-stone-culture-4-Jane20Doe20Who20",
+        "query": "Jane Doe Who Accused Jay-z of Sexual Assault Fully Recants No Truth to Any of My Claims",
+        "sourceUrl": "https://www.rollingstone.com/music/music-news/jay-z-jane-doe-recants-sexual-assault-claims-tony-buzbee-1235631542/",
+        "publisherName": "Rolling Stone",
+        "publishedAt": "2026-09-25T04:42:57.000Z",
+        "contentSnippet": "The woman submitted a declaration in Jay-Z's malicious prosecution lawsuit and was dropped as a defendant by the Roc Nation mogul",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T04:42:57.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.rollingstone.com/feed/",
+            "feedTitle": "Rolling Stone",
+            "itemTitle": "Jane Doe Who Accused Jay-Z of Sexual Assault Fully Recants: 'No Truth to Any of My Claims'",
+            "itemLink": "https://www.rollingstone.com/music/music-news/jay-z-jane-doe-recants-sexual-assault-claims-tony-buzbee-1235631542/",
+            "publishedDate": "2026-09-25T04:42:57.000Z",
+            "contentSnippet": "The woman submitted a declaration in Jay-Z's malicious prosecution lawsuit and was dropped as a defendant by the Roc Nation mogul",
+            "categories": [
+              "music",
+              "pop-culture",
+              "film",
+              "artists",
+              "interviews",
+              "Music",
+              "Music News",
+              "controversy",
+              "courts and crime",
+              "Jay-Z",
+              "Sean Combs"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "music",
+            "pop-culture",
+            "film",
+            "artists",
+            "interviews",
+            "Music",
+            "Music News",
+            "controversy",
+            "courts and crime",
+            "Jay-Z",
+            "Sean Combs"
+          ],
+          "feedName": "Rolling Stone",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "jane doe who accused jay-z of sexual assault fully recants no truth to any of my claims"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T04:42:57.000Z",
+    "tags": [
+      "music",
+      "pop-culture",
+      "film",
+      "artists",
+      "interviews",
+      "Music",
+      "Music News",
+      "controversy",
+      "courts and crime",
+      "Jay-Z",
+      "Sean Combs"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:20.614Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260925-phoebe-bridgers-rings-in-spook",
+    "canonicalTopic": "Phoebe Bridgers Rings in Spooky Season with on Video from the Primetime Soundtrack",
+    "slug": "phoebe-bridgers-rings-in-spooky-season-with-on-video-from-the-primetime-soundtrack",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-rolling-stone-culture-5-Phoebe20Bridgers",
+        "query": "Phoebe Bridgers Rings in Spooky Season with on Video from the Primetime Soundtrack",
+        "sourceUrl": "https://www.rollingstone.com/music/music-news/phoebe-bridgers-on-video-primetime-soundtrack-1235625259/",
+        "publisherName": "Rolling Stone",
+        "publishedAt": "2026-09-25T04:03:24.000Z",
+        "contentSnippet": "Singer-songwriter makes her acting debut in Lance Oppenheim's crime thriller, starring Robert Pattinson",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T04:03:24.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.rollingstone.com/feed/",
+            "feedTitle": "Rolling Stone",
+            "itemTitle": "Phoebe Bridgers Rings in Spooky Season With 'On Video,' From the 'Primetime' Soundtrack",
+            "itemLink": "https://www.rollingstone.com/music/music-news/phoebe-bridgers-on-video-primetime-soundtrack-1235625259/",
+            "publishedDate": "2026-09-25T04:03:24.000Z",
+            "contentSnippet": "Singer-songwriter makes her acting debut in Lance Oppenheim's crime thriller, starring Robert Pattinson",
+            "categories": [
+              "music",
+              "pop-culture",
+              "film",
+              "artists",
+              "interviews",
+              "Music",
+              "Music News",
+              "Phoebe Bridgers",
+              "Robert Pattinson"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "music",
+            "pop-culture",
+            "film",
+            "artists",
+            "interviews",
+            "Music",
+            "Music News",
+            "Phoebe Bridgers",
+            "Robert Pattinson"
+          ],
+          "feedName": "Rolling Stone",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "phoebe bridgers rings in spooky season with on video from the primetime soundtrack"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T04:03:24.000Z",
+    "tags": [
+      "music",
+      "pop-culture",
+      "film",
+      "artists",
+      "interviews",
+      "Music",
+      "Music News",
+      "Phoebe Bridgers",
+      "Robert Pattinson"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-25T11:20:20.689Z",
     "pinterestScore": 79.2
   }
 ]
