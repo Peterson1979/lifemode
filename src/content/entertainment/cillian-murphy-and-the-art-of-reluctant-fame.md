@@ -23,13 +23,13 @@ sources:
     url: "https://www.ifta.ie"
   - name: "British Academy of Film and Television Arts (BAFTA) – Archive of Best Actor Citations"
     url: "https://www.bafta.org"
-image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80"
-imageAlt: "Close-up portrait with dramatic cinematic lighting highlighting contemplative expression"
-imageSource: "Photo by Aiony Haust on Unsplash (Free)"
-imageSourceUrl: "https://unsplash.com/photos/woman-in-black-crew-neck-shirt-3TLl_97HNJo"
+image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80"
+imageAlt: "Contextual editorial photography of an atmospheric cinema auditorium with warm lighting and theatrical screen"
+imageSource: "Photo by Felix Mooneeram on Unsplash (Free)"
+imageSourceUrl: "https://unsplash.com/photos/red-theater-chairs-inside-theater-evlkOfkQ5rE"
 imageLicense: "Unsplash License (Free)"
-version: 1
-lifecycleStatus: "STORED"
+version: 2
+lifecycleStatus: "PUBLISHED"
 ---
 
 In an entertainment industry that increasingly demands continuous digital visibility and personal branding, Cillian Murphy represents a rare archetype: the premier screen actor who treats performance purely as a craft and fame as an occupational hazard. Across three decades spanning independent Irish theatre, gritty crime epics, and sweeping historical blockbusters, Murphy has established a singular reputation for transformative intensity without conceding to the modern celebrity apparatus.

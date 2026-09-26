@@ -87,6 +87,8 @@ export interface EditorialValidationContext {
     alt?: string;
     prompt?: string;
     source?: string;
+    sourceUrl?: string;
+    license?: string;
     visualTheme?: string;
     recommendedAspectRatio?: string;
   };

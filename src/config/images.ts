@@ -192,3 +192,72 @@ export const PILLAR_IMAGE_STYLES: Record<PillarSlug, PillarImageStyle> = {
     ],
   },
 };
+
+export interface SafeEditorialFallback {
+  url: string;
+  alt: string;
+  source: string;
+  sourceUrl: string;
+  license: string;
+}
+
+export const DEFAULT_SAFE_EDITORIAL_FALLBACKS: Record<PillarSlug, SafeEditorialFallback> = {
+  style: {
+    url: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Curated contemporary wardrobe and tactile fabrics',
+    source: 'Unsplash (Free)',
+    sourceUrl: 'https://unsplash.com',
+    license: 'LifeMode Safe Editorial Fallback',
+  },
+  travel: {
+    url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Scenic coastal landscape with natural sunlight',
+    source: 'Unsplash (Free)',
+    sourceUrl: 'https://unsplash.com',
+    license: 'LifeMode Safe Editorial Fallback',
+  },
+  'food-drink': {
+    url: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Artisanal kitchen with fresh sourdough and culinary ingredients',
+    source: 'Unsplash (Free)',
+    sourceUrl: 'https://unsplash.com',
+    license: 'LifeMode Safe Editorial Fallback',
+  },
+  'tech-ai': {
+    url: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Minimalist designer workstation and precision hardware',
+    source: 'Unsplash (Free)',
+    sourceUrl: 'https://unsplash.com',
+    license: 'LifeMode Safe Editorial Fallback',
+  },
+  money: {
+    url: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Modern architectural finance study with natural daylight',
+    source: 'Unsplash (Free)',
+    sourceUrl: 'https://unsplash.com',
+    license: 'LifeMode Safe Editorial Fallback',
+  },
+  wellbeing: {
+    url: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Peaceful sunlit morning room with natural botanical elements',
+    source: 'Unsplash (Free)',
+    sourceUrl: 'https://unsplash.com',
+    license: 'LifeMode Safe Editorial Fallback',
+  },
+  entertainment: {
+    url: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Atmospheric cinema auditorium with warm lighting and theatrical screen',
+    source: 'Photo by Felix Mooneeram on Unsplash (Free)',
+    sourceUrl: 'https://unsplash.com/photos/red-theater-chairs-inside-theater-evlkOfkQ5rE',
+    license: 'LifeMode Safe Editorial Fallback',
+  },
+};
+
+export function getFallbackImageForPillar(pillar: string): SafeEditorialFallback {
+  const p = (pillar || 'style').toLowerCase() as PillarSlug;
+  return DEFAULT_SAFE_EDITORIAL_FALLBACKS[p] || DEFAULT_SAFE_EDITORIAL_FALLBACKS.style;
+}
+
+export function resolveEditorialImageFallback(pillar: string, _title?: string): SafeEditorialFallback {
+  return getFallbackImageForPillar(pillar);
+}

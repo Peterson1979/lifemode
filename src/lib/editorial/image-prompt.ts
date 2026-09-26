@@ -4,7 +4,14 @@ import {
   GLOBAL_IMAGE_GUIDELINES,
   EDITORIAL_ASPECT_RATIOS,
 } from '../../config/images.ts';
-import { isPersonTopic, getPersonImageDirectives } from './person-policy.ts';
+import {
+  isPersonTopic,
+  getPersonImageDirectives,
+  analyzeNamedPersonPolicy,
+  classifyNamedPersonImage,
+  type NamedPersonAnalysis,
+  type NamedPersonImageClassification,
+} from './person-policy.ts';
 
 export interface ImagePromptInput {
   title: string;
@@ -25,6 +32,8 @@ export interface ArticleToImageBrief {
   visualMetaphors: string[];
   contextualAvoid: string[];
   avoidThings: string[];
+  isPerson?: boolean;
+  personAnalysis?: NamedPersonAnalysis;
 }
 
 export interface EditorialImagePromptResult {
@@ -65,11 +74,57 @@ export function buildArticleToImageBrief(input: ImagePromptInput): ArticleToImag
   const cleanSubject = extractCleanSubject(input.title);
   const text = `${input.title} ${input.description || ''} ${(input.tags || []).join(' ')}`.toLowerCase();
 
+  const isPerson = isPersonTopic({
+    title: input.title,
+    tags: input.tags,
+  });
+
+  const personAnalysis = isPerson
+    ? analyzeNamedPersonPolicy({
+        title: input.title,
+        description: input.description,
+        tags: input.tags,
+        pillar: category,
+      })
+    : undefined;
+
   const keyConcepts: string[] = [];
   const relevantObjects: string[] = [];
   const relevantEnvironments: string[] = [];
   const visualMetaphors: string[] = [];
   const contextualAvoid: string[] = [];
+
+  if (isPerson && personAnalysis) {
+    keyConcepts.push(personAnalysis.visualTheme.toLowerCase(), `${personAnalysis.professionOrRole} craft`, personAnalysis.relevantVisualSubject.toLowerCase());
+    relevantObjects.push(personAnalysis.relevantVisualSubject);
+    relevantEnvironments.push(personAnalysis.contextScene);
+    visualMetaphors.push('authentic craftsmanship', 'dedication to discipline', 'quiet excellence');
+    contextualAvoid.push(
+      'unrelated people portraits',
+      'unrelated woman portrait',
+      'unrelated man portrait',
+      'random stock models',
+      'generic office desk',
+      'generic office workers',
+      'unrelated models sitting at desks',
+      'paparazzi flash chaos',
+      'fake celebrity likeness'
+    );
+
+    return {
+      articleTopic: input.title,
+      editorialCategory: category,
+      primarySubject: personAnalysis.primaryPersonName || cleanSubject || input.title,
+      keyConcepts,
+      relevantObjects,
+      relevantEnvironments,
+      visualMetaphors,
+      contextualAvoid,
+      avoidThings: contextualAvoid,
+      isPerson: true,
+      personAnalysis,
+    };
+  }
 
   switch (category) {
     case 'tech-ai': {
@@ -286,7 +341,7 @@ export function buildArticleToImageBrief(input: ImagePromptInput): ArticleToImag
  * Generates a structured editorial photography prompt for AI image generators (e.g. FLUX, Imagen 3).
  *
  * Employs a structured Article-to-Image brief to guarantee subject-specific relevance
- * and enforces category-aware negative constraints.
+ * and enforces category-aware negative constraints and Named Person Image Policy.
  */
 export function generateEditorialImagePrompt(
   input: ImagePromptInput
@@ -366,26 +421,161 @@ export interface SemanticImageValidationResult {
   score: number;
   reason?: string;
   suggestedFocus?: string[];
+  priorityLevel?: 'PRIORITY_1_VERIFIED_PERSON' | 'PRIORITY_2_CONTEXTUAL' | 'PRIORITY_3_GENERATED' | 'PRIORITY_4_SAFE_FALLBACK' | 'INVALID';
+  namedPersonClassification?: NamedPersonImageClassification;
+  isPersonSpecific?: boolean;
+}
+
+export interface ImageValidationOptions {
+  title: string;
+  pillar?: string;
+  tags?: string[];
+  topicId?: string;
+  isPerson?: boolean;
+  imageMetadata?: {
+    url?: string;
+    alt?: string;
+    prompt?: string;
+    source?: string;
+    sourceUrl?: string;
+    license?: string;
+  };
 }
 
 /**
- * Validates that an article's hero image is semantically relevant to its subject matter,
- * preventing technically valid but editorially disconnected imagery (e.g. office desks for astronomy).
+ * Validates that an article's hero image satisfies:
+ * 1. Topic Relevance (matches the article's actual subject matter)
+ * 2. Named Person Image Policy & Representation Integrity (never substitutes an unrelated person)
+ * 3. Identity Integrity (does not falsely claim an unverified image or contextual scene depicts a person)
+ * 4. Contextual Fallback Integrity (contextual fallbacks for named persons must be strictly person-free)
+ * 5. Metadata Integrity (accurate alt text and description)
  */
 export function validateImageSemanticRelevance(
   title: string,
-  _pillar: string,
-  imageMetadata?: { url?: string; alt?: string; prompt?: string; source?: string }
+  pillar: string,
+  imageMetadata?: { url?: string; alt?: string; prompt?: string; source?: string; sourceUrl?: string; license?: string },
+  options: { tags?: string[]; isPerson?: boolean; topicId?: string } = {}
 ): SemanticImageValidationResult {
   if (!imageMetadata?.url || imageMetadata.url.trim().length === 0) {
-    return { valid: true, score: 100 };
+    return { valid: true, score: 100, priorityLevel: 'PRIORITY_4_SAFE_FALLBACK', namedPersonClassification: 'SAFE_GENERIC_FALLBACK' };
   }
+
+  const isPerson = options.isPerson ?? isPersonTopic({
+    title,
+    tags: options.tags,
+    topicId: options.topicId,
+  });
 
   const titleLower = title.toLowerCase();
   const altLower = (imageMetadata.alt || '').toLowerCase();
   const promptLower = (imageMetadata.prompt || '').toLowerCase();
   const urlLower = imageMetadata.url.toLowerCase();
-  const imageSignals = `${altLower} ${promptLower} ${urlLower}`;
+  const sourceUrlLower = (imageMetadata.sourceUrl || '').toLowerCase();
+  const sourceLower = (imageMetadata.source || '').toLowerCase();
+  const imageSignals = `${altLower} ${promptLower} ${urlLower} ${sourceUrlLower} ${sourceLower}`;
+
+  // -------------------------------------------------------------------
+  // A. NAMED PERSON IMAGE POLICY & INTEGRITY VALIDATION
+  // -------------------------------------------------------------------
+  if (isPerson) {
+    const analysis = analyzeNamedPersonPolicy({
+      title,
+      tags: options.tags,
+      topicId: options.topicId,
+      pillar,
+    });
+
+    // 1. Run strict Named Person Image Classification
+    const classResult = classifyNamedPersonImage(imageMetadata, analysis);
+    if (!classResult.valid || classResult.classification === 'INVALID') {
+      return {
+        valid: false,
+        score: 10,
+        reason: classResult.reason || `Image depicts an unrelated person or unverified portrait for article primarily about ${analysis.primaryPersonName}. Named Person Image Policy strictly prohibits using unrelated people or generic human models as contextual fallbacks; contextual fallback must be person-free.`,
+        suggestedFocus: classResult.suggestedFocus || [analysis.relevantVisualSubject, analysis.visualTheme],
+        priorityLevel: 'INVALID',
+        namedPersonClassification: 'INVALID',
+        isPersonSpecific: true,
+      };
+    }
+
+    if (classResult.classification === 'VERIFIED_SUBJECT_PHOTO') {
+      return {
+        valid: true,
+        score: 100,
+        priorityLevel: 'PRIORITY_1_VERIFIED_PERSON',
+        namedPersonClassification: 'VERIFIED_SUBJECT_PHOTO',
+        isPersonSpecific: true,
+      };
+    }
+
+    // 2. Discipline-specific topic relevance for PERSON_FREE_CONTEXTUAL fallback
+    // 2a. Tennis (e.g. Alexandra Eala)
+    if (analysis.professionOrRole.includes('tennis')) {
+      const hasIrrelevantOfficeSignals = /\b(desk|pen|hand holding|writing note|laptop keyboard|office meeting|coffee cup|business suit|shopping|bedroom|sink)\b/.test(imageSignals);
+      const hasTennisSignals = /\b(tennis|court|racket|racquet|net|ball|hard-court|hardcourt|stadium|wta|atp|slam|serve|baseline)\b/.test(imageSignals);
+
+      if (hasIrrelevantOfficeSignals && !hasTennisSignals) {
+        return {
+          valid: false,
+          score: 20,
+          reason: `Image content ("${imageMetadata.alt || imageMetadata.prompt || 'generic desk/office image'}") is editorially irrelevant to tennis article "${title}". Expected tennis court, hard-court surface, net, or tennis equipment without people.`,
+          suggestedFocus: ['hard-court tennis court', 'tennis net and ball', 'professional tournament setting'],
+          priorityLevel: 'INVALID',
+          namedPersonClassification: 'INVALID',
+          isPersonSpecific: true,
+        };
+      }
+    }
+
+    // 2b. Screen Actor / Cinema (e.g. Cillian Murphy)
+    if (analysis.professionOrRole.includes('actor') || analysis.professionOrRole.includes('film')) {
+      const hasIrrelevantOfficeSignals = /\b(desk|pen|hand holding|writing note|laptop keyboard|office meeting|office cubicle|business meeting|cash|crypto|server rack|beauty salon)\b/.test(imageSignals);
+      const hasCinemaSignals = /\b(cinema|film|camera|auditorium|theatre|movie|screen|projector|soundstage|stage|studio|35mm|lighting|actor)\b/.test(imageSignals);
+
+      if (hasIrrelevantOfficeSignals && !hasCinemaSignals) {
+        return {
+          valid: false,
+          score: 20,
+          reason: `Image content is editorially irrelevant to cinematic actor article "${title}". Expected 35mm cinema camera, film set lighting, or cinema auditorium without people.`,
+          suggestedFocus: ['cinema camera', 'film production set', 'cinema auditorium'],
+          priorityLevel: 'INVALID',
+          namedPersonClassification: 'INVALID',
+          isPersonSpecific: true,
+        };
+      }
+    }
+
+    // 2c. Baseball (e.g. Jose Trevino)
+    if (analysis.professionOrRole.includes('baseball')) {
+      const hasIrrelevantOfficeSignals = /\b(desk|pen|hand holding|writing note|laptop keyboard|office meeting|office cubicle|business meeting|kitchen|makeup|perfume)\b/.test(imageSignals);
+      const hasBaseballSignals = /\b(baseball|diamond|dugout|catcher|mitt|glove|stadium|field|bat|mlb)\b/.test(imageSignals);
+
+      if (hasIrrelevantOfficeSignals && !hasBaseballSignals) {
+        return {
+          valid: false,
+          score: 20,
+          reason: `Image content is editorially irrelevant to baseball player article "${title}". Expected baseball diamond, catcher equipment, or stadium setting without people.`,
+          suggestedFocus: ['baseball diamond', 'catcher equipment and mitt', 'stadium dugout'],
+          priorityLevel: 'INVALID',
+          namedPersonClassification: 'INVALID',
+          isPersonSpecific: true,
+        };
+      }
+    }
+
+    return {
+      valid: true,
+      score: 100,
+      priorityLevel: 'PRIORITY_2_CONTEXTUAL',
+      namedPersonClassification: 'PERSON_FREE_CONTEXTUAL',
+      isPersonSpecific: true,
+    };
+  }
+
+  // -------------------------------------------------------------------
+  // B. GENERAL NON-PERSON ARTICLE VALIDATION
+  // -------------------------------------------------------------------
 
   // 1. Celestial / Astronomy topics (meteors, stars, telescopes, night sky, eclipses)
   const isAstronomyTopic = /\b(meteor|perseid|geminid|stargazing|astronomy|night sky|celestial|telescope|eclipse|comet|aurora|cosmos|shooting star)\b/.test(titleLower);
@@ -431,6 +621,34 @@ export function validateImageSemanticRelevance(
     }
   }
 
+  // 4. Tech & AI topics
+  const isTechTopic = /\b(ai|deepseek|model|quantization|workstation|hardware setup|developer)\b/.test(titleLower);
+  if (isTechTopic) {
+    const hasIrrelevantLifestyleSignals = /\b(crowded street|pedestrian crosswalk|beach sunset|shopping mall)\b/.test(imageSignals);
+    const hasTechSignals = /\b(workstation|keyboard|hardware|terminal|studio|desk|laptop|developer|interface|code)\b/.test(imageSignals);
+    if (hasIrrelevantLifestyleSignals && !hasTechSignals) {
+      return {
+        valid: false,
+        score: 30,
+        reason: `Image content is editorially irrelevant to technology topic "${title}". Expected clean hardware, workstation, or developer studio setting.`,
+        suggestedFocus: ['designer workstation', 'mechanical keyboard', 'developer studio'],
+      };
+    }
+  }
+
+  // 5. Money topics
+  const isMoneyTopic = /\b(treasury|yield curve|cash buffer|wealth|sovereign notes|investing)\b/.test(titleLower);
+  if (isMoneyTopic) {
+    const hasIrrelevantCheesySignals = /\b(flying money|dollar bills falling|gold coins pile|crypto rocket)\b/.test(imageSignals);
+    if (hasIrrelevantCheesySignals) {
+      return {
+        valid: false,
+        score: 30,
+        reason: `Image content contains clichés irrelevant to strategic money topic "${title}". Expected refined library, architectural study, or leather folio.`,
+        suggestedFocus: ['modern architectural library', 'bespoke leather folio', 'analytical notebook'],
+      };
+    }
+  }
+
   return { valid: true, score: 100 };
 }
-

@@ -475,7 +475,12 @@ export function validateEditorialArticle(
       const semanticCheck = validateImageSemanticRelevance(
         article.title || '',
         context.pillar || '',
-        context.imageMetadata
+        context.imageMetadata,
+        {
+          tags: context.tags,
+          isPerson: context.isPerson,
+          topicId: context.topicId,
+        }
       );
       if (!semanticCheck.valid) {
         errors.push(`Hero image failed semantic relevance validation: ${semanticCheck.reason}`);
@@ -489,7 +494,12 @@ export function validateEditorialArticle(
     const semanticCheck = validateImageSemanticRelevance(
       article.title || '',
       context.pillar || '',
-      context.imageMetadata
+      context.imageMetadata,
+      {
+        tags: context.tags,
+        isPerson: context.isPerson,
+        topicId: context.topicId,
+      }
     );
     if (!semanticCheck.valid) {
       warnings.push(`Hero image may have semantic relevance issues: ${semanticCheck.reason}`);
