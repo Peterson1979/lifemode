@@ -76,7 +76,50 @@ test('2. Alexandra Eala + unrelated female tennis player is strictly rejected', 
   assert.equal(validation.valid, false);
   assert.equal(validation.priorityLevel, 'INVALID');
   assert.equal(validation.namedPersonClassification, 'INVALID');
-  assert.ok(validation.reason?.includes('unrelated person') || validation.reason?.includes('person-free'));
+  assert.ok(validation.reason?.includes('unrelated person') || validation.reason?.includes('person-free') || validation.reason?.includes('player'));
+});
+
+test('2b. Alexandra Eala + unrelated male tennis player is strictly rejected (REGRESSION)', () => {
+  // Test case A: Male tennis player on court (previous fallback failure mode)
+  const malePlayerImageA = {
+    url: 'https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Male tennis player preparing to serve on hard court',
+    source: 'Photo by Moises Alex on Unsplash (Free)',
+    sourceUrl: 'https://unsplash.com/photos/blue-and-green-tennis-court-pZ1wW_0b2vA',
+    license: 'Unsplash License (Free)',
+  };
+
+  const validationA = validateImageSemanticRelevance(
+    'Alexandra Eala: Rising Star of the Hard-Court Swing',
+    'entertainment',
+    malePlayerImageA,
+    { tags: ['tennis', 'sports'] }
+  );
+
+  assert.equal(validationA.valid, false);
+  assert.equal(validationA.priorityLevel, 'INVALID');
+  assert.equal(validationA.namedPersonClassification, 'INVALID');
+  assert.ok(validationA.reason?.includes('unrelated person') || validationA.reason?.includes('player') || validationA.reason?.includes('male'));
+
+  // Test case B: Unrelated male tennis player serving on court
+  const malePlayerImageB = {
+    url: 'https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Male athlete hitting a tennis serve during match',
+    source: 'Unsplash Contributor',
+    sourceUrl: 'https://unsplash.com/photos/male-tennis-player-serving',
+    license: 'Unsplash License (Free)',
+  };
+
+  const validationB = validateImageSemanticRelevance(
+    'Alexandra Eala: Rising Star of the Hard-Court Swing',
+    'entertainment',
+    malePlayerImageB,
+    { tags: ['tennis', 'sports'] }
+  );
+
+  assert.equal(validationB.valid, false);
+  assert.equal(validationB.priorityLevel, 'INVALID');
+  assert.equal(validationB.namedPersonClassification, 'INVALID');
 });
 
 test('3. Alexandra Eala + unrelated woman on tennis court is strictly rejected', () => {
@@ -122,13 +165,34 @@ test('4. Alexandra Eala + tennis player silhouette/person is strictly rejected a
   assert.ok(validation.reason?.includes('silhouette') || validation.reason?.includes('human figure') || validation.reason?.includes('player'));
 });
 
+test('4b. Alexandra Eala + crowd / spectators in stadium stands is strictly rejected', () => {
+  const crowdImage = {
+    url: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Packed stadium crowd watching tennis championship from bleachers',
+    source: 'Unsplash Contributor',
+    sourceUrl: 'https://unsplash.com/photos/tennis-stadium-crowd',
+    license: 'Unsplash License (Free)',
+  };
+
+  const validation = validateImageSemanticRelevance(
+    'Alexandra Eala: Rising Star of the Hard-Court Swing',
+    'entertainment',
+    crowdImage,
+    { tags: ['tennis', 'sports'] }
+  );
+
+  assert.equal(validation.valid, false);
+  assert.equal(validation.priorityLevel, 'INVALID');
+  assert.equal(validation.namedPersonClassification, 'INVALID');
+});
+
 test('5. Alexandra Eala + empty hard-court tennis court is accepted as Priority 2 (PERSON_FREE_CONTEXTUAL)', () => {
   const emptyCourtImage = {
-    url: 'https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=1200&q=80',
+    url: 'https://upload.wikimedia.org/wikipedia/commons/8/8d/Tennis_Courts_Phoenix.jpg',
     alt: 'Contextual editorial photography of an empty championship hard-court tennis surface with court lines and net',
-    source: 'Photo by Moises Alex on Unsplash (Free)',
-    sourceUrl: 'https://unsplash.com/photos/blue-and-green-tennis-court-pZ1wW_0b2vA',
-    license: 'Unsplash License (Free)',
+    source: 'NWSPhoenix / Wikimedia Commons (CC BY-SA 4.0)',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Tennis_Courts_Phoenix.jpg',
+    license: 'CC BY-SA 4.0',
   };
 
   const personCheck = detectPersonInImage(emptyCourtImage);
@@ -390,8 +454,9 @@ test('14. Social-card image consistency: Both production articles use verified p
 
   // 2. Alexandra Eala article
   const ealaFile = readFileSync(join(entertainmentRoot, 'alexandra-eala-rising-star-of-the-hard-court-swing.md'), 'utf-8');
-  assert.ok(ealaFile.includes('https://images.unsplash.com/photo-1622279457486-62dcc4a431d6'));
+  assert.ok(ealaFile.includes('https://upload.wikimedia.org/wikipedia/commons/8/8d/Tennis_Courts_Phoenix.jpg'));
   assert.ok(ealaFile.includes('empty championship hard-court tennis surface'));
+  assert.ok(!ealaFile.includes('photo-1622279457486-62dcc4a431d6'));
   assert.ok(!ealaFile.includes('photo-1595435934249-5df7ed86e1c0'));
   assert.ok(!ealaFile.includes('woman-sitting-behind-desk'));
 });

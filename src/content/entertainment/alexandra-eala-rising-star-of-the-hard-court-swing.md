@@ -23,11 +23,11 @@ sources:
     url: "https://www.wtatennis.com/players/328564/alexandra-eala"
   - name: "International Tennis Federation (ITF) – Player Activity & Records"
     url: "https://www.itftennis.com/en/players/alexandra-eala/800487447/phi/"
-image: "https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=1200&q=80"
+image: "https://upload.wikimedia.org/wikipedia/commons/8/8d/Tennis_Courts_Phoenix.jpg"
 imageAlt: "Contextual editorial photography of an empty championship hard-court tennis surface with court lines and net"
-imageSource: "Photo by Moises Alex on Unsplash (Free)"
-imageSourceUrl: "https://unsplash.com/photos/blue-and-green-tennis-court-pZ1wW_0b2vA"
-imageLicense: "Unsplash License (Free)"
+imageSource: "NWSPhoenix / Wikimedia Commons (CC BY-SA 4.0)"
+imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Tennis_Courts_Phoenix.jpg"
+imageLicense: "CC BY-SA 4.0"
 version: 2
 lifecycleStatus: "PUBLISHED"
 ---

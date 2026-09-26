@@ -607,7 +607,9 @@ export function detectPersonInImage(
 
     // Known person / model photographic asset patterns
     { pattern: /\b(woman-in-black-crew-neck|woman-sitting-behind-desk|3tll_97hnjo|aiony haust)\b/i, description: 'known person stock asset' },
-    { pattern: /\bphoto-1595435934249-5df7ed86e1c0\b/i, description: 'player on tennis court asset' },
+    { pattern: /\bphoto-1595435934249-5df7ed86e1c0\b/i, description: 'female tennis player on court asset' },
+    { pattern: /\bphoto-1554068865-24cecd4e34b8\b/i, description: 'male tennis player serving asset' },
+    { pattern: /\bphoto-1622279457486-62dcc4a431d6\b/i, description: 'male tennis player on court asset' },
     { pattern: /\bphoto-1534528741775-53994a69daeb\b/i, description: 'portrait stock asset' },
     { pattern: /\bphoto-1573496359142-b8d87734a5a2\b/i, description: 'woman at desk stock asset' },
     { pattern: /\bphoto-1507003211169-0a1dd7228f2d\b/i, description: 'man portrait stock asset' },
