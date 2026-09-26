@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-26T10:56:39.860Z",
+    "updatedAt": "2026-09-26T15:56:20.997Z",
     "revisionCyclesCount": 0
   },
   {
@@ -49905,7 +49905,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-26T10:56:40.041Z",
+    "updatedAt": "2026-09-26T15:56:21.182Z",
     "pinterestScore": 85.6,
     "revisionCyclesCount": 0
   },
@@ -49968,7 +49968,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-26T11:00:58.983Z",
+    "updatedAt": "2026-09-26T15:56:21.214Z",
     "pinterestScore": 84.8,
     "revisionCyclesCount": 0
   },
@@ -69350,7 +69350,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-26T10:56:39.904Z",
+    "updatedAt": "2026-09-26T15:56:21.042Z",
     "pinterestScore": 87.8,
     "revisionCyclesCount": 0
   },
@@ -69413,7 +69413,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-26T10:56:39.966Z",
+    "updatedAt": "2026-09-26T15:56:21.107Z",
     "pinterestScore": 84.6,
     "revisionCyclesCount": 0
   },
@@ -69476,7 +69476,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-26T10:56:40.012Z",
+    "updatedAt": "2026-09-26T15:56:21.152Z",
     "pinterestScore": 82.9,
     "revisionCyclesCount": 0
   },
@@ -73299,8 +73299,8 @@
     "totalScore": 85.1,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-26T10:56:37.089Z",
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-26T15:57:31.568Z",
     "pinterestScore": 88.3,
     "revisionCyclesCount": 0
   },
@@ -75674,12 +75674,51 @@
           "feedName": "Vogue Style & Culture",
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-5-MSGM20Spring20202720Rea",
+        "query": "MSGM Spring 2027 Ready-to-Wear",
+        "sourceUrl": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/msgm",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-26T15:52:52.000Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T15:52:52.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "MSGM Spring 2027 Ready-to-Wear",
+            "itemLink": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/msgm",
+            "publishedDate": "2026-09-26T15:52:52.000Z",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "blumarine spring 2027 ready-to-wear",
       "moschino spring 2027 ready-to-wear",
-      "ferragamo spring 2027 ready-to-wear"
+      "ferragamo spring 2027 ready-to-wear",
+      "msgm spring 2027 ready-to-wear"
     ],
     "freshnessScore": 88,
     "createdAt": "2026-09-25T11:18:56.000Z",
@@ -75707,7 +75746,7 @@
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-09-26T10:56:38.227Z",
+    "updatedAt": "2026-09-26T15:56:20.185Z",
     "pinterestScore": 79.2,
     "revisionCyclesCount": 0
   },
@@ -75754,12 +75793,90 @@
           "feedName": "Vogue Style & Culture",
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-1-Marco20Rambaldi20Sprin",
+        "query": "Marco Rambaldi Spring 2027 Ready-to-Wear",
+        "sourceUrl": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/marco-rambaldi",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-26T15:52:52.000Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T15:52:52.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Marco Rambaldi Spring 2027 Ready-to-Wear",
+            "itemLink": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/marco-rambaldi",
+            "publishedDate": "2026-09-26T15:52:52.000Z",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-4-Act20No120Spring202027",
+        "query": "Act No.1 Spring 2027 Ready-to-Wear",
+        "sourceUrl": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/act-no-1",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-26T15:52:52.000Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T15:52:52.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Act No.1 Spring 2027 Ready-to-Wear",
+            "itemLink": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/act-no-1",
+            "publishedDate": "2026-09-26T15:52:52.000Z",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
-      "sportmax spring 2027 ready-to-wear"
+      "sportmax spring 2027 ready-to-wear",
+      "marco rambaldi spring 2027 ready-to-wear",
+      "act no.1 spring 2027 ready-to-wear"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-25T11:18:56.000Z",
     "tags": [
       "fashion-trends",
@@ -75777,16 +75894,17 @@
       "socialPotential": 80,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 88
     },
-    "totalScore": 77.4,
+    "totalScore": 77.6,
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-09-25T11:20:19.506Z",
-    "pinterestScore": 79.2
+    "updatedAt": "2026-09-26T15:56:20.157Z",
+    "pinterestScore": 79.2,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-style-20260925-30-long-sleeve-wedding-guest-d",
@@ -85085,5 +85203,2227 @@
     "status": "SCORED",
     "updatedAt": "2026-09-26T10:56:39.858Z",
     "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260926-coleman-wong",
+    "canonicalTopic": "Coleman Wong",
+    "slug": "coleman-wong",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-coleman20wong",
+        "query": "Coleman Wong",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-26T15:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-26T15:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "coleman wong",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "coleman wong"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T15:40:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-26T15:56:19.287Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260926-colorado-vs-baylor",
+    "canonicalTopic": "Colorado Vs Baylor",
+    "slug": "colorado-vs-baylor",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-colorado20vs20bay",
+        "query": "Colorado Vs Baylor",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-26T15:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-26T15:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "colorado vs baylor",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "colorado vs baylor"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T15:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-26T15:56:19.319Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-tech-ai-20260926-virginia-tech-vs-boston-colleg",
+    "canonicalTopic": "Virginia Tech Vs Boston College",
+    "slug": "virginia-tech-vs-boston-college",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-virginia20tech20v",
+        "query": "Virginia Tech Vs Boston College",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-26T15:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-26T15:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "virginia tech vs boston college",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "US",
+            "tech-ai",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "virginia tech vs boston college"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T15:10:00.000Z",
+    "tags": [
+      "US",
+      "tech-ai",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-26T15:56:19.358Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-entertainment-20260926-wake-forest-vs-louisville",
+    "canonicalTopic": "Wake Forest Vs Louisville",
+    "slug": "wake-forest-vs-louisville",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-wake20forest20vs20",
+        "query": "Wake Forest Vs Louisville",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-26T15:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-26T15:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "wake forest vs louisville",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "wake forest vs louisville"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T15:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-26T15:56:19.390Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260926-ball-state-vs-kent-state",
+    "canonicalTopic": "Ball State Vs Kent State",
+    "slug": "ball-state-vs-kent-state",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-ball20state20vs20k",
+        "query": "Ball State Vs Kent State",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-26T15:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-26T15:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "ball state vs kent state",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ball state vs kent state"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T15:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-26T15:56:19.432Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260926-bucknell-vs-pittsburgh",
+    "canonicalTopic": "Bucknell Vs Pittsburgh",
+    "slug": "bucknell-vs-pittsburgh",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-bucknell20vs20pit",
+        "query": "Bucknell Vs Pittsburgh",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-26T15:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-26T15:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "bucknell vs pittsburgh",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "bucknell vs pittsburgh"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T15:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-26T15:56:19.462Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260926-illinois-vs-ohio-state",
+    "canonicalTopic": "Illinois Vs Ohio State",
+    "slug": "illinois-vs-ohio-state",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-illinois20vs20ohi",
+        "query": "Illinois Vs Ohio State",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-26T15:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-26T15:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "illinois vs ohio state",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "illinois vs ohio state"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T15:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-26T15:56:19.491Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-tech-ai-20260926-sam-houston-vs-texas-tech",
+    "canonicalTopic": "Sam Houston Vs Texas Tech",
+    "slug": "sam-houston-vs-texas-tech",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-sam20houston20vs20",
+        "query": "Sam Houston Vs Texas Tech",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-26T15:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-26T15:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "sam houston vs texas tech",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "US",
+            "tech-ai",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "sam houston vs texas tech"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T15:00:00.000Z",
+    "tags": [
+      "US",
+      "tech-ai",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-26T15:56:19.523Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-entertainment-20260926-diana-princess-of-wales",
+    "canonicalTopic": "Diana Princess of Wales",
+    "slug": "diana-princess-of-wales",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-diana2C20princess",
+        "query": "Diana Princess of Wales",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-26T15:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-26T15:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "diana, princess of wales",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "diana princess of wales"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T15:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-26T15:56:19.554Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260926-peyton-manning",
+    "canonicalTopic": "Peyton Manning",
+    "slug": "peyton-manning",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-peyton20manning",
+        "query": "Peyton Manning",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-26T14:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-26T14:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "peyton manning",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "peyton manning"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T14:40:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-26T15:56:19.577Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-tech-ai-20260926-can-cloudflare-ceo-matthew-pri",
+    "canonicalTopic": "Can Cloudflare Ceo Matthew Prince Save the Web from Ai",
+    "slug": "can-cloudflare-ceo-matthew-prince-save-the-web-from-ai",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-Can20Cloudflare20CEO20M",
+        "query": "Can Cloudflare Ceo Matthew Prince Save the Web from Ai",
+        "sourceUrl": "https://www.theverge.com/podcast/1000344/cloudflare-matthew-prince-google-zero-ai-web-advertising",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-26T14:00:00.000Z",
+        "contentSnippet": "Today, I’m talking with Matthew Prince, who is CEO of Cloudflare. This episode is part of a two-part series on the future of business. Matthew last joined us on the show about two and a half years ago, at what we thought then was a wild pivot point for the internet — and now it […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T14:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Can Cloudflare CEO Matthew Prince save the web from AI?",
+            "itemLink": "https://www.theverge.com/podcast/1000344/cloudflare-matthew-prince-google-zero-ai-web-advertising",
+            "publishedDate": "2026-09-26T14:00:00.000Z",
+            "contentSnippet": "Today, I’m talking with Matthew Prince, who is CEO of Cloudflare. This episode is part of a two-part series on the future of business. Matthew last joined us on the show about two and a half years ago, at what we thought then was a wild pivot point for the internet — and now it […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "Business",
+              "Decoder",
+              "Podcasts",
+              "Tech",
+              "Web"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "Business",
+            "Decoder",
+            "Podcasts",
+            "Tech",
+            "Web"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "can cloudflare ceo matthew prince save the web from ai"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T14:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "Business",
+      "Decoder",
+      "Podcasts",
+      "Tech",
+      "Web"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T15:56:19.632Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260926-control-resonant-is-a-great-ga",
+    "canonicalTopic": "Control Resonant Is a Great Game — Its Even Better When You Read Everything",
+    "slug": "control-resonant-is-a-great-game-its-even-better-when-you-read-everything",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-Control20Resonant20is20",
+        "query": "Control Resonant Is a Great Game — Its Even Better When You Read Everything",
+        "sourceUrl": "https://www.theverge.com/games/1000818/control-resonant-reading-collectibles-documents-logs",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-26T13:00:00.000Z",
+        "contentSnippet": "In Control Resonant, the entire world is at stake. But that didn't stop the diligent employees of the Federal Bureau of Control from filing reams of paperwork, and it didn't stop me from reading everything I could find, either. Reading is often optional in Resonant, but it's where some of the game's best details - […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T13:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Control Resonant is a great game — it’s even better when you read everything",
+            "itemLink": "https://www.theverge.com/games/1000818/control-resonant-reading-collectibles-documents-logs",
+            "publishedDate": "2026-09-26T13:00:00.000Z",
+            "contentSnippet": "In Control Resonant, the entire world is at stake. But that didn't stop the diligent employees of the Federal Bureau of Control from filing reams of paperwork, and it didn't stop me from reading everything I could find, either. Reading is often optional in Resonant, but it's where some of the game's best details - […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Entertainment",
+              "Gaming"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Entertainment",
+            "Gaming"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "control resonant is a great game — its even better when you read everything"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T13:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Entertainment",
+      "Gaming"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T15:56:19.701Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260926-pokmon-card-resellers-have-tur",
+    "canonicalTopic": "Pokmon Card Resellers Have Turned Collecting into an Online Blood Sport",
+    "slug": "pokmon-card-resellers-have-turned-collecting-into-an-online-blood-sport",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-PokC3A9mon20card20reselle",
+        "query": "Pokmon Card Resellers Have Turned Collecting into an Online Blood Sport",
+        "sourceUrl": "https://www.theverge.com/games/1001002/pokemon-30th-celebration-scalping-resellers",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-26T12:00:00.000Z",
+        "contentSnippet": "Earlier this month, Pokémon card content creator Natalie Roush posted a video to her YouTube and Instagram pages that enraged the larger collection community. In the now-deleted video, Roush shows off two premium boxes of cards that had not yet been officially released, and implores viewers not to be mad. But they were; other creators […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T12:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Pokémon card resellers have turned collecting into an online blood sport",
+            "itemLink": "https://www.theverge.com/games/1001002/pokemon-30th-celebration-scalping-resellers",
+            "publishedDate": "2026-09-26T12:00:00.000Z",
+            "contentSnippet": "Earlier this month, Pokémon card content creator Natalie Roush posted a video to her YouTube and Instagram pages that enraged the larger collection community. In the now-deleted video, Roush shows off two premium boxes of cards that had not yet been officially released, and implores viewers not to be mad. But they were; other creators […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Entertainment",
+              "Gaming",
+              "Nintendo",
+              "Report"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Entertainment",
+            "Gaming",
+            "Nintendo",
+            "Report"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "pokmon card resellers have turned collecting into an online blood sport"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T12:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Entertainment",
+      "Gaming",
+      "Nintendo",
+      "Report"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T15:56:19.767Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260926-the-pillowy-soft-caraa-duffel-",
+    "canonicalTopic": "The Pillowy-soft Caraa Duffel Is My Ultimate Road Trip Bag",
+    "slug": "the-pillowy-soft-caraa-duffel-is-my-ultimate-road-trip-bag",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-The20Pillowy-Soft20Car",
+        "query": "The Pillowy-soft Caraa Duffel Is My Ultimate Road Trip Bag",
+        "sourceUrl": "https://www.cntraveler.com/story/this-pillowy-soft-duffel-is-the-ultimate-road-trip-bag",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-26T12:00:00.000Z",
+        "contentSnippet": "Here's why I schlep the Caraa duffel bag with me practically everywhere I go.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T12:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "The Pillowy-Soft Caraa Duffel Is My Ultimate Road Trip Bag",
+            "itemLink": "https://www.cntraveler.com/story/this-pillowy-soft-duffel-is-the-ultimate-road-trip-bag",
+            "publishedDate": "2026-09-26T12:00:00.000Z",
+            "contentSnippet": "Here's why I schlep the Caraa duffel bag with me practically everywhere I go.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Shopping"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the pillowy-soft caraa duffel is my ultimate road trip bag"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T12:00:00.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T15:56:19.831Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260926-huge-crowds-greet-pope-in-pari",
+    "canonicalTopic": "Huge Crowds Greet Pope in Paris for Open-air Mass",
+    "slug": "huge-crowds-greet-pope-in-paris-for-open-air-mass",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-1-Huge20crowds20greet20Po",
+        "query": "Huge Crowds Greet Pope in Paris for Open-air Mass",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cm4gjjwvvlzro?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-26T13:23:59.000Z",
+        "contentSnippet": "More than half a million people are expected to attend the event in the heart of the French capital.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T13:23:59.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Huge crowds greet Pope in Paris for open-air Mass",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cm4gjjwvvlzro?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-26T13:23:59.000Z",
+            "contentSnippet": "More than half a million people are expected to attend the event in the heart of the French capital.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "huge crowds greet pope in paris for open-air mass"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T13:23:59.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T15:56:19.885Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260926-british-national-among-six-dea",
+    "canonicalTopic": "British National Among Six Dead in Building Explosion Close to Acropolis in Athens",
+    "slug": "british-national-among-six-dead-in-building-explosion-close-to-acropolis-in-athens",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-3-British20national20amo",
+        "query": "British National Among Six Dead in Building Explosion Close to Acropolis in Athens",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/c6p3kk78l4l1o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-26T12:47:25.000Z",
+        "contentSnippet": "Four Americans and a Greek national are among those killed in a suspected gas explosion, officials said.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T12:47:25.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "British national among six dead in building explosion close to Acropolis in Athens",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c6p3kk78l4l1o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-26T12:47:25.000Z",
+            "contentSnippet": "Four Americans and a Greek national are among those killed in a suspected gas explosion, officials said.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "british national among six dead in building explosion close to acropolis in athens"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T12:47:25.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T15:56:19.958Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260926-security-lapses-at-utah-campus",
+    "canonicalTopic": "Security Lapses at Utah Campus Where Charlie Kirk Was Killed Review Says",
+    "slug": "security-lapses-at-utah-campus-where-charlie-kirk-was-killed-review-says",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-4-Security20lapses20at20U",
+        "query": "Security Lapses at Utah Campus Where Charlie Kirk Was Killed Review Says",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cq4g55r76d9lo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-26T15:12:25.000Z",
+        "contentSnippet": "The indpendent report also says Kirk's aides insisted he speak outdoors, overriding concerns from campus officials.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T15:12:25.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Security lapses at Utah campus where Charlie Kirk was killed, review says",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cq4g55r76d9lo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-26T15:12:25.000Z",
+            "contentSnippet": "The indpendent report also says Kirk's aides insisted he speak outdoors, overriding concerns from campus officials.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "security lapses at utah campus where charlie kirk was killed review says"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T15:12:25.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T15:56:20.026Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260926-8-best-night-creams-2026-for-s",
+    "canonicalTopic": "8 Best Night Creams 2026 for Softer Plumper Skin by Morning",
+    "slug": "8-best-night-creams-2026-for-softer-plumper-skin-by-morning",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-1-820Best20Night20Creams20",
+        "query": "8 Best Night Creams 2026 for Softer Plumper Skin by Morning",
+        "sourceUrl": "https://www.allure.com/gallery/best-night-cream",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-26T12:00:00.000Z",
+        "contentSnippet": "Rich, restorative formulas that make every hour of shut-eye count.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T12:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "8 Best Night Creams 2026 for Softer, Plumper Skin by Morning",
+            "itemLink": "https://www.allure.com/gallery/best-night-cream",
+            "publishedDate": "2026-09-26T12:00:00.000Z",
+            "contentSnippet": "Rich, restorative formulas that make every hour of shut-eye count.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Skin",
+              "Skin / Dry Skin",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Skin",
+            "Skin / Dry Skin",
+            "Shopping"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "8 best night creams 2026 for softer plumper skin by morning"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T12:00:00.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Skin",
+      "Skin / Dry Skin",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T15:56:20.087Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260926-fabrizio-corneli-creates-drama",
+    "canonicalTopic": "Fabrizio Corneli Creates Dramatic Installation for Glasses Brand Lindberg",
+    "slug": "fabrizio-corneli-creates-dramatic-installation-for-glasses-brand-lindberg",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-4-Fabrizio20Corneli20cre",
+        "query": "Fabrizio Corneli Creates Dramatic Installation for Glasses Brand Lindberg",
+        "sourceUrl": "https://www.dezeen.com/2026/09/25/fabrizio-corneli-installation-glasses-brand-lindberg/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-25T20:00:15.000Z",
+        "contentSnippet": "Promotion: Danish eyewear brand Lindberg has presented a site-specific installation for the Armory Show in New York City, created with Italian artist Fabrizio Corneli. Called Enigma of Vision, the minimalist installation opened on 24 September as part of the city's annual Armory Show of contemporary art. Lindberg, which distinguishes itself from other eyewear brands through The post Fabrizio Corneli creates dramatic installation for glasses brand Lindberg appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T20:00:15.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Fabrizio Corneli creates dramatic installation for glasses brand Lindberg",
+            "itemLink": "https://www.dezeen.com/2026/09/25/fabrizio-corneli-installation-glasses-brand-lindberg/",
+            "publishedDate": "2026-09-25T20:00:15.000Z",
+            "contentSnippet": "Promotion: Danish eyewear brand Lindberg has presented a site-specific installation for the Armory Show in New York City, created with Italian artist Fabrizio Corneli. Called Enigma of Vision, the minimalist installation opened on 24 September as part of the city's annual Armory Show of contemporary art. Lindberg, which distinguishes itself from other eyewear brands through The post Fabrizio Corneli creates dramatic installation for glasses brand Lindberg appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Promotions",
+              "USA",
+              "Installations",
+              "New York City"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Promotions",
+            "USA",
+            "Installations",
+            "New York City"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "fabrizio corneli creates dramatic installation for glasses brand lindberg"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T20:00:15.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Promotions",
+      "USA",
+      "Installations",
+      "New York City"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T15:56:20.242Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260926-box-office-avengers-endgame-en",
+    "canonicalTopic": "Box Office Avengers Endgame Encore Leads with 112 Million on Friday As A24s Primetime Takes Second",
+    "slug": "box-office-avengers-endgame-encore-leads-with-112-million-on-friday-as-a24s-primetime-takes-second",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-1-Box20Office3A20E",
+        "query": "Box Office Avengers Endgame Encore Leads with 112 Million on Friday As A24s Primetime Takes Second",
+        "sourceUrl": "https://variety.com/2026/film/box-office/box-office-avengers-endgame-encore-primetime-resident-evil-1236876380/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-26T15:54:09.000Z",
+        "contentSnippet": "It might’ve been all about “Resident Evil” at the box office last week, but “Avengers: Endgame” is back on top — seven years later. “Avengers: Endgame Encore” landed at No. 1 on Friday, making $11.2 million from 3,060 North American screens. By Sunday, the Marvel juggernaut should pull in around $26 million. Directed by Anthony […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T15:54:09.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Box Office: ‘Avengers: Endgame Encore’ Leads With $11.2 Million on Friday as A24’s ‘Primetime’ Takes Second",
+            "itemLink": "https://variety.com/2026/film/box-office/box-office-avengers-endgame-encore-primetime-resident-evil-1236876380/",
+            "publishedDate": "2026-09-26T15:54:09.000Z",
+            "contentSnippet": "It might’ve been all about “Resident Evil” at the box office last week, but “Avengers: Endgame” is back on top — seven years later. “Avengers: Endgame Encore” landed at No. 1 on Friday, making $11.2 million from 3,060 North American screens. By Sunday, the Marvel juggernaut should pull in around $26 million. Directed by Anthony […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Box Office",
+              "Avengers: Endgame Encore",
+              "Primetime",
+              "Resident Evil"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Box Office",
+            "Avengers: Endgame Encore",
+            "Primetime",
+            "Resident Evil"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "box office avengers endgame encore leads with 112 million on friday as a24s primetime takes second"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T15:54:09.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Box Office",
+      "Avengers: Endgame Encore",
+      "Primetime",
+      "Resident Evil"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T15:56:20.328Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260926-nine-takeaways-from-helsinkis-",
+    "canonicalTopic": "Nine Takeaways from Helsinkis Finnish Film Affair from Buzzy Titles to Hollywood Whisperers",
+    "slug": "nine-takeaways-from-helsinkis-finnish-film-affair-from-buzzy-titles-to-hollywood-whisperers",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-2-Nine20Takeaways2",
+        "query": "Nine Takeaways from Helsinkis Finnish Film Affair from Buzzy Titles to Hollywood Whisperers",
+        "sourceUrl": "https://variety.com/2026/film/global/helsinki-finnish-film-affair-takeaways-1236876366/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-26T15:22:25.000Z",
+        "contentSnippet": "Genre thrills and chills dominated the 15th Finnish Film Affair that closed last night, and splattered across various sections of Helsinki’s Love & Anarchy Film Festival and panel sessions. The tone was set with the opening film “Nightborn” by local genre wiz Hanna Bergholm, the inaugural Nordic Genre Lab, and yesterday’s panels about Nordic genre’s […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T15:22:25.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Nine Takeaways From Helsinki’s Finnish Film Affair, From Buzzy Titles to Hollywood Whisperers",
+            "itemLink": "https://variety.com/2026/film/global/helsinki-finnish-film-affair-takeaways-1236876366/",
+            "publishedDate": "2026-09-26T15:22:25.000Z",
+            "contentSnippet": "Genre thrills and chills dominated the 15th Finnish Film Affair that closed last night, and splattered across various sections of Helsinki’s Love & Anarchy Film Festival and panel sessions. The tone was set with the opening film “Nightborn” by local genre wiz Hanna Bergholm, the inaugural Nordic Genre Lab, and yesterday’s panels about Nordic genre’s […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Global",
+              "News",
+              "Finnish Film Affair",
+              "Hanna Bergholm",
+              "Helsinki Film Festival"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Global",
+            "News",
+            "Finnish Film Affair",
+            "Hanna Bergholm",
+            "Helsinki Film Festival"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "nine takeaways from helsinkis finnish film affair from buzzy titles to hollywood whisperers"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T15:22:25.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Global",
+      "News",
+      "Finnish Film Affair",
+      "Hanna Bergholm",
+      "Helsinki Film Festival"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T15:56:20.408Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260926-mubi-ceo-efe-cakerel-praises-i",
+    "canonicalTopic": "Mubi Ceo Efe Cakerel Praises Incredible Primetime Opening Weekend Bold Storytelling Is Here to Stay",
+    "slug": "mubi-ceo-efe-cakerel-praises-incredible-primetime-opening-weekend-bold-storytelling-is-here-to-stay",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-3-Mubi20CEO20Efe20",
+        "query": "Mubi Ceo Efe Cakerel Praises Incredible Primetime Opening Weekend Bold Storytelling Is Here to Stay",
+        "sourceUrl": "https://variety.com/2026/film/global/mubi-ceo-efe-cakerel-incredible-primetime-1236876368/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-26T15:14:36.000Z",
+        "contentSnippet": "Mubi CEO Efe Cakarel praised Lance Oppenheim’s “Primetime” while in a rare public appearance at the Zurich Summit. Talking about the phenomenon of young audiences returning to cinemas, the exec said that when he hears about a $20 million opening weekend for a film like Oppenheim’s Venice hit, it is “incredible.” “You look at the […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T15:14:36.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Mubi CEO Efe Cakerel Praises ‘Incredible’ ‘Primetime’ Opening Weekend: 'Bold Storytelling Is Here to Stay'",
+            "itemLink": "https://variety.com/2026/film/global/mubi-ceo-efe-cakerel-incredible-primetime-1236876368/",
+            "publishedDate": "2026-09-26T15:14:36.000Z",
+            "contentSnippet": "Mubi CEO Efe Cakarel praised Lance Oppenheim’s “Primetime” while in a rare public appearance at the Zurich Summit. Talking about the phenomenon of young audiences returning to cinemas, the exec said that when he hears about a $20 million opening weekend for a film like Oppenheim’s Venice hit, it is “incredible.” “You look at the […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Global",
+              "Markets & Festivals",
+              "News",
+              "Efe Cakarel",
+              "Mubi",
+              "Primetime",
+              "Zurich Film Festival",
+              "Zurich Summit"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Global",
+            "Markets & Festivals",
+            "News",
+            "Efe Cakarel",
+            "Mubi",
+            "Primetime",
+            "Zurich Film Festival",
+            "Zurich Summit"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "mubi ceo efe cakerel praises incredible primetime opening weekend bold storytelling is here to stay"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T15:14:36.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Global",
+      "Markets & Festivals",
+      "News",
+      "Efe Cakarel",
+      "Mubi",
+      "Primetime",
+      "Zurich Film Festival",
+      "Zurich Summit"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T15:56:20.503Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260926-author-chloe-gong-on-eyes-of-k",
+    "canonicalTopic": "Author Chloe Gong on Eyes of Kings Ending Deadlock Debut and How She Wants These Violent Delights Adapted for Tv or Film",
+    "slug": "author-chloe-gong-on-eyes-of-kings-ending-deadlock-debut-and-how-she-wants-these-violent-delights-adapted-for-tv-or-film",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-4-Author20Chloe20G",
+        "query": "Author Chloe Gong on Eyes of Kings Ending Deadlock Debut and How She Wants These Violent Delights Adapted for Tv or Film",
+        "sourceUrl": "https://variety.com/2026/biz/news/these-violent-delights-chloe-gong-tv-series-eyes-of-kings-deadlock-1236875716/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-26T15:00:00.000Z",
+        "contentSnippet": "Chloe Gong has had a busy 2026. The author best known for her hit 2020 “Romeo & Juliet” retelling “These Violent Delights,” which is set in 1920s Shanghai, released the conclusion of one trilogy series last month and is preparing for the launch of her second book in another series in November, all while writing […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T15:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Author Chloe Gong on 'Eyes of Kings' ending, 'Deadlock' debut and how she wants 'These Violent Delights' adapted for TV or film",
+            "itemLink": "https://variety.com/2026/biz/news/these-violent-delights-chloe-gong-tv-series-eyes-of-kings-deadlock-1236875716/",
+            "publishedDate": "2026-09-26T15:00:00.000Z",
+            "contentSnippet": "Chloe Gong has had a busy 2026. The author best known for her hit 2020 “Romeo & Juliet” retelling “These Violent Delights,” which is set in 1920s Shanghai, released the conclusion of one trilogy series last month and is preparing for the launch of her second book in another series in November, all while writing […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "Chloe Gong",
+              "Deadlock",
+              "These Violent Delights"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "Chloe Gong",
+            "Deadlock",
+            "These Violent Delights"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "author chloe gong on eyes of kings ending deadlock debut and how she wants these violent delights adapted for tv or film"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T15:00:00.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "Chloe Gong",
+      "Deadlock",
+      "These Violent Delights"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T15:56:20.612Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260926-the-last-of-us-season-3-casts-",
+    "canonicalTopic": "The Last of Us Season 3 Casts John Goodman Video Game Stars Laura Bailey and Ian Alexander",
+    "slug": "the-last-of-us-season-3-casts-john-goodman-video-game-stars-laura-bailey-and-ian-alexander",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-5-The20Last20of20U",
+        "query": "The Last of Us Season 3 Casts John Goodman Video Game Stars Laura Bailey and Ian Alexander",
+        "sourceUrl": "https://variety.com/2026/tv/news/the-last-of-us-cast-john-goodman-laura-bailey-ian-alexander-1236876091/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-26T15:00:00.000Z",
+        "contentSnippet": "Actor John Goodman and video game stars Laura Bailey and Ian Alexander will be added to the Season 3 cast of HBO drama “The Last of Us.” Goodman plays Joey, one half of the self-nicknamed “Heroes of the Highway” duo from the series based on a Sony PlayStation video game series that follows characters in […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T15:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "'The Last of Us' Season 3 Casts John Goodman, Video Game Stars Laura Bailey and Ian Alexander",
+            "itemLink": "https://variety.com/2026/tv/news/the-last-of-us-cast-john-goodman-laura-bailey-ian-alexander-1236876091/",
+            "publishedDate": "2026-09-26T15:00:00.000Z",
+            "contentSnippet": "Actor John Goodman and video game stars Laura Bailey and Ian Alexander will be added to the Season 3 cast of HBO drama “The Last of Us.” Goodman plays Joey, one half of the self-nicknamed “Heroes of the Highway” duo from the series based on a Sony PlayStation video game series that follows characters in […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "The Last of Us"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "The Last of Us"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the last of us season 3 casts john goodman video game stars laura bailey and ian alexander"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T15:00:00.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "The Last of Us"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T15:56:20.706Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-food-drink-20260926-steal-my-food-itinerary-3-days",
+    "canonicalTopic": "Steal My Food Itinerary 3 Days in Sifnos Greece",
+    "slug": "steal-my-food-itinerary-3-days-in-sifnos-greece",
+    "pillar": "food-drink",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-eater-1-Steal20My20Food20Itiner",
+        "query": "Steal My Food Itinerary 3 Days in Sifnos Greece",
+        "sourceUrl": "https://www.eater.com/dining-out/987536/steal-my-food-itinerary-3-days-in-sifnos-greece",
+        "publisherName": "Eater",
+        "publishedAt": "2026-09-25T15:20:29.000Z",
+        "contentSnippet": "It felt like everyone I know traveled to Greece this summer. Friends chose Zakynthos, Crete, Naxos, Ikaria. I opted for Sifnos, one of the Cyclades’ most celebrated food destinations but still, thankfully, relatively under the radar internationally. Greece’s culinary culture can’t be grasped fully on any one island; across the Aegean, distinct growing conditions and […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T15:20:29.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.eater.com/rss/index.xml",
+            "feedTitle": "Eater",
+            "itemTitle": "Steal My Food Itinerary: 3 Days in Sifnos, Greece",
+            "itemLink": "https://www.eater.com/dining-out/987536/steal-my-food-itinerary-3-days-in-sifnos-greece",
+            "publishedDate": "2026-09-25T15:20:29.000Z",
+            "contentSnippet": "It felt like everyone I know traveled to Greece this summer. Friends chose Zakynthos, Crete, Naxos, Ikaria. I opted for Sifnos, one of the Cyclades’ most celebrated food destinations but still, thankfully, relatively under the radar internationally. Greece’s culinary culture can’t be grasped fully on any one island; across the Aegean, distinct growing conditions and […]",
+            "categories": [
+              "food-culture",
+              "restaurant-industry",
+              "dining-trends",
+              "culinary-news",
+              "Dining Out",
+              "Travel Guides"
+            ]
+          },
+          "suggestedPillar": "food-drink",
+          "curatedTags": [
+            "food-culture",
+            "restaurant-industry",
+            "dining-trends",
+            "culinary-news",
+            "Dining Out",
+            "Travel Guides"
+          ],
+          "feedName": "Eater",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "steal my food itinerary 3 days in sifnos greece"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T15:20:29.000Z",
+    "tags": [
+      "food-culture",
+      "restaurant-industry",
+      "dining-trends",
+      "culinary-news",
+      "Dining Out",
+      "Travel Guides"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T15:56:20.758Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-food-drink-20260926-why-chefs-love-cooking-on-stai",
+    "canonicalTopic": "Why Chefs Love Cooking on Stainless Steel",
+    "slug": "why-chefs-love-cooking-on-stainless-steel",
+    "pillar": "food-drink",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-eater-2-Why20Chefs20Love20Cooki",
+        "query": "Why Chefs Love Cooking on Stainless Steel",
+        "sourceUrl": "https://www.eater.com/eater-at-home/988494/why-chefs-love-stainless-steel-cookware",
+        "publisherName": "Eater",
+        "publishedAt": "2026-09-24T17:54:18.000Z",
+        "contentSnippet": "Stainless steel cookware is experiencing a cultural renaissance. This isn’t to say that the genre of cookware ever disappeared, but, once upon a lockdown, it felt like an ad from a nonstick cookware brand was always a scroll away. Now that the dust has settled from the post-pandemic online shopping boom, the tides are shifting, and […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-24T17:54:18.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.eater.com/rss/index.xml",
+            "feedTitle": "Eater",
+            "itemTitle": "Why Chefs Love Cooking on Stainless Steel",
+            "itemLink": "https://www.eater.com/eater-at-home/988494/why-chefs-love-stainless-steel-cookware",
+            "publishedDate": "2026-09-24T17:54:18.000Z",
+            "contentSnippet": "Stainless steel cookware is experiencing a cultural renaissance. This isn’t to say that the genre of cookware ever disappeared, but, once upon a lockdown, it felt like an ad from a nonstick cookware brand was always a scroll away. Now that the dust has settled from the post-pandemic online shopping boom, the tides are shifting, and […]",
+            "categories": [
+              "food-culture",
+              "restaurant-industry",
+              "dining-trends",
+              "culinary-news",
+              "Eater at Home"
+            ]
+          },
+          "suggestedPillar": "food-drink",
+          "curatedTags": [
+            "food-culture",
+            "restaurant-industry",
+            "dining-trends",
+            "culinary-news",
+            "Eater at Home"
+          ],
+          "feedName": "Eater",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "why chefs love cooking on stainless steel"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-24T17:54:18.000Z",
+    "tags": [
+      "food-culture",
+      "restaurant-industry",
+      "dining-trends",
+      "culinary-news",
+      "Eater at Home"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T15:56:20.802Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-food-drink-20260926-heres-everything-you-missed-at",
+    "canonicalTopic": "Heres Everything You Missed at the Food Party of the Year",
+    "slug": "heres-everything-you-missed-at-the-food-party-of-the-year",
+    "pillar": "food-drink",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-eater-3-Heres20Everything20Yo",
+        "query": "Heres Everything You Missed at the Food Party of the Year",
+        "sourceUrl": "https://www.eater.com/events/987972/eater-off-menu-2026-menu-and-recap",
+        "publisherName": "Eater",
+        "publishedAt": "2026-09-23T19:30:49.000Z",
+        "contentSnippet": "Where were you last weekend? If you live in Los Angeles (or will travel for great food parties), we hope you joined us at Eater Off Menu, our annual celebration of all the chefs, dishes, food trends, and cocktail crazes that we’ve been eating, drinking, and writing about all year long, in partnership with Cathay […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-23T19:30:49.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.eater.com/rss/index.xml",
+            "feedTitle": "Eater",
+            "itemTitle": "Here's Everything You Missed at the Food Party of the Year",
+            "itemLink": "https://www.eater.com/events/987972/eater-off-menu-2026-menu-and-recap",
+            "publishedDate": "2026-09-23T19:30:49.000Z",
+            "contentSnippet": "Where were you last weekend? If you live in Los Angeles (or will travel for great food parties), we hope you joined us at Eater Off Menu, our annual celebration of all the chefs, dishes, food trends, and cocktail crazes that we’ve been eating, drinking, and writing about all year long, in partnership with Cathay […]",
+            "categories": [
+              "food-culture",
+              "restaurant-industry",
+              "dining-trends",
+              "culinary-news",
+              "Dining Out"
+            ]
+          },
+          "suggestedPillar": "food-drink",
+          "curatedTags": [
+            "food-culture",
+            "restaurant-industry",
+            "dining-trends",
+            "culinary-news",
+            "Dining Out"
+          ],
+          "feedName": "Eater",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "heres everything you missed at the food party of the year"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-23T19:30:49.000Z",
+    "tags": [
+      "food-culture",
+      "restaurant-industry",
+      "dining-trends",
+      "culinary-news",
+      "Dining Out"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T15:56:20.862Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-food-drink-20260926-at-himkok-one-of-the-worlds-be",
+    "canonicalTopic": "At Himkok One of the Worlds Best Bars Cultural Exchanges Are Key",
+    "slug": "at-himkok-one-of-the-worlds-best-bars-cultural-exchanges-are-key",
+    "pillar": "food-drink",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-eater-4-At20Himkok2C20One20of20th",
+        "query": "At Himkok One of the Worlds Best Bars Cultural Exchanges Are Key",
+        "sourceUrl": "https://www.eater.com/pre-shift/987802/himkok-oslo-bar-nordic-sessions-pre-shift",
+        "publisherName": "Eater",
+        "publishedAt": "2026-09-23T14:00:00.000Z",
+        "contentSnippet": "This excerpt was originally published in Pre Shift, our newsletter for the hospitality industry. Subscribe for more first-person accounts, advice, and interviews. This is the second installment of our series Getting on the Map, presented by Apple Maps. Over the next three weeks, we’ll be sharing how some of the most creative bars and restaurants […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-23T14:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.eater.com/rss/index.xml",
+            "feedTitle": "Eater",
+            "itemTitle": "At Himkok, One of the World’s Best Bars, Cultural Exchanges Are Key",
+            "itemLink": "https://www.eater.com/pre-shift/987802/himkok-oslo-bar-nordic-sessions-pre-shift",
+            "publishedDate": "2026-09-23T14:00:00.000Z",
+            "contentSnippet": "This excerpt was originally published in Pre Shift, our newsletter for the hospitality industry. Subscribe for more first-person accounts, advice, and interviews. This is the second installment of our series Getting on the Map, presented by Apple Maps. Over the next three weeks, we’ll be sharing how some of the most creative bars and restaurants […]",
+            "categories": [
+              "food-culture",
+              "restaurant-industry",
+              "dining-trends",
+              "culinary-news",
+              "Dining Out"
+            ]
+          },
+          "suggestedPillar": "food-drink",
+          "curatedTags": [
+            "food-culture",
+            "restaurant-industry",
+            "dining-trends",
+            "culinary-news",
+            "Dining Out"
+          ],
+          "feedName": "Eater",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "at himkok one of the worlds best bars cultural exchanges are key"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-23T14:00:00.000Z",
+    "tags": [
+      "food-culture",
+      "restaurant-industry",
+      "dining-trends",
+      "culinary-news",
+      "Dining Out"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T15:56:20.928Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-food-drink-20260926-the-38-best-restaurants-in-lis",
+    "canonicalTopic": "The 38 Best Restaurants in Lisbon Portugal According to a Local Expert",
+    "slug": "the-38-best-restaurants-in-lisbon-portugal-according-to-a-local-expert",
+    "pillar": "food-drink",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-eater-5-The203820Best20Restaura",
+        "query": "The 38 Best Restaurants in Lisbon Portugal According to a Local Expert",
+        "sourceUrl": "https://www.eater.com/maps/best-lisbon-portugal-restaurants",
+        "publisherName": "Eater",
+        "publishedAt": "2026-09-18T13:00:00.000Z",
+        "contentSnippet": "A food-loving visitor will quickly learn that sardines, cod, and the iconic pastel de nata are great, but the Lisbon restaurant scene can offer much more. Portuguese cuisine draws on global flavors from the country’s centuries of trade, and Lisbon’s restaurateurs have access to top-quality fish and seafood, unique cheeses, lovely wines, and vegetables from […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-18T13:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.eater.com/rss/index.xml",
+            "feedTitle": "Eater",
+            "itemTitle": "The 38 Best Restaurants in Lisbon, Portugal, According to a Local Expert",
+            "itemLink": "https://www.eater.com/maps/best-lisbon-portugal-restaurants",
+            "publishedDate": "2026-09-18T13:00:00.000Z",
+            "contentSnippet": "A food-loving visitor will quickly learn that sardines, cod, and the iconic pastel de nata are great, but the Lisbon restaurant scene can offer much more. Portuguese cuisine draws on global flavors from the country’s centuries of trade, and Lisbon’s restaurateurs have access to top-quality fish and seafood, unique cheeses, lovely wines, and vegetables from […]",
+            "categories": [
+              "food-culture",
+              "restaurant-industry",
+              "dining-trends",
+              "culinary-news",
+              "Lisbon",
+              "The Eater Guide to Lisbon",
+              "Travel Guides"
+            ]
+          },
+          "suggestedPillar": "food-drink",
+          "curatedTags": [
+            "food-culture",
+            "restaurant-industry",
+            "dining-trends",
+            "culinary-news",
+            "Lisbon",
+            "The Eater Guide to Lisbon",
+            "Travel Guides"
+          ],
+          "feedName": "Eater",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the 38 best restaurants in lisbon portugal according to a local expert"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-18T13:00:00.000Z",
+    "tags": [
+      "food-culture",
+      "restaurant-industry",
+      "dining-trends",
+      "culinary-news",
+      "Lisbon",
+      "The Eater Guide to Lisbon",
+      "Travel Guides"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T15:56:20.995Z",
+    "pinterestScore": 75.8
   }
 ]
