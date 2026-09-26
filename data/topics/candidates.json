@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-25T16:44:24.038Z",
+    "updatedAt": "2026-09-26T10:56:39.860Z",
     "revisionCyclesCount": 0
   },
   {
@@ -8934,10 +8934,36 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-after",
+        "query": "after",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-26T10:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-26T10:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "after",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
-      "aster"
+      "aster",
+      "after"
     ],
     "freshnessScore": 88,
     "createdAt": "2026-09-11T04:00:00.000Z",
@@ -8949,7 +8975,7 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 97,
+      "searchPotential": 100,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
@@ -8958,11 +8984,11 @@
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 85.4,
-    "priorityTier": "CANDIDATE",
-    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "totalScore": 86,
+    "priorityTier": "REJECT",
+    "opportunityType": "REJECT",
     "status": "REJECTED",
-    "updatedAt": "2026-09-12T05:43:10.295Z",
+    "updatedAt": "2026-09-26T10:56:37.041Z",
     "pinterestScore": 85.3,
     "revisionCyclesCount": 1,
     "rejectionReason": "AI Review decision was REJECT (score: 87) after 1 quality revision",
@@ -21927,12 +21953,38 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-nl20wild20card20st",
+        "query": "nl wild card standings",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-26T10:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-26T10:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "nl wild card standings",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
-      "mlb wildcard standings"
+      "mlb wildcard standings",
+      "nl wild card standings"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-12T10:00:00.000Z",
     "tags": [
       "US",
@@ -21942,21 +21994,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T10:13:43.995Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-26T10:56:37.132Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260912-jason-bard-yarmosky",
@@ -49852,7 +49905,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-25T16:44:24.227Z",
+    "updatedAt": "2026-09-26T10:56:40.041Z",
     "pinterestScore": 85.6,
     "revisionCyclesCount": 0
   },
@@ -49914,8 +49967,8 @@
     "totalScore": 82.9,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-25T16:44:24.261Z",
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-26T11:00:58.983Z",
     "pinterestScore": 84.8,
     "revisionCyclesCount": 0
   },
@@ -67334,12 +67387,61 @@
           "feedName": "Allure Beauty & Skincare",
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-2-1420Best20Early20Amazon",
+        "query": "14 Best Early Amazon Prime Day Mature Beauty Deals 2026",
+        "sourceUrl": "https://www.allure.com/story/best-early-amazon-prime-day-mature-beauty-deals",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-25T18:32:13.000Z",
+        "contentSnippet": "Luxe favorites from Estée Lauder, Sulwhasoo, Lancôme, and more are already getting the Prime Day treatment.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T18:32:13.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "14 Best Early Amazon Prime Day Mature Beauty Deals 2026",
+            "itemLink": "https://www.allure.com/story/best-early-amazon-prime-day-mature-beauty-deals",
+            "publishedDate": "2026-09-25T18:32:13.000Z",
+            "contentSnippet": "Luxe favorites from Estée Lauder, Sulwhasoo, Lancôme, and more are already getting the Prime Day treatment.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Shopping",
+              "Skin",
+              "Makeup",
+              "Hair"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Shopping",
+            "Skin",
+            "Makeup",
+            "Hair"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
-      "16 best early amazon prime day k-beauty deals 2026"
+      "16 best early amazon prime day k-beauty deals 2026",
+      "14 best early amazon prime day mature beauty deals 2026"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-23T20:40:23.000Z",
     "tags": [
       "skincare",
@@ -67361,16 +67463,17 @@
       "socialPotential": 80,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 88
     },
-    "totalScore": 77.4,
+    "totalScore": 77.6,
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-09-24T11:15:13.849Z",
-    "pinterestScore": 79.2
+    "updatedAt": "2026-09-26T10:56:38.447Z",
+    "pinterestScore": 79.2,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-style-20260924-this-falls-top-nail-trends-rem",
@@ -69247,7 +69350,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-25T16:44:24.085Z",
+    "updatedAt": "2026-09-26T10:56:39.904Z",
     "pinterestScore": 87.8,
     "revisionCyclesCount": 0
   },
@@ -69310,7 +69413,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-25T16:44:24.148Z",
+    "updatedAt": "2026-09-26T10:56:39.966Z",
     "pinterestScore": 84.6,
     "revisionCyclesCount": 0
   },
@@ -69373,7 +69476,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-25T16:44:24.195Z",
+    "updatedAt": "2026-09-26T10:56:40.012Z",
     "pinterestScore": 82.9,
     "revisionCyclesCount": 0
   },
@@ -73144,12 +73247,37 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-leylah20fernande",
+        "query": "leylah fernandez",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-26T10:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-26T10:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "leylah fernandez",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "leylah fernandez"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-25T11:00:00.000Z",
     "tags": [
       "US",
@@ -73159,21 +73287,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 92,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 84,
+    "totalScore": 85.1,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-25T11:20:18.285Z",
-    "pinterestScore": 88.3
+    "updatedAt": "2026-09-26T10:56:37.089Z",
+    "pinterestScore": 88.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-entertainment-20260925-andrey-rublev",
@@ -75507,11 +75636,50 @@
           "feedName": "Vogue Style & Culture",
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-2-Ferragamo20Spring20202",
+        "query": "Ferragamo Spring 2027 Ready-to-Wear",
+        "sourceUrl": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/salvatore-ferragamo",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-26T10:52:27.000Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T10:52:27.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Ferragamo Spring 2027 Ready-to-Wear",
+            "itemLink": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/salvatore-ferragamo",
+            "publishedDate": "2026-09-26T10:52:27.000Z",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "blumarine spring 2027 ready-to-wear",
-      "moschino spring 2027 ready-to-wear"
+      "moschino spring 2027 ready-to-wear",
+      "ferragamo spring 2027 ready-to-wear"
     ],
     "freshnessScore": 88,
     "createdAt": "2026-09-25T11:18:56.000Z",
@@ -75539,7 +75707,7 @@
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-09-25T16:44:23.050Z",
+    "updatedAt": "2026-09-26T10:56:38.227Z",
     "pinterestScore": 79.2,
     "revisionCyclesCount": 0
   },
@@ -78074,9 +78242,10 @@
     "totalScore": 82.7,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-25T16:44:21.974Z",
-    "pinterestScore": 85.3
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-26T10:58:53.407Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-entertainment-20260925-pardon",
@@ -80803,6 +80972,4118 @@
     "opportunityType": "ARTICLE",
     "status": "SCORED",
     "updatedAt": "2026-09-25T16:44:24.036Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260926-azerbaijan",
+    "canonicalTopic": "Azerbaijan",
+    "slug": "azerbaijan",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-azerbaijan",
+        "query": "Azerbaijan",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-26T10:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-26T10:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "azerbaijan",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "azerbaijan"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T10:40:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-26T10:56:37.037Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-tech-ai-20260926-vr-glasses",
+    "canonicalTopic": "Vr Glasses",
+    "slug": "vr-glasses",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-vr20glasses",
+        "query": "Vr Glasses",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-26T10:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-26T10:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "vr glasses",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "US",
+            "tech-ai",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "vr glasses"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T10:30:00.000Z",
+    "tags": [
+      "US",
+      "tech-ai",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-26T10:56:37.061Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-entertainment-20260926-snow",
+    "canonicalTopic": "Snow",
+    "slug": "snow",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-snow",
+        "query": "Snow",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-26T10:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-26T10:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "snow",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "snow"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T10:20:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-26T10:56:37.105Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260926-lloyd-harris",
+    "canonicalTopic": "Lloyd Harris",
+    "slug": "lloyd-harris",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-lloyd20harris",
+        "query": "Lloyd Harris",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-26T10:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-26T10:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "lloyd harris",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "lloyd harris"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T10:20:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-26T10:56:37.124Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260926-bbc-news",
+    "canonicalTopic": "Bbc News",
+    "slug": "bbc-news",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-bbc20news",
+        "query": "Bbc News",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-26T10:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-26T10:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "bbc news",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "bbc news"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T10:20:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-26T10:56:37.149Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260926-maja-chwaliska",
+    "canonicalTopic": "Maja Chwaliska",
+    "slug": "maja-chwaliska",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-maja20chwaliC584ska",
+        "query": "Maja Chwaliska",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-26T10:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-26T10:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "maja chwalińska",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "maja chwaliska"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T10:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-26T10:56:37.172Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260926-real-sociedad-real-madrid-c-f-",
+    "canonicalTopic": "Real Sociedad - Real Madrid C F Femenino",
+    "slug": "real-sociedad-real-madrid-c-f-femenino",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-real20sociedad20-",
+        "query": "Real Sociedad - Real Madrid C F Femenino",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-26T10:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-26T10:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "real sociedad - real madrid c. f. femenino",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "real sociedad - real madrid c f femenino"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T10:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-26T10:56:37.213Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-tech-ai-20260926-can-trump-ever-be-wrong-his-pi",
+    "canonicalTopic": "Can Trump Ever Be Wrong His Pick to Lead Fda Refused to Say",
+    "slug": "can-trump-ever-be-wrong-his-pick-to-lead-fda-refused-to-say",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-1-Can20Trump20ever20be20wr",
+        "query": "Can Trump Ever Be Wrong His Pick to Lead Fda Refused to Say",
+        "sourceUrl": "https://arstechnica.com/health/2026/09/can-trump-ever-be-wrong-his-pick-to-lead-fda-refused-to-say/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-25T23:00:26.000Z",
+        "contentSnippet": "Heidi Overton faced questions focused on vaccines, birth control, and vapes.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T23:00:26.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Can Trump ever be wrong? His pick to lead FDA refused to say.",
+            "itemLink": "https://arstechnica.com/health/2026/09/can-trump-ever-be-wrong-his-pick-to-lead-fda-refused-to-say/",
+            "publishedDate": "2026-09-25T23:00:26.000Z",
+            "contentSnippet": "Heidi Overton faced questions focused on vaccines, birth control, and vapes.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Health",
+              "fda",
+              "hearing",
+              "Heidi Overton",
+              "Senate",
+              "Trump"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Health",
+            "fda",
+            "hearing",
+            "Heidi Overton",
+            "Senate",
+            "Trump"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "can trump ever be wrong his pick to lead fda refused to say"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T23:00:26.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Health",
+      "fda",
+      "hearing",
+      "Heidi Overton",
+      "Senate",
+      "Trump"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:37.270Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260926-court-rules-pentagon-can-black",
+    "canonicalTopic": "Court Rules Pentagon Can Blacklist Anthropic for Refusing to Enable Claude Features",
+    "slug": "court-rules-pentagon-can-blacklist-anthropic-for-refusing-to-enable-claude-features",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-2-Court20rules20Pentagon",
+        "query": "Court Rules Pentagon Can Blacklist Anthropic for Refusing to Enable Claude Features",
+        "sourceUrl": "https://arstechnica.com/tech-policy/2026/09/court-rules-trump-can-blacklist-anthropic-for-refusing-to-enable-claude-features/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-25T21:36:20.000Z",
+        "contentSnippet": "\"Overly constrained AI models\" could cause military operations to fail, judges say.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T21:36:20.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Court rules Pentagon can blacklist Anthropic for refusing to enable Claude features",
+            "itemLink": "https://arstechnica.com/tech-policy/2026/09/court-rules-trump-can-blacklist-anthropic-for-refusing-to-enable-claude-features/",
+            "publishedDate": "2026-09-25T21:36:20.000Z",
+            "contentSnippet": "\"Overly constrained AI models\" could cause military operations to fail, judges say.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "AI",
+              "Policy",
+              "Anthropic",
+              "trump administration"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "AI",
+            "Policy",
+            "Anthropic",
+            "trump administration"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "court rules pentagon can blacklist anthropic for refusing to enable claude features"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T21:36:20.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "AI",
+      "Policy",
+      "Anthropic",
+      "trump administration"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:37.340Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260926-tesla-workers-balk-at-training",
+    "canonicalTopic": "Tesla Workers Balk at Training Optimus Humanoid Robots As Replacements",
+    "slug": "tesla-workers-balk-at-training-optimus-humanoid-robots-as-replacements",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-3-Tesla20workers20balk20a",
+        "query": "Tesla Workers Balk at Training Optimus Humanoid Robots As Replacements",
+        "sourceUrl": "https://arstechnica.com/ai/2026/09/tesla-workers-balk-at-training-optimus-humanoid-robots-as-replacements/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-25T21:10:51.000Z",
+        "contentSnippet": "Despite challenges, Tesla aims for 1,000 Optimus robots per week by end of 2026.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T21:10:51.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Tesla workers balk at training Optimus humanoid robots as replacements",
+            "itemLink": "https://arstechnica.com/ai/2026/09/tesla-workers-balk-at-training-optimus-humanoid-robots-as-replacements/",
+            "publishedDate": "2026-09-25T21:10:51.000Z",
+            "contentSnippet": "Despite challenges, Tesla aims for 1,000 Optimus robots per week by end of 2026.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "AI",
+              "autonomous",
+              "autonomous AI",
+              "humanoid robots",
+              "robots",
+              "Tesla",
+              "Tesla Bot",
+              "Tesla Optimus"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "AI",
+            "autonomous",
+            "autonomous AI",
+            "humanoid robots",
+            "robots",
+            "Tesla",
+            "Tesla Bot",
+            "Tesla Optimus"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "tesla workers balk at training optimus humanoid robots as replacements"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T21:10:51.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "AI",
+      "autonomous",
+      "autonomous AI",
+      "humanoid robots",
+      "robots",
+      "Tesla",
+      "Tesla Bot",
+      "Tesla Optimus"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:37.406Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260926-your-uncles-frozen-mac-says-it",
+    "canonicalTopic": "Your Uncles Frozen Mac Says Its Infected After Viewing a Google Ad Now What",
+    "slug": "your-uncles-frozen-mac-says-its-infected-after-viewing-a-google-ad-now-what",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-4-Your20uncleE28099s20froze",
+        "query": "Your Uncles Frozen Mac Says Its Infected After Viewing a Google Ad Now What",
+        "sourceUrl": "https://arstechnica.com/security/2026/09/google-ads-caught-delivering-convincing-scareware-ads-to-unsuspecting-users/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-25T19:38:59.000Z",
+        "contentSnippet": "Ads appearing all over the Internet are trying to scam people.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T19:38:59.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Your uncle’s frozen Mac says it’s infected after viewing a Google ad. Now what?",
+            "itemLink": "https://arstechnica.com/security/2026/09/google-ads-caught-delivering-convincing-scareware-ads-to-unsuspecting-users/",
+            "publishedDate": "2026-09-25T19:38:59.000Z",
+            "contentSnippet": "Ads appearing all over the Internet are trying to scam people.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Biz & IT",
+              "Security",
+              "google",
+              "malicious ads",
+              "scareware"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Biz & IT",
+            "Security",
+            "google",
+            "malicious ads",
+            "scareware"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "your uncles frozen mac says its infected after viewing a google ad now what"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T19:38:59.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Biz & IT",
+      "Security",
+      "google",
+      "malicious ads",
+      "scareware"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:37.473Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260926-review-the-iphone-18-pro-is-ap",
+    "canonicalTopic": "Review the Iphone 18 Pro Is Apples Coolest Smartphone but Only Literally",
+    "slug": "review-the-iphone-18-pro-is-apples-coolest-smartphone-but-only-literally",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-5-Review3A20The20iPhone201",
+        "query": "Review the Iphone 18 Pro Is Apples Coolest Smartphone but Only Literally",
+        "sourceUrl": "https://arstechnica.com/apple/2026/09/review-the-iphone-18-pro-is-apples-coolest-smartphone-but-only-literally/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-25T19:34:42.000Z",
+        "contentSnippet": "Better thermals and battery life make this iterative update nicer to use.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T19:34:42.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Review: The iPhone 18 Pro is Apple's coolest smartphone (but only literally)",
+            "itemLink": "https://arstechnica.com/apple/2026/09/review-the-iphone-18-pro-is-apples-coolest-smartphone-but-only-literally/",
+            "publishedDate": "2026-09-25T19:34:42.000Z",
+            "contentSnippet": "Better thermals and battery life make this iterative update nicer to use.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Apple",
+              "Reviews",
+              "A20 Pro",
+              "apple",
+              "iphone",
+              "iPhone 18 Pro",
+              "iphone duo",
+              "reviews",
+              "smartphone"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Apple",
+            "Reviews",
+            "A20 Pro",
+            "apple",
+            "iphone",
+            "iPhone 18 Pro",
+            "iphone duo",
+            "reviews",
+            "smartphone"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "review the iphone 18 pro is apples coolest smartphone but only literally"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T19:34:42.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Apple",
+      "Reviews",
+      "A20 Pro",
+      "apple",
+      "iphone",
+      "iPhone 18 Pro",
+      "iphone duo",
+      "reviews",
+      "smartphone"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:37.540Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260926-can-esuv-e-bikes-really-go-fro",
+    "canonicalTopic": "Can Esuv E-bikes Really Go from Trail to Town",
+    "slug": "can-esuv-e-bikes-really-go-from-trail-to-town",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-Can20eSUV20e-bikes20r",
+        "query": "Can Esuv E-bikes Really Go from Trail to Town",
+        "sourceUrl": "https://www.theverge.com/transportation/999785/amflow-tl-review-avinox-esuv-e-bike-avinox",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-26T07:00:00.000Z",
+        "contentSnippet": "Have you ever wanted an electric bike that easily transitions from the drudgery of urban asphalt to adventures in gravel and dirt? That's what a subclass of so-called \"electric SUV\" (eSUV) e-bikes claims to do, with their wide, all-terrain tires and front and rear suspension, plus practical accessories like fenders and racks. So, that's what […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T07:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Can 'eSUV' e-bikes really go from trail to town?",
+            "itemLink": "https://www.theverge.com/transportation/999785/amflow-tl-review-avinox-esuv-e-bike-avinox",
+            "publishedDate": "2026-09-26T07:00:00.000Z",
+            "contentSnippet": "Have you ever wanted an electric bike that easily transitions from the drudgery of urban asphalt to adventures in gravel and dirt? That's what a subclass of so-called \"electric SUV\" (eSUV) e-bikes claims to do, with their wide, all-terrain tires and front and rear suspension, plus practical accessories like fenders and racks. So, that's what […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Electric Bikes",
+              "Reviews",
+              "Rideables",
+              "Tech",
+              "Transportation"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Electric Bikes",
+            "Reviews",
+            "Rideables",
+            "Tech",
+            "Transportation"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "can esuv e-bikes really go from trail to town"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T07:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Electric Bikes",
+      "Reviews",
+      "Rideables",
+      "Tech",
+      "Transportation"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:37.589Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260926-rokus-first-oled-tvs-are-up-to",
+    "canonicalTopic": "Rokus First Oled Tvs Are Up to 400 Off Starting at 699",
+    "slug": "rokus-first-oled-tvs-are-up-to-400-off-starting-at-699",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-Rokus20first20OLED20TV",
+        "query": "Rokus First Oled Tvs Are Up to 400 Off Starting at 699",
+        "sourceUrl": "https://www.theverge.com/gadgets/1000859/roku-pro-series-oled-nothing-phone-4a-pro-deal-sale",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-25T18:18:57.000Z",
+        "contentSnippet": "Roku recently launched its first-ever OLED TVs. The $999 starting price was already impressive for the 55-inch Pro Series model that has a 120Hz refresh rate OLED panel (with four HDMI 2.1 ports and support for Dolby Vision and HDR 10 Plus). The price is even lower right now at Amazon when you enter the […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T18:18:57.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Roku's first OLED TVs are up to $400 off, starting at $699",
+            "itemLink": "https://www.theverge.com/gadgets/1000859/roku-pro-series-oled-nothing-phone-4a-pro-deal-sale",
+            "publishedDate": "2026-09-25T18:18:57.000Z",
+            "contentSnippet": "Roku recently launched its first-ever OLED TVs. The $999 starting price was already impressive for the 55-inch Pro Series model that has a 120Hz refresh rate OLED panel (with four HDMI 2.1 ports and support for Dolby Vision and HDR 10 Plus). The price is even lower right now at Amazon when you enter the […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Deals",
+              "Gadgets",
+              "TVs",
+              "Verge Shopping"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Deals",
+            "Gadgets",
+            "TVs",
+            "Verge Shopping"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "rokus first oled tvs are up to 400 off starting at 699"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T18:18:57.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Deals",
+      "Gadgets",
+      "TVs",
+      "Verge Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:37.646Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260926-phones-dont-have-lights",
+    "canonicalTopic": "Phones Dont Have Lights",
+    "slug": "phones-dont-have-lights",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-Phones20donE28099t20have20li",
+        "query": "Phones Dont Have Lights",
+        "sourceUrl": "https://www.theverge.com/podcast/1000751/vergecast-meta-connect-muse-googlebooks",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-25T17:42:59.000Z",
+        "contentSnippet": "Mark Zuckerberg has a new defense of the Ray-Ban Meta glasses: They're actually doing more to signal they're taking a photo than phones do. He's brought this up in at least two recent interviews, noting that the glasses have a light that comes on to signal when a photo is being taken, while phones do […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T17:42:59.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Phones don’t have lights",
+            "itemLink": "https://www.theverge.com/podcast/1000751/vergecast-meta-connect-muse-googlebooks",
+            "publishedDate": "2026-09-25T17:42:59.000Z",
+            "contentSnippet": "Mark Zuckerberg has a new defense of the Ray-Ban Meta glasses: They're actually doing more to signal they're taking a photo than phones do. He's brought this up in at least two recent interviews, noting that the glasses have a light that comes on to signal when a photo is being taken, while phones do […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Podcasts",
+              "Vergecast"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Podcasts",
+            "Vergecast"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "phones dont have lights"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T17:42:59.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Podcasts",
+      "Vergecast"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:37.675Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260926-these-camera-apps-give-you-mor",
+    "canonicalTopic": "These Camera Apps Give You More Control over the Iphone 18 Pros Aperture",
+    "slug": "these-camera-apps-give-you-more-control-over-the-iphone-18-pros-aperture",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-4-These20camera20apps20gi",
+        "query": "These Camera Apps Give You More Control over the Iphone 18 Pros Aperture",
+        "sourceUrl": "https://www.theverge.com/tech/1000729/moment-pro-blackmagic-camera-ii-ios-app-iphone-18-pro-max-aperature-camera",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-25T17:23:30.000Z",
+        "contentSnippet": "One of the questionable limitations of the iPhone 18 Pro's new main camera with a variable aperture is that you're limited to just four settings in the native iOS' camera app in manual mode: f/1.48, f/1.8, f/2.8, and f/4. Those same limitations are also in place when the app is adjusting the iris itself in […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T17:23:30.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "These camera apps give you more control over the iPhone 18 Pro’s aperture",
+            "itemLink": "https://www.theverge.com/tech/1000729/moment-pro-blackmagic-camera-ii-ios-app-iphone-18-pro-max-aperature-camera",
+            "publishedDate": "2026-09-25T17:23:30.000Z",
+            "contentSnippet": "One of the questionable limitations of the iPhone 18 Pro's new main camera with a variable aperture is that you're limited to just four settings in the native iOS' camera app in manual mode: f/1.48, f/1.8, f/2.8, and f/4. Those same limitations are also in place when the app is adjusting the iris itself in […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Apple",
+              "Apps",
+              "Cameras",
+              "Gadgets",
+              "iPhone",
+              "News",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Apple",
+            "Apps",
+            "Cameras",
+            "Gadgets",
+            "iPhone",
+            "News",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "these camera apps give you more control over the iphone 18 pros aperture"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T17:23:30.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Apple",
+      "Apps",
+      "Cameras",
+      "Gadgets",
+      "iPhone",
+      "News",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:37.739Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260926-teslas-optimus-robot-is-going-",
+    "canonicalTopic": "Teslas Optimus Robot Is Going Through Growing Pains",
+    "slug": "teslas-optimus-robot-is-going-through-growing-pains",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-5-Teslas20Optimus20robo",
+        "query": "Teslas Optimus Robot Is Going Through Growing Pains",
+        "sourceUrl": "https://www.theverge.com/tech/1000794/tesla-optimus-production-issues-hands",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-25T17:01:36.000Z",
+        "contentSnippet": "Hitting its goal of making 20,000 Optimus robots per week is reportedly proving tricky for Tesla. The Information reports that Tesla produced \"several hundred robots a week\" last month, after it repurposed its Model S and Model X production lines for Optimus earlier this year. However, this strategy is reportedly creating manufacturing snags, like issues […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T17:01:36.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Tesla's Optimus robot is going through growing pains",
+            "itemLink": "https://www.theverge.com/tech/1000794/tesla-optimus-production-issues-hands",
+            "publishedDate": "2026-09-25T17:01:36.000Z",
+            "contentSnippet": "Hitting its goal of making 20,000 Optimus robots per week is reportedly proving tricky for Tesla. The Information reports that Tesla produced \"several hundred robots a week\" last month, after it repurposed its Model S and Model X production lines for Optimus earlier this year. However, this strategy is reportedly creating manufacturing snags, like issues […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Electric Cars",
+              "News",
+              "Robot",
+              "Tech",
+              "Tesla",
+              "Transportation"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Electric Cars",
+            "News",
+            "Robot",
+            "Tech",
+            "Tesla",
+            "Transportation"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "teslas optimus robot is going through growing pains"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T17:01:36.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Electric Cars",
+      "News",
+      "Robot",
+      "Tech",
+      "Tesla",
+      "Transportation"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:37.791Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260926-the-most-beautiful-mountains-i",
+    "canonicalTopic": "The Most Beautiful Mountains in the World—for Climbing to the Top or Admiring from Afar",
+    "slug": "the-most-beautiful-mountains-in-the-world-for-climbing-to-the-top-or-admiring-from-afar",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-The20Most20Beautiful20M",
+        "query": "The Most Beautiful Mountains in the World—for Climbing to the Top or Admiring from Afar",
+        "sourceUrl": "https://www.cntraveler.com/gallery/most-beautiful-mountains-in-the-world",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-26T01:24:02.000Z",
+        "contentSnippet": "From Ecuador's snowcapped Cotopaxi to Malaysia's lush Kinabalu, the most beautiful mountains in the world offer dramatic landscapes, biodiverse climates, and something for every kind of curious visitor.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T01:24:02.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "The Most Beautiful Mountains in the World—for Climbing to the Top or Admiring From Afar",
+            "itemLink": "https://www.cntraveler.com/gallery/most-beautiful-mountains-in-the-world",
+            "publishedDate": "2026-09-26T01:24:02.000Z",
+            "contentSnippet": "From Ecuador's snowcapped Cotopaxi to Malaysia's lush Kinabalu, the most beautiful mountains in the world offer dramatic landscapes, biodiverse climates, and something for every kind of curious visitor.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Inspiration"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Inspiration"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the most beautiful mountains in the world—for climbing to the top or admiring from afar"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T01:24:02.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Inspiration"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:37.885Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260926-12-best-aruba-hotels-to-build-",
+    "canonicalTopic": "12 Best Aruba Hotels to Build a Sun-soaked Caribbean Escape Around",
+    "slug": "12-best-aruba-hotels-to-build-a-sun-soaked-caribbean-escape-around",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-2-1220Best20Aruba20Hotels",
+        "query": "12 Best Aruba Hotels to Build a Sun-soaked Caribbean Escape Around",
+        "sourceUrl": "https://www.cntraveler.com/gallery/best-hotels-in-aruba",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-25T22:03:57.000Z",
+        "contentSnippet": "From quiet boutiques to sprawling beachfront resorts, these hotels are as beautiful as Aruba itself.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T22:03:57.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "12 Best Aruba Hotels to Build a Sun-Soaked Caribbean Escape Around",
+            "itemLink": "https://www.cntraveler.com/gallery/best-hotels-in-aruba",
+            "publishedDate": "2026-09-25T22:03:57.000Z",
+            "contentSnippet": "From quiet boutiques to sprawling beachfront resorts, these hotels are as beautiful as Aruba itself.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Places to Stay"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Places to Stay"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "12 best aruba hotels to build a sun-soaked caribbean escape around"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T22:03:57.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Places to Stay"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:37.947Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260926-boston-is-one-of-americas-best",
+    "canonicalTopic": "Boston Is One of Americas Best Sushi Cities—heres Where to Make a Reservation",
+    "slug": "boston-is-one-of-americas-best-sushi-cities-heres-where-to-make-a-reservation",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-3-Boston20Is20One20of20Ame",
+        "query": "Boston Is One of Americas Best Sushi Cities—heres Where to Make a Reservation",
+        "sourceUrl": "https://www.cntraveler.com/story/boston-is-one-of-americas-best-sushi-cities-heres-where-to-make-a-reservation",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-25T20:55:47.000Z",
+        "contentSnippet": "From lavish omakase counters with Hermès plates and a Michelin-star winner to unfussy, neighborhood gems, here are the Boston spots that our sushi snobs (yes, there are many here) rely on.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T20:55:47.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Boston Is One of America’s Best Sushi Cities—Here’s Where to Make a Reservation",
+            "itemLink": "https://www.cntraveler.com/story/boston-is-one-of-americas-best-sushi-cities-heres-where-to-make-a-reservation",
+            "publishedDate": "2026-09-25T20:55:47.000Z",
+            "contentSnippet": "From lavish omakase counters with Hermès plates and a Michelin-star winner to unfussy, neighborhood gems, here are the Boston spots that our sushi snobs (yes, there are many here) rely on.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Destinations"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Destinations"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "boston is one of americas best sushi cities—heres where to make a reservation"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T20:55:47.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Destinations"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:38.015Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260926-15-best-beignets-in-new-orlean",
+    "canonicalTopic": "15 Best Beignets in New Orleans for Louisianas Most Classic Dessert—or Lunch",
+    "slug": "15-best-beignets-in-new-orleans-for-louisianas-most-classic-dessert-or-lunch",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-4-1520Best20Beignets20in20",
+        "query": "15 Best Beignets in New Orleans for Louisianas Most Classic Dessert—or Lunch",
+        "sourceUrl": "https://www.cntraveler.com/gallery/best-beignets-in-new-orleans-for-louisianas-most-classic-dessert-or-lunch",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-25T20:09:34.000Z",
+        "contentSnippet": "Café du Monde and beyond.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T20:09:34.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "15 Best Beignets in New Orleans for Louisiana's Most Classic Dessert—or Lunch",
+            "itemLink": "https://www.cntraveler.com/gallery/best-beignets-in-new-orleans-for-louisianas-most-classic-dessert-or-lunch",
+            "publishedDate": "2026-09-25T20:09:34.000Z",
+            "contentSnippet": "Café du Monde and beyond.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Destinations"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Destinations"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "15 best beignets in new orleans for louisianas most classic dessert—or lunch"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T20:09:34.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Destinations"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:38.081Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260926-the-best-rentals-and-hotels-ne",
+    "canonicalTopic": "The Best Rentals and Hotels Near Bryce Canyon National Park Are All About the Views",
+    "slug": "the-best-rentals-and-hotels-near-bryce-canyon-national-park-are-all-about-the-views",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-5-The20Best20Rentals20and",
+        "query": "The Best Rentals and Hotels Near Bryce Canyon National Park Are All About the Views",
+        "sourceUrl": "https://www.cntraveler.com/gallery/best-places-to-stay-near-bryce-canyon-national-park",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-25T18:27:48.000Z",
+        "contentSnippet": "From glampsites to yurts and secluded ranches, here's where to stay near Bryce Canyon, plus tips on how to get there and what to do once you arrive.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T18:27:48.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "The Best Rentals and Hotels Near Bryce Canyon National Park Are All About the Views",
+            "itemLink": "https://www.cntraveler.com/gallery/best-places-to-stay-near-bryce-canyon-national-park",
+            "publishedDate": "2026-09-25T18:27:48.000Z",
+            "contentSnippet": "From glampsites to yurts and secluded ranches, here's where to stay near Bryce Canyon, plus tips on how to get there and what to do once you arrive.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Places to Stay",
+              "Inspiration / National Parks"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Places to Stay",
+            "Inspiration / National Parks"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the best rentals and hotels near bryce canyon national park are all about the views"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T18:27:48.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Places to Stay",
+      "Inspiration / National Parks"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:38.152Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260926-dolce-gabbana-spring-2027-read",
+    "canonicalTopic": "Dolce & Gabbana Spring 2027 Ready-to-wear",
+    "slug": "dolce-gabbana-spring-2027-ready-to-wear",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-1-Dolce202620Gabbana20Spri",
+        "query": "Dolce & Gabbana Spring 2027 Ready-to-wear",
+        "sourceUrl": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/dolce-gabbana",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-26T10:52:27.000Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T10:52:27.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Dolce & Gabbana Spring 2027 Ready-to-Wear",
+            "itemLink": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/dolce-gabbana",
+            "publishedDate": "2026-09-26T10:52:27.000Z",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dolce & gabbana spring 2027 ready-to-wear"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T10:52:27.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Runway"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:38.193Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260926-7-fall-outfit-ideas-where-the-",
+    "canonicalTopic": "7 Fall Outfit Ideas Where the Skirt Is the Look",
+    "slug": "7-fall-outfit-ideas-where-the-skirt-is-the-look",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-3-720Fall20Outfit20Ideas20",
+        "query": "7 Fall Outfit Ideas Where the Skirt Is the Look",
+        "sourceUrl": "https://www.vogue.com/article/skirt-outfits",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-26T10:00:00.000Z",
+        "contentSnippet": "The spring 2027 runways—Prada’s, in particular—continue to champion the skirt in all its forms. Here’s how to style a skirt for right now.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "7 Fall Outfit Ideas Where the Skirt Is the Look",
+            "itemLink": "https://www.vogue.com/article/skirt-outfits",
+            "publishedDate": "2026-09-26T10:00:00.000Z",
+            "contentSnippet": "The spring 2027 runways—Prada’s, in particular—continue to champion the skirt in all its forms. Here’s how to style a skirt for right now.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Shopping",
+              "Shopping / Fashion"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Shopping",
+            "Shopping / Fashion"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "7 fall outfit ideas where the skirt is the look"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T10:00:00.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Shopping",
+      "Shopping / Fashion"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:38.267Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260926-demi-moore-and-tallulah-willis",
+    "canonicalTopic": "Demi Moore and Tallulah Willis Do Mother-daughter Dressing in Summery Suiting",
+    "slug": "demi-moore-and-tallulah-willis-do-mother-daughter-dressing-in-summery-suiting",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-4-Demi20Moore20and20Tallu",
+        "query": "Demi Moore and Tallulah Willis Do Mother-daughter Dressing in Summery Suiting",
+        "sourceUrl": "https://www.vogue.com/article/demi-moore-and-tallulah-willis-mother-daughter-dressing",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-26T09:56:14.000Z",
+        "contentSnippet": "The pair coordinated in Thom Browne skirt suits, making a persuasive case for keeping summer dressing going a little longer.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T09:56:14.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Demi Moore and Tallulah Willis Do Mother-Daughter Dressing in Summery Suiting",
+            "itemLink": "https://www.vogue.com/article/demi-moore-and-tallulah-willis-mother-daughter-dressing",
+            "publishedDate": "2026-09-26T09:56:14.000Z",
+            "contentSnippet": "The pair coordinated in Thom Browne skirt suits, making a persuasive case for keeping summer dressing going a little longer.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Fashion / Celebrity Style",
+              "Fashion"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Fashion / Celebrity Style",
+            "Fashion"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "demi moore and tallulah willis do mother-daughter dressing in summery suiting"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T09:56:14.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Fashion / Celebrity Style",
+      "Fashion"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:38.322Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260926-ermanno-scervino-spring-2027-r",
+    "canonicalTopic": "Ermanno Scervino Spring 2027 Ready-to-wear",
+    "slug": "ermanno-scervino-spring-2027-ready-to-wear",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-5-Ermanno20Scervino20Spr",
+        "query": "Ermanno Scervino Spring 2027 Ready-to-wear",
+        "sourceUrl": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/ermanno-scervino",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-26T10:52:27.000Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T10:52:27.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Ermanno Scervino Spring 2027 Ready-to-Wear",
+            "itemLink": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/ermanno-scervino",
+            "publishedDate": "2026-09-26T10:52:27.000Z",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ermanno scervino spring 2027 ready-to-wear"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T10:52:27.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Runway"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:38.357Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260926-6-best-clinical-strength-deodo",
+    "canonicalTopic": "6 Best Clinical-strength Deodorants for All-day Freshness",
+    "slug": "6-best-clinical-strength-deodorants-for-all-day-freshness",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-1-620Best20Clinical-Stre",
+        "query": "6 Best Clinical-strength Deodorants for All-day Freshness",
+        "sourceUrl": "https://www.allure.com/story/best-clinical-strength-deodorants",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-25T19:02:39.000Z",
+        "contentSnippet": "Kick unwanted moisture and stink to the curb.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T19:02:39.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "6 Best Clinical-Strength Deodorants for All-Day Freshness",
+            "itemLink": "https://www.allure.com/story/best-clinical-strength-deodorants",
+            "publishedDate": "2026-09-25T19:02:39.000Z",
+            "contentSnippet": "Kick unwanted moisture and stink to the curb.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Skin",
+              "Skin / Bath & Body",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Skin",
+            "Skin / Bath & Body",
+            "Shopping"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "6 best clinical-strength deodorants for all-day freshness"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T19:02:39.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Skin",
+      "Skin / Bath & Body",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:38.404Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260926-dakota-johnson-matched-her-nai",
+    "canonicalTopic": "Dakota Johnson Matched Her Nails to Her Visible Underwear—see the Photos",
+    "slug": "dakota-johnson-matched-her-nails-to-her-visible-underwear-see-the-photos",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-3-Dakota20Johnson20Match",
+        "query": "Dakota Johnson Matched Her Nails to Her Visible Underwear—see the Photos",
+        "sourceUrl": "https://www.allure.com/story/dakota-johnson-black-nails-sheer-dress",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-25T17:52:45.000Z",
+        "contentSnippet": "Her moody black manicure totally fits the Verity vibes too.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T17:52:45.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "Dakota Johnson Matched Her Nails to Her Visible Underwear—See the Photos",
+            "itemLink": "https://www.allure.com/story/dakota-johnson-black-nails-sheer-dress",
+            "publishedDate": "2026-09-25T17:52:45.000Z",
+            "contentSnippet": "Her moody black manicure totally fits the Verity vibes too.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Nails",
+              "Nails / Nail Polish & Press-Ons",
+              "Nails / Nail Trends"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Nails",
+            "Nails / Nail Polish & Press-Ons",
+            "Nails / Nail Trends"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dakota johnson matched her nails to her visible underwear—see the photos"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T17:52:45.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Nails",
+      "Nails / Nail Polish & Press-Ons",
+      "Nails / Nail Trends"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:38.500Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260926-iran-offers-us-deal-to-reopen-",
+    "canonicalTopic": "Iran Offers Us Deal to Reopen Strait of Hormuz in Seven Days",
+    "slug": "iran-offers-us-deal-to-reopen-strait-of-hormuz-in-seven-days",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-1-Iran20offers20US20deal20",
+        "query": "Iran Offers Us Deal to Reopen Strait of Hormuz in Seven Days",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cqgmrr9ekr7ko?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-26T05:03:09.000Z",
+        "contentSnippet": "Asked about the Iranian proposal, a US official told the BBC \"constructive discussions\" were taking place through mediators.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T05:03:09.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Iran offers US deal to reopen Strait of Hormuz in seven days",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cqgmrr9ekr7ko?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-26T05:03:09.000Z",
+            "contentSnippet": "Asked about the Iranian proposal, a US official told the BBC \"constructive discussions\" were taking place through mediators.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "iran offers us deal to reopen strait of hormuz in seven days"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T05:03:09.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:38.548Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260926-openai-bots-meddled-with-multi",
+    "canonicalTopic": "Openai Bots Meddled with Multiple Us Government Agency Sites",
+    "slug": "openai-bots-meddled-with-multiple-us-government-agency-sites",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-2-OpenAI20bots20meddled20",
+        "query": "Openai Bots Meddled with Multiple Us Government Agency Sites",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cw62jje658dlo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-26T02:50:56.000Z",
+        "contentSnippet": "OpenAI said its bots accessed public data from a range of institutions during test exercises.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T02:50:56.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "OpenAI bots meddled with multiple US government agency sites",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cw62jje658dlo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-26T02:50:56.000Z",
+            "contentSnippet": "OpenAI said its bots accessed public data from a range of institutions during test exercises.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "openai bots meddled with multiple us government agency sites"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T02:50:56.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:38.594Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260926-bangkok-roads-submerged-as-flo",
+    "canonicalTopic": "Bangkok Roads Submerged As Flood Disaster Declared",
+    "slug": "bangkok-roads-submerged-as-flood-disaster-declared",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-3-Bangkok20roads20submer",
+        "query": "Bangkok Roads Submerged As Flood Disaster Declared",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/ck1wxx8n2x3zo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-26T07:21:30.000Z",
+        "contentSnippet": "An emergency has been declared across the capital of Thailand as days of heavy rain leave the city inundated.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T07:21:30.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Bangkok roads submerged as flood disaster declared",
+            "itemLink": "https://www.bbc.co.uk/news/articles/ck1wxx8n2x3zo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-26T07:21:30.000Z",
+            "contentSnippet": "An emergency has been declared across the capital of Thailand as days of heavy rain leave the city inundated.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "bangkok roads submerged as flood disaster declared"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T07:21:30.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:38.636Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260926-russia-targeting-ordinary-life",
+    "canonicalTopic": "Russia Targeting Ordinary Life with Attacks on Ukraines Data Centres Zelensky Says",
+    "slug": "russia-targeting-ordinary-life-with-attacks-on-ukraines-data-centres-zelensky-says",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-4-Russia20targeting20or",
+        "query": "Russia Targeting Ordinary Life with Attacks on Ukraines Data Centres Zelensky Says",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/c84gkwgk7d06o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-25T20:47:49.000Z",
+        "contentSnippet": "Such strikes aim to disrupt \"people's ability to stay connected, study, work\", says Ukraine's president.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T20:47:49.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Russia targeting 'ordinary life' with attacks on Ukraine's data centres, Zelensky says",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c84gkwgk7d06o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-25T20:47:49.000Z",
+            "contentSnippet": "Such strikes aim to disrupt \"people's ability to stay connected, study, work\", says Ukraine's president.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "russia targeting ordinary life with attacks on ukraines data centres zelensky says"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T20:47:49.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:38.712Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260926-south-african-white-genocide-d",
+    "canonicalTopic": "South African White Genocide Does Not Exist New Ambassador to Us Tells Bbc",
+    "slug": "south-african-white-genocide-does-not-exist-new-ambassador-to-us-tells-bbc",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-5-South20African20white20",
+        "query": "South African White Genocide Does Not Exist New Ambassador to Us Tells Bbc",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cm2l8qv7zppko?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-25T23:20:48.000Z",
+        "contentSnippet": "Roelf Meyer tells the BBC that being a white Afrikaner gives him legitimacy to challenge Trump's claim of a genocide.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T23:20:48.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "South African white genocide does not exist, new ambassador to US tells BBC",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cm2l8qv7zppko?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-25T23:20:48.000Z",
+            "contentSnippet": "Roelf Meyer tells the BBC that being a white Afrikaner gives him legitimacy to challenge Trump's claim of a genocide.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "south african white genocide does not exist new ambassador to us tells bbc"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T23:20:48.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:38.766Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260926-hayhurst-and-co-carves-triple-",
+    "canonicalTopic": "Hayhurst and Co Carves Triple-height Void Through 1970s Hampstead Townhouse",
+    "slug": "hayhurst-and-co-carves-triple-height-void-through-1970s-hampstead-townhouse",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-Hayhurst20and20Co20carv",
+        "query": "Hayhurst and Co Carves Triple-height Void Through 1970s Hampstead Townhouse",
+        "sourceUrl": "https://www.dezeen.com/2026/09/26/skinny-hampstead-townhouse-hayhurst-co/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-26T10:00:51.000Z",
+        "contentSnippet": "London studio Hayhurst and Co has reorganised Hampstead Town House around a triple-height void, transforming the interior of the north London home while retaining its distinctive 1970s exterior. Hayhurst and Co completely overhauled the skinny house, which was originally designed in 1970 by architects Igal Yawetz and Howard Radley. The studio retained the house's original The post Hayhurst and Co carves triple-height void through 1970s Hampstead townhouse appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T10:00:51.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Hayhurst and Co carves triple-height void through 1970s Hampstead townhouse",
+            "itemLink": "https://www.dezeen.com/2026/09/26/skinny-hampstead-townhouse-hayhurst-co/",
+            "publishedDate": "2026-09-26T10:00:51.000Z",
+            "contentSnippet": "London studio Hayhurst and Co has reorganised Hampstead Town House around a triple-height void, transforming the interior of the north London home while retaining its distinctive 1970s exterior. Hayhurst and Co completely overhauled the skinny house, which was originally designed in 1970 by architects Igal Yawetz and Howard Radley. The studio retained the house's original The post Hayhurst and Co carves triple-height void through 1970s Hampstead townhouse appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Renovations",
+              "Residential extensions",
+              "British houses",
+              "Hayhurst and Co",
+              "Skinny houses",
+              "London",
+              "Hampstead",
+              "Residential architecture and interiors",
+              "Restorations",
+              "UK",
+              "England",
+              "Staircases"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Renovations",
+            "Residential extensions",
+            "British houses",
+            "Hayhurst and Co",
+            "Skinny houses",
+            "London",
+            "Hampstead",
+            "Residential architecture and interiors",
+            "Restorations",
+            "UK",
+            "England",
+            "Staircases"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "hayhurst and co carves triple-height void through 1970s hampstead townhouse"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T10:00:51.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Renovations",
+      "Residential extensions",
+      "British houses",
+      "Hayhurst and Co",
+      "Skinny houses",
+      "London",
+      "Hampstead",
+      "Residential architecture and interiors",
+      "Restorations",
+      "UK",
+      "England",
+      "Staircases"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:38.819Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260926-six-designs-that-freshen-up-th",
+    "canonicalTopic": "Six Designs That Freshen Up the Humble Toothbrush",
+    "slug": "six-designs-that-freshen-up-the-humble-toothbrush",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-2-Six20designs20that20fre",
+        "query": "Six Designs That Freshen Up the Humble Toothbrush",
+        "sourceUrl": "https://www.dezeen.com/2026/09/26/toothbrush-product-design/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-26T09:00:14.000Z",
+        "contentSnippet": "After Dyson recently hit headlines with its tech-driven toothbrush, we revisit eight projects from the Dezeen archives that add polish to the everyday dental tool. Accessories by Landor & Fitch Accessories is a collection of toothbrush add-ons, designed specifically for people with dexterity challenges. It has more than 142 designs, including handles with chunky grips The post Six designs that freshen up the humble toothbrush appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T09:00:14.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Six designs that freshen up the humble toothbrush",
+            "itemLink": "https://www.dezeen.com/2026/09/26/toothbrush-product-design/",
+            "publishedDate": "2026-09-26T09:00:14.000Z",
+            "contentSnippet": "After Dyson recently hit headlines with its tech-driven toothbrush, we revisit eight projects from the Dezeen archives that add polish to the everyday dental tool. Accessories by Landor & Fitch Accessories is a collection of toothbrush add-ons, designed specifically for people with dexterity challenges. It has more than 142 designs, including handles with chunky grips The post Six designs that freshen up the humble toothbrush appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Products",
+              "Design",
+              "Product design",
+              "Roundups",
+              "Toothbrushes"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Products",
+            "Design",
+            "Product design",
+            "Roundups",
+            "Toothbrushes"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "six designs that freshen up the humble toothbrush"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T09:00:14.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Products",
+      "Design",
+      "Product design",
+      "Roundups",
+      "Toothbrushes"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:38.862Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260926-this-week-we-revealed-the-deze",
+    "canonicalTopic": "This Week We Revealed the Dezeen Awards Shortlists",
+    "slug": "this-week-we-revealed-the-dezeen-awards-shortlists",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-3-This20week20we20reveale",
+        "query": "This Week We Revealed the Dezeen Awards Shortlists",
+        "sourceUrl": "https://www.dezeen.com/2026/09/26/dezeen-awards-shortlists-this-week/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-26T05:00:18.000Z",
+        "contentSnippet": "This week on Dezeen, we revealed the architecture, interiors and design projects in the running to win this year's Dezeen Awards. Over the week, we announced all the projects shortlisted for this year's awards, starting with the 152 projects in the running for the 19 architecture project categories on Monday. On Tuesday, we revealed the The post This week we revealed the Dezeen Awards shortlists appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T05:00:18.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "This week we revealed the Dezeen Awards shortlists",
+            "itemLink": "https://www.dezeen.com/2026/09/26/dezeen-awards-shortlists-this-week/",
+            "publishedDate": "2026-09-26T05:00:18.000Z",
+            "contentSnippet": "This week on Dezeen, we revealed the architecture, interiors and design projects in the running to win this year's Dezeen Awards. Over the week, we announced all the projects shortlisted for this year's awards, starting with the 152 projects in the running for the 19 architecture project categories on Monday. On Tuesday, we revealed the The post This week we revealed the Dezeen Awards shortlists appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Interiors",
+              "Design",
+              "This week on Dezeen",
+              "Dezeen Awards"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Interiors",
+            "Design",
+            "This week on Dezeen",
+            "Dezeen Awards"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "this week we revealed the dezeen awards shortlists"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T05:00:18.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Interiors",
+      "Design",
+      "This week on Dezeen",
+      "Dezeen Awards"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:38.904Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260926-nine-dynamic-surfaces-that-giv",
+    "canonicalTopic": "Nine Dynamic Surfaces That Give Interiors Eye-catching Backgrounds",
+    "slug": "nine-dynamic-surfaces-that-give-interiors-eye-catching-backgrounds",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-4-Nine20dynamic20surface",
+        "query": "Nine Dynamic Surfaces That Give Interiors Eye-catching Backgrounds",
+        "sourceUrl": "https://www.dezeen.com/2026/09/25/surfaces-tiles-wallpaper-dezeen-showroom/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-25T18:00:16.000Z",
+        "contentSnippet": "Dezeen Showroom: wallpapers, tiles and surfaces are all among recent wall and floor coverings published on Dezeen Showroom. The selection includes wallpapers based on designs by William Morris, marbles with dramatic and unusual blue veining, and square-format tiles designed to look handmade. A spectrum of international design brands and companies have listed their products on The post Nine dynamic surfaces that give interiors eye-catching backgrounds appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T18:00:16.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Nine dynamic surfaces that give interiors eye-catching backgrounds",
+            "itemLink": "https://www.dezeen.com/2026/09/25/surfaces-tiles-wallpaper-dezeen-showroom/",
+            "publishedDate": "2026-09-25T18:00:16.000Z",
+            "contentSnippet": "Dezeen Showroom: wallpapers, tiles and surfaces are all among recent wall and floor coverings published on Dezeen Showroom. The selection includes wallpapers based on designs by William Morris, marbles with dramatic and unusual blue veining, and square-format tiles designed to look handmade. A spectrum of international design brands and companies have listed their products on The post Nine dynamic surfaces that give interiors eye-catching backgrounds appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Products",
+              "Design",
+              "Tiles",
+              "Carpets",
+              "Dezeen Showroom",
+              "Dezeen Showroom special features"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Products",
+            "Design",
+            "Tiles",
+            "Carpets",
+            "Dezeen Showroom",
+            "Dezeen Showroom special features"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "nine dynamic surfaces that give interiors eye-catching backgrounds"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T18:00:16.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Products",
+      "Design",
+      "Tiles",
+      "Carpets",
+      "Dezeen Showroom",
+      "Dezeen Showroom special features"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:38.954Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260926-gjergji-shkurti-integrates-bar",
+    "canonicalTopic": "Gjergji Shkurti Integrates Bar Retail and Hi-fi at Million Goods in Brooklyn",
+    "slug": "gjergji-shkurti-integrates-bar-retail-and-hi-fi-at-million-goods-in-brooklyn",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-5-Gjergji20Shkurti20inte",
+        "query": "Gjergji Shkurti Integrates Bar Retail and Hi-fi at Million Goods in Brooklyn",
+        "sourceUrl": "https://www.dezeen.com/2026/09/25/gjergji-shkurti-million-goods-ft-green/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-25T17:00:17.000Z",
+        "contentSnippet": "Architect Gjergji Shkurti has collaborated with concept shop Million Goods for its second Brooklyn location, using marble, custom millwork and curated furniture to create a transition from hospitality to retail. A glossy red spiral staircase can be spotted through windows that face the buzzy part of DeKalb Street in Fort Greene, Brooklyn. The space became The post Gjergji Shkurti integrates bar, retail and hi-fi at Million Goods in Brooklyn appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-25T17:00:17.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Gjergji Shkurti integrates bar, retail and hi-fi at Million Goods in Brooklyn",
+            "itemLink": "https://www.dezeen.com/2026/09/25/gjergji-shkurti-million-goods-ft-green/",
+            "publishedDate": "2026-09-25T17:00:17.000Z",
+            "contentSnippet": "Architect Gjergji Shkurti has collaborated with concept shop Million Goods for its second Brooklyn location, using marble, custom millwork and curated furniture to create a transition from hospitality to retail. A glossy red spiral staircase can be spotted through windows that face the buzzy part of DeKalb Street in Fort Greene, Brooklyn. The space became The post Gjergji Shkurti integrates bar, retail and hi-fi at Million Goods in Brooklyn appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Interiors",
+              "Bars",
+              "Renovations",
+              "Spiral staircases",
+              "New York",
+              "Listening bars",
+              "Retail",
+              "USA",
+              "Brooklyn"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Interiors",
+            "Bars",
+            "Renovations",
+            "Spiral staircases",
+            "New York",
+            "Listening bars",
+            "Retail",
+            "USA",
+            "Brooklyn"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "gjergji shkurti integrates bar retail and hi-fi at million goods in brooklyn"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-25T17:00:17.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Interiors",
+      "Bars",
+      "Renovations",
+      "Spiral staircases",
+      "New York",
+      "Listening bars",
+      "Retail",
+      "USA",
+      "Brooklyn"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:39.010Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260926-tilly-norwood-would-love-to-wo",
+    "canonicalTopic": "Tilly Norwood Would Love to Work with Tom Holland and Olivia Colman but Only If It Were Their Digital Twins on an Ai Production",
+    "slug": "tilly-norwood-would-love-to-work-with-tom-holland-and-olivia-colman-but-only-if-it-were-their-digital-twins-on-an-ai-production",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-1-Tilly20Norwood20",
+        "query": "Tilly Norwood Would Love to Work with Tom Holland and Olivia Colman but Only If It Were Their Digital Twins on an Ai Production",
+        "sourceUrl": "https://variety.com/2026/film/global/tilly-norwood-tom-holland-olivia-colman-ai-production-1236876240/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-26T08:28:18.000Z",
+        "contentSnippet": "A year after announcing AI actress Tilly Norwood at Zurich Film Festival’s Summit, Particle 6 founder and Norwood creator Eline van der Velden returned to the Swiss event to look back at the backlash her creation has faced since. Asked if she could have ever predicted the furore around Norwood, van der Velden said not […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T08:28:18.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Tilly Norwood Would Love to Work With Tom Holland and Olivia Colman, 'but Only If It Were Their Digital Twins' on an 'AI Production'",
+            "itemLink": "https://variety.com/2026/film/global/tilly-norwood-tom-holland-olivia-colman-ai-production-1236876240/",
+            "publishedDate": "2026-09-26T08:28:18.000Z",
+            "contentSnippet": "A year after announcing AI actress Tilly Norwood at Zurich Film Festival’s Summit, Particle 6 founder and Norwood creator Eline van der Velden returned to the Swiss event to look back at the backlash her creation has faced since. Asked if she could have ever predicted the furore around Norwood, van der Velden said not […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Global",
+              "Markets & Festivals",
+              "News",
+              "Tilly Norwood",
+              "Zurich Film Festival",
+              "Zurich Summit"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Global",
+            "Markets & Festivals",
+            "News",
+            "Tilly Norwood",
+            "Zurich Film Festival",
+            "Zurich Summit"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "tilly norwood would love to work with tom holland and olivia colman but only if it were their digital twins on an ai production"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T08:28:18.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Global",
+      "Markets & Festivals",
+      "News",
+      "Tilly Norwood",
+      "Zurich Film Festival",
+      "Zurich Summit"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:39.100Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260926-hanuman-ansh-indian-sleeper-hi",
+    "canonicalTopic": "Hanuman Ansh Indian Sleeper Hits International Distribution Strategy Unveiled by Kgf Kantara Outfit Hombale Films Exclusive",
+    "slug": "hanuman-ansh-indian-sleeper-hits-international-distribution-strategy-unveiled-by-kgf-kantara-outfit-hombale-films-exclusive",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-2-Hanuman20Ansh20I",
+        "query": "Hanuman Ansh Indian Sleeper Hits International Distribution Strategy Unveiled by Kgf Kantara Outfit Hombale Films Exclusive",
+        "sourceUrl": "https://variety.com/2026/film/news/hanuman-ansh-indian-sleeper-hit-hombale-films-strategy-1236876199/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-26T02:09:30.000Z",
+        "contentSnippet": "Indian devotional film \"Hanuman Ansh\" has grossed more than $3.5 million outside its home territory since Hombale Films took it to international audiences, and the company behind the blockbuster \"K.G.F\" and \"Kantara\" franchises has now detailed how it engineered the run. Written and directed by Vishal Chaturvedi and adapted from his book \"Divine Detour: That […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T02:09:30.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "'Hanuman Ansh' Indian Sleeper Hit's International Distribution Strategy Unveiled by 'K.G.F,' 'Kantara' Outfit Hombale Films (EXCLUSIVE)",
+            "itemLink": "https://variety.com/2026/film/news/hanuman-ansh-indian-sleeper-hit-hombale-films-strategy-1236876199/",
+            "publishedDate": "2026-09-26T02:09:30.000Z",
+            "contentSnippet": "Indian devotional film \"Hanuman Ansh\" has grossed more than $3.5 million outside its home territory since Hombale Films took it to international audiences, and the company behind the blockbuster \"K.G.F\" and \"Kantara\" franchises has now detailed how it engineered the run. Written and directed by Vishal Chaturvedi and adapted from his book \"Divine Detour: That […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Asia",
+              "Global",
+              "News",
+              "Hanuman Ansh",
+              "Hombale Films",
+              "K.G.F",
+              "Kantara"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Asia",
+            "Global",
+            "News",
+            "Hanuman Ansh",
+            "Hombale Films",
+            "K.G.F",
+            "Kantara"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "hanuman ansh indian sleeper hits international distribution strategy unveiled by kgf kantara outfit hombale films exclusive"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T02:09:30.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Asia",
+      "Global",
+      "News",
+      "Hanuman Ansh",
+      "Hombale Films",
+      "K.G.F",
+      "Kantara"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:39.189Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260926-scarlett-johansson-takes-break",
+    "canonicalTopic": "Scarlett Johansson Takes Break from Filming Overseas for Paper Tiger Nyff Premiere After Skipping Cannes Im Hallucinating",
+    "slug": "scarlett-johansson-takes-break-from-filming-overseas-for-paper-tiger-nyff-premiere-after-skipping-cannes-im-hallucinating",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-3-Scarlett20Johans",
+        "query": "Scarlett Johansson Takes Break from Filming Overseas for Paper Tiger Nyff Premiere After Skipping Cannes Im Hallucinating",
+        "sourceUrl": "https://variety.com/2026/film/festivals/scarlett-johansson-paper-tiger-new-york-film-festival-premiere-adam-driver-1236872284/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-26T01:16:41.000Z",
+        "contentSnippet": "A very jet-lagged Scarlett Johansson reunited with co-stars Adam Driver and Miles Teller for the New York Film Festival premiere of \"Paper Tiger,\" which kicked off the festival's 64th edition. “I’m hallucinating,” said Johansson, who just got off a long international flight, where she’s filming another movie. “It’s 5 in the morning — which is […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T01:16:41.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Scarlett Johansson Takes Break From Filming Overseas for ‘Paper Tiger’ NYFF Premiere After Skipping Cannes: ‘I’m Hallucinating’",
+            "itemLink": "https://variety.com/2026/film/festivals/scarlett-johansson-paper-tiger-new-york-film-festival-premiere-adam-driver-1236872284/",
+            "publishedDate": "2026-09-26T01:16:41.000Z",
+            "contentSnippet": "A very jet-lagged Scarlett Johansson reunited with co-stars Adam Driver and Miles Teller for the New York Film Festival premiere of \"Paper Tiger,\" which kicked off the festival's 64th edition. “I’m hallucinating,” said Johansson, who just got off a long international flight, where she’s filming another movie. “It’s 5 in the morning — which is […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Festivals",
+              "New York Film Festival",
+              "Paper Tiger",
+              "Scarlett Johannson"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Festivals",
+            "New York Film Festival",
+            "Paper Tiger",
+            "Scarlett Johannson"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "scarlett johansson takes break from filming overseas for paper tiger nyff premiere after skipping cannes im hallucinating"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T01:16:41.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Festivals",
+      "New York Film Festival",
+      "Paper Tiger",
+      "Scarlett Johannson"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:39.279Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260926-love-hypothesis-director-clair",
+    "canonicalTopic": "Love Hypothesis Director Claire Scanlon Breaks Down the Biggest Star Wars Easter Eggs from Gracie Abrams Song to Color-coded Wardrobes",
+    "slug": "love-hypothesis-director-claire-scanlon-breaks-down-the-biggest-star-wars-easter-eggs-from-gracie-abrams-song-to-color-coded-wardrobes",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-4-Love20Hypothesis",
+        "query": "Love Hypothesis Director Claire Scanlon Breaks Down the Biggest Star Wars Easter Eggs from Gracie Abrams Song to Color-coded Wardrobes",
+        "sourceUrl": "https://variety.com/2026/film/features/the-love-hypothesis-star-wars-easter-eggs-1236875151/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-26T01:09:17.000Z",
+        "contentSnippet": "“Star Wars” has featured iconic locations throughout the franchise, taking audiences to Tatooine, Naboo and now, a campus biology lab at Stanford University. The romantic comedy “Love Hypothesis” premiered on Amazon Prime on Sept. 23, featuring Lili Reinhart and Tom Bateman as romantic interests who get caught in a fake-dating-turned-real-love trope. On the surface, there […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T01:09:17.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "'Love Hypothesis' Director Claire Scanlon Breaks Down the Biggest 'Star Wars' Easter Eggs, From Gracie Abrams' Song to Color-Coded Wardrobes",
+            "itemLink": "https://variety.com/2026/film/features/the-love-hypothesis-star-wars-easter-eggs-1236875151/",
+            "publishedDate": "2026-09-26T01:09:17.000Z",
+            "contentSnippet": "“Star Wars” has featured iconic locations throughout the franchise, taking audiences to Tatooine, Naboo and now, a campus biology lab at Stanford University. The romantic comedy “Love Hypothesis” premiered on Amazon Prime on Sept. 23, featuring Lili Reinhart and Tom Bateman as romantic interests who get caught in a fake-dating-turned-real-love trope. On the surface, there […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Features",
+              "Claire Scanlon",
+              "Gracie Abrams",
+              "Star Wars",
+              "the love hypothesis"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Features",
+            "Claire Scanlon",
+            "Gracie Abrams",
+            "Star Wars",
+            "the love hypothesis"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "love hypothesis director claire scanlon breaks down the biggest star wars easter eggs from gracie abrams song to color-coded wardrobes"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T01:09:17.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Features",
+      "Claire Scanlon",
+      "Gracie Abrams",
+      "Star Wars",
+      "the love hypothesis"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:39.373Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260926-isaac-mizrahi-on-the-unzipped-",
+    "canonicalTopic": "Isaac Mizrahi on the Unzipped Restoration the John Galliano Met Gala Fiasco and Why the Devil Wears Prada Cerulean Blue Speech Makes Me Want to Kill Somebody",
+    "slug": "isaac-mizrahi-on-the-unzipped-restoration-the-john-galliano-met-gala-fiasco-and-why-the-devil-wears-prada-cerulean-blue-speech-makes-me-want-to-kill-somebody",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-5-Isaac20Mizrahi20",
+        "query": "Isaac Mizrahi on the Unzipped Restoration the John Galliano Met Gala Fiasco and Why the Devil Wears Prada Cerulean Blue Speech Makes Me Want to Kill Somebody",
+        "sourceUrl": "https://variety.com/2026/film/columns/isaac-mizrahi-unzipped-restoration-john-galliano-met-gala-devil-wears-prada-cerulean-blue-1236876106/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-26T00:44:22.000Z",
+        "contentSnippet": "No doubt Isaac Mizrahi is excited about the release of the newly restored “Unzipped,” the 1995 documentary chronicling a moment in time when he was one of the fashion world's hottest designers. However, Mizrahi admits he’s not that eager to watch it. “I have to say I hate looking back,” he tells me. “I hate […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T00:44:22.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Isaac Mizrahi on the ‘Unzipped’ Restoration, the John Galliano Met Gala Fiasco and Why the ‘Devil Wears Prada’ Cerulean Blue Speech ‘Makes Me Want to Kill Somebody’",
+            "itemLink": "https://variety.com/2026/film/columns/isaac-mizrahi-unzipped-restoration-john-galliano-met-gala-devil-wears-prada-cerulean-blue-1236876106/",
+            "publishedDate": "2026-09-26T00:44:22.000Z",
+            "contentSnippet": "No doubt Isaac Mizrahi is excited about the release of the newly restored “Unzipped,” the 1995 documentary chronicling a moment in time when he was one of the fashion world's hottest designers. However, Mizrahi admits he’s not that eager to watch it. “I have to say I hate looking back,” he tells me. “I hate […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Columns",
+              "Fashion",
+              "News",
+              "Isaac Mizrahi",
+              "Just For Variety",
+              "Met Gala",
+              "The Devil Wears Prada",
+              "Unzipped"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Columns",
+            "Fashion",
+            "News",
+            "Isaac Mizrahi",
+            "Just For Variety",
+            "Met Gala",
+            "The Devil Wears Prada",
+            "Unzipped"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "isaac mizrahi on the unzipped restoration the john galliano met gala fiasco and why the devil wears prada cerulean blue speech makes me want to kill somebody"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T00:44:22.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Columns",
+      "Fashion",
+      "News",
+      "Isaac Mizrahi",
+      "Just For Variety",
+      "Met Gala",
+      "The Devil Wears Prada",
+      "Unzipped"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:39.503Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260926-calls-from-the-dead-a-madrid-d",
+    "canonicalTopic": "Calls from the Dead a Madrid Dystopia and Kids Swap Among Writers Show Pitches As Iberseries",
+    "slug": "calls-from-the-dead-a-madrid-dystopia-and-kids-swap-among-writers-show-pitches-as-iberseries",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-1-Calls20From20the20D",
+        "query": "Calls from the Dead a Madrid Dystopia and Kids Swap Among Writers Show Pitches As Iberseries",
+        "sourceUrl": "https://www.hollywoodreporter.com/tv/tv-news/iberseries-platino-industria-writers-show-pitches-preview-1236696391/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-26T08:00:00.000Z",
+        "contentSnippet": "There's also a historical satire about women vying for power at the Spanish court, the story of a woman who opened the first LGBT bookstore in Spain and a social collision in Galicia are also in focus.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T08:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Calls From the Dead, a Madrid Dystopia and Kids Swap Among Writers' Show Pitches as Iberseries",
+            "itemLink": "https://www.hollywoodreporter.com/tv/tv-news/iberseries-platino-industria-writers-show-pitches-preview-1236696391/",
+            "publishedDate": "2026-09-26T08:00:00.000Z",
+            "contentSnippet": "There's also a historical satire about women vying for power at the Spanish court, the story of a woman who opened the first LGBT bookstore in Spain and a social collision in Galicia are also in focus.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "TV",
+              "TV News",
+              "Iberseries & Platino Industria",
+              "Iberseries 2026",
+              "international"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "TV",
+            "TV News",
+            "Iberseries & Platino Industria",
+            "Iberseries 2026",
+            "international"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "calls from the dead a madrid dystopia and kids swap among writers show pitches as iberseries"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T08:00:00.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "TV",
+      "TV News",
+      "Iberseries & Platino Industria",
+      "Iberseries 2026",
+      "international"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:39.577Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260926-julianne-moore-accepts-zurichs",
+    "canonicalTopic": "Julianne Moore Accepts Zurichs Golden Icon Award — in German",
+    "slug": "julianne-moore-accepts-zurichs-golden-icon-award-in-german",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-2-Julianne20Moore20Ac",
+        "query": "Julianne Moore Accepts Zurichs Golden Icon Award — in German",
+        "sourceUrl": "https://www.hollywoodreporter.com/movies/movie-news/julianne-moore-zurich-golden-icon-award-german-martin-film-1236712458/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-26T06:44:29.000Z",
+        "contentSnippet": "Moore credited her career to a childhood spent in Europe, while 'Wild Horse Nine' filmmaker Martin McDonagh was also honored at the Swiss film festival.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T06:44:29.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Julianne Moore Accepts Zurich's Golden Icon Award — in German",
+            "itemLink": "https://www.hollywoodreporter.com/movies/movie-news/julianne-moore-zurich-golden-icon-award-german-martin-film-1236712458/",
+            "publishedDate": "2026-09-26T06:44:29.000Z",
+            "contentSnippet": "Moore credited her career to a childhood spent in Europe, while 'Wild Horse Nine' filmmaker Martin McDonagh was also honored at the Swiss film festival.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Movie News",
+              "Movies",
+              "international",
+              "Jesse Eisenberg",
+              "Julianne Moore",
+              "Martin McDonagh",
+              "The Debut",
+              "Wild Horse Nine",
+              "Zurich 2026",
+              "Zurich Film Festival"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Movie News",
+            "Movies",
+            "international",
+            "Jesse Eisenberg",
+            "Julianne Moore",
+            "Martin McDonagh",
+            "The Debut",
+            "Wild Horse Nine",
+            "Zurich 2026",
+            "Zurich Film Festival"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "julianne moore accepts zurichs golden icon award — in german"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T06:44:29.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Movie News",
+      "Movies",
+      "international",
+      "Jesse Eisenberg",
+      "Julianne Moore",
+      "Martin McDonagh",
+      "The Debut",
+      "Wild Horse Nine",
+      "Zurich 2026",
+      "Zurich Film Festival"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:39.626Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260926-ahead-of-nobody-wants-this-sea",
+    "canonicalTopic": "Ahead of Nobody Wants This Season 3 Adam Brody Declares His Support for a Free Palestine",
+    "slug": "ahead-of-nobody-wants-this-season-3-adam-brody-declares-his-support-for-a-free-palestine",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-3-Ahead20of20Nobody20",
+        "query": "Ahead of Nobody Wants This Season 3 Adam Brody Declares His Support for a Free Palestine",
+        "sourceUrl": "https://www.hollywoodreporter.com/tv/tv-news/nobody-wants-this-adam-brody-support-a-free-palestine-1236712430/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-26T03:33:12.000Z",
+        "contentSnippet": "The actor, who appears on the Netflix series as a rabbi, discussed his political activism in a new interview with GQ.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T03:33:12.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Ahead of 'Nobody Wants This' Season 3, Adam Brody Declares His Support for \"A Free Palestine\"",
+            "itemLink": "https://www.hollywoodreporter.com/tv/tv-news/nobody-wants-this-adam-brody-support-a-free-palestine-1236712430/",
+            "publishedDate": "2026-09-26T03:33:12.000Z",
+            "contentSnippet": "The actor, who appears on the Netflix series as a rabbi, discussed his political activism in a new interview with GQ.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "TV",
+              "TV News",
+              "Adam Brody",
+              "Nobody Wants This",
+              "Palestine"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "TV",
+            "TV News",
+            "Adam Brody",
+            "Nobody Wants This",
+            "Palestine"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ahead of nobody wants this season 3 adam brody declares his support for a free palestine"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T03:33:12.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "TV",
+      "TV News",
+      "Adam Brody",
+      "Nobody Wants This",
+      "Palestine"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:39.701Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260926-coach-signs-off-on-statement-b",
+    "canonicalTopic": "Coach Signs Off on Statement Bags for Fall with Playful Styles Inspired by Elle Fanning and Others",
+    "slug": "coach-signs-off-on-statement-bags-for-fall-with-playful-styles-inspired-by-elle-fanning-and-others",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-4-Coach20Signs20Off20",
+        "query": "Coach Signs Off on Statement Bags for Fall with Playful Styles Inspired by Elle Fanning and Others",
+        "sourceUrl": "https://www.hollywoodreporter.com/lifestyle/shopping/coach-patchwork-shearling-fringe-statement-purses-tabby-bag-1236709891/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-26T03:17:04.000Z",
+        "contentSnippet": "Plus, lots of prints, fringe, beading and beyond.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T03:17:04.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Coach Signs Off on Statement Bags for Fall With Playful Styles Inspired by Elle Fanning and Others",
+            "itemLink": "https://www.hollywoodreporter.com/lifestyle/shopping/coach-patchwork-shearling-fringe-statement-purses-tabby-bag-1236709891/",
+            "publishedDate": "2026-09-26T03:17:04.000Z",
+            "contentSnippet": "Plus, lots of prints, fringe, beading and beyond.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Lifestyle",
+              "Shopping",
+              "Elle Fanning",
+              "fashion",
+              "shopping"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Lifestyle",
+            "Shopping",
+            "Elle Fanning",
+            "fashion",
+            "shopping"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "coach signs off on statement bags for fall with playful styles inspired by elle fanning and others"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T03:17:04.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Lifestyle",
+      "Shopping",
+      "Elle Fanning",
+      "fashion",
+      "shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:39.780Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260926-to-catch-a-predator-host-chris",
+    "canonicalTopic": "To Catch a Predator Host Chris Hansen Watches Robert Pattinsons Primetime — and Hes Not a Fan",
+    "slug": "to-catch-a-predator-host-chris-hansen-watches-robert-pattinsons-primetime-and-hes-not-a-fan",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-5-To20Catch20a20Preda",
+        "query": "To Catch a Predator Host Chris Hansen Watches Robert Pattinsons Primetime — and Hes Not a Fan",
+        "sourceUrl": "https://www.hollywoodreporter.com/movies/movie-news/chris-hansen-robert-pattinson-primetime-review-1236710231/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-26T02:41:45.000Z",
+        "contentSnippet": "After weeks of sparring with A24 from the sidelines, Hansen graded Pattinson's performance a \"D\" and called the film a \"fever dream.\"",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T02:41:45.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "'To Catch a Predator' Host Chris Hansen Watches Robert Pattinson's 'Primetime' — and He's Not a Fan",
+            "itemLink": "https://www.hollywoodreporter.com/movies/movie-news/chris-hansen-robert-pattinson-primetime-review-1236710231/",
+            "publishedDate": "2026-09-26T02:41:45.000Z",
+            "contentSnippet": "After weeks of sparring with A24 from the sidelines, Hansen graded Pattinson's performance a \"D\" and called the film a \"fever dream.\"",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Movie News",
+              "Movies",
+              "A24",
+              "Chris Hansen",
+              "Primetime",
+              "Robert Pattinson",
+              "To Catch a Predator"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Movie News",
+            "Movies",
+            "A24",
+            "Chris Hansen",
+            "Primetime",
+            "Robert Pattinson",
+            "To Catch a Predator"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "to catch a predator host chris hansen watches robert pattinsons primetime — and hes not a fan"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T02:41:45.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Movie News",
+      "Movies",
+      "A24",
+      "Chris Hansen",
+      "Primetime",
+      "Robert Pattinson",
+      "To Catch a Predator"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-26T10:56:39.858Z",
     "pinterestScore": 79.2
   }
 ]
