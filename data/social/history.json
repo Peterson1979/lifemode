@@ -383,5 +383,39 @@
     "overallStatus": "COMPLETED",
     "createdAt": "2026-09-25T17:29:42.274Z",
     "updatedAt": "2026-09-25T17:29:42.274Z"
+  },
+  {
+    "runId": "srun-1790440784847-0p682",
+    "topicId": "lm-entertainment-20260925-leylah-fernandez",
+    "pillar": "entertainment",
+    "canonicalTopic": "Leylah Fernandez: Career, Background and Latest Updates",
+    "contentHash": "9a2dbb7c1deab7f5fa0ea6bf3de6fb727fa04043b58ee05336cfcad675b7292d",
+    "assetHash": "3f3069bcb290830d35b2722a84d582c49ec3b052d87a4e3d018bdc564873a4a5",
+    "idempotencyKey": "lm-soc-lm-entertainment-20260925-leylah-fernandez-9a2dbb7c",
+    "targetPlatforms": [
+      "instagram",
+      "facebook"
+    ],
+    "platformResults": {
+      "instagram": {
+        "platform": "instagram",
+        "status": "FAILED",
+        "error": "Instagram publish failed: Instagram container publish failed HTTP 400: {\"error\":{\"message\":\"Media ID is not available\",\"type\":\"OAuthException\",\"code\":9007,\"error_subcode\":2207027,\"is_transient\":false,\"error_user_title\":\"Nem tehet\\u0151 k\\u00f6zz\\u00e9\",\"error_user_msg\":\"A m\\u00e9diatartalom m\\u00e9g nem k\\u00e9sz a k\\u00f6zz\\u00e9t\\u00e9telre. K\\u00e9rj\\u00fck, v\\u00e1rj egy kicsit.\",\"fbtrace_id\":\"AUkfv5Mg_FZEKpmCkUIbfvJ\"}}",
+        "publishedAt": "2026-09-26T16:39:51.099Z",
+        "idempotencyKey": "lm-soc-lm-entertainment-20260925-leylah-fernandez-instagram-ecce4df4a14f"
+      },
+      "facebook": {
+        "platform": "facebook",
+        "status": "PUBLISHED",
+        "postId": "122322689060197726",
+        "postUrl": "https://facebook.com/122322689060197726",
+        "publishedAt": "2026-09-26T16:39:55.710Z",
+        "idempotencyKey": "lm-soc-lm-entertainment-20260925-leylah-fernandez-facebook-37b8848065ab"
+      }
+    },
+    "reviewScore": 90,
+    "overallStatus": "PARTIAL",
+    "createdAt": "2026-09-26T16:40:02.494Z",
+    "updatedAt": "2026-09-26T16:40:02.494Z"
   }
 ]
