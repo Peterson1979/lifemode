@@ -1,4 +1,5 @@
 import { normalizeTopicQuery } from './normalization.ts';
+import { extractPersonName } from './person-policy.ts';
 
 /**
  * Calculates Levenshtein edit distance between two strings.
@@ -82,7 +83,7 @@ export interface DuplicateCheckResult {
   matchedTopicId?: string;
   matchedPillar?: string;
   similarityScore: number;
-  reason?: 'EXACT_SLUG' | 'EXACT_TOPIC' | 'CONCEPT_MATCH' | 'TOKEN_SIMILARITY' | 'STRING_SIMILARITY' | 'URL_MATCH';
+  reason?: 'EXACT_SLUG' | 'EXACT_TOPIC' | 'CONCEPT_MATCH' | 'TOKEN_SIMILARITY' | 'STRING_SIMILARITY' | 'URL_MATCH' | 'SLUG_PREFIX_MATCH' | 'NAMED_ENTITY_MATCH' | 'TOPIC_PREFIX_MATCH';
 }
 
 /**
@@ -96,10 +97,12 @@ export function checkTopicDuplicate(
 ): DuplicateCheckResult {
   const candidateNorm = normalizeTopicQuery(candidate);
   const candidateSlug = candidateNorm.canonicalSlug;
+  const candidatePerson = extractPersonName(candidate);
 
   for (const existing of existingTopics) {
     const existingNorm = normalizeTopicQuery(existing.canonicalTopic);
     const existingSlug = existing.slug || existingNorm.canonicalSlug;
+    const existingPerson = extractPersonName(existing.canonicalTopic);
 
     // 1. Exact slug match
     if (candidateSlug === existingSlug) {
@@ -113,6 +116,22 @@ export function checkTopicDuplicate(
       };
     }
 
+    // 1b. Slug prefix / sub-slug boundary match (e.g. "alexandra-eala" vs "alexandra-eala-rising-star-of-the-hard-court-swing")
+    if (
+      candidateSlug.length >= 6 &&
+      existingSlug.length >= 6 &&
+      (existingSlug.startsWith(`${candidateSlug}-`) || candidateSlug.startsWith(`${existingSlug}-`))
+    ) {
+      return {
+        isDuplicate: true,
+        matchedTopic: existing.canonicalTopic,
+        matchedTopicId: existing.id,
+        matchedPillar: existing.pillar,
+        similarityScore: 0.95,
+        reason: 'SLUG_PREFIX_MATCH',
+      };
+    }
+
     // 2. Exact canonical topic match
     if (candidateNorm.canonicalTopic.toLowerCase() === existing.canonicalTopic.toLowerCase()) {
       return {
@@ -122,6 +141,45 @@ export function checkTopicDuplicate(
         matchedPillar: existing.pillar,
         similarityScore: 1.0,
         reason: 'EXACT_TOPIC',
+      };
+    }
+
+    // 2b. Named entity identity match (e.g. "Alexandra Eala" vs "Alexandra Eala: Rising Star...")
+    if (
+      candidatePerson &&
+      existingPerson &&
+      candidatePerson.length >= 4 &&
+      existingPerson.length >= 4 &&
+      candidatePerson.toLowerCase() === existingPerson.toLowerCase()
+    ) {
+      return {
+        isDuplicate: true,
+        matchedTopic: existing.canonicalTopic,
+        matchedTopicId: existing.id,
+        matchedPillar: existing.pillar,
+        similarityScore: 0.95,
+        reason: 'NAMED_ENTITY_MATCH',
+      };
+    }
+
+    // 2c. Topic prefix with colon match (e.g. "Name: Subtitle" vs "Name")
+    const candidateLower = candidateNorm.canonicalTopic.toLowerCase();
+    const existingLower = existing.canonicalTopic.toLowerCase();
+    if (
+      existingLower.startsWith(`${candidateLower}:`) ||
+      existingLower.startsWith(`${candidateLower} -`) ||
+      existingLower.startsWith(`${candidateLower} –`) ||
+      candidateLower.startsWith(`${existingLower}:`) ||
+      candidateLower.startsWith(`${existingLower} -`) ||
+      candidateLower.startsWith(`${existingLower} –`)
+    ) {
+      return {
+        isDuplicate: true,
+        matchedTopic: existing.canonicalTopic,
+        matchedTopicId: existing.id,
+        matchedPillar: existing.pillar,
+        similarityScore: 0.92,
+        reason: 'TOPIC_PREFIX_MATCH',
       };
     }
 

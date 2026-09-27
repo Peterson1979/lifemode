@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 import {
@@ -8,6 +8,7 @@ import {
   isVerifiedPersonImage,
   classifyNamedPersonImage,
   detectPersonInImage,
+  getPersonImageDirectives,
 } from '../src/lib/editorial/person-policy.ts';
 
 import {
@@ -17,6 +18,10 @@ import {
 import {
   validateEditorialArticle,
 } from '../src/lib/editorial/validation/validator.ts';
+
+import {
+  checkTopicDuplicate,
+} from '../src/lib/editorial/deduplication.ts';
 
 // ---------------------------------------------------------------------------
 // Suite: Named Person Image Policy & Person-Free Contextual Integrity
@@ -459,4 +464,82 @@ test('14. Social-card image consistency: Both production articles use verified p
   assert.ok(!ealaFile.includes('photo-1622279457486-62dcc4a431d6'));
   assert.ok(!ealaFile.includes('photo-1595435934249-5df7ed86e1c0'));
   assert.ok(!ealaFile.includes('woman-sitting-behind-desk'));
+  assert.ok(!ealaFile.includes('7c1f314e44f3a3c7'));
+});
+
+test('15. Single authoritative article: Duplicate alexandra-eala.md does not exist in production content', () => {
+  const entertainmentRoot = join(process.cwd(), 'src', 'content', 'entertainment');
+  const duplicatePath = join(entertainmentRoot, 'alexandra-eala.md');
+  const authoritativePath = join(entertainmentRoot, 'alexandra-eala-rising-star-of-the-hard-court-swing.md');
+
+  assert.equal(existsSync(duplicatePath), false, 'Rogue duplicate alexandra-eala.md must not exist');
+  assert.equal(existsSync(authoritativePath), true, 'Authoritative alexandra-eala-rising-star-of-the-hard-court-swing.md must exist');
+});
+
+test('16. Deduplication prevents any candidate matching Alexandra Eala from generating duplicate articles', () => {
+  const existingTopics = [
+    {
+      id: 'lm-entertainment-20260924-alexandra-eala-hard-court-swing',
+      canonicalTopic: 'Alexandra Eala: Rising Star of the Hard-Court Swing',
+      slug: 'alexandra-eala-rising-star-of-the-hard-court-swing',
+      pillar: 'entertainment',
+    },
+  ];
+
+  // A. Candidate with canonical topic "Alexandra Eala"
+  const dupCheckA = checkTopicDuplicate('Alexandra Eala', existingTopics);
+  assert.equal(dupCheckA.isDuplicate, true);
+  assert.ok(dupCheckA.reason === 'NAMED_ENTITY_MATCH' || dupCheckA.reason === 'SLUG_PREFIX_MATCH' || dupCheckA.reason === 'TOPIC_PREFIX_MATCH');
+
+  // B. Candidate with topic "Who Is Alexandra Eala"
+  const dupCheckB = checkTopicDuplicate('Who Is Alexandra Eala', existingTopics);
+  assert.equal(dupCheckB.isDuplicate, true);
+
+  // C. Candidate with slug "alexandra-eala"
+  const dupCheckC = checkTopicDuplicate('alexandra-eala', existingTopics);
+  assert.equal(dupCheckC.isDuplicate, true);
+});
+
+test('17. Unverified AI-generated person asset (7c1f314e44f3a3c7) is strictly rejected as INVALID', () => {
+  const aiPersonImage = {
+    url: 'https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-entertainment-20260924-alexandra-eala/7c1f314e44f3a3c7.jpg',
+    alt: 'Alexandra Eala: Rising Star of the Hard-Court Swing',
+    source: 'LifeMode AI Generation',
+  };
+
+  const personCheck = detectPersonInImage(aiPersonImage);
+  assert.equal(personCheck.containsPerson, true);
+
+  const validation = validateImageSemanticRelevance(
+    'Alexandra Eala: Rising Star of the Hard-Court Swing',
+    'entertainment',
+    aiPersonImage,
+    { tags: ['tennis', 'sports'] }
+  );
+
+  assert.equal(validation.valid, false);
+  assert.equal(validation.priorityLevel, 'INVALID');
+  assert.equal(validation.namedPersonClassification, 'INVALID');
+});
+
+test('18. Person policy directives for tennis guarantee person-free empty court scene and strict negative prompts', () => {
+  const directives = getPersonImageDirectives('Alexandra Eala', 'tennis hard-court tournament');
+
+  assert.ok(directives.promptSnippet.includes('empty'));
+  assert.ok(directives.promptSnippet.includes('no human'));
+  assert.ok(directives.negativePromptSnippet.includes('player'));
+  assert.ok(directives.negativePromptSnippet.includes('athlete'));
+  assert.ok(directives.negativePromptSnippet.includes('crowd'));
+  assert.ok(directives.negativePromptSnippet.includes('silhouette'));
+});
+
+test('19. Authoritative Alexandra Eala article metadata adheres to exact approved Wikimedia Commons image and licensing', () => {
+  const entertainmentRoot = join(process.cwd(), 'src', 'content', 'entertainment');
+  const ealaFile = readFileSync(join(entertainmentRoot, 'alexandra-eala-rising-star-of-the-hard-court-swing.md'), 'utf-8');
+
+  assert.ok(ealaFile.includes('image: "https://upload.wikimedia.org/wikipedia/commons/8/8d/Tennis_Courts_Phoenix.jpg"'));
+  assert.ok(ealaFile.includes('imageSource: "NWSPhoenix / Wikimedia Commons (CC BY-SA 4.0)"'));
+  assert.ok(ealaFile.includes('imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Tennis_Courts_Phoenix.jpg"'));
+  assert.ok(ealaFile.includes('imageLicense: "CC BY-SA 4.0"'));
+  assert.ok(ealaFile.includes('imageAlt: "Contextual editorial photography of an empty championship hard-court tennis surface with court lines and net"'));
 });

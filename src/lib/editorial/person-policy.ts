@@ -351,8 +351,8 @@ export function analyzeNamedPersonPolicy(input: NamedPersonPolicyInput): NamedPe
     professionOrRole = 'professional tennis player';
     relevantVisualSubject = 'Hard-Court Tennis Setting & Equipment';
     visualTheme = 'Professional Tennis & Athletic Craft';
-    contextScene = 'A sunlit championship hard-court tennis surface with crisp white court lines, tennis net, and dynamic natural daylight';
-    suggestedAltText = 'Contextual editorial photography of a professional hard-court tennis court and net';
+    contextScene = 'A sunlit championship hard-court tennis surface with crisp white court lines, tennis net, and dynamic natural daylight. Completely empty court, no players, no people, no silhouettes, no crowds.';
+    suggestedAltText = 'Contextual editorial photography of an empty championship hard-court tennis surface with court lines and net';
   } else if (isBaseball) {
     professionOrRole = 'professional baseball player';
     relevantVisualSubject = 'Baseball Diamond & Catcher Gear';
@@ -409,6 +409,13 @@ export function analyzeNamedPersonPolicy(input: NamedPersonPolicyInput): NamedPe
     'unrelated human facial likeness',
     'unrelated woman portrait',
     'unrelated man portrait',
+    'unrelated tennis player',
+    'player on tennis court',
+    'male tennis player',
+    'female tennis player',
+    'athlete serving on court',
+    'human silhouette on tennis court',
+    'stadium crowd and spectators',
     'generic office desk with random worker',
     'generic corporate meetings',
     'cheesy celebrity paparazzi chaos',
@@ -492,9 +499,9 @@ export function getPersonImageDirectives(
 
   const cleanName = analysis.primaryPersonName || extractPersonName(personName);
 
-  const promptSnippet = `Contextual editorial lifestyle photography representing ${analysis.visualTheme.toLowerCase()}. Scene: ${analysis.contextScene}. Focus strictly on ambient architecture, domain equipment, and environment. No depiction, portrait, or resemblance of ${cleanName}. No identifiable human facial likeness.`;
+  const promptSnippet = `Contextual editorial lifestyle photography representing ${analysis.visualTheme.toLowerCase()}. Scene: ${analysis.contextScene}. Focus strictly on ambient architecture, domain equipment, and environment without any human presence. No depiction, portrait, or resemblance of ${cleanName}. No identifiable human facial likeness. Completely empty scene, person-free, containing no humans, players, athletes, models, crowds, or silhouettes.`;
 
-  const negativePromptSnippet = `photorealistic likeness of specific real person, portrait of ${cleanName}, facial likeness of ${cleanName}, celebrity face recreation, deepfake likeness, facial cloning, impersonation of real human face, close-up face portrait, ${analysis.disallowedVisuals.join(', ')}`;
+  const negativePromptSnippet = `people, person, man, woman, player, athlete, model, human figure, human silhouette, crowd, audience, spectators, referee, coach, facial features, photorealistic likeness of specific real person, portrait of ${cleanName}, facial likeness of ${cleanName}, celebrity face recreation, deepfake likeness, facial cloning, impersonation of real human face, close-up face portrait, ${analysis.disallowedVisuals.join(', ')}`;
 
   return {
     promptSnippet,
@@ -613,6 +620,7 @@ export function detectPersonInImage(
     { pattern: /\bphoto-1534528741775-53994a69daeb\b/i, description: 'portrait stock asset' },
     { pattern: /\bphoto-1573496359142-b8d87734a5a2\b/i, description: 'woman at desk stock asset' },
     { pattern: /\bphoto-1507003211169-0a1dd7228f2d\b/i, description: 'man portrait stock asset' },
+    { pattern: /\b7c1f314e44f3a3c7\b/i, description: 'unverified AI-generated person asset' },
   ];
 
   for (const { pattern, description } of personPatterns) {
