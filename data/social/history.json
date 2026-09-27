@@ -417,5 +417,40 @@
     "overallStatus": "PARTIAL",
     "createdAt": "2026-09-26T16:40:02.494Z",
     "updatedAt": "2026-09-26T16:40:02.494Z"
+  },
+  {
+    "runId": "srun-1790529170392-8r2pd",
+    "topicId": "lm-entertainment-20260924-guardians-magic-number",
+    "pillar": "entertainment",
+    "canonicalTopic": "Guardians magic number: How Cleveland’s playoff chase unfolded",
+    "contentHash": "6e7212dd19c05481db0aee183bb829a3330324e92eb2e20bf863a7cc9f9c080a",
+    "assetHash": "2b971b2bc7c0e2cd66b36b16be9ad6f7d888c1db729a68426c7dcab9a33b6def",
+    "idempotencyKey": "lm-soc-lm-entertainment-20260924-guardians-magic-number-6e7212dd",
+    "targetPlatforms": [
+      "instagram",
+      "facebook"
+    ],
+    "platformResults": {
+      "instagram": {
+        "platform": "instagram",
+        "status": "PUBLISHED",
+        "postId": "18115556282322850",
+        "postUrl": "https://instagram.com/p/18115556282322850",
+        "publishedAt": "2026-09-27T17:12:56.431Z",
+        "idempotencyKey": "lm-soc-lm-entertainment-20260924-guardians-magic-number-instagram-93bf6bb74d72"
+      },
+      "facebook": {
+        "platform": "facebook",
+        "status": "PUBLISHED",
+        "postId": "122322886226197726",
+        "postUrl": "https://facebook.com/122322886226197726",
+        "publishedAt": "2026-09-27T17:13:07.466Z",
+        "idempotencyKey": "lm-soc-lm-entertainment-20260924-guardians-magic-number-facebook-4878a580d8a6"
+      }
+    },
+    "reviewScore": 91,
+    "overallStatus": "COMPLETED",
+    "createdAt": "2026-09-27T17:13:11.682Z",
+    "updatedAt": "2026-09-27T17:13:11.682Z"
   }
 ]
