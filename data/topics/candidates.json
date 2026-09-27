@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-26T15:56:20.997Z",
+    "updatedAt": "2026-09-27T11:33:32.305Z",
     "revisionCyclesCount": 0
   },
   {
@@ -25542,12 +25542,38 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-mC3A9tC3A9o",
+        "query": "météo",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-27T11:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-27T11:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "météo",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
-      "mto"
+      "mto",
+      "météo"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-13T11:00:00.000Z",
     "tags": [
       "US",
@@ -25557,21 +25583,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-13T11:13:37.483Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-27T11:33:30.694Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260913-michelle-obama-chanel-us-open",
@@ -49905,7 +49932,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-26T15:56:21.182Z",
+    "updatedAt": "2026-09-27T11:33:32.447Z",
     "pinterestScore": 85.6,
     "revisionCyclesCount": 0
   },
@@ -49968,7 +49995,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-26T15:56:21.214Z",
+    "updatedAt": "2026-09-27T11:33:32.473Z",
     "pinterestScore": 84.8,
     "revisionCyclesCount": 0
   },
@@ -51692,12 +51719,37 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-new20york",
+        "query": "new york",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-27T10:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-27T10:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "new york",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "new york"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-20T09:30:00.000Z",
     "tags": [
       "US",
@@ -51707,21 +51759,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-20T10:47:18.509Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-27T11:33:30.805Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260920-austin",
@@ -64630,9 +64683,10 @@
     "totalScore": 84,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-24T11:15:12.633Z",
-    "pinterestScore": 88.3
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-27T11:35:47.633Z",
+    "pinterestScore": 88.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-entertainment-20260924-guardians-magic-number",
@@ -69350,7 +69404,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-26T15:56:21.042Z",
+    "updatedAt": "2026-09-27T11:33:32.340Z",
     "pinterestScore": 87.8,
     "revisionCyclesCount": 0
   },
@@ -69413,7 +69467,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-26T15:56:21.107Z",
+    "updatedAt": "2026-09-27T11:33:32.387Z",
     "pinterestScore": 84.6,
     "revisionCyclesCount": 0
   },
@@ -69476,7 +69530,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-26T15:56:21.152Z",
+    "updatedAt": "2026-09-27T11:33:32.424Z",
     "pinterestScore": 82.9,
     "revisionCyclesCount": 0
   },
@@ -75869,12 +75923,51 @@
           "feedName": "Vogue Style & Culture",
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-4-Giorgio20Armani20Sprin",
+        "query": "Giorgio Armani Spring 2027 Ready-to-Wear",
+        "sourceUrl": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/giorgio-armani",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-27T11:29:39.000Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T11:29:39.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Giorgio Armani Spring 2027 Ready-to-Wear",
+            "itemLink": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/giorgio-armani",
+            "publishedDate": "2026-09-27T11:29:39.000Z",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "sportmax spring 2027 ready-to-wear",
       "marco rambaldi spring 2027 ready-to-wear",
-      "act no.1 spring 2027 ready-to-wear"
+      "act no.1 spring 2027 ready-to-wear",
+      "giorgio armani spring 2027 ready-to-wear"
     ],
     "freshnessScore": 88,
     "createdAt": "2026-09-25T11:18:56.000Z",
@@ -75902,7 +75995,7 @@
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-09-26T15:56:20.157Z",
+    "updatedAt": "2026-09-27T11:33:31.444Z",
     "pinterestScore": 79.2,
     "revisionCyclesCount": 0
   },
@@ -81210,9 +81303,10 @@
     "totalScore": 82.7,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-26T10:56:37.061Z",
-    "pinterestScore": 85.3
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-27T11:37:53.609Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-entertainment-20260926-snow",
@@ -87425,5 +87519,2965 @@
     "status": "SCORED",
     "updatedAt": "2026-09-26T15:56:20.995Z",
     "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-entertainment-20260927-cricinfo",
+    "canonicalTopic": "Cricinfo",
+    "slug": "cricinfo",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-cricinfo",
+        "query": "Cricinfo",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-27T10:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-27T10:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "cricinfo",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "cricinfo"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T10:50:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-27T11:33:30.721Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260927-brock-bowers",
+    "canonicalTopic": "Brock Bowers",
+    "slug": "brock-bowers",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-brock20bowers",
+        "query": "Brock Bowers",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-27T10:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-27T10:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "brock bowers",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "brock bowers"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T10:50:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-27T11:33:30.739Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260927-maria-elvira-salazar",
+    "canonicalTopic": "Maria Elvira Salazar",
+    "slug": "maria-elvira-salazar",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-maria20elvira20sa",
+        "query": "Maria Elvira Salazar",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-27T10:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-27T10:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "maria elvira salazar",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "maria elvira salazar"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T10:40:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-27T11:33:30.762Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260927-ballot",
+    "canonicalTopic": "Ballot",
+    "slug": "ballot",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-ballot",
+        "query": "Ballot",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-27T10:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-27T10:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "ballot",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ballot"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T10:30:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-27T11:33:30.775Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260927-wilmington-college",
+    "canonicalTopic": "Wilmington College",
+    "slug": "wilmington-college",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-wilmington20coll",
+        "query": "Wilmington College",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-27T10:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-27T10:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "wilmington college",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "wilmington college"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T10:20:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-27T11:33:30.797Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260927-raf-fairford",
+    "canonicalTopic": "Raf Fairford",
+    "slug": "raf-fairford",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-raf20fairford",
+        "query": "Raf Fairford",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-27T09:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-27T09:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "raf fairford",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "raf fairford"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T09:50:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-27T11:33:30.820Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260927-australia-vs-south-africa",
+    "canonicalTopic": "Australia Vs South Africa",
+    "slug": "australia-vs-south-africa",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-australia20vs20so",
+        "query": "Australia Vs South Africa",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-27T09:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-27T09:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "australia vs south africa",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "australia vs south africa"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T09:40:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-27T11:33:30.843Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-tech-ai-20260927-apple-hit-with-57-billion-in-d",
+    "canonicalTopic": "Apple Hit with 57 Billion in Damages over Haptic Patents",
+    "slug": "apple-hit-with-57-billion-in-damages-over-haptic-patents",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-Apple20hit20with20245720",
+        "query": "Apple Hit with 57 Billion in Damages over Haptic Patents",
+        "sourceUrl": "https://www.theverge.com/tech/1001118/apple-hit-with-5-7-billion-in-damages-over-haptic-patents",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-26T21:30:01.000Z",
+        "contentSnippet": "Haptics tech company Taction sued Apple in 2021, alleging it infringed two of its patents. Now a federal jury in San Diego has awarded Taction over $5.7 billion in damages. According to CNBC, \"The lawsuit centered around U.S. Patent Nos. 10,659,885 and 10,820,117, which both involve vibration-based, tactile transducer technology that helps users feel a […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T21:30:01.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Apple hit with $5.7 billion in damages over haptic patents",
+            "itemLink": "https://www.theverge.com/tech/1001118/apple-hit-with-5-7-billion-in-damages-over-haptic-patents",
+            "publishedDate": "2026-09-26T21:30:01.000Z",
+            "contentSnippet": "Haptics tech company Taction sued Apple in 2021, alleging it infringed two of its patents. Now a federal jury in San Diego has awarded Taction over $5.7 billion in damages. According to CNBC, \"The lawsuit centered around U.S. Patent Nos. 10,659,885 and 10,820,117, which both involve vibration-based, tactile transducer technology that helps users feel a […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Apple",
+              "Law",
+              "News",
+              "Policy",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Apple",
+            "Law",
+            "News",
+            "Policy",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "apple hit with 57 billion in damages over haptic patents"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T21:30:01.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Apple",
+      "Law",
+      "News",
+      "Policy",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:30.882Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260927-decap-is-the-man-behind-the-dr",
+    "canonicalTopic": "Decap Is the Man Behind the Drums Behind Your Favorite Song",
+    "slug": "decap-is-the-man-behind-the-drums-behind-your-favorite-song",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-Decap20is20the20man20beh",
+        "query": "Decap Is the Man Behind the Drums Behind Your Favorite Song",
+        "sourceUrl": "https://www.theverge.com/report/1000994/decap-drums-that-knock-interview",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-26T19:30:00.000Z",
+        "contentSnippet": "I don't think I'm going to hurt anyone's feelings by pointing out that Decap doesn't have the name recognition of Kendrick Lamar, Olivia Rodrigo, or Charli XCX. But his fingerprints are all over tracks from them, as well as many other artists, including Freddie Gibbs, Bad Bunny, Mac Miller, BTS, and even Ludwig Göransson's score […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T19:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Decap is the man behind the drums behind your favorite song",
+            "itemLink": "https://www.theverge.com/report/1000994/decap-drums-that-knock-interview",
+            "publishedDate": "2026-09-26T19:30:00.000Z",
+            "contentSnippet": "I don't think I'm going to hurt anyone's feelings by pointing out that Decap doesn't have the name recognition of Kendrick Lamar, Olivia Rodrigo, or Charli XCX. But his fingerprints are all over tracks from them, as well as many other artists, including Freddie Gibbs, Bad Bunny, Mac Miller, BTS, and even Ludwig Göransson's score […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Entertainment",
+              "Interview",
+              "Music",
+              "Report"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Entertainment",
+            "Interview",
+            "Music",
+            "Report"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "decap is the man behind the drums behind your favorite song"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T19:30:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Entertainment",
+      "Interview",
+      "Music",
+      "Report"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:30.923Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260927-kids-turned-the-comment-sectio",
+    "canonicalTopic": "Kids Turned the Comment Section of an Npr Podcast into a Group Chat",
+    "slug": "kids-turned-the-comment-section-of-an-npr-podcast-into-a-group-chat",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-Kids20turned20the20comm",
+        "query": "Kids Turned the Comment Section of an Npr Podcast into a Group Chat",
+        "sourceUrl": "https://www.theverge.com/entertainment/1001056/this-american-life-npr-kids-group-chat-comment-section",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-26T17:32:35.000Z",
+        "contentSnippet": "Middle schoolers, likely blocked from other apps and social networks, apparently turned the Spotify comment section under an episode of NPR's Wild Card into an impromptu group chat. In a new episode of This American Life, host Ira Glass digs into how the kids landed there and why. But it mostly boils down to kids […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T17:32:35.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Kids turned the comment section of an NPR podcast into a group chat",
+            "itemLink": "https://www.theverge.com/entertainment/1001056/this-american-life-npr-kids-group-chat-comment-section",
+            "publishedDate": "2026-09-26T17:32:35.000Z",
+            "contentSnippet": "Middle schoolers, likely blocked from other apps and social networks, apparently turned the Spotify comment section under an episode of NPR's Wild Card into an impromptu group chat. In a new episode of This American Life, host Ira Glass digs into how the kids landed there and why. But it mostly boils down to kids […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Culture",
+              "Entertainment",
+              "Internet Culture",
+              "News",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Culture",
+            "Entertainment",
+            "Internet Culture",
+            "News",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "kids turned the comment section of an npr podcast into a group chat"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T17:32:35.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Culture",
+      "Entertainment",
+      "Internet Culture",
+      "News",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:30.967Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260927-openai-pauses-training-of-its-",
+    "canonicalTopic": "Openai Pauses Training of Its Most Capable Models",
+    "slug": "openai-pauses-training-of-its-most-capable-models",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-4-OpenAI20pauses20traini",
+        "query": "Openai Pauses Training of Its Most Capable Models",
+        "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/1001049/openai-training-pause",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-26T16:34:59.000Z",
+        "contentSnippet": "As reports of OpenAI's models breaking containment, hacking sites, and generally getting out of control pile up, the company has made the decision to pause training of its most powerful models. The decision was made after a model being tested within a sandbox exploited a loophole to gain internet access. The incident happened on September […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T16:34:59.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "OpenAI pauses training of its ‘most capable models’",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/1001049/openai-training-pause",
+            "publishedDate": "2026-09-26T16:34:59.000Z",
+            "contentSnippet": "As reports of OpenAI's models breaking containment, hacking sites, and generally getting out of control pile up, the company has made the decision to pause training of its most powerful models. The decision was made after a model being tested within a sandbox exploited a loophole to gain internet access. The incident happened on September […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "News",
+              "OpenAI",
+              "Security",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "News",
+            "OpenAI",
+            "Security",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "openai pauses training of its most capable models"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T16:34:59.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "News",
+      "OpenAI",
+      "Security",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:31.004Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260927-teslas-big-electric-truck-face",
+    "canonicalTopic": "Teslas Big Electric Truck Faces an Even Bigger Infrastructure Challenge",
+    "slug": "teslas-big-electric-truck-faces-an-even-bigger-infrastructure-challenge",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-1-TeslaE28099s20big20electr",
+        "query": "Teslas Big Electric Truck Faces an Even Bigger Infrastructure Challenge",
+        "sourceUrl": "https://arstechnica.com/cars/2026/09/teslas-big-electric-truck-faces-an-even-bigger-infrastructure-challenge/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-26T10:45:09.000Z",
+        "contentSnippet": "The 500-mile Semi arrives as charging gaps still limit electric trucking.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T10:45:09.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Tesla’s big electric truck faces an even bigger infrastructure challenge",
+            "itemLink": "https://arstechnica.com/cars/2026/09/teslas-big-electric-truck-faces-an-even-bigger-infrastructure-challenge/",
+            "publishedDate": "2026-09-26T10:45:09.000Z",
+            "contentSnippet": "The 500-mile Semi arrives as charging gaps still limit electric trucking.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Cars",
+              "Electric vehicles",
+              "Tesla",
+              "Tesla Semi"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Cars",
+            "Electric vehicles",
+            "Tesla",
+            "Tesla Semi"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "teslas big electric truck faces an even bigger infrastructure challenge"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T10:45:09.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Cars",
+      "Electric vehicles",
+      "Tesla",
+      "Tesla Semi"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:31.051Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260927-iranian-minister-says-only-neg",
+    "canonicalTopic": "Iranian Minister Says Only Negotiation Can End Conflict After Trump Rejects Hormuz Deal",
+    "slug": "iranian-minister-says-only-negotiation-can-end-conflict-after-trump-rejects-hormuz-deal",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-1-Iranian20minister20say",
+        "query": "Iranian Minister Says Only Negotiation Can End Conflict After Trump Rejects Hormuz Deal",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cmvgyyw2jeego?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-27T07:44:11.000Z",
+        "contentSnippet": "The foreign minister says Tehran is waiting for an official rejection of a deal, despite the US President's comments.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T07:44:11.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Iranian minister says only negotiation can end conflict after Trump rejects Hormuz deal",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cmvgyyw2jeego?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-27T07:44:11.000Z",
+            "contentSnippet": "The foreign minister says Tehran is waiting for an official rejection of a deal, despite the US President's comments.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "iranian minister says only negotiation can end conflict after trump rejects hormuz deal"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T07:44:11.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:31.119Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260927-killer-christa-pike-is-to-be-e",
+    "canonicalTopic": "Killer Christa Pike Is to Be Executed Within Days - but Her Defence Say Shes a Victim Too",
+    "slug": "killer-christa-pike-is-to-be-executed-within-days-but-her-defence-say-shes-a-victim-too",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-2-Killer20Christa20Pike20",
+        "query": "Killer Christa Pike Is to Be Executed Within Days - but Her Defence Say Shes a Victim Too",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/c6pwl9g9ne1lo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-26T23:04:08.000Z",
+        "contentSnippet": "Lawyers for Pike, who killed a fellow student in 1995, say she should get clemency and would not be sentenced to death if the crime happened today.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T23:04:08.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Killer Christa Pike is to be executed within days - but her defence say she's a victim too",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c6pwl9g9ne1lo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-26T23:04:08.000Z",
+            "contentSnippet": "Lawyers for Pike, who killed a fellow student in 1995, say she should get clemency and would not be sentenced to death if the crime happened today.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "killer christa pike is to be executed within days - but her defence say shes a victim too"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T23:04:08.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:31.180Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260927-four-killed-in-helicopter-cras",
+    "canonicalTopic": "Four Killed in Helicopter Crash Near Montreal",
+    "slug": "four-killed-in-helicopter-crash-near-montreal",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-3-Four20killed20in20helic",
+        "query": "Four Killed in Helicopter Crash Near Montreal",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/c3grvv7p81lqo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-27T02:43:10.000Z",
+        "contentSnippet": "The victims of the crash have not yet been identified, Quebec provincial police told the BBC.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T02:43:10.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Four killed in helicopter crash near Montreal",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c3grvv7p81lqo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-27T02:43:10.000Z",
+            "contentSnippet": "The victims of the crash have not yet been identified, Quebec provincial police told the BBC.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "four killed in helicopter crash near montreal"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T02:43:10.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:31.212Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260927-two-mass-shootings-in-south-af",
+    "canonicalTopic": "Two Mass Shootings in South Africa Leave 27 Dead",
+    "slug": "two-mass-shootings-in-south-africa-leave-27-dead",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-4-Two20mass20shootings20i",
+        "query": "Two Mass Shootings in South Africa Leave 27 Dead",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/ck5ywnp075d1o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-27T10:00:36.000Z",
+        "contentSnippet": "The two attacks hours apart come as the country struggles to stop high levels of gang-related armed violence.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T10:00:36.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Two mass shootings in South Africa leave 27 dead",
+            "itemLink": "https://www.bbc.co.uk/news/articles/ck5ywnp075d1o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-27T10:00:36.000Z",
+            "contentSnippet": "The two attacks hours apart come as the country struggles to stop high levels of gang-related armed violence.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "two mass shootings in south africa leave 27 dead"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T10:00:36.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:31.248Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260927-where-to-get-pizza-in-naples-i",
+    "canonicalTopic": "Where to Get Pizza in Naples Italy Home of the Original Margherita Pie",
+    "slug": "where-to-get-pizza-in-naples-italy-home-of-the-original-margherita-pie",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-Where20to20Get20Pizza20i",
+        "query": "Where to Get Pizza in Naples Italy Home of the Original Margherita Pie",
+        "sourceUrl": "https://www.cntraveler.com/story/where-to-get-pizza-in-naples-italy-home-of-the-original-margherita-pie",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-27T09:00:00.000Z",
+        "contentSnippet": "The best pizza in the city, according to a longtime visitor.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T09:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Where to Get Pizza in Naples, Italy, Home of the Original Margherita Pie",
+            "itemLink": "https://www.cntraveler.com/story/where-to-get-pizza-in-naples-italy-home-of-the-original-margherita-pie",
+            "publishedDate": "2026-09-27T09:00:00.000Z",
+            "contentSnippet": "The best pizza in the city, according to a longtime visitor.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Inspiration / Food & Drink",
+              "Destinations"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Inspiration / Food & Drink",
+            "Destinations"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "where to get pizza in naples italy home of the original margherita pie"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T09:00:00.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Inspiration / Food & Drink",
+      "Destinations"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:31.294Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260927-exclusive-gucci-got-the-gang-t",
+    "canonicalTopic": "Exclusive Gucci Got the Gang Together for a Late Night After-party",
+    "slug": "exclusive-gucci-got-the-gang-together-for-a-late-night-after-party",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-1-Exclusive3A20Gucci20Got",
+        "query": "Exclusive Gucci Got the Gang Together for a Late Night After-party",
+        "sourceUrl": "https://www.vogue.com/slideshow/gucci-after-show-dinner-milan-september-2026",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-27T11:06:37.000Z",
+        "contentSnippet": "Hours after presenting his Spring 2027 show, Demna gathered his crew from the front row and runway for an intimate dinner that began in the courtyard of Il Bolognese over Negronis.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T11:06:37.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Exclusive: Gucci Got the Gang Together for a Late Night After-Party",
+            "itemLink": "https://www.vogue.com/slideshow/gucci-after-show-dinner-milan-september-2026",
+            "publishedDate": "2026-09-27T11:06:37.000Z",
+            "contentSnippet": "Hours after presenting his Spring 2027 show, Demna gathered his crew from the front row and runway for an intimate dinner that began in the courtyard of Il Bolognese over Negronis.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Living / Parties"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Living / Parties"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "exclusive gucci got the gang together for a late night after-party"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T11:06:37.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Living / Parties"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:31.339Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260927-the-12-best-airbnbs-in-big-sur",
+    "canonicalTopic": "The 12 Best Airbnbs in Big Sur for Your West Coast Road Trip",
+    "slug": "the-12-best-airbnbs-in-big-sur-for-your-west-coast-road-trip",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-2-The201220Best20Airbnbs20",
+        "query": "The 12 Best Airbnbs in Big Sur for Your West Coast Road Trip",
+        "sourceUrl": "https://www.vogue.com/article/best-airbnbs-in-big-sur",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-27T10:00:00.000Z",
+        "contentSnippet": "Book one of the best Airbnbs in Big Sur ahead of your trip to the California Coast, from cozy cottages to sprawling residences.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "The 12 Best Airbnbs in Big Sur for Your West Coast Road Trip",
+            "itemLink": "https://www.vogue.com/article/best-airbnbs-in-big-sur",
+            "publishedDate": "2026-09-27T10:00:00.000Z",
+            "contentSnippet": "Book one of the best Airbnbs in Big Sur ahead of your trip to the California Coast, from cozy cottages to sprawling residences.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Living / Travel",
+              "Shopping",
+              "travel_destination"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Living / Travel",
+            "Shopping",
+            "travel_destination"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the 12 best airbnbs in big sur for your west coast road trip"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T10:00:00.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Living / Travel",
+      "Shopping",
+      "travel_destination"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:31.379Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260927-how-to-wear-the-art-deco-trend",
+    "canonicalTopic": "How to Wear the Art Deco Trend for Wedding Guest Dressing",
+    "slug": "how-to-wear-the-art-deco-trend-for-wedding-guest-dressing",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-3-How20to20Wear20the20Art20",
+        "query": "How to Wear the Art Deco Trend for Wedding Guest Dressing",
+        "sourceUrl": "https://www.vogue.com/article/art-deco-wedding-guest-dress-trend",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-27T10:00:00.000Z",
+        "contentSnippet": "Want to incorporate one of fall's biggest trends into your occasionwear wardrobe? Here, we pulled together the best Art Deco dresses for wedding guests, from brands like Ulla Johnson, Bode, and more.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "How to Wear the Art Deco Trend for Wedding Guest Dressing",
+            "itemLink": "https://www.vogue.com/article/art-deco-wedding-guest-dress-trend",
+            "publishedDate": "2026-09-27T10:00:00.000Z",
+            "contentSnippet": "Want to incorporate one of fall's biggest trends into your occasionwear wardrobe? Here, we pulled together the best Art Deco dresses for wedding guests, from brands like Ulla Johnson, Bode, and more.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Shopping",
+              "Shopping / Wedding",
+              "Weddings"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Shopping",
+            "Shopping / Wedding",
+            "Weddings"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how to wear the art deco trend for wedding guest dressing"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T10:00:00.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Shopping",
+      "Shopping / Wedding",
+      "Weddings"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:31.419Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260927-olivia-rodrigos-melting-dress-",
+    "canonicalTopic": "Olivia Rodrigos Melting Dress Revives One of Fashions Great Runway Experiments",
+    "slug": "olivia-rodrigos-melting-dress-revives-one-of-fashions-great-runway-experiments",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-5-Olivia20RodrigoE28099s20Me",
+        "query": "Olivia Rodrigos Melting Dress Revives One of Fashions Great Runway Experiments",
+        "sourceUrl": "https://www.vogue.com/article/olivia-rodrigo-melting-dress-unraveled-tour",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-26T21:47:46.000Z",
+        "contentSnippet": "For the opening night of The Unraveled Tour, Rodrigo enlisted the iconic and innovative designer Hussein Chalayan to make a dress that dissolves under water.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T21:47:46.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Olivia Rodrigo’s Melting Dress Revives One of Fashion’s Great Runway Experiments",
+            "itemLink": "https://www.vogue.com/article/olivia-rodrigo-melting-dress-unraveled-tour",
+            "publishedDate": "2026-09-26T21:47:46.000Z",
+            "contentSnippet": "For the opening night of The Unraveled Tour, Rodrigo enlisted the iconic and innovative designer Hussein Chalayan to make a dress that dissolves under water.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Fashion / Celebrity Style",
+              "Fashion",
+              "Fashion / Designers"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Fashion / Celebrity Style",
+            "Fashion",
+            "Fashion / Designers"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "olivia rodrigos melting dress revives one of fashions great runway experiments"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T21:47:46.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Fashion / Celebrity Style",
+      "Fashion",
+      "Fashion / Designers"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:31.494Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260927-eight-buildings-with-dramatic-",
+    "canonicalTopic": "Eight Buildings with Dramatic Charred-timber Facades",
+    "slug": "eight-buildings-with-dramatic-charred-timber-facades",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-Eight20buildings20with",
+        "query": "Eight Buildings with Dramatic Charred-timber Facades",
+        "sourceUrl": "https://www.dezeen.com/2026/09/27/buildings-dramatic-charred-timber-facades/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-27T09:00:45.000Z",
+        "contentSnippet": "For our latest roundup, we've collected buildings clad in charred timber, including a dark-hued yoga retreat and a cabin \"shaped by fire\". Charred timber is used in projects across the world to create a dramatic, tactile exterior. The effect is sometimes made using a Japanese technique known as shou sugi ban. Here, we have collated The post Eight buildings with dramatic charred-timber facades appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T09:00:45.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Eight buildings with dramatic charred-timber facades",
+            "itemLink": "https://www.dezeen.com/2026/09/27/buildings-dramatic-charred-timber-facades/",
+            "publishedDate": "2026-09-27T09:00:45.000Z",
+            "contentSnippet": "For our latest roundup, we've collected buildings clad in charred timber, including a dark-hued yoga retreat and a cabin \"shaped by fire\". Charred timber is used in projects across the world to create a dramatic, tactile exterior. The effect is sometimes made using a Japanese technique known as shou sugi ban. Here, we have collated The post Eight buildings with dramatic charred-timber facades appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Blackened wood",
+              "Wooden architecture",
+              "Roundups"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Blackened wood",
+            "Wooden architecture",
+            "Roundups"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "eight buildings with dramatic charred-timber facades"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T09:00:45.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Blackened wood",
+      "Wooden architecture",
+      "Roundups"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:31.533Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260927-harvard-university-transforms-",
+    "canonicalTopic": "Harvard University Transforms Waste Wool into Cladding for Retrofits",
+    "slug": "harvard-university-transforms-waste-wool-into-cladding-for-retrofits",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-2-Harvard20University20t",
+        "query": "Harvard University Transforms Waste Wool into Cladding for Retrofits",
+        "sourceUrl": "https://www.dezeen.com/2026/09/27/waste-wool-cladding-harvard-university-oslo-architecture-triennale/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-27T05:00:23.000Z",
+        "contentSnippet": "Grinham Research Group at Harvard University has developed an insulating cladding tile made from waste wool, which was presented at this year's Oslo Architecture Triennale. In an installation named Upcycling Wool Ecologies, Grinham Research Group showcased its tiles on a timber frame in Oslo's Sofienberg Church as part of the triennale's main exhibition, which takes The post Harvard University transforms waste wool into cladding for retrofits appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T05:00:23.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Harvard University transforms waste wool into cladding for retrofits",
+            "itemLink": "https://www.dezeen.com/2026/09/27/waste-wool-cladding-harvard-university-oslo-architecture-triennale/",
+            "publishedDate": "2026-09-27T05:00:23.000Z",
+            "contentSnippet": "Grinham Research Group at Harvard University has developed an insulating cladding tile made from waste wool, which was presented at this year's Oslo Architecture Triennale. In an installation named Upcycling Wool Ecologies, Grinham Research Group showcased its tiles on a timber frame in Oslo's Sofienberg Church as part of the triennale's main exhibition, which takes The post Harvard University transforms waste wool into cladding for retrofits appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Design",
+              "Tiles",
+              "Wool",
+              "Harvard University",
+              "Materials",
+              "Recycling",
+              "Biomaterials",
+              "Oslo Architecture Triennale"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Design",
+            "Tiles",
+            "Wool",
+            "Harvard University",
+            "Materials",
+            "Recycling",
+            "Biomaterials",
+            "Oslo Architecture Triennale"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "harvard university transforms waste wool into cladding for retrofits"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T05:00:23.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Design",
+      "Tiles",
+      "Wool",
+      "Harvard University",
+      "Materials",
+      "Recycling",
+      "Biomaterials",
+      "Oslo Architecture Triennale"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:31.577Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260927-rockwell-group-eschews-90-degr",
+    "canonicalTopic": "Rockwell Group Eschews 90-degree Angles for Skywalker Grill at Lucas Museum",
+    "slug": "rockwell-group-eschews-90-degree-angles-for-skywalker-grill-at-lucas-museum",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-3-Rockwell20Group20esche",
+        "query": "Rockwell Group Eschews 90-degree Angles for Skywalker Grill at Lucas Museum",
+        "sourceUrl": "https://www.dezeen.com/2026/09/26/skywalker-grill-lucas-museum-narrative-art-los-angeles-rockwell-group/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-26T17:00:07.000Z",
+        "contentSnippet": "Here's a closer look inside the newly opened Lucas Museum of Narrative Art, where design studio Rockwell Group has outfitted a restaurant and bar that \"responds to the museum's distinctive biomorphic architecture\". Rockwell Group's Los Angeles office designed the Skywalker Grill without a single 90-degree angle, continuing the sweeping curves of the building by MAD The post Rockwell Group eschews 90-degree angles for Skywalker Grill at Lucas Museum appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T17:00:07.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Rockwell Group eschews 90-degree angles for Skywalker Grill at Lucas Museum",
+            "itemLink": "https://www.dezeen.com/2026/09/26/skywalker-grill-lucas-museum-narrative-art-los-angeles-rockwell-group/",
+            "publishedDate": "2026-09-26T17:00:07.000Z",
+            "contentSnippet": "Here's a closer look inside the newly opened Lucas Museum of Narrative Art, where design studio Rockwell Group has outfitted a restaurant and bar that \"responds to the museum's distinctive biomorphic architecture\". Rockwell Group's Los Angeles office designed the Skywalker Grill without a single 90-degree angle, continuing the sweeping curves of the building by MAD The post Rockwell Group eschews 90-degree angles for Skywalker Grill at Lucas Museum appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Interiors",
+              "Los Angeles",
+              "California",
+              "USA",
+              "Restaurants",
+              "Rockwell Group",
+              "Lucas Museum of Narrative Art"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Interiors",
+            "Los Angeles",
+            "California",
+            "USA",
+            "Restaurants",
+            "Rockwell Group",
+            "Lucas Museum of Narrative Art"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "rockwell group eschews 90-degree angles for skywalker grill at lucas museum"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T17:00:07.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Interiors",
+      "Los Angeles",
+      "California",
+      "USA",
+      "Restaurants",
+      "Rockwell Group",
+      "Lucas Museum of Narrative Art"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:31.624Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260927-ergonomic-lounge-chair-among-p",
+    "canonicalTopic": "Ergonomic Lounge Chair Among Projects from Tomas Bata University in Zln",
+    "slug": "ergonomic-lounge-chair-among-projects-from-tomas-bata-university-in-zln",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-4-Ergonomic20lounge20cha",
+        "query": "Ergonomic Lounge Chair Among Projects from Tomas Bata University in Zln",
+        "sourceUrl": "https://www.dezeen.com/2026/09/26/ergonomic-lounge-chair-tomas-bata-university-in-zlin-schoolshows/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-26T15:00:50.000Z",
+        "contentSnippet": "Dezeen School Shows: a low-profile leather lounge chair equipped with CNC-bent steel legs is among the projects from Tomas Bata University in Zlín. Also featured is a website that explores free speech and a fashion collection using natural indigo dye. Tomas Bata University in Zlín Institution: Faculty of Multimedia Communications Course: Fashion Design, Product Design, The post Ergonomic lounge chair among projects from Tomas Bata University in Zlín appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-26T15:00:50.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Ergonomic lounge chair among projects from Tomas Bata University in Zlín",
+            "itemLink": "https://www.dezeen.com/2026/09/26/ergonomic-lounge-chair-tomas-bata-university-in-zlin-schoolshows/",
+            "publishedDate": "2026-09-26T15:00:50.000Z",
+            "contentSnippet": "Dezeen School Shows: a low-profile leather lounge chair equipped with CNC-bent steel legs is among the projects from Tomas Bata University in Zlín. Also featured is a website that explores free speech and a fashion collection using natural indigo dye. Tomas Bata University in Zlín Institution: Faculty of Multimedia Communications Course: Fashion Design, Product Design, The post Ergonomic lounge chair among projects from Tomas Bata University in Zlín appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "School Shows",
+              "Student projects",
+              "Graduates",
+              "Tomas Bata University in Zlín"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "School Shows",
+            "Student projects",
+            "Graduates",
+            "Tomas Bata University in Zlín"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ergonomic lounge chair among projects from tomas bata university in zln"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-26T15:00:50.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "School Shows",
+      "Student projects",
+      "Graduates",
+      "Tomas Bata University in Zlín"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:31.676Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260927-beyond-frontman-doc-because-of",
+    "canonicalTopic": "Beyond Frontman Doc Because of You Ka Kui to Open Uks Odyssey Film Festival Lands Local Distribution Exclusive",
+    "slug": "beyond-frontman-doc-because-of-you-ka-kui-to-open-uks-odyssey-film-festival-lands-local-distribution-exclusive",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-1-Beyond20Frontman",
+        "query": "Beyond Frontman Doc Because of You Ka Kui to Open Uks Odyssey Film Festival Lands Local Distribution Exclusive",
+        "sourceUrl": "https://variety.com/2026/film/news/beyond-frontman-doc-because-of-you-ka-kui-odyssey-fest-1236876790/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-27T10:17:20.000Z",
+        "contentSnippet": "\"Because of You Ka Kui,\" a documentary on the late Beyond frontman Wong Ka Kui, will open the sixth Odyssey Film Festival in the U.K., with NGO U.K.-China Film Collab also picking up the Hong Kong film for local distribution. Discussions began in March at FilMart in Hong Kong, which U.K.-China Film Collab attended with […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T10:17:20.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Beyond Frontman Doc 'Because of You Ka Kui' to Open U.K.'s Odyssey Film Festival, Lands Local Distribution (EXCLUSIVE)",
+            "itemLink": "https://variety.com/2026/film/news/beyond-frontman-doc-because-of-you-ka-kui-odyssey-fest-1236876790/",
+            "publishedDate": "2026-09-27T10:17:20.000Z",
+            "contentSnippet": "\"Because of You Ka Kui,\" a documentary on the late Beyond frontman Wong Ka Kui, will open the sixth Odyssey Film Festival in the U.K., with NGO U.K.-China Film Collab also picking up the Hong Kong film for local distribution. Discussions began in March at FilMart in Hong Kong, which U.K.-China Film Collab attended with […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Asia",
+              "Festivals",
+              "Global",
+              "News",
+              "Because of You Ka Kui",
+              "Beyond",
+              "U.K.-China Film Collab"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Asia",
+            "Festivals",
+            "Global",
+            "News",
+            "Because of You Ka Kui",
+            "Beyond",
+            "U.K.-China Film Collab"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "beyond frontman doc because of you ka kui to open uks odyssey film festival lands local distribution exclusive"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T10:17:20.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Asia",
+      "Festivals",
+      "Global",
+      "News",
+      "Because of You Ka Kui",
+      "Beyond",
+      "U.K.-China Film Collab"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:31.748Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260927-jia-zhangke-readies-zhao-tao-r",
+    "canonicalTopic": "Jia Zhangke Readies Zhao Tao Road Movie Mamma Dunhuang Rules Out Ai in Production Exclusive",
+    "slug": "jia-zhangke-readies-zhao-tao-road-movie-mamma-dunhuang-rules-out-ai-in-production-exclusive",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-2-Jia20Zhangke20Re",
+        "query": "Jia Zhangke Readies Zhao Tao Road Movie Mamma Dunhuang Rules Out Ai in Production Exclusive",
+        "sourceUrl": "https://variety.com/2026/film/festivals/jia-zhangke-mamma-dunhuang-ai-production-1236876776/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-27T09:19:02.000Z",
+        "contentSnippet": "Jia Zhangke will turn his attention to location scouting and production design for his next film, road movie \"Mamma Dunhuang,\" once the 10th Pingyao Crouching Tiger Hidden Dragon International Film Festival wraps on Sept. 30. As revealed by Variety, the film follows a woman who drives from Dunhuang, in western China near Central Asia, all […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T09:19:02.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Jia Zhangke Readies Zhao Tao Road Movie 'Mamma Dunhuang,' Rules Out AI in Production (EXCLUSIVE)",
+            "itemLink": "https://variety.com/2026/film/festivals/jia-zhangke-mamma-dunhuang-ai-production-1236876776/",
+            "publishedDate": "2026-09-27T09:19:02.000Z",
+            "contentSnippet": "Jia Zhangke will turn his attention to location scouting and production design for his next film, road movie \"Mamma Dunhuang,\" once the 10th Pingyao Crouching Tiger Hidden Dragon International Film Festival wraps on Sept. 30. As revealed by Variety, the film follows a woman who drives from Dunhuang, in western China near Central Asia, all […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Asia",
+              "Festivals",
+              "Global",
+              "News",
+              "Jia Zhangke",
+              "Pingyao International Film Festival",
+              "Unknown Pleasures"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Asia",
+            "Festivals",
+            "Global",
+            "News",
+            "Jia Zhangke",
+            "Pingyao International Film Festival",
+            "Unknown Pleasures"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "jia zhangke readies zhao tao road movie mamma dunhuang rules out ai in production exclusive"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T09:19:02.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Asia",
+      "Festivals",
+      "Global",
+      "News",
+      "Jia Zhangke",
+      "Pingyao International Film Festival",
+      "Unknown Pleasures"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:31.812Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260927-tucker-carlson-returns-to-snl-",
+    "canonicalTopic": "Tucker Carlson Returns to Snl to Review the Odyssey Gender-neutral Spider-man and Left-wing Obsession",
+    "slug": "tucker-carlson-returns-to-snl-to-review-the-odyssey-gender-neutral-spider-man-and-left-wing-obsession",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-3-Tucker20Carlson2",
+        "query": "Tucker Carlson Returns to Snl to Review the Odyssey Gender-neutral Spider-man and Left-wing Obsession",
+        "sourceUrl": "https://variety.com/2026/tv/news/snl-tucker-carlson-weekend-update-summer-movies-1236876744/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-27T04:58:53.000Z",
+        "contentSnippet": "On the first \"Weekend Update\" of \"Saturday Night Live\" Season 52, Jeremy Culhane revived his fan-favorite impression of Tucker Carlson to offer his thoughts on some of the summer's biggest blockbusters. On \"The Odyssey,\" Carlson mentioned the specialty format of Imax 70mm, saying, \"The Hollywood cabal shoots its filth with millimeters — or as I […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T04:58:53.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Tucker Carlson Returns to 'SNL' to Review 'The Odyssey,' Gender-Neutral 'Spider-Man' and Left-Wing 'Obsession'",
+            "itemLink": "https://variety.com/2026/tv/news/snl-tucker-carlson-weekend-update-summer-movies-1236876744/",
+            "publishedDate": "2026-09-27T04:58:53.000Z",
+            "contentSnippet": "On the first \"Weekend Update\" of \"Saturday Night Live\" Season 52, Jeremy Culhane revived his fan-favorite impression of Tucker Carlson to offer his thoughts on some of the summer's biggest blockbusters. On \"The Odyssey,\" Carlson mentioned the specialty format of Imax 70mm, saying, \"The Hollywood cabal shoots its filth with millimeters — or as I […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "Saturday Night Live"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "Saturday Night Live"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "tucker carlson returns to snl to review the odyssey gender-neutral spider-man and left-wing obsession"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T04:58:53.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "Saturday Night Live"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:31.881Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260927-heres-where-to-livestream-taku",
+    "canonicalTopic": "Heres Where to Livestream Takuma Inoue Vs Tenshin Nasukawa 2 Boxing Online",
+    "slug": "heres-where-to-livestream-takuma-inoue-vs-tenshin-nasukawa-2-boxing-online",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-4-Heres20Where20to",
+        "query": "Heres Where to Livestream Takuma Inoue Vs Tenshin Nasukawa 2 Boxing Online",
+        "sourceUrl": "https://variety.com/2026/shopping/news/how-to-watch-takuma-inoue-vs-tenshin-nasukawa-2-boxing-live-sept-2026-online-1236873487/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-27T04:30:00.000Z",
+        "contentSnippet": "Teiken Promotions has an epic title bout featuring two prime Japanese boxers this weekend. Champion Takuma Inoue defends his WBC bantamweight title belt against former-kickboxer and -mixed martial artist Tenshin Nasukawa in a rematch. The main event is scheduled for 12 rounds. On Sunday, Sept. 27, Inoue (22-2-0) vs. Nasukawa (8-1-0) takes place at Toyota […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T04:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Here's Where to Livestream Takuma Inoue vs. Tenshin Nasukawa 2 Boxing Online",
+            "itemLink": "https://variety.com/2026/shopping/news/how-to-watch-takuma-inoue-vs-tenshin-nasukawa-2-boxing-live-sept-2026-online-1236873487/",
+            "publishedDate": "2026-09-27T04:30:00.000Z",
+            "contentSnippet": "Teiken Promotions has an epic title bout featuring two prime Japanese boxers this weekend. Champion Takuma Inoue defends his WBC bantamweight title belt against former-kickboxer and -mixed martial artist Tenshin Nasukawa in a rematch. The main event is scheduled for 12 rounds. On Sunday, Sept. 27, Inoue (22-2-0) vs. Nasukawa (8-1-0) takes place at Toyota […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "Boxing",
+              "DAZN",
+              "How to Watch",
+              "NOADS",
+              "Sports"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "Boxing",
+            "DAZN",
+            "How to Watch",
+            "NOADS",
+            "Sports"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "heres where to livestream takuma inoue vs tenshin nasukawa 2 boxing online"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T04:30:00.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "Boxing",
+      "DAZN",
+      "How to Watch",
+      "NOADS",
+      "Sports"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:31.928Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260927-snl-opens-season-with-mamdani-",
+    "canonicalTopic": "Snl Opens Season with Mamdani Hanging Out with Bff Trump Natalie Harp Going Obsession over President",
+    "slug": "snl-opens-season-with-mamdani-hanging-out-with-bff-trump-natalie-harp-going-obsession-over-president",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-5-SNL20Opens20Seas",
+        "query": "Snl Opens Season with Mamdani Hanging Out with Bff Trump Natalie Harp Going Obsession over President",
+        "sourceUrl": "https://variety.com/2026/tv/news/snl-mamdani-trump-natalie-harp-obsession-1236876725/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-27T03:59:57.000Z",
+        "contentSnippet": "Season 52 of “Saturday Night Live” kicked off with its usual cold open, and it involved two unlikely political BFFs. Ramy Youssef stopped by to play New York City Mayor Zohran Mamdani, whose office was visited by James Austin Johnson's Donald Trump. “For some reason that no one can figure out, I really, really like […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T03:59:57.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "'SNL' Opens Season With Mamdani Hanging Out With BFF Trump, Natalie Harp Going 'Obsession' Over President",
+            "itemLink": "https://variety.com/2026/tv/news/snl-mamdani-trump-natalie-harp-obsession-1236876725/",
+            "publishedDate": "2026-09-27T03:59:57.000Z",
+            "contentSnippet": "Season 52 of “Saturday Night Live” kicked off with its usual cold open, and it involved two unlikely political BFFs. Ramy Youssef stopped by to play New York City Mayor Zohran Mamdani, whose office was visited by James Austin Johnson's Donald Trump. “For some reason that no one can figure out, I really, really like […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "Donald Trump",
+              "Saturday Night Live",
+              "SNL"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "Donald Trump",
+            "Saturday Night Live",
+            "SNL"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "snl opens season with mamdani hanging out with bff trump natalie harp going obsession over president"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T03:59:57.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "Donald Trump",
+      "Saturday Night Live",
+      "SNL"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:31.994Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260927-john-turturro-on-joining-the-o",
+    "canonicalTopic": "John Turturro on Joining the Oscar Race — and Severance Season 3",
+    "slug": "john-turturro-on-joining-the-oscar-race-and-severance-season-3",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-1-John20Turturro20on2",
+        "query": "John Turturro on Joining the Oscar Race — and Severance Season 3",
+        "sourceUrl": "https://www.hollywoodreporter.com/movies/movie-news/john-turturro-oscar-pickpocket-new-york-severance-zurich-1236712804/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-27T10:39:07.000Z",
+        "contentSnippet": "The Zurich Golden Eye winner sat down for a masterclass session in Switzerland, where he spoke about the long-overdue buzz for his latest performance in 'The Only Living Pickpocket in New York.'",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T10:39:07.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "John Turturro on Joining the Oscar Race — and 'Severance' Season 3",
+            "itemLink": "https://www.hollywoodreporter.com/movies/movie-news/john-turturro-oscar-pickpocket-new-york-severance-zurich-1236712804/",
+            "publishedDate": "2026-09-27T10:39:07.000Z",
+            "contentSnippet": "The Zurich Golden Eye winner sat down for a masterclass session in Switzerland, where he spoke about the long-overdue buzz for his latest performance in 'The Only Living Pickpocket in New York.'",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Movie News",
+              "Movies",
+              "international",
+              "John Turturro",
+              "Severance",
+              "The Only Living Pickpocket in New York",
+              "Zurich 2026",
+              "Zurich Film Festival"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Movie News",
+            "Movies",
+            "international",
+            "John Turturro",
+            "Severance",
+            "The Only Living Pickpocket in New York",
+            "Zurich 2026",
+            "Zurich Film Festival"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "john turturro on joining the oscar race — and severance season 3"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T10:39:07.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Movie News",
+      "Movies",
+      "international",
+      "John Turturro",
+      "Severance",
+      "The Only Living Pickpocket in New York",
+      "Zurich 2026",
+      "Zurich Film Festival"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:32.039Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260927-hints-of-sex-and-the-city-and-",
+    "canonicalTopic": "Hints of Sex and the City and Narcos a Look at Literary Works Being Pitched for Screen Adaptations at Iberseries & Platino Industria",
+    "slug": "hints-of-sex-and-the-city-and-narcos-a-look-at-literary-works-being-pitched-for-screen-adaptations-at-iberseries-platino-industria",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-2-Hints20of20Sex20and",
+        "query": "Hints of Sex and the City and Narcos a Look at Literary Works Being Pitched for Screen Adaptations at Iberseries & Platino Industria",
+        "sourceUrl": "https://www.hollywoodreporter.com/tv/tv-news/book-screen-adaptation-pitches-iberseries-platino-industria-1236696290/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-27T08:00:00.000Z",
+        "contentSnippet": "Among the featured books are also the memoirs of a Medellín drug cartel founder and Che Guevara’s first wife, plus a graphic novel by the creator of the opening title design for 'Only Murders in the Building.'",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T08:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Hints of 'Sex and the City' and 'Narcos': A Look at Literary Works Being Pitched for Screen Adaptations at Iberseries & Platino Industria",
+            "itemLink": "https://www.hollywoodreporter.com/tv/tv-news/book-screen-adaptation-pitches-iberseries-platino-industria-1236696290/",
+            "publishedDate": "2026-09-27T08:00:00.000Z",
+            "contentSnippet": "Among the featured books are also the memoirs of a Medellín drug cartel founder and Che Guevara’s first wife, plus a graphic novel by the creator of the opening title design for 'Only Murders in the Building.'",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "TV",
+              "TV News",
+              "Books",
+              "Iberseries & Platino Industria",
+              "Iberseries 2026",
+              "international"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "TV",
+            "TV News",
+            "Books",
+            "Iberseries & Platino Industria",
+            "Iberseries 2026",
+            "international"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "hints of sex and the city and narcos a look at literary works being pitched for screen adaptations at iberseries & platino industria"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T08:00:00.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "TV",
+      "TV News",
+      "Books",
+      "Iberseries & Platino Industria",
+      "Iberseries 2026",
+      "international"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:32.117Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260927-jalen-brunson-brings-the-new-y",
+    "canonicalTopic": "Jalen Brunson Brings the New York Knicks to the Saturday Night Live Season 52 Premiere",
+    "slug": "jalen-brunson-brings-the-new-york-knicks-to-the-saturday-night-live-season-52-premiere",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-3-Jalen20Brunson20Bri",
+        "query": "Jalen Brunson Brings the New York Knicks to the Saturday Night Live Season 52 Premiere",
+        "sourceUrl": "https://www.hollywoodreporter.com/tv/tv-news/jalen-brunson-snl-season-52-premiere-knicks-players-1236712688/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-27T03:49:43.000Z",
+        "contentSnippet": "Karl-Anthony Towns, Josh Hart, OG Anunoby and Mikal Bridges showed up to support the NBA Finals MVP's first hosting stint.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T03:49:43.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Jalen Brunson Brings the New York Knicks to the 'Saturday Night Live' Season 52 Premiere",
+            "itemLink": "https://www.hollywoodreporter.com/tv/tv-news/jalen-brunson-snl-season-52-premiere-knicks-players-1236712688/",
+            "publishedDate": "2026-09-27T03:49:43.000Z",
+            "contentSnippet": "Karl-Anthony Towns, Josh Hart, OG Anunoby and Mikal Bridges showed up to support the NBA Finals MVP's first hosting stint.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "TV",
+              "TV News",
+              "Jalen Brunson",
+              "KATSEYE",
+              "New York Knicks",
+              "saturday night live",
+              "SNL"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "TV",
+            "TV News",
+            "Jalen Brunson",
+            "KATSEYE",
+            "New York Knicks",
+            "saturday night live",
+            "SNL"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "jalen brunson brings the new york knicks to the saturday night live season 52 premiere"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T03:49:43.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "TV",
+      "TV News",
+      "Jalen Brunson",
+      "KATSEYE",
+      "New York Knicks",
+      "saturday night live",
+      "SNL"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:32.180Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260927-star-wars-jon-watts-to-direct-",
+    "canonicalTopic": "Star Wars Jon Watts to Direct Next Movie for Lucasfilm",
+    "slug": "star-wars-jon-watts-to-direct-next-movie-for-lucasfilm",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-4-Star20Wars3A20Jon20",
+        "query": "Star Wars Jon Watts to Direct Next Movie for Lucasfilm",
+        "sourceUrl": "https://www.hollywoodreporter.com/news/general-news/star-wars-jon-watts-direct-next-movie-lucasfilm-1236712709/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-27T00:37:13.000Z",
+        "contentSnippet": "Simon Kinberg is writing the new trilogy that is said to be next episodes of the Skywalker Saga.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T00:37:13.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "'Star Wars': Jon Watts to Direct Next Movie for Lucasfilm",
+            "itemLink": "https://www.hollywoodreporter.com/news/general-news/star-wars-jon-watts-direct-next-movie-lucasfilm-1236712709/",
+            "publishedDate": "2026-09-27T00:37:13.000Z",
+            "contentSnippet": "Simon Kinberg is writing the new trilogy that is said to be next episodes of the Skywalker Saga.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "General News",
+              "Disney",
+              "Jon Watts",
+              "Lucasfilm",
+              "Simon Kinberg",
+              "Star Wars"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "General News",
+            "Disney",
+            "Jon Watts",
+            "Lucasfilm",
+            "Simon Kinberg",
+            "Star Wars"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "star wars jon watts to direct next movie for lucasfilm"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T00:37:13.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "General News",
+      "Disney",
+      "Jon Watts",
+      "Lucasfilm",
+      "Simon Kinberg",
+      "Star Wars"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:32.221Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260927-godzilla-minus-zero-review-mon",
+    "canonicalTopic": "Godzilla Minus Zero Review Monster Movie Genius Takashi Yamazaki Returns with a Crackling Kaiju Epic Every Bit As Exciting As Its Predecessor",
+    "slug": "godzilla-minus-zero-review-monster-movie-genius-takashi-yamazaki-returns-with-a-crackling-kaiju-epic-every-bit-as-exciting-as-its-predecessor",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-5-Godzilla20Minus20Ze",
+        "query": "Godzilla Minus Zero Review Monster Movie Genius Takashi Yamazaki Returns with a Crackling Kaiju Epic Every Bit As Exciting As Its Predecessor",
+        "sourceUrl": "https://www.hollywoodreporter.com/movies/movie-reviews/godzilla-minus-zero-review-takashi-yamazaki-1236712678/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-27T00:30:00.000Z",
+        "contentSnippet": "This direct sequel to the 2023 global sensation picks up in 1949, as a makeshift family finds its domestic harmony again threatened by a rampaging creature’s path of destruction.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T00:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "'Godzilla Minus Zero' Review: Monster Movie Genius Takashi Yamazaki Returns With a Crackling Kaiju Epic Every Bit as Exciting as Its Predecessor",
+            "itemLink": "https://www.hollywoodreporter.com/movies/movie-reviews/godzilla-minus-zero-review-takashi-yamazaki-1236712678/",
+            "publishedDate": "2026-09-27T00:30:00.000Z",
+            "contentSnippet": "This direct sequel to the 2023 global sensation picks up in 1949, as a makeshift family finds its domestic harmony again threatened by a rampaging creature’s path of destruction.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Movie Reviews",
+              "Movies",
+              "GKIDS",
+              "Godzilla Minus Zero",
+              "japan",
+              "New York Film Festival",
+              "New York Film Festival 2026",
+              "Takashi Yamazaki",
+              "Toho"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Movie Reviews",
+            "Movies",
+            "GKIDS",
+            "Godzilla Minus Zero",
+            "japan",
+            "New York Film Festival",
+            "New York Film Festival 2026",
+            "Takashi Yamazaki",
+            "Toho"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "godzilla minus zero review monster movie genius takashi yamazaki returns with a crackling kaiju epic every bit as exciting as its predecessor"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T00:30:00.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Movie Reviews",
+      "Movies",
+      "GKIDS",
+      "Godzilla Minus Zero",
+      "japan",
+      "New York Film Festival",
+      "New York Film Festival 2026",
+      "Takashi Yamazaki",
+      "Toho"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T11:33:32.303Z",
+    "pinterestScore": 79.2
   }
 ]
