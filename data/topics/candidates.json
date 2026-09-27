@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-27T11:33:32.305Z",
+    "updatedAt": "2026-09-27T16:32:56.919Z",
     "revisionCyclesCount": 0
   },
   {
@@ -49932,7 +49932,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-27T11:33:32.447Z",
+    "updatedAt": "2026-09-27T16:32:57.206Z",
     "pinterestScore": 85.6,
     "revisionCyclesCount": 0
   },
@@ -49995,7 +49995,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-27T11:33:32.473Z",
+    "updatedAt": "2026-09-27T16:32:57.251Z",
     "pinterestScore": 84.8,
     "revisionCyclesCount": 0
   },
@@ -64745,9 +64745,10 @@
     "totalScore": 84,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-24T11:15:12.671Z",
-    "pinterestScore": 88.3
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-27T16:34:06.755Z",
+    "pinterestScore": 88.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-entertainment-20260924-ecuador-vs-corea-del-sur",
@@ -69404,7 +69405,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-27T11:33:32.340Z",
+    "updatedAt": "2026-09-27T16:32:56.990Z",
     "pinterestScore": 87.8,
     "revisionCyclesCount": 0
   },
@@ -69467,7 +69468,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-27T11:33:32.387Z",
+    "updatedAt": "2026-09-27T16:32:57.087Z",
     "pinterestScore": 84.6,
     "revisionCyclesCount": 0
   },
@@ -69530,7 +69531,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-27T11:33:32.424Z",
+    "updatedAt": "2026-09-27T16:32:57.157Z",
     "pinterestScore": 82.9,
     "revisionCyclesCount": 0
   },
@@ -75766,13 +75767,52 @@
           "feedName": "Vogue Style & Culture",
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-1-HUI20Spring20202720Read",
+        "query": "HUI Spring 2027 Ready-to-Wear",
+        "sourceUrl": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/hui",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-27T16:29:05.000Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T16:29:05.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "HUI Spring 2027 Ready-to-Wear",
+            "itemLink": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/hui",
+            "publishedDate": "2026-09-27T16:29:05.000Z",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "blumarine spring 2027 ready-to-wear",
       "moschino spring 2027 ready-to-wear",
       "ferragamo spring 2027 ready-to-wear",
-      "msgm spring 2027 ready-to-wear"
+      "msgm spring 2027 ready-to-wear",
+      "hui spring 2027 ready-to-wear"
     ],
     "freshnessScore": 88,
     "createdAt": "2026-09-25T11:18:56.000Z",
@@ -75800,7 +75840,7 @@
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-09-26T15:56:20.185Z",
+    "updatedAt": "2026-09-27T16:32:55.262Z",
     "pinterestScore": 79.2,
     "revisionCyclesCount": 0
   },
@@ -90478,6 +90518,2400 @@
     "opportunityType": "ARTICLE",
     "status": "SCORED",
     "updatedAt": "2026-09-27T11:33:32.303Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260927-titans-vs-giants",
+    "canonicalTopic": "Titans Vs Giants",
+    "slug": "titans-vs-giants",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-titans20vs20giant",
+        "query": "Titans Vs Giants",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-27T16:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-27T16:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "titans vs giants",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "titans vs giants"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T16:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-27T16:32:54.488Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260927-panthers-vs-browns",
+    "canonicalTopic": "Panthers Vs Browns",
+    "slug": "panthers-vs-browns",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-panthers20vs20bro",
+        "query": "Panthers Vs Browns",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-27T16:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-27T16:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "panthers vs browns",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "panthers vs browns"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T16:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-27T16:32:54.522Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260927-seahawks-vs-commanders",
+    "canonicalTopic": "Seahawks Vs Commanders",
+    "slug": "seahawks-vs-commanders",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-seahawks20vs20com",
+        "query": "Seahawks Vs Commanders",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-27T16:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-27T16:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "seahawks vs commanders",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "seahawks vs commanders"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T16:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-27T16:32:54.562Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260927-chargers-vs-bills",
+    "canonicalTopic": "Chargers Vs Bills",
+    "slug": "chargers-vs-bills",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-chargers20vs20bil",
+        "query": "Chargers Vs Bills",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-27T16:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-27T16:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "chargers vs bills",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "chargers vs bills"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T16:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-27T16:32:54.591Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260927-jets-vs-lions",
+    "canonicalTopic": "Jets Vs Lions",
+    "slug": "jets-vs-lions",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-jets20vs20lions",
+        "query": "Jets Vs Lions",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-27T16:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-27T16:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "jets vs lions",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "jets vs lions"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T16:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-27T16:32:54.619Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260927-texans-vs-colts",
+    "canonicalTopic": "Texans Vs Colts",
+    "slug": "texans-vs-colts",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-texans20vs20colts",
+        "query": "Texans Vs Colts",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-27T16:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-27T16:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "texans vs colts",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "texans vs colts"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T16:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-27T16:32:54.647Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260927-start-em-sit-em",
+    "canonicalTopic": "Start Em Sit Em",
+    "slug": "start-em-sit-em",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-start20em20sit20em",
+        "query": "Start Em Sit Em",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-27T16:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-27T16:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "start em sit em",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "start em sit em"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T16:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-27T16:32:54.675Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260927-tyreek-hill",
+    "canonicalTopic": "Tyreek Hill",
+    "slug": "tyreek-hill",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-tyreek20hill",
+        "query": "Tyreek Hill",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-27T15:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-27T15:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "tyreek hill",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "tyreek hill"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T15:50:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-27T16:32:54.699Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260927-sam-darnold",
+    "canonicalTopic": "Sam Darnold",
+    "slug": "sam-darnold",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-sam20darnold",
+        "query": "Sam Darnold",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-27T15:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-27T15:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "sam darnold",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "sam darnold"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T15:50:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-27T16:32:54.724Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260927-who-should-i-start",
+    "canonicalTopic": "Who Should I Start",
+    "slug": "who-should-i-start",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-who20should20i20st",
+        "query": "Who Should I Start",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-27T15:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-27T15:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "who should i start",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "who should i start"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T15:50:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-27T16:32:54.753Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-tech-ai-20260927-how-the-smithsonian-became-the",
+    "canonicalTopic": "How the Smithsonian Became the Latest Front in Trumps Culture War",
+    "slug": "how-the-smithsonian-became-the-latest-front-in-trumps-culture-war",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-1-How20the20Smithsonian20",
+        "query": "How the Smithsonian Became the Latest Front in Trumps Culture War",
+        "sourceUrl": "https://arstechnica.com/tech-policy/2026/09/how-the-smithsonian-became-the-latest-front-in-trumps-culture-war/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-27T11:00:12.000Z",
+        "contentSnippet": "The Smithsonian has faced withering pressure from the Trump administration.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T11:00:12.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "How the Smithsonian became the latest front in Trump’s culture war",
+            "itemLink": "https://arstechnica.com/tech-policy/2026/09/how-the-smithsonian-became-the-latest-front-in-trumps-culture-war/",
+            "publishedDate": "2026-09-27T11:00:12.000Z",
+            "contentSnippet": "The Smithsonian has faced withering pressure from the Trump administration.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Policy",
+              "culture wars",
+              "Smithsonian",
+              "syndication",
+              "trump administration"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Policy",
+            "culture wars",
+            "Smithsonian",
+            "syndication",
+            "trump administration"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how the smithsonian became the latest front in trumps culture war"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T11:00:12.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Policy",
+      "culture wars",
+      "Smithsonian",
+      "syndication",
+      "trump administration"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T16:32:54.854Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260927-why-olpcs-100-laptop-never-sto",
+    "canonicalTopic": "Why Olpcs 100 Laptop Never Stood a Chance",
+    "slug": "why-olpcs-100-laptop-never-stood-a-chance",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-Why20OLPCE28099s202410020lap",
+        "query": "Why Olpcs 100 Laptop Never Stood a Chance",
+        "sourceUrl": "https://www.theverge.com/podcast/1000517/why-olpcs-100-laptop-never-stood-a-chance",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-27T12:25:00.000Z",
+        "contentSnippet": "The idea was big, exciting, and inspiring: What if we could get every kid in the world access to a computer? For a bunch of thinkers and executives in Silicon Valley, it felt like the way to fix everything. But the One Laptop Per Child initiative, and the XO-1 laptop designed to be given away, […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T12:25:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Why OLPC’s $100 laptop never stood a chance",
+            "itemLink": "https://www.theverge.com/podcast/1000517/why-olpcs-100-laptop-never-stood-a-chance",
+            "publishedDate": "2026-09-27T12:25:00.000Z",
+            "contentSnippet": "The idea was big, exciting, and inspiring: What if we could get every kid in the world access to a computer? For a bunch of thinkers and executives in Silicon Valley, it felt like the way to fix everything. But the One Laptop Per Child initiative, and the XO-1 laptop designed to be given away, […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Gadgets",
+              "Laptops",
+              "Podcasts",
+              "Tech",
+              "Version History"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Gadgets",
+            "Laptops",
+            "Podcasts",
+            "Tech",
+            "Version History"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "why olpcs 100 laptop never stood a chance"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T12:25:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Gadgets",
+      "Laptops",
+      "Podcasts",
+      "Tech",
+      "Version History"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T16:32:54.912Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260927-googlebooks-might-be-the-real-",
+    "canonicalTopic": "Googlebooks Might Be the Real Deal",
+    "slug": "googlebooks-might-be-the-real-deal",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-Googlebooks20might20be",
+        "query": "Googlebooks Might Be the Real Deal",
+        "sourceUrl": "https://www.theverge.com/tech/1000424/googlebooks-meta-ray-ban-audio-control-resonant-microsoft-surface-mouse",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-27T12:00:00.000Z",
+        "contentSnippet": "Hi, friends! Welcome to Installer No. 145, your guide to the best and Verge-iest stuff in the world. (If you're new here, welcome, I'm happy to be done traveling for a bit, and also you can read all the old editions at the Installer homepage.) This week, I flew to San Francisco to try out […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T12:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Googlebooks might be the real deal",
+            "itemLink": "https://www.theverge.com/tech/1000424/googlebooks-meta-ray-ban-audio-control-resonant-microsoft-surface-mouse",
+            "publishedDate": "2026-09-27T12:00:00.000Z",
+            "contentSnippet": "Hi, friends! Welcome to Installer No. 145, your guide to the best and Verge-iest stuff in the world. (If you're new here, welcome, I'm happy to be done traveling for a bit, and also you can read all the old editions at the Installer homepage.) This week, I flew to San Francisco to try out […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Installer",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Installer",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "googlebooks might be the real deal"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T12:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Installer",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T16:32:54.954Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260927-the-smart-home-graveyard-is-ge",
+    "canonicalTopic": "The Smart Home Graveyard Is Getting Crowded",
+    "slug": "the-smart-home-graveyard-is-getting-crowded",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-The20smart20home20grave",
+        "query": "The Smart Home Graveyard Is Getting Crowded",
+        "sourceUrl": "https://www.theverge.com/column/1000778/smart-home-june-oven-graveyard",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-27T12:00:00.000Z",
+        "contentSnippet": "This is The Stepback, a weekly newsletter breaking down one essential story from the tech world. For more on the fragile state of your connected devices, follow Jennifer Pattison Tuohy. The Stepback arrives in our subscribers' inboxes on Sunday at 8AM ET. Opt in for The Stepback here. How it started A decade ago, a […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T12:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "The smart home graveyard is getting crowded",
+            "itemLink": "https://www.theverge.com/column/1000778/smart-home-june-oven-graveyard",
+            "publishedDate": "2026-09-27T12:00:00.000Z",
+            "contentSnippet": "This is The Stepback, a weekly newsletter breaking down one essential story from the tech world. For more on the fragile state of your connected devices, follow Jennifer Pattison Tuohy. The Stepback arrives in our subscribers' inboxes on Sunday at 8AM ET. Opt in for The Stepback here. How it started A decade ago, a […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Column",
+              "Smart Home",
+              "Tech",
+              "The Stepback"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Column",
+            "Smart Home",
+            "Tech",
+            "The Stepback"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the smart home graveyard is getting crowded"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T12:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Column",
+      "Smart Home",
+      "Tech",
+      "The Stepback"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T16:32:55.003Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260927-how-to-get-empire-state-buildi",
+    "canonicalTopic": "How to Get Empire State Building Tickets for Your Next Trip to Nyc",
+    "slug": "how-to-get-empire-state-building-tickets-for-your-next-trip-to-nyc",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-How20to20Get20Empire20St",
+        "query": "How to Get Empire State Building Tickets for Your Next Trip to Nyc",
+        "sourceUrl": "https://www.cntraveler.com/story/yes-its-worth-visiting-the-empire-state-building-heres-how-to-do-it",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-27T14:01:00.000Z",
+        "contentSnippet": "Everything you need to know before visiting New York City’s most iconic skyscraper.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T14:01:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "How to Get Empire State Building Tickets for Your Next Trip to NYC",
+            "itemLink": "https://www.cntraveler.com/story/yes-its-worth-visiting-the-empire-state-building-heres-how-to-do-it",
+            "publishedDate": "2026-09-27T14:01:00.000Z",
+            "contentSnippet": "Everything you need to know before visiting New York City’s most iconic skyscraper.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Inspiration",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Inspiration",
+            "Shopping"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how to get empire state building tickets for your next trip to nyc"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T14:01:00.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Inspiration",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T16:32:55.113Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260927-ten-climbers-missing-after-ava",
+    "canonicalTopic": "Ten Climbers Missing After Avalanche Hits Himalayan Base Camp",
+    "slug": "ten-climbers-missing-after-avalanche-hits-himalayan-base-camp",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-4-Ten20climbers20missing",
+        "query": "Ten Climbers Missing After Avalanche Hits Himalayan Base Camp",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cwjdvml9e897o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-27T16:22:37.000Z",
+        "contentSnippet": "The Nepali team was preparing to take overseas climbers up the Himlung Himal peak.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T16:22:37.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Ten climbers missing after avalanche hits Himalayan base camp",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cwjdvml9e897o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-27T16:22:37.000Z",
+            "contentSnippet": "The Nepali team was preparing to take overseas climbers up the Himlung Himal peak.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ten climbers missing after avalanche hits himalayan base camp"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T16:22:37.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T16:32:55.225Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260927-gianvito-rossi-marked-20-years",
+    "canonicalTopic": "Gianvito Rossi Marked 20 Years of Fabulous Footwear and a New Rizzoli Tome",
+    "slug": "gianvito-rossi-marked-20-years-of-fabulous-footwear-and-a-new-rizzoli-tome",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-2-Gianvito20Rossi20Marke",
+        "query": "Gianvito Rossi Marked 20 Years of Fabulous Footwear and a New Rizzoli Tome",
+        "sourceUrl": "https://www.vogue.com/slideshow/gianvito-rossi-20-anniversary-new-rizzoli-book",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-27T14:03:09.000Z",
+        "contentSnippet": "For the brand’s 20th anniversary celebration at Palazzo Serbelloni during Milan Fashion Week, both Naomi Watts and Paloma Elsesser turned up in the Jessica—and told Vogue they were more than happy to spend the evening on their feet.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T14:03:09.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Gianvito Rossi Marked 20 Years of Fabulous Footwear and a New Rizzoli Tome",
+            "itemLink": "https://www.vogue.com/slideshow/gianvito-rossi-20-anniversary-new-rizzoli-book",
+            "publishedDate": "2026-09-27T14:03:09.000Z",
+            "contentSnippet": "For the brand’s 20th anniversary celebration at Palazzo Serbelloni during Milan Fashion Week, both Naomi Watts and Paloma Elsesser turned up in the Jessica—and told Vogue they were more than happy to spend the evening on their feet.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Living / Parties"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Living / Parties"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "gianvito rossi marked 20 years of fabulous footwear and a new rizzoli tome"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T14:03:09.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Living / Parties"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T16:32:55.363Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260927-cashmere-headphones-and-a-punk",
+    "canonicalTopic": "Cashmere Headphones and a Punk Rock Performance Inside Thom Browne and Boses Bash at the Lotos Club",
+    "slug": "cashmere-headphones-and-a-punk-rock-performance-inside-thom-browne-and-boses-bash-at-the-lotos-club",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-3-Cashmere20Headphones20",
+        "query": "Cashmere Headphones and a Punk Rock Performance Inside Thom Browne and Boses Bash at the Lotos Club",
+        "sourceUrl": "https://www.vogue.com/slideshow/thom-brown-bose-headphones-collaboration-launch",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-27T13:12:45.000Z",
+        "contentSnippet": "Thom Browne celebrated his Bose launch with an experiential event in the Upper East Side gilded age mansion, featuring a performance by Danish group Iceage.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T13:12:45.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Cashmere Headphones and a Punk Rock Performance: Inside Thom Browne and Bose’s Bash at The Lotos Club",
+            "itemLink": "https://www.vogue.com/slideshow/thom-brown-bose-headphones-collaboration-launch",
+            "publishedDate": "2026-09-27T13:12:45.000Z",
+            "contentSnippet": "Thom Browne celebrated his Bose launch with an experiential event in the Upper East Side gilded age mansion, featuring a performance by Danish group Iceage.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Living / Parties"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Living / Parties"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "cashmere headphones and a punk rock performance inside thom browne and boses bash at the lotos club"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T13:12:45.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Living / Parties"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T16:32:55.503Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260927-rosala-and-loli-bahia-turn-a-p",
+    "canonicalTopic": "Rosala and Loli Bahia Turn a Paris Pda into a Couples Style Moment",
+    "slug": "rosala-and-loli-bahia-turn-a-paris-pda-into-a-couples-style-moment",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-4-RosalC3ADa20and20Loli20Bah",
+        "query": "Rosala and Loli Bahia Turn a Paris Pda into a Couples Style Moment",
+        "sourceUrl": "https://www.vogue.com/article/rosalia-and-loli-bahia-paris-couple-style",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-27T12:19:49.000Z",
+        "contentSnippet": "The musician and model looked loved up on the streets of Paris, while very much sticking to their own codes of style.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T12:19:49.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Rosalía and Loli Bahia Turn a Paris PDA Into a Couples Style Moment",
+            "itemLink": "https://www.vogue.com/article/rosalia-and-loli-bahia-paris-couple-style",
+            "publishedDate": "2026-09-27T12:19:49.000Z",
+            "contentSnippet": "The musician and model looked loved up on the streets of Paris, while very much sticking to their own codes of style.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Fashion / Celebrity Style",
+              "Fashion"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Fashion / Celebrity Style",
+            "Fashion"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "rosala and loli bahia turn a paris pda into a couples style moment"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T12:19:49.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Fashion / Celebrity Style",
+      "Fashion"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T16:32:55.590Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260927-to-celebrate-their-collaborati",
+    "canonicalTopic": "To Celebrate Their Collaboration Old Navy X Altuzarra Brought Literary Romance to Life at Mcnally Jackson",
+    "slug": "to-celebrate-their-collaboration-old-navy-x-altuzarra-brought-literary-romance-to-life-at-mcnally-jackson",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-5-To20Celebrate20Their20C",
+        "query": "To Celebrate Their Collaboration Old Navy X Altuzarra Brought Literary Romance to Life at Mcnally Jackson",
+        "sourceUrl": "https://www.vogue.com/slideshow/old-navy-altuzarra-launch-party",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-27T12:09:23.000Z",
+        "contentSnippet": "Inside the Old Navy x Altuzarra launch party with Zac Posen, Joseph Altuzarra, and Alexa Chung at McNally Jackson Books Rockefeller Center.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T12:09:23.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "To Celebrate Their Collaboration, Old Navy x Altuzarra Brought Literary Romance to Life at McNally Jackson",
+            "itemLink": "https://www.vogue.com/slideshow/old-navy-altuzarra-launch-party",
+            "publishedDate": "2026-09-27T12:09:23.000Z",
+            "contentSnippet": "Inside the Old Navy x Altuzarra launch party with Zac Posen, Joseph Altuzarra, and Alexa Chung at McNally Jackson Books Rockefeller Center.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Living / Parties"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Living / Parties"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "to celebrate their collaboration old navy x altuzarra brought literary romance to life at mcnally jackson"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T12:09:23.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Living / Parties"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T16:32:55.726Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260927-adam-brody-calls-for-a-free-pa",
+    "canonicalTopic": "Adam Brody Calls for a Free Palestine Says Hes Never Ducked Politics I Just Answer the Questions Im Asked",
+    "slug": "adam-brody-calls-for-a-free-palestine-says-hes-never-ducked-politics-i-just-answer-the-questions-im-asked",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-1-Adam20Brody20Cal",
+        "query": "Adam Brody Calls for a Free Palestine Says Hes Never Ducked Politics I Just Answer the Questions Im Asked",
+        "sourceUrl": "https://variety.com/2026/tv/news/adam-brody-calls-for-free-palestine-political-question-1236876872/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-27T16:28:22.000Z",
+        "contentSnippet": "Adam Brody is calling for a “free Palestine” and explaining why his political activism doesn’t come up more often during his red-carpet and press appearances. “I just answer the questions I'm asked,” the actor told GQ. “And it's true. I'm not wearing a pin, so I'm not inviting a certain question, and perhaps I should. […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T16:28:22.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Adam Brody Calls for a ‘Free Palestine,’ Says He’s Never ‘Ducked’ Politics: ‘I Just Answer the Questions I'm Asked’",
+            "itemLink": "https://variety.com/2026/tv/news/adam-brody-calls-for-free-palestine-political-question-1236876872/",
+            "publishedDate": "2026-09-27T16:28:22.000Z",
+            "contentSnippet": "Adam Brody is calling for a “free Palestine” and explaining why his political activism doesn’t come up more often during his red-carpet and press appearances. “I just answer the questions I'm asked,” the actor told GQ. “And it's true. I'm not wearing a pin, so I'm not inviting a certain question, and perhaps I should. […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "Adam Brody",
+              "Nobody Wants This"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "Adam Brody",
+            "Nobody Wants This"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "adam brody calls for a free palestine says hes never ducked politics i just answer the questions im asked"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T16:28:22.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "Adam Brody",
+      "Nobody Wants This"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T16:32:55.879Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260927-avengers-endgame-encore-scores",
+    "canonicalTopic": "Avengers Endgame Encore Scores Massive 86 Million Globally",
+    "slug": "avengers-endgame-encore-scores-massive-86-million-globally",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-2-Avengers3A20Endg",
+        "query": "Avengers Endgame Encore Scores Massive 86 Million Globally",
+        "sourceUrl": "https://variety.com/2026/film/box-office/avengers-endgame-encore-box-office-rerelease-huge-86-million-globally-1236876861/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-27T16:16:45.000Z",
+        "contentSnippet": "\"Avengers: Endgame\" returned to theaters and assembled a massive $86 million globally, including $26 million in North America and $60 million overseas. Disney and Marvel's 2019 blockbuster was already the second-highest-grossing movie in box office history with $2.79 billion; this weekend's haul brings the movie's staggering tally to $2.88 billion. It's only $39 million behind […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T16:16:45.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "'Avengers: Endgame Encore' Scores Massive $86 Million Globally",
+            "itemLink": "https://variety.com/2026/film/box-office/avengers-endgame-encore-box-office-rerelease-huge-86-million-globally-1236876861/",
+            "publishedDate": "2026-09-27T16:16:45.000Z",
+            "contentSnippet": "\"Avengers: Endgame\" returned to theaters and assembled a massive $86 million globally, including $26 million in North America and $60 million overseas. Disney and Marvel's 2019 blockbuster was already the second-highest-grossing movie in box office history with $2.79 billion; this weekend's haul brings the movie's staggering tally to $2.88 billion. It's only $39 million behind […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Box Office",
+              "Avengers: Doomsday",
+              "Avengers: Endgame"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Box Office",
+            "Avengers: Doomsday",
+            "Avengers: Endgame"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "avengers endgame encore scores massive 86 million globally"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T16:16:45.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Box Office",
+      "Avengers: Doomsday",
+      "Avengers: Endgame"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T16:32:55.969Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260927-how-to-stream-the-vmas-live-on",
+    "canonicalTopic": "How to Stream the Vmas Live Online",
+    "slug": "how-to-stream-the-vmas-live-online",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-3-How20to20Stream2",
+        "query": "How to Stream the Vmas Live Online",
+        "sourceUrl": "https://variety.com/2026/shopping/news/how-to-stream-vmas-live-online-free-1236876095/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-27T16:00:00.000Z",
+        "contentSnippet": "The MTV Video Music Awards return Sunday night with one of the show’s biggest lineups in years, including Madonna’s first VMA performance in more than two decades, a Dolly Parton tribute from Kacey Musgraves and the world premiere of a new Taylor Swift music video. The 2026 MTV VMAs air live Sunday, Sept. 27 at […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T16:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "How to Stream the VMAs Live Online",
+            "itemLink": "https://variety.com/2026/shopping/news/how-to-stream-vmas-live-online-free-1236876095/",
+            "publishedDate": "2026-09-27T16:00:00.000Z",
+            "contentSnippet": "The MTV Video Music Awards return Sunday night with one of the show’s biggest lineups in years, including Madonna’s first VMA performance in more than two decades, a Dolly Parton tribute from Kacey Musgraves and the world premiere of a new Taylor Swift music video. The 2026 MTV VMAs air live Sunday, Sept. 27 at […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "Madonna",
+              "Taylor Swif",
+              "VMAs"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "Madonna",
+            "Taylor Swif",
+            "VMAs"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how to stream the vmas live online"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T16:00:00.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "Madonna",
+      "Taylor Swif",
+      "VMAs"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T16:32:56.017Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260927-box-office-avengers-endgame-en",
+    "canonicalTopic": "Box Office Avengers Endgame Encore Returns to No 1 with 26 Million Primetime Scores Impressive 19 Million Debut",
+    "slug": "box-office-avengers-endgame-encore-returns-to-no-1-with-26-million-primetime-scores-impressive-19-million-debut",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-4-Box20Office3A20A",
+        "query": "Box Office Avengers Endgame Encore Returns to No 1 with 26 Million Primetime Scores Impressive 19 Million Debut",
+        "sourceUrl": "https://variety.com/2026/film/box-office/avengers-endgame-encore-box-office-win-primetime-scores-big-opening-weekend-1236876819/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-27T15:35:35.000Z",
+        "contentSnippet": "\"Avengers: Endgame Encore,\" a re-release of Disney and Marvel's 2019 blockbuster (with extra footage!), emerged victorious at the domestic box office over several new releases. \"Avengers: Endgame Encore\" generated $26 million from 3,060 North American theaters over the weekend, a sizable haul for a movie that's been available to watch online for years. It was […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T15:35:35.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Box Office: 'Avengers: Endgame Encore' Returns to No. 1 With $26 Million, 'Primetime' Scores Impressive $19 Million Debut",
+            "itemLink": "https://variety.com/2026/film/box-office/avengers-endgame-encore-box-office-win-primetime-scores-big-opening-weekend-1236876819/",
+            "publishedDate": "2026-09-27T15:35:35.000Z",
+            "contentSnippet": "\"Avengers: Endgame Encore,\" a re-release of Disney and Marvel's 2019 blockbuster (with extra footage!), emerged victorious at the domestic box office over several new releases. \"Avengers: Endgame Encore\" generated $26 million from 3,060 North American theaters over the weekend, a sizable haul for a movie that's been available to watch online for years. It was […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Box Office",
+              "Avengers: Endgame Encore",
+              "Forgotten Island",
+              "Heart of the Beast",
+              "Primetime"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Box Office",
+            "Avengers: Endgame Encore",
+            "Forgotten Island",
+            "Heart of the Beast",
+            "Primetime"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "box office avengers endgame encore returns to no 1 with 26 million primetime scores impressive 19 million debut"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T15:35:35.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Box Office",
+      "Avengers: Endgame Encore",
+      "Forgotten Island",
+      "Heart of the Beast",
+      "Primetime"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T16:32:56.170Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260927-godzilla-minus-zero-sets-sight",
+    "canonicalTopic": "Godzilla Minus Zero Sets Sights on Best Picture Oscar Nomination If the Possibility Is Not Zero Its Hard Not to Have a Little Bit of Hope",
+    "slug": "godzilla-minus-zero-sets-sights-on-best-picture-oscar-nomination-if-the-possibility-is-not-zero-its-hard-not-to-have-a-little-bit-of-hope",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-5-E28098Godzilla20",
+        "query": "Godzilla Minus Zero Sets Sights on Best Picture Oscar Nomination If the Possibility Is Not Zero Its Hard Not to Have a Little Bit of Hope",
+        "sourceUrl": "https://variety.com/2026/film/news/godzilla-minus-zero-best-picture-nomination-oscars-nyff-1236876769/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-27T15:12:34.000Z",
+        "contentSnippet": "“Godzilla Minus One” made franchise history in 2024 when it won Best Visual Effects at the 96th Academy Awards, becoming the first Godzilla film to win an Oscar. Now, after Takashi Yamazaki’s highly anticipated sequel, “Godzilla Minus Zero,” premiered to rave reviews at the New York Film Festival, some fans are already calling for a […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T15:12:34.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "‘Godzilla Minus Zero’ Sets Sights on Best Picture Oscar Nomination: ‘If the Possibility Is Not Zero, It’s Hard Not to Have a Little Bit of Hope’",
+            "itemLink": "https://variety.com/2026/film/news/godzilla-minus-zero-best-picture-nomination-oscars-nyff-1236876769/",
+            "publishedDate": "2026-09-27T15:12:34.000Z",
+            "contentSnippet": "“Godzilla Minus One” made franchise history in 2024 when it won Best Visual Effects at the 96th Academy Awards, becoming the first Godzilla film to win an Oscar. Now, after Takashi Yamazaki’s highly anticipated sequel, “Godzilla Minus Zero,” premiered to rave reviews at the New York Film Festival, some fans are already calling for a […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "Godzilla Minus Zero",
+              "New York Film Festival",
+              "Oscars",
+              "Takashi Yamazaki"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "Godzilla Minus Zero",
+            "New York Film Festival",
+            "Oscars",
+            "Takashi Yamazaki"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "godzilla minus zero sets sights on best picture oscar nomination if the possibility is not zero its hard not to have a little bit of hope"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T15:12:34.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "Godzilla Minus Zero",
+      "New York Film Festival",
+      "Oscars",
+      "Takashi Yamazaki"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T16:32:56.355Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260927-soda-transforms-hostel-into-de",
+    "canonicalTopic": "Soda Transforms Hostel into Design-conscious Pod Hotel",
+    "slug": "soda-transforms-hostel-into-design-conscious-pod-hotel",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-SODA20transforms20host",
+        "query": "Soda Transforms Hostel into Design-conscious Pod Hotel",
+        "sourceUrl": "https://www.dezeen.com/2026/09/27/soda-otherwander-soho/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-27T10:00:12.000Z",
+        "contentSnippet": "London studio SODA has converted a backpacker hostel into Otherwander Soho, a high-density capsule hotel in central London with vibrantly-coloured social spaces. Otherwander combines 566 sleeping pods, or \"nests\", with shared social spaces, targeted at young travellers and those seeking budget-friendly city-centre accommodation. It occupies a former hostel housed across a pair of early 20th-century The post SODA transforms hostel into \"design-conscious\" pod hotel appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T10:00:12.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "SODA transforms hostel into \"design-conscious\" pod hotel",
+            "itemLink": "https://www.dezeen.com/2026/09/27/soda-otherwander-soho/",
+            "publishedDate": "2026-09-27T10:00:12.000Z",
+            "contentSnippet": "London studio SODA has converted a backpacker hostel into Otherwander Soho, a high-density capsule hotel in central London with vibrantly-coloured social spaces. Otherwander combines 566 sleeping pods, or \"nests\", with shared social spaces, targeted at young travellers and those seeking budget-friendly city-centre accommodation. It occupies a former hostel housed across a pair of early 20th-century The post SODA transforms hostel into \"design-conscious\" pod hotel appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Exclusives",
+              "London",
+              "UK",
+              "Soho London",
+              "England",
+              "Hotels",
+              "Capsule hotel"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Exclusives",
+            "London",
+            "UK",
+            "Soho London",
+            "England",
+            "Hotels",
+            "Capsule hotel"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "soda transforms hostel into design-conscious pod hotel"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T10:00:12.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Exclusives",
+      "London",
+      "UK",
+      "Soho London",
+      "England",
+      "Hotels",
+      "Capsule hotel"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T16:32:56.458Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260927-israeli-americans-protest-outs",
+    "canonicalTopic": "Israeli Americans Protest Outside Naza New York Premiere by Screening Oct 7 Attacks Footage",
+    "slug": "israeli-americans-protest-outside-naza-new-york-premiere-by-screening-oct-7-attacks-footage",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-1-Israeli20Americans2",
+        "query": "Israeli Americans Protest Outside Naza New York Premiere by Screening Oct 7 Attacks Footage",
+        "sourceUrl": "https://www.hollywoodreporter.com/movies/movie-news/israeli-americans-protest-naza-doc-new-york-premiere-1236712821/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-27T16:23:33.000Z",
+        "contentSnippet": "Israeli-American Council (IAC) co-chair Tal Shuster said of the Israel–Gaza war documentary, \"We're not saying, don't show the film. We're saying: show all the facts.\"",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T16:23:33.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Israeli Americans Protest Outside 'NAZA' New York Premiere by Screening Oct. 7 Attacks Footage",
+            "itemLink": "https://www.hollywoodreporter.com/movies/movie-news/israeli-americans-protest-naza-doc-new-york-premiere-1236712821/",
+            "publishedDate": "2026-09-27T16:23:33.000Z",
+            "contentSnippet": "Israeli-American Council (IAC) co-chair Tal Shuster said of the Israel–Gaza war documentary, \"We're not saying, don't show the film. We're saying: show all the facts.\"",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Movie News",
+              "Movies",
+              "Israel",
+              "Israel-Gaza Conflict",
+              "NAZA",
+              "New York Film Festival",
+              "New York Film Festival 2026"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Movie News",
+            "Movies",
+            "Israel",
+            "Israel-Gaza Conflict",
+            "NAZA",
+            "New York Film Festival",
+            "New York Film Festival 2026"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "israeli americans protest outside naza new york premiere by screening oct 7 attacks footage"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T16:23:33.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Movie News",
+      "Movies",
+      "Israel",
+      "Israel-Gaza Conflict",
+      "NAZA",
+      "New York Film Festival",
+      "New York Film Festival 2026"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T16:32:56.611Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260927-anna-kendrick-is-over-the-moon",
+    "canonicalTopic": "Anna Kendrick Is over the Moon About Directing the Seven Husbands of Evelyn Hugo",
+    "slug": "anna-kendrick-is-over-the-moon-about-directing-the-seven-husbands-of-evelyn-hugo",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-2-Anna20Kendrick20Is2",
+        "query": "Anna Kendrick Is over the Moon About Directing the Seven Husbands of Evelyn Hugo",
+        "sourceUrl": "https://www.hollywoodreporter.com/movies/movie-news/anna-kendrick-seven-husbands-evelyn-hugo-film-babies-zurich-1236712816/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-27T15:39:09.000Z",
+        "contentSnippet": "The 'Babies' actress covered George Clooney, 'Twilight' (\"what the f*** am I doing here?\") and 'Pitch Perfect's \"revisionist history\" in a career-spanning conversation at the Zurich Film Festival.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T15:39:09.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Anna Kendrick Is \"Over the Moon\" About Directing 'The Seven Husbands of Evelyn Hugo'",
+            "itemLink": "https://www.hollywoodreporter.com/movies/movie-news/anna-kendrick-seven-husbands-evelyn-hugo-film-babies-zurich-1236712816/",
+            "publishedDate": "2026-09-27T15:39:09.000Z",
+            "contentSnippet": "The 'Babies' actress covered George Clooney, 'Twilight' (\"what the f*** am I doing here?\") and 'Pitch Perfect's \"revisionist history\" in a career-spanning conversation at the Zurich Film Festival.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Movie News",
+              "Movies",
+              "Anna Kendrick",
+              "international",
+              "Zurich 2026",
+              "Zurich Film Festival"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Movie News",
+            "Movies",
+            "Anna Kendrick",
+            "international",
+            "Zurich 2026",
+            "Zurich Film Festival"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "anna kendrick is over the moon about directing the seven husbands of evelyn hugo"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T15:39:09.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Movie News",
+      "Movies",
+      "Anna Kendrick",
+      "international",
+      "Zurich 2026",
+      "Zurich Film Festival"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T16:32:56.711Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260927-wnba-playoffs-2026-where-to-wa",
+    "canonicalTopic": "Wnba Playoffs 2026 Where to Watch Post-season Womens Basketball Games Live Online",
+    "slug": "wnba-playoffs-2026-where-to-watch-post-season-womens-basketball-games-live-online",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-3-WNBA20Playoffs20202",
+        "query": "Wnba Playoffs 2026 Where to Watch Post-season Womens Basketball Games Live Online",
+        "sourceUrl": "https://www.hollywoodreporter.com/tv/tv-news/watch-stream-wnba-playoffs-2026-basketball-live-online-free-1236710073/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-27T14:00:00.000Z",
+        "contentSnippet": "Women's basketball fans have plenty of options to catch games during the playoffs — here's how.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T14:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "WNBA Playoffs 2026: Where to Watch Post-Season Women's Basketball Games Live Online",
+            "itemLink": "https://www.hollywoodreporter.com/tv/tv-news/watch-stream-wnba-playoffs-2026-basketball-live-online-free-1236710073/",
+            "publishedDate": "2026-09-27T14:00:00.000Z",
+            "contentSnippet": "Women's basketball fans have plenty of options to catch games during the playoffs — here's how.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "TV",
+              "TV News",
+              "how to watch",
+              "Sports",
+              "WNBA",
+              "women's basketball"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "TV",
+            "TV News",
+            "how to watch",
+            "Sports",
+            "WNBA",
+            "women's basketball"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "wnba playoffs 2026 where to watch post-season womens basketball games live online"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T14:00:00.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "TV",
+      "TV News",
+      "how to watch",
+      "Sports",
+      "WNBA",
+      "women's basketball"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T16:32:56.817Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260927-where-to-watch-the-chargers-vs",
+    "canonicalTopic": "Where to Watch the Chargers Vs Bills Game Live Online",
+    "slug": "where-to-watch-the-chargers-vs-bills-game-live-online",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-4-Where20to20Watch20t",
+        "query": "Where to Watch the Chargers Vs Bills Game Live Online",
+        "sourceUrl": "https://www.hollywoodreporter.com/tv/tv-news/where-to-watch-chargers-vs-bills-game-live-nfl-streams-2026-1236712793/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-27T13:30:00.000Z",
+        "contentSnippet": "The NFL Week 3 game is set for Sunday, Sept. 27 at the Buffalo Bills' new $2.1 billion Highmark Stadium.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-27T13:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Where to Watch the Chargers vs. Bills Game Live Online",
+            "itemLink": "https://www.hollywoodreporter.com/tv/tv-news/where-to-watch-chargers-vs-bills-game-live-nfl-streams-2026-1236712793/",
+            "publishedDate": "2026-09-27T13:30:00.000Z",
+            "contentSnippet": "The NFL Week 3 game is set for Sunday, Sept. 27 at the Buffalo Bills' new $2.1 billion Highmark Stadium.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "TV",
+              "TV News",
+              "football",
+              "how to watch",
+              "NFL",
+              "Sling TV",
+              "Sports"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "TV",
+            "TV News",
+            "football",
+            "how to watch",
+            "NFL",
+            "Sling TV",
+            "Sports"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "where to watch the chargers vs bills game live online"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-27T13:30:00.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "TV",
+      "TV News",
+      "football",
+      "how to watch",
+      "NFL",
+      "Sling TV",
+      "Sports"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-27T16:32:56.915Z",
     "pinterestScore": 79.2
   }
 ]
