@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-28T13:07:29.275Z",
+    "updatedAt": "2026-09-28T22:59:53.118Z",
     "revisionCyclesCount": 0
   },
   {
@@ -22958,9 +22958,10 @@
       }
     ],
     "queryVariants": [
-      "eagles schedule"
+      "eagles schedule",
+      "eagles schedule 2026"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-13T10:20:00.000Z",
     "tags": [
       "US",
@@ -22970,21 +22971,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-13T10:41:20.272Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-28T22:59:49.863Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260913-eagles-game",
@@ -47124,12 +47126,59 @@
           "feedName": "The Verge",
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-OpenAIE28099s20AI20agents20n",
+        "query": "OpenAI’s AI agents need to catch up",
+        "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/1001590/openai-devday-2026-aeon-ai-agent",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-28T18:45:00.000Z",
+        "contentSnippet": "OpenAI popularized the modern generative AI chatbot, but as its 2026 DevDay event approaches, it's fallen behind in one of the industry's hottest categories: continuously running, consumer-facing AI agents. On Tuesday, it will likely try to capture the lead in that race. Rumors abound that OpenAI will release its own AI agent, dubbed Aeon - […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T18:45:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "OpenAI’s AI agents need to catch up",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/1001590/openai-devday-2026-aeon-ai-agent",
+            "publishedDate": "2026-09-28T18:45:00.000Z",
+            "contentSnippet": "OpenAI popularized the modern generative AI chatbot, but as its 2026 DevDay event approaches, it's fallen behind in one of the industry's hottest categories: continuously running, consumer-facing AI agents. On Tuesday, it will likely try to capture the lead in that race. Rumors abound that OpenAI will release its own AI agent, dubbed Aeon - […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "Analysis",
+              "OpenAI",
+              "Report"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "Analysis",
+            "OpenAI",
+            "Report"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
-      "openai and microsoft knew they were starting a doom loop for the web"
+      "openai and microsoft knew they were starting a doom loop for the web",
+      "openai’s ai agents need to catch up"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-18T21:07:24.000Z",
     "tags": [
       "tech",
@@ -47153,16 +47202,17 @@
       "socialPotential": 80,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 88
     },
-    "totalScore": 75.9,
+    "totalScore": 76.1,
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-09-19T10:26:54.074Z",
-    "pinterestScore": 75.8
+    "updatedAt": "2026-09-28T22:59:50.728Z",
+    "pinterestScore": 75.8,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-tech-ai-20260919-virginia-governor-creates-an-a",
@@ -49932,7 +49982,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-28T13:07:29.464Z",
+    "updatedAt": "2026-09-28T22:59:53.311Z",
     "pinterestScore": 85.6,
     "revisionCyclesCount": 0
   },
@@ -49995,7 +50045,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-28T13:07:29.498Z",
+    "updatedAt": "2026-09-28T22:59:53.344Z",
     "pinterestScore": 84.8,
     "revisionCyclesCount": 0
   },
@@ -62358,9 +62408,10 @@
       }
     ],
     "queryVariants": [
-      "roundtables the deadly failures of the virtual border wall"
+      "roundtables the deadly failures of the virtual border wall",
+      "roundtables: the deadly failures of the virtual border wall"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-22T13:42:05.000Z",
     "tags": [
       "emerging-tech",
@@ -62382,16 +62433,17 @@
       "socialPotential": 80,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 88
     },
-    "totalScore": 75.9,
+    "totalScore": 76.1,
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-09-22T16:26:28.524Z",
-    "pinterestScore": 75.8
+    "updatedAt": "2026-09-28T22:59:50.192Z",
+    "pinterestScore": 75.8,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-tech-ai-20260922-the-download-why-ais-latest-br",
@@ -64869,9 +64921,10 @@
     "totalScore": 84,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-24T11:15:12.705Z",
-    "pinterestScore": 88.3
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-28T23:03:13.462Z",
+    "pinterestScore": 88.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-tech-ai-20260924-ai-is-dominating-the-conversat",
@@ -69444,7 +69497,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-28T13:07:29.321Z",
+    "updatedAt": "2026-09-28T22:59:53.164Z",
     "pinterestScore": 87.8,
     "revisionCyclesCount": 0
   },
@@ -69507,7 +69560,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-28T13:07:29.386Z",
+    "updatedAt": "2026-09-28T22:59:53.226Z",
     "pinterestScore": 84.6,
     "revisionCyclesCount": 0
   },
@@ -69570,7 +69623,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-28T13:07:29.433Z",
+    "updatedAt": "2026-09-28T22:59:53.278Z",
     "pinterestScore": 82.9,
     "revisionCyclesCount": 0
   },
@@ -96824,6 +96877,4011 @@
     "opportunityType": "ARTICLE",
     "status": "SCORED",
     "updatedAt": "2026-09-28T13:07:29.273Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260928-nancy-guthrie",
+    "canonicalTopic": "Nancy Guthrie",
+    "slug": "nancy-guthrie",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-nancy20guthrie",
+        "query": "Nancy Guthrie",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-28T22:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-28T22:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "nancy guthrie",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "nancy guthrie"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T22:40:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-28T22:59:49.902Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260928-where-is-cornell-university",
+    "canonicalTopic": "Where Is Cornell University",
+    "slug": "where-is-cornell-university",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-where20is20cornel",
+        "query": "Where Is Cornell University",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-28T22:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-28T22:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "where is cornell university",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "where is cornell university"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T22:30:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-28T22:59:49.945Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260928-suriname-vs-martinique",
+    "canonicalTopic": "Suriname Vs Martinique",
+    "slug": "suriname-vs-martinique",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-suriname20vs20mar",
+        "query": "Suriname Vs Martinique",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-28T22:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-28T22:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "suriname vs martinique",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "suriname vs martinique"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T22:20:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-28T22:59:49.985Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260928-dontayvion-wicks",
+    "canonicalTopic": "Dontayvion Wicks",
+    "slug": "dontayvion-wicks",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-dontayvion20wick",
+        "query": "Dontayvion Wicks",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-28T22:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-28T22:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "dontayvion wicks",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dontayvion wicks"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T22:20:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-28T22:59:50.013Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260928-makai-lemon",
+    "canonicalTopic": "Makai Lemon",
+    "slug": "makai-lemon",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-makai20lemon",
+        "query": "Makai Lemon",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-28T22:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-28T22:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "makai lemon",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "makai lemon"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T22:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-28T22:59:50.038Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-travel-20260928-delta-flight-diverted-to-porto",
+    "canonicalTopic": "Delta Flight Diverted to Porto Portugal",
+    "slug": "delta-flight-diverted-to-porto-portugal",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-delta20flight20di",
+        "query": "Delta Flight Diverted to Porto Portugal",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-28T22:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-28T22:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "delta flight diverted to porto portugal",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "US",
+            "travel",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "delta flight diverted to porto portugal"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T22:00:00.000Z",
+    "tags": [
+      "US",
+      "travel",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-28T22:59:50.084Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260928-dublin",
+    "canonicalTopic": "Dublin",
+    "slug": "dublin",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-dublin",
+        "query": "Dublin",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-28T22:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-28T22:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "dublin",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dublin"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T22:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-28T22:59:50.104Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260928-kyle-monangai",
+    "canonicalTopic": "Kyle Monangai",
+    "slug": "kyle-monangai",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-kyle20monangai",
+        "query": "Kyle Monangai",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-28T21:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-28T21:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "kyle monangai",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "kyle monangai"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T21:50:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-28T22:59:50.130Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260928-fugitive",
+    "canonicalTopic": "Fugitive",
+    "slug": "fugitive",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-fugitive",
+        "query": "Fugitive",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-28T21:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-28T21:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "fugitive",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "fugitive"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T21:50:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-28T22:59:50.152Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-tech-ai-20260928-when-can-we-say-ai-made-a-scie",
+    "canonicalTopic": "When Can We Say Ai Made a Scientific Discovery",
+    "slug": "when-can-we-say-ai-made-a-scientific-discovery",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-2-When20can20we20say20AI",
+        "query": "When Can We Say Ai Made a Scientific Discovery",
+        "sourceUrl": "https://www.technologyreview.com/2026/09/28/1145230/when-can-we-say-ai-made-a-scientific-discovery/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-09-28T17:03:16.000Z",
+        "contentSnippet": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. Last Wednesday, Anthropic announced that earlier this year it had launched a molecular biology lab, where Claude agents read and conjecture about hard biology problems and human scientists run experiments on what…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T17:03:16.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "When can we say AI made a scientific discovery?",
+            "itemLink": "https://www.technologyreview.com/2026/09/28/1145230/when-can-we-say-ai-made-a-scientific-discovery/",
+            "publishedDate": "2026-09-28T17:03:16.000Z",
+            "contentSnippet": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. Last Wednesday, Anthropic announced that earlier this year it had launched a molecular biology lab, where Claude agents read and conjecture about hard biology problems and human scientists run experiments on what…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "Artificial intelligence",
+              "App",
+              "artificial intelligence",
+              "The Algorithm"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "Artificial intelligence",
+            "App",
+            "artificial intelligence",
+            "The Algorithm"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "when can we say ai made a scientific discovery"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T17:03:16.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "Artificial intelligence",
+      "App",
+      "artificial intelligence",
+      "The Algorithm"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:50.242Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260928-experts-worry-about-nvidias-ai",
+    "canonicalTopic": "Experts Worry About Nvidias Ai Chip Sales in China and Influence over Trump",
+    "slug": "experts-worry-about-nvidias-ai-chip-sales-in-china-and-influence-over-trump",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-1-Experts20worry20about20",
+        "query": "Experts Worry About Nvidias Ai Chip Sales in China and Influence over Trump",
+        "sourceUrl": "https://arstechnica.com/tech-policy/2026/09/nvidia-may-sell-more-chips-in-china-as-jensen-huangs-influence-over-trump-grows/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-28T21:49:10.000Z",
+        "contentSnippet": "China is reportedly mulling letting ByteDance, Alibaba buy banned Nvidia chips.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T21:49:10.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Experts worry about Nvidia's AI chip sales in China and influence over Trump",
+            "itemLink": "https://arstechnica.com/tech-policy/2026/09/nvidia-may-sell-more-chips-in-china-as-jensen-huangs-influence-over-trump-grows/",
+            "publishedDate": "2026-09-28T21:49:10.000Z",
+            "contentSnippet": "China is reportedly mulling letting ByteDance, Alibaba buy banned Nvidia chips.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "AI",
+              "Policy",
+              "AI chips",
+              "chip export controls",
+              "Donald Trump",
+              "NVIDIA",
+              "US-China relations",
+              "us-china trade war",
+              "Xi Jinping"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "AI",
+            "Policy",
+            "AI chips",
+            "chip export controls",
+            "Donald Trump",
+            "NVIDIA",
+            "US-China relations",
+            "us-china trade war",
+            "Xi Jinping"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "experts worry about nvidias ai chip sales in china and influence over trump"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T21:49:10.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "AI",
+      "Policy",
+      "AI chips",
+      "chip export controls",
+      "Donald Trump",
+      "NVIDIA",
+      "US-China relations",
+      "us-china trade war",
+      "Xi Jinping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:50.311Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260928-spacexs-starship-goes-orbital-",
+    "canonicalTopic": "Spacexs Starship Goes Orbital Deploying First Next-gen Starlinks",
+    "slug": "spacexs-starship-goes-orbital-deploying-first-next-gen-starlinks",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-2-SpaceXs20Starship20go",
+        "query": "Spacexs Starship Goes Orbital Deploying First Next-gen Starlinks",
+        "sourceUrl": "https://arstechnica.com/space/2026/09/starships-first-orbital-launch-gives-lift-to-spacexs-next-gen-starlinks/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-28T21:26:19.000Z",
+        "contentSnippet": "Starship had already flown 99 percent of the way to low-Earth orbit. Monday's flight added the last bit.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T21:26:19.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "SpaceX's Starship goes orbital, deploying first next-gen Starlinks",
+            "itemLink": "https://arstechnica.com/space/2026/09/starships-first-orbital-launch-gives-lift-to-spacexs-next-gen-starlinks/",
+            "publishedDate": "2026-09-28T21:26:19.000Z",
+            "contentSnippet": "Starship had already flown 99 percent of the way to low-Earth orbit. Monday's flight added the last bit.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Space",
+              "Commercial space",
+              "launch",
+              "spacex",
+              "Starbase",
+              "starlink",
+              "starship",
+              "starship flight 14"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Space",
+            "Commercial space",
+            "launch",
+            "spacex",
+            "Starbase",
+            "starlink",
+            "starship",
+            "starship flight 14"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "spacexs starship goes orbital deploying first next-gen starlinks"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T21:26:19.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Space",
+      "Commercial space",
+      "launch",
+      "spacex",
+      "Starbase",
+      "starlink",
+      "starship",
+      "starship flight 14"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:50.372Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260928-florida-invokes-extinction-fea",
+    "canonicalTopic": "Florida Invokes Extinction Fears in Legal Bid to Halt Openai Development",
+    "slug": "florida-invokes-extinction-fears-in-legal-bid-to-halt-openai-development",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-3-Florida20invokes20exti",
+        "query": "Florida Invokes Extinction Fears in Legal Bid to Halt Openai Development",
+        "sourceUrl": "https://arstechnica.com/ai/2026/09/florida-asks-court-to-put-the-brakes-on-openais-frontier-ai-development/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-28T20:49:39.000Z",
+        "contentSnippet": "State says LLMs threaten civilization as \"the greatest public nuisance ever created.\"",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T20:49:39.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Florida invokes extinction fears in legal bid to halt OpenAI development",
+            "itemLink": "https://arstechnica.com/ai/2026/09/florida-asks-court-to-put-the-brakes-on-openais-frontier-ai-development/",
+            "publishedDate": "2026-09-28T20:49:39.000Z",
+            "contentSnippet": "State says LLMs threaten civilization as \"the greatest public nuisance ever created.\"",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "AI",
+              "Policy",
+              "altman",
+              "court",
+              "Florida",
+              "legalopenai",
+              "state"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "AI",
+            "Policy",
+            "altman",
+            "court",
+            "Florida",
+            "legalopenai",
+            "state"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "florida invokes extinction fears in legal bid to halt openai development"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T20:49:39.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "AI",
+      "Policy",
+      "altman",
+      "court",
+      "Florida",
+      "legalopenai",
+      "state"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:50.445Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260928-new-device-captures-carbon-dio",
+    "canonicalTopic": "New Device Captures Carbon Dioxide by Pumping It Across a Battery",
+    "slug": "new-device-captures-carbon-dioxide-by-pumping-it-across-a-battery",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-4-New20device20captures20",
+        "query": "New Device Captures Carbon Dioxide by Pumping It Across a Battery",
+        "sourceUrl": "https://arstechnica.com/science/2026/09/new-device-captures-carbon-dioxide-by-pumping-it-across-a-battery/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-28T20:31:06.000Z",
+        "contentSnippet": "The design requires less energy to capture CO 2 than current systems.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T20:31:06.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "New device captures carbon dioxide by pumping it across a battery",
+            "itemLink": "https://arstechnica.com/science/2026/09/new-device-captures-carbon-dioxide-by-pumping-it-across-a-battery/",
+            "publishedDate": "2026-09-28T20:31:06.000Z",
+            "contentSnippet": "The design requires less energy to capture CO 2 than current systems.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Science",
+              "carbon capture",
+              "direct air capture",
+              "direct air carbon capture"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Science",
+            "carbon capture",
+            "direct air capture",
+            "direct air carbon capture"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "new device captures carbon dioxide by pumping it across a battery"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T20:31:06.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Science",
+      "carbon capture",
+      "direct air capture",
+      "direct air carbon capture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:50.513Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260928-to-keep-drug-prices-high-pharm",
+    "canonicalTopic": "To Keep Drug Prices High Pharma Has Been Piling Up the Patents",
+    "slug": "to-keep-drug-prices-high-pharma-has-been-piling-up-the-patents",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-5-To20keep20drug20prices20",
+        "query": "To Keep Drug Prices High Pharma Has Been Piling Up the Patents",
+        "sourceUrl": "https://arstechnica.com/health/2026/09/to-keep-drug-prices-high-pharma-has-been-piling-up-the-patents/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-28T19:53:37.000Z",
+        "contentSnippet": "Add-on patents have increased drug patent periods from two years to over six.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T19:53:37.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "To keep drug prices high, pharma has been piling up the patents",
+            "itemLink": "https://arstechnica.com/health/2026/09/to-keep-drug-prices-high-pharma-has-been-piling-up-the-patents/",
+            "publishedDate": "2026-09-28T19:53:37.000Z",
+            "contentSnippet": "Add-on patents have increased drug patent periods from two years to over six.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Health",
+              "drug costs",
+              "patent",
+              "patent thickets",
+              "Pharmaceutical industry"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Health",
+            "drug costs",
+            "patent",
+            "patent thickets",
+            "Pharmaceutical industry"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "to keep drug prices high pharma has been piling up the patents"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T19:53:37.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Health",
+      "drug costs",
+      "patent",
+      "patent thickets",
+      "Pharmaceutical industry"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:50.580Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260928-amd-is-acquiring-ai-company-wo",
+    "canonicalTopic": "Amd Is Acquiring Ai Company World Labs in a Deal Worth More Than 8 Billion",
+    "slug": "amd-is-acquiring-ai-company-world-labs-in-a-deal-worth-more-than-8-billion",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-AMD20is20acquiring20AI20",
+        "query": "Amd Is Acquiring Ai Company World Labs in a Deal Worth More Than 8 Billion",
+        "sourceUrl": "https://www.theverge.com/tech/1001749/amd-world-labs-ai-acquisition-deal",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-28T21:31:35.000Z",
+        "contentSnippet": "AMD announced today that it's acquiring World Labs, an AI research lab co-founded by the prominent researcher Dr. Fei-Fei Li, in an all-stock deal worth approximately $8.2 billion. World Labs launched in 2024 and was valued at $1 billion in a matter of months. The startup launched its first commercial product, a world generation model […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T21:31:35.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "AMD is acquiring AI company World Labs in a deal worth more than $8 billion",
+            "itemLink": "https://www.theverge.com/tech/1001749/amd-world-labs-ai-acquisition-deal",
+            "publishedDate": "2026-09-28T21:31:35.000Z",
+            "contentSnippet": "AMD announced today that it's acquiring World Labs, an AI research lab co-founded by the prominent researcher Dr. Fei-Fei Li, in an all-stock deal worth approximately $8.2 billion. World Labs launched in 2024 and was valued at $1 billion in a matter of months. The startup launched its first commercial product, a world generation model […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "AMD",
+              "News",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "AMD",
+            "News",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "amd is acquiring ai company world labs in a deal worth more than 8 billion"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T21:31:35.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "AMD",
+      "News",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:50.656Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260928-bose-starts-adding-auracast-to",
+    "canonicalTopic": "Bose Starts Adding Auracast to Its Headphones",
+    "slug": "bose-starts-adding-auracast-to-its-headphones",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-Bose20starts20adding20A",
+        "query": "Bose Starts Adding Auracast to Its Headphones",
+        "sourceUrl": "https://www.theverge.com/tech/1001522/bose-headphones-get-auracast-support",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-28T19:31:24.000Z",
+        "contentSnippet": "A new firmware update for the $449 Bose QuietComfort Ultra Headphones Gen 2 adds support for Bluetooth LE Audio and Auracast as beta features. The flagship Ultra headphones are the first from Bose to support the audio sharing technology, which the company plans to bring to more devices soon. Only a few major manufacturers include […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T19:31:24.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Bose starts adding Auracast to its headphones",
+            "itemLink": "https://www.theverge.com/tech/1001522/bose-headphones-get-auracast-support",
+            "publishedDate": "2026-09-28T19:31:24.000Z",
+            "contentSnippet": "A new firmware update for the $449 Bose QuietComfort Ultra Headphones Gen 2 adds support for Bluetooth LE Audio and Auracast as beta features. The flagship Ultra headphones are the first from Bose to support the audio sharing technology, which the company plans to bring to more devices soon. Only a few major manufacturers include […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Bose",
+              "Gadgets",
+              "Headphones",
+              "News",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Bose",
+            "Gadgets",
+            "Headphones",
+            "News",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "bose starts adding auracast to its headphones"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T19:31:24.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Bose",
+      "Gadgets",
+      "Headphones",
+      "News",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:50.706Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260928-trump-finalizes-rule-to-make-c",
+    "canonicalTopic": "Trump Finalizes Rule to Make Cars Less Fuel Efficient",
+    "slug": "trump-finalizes-rule-to-make-cars-less-fuel-efficient",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-4-Trump20finalizes20rule",
+        "query": "Trump Finalizes Rule to Make Cars Less Fuel Efficient",
+        "sourceUrl": "https://www.theverge.com/news/1001610/trump-weakens-fuel-efficiency-standards",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-28T18:39:50.000Z",
+        "contentSnippet": "The US Department of Transportation finalized its plans today to weaken fuel efficiency standards, calling it \"among the largest deregulatory actions under the second Trump Administration.\" It's a nail in the coffin for Biden-era standards that would have required fleet average fuel economy to reach 50.4 miles per gallon by model year 2031. President Donald […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T18:39:50.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Trump finalizes rule to make cars less fuel efficient",
+            "itemLink": "https://www.theverge.com/news/1001610/trump-weakens-fuel-efficiency-standards",
+            "publishedDate": "2026-09-28T18:39:50.000Z",
+            "contentSnippet": "The US Department of Transportation finalized its plans today to weaken fuel efficiency standards, calling it \"among the largest deregulatory actions under the second Trump Administration.\" It's a nail in the coffin for Biden-era standards that would have required fleet average fuel economy to reach 50.4 miles per gallon by model year 2031. President Donald […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Cars",
+              "Energy",
+              "Environment",
+              "News",
+              "Science",
+              "Transportation"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Cars",
+            "Energy",
+            "Environment",
+            "News",
+            "Science",
+            "Transportation"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "trump finalizes rule to make cars less fuel efficient"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T18:39:50.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Cars",
+      "Energy",
+      "Environment",
+      "News",
+      "Science",
+      "Transportation"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:50.782Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260928-ai-is-supercharging-hacking-an",
+    "canonicalTopic": "Ai Is Supercharging Hacking and Your Local Hospitals and Banks Arent Ready",
+    "slug": "ai-is-supercharging-hacking-and-your-local-hospitals-and-banks-arent-ready",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-5-AI20is20supercharging20",
+        "query": "Ai Is Supercharging Hacking and Your Local Hospitals and Banks Arent Ready",
+        "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/1001427/ai-is-supercharging-hacking-and-your-local-hospitals-and-banks-arent-ready",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-28T18:30:00.000Z",
+        "contentSnippet": "In March, Janice Malone began getting calls about suspicious activity from her nonprofit organization, Vivian's Door. Vivian's Door, headquartered in Alabama, typically provided training, resources, and community to underserved and minority-owned businesses. The work sometimes put it in close contact with these companies' financial data, which was stored on its systems. But suddenly, concerned callers […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T18:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "AI is supercharging hacking, and your local hospitals and banks aren’t ready",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/1001427/ai-is-supercharging-hacking-and-your-local-hospitals-and-banks-arent-ready",
+            "publishedDate": "2026-09-28T18:30:00.000Z",
+            "contentSnippet": "In March, Janice Malone began getting calls about suspicious activity from her nonprofit organization, Vivian's Door. Vivian's Door, headquartered in Alabama, typically provided training, resources, and community to underserved and minority-owned businesses. The work sometimes put it in close contact with these companies' financial data, which was stored on its systems. But suddenly, concerned callers […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "Anthropic",
+              "OpenAI",
+              "Report",
+              "Security",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "Anthropic",
+            "OpenAI",
+            "Report",
+            "Security",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ai is supercharging hacking and your local hospitals and banks arent ready"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T18:30:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "Anthropic",
+      "OpenAI",
+      "Report",
+      "Security",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:50.850Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260928-8-editor-approved-hotels-in-ba",
+    "canonicalTopic": "8 Editor-approved Hotels in Bali You Can Book for Less Than 250 a Night",
+    "slug": "8-editor-approved-hotels-in-bali-you-can-book-for-less-than-250-a-night",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-820Editor-Approved20Ho",
+        "query": "8 Editor-approved Hotels in Bali You Can Book for Less Than 250 a Night",
+        "sourceUrl": "https://www.cntraveler.com/gallery/editor-approved-hotels-in-bali-you-can-book-for-less-than-dollar250-a-night",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-28T22:19:44.000Z",
+        "contentSnippet": "With paradisiacal pools, Balinese charm, and seriously great eats, these are the budget-friendly boltholes to consider for your Indonesian escape.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T22:19:44.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "8 Editor-Approved Hotels in Bali You Can Book for Less Than $250 a Night",
+            "itemLink": "https://www.cntraveler.com/gallery/editor-approved-hotels-in-bali-you-can-book-for-less-than-dollar250-a-night",
+            "publishedDate": "2026-09-28T22:19:44.000Z",
+            "contentSnippet": "With paradisiacal pools, Balinese charm, and seriously great eats, these are the budget-friendly boltholes to consider for your Indonesian escape.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Destinations",
+              "Places to Stay"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Destinations",
+            "Places to Stay"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "8 editor-approved hotels in bali you can book for less than 250 a night"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T22:19:44.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Destinations",
+      "Places to Stay"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:50.916Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260928-air-frances-la-premire-just-wo",
+    "canonicalTopic": "Air Frances La Premire Just Won the Worlds Best First Class Award—heres What Its Like",
+    "slug": "air-frances-la-premire-just-won-the-worlds-best-first-class-award-heres-what-its-like",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-2-Air20FranceE28099s20La20Pre",
+        "query": "Air Frances La Premire Just Won the Worlds Best First Class Award—heres What Its Like",
+        "sourceUrl": "https://www.cntraveler.com/story/air-frances-la-premiere-just-won-the-worlds-best-first-class-award-heres-what-its-like",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-28T18:31:56.000Z",
+        "contentSnippet": "We were among the first to experience their new cabins when they debuted in 2025.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T18:31:56.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Air France’s La Première Just Won the World's Best First Class Award—Here's What It's Like",
+            "itemLink": "https://www.cntraveler.com/story/air-frances-la-premiere-just-won-the-worlds-best-first-class-award-heres-what-its-like",
+            "publishedDate": "2026-09-28T18:31:56.000Z",
+            "contentSnippet": "We were among the first to experience their new cabins when they debuted in 2025.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "News & Advice / Air Travel"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "News & Advice / Air Travel"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "air frances la premire just won the worlds best first class award—heres what its like"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T18:31:56.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "News & Advice / Air Travel"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:51.010Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260928-snow-peak-discount-code-save-2",
+    "canonicalTopic": "Snow Peak Discount Code Save 25 in 2026 Cond Nast Traveler",
+    "slug": "snow-peak-discount-code-save-25-in-2026-cond-nast-traveler",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-3-Snow20Peak20Discount20C",
+        "query": "Snow Peak Discount Code Save 25 in 2026 Cond Nast Traveler",
+        "sourceUrl": "https://www.cntraveler.com/story/snow-peak-discount-code",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-28T15:46:59.000Z",
+        "contentSnippet": "Save 25% on premium Japanese-designed gear, tents, and apparel using a verified Snow Peak coupon code, plus save up to 40% in the sale this fall or up to $400 on camping sets.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T15:46:59.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Snow Peak Discount Code: Save 25% in 2026 | Condé Nast Traveler",
+            "itemLink": "https://www.cntraveler.com/story/snow-peak-discount-code",
+            "publishedDate": "2026-09-28T15:46:59.000Z",
+            "contentSnippet": "Save 25% on premium Japanese-designed gear, tents, and apparel using a verified Snow Peak coupon code, plus save up to 40% in the sale this fall or up to $400 on camping sets.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Shopping"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "snow peak discount code save 25 in 2026 cond nast traveler"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T15:46:59.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:51.078Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260928-the-scandi-haircare-routine-is",
+    "canonicalTopic": "The Scandi Haircare Routine Is the Secret to Your Best Hair Yet",
+    "slug": "the-scandi-haircare-routine-is-the-secret-to-your-best-hair-yet",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-4-The20Scandi20Haircare20",
+        "query": "The Scandi Haircare Routine Is the Secret to Your Best Hair Yet",
+        "sourceUrl": "https://www.cntraveler.com/story/the-scandi-hair-care-routine-might-be-the-secret-to-your-best-hair-yet",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-28T15:27:15.000Z",
+        "contentSnippet": "Beauty experts reveal the approach to hair care that produces healthier, shinier results.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T15:27:15.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "The Scandi Haircare Routine Is the Secret to Your Best Hair Yet",
+            "itemLink": "https://www.cntraveler.com/story/the-scandi-hair-care-routine-might-be-the-secret-to-your-best-hair-yet",
+            "publishedDate": "2026-09-28T15:27:15.000Z",
+            "contentSnippet": "Beauty experts reveal the approach to hair care that produces healthier, shinier results.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Shopping",
+              "Inspiration / Wellness & Spas"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Shopping",
+            "Inspiration / Wellness & Spas"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the scandi haircare routine is the secret to your best hair yet"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T15:27:15.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Shopping",
+      "Inspiration / Wellness & Spas"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:51.146Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260928-a-fact-checking-trip-to-sydney",
+    "canonicalTopic": "A Fact-checking Trip to Sydney Helped Min Jin Lee Understand Her American Hagwon Characters",
+    "slug": "a-fact-checking-trip-to-sydney-helped-min-jin-lee-understand-her-american-hagwon-characters",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-5-A20Fact-Checking20Trip",
+        "query": "A Fact-checking Trip to Sydney Helped Min Jin Lee Understand Her American Hagwon Characters",
+        "sourceUrl": "https://www.cntraveler.com/story/a-fact-checking-trip-to-sydney-helped-min-jin-lee-understand-her-american-hagwon-characters",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-28T15:00:44.000Z",
+        "contentSnippet": "While finishing her new novel ‘American Hagwon,’ author Min Jin Lee traveled to Sydney to discover how the city may have shaped her fictional protagonists.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T15:00:44.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "A Fact-Checking Trip to Sydney Helped Min Jin Lee Understand Her American Hagwon Characters",
+            "itemLink": "https://www.cntraveler.com/story/a-fact-checking-trip-to-sydney-helped-min-jin-lee-understand-her-american-hagwon-characters",
+            "publishedDate": "2026-09-28T15:00:44.000Z",
+            "contentSnippet": "While finishing her new novel ‘American Hagwon,’ author Min Jin Lee traveled to Sydney to discover how the city may have shaped her fictional protagonists.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Inspiration",
+              "Inspiration / Style & Culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Inspiration",
+            "Inspiration / Style & Culture"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "a fact-checking trip to sydney helped min jin lee understand her american hagwon characters"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T15:00:44.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Inspiration",
+      "Inspiration / Style & Culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:51.244Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260928-barbara-palvin-and-dylan-sprou",
+    "canonicalTopic": "Barbara Palvin and Dylan Sprouse Have Welcomed Their First Baby",
+    "slug": "barbara-palvin-and-dylan-sprouse-have-welcomed-their-first-baby",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-1-Barbara20Palvin20and20D",
+        "query": "Barbara Palvin and Dylan Sprouse Have Welcomed Their First Baby",
+        "sourceUrl": "https://www.vogue.com/article/barbara-palvin-and-dylan-sprouse-have-welcomed-their-first-baby",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-28T22:11:21.000Z",
+        "contentSnippet": "The couple shared the happy news with an Instagram post captioned, “We took Labor Day literally this year.”",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T22:11:21.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Barbara Palvin and Dylan Sprouse Have Welcomed Their First Baby",
+            "itemLink": "https://www.vogue.com/article/barbara-palvin-and-dylan-sprouse-have-welcomed-their-first-baby",
+            "publishedDate": "2026-09-28T22:11:21.000Z",
+            "contentSnippet": "The couple shared the happy news with an Instagram post captioned, “We took Labor Day literally this year.”",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Living"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Living"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "barbara palvin and dylan sprouse have welcomed their first baby"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T22:11:21.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Living"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:51.313Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260928-the-best-behind-the-scenes-pho",
+    "canonicalTopic": "The Best Behind-the-scenes Photos from the Spring 2027 Shows in Paris",
+    "slug": "the-best-behind-the-scenes-photos-from-the-spring-2027-shows-in-paris",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-2-The20Best20Behind-the-",
+        "query": "The Best Behind-the-scenes Photos from the Spring 2027 Shows in Paris",
+        "sourceUrl": "https://www.vogue.com/slideshow/the-best-behind-the-scenes-photos-from-the-spring-2027-shows-in-paris",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-28T21:36:10.000Z",
+        "contentSnippet": "Acielle Tanbetova photographs the best backstage moments from the spring 2027 shows in Paris.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T21:36:10.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "The Best Behind-the-Scenes Photos From the Spring 2027 Shows in Paris",
+            "itemLink": "https://www.vogue.com/slideshow/the-best-behind-the-scenes-photos-from-the-spring-2027-shows-in-paris",
+            "publishedDate": "2026-09-28T21:36:10.000Z",
+            "contentSnippet": "Acielle Tanbetova photographs the best backstage moments from the spring 2027 shows in Paris.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway",
+              "Fashion / Fashion Week"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway",
+            "Fashion / Fashion Week"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the best behind-the-scenes photos from the spring 2027 shows in paris"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T21:36:10.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Runway",
+      "Fashion / Fashion Week"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:51.386Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260928-at-milan-fashion-week-glam-got",
+    "canonicalTopic": "At Milan Fashion Week Glam Got Unruly 5 Key Beauty Trends to Know",
+    "slug": "at-milan-fashion-week-glam-got-unruly-5-key-beauty-trends-to-know",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-3-At20Milan20Fashion20Wee",
+        "query": "At Milan Fashion Week Glam Got Unruly 5 Key Beauty Trends to Know",
+        "sourceUrl": "https://www.vogue.com/article/beauty-trends-milan-fashion-week-spring-2027",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-28T20:14:43.000Z",
+        "contentSnippet": "From The Attico’s eye jewelry to Prada’s frizzy halos: Beauty at Milan Fashion Week brought character back.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T20:14:43.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "At Milan Fashion Week, Glam Got Unruly: 5 Key Beauty Trends to Know",
+            "itemLink": "https://www.vogue.com/article/beauty-trends-milan-fashion-week-spring-2027",
+            "publishedDate": "2026-09-28T20:14:43.000Z",
+            "contentSnippet": "From The Attico’s eye jewelry to Prada’s frizzy halos: Beauty at Milan Fashion Week brought character back.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Beauty / Makeup",
+              "Beauty",
+              "Beauty / Hair"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Beauty / Makeup",
+            "Beauty",
+            "Beauty / Hair"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "at milan fashion week glam got unruly 5 key beauty trends to know"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T20:14:43.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Beauty / Makeup",
+      "Beauty",
+      "Beauty / Hair"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:51.457Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260928-facelift-manicure-vogue-invest",
+    "canonicalTopic": "Facelift Manicure Vogue Investigates",
+    "slug": "facelift-manicure-vogue-investigates",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-4-What20Is20the20E28098Facel",
+        "query": "Facelift Manicure Vogue Investigates",
+        "sourceUrl": "https://www.vogue.com/article/facelift-manicure-russian-manicure",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-28T20:06:26.000Z",
+        "contentSnippet": "Manicurist Marisa Carmichael weighs in on the buzzy nail treatment.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T20:06:26.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "What Is the ‘Facelift’ Manicure? Vogue Investigates",
+            "itemLink": "https://www.vogue.com/article/facelift-manicure-russian-manicure",
+            "publishedDate": "2026-09-28T20:06:26.000Z",
+            "contentSnippet": "Manicurist Marisa Carmichael weighs in on the buzzy nail treatment.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Beauty / Nails",
+              "Beauty",
+              "Beauty / Makeup"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Beauty / Nails",
+            "Beauty",
+            "Beauty / Makeup"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "facelift manicure vogue investigates"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T20:06:26.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Beauty / Nails",
+      "Beauty",
+      "Beauty / Makeup"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:51.523Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260928-4-best-ingredients-to-firm-and",
+    "canonicalTopic": "4 Best Ingredients to Firm and Smooth the Body",
+    "slug": "4-best-ingredients-to-firm-and-smooth-the-body",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-5-420Best20Ingredients20t",
+        "query": "4 Best Ingredients to Firm and Smooth the Body",
+        "sourceUrl": "https://www.vogue.com/article/ingredients-to-smooth-and-firm-the-body",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-28T19:40:03.000Z",
+        "contentSnippet": "Slather on the best ingredients to firm and smooth the body, which help spur cell turnover and aid with crepiness and uneven texture. Shop our top picks.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T19:40:03.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "4 Best Ingredients to Firm and Smooth the Body",
+            "itemLink": "https://www.vogue.com/article/ingredients-to-smooth-and-firm-the-body",
+            "publishedDate": "2026-09-28T19:40:03.000Z",
+            "contentSnippet": "Slather on the best ingredients to firm and smooth the body, which help spur cell turnover and aid with crepiness and uneven texture. Shop our top picks.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Shopping",
+              "Shopping / Beauty",
+              "Beauty"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Shopping",
+            "Shopping / Beauty",
+            "Beauty"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "4 best ingredients to firm and smooth the body"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T19:40:03.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Shopping",
+      "Shopping / Beauty",
+      "Beauty"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:51.585Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260928-seoul-summons-ukraine-envoy-ov",
+    "canonicalTopic": "Seoul Summons Ukraine Envoy over North Korean Prisoner-of-war Row",
+    "slug": "seoul-summons-ukraine-envoy-over-north-korean-prisoner-of-war-row",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-2-Seoul20summons20Ukrain",
+        "query": "Seoul Summons Ukraine Envoy over North Korean Prisoner-of-war Row",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/c8ly40xx0dr0o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-28T14:57:31.000Z",
+        "contentSnippet": "Last week Zelensky revealed Ukraine had sent two captured North Koreans to South Korea - which Seoul says was meant to be a secret.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T14:57:31.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Seoul summons Ukraine envoy over North Korean prisoner-of-war row",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c8ly40xx0dr0o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-28T14:57:31.000Z",
+            "contentSnippet": "Last week Zelensky revealed Ukraine had sent two captured North Koreans to South Korea - which Seoul says was meant to be a secret.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "seoul summons ukraine envoy over north korean prisoner-of-war row"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T14:57:31.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:51.656Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260928-twelve-women-have-been-killed-",
+    "canonicalTopic": "Twelve Women Have Been Killed in One Part of South Africa Since July Heres What We Know So Far",
+    "slug": "twelve-women-have-been-killed-in-one-part-of-south-africa-since-july-heres-what-we-know-so-far",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-3-Twelve20women20have20be",
+        "query": "Twelve Women Have Been Killed in One Part of South Africa Since July Heres What We Know So Far",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/c6m27dprvzv7o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-28T17:26:21.000Z",
+        "contentSnippet": "South African President Cyril Ramaphosa says the murders are a \"stain on our national conscience\".",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T17:26:21.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Twelve women have been killed in one part of South Africa since July. Here's what we know so far",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c6m27dprvzv7o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-28T17:26:21.000Z",
+            "contentSnippet": "South African President Cyril Ramaphosa says the murders are a \"stain on our national conscience\".",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "twelve women have been killed in one part of south africa since july heres what we know so far"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T17:26:21.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:51.758Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260928-french-pm-warns-against-escala",
+    "canonicalTopic": "French Pm Warns Against Escalation of School Protests After 164 Arrested",
+    "slug": "french-pm-warns-against-escalation-of-school-protests-after-164-arrested",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-4-French20PM20warns20agai",
+        "query": "French Pm Warns Against Escalation of School Protests After 164 Arrested",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cmqxvnn49rg2o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-28T21:46:53.000Z",
+        "contentSnippet": "Students are protesting over issues such as overcrowded classes, but the prime minister has condemned reports of violence.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T21:46:53.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "French PM warns against escalation of school protests after 164 arrested",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cmqxvnn49rg2o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-28T21:46:53.000Z",
+            "contentSnippet": "Students are protesting over issues such as overcrowded classes, but the prime minister has condemned reports of violence.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "french pm warns against escalation of school protests after 164 arrested"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T21:46:53.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:51.833Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260928-nigerian-attempts-to-break-wor",
+    "canonicalTopic": "Nigerian Attempts to Break World Record by Dancing Non-stop for Seven Days",
+    "slug": "nigerian-attempts-to-break-world-record-by-dancing-non-stop-for-seven-days",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-5-Nigerian20attempts20to",
+        "query": "Nigerian Attempts to Break World Record by Dancing Non-stop for Seven Days",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cq8r6z2gjzd1o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-28T15:39:19.000Z",
+        "contentSnippet": "Crowds have gathered in Lagos to watch Ben Dancer, who says he will carry on dancing until Tuesday morning.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T15:39:19.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Nigerian attempts to break world record by dancing non-stop for seven days",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cq8r6z2gjzd1o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-28T15:39:19.000Z",
+            "contentSnippet": "Crowds have gathered in Lagos to watch Ben Dancer, who says he will carry on dancing until Tuesday morning.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "nigerian attempts to break world record by dancing non-stop for seven days"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T15:39:19.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:51.911Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260928-8-best-wrinkle-fillers-for-smo",
+    "canonicalTopic": "8 Best Wrinkle Fillers for Smoother Firmer Skin",
+    "slug": "8-best-wrinkle-fillers-for-smoother-firmer-skin",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-1-820Best20Wrinkle20Fille",
+        "query": "8 Best Wrinkle Fillers for Smoother Firmer Skin",
+        "sourceUrl": "https://www.allure.com/story/wrinkle-fillers",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-28T21:18:45.000Z",
+        "contentSnippet": "Plumper skin without the needles? It's possible, although the effects don't always last.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T21:18:45.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "8 Best Wrinkle Fillers for Smoother, Firmer Skin",
+            "itemLink": "https://www.allure.com/story/wrinkle-fillers",
+            "publishedDate": "2026-09-28T21:18:45.000Z",
+            "contentSnippet": "Plumper skin without the needles? It's possible, although the effects don't always last.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Skin",
+              "Skin / Aging",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Skin",
+            "Skin / Aging",
+            "Shopping"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "8 best wrinkle fillers for smoother firmer skin"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T21:18:45.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Skin",
+      "Skin / Aging",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:51.969Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260928-lilac-is-fall-2026s-unexpected",
+    "canonicalTopic": "Lilac Is Fall 2026s Unexpected Nail Color Trend—see Photos",
+    "slug": "lilac-is-fall-2026s-unexpected-nail-color-trend-see-photos",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-2-Lilac20Is20Fall202026s",
+        "query": "Lilac Is Fall 2026s Unexpected Nail Color Trend—see Photos",
+        "sourceUrl": "https://www.allure.com/story/lilac-nail-trend-2026",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-28T21:10:00.000Z",
+        "contentSnippet": "Nail artists explain why it’s sticking around for the cool weather.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T21:10:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "Lilac Is Fall 2026's Unexpected Nail Color Trend—See Photos",
+            "itemLink": "https://www.allure.com/story/lilac-nail-trend-2026",
+            "publishedDate": "2026-09-28T21:10:00.000Z",
+            "contentSnippet": "Nail artists explain why it’s sticking around for the cool weather.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Nails"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Nails"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "lilac is fall 2026s unexpected nail color trend—see photos"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T21:10:00.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Nails"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:52.036Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260928-the-best-niche-perfumes-will-m",
+    "canonicalTopic": "The Best Niche Perfumes Will Make You Stand Out in a Crowd",
+    "slug": "the-best-niche-perfumes-will-make-you-stand-out-in-a-crowd",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-3-The20Best20Niche20Perfu",
+        "query": "The Best Niche Perfumes Will Make You Stand Out in a Crowd",
+        "sourceUrl": "https://www.allure.com/story/best-niche-perfume",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-28T16:43:22.000Z",
+        "contentSnippet": "From gourmands to mega-florals to intriguing citrus scents, there’s an indie fragrance vying to become your new favorite.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T16:43:22.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "The Best Niche Perfumes Will Make You Stand Out in a Crowd",
+            "itemLink": "https://www.allure.com/story/best-niche-perfume",
+            "publishedDate": "2026-09-28T16:43:22.000Z",
+            "contentSnippet": "From gourmands to mega-florals to intriguing citrus scents, there’s an indie fragrance vying to become your new favorite.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Fragrance",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Fragrance",
+            "Shopping"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the best niche perfumes will make you stand out in a crowd"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T16:43:22.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Fragrance",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:52.101Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260928-madonna-embraced-decades-of-be",
+    "canonicalTopic": "Madonna Embraced Decades of Beauty Reinvention Without Losing Herself",
+    "slug": "madonna-embraced-decades-of-beauty-reinvention-without-losing-herself",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-4-Madonna20Embraced20Dec",
+        "query": "Madonna Embraced Decades of Beauty Reinvention Without Losing Herself",
+        "sourceUrl": "https://www.allure.com/story/madonna-vmas-op-ed-aesthetic",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-28T13:55:24.000Z",
+        "contentSnippet": "In a beauty landscape obsessed with signature looks and instantly recognizable aesthetics, Madonna’s refusal to stay visually consistent feels newly rebellious and deeply refreshing.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T13:55:24.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "Madonna Embraced Decades of Beauty Reinvention Without Losing Herself.",
+            "itemLink": "https://www.allure.com/story/madonna-vmas-op-ed-aesthetic",
+            "publishedDate": "2026-09-28T13:55:24.000Z",
+            "contentSnippet": "In a beauty landscape obsessed with signature looks and instantly recognizable aesthetics, Madonna’s refusal to stay visually consistent feels newly rebellious and deeply refreshing.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Lifestyle",
+              "Celebrity"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Lifestyle",
+            "Celebrity"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "madonna embraced decades of beauty reinvention without losing herself"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T13:55:24.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Lifestyle",
+      "Celebrity"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:52.174Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260928-ella-brights-new-hair-color-is",
+    "canonicalTopic": "Ella Brights New Hair Color Is Right on Trend for Fall 2026—see the Photos",
+    "slug": "ella-brights-new-hair-color-is-right-on-trend-for-fall-2026-see-the-photos",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-5-Ella20Brights20New20Ha",
+        "query": "Ella Brights New Hair Color Is Right on Trend for Fall 2026—see the Photos",
+        "sourceUrl": "https://www.allure.com/story/ella-bright-vmas-2026-dark-hair",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-28T13:42:03.000Z",
+        "contentSnippet": "Suddenly I'm craving chocolate.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T13:42:03.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "Ella Bright's New Hair Color Is Right On Trend for Fall 2026—See the Photos",
+            "itemLink": "https://www.allure.com/story/ella-bright-vmas-2026-dark-hair",
+            "publishedDate": "2026-09-28T13:42:03.000Z",
+            "contentSnippet": "Suddenly I'm craving chocolate.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Hair",
+              "Hair / Color"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Hair",
+            "Hair / Color"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ella brights new hair color is right on trend for fall 2026—see the photos"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T13:42:03.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Hair",
+      "Hair / Color"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:52.253Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260928-coughlin-scheel-lifts-fire-isl",
+    "canonicalTopic": "Coughlin Scheel Lifts Fire Island House High Above the Beach",
+    "slug": "coughlin-scheel-lifts-fire-island-house-high-above-the-beach",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-Coughlin20Scheel20lift",
+        "query": "Coughlin Scheel Lifts Fire Island House High Above the Beach",
+        "sourceUrl": "https://www.dezeen.com/2026/09/28/surf-road-house-coughlin-scheel-architects-fire-island/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-28T19:00:42.000Z",
+        "contentSnippet": "US studio Coughlin Scheel Architects has completed the cedar-clad Surf Road House, lifting it 10 feet above the ground because of environmental concerns. The house sits on Fire Island, a narrow barrier island in New York that is accessed by ferry. Motor vehicles are largely prohibited on the island, with its delicate landscape. Situated outside the The post Coughlin Scheel lifts Fire Island house high above the beach appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T19:00:42.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Coughlin Scheel lifts Fire Island house high above the beach",
+            "itemLink": "https://www.dezeen.com/2026/09/28/surf-road-house-coughlin-scheel-architects-fire-island/",
+            "publishedDate": "2026-09-28T19:00:42.000Z",
+            "contentSnippet": "US studio Coughlin Scheel Architects has completed the cedar-clad Surf Road House, lifting it 10 feet above the ground because of environmental concerns. The house sits on Fire Island, a narrow barrier island in New York that is accessed by ferry. Motor vehicles are largely prohibited on the island, with its delicate landscape. Situated outside the The post Coughlin Scheel lifts Fire Island house high above the beach appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Fire Island",
+              "New York",
+              "USA",
+              "Cedar",
+              "Architecture on stilts",
+              "Seaside architecture and design"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Fire Island",
+            "New York",
+            "USA",
+            "Cedar",
+            "Architecture on stilts",
+            "Seaside architecture and design"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "coughlin scheel lifts fire island house high above the beach"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T19:00:42.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Fire Island",
+      "New York",
+      "USA",
+      "Cedar",
+      "Architecture on stilts",
+      "Seaside architecture and design"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:52.320Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260928-grid-radiator-by-tubes-among-s",
+    "canonicalTopic": "Grid Radiator by Tubes Among Seven New Products on Dezeen Showroom",
+    "slug": "grid-radiator-by-tubes-among-seven-new-products-on-dezeen-showroom",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-2-Grid20radiator20by20Tub",
+        "query": "Grid Radiator by Tubes Among Seven New Products on Dezeen Showroom",
+        "sourceUrl": "https://www.dezeen.com/2026/09/28/grid-radiator-tubes-heating-furniture-lighting-surfaces-dezeen-showroom/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-28T18:00:02.000Z",
+        "contentSnippet": "Dezeen Showroom: a radiator with interchangeable accessories informed by workbench pegboards is among seven new products featured on Dezeen Showroom. Grid radiator by Elisa Ossino for Tubes Pegboards found in garages and workshops informed the appearance and functionality of this modular radiator by designer Elisa Ossina for Italian brand Tubes. Grid comprises a recycled aluminium The post Grid radiator by Tubes among seven new products on Dezeen Showroom appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T18:00:02.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Grid radiator by Tubes among seven new products on Dezeen Showroom",
+            "itemLink": "https://www.dezeen.com/2026/09/28/grid-radiator-tubes-heating-furniture-lighting-surfaces-dezeen-showroom/",
+            "publishedDate": "2026-09-28T18:00:02.000Z",
+            "contentSnippet": "Dezeen Showroom: a radiator with interchangeable accessories informed by workbench pegboards is among seven new products featured on Dezeen Showroom. Grid radiator by Elisa Ossino for Tubes Pegboards found in garages and workshops informed the appearance and functionality of this modular radiator by designer Elisa Ossina for Italian brand Tubes. Grid comprises a recycled aluminium The post Grid radiator by Tubes among seven new products on Dezeen Showroom appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "Furniture",
+              "all",
+              "Products",
+              "Design",
+              "Dezeen Showroom"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "Furniture",
+            "all",
+            "Products",
+            "Design",
+            "Dezeen Showroom"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "grid radiator by tubes among seven new products on dezeen showroom"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T18:00:02.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "Furniture",
+      "all",
+      "Products",
+      "Design",
+      "Dezeen Showroom"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:52.391Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260928-grt-architects-adds-modular-sh",
+    "canonicalTopic": "Grt Architects Adds Modular Shelving in Storefront for Art and Architecture Revamp",
+    "slug": "grt-architects-adds-modular-shelving-in-storefront-for-art-and-architecture-revamp",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-3-GRT20Architects20adds20",
+        "query": "Grt Architects Adds Modular Shelving in Storefront for Art and Architecture Revamp",
+        "sourceUrl": "https://www.dezeen.com/2026/09/28/grt-architects-storefront-for-art-and-architecture-update/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-28T15:07:06.000Z",
+        "contentSnippet": "Architecture studio GRT Architects has modernised and updated New York architecture gallery Storefront for Art and Architecture, installing custom, removable shelving units and placing a doorknob on its facade for the first time. The scope for the renovation included updating electrical and HVAC systems in the single, triangular gallery space at Storefront for Art and The post GRT Architects adds modular shelving in Storefront for Art and Architecture revamp appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T15:07:06.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "GRT Architects adds modular shelving in Storefront for Art and Architecture revamp",
+            "itemLink": "https://www.dezeen.com/2026/09/28/grt-architects-storefront-for-art-and-architecture-update/",
+            "publishedDate": "2026-09-28T15:07:06.000Z",
+            "contentSnippet": "Architecture studio GRT Architects has modernised and updated New York architecture gallery Storefront for Art and Architecture, installing custom, removable shelving units and placing a doorknob on its facade for the first time. The scope for the renovation included updating electrical and HVAC systems in the single, triangular gallery space at Storefront for Art and The post GRT Architects adds modular shelving in Storefront for Art and Architecture revamp appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Interiors",
+              "USA",
+              "Galleries",
+              "Storefront for Art and Architecture",
+              "New York City",
+              "GRT Architects",
+              "New York"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Interiors",
+            "USA",
+            "Galleries",
+            "Storefront for Art and Architecture",
+            "New York City",
+            "GRT Architects",
+            "New York"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "grt architects adds modular shelving in storefront for art and architecture revamp"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T15:07:06.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Interiors",
+      "USA",
+      "Galleries",
+      "Storefront for Art and Architecture",
+      "New York City",
+      "GRT Architects",
+      "New York"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:52.473Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260928-animal-friendly-purch-pod-amon",
+    "canonicalTopic": "Animal Friendly Purch Pod Among Projects from American University in Dubai",
+    "slug": "animal-friendly-purch-pod-among-projects-from-american-university-in-dubai",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-4-Animal20friendly2022pur",
+        "query": "Animal Friendly Purch Pod Among Projects from American University in Dubai",
+        "sourceUrl": "https://www.dezeen.com/2026/09/28/public-seating-people-animals-american-university-in-dubai-schoolshows/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-28T15:00:40.000Z",
+        "contentSnippet": "Dezeen School Shows: an animal-friendly public seating and shade structure informed by dunes in the UAE is among the projects from the American University in Dubai. Also featured is a pod with a puzzle-based feeding system for crows, and a cocoon-like space designed for peaceful interactions between humans and cats. American University in Dubai Institution: The post Animal friendly \"purch pod\" among projects from American University in Dubai appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T15:00:40.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Animal friendly \"purch pod\" among projects from American University in Dubai",
+            "itemLink": "https://www.dezeen.com/2026/09/28/public-seating-people-animals-american-university-in-dubai-schoolshows/",
+            "publishedDate": "2026-09-28T15:00:40.000Z",
+            "contentSnippet": "Dezeen School Shows: an animal-friendly public seating and shade structure informed by dunes in the UAE is among the projects from the American University in Dubai. Also featured is a pod with a puzzle-based feeding system for crows, and a cocoon-like space designed for peaceful interactions between humans and cats. American University in Dubai Institution: The post Animal friendly \"purch pod\" among projects from American University in Dubai appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "School Shows",
+              "Student projects",
+              "Graduates",
+              "American University in Dubai"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "School Shows",
+            "Student projects",
+            "Graduates",
+            "American University in Dubai"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "animal friendly purch pod among projects from american university in dubai"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T15:00:40.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "School Shows",
+      "Student projects",
+      "Graduates",
+      "American University in Dubai"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:52.552Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260928-silora-task-chair-by-ito-desig",
+    "canonicalTopic": "Silora Task Chair by Ito Design for Narbutas",
+    "slug": "silora-task-chair-by-ito-design-for-narbutas",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-5-Silora20task20chair20by",
+        "query": "Silora Task Chair by Ito Design for Narbutas",
+        "sourceUrl": "https://www.dezeen.com/2026/09/28/silora-task-chair-ito-design-narbutas-dezeen-showroom/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-28T13:00:17.000Z",
+        "contentSnippet": "Dezeen Showroom: ITO Design let function drive form when creating this task chair, which features a distinctive sculptural back, for office brand Narbutas. The Silora chair features a striking backrest, with two petals that wrap around from the front, continuing the organic curve of the seating design's adaptive dual lumbar support. The chair is intended The post Silora task chair by ITO Design for Narbutas appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T13:00:17.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Silora task chair by ITO Design for Narbutas",
+            "itemLink": "https://www.dezeen.com/2026/09/28/silora-task-chair-ito-design-narbutas-dezeen-showroom/",
+            "publishedDate": "2026-09-28T13:00:17.000Z",
+            "contentSnippet": "Dezeen Showroom: ITO Design let function drive form when creating this task chair, which features a distinctive sculptural back, for office brand Narbutas. The Silora chair features a striking backrest, with two petals that wrap around from the front, continuing the organic curve of the seating design's adaptive dual lumbar support. The chair is intended The post Silora task chair by ITO Design for Narbutas appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "Furniture",
+              "Chairs",
+              "all",
+              "Office chairs",
+              "Design",
+              "Do not show on the Homepage",
+              "Dezeen Showroom",
+              "Office furniture",
+              "Narbutas",
+              "Seating"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "Furniture",
+            "Chairs",
+            "all",
+            "Office chairs",
+            "Design",
+            "Do not show on the Homepage",
+            "Dezeen Showroom",
+            "Office furniture",
+            "Narbutas",
+            "Seating"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "silora task chair by ito design for narbutas"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T13:00:17.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "Furniture",
+      "Chairs",
+      "all",
+      "Office chairs",
+      "Design",
+      "Do not show on the Homepage",
+      "Dezeen Showroom",
+      "Office furniture",
+      "Narbutas",
+      "Seating"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:52.604Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260928-how-to-watch-tonights-all-amer",
+    "canonicalTopic": "How to Watch Tonights All American Series Finale Online Free",
+    "slug": "how-to-watch-tonights-all-american-series-finale-online-free",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-1-How20to20Watch20",
+        "query": "How to Watch Tonights All American Series Finale Online Free",
+        "sourceUrl": "https://variety.com/2026/shopping/news/how-to-watch-all-american-series-finale-sept-28-online-free-1236877762/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-28T22:51:30.000Z",
+        "contentSnippet": "After eight seasons and more than 100 episodes, The CW's \"All American\" bids farewell tonight. The high school football drama airs its final episode tonight at 8 p.m. on The CW, closing a chapter that first premiered in October of 2018. Viewers can tune into the hour-long \"All American\" finale on TV through their local […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T22:51:30.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "How to Watch Tonight's 'All American' Series Finale Online Free",
+            "itemLink": "https://variety.com/2026/shopping/news/how-to-watch-all-american-series-finale-sept-28-online-free-1236877762/",
+            "publishedDate": "2026-09-28T22:51:30.000Z",
+            "contentSnippet": "After eight seasons and more than 100 episodes, The CW's \"All American\" bids farewell tonight. The high school football drama airs its final episode tonight at 8 p.m. on The CW, closing a chapter that first premiered in October of 2018. Viewers can tune into the hour-long \"All American\" finale on TV through their local […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "All American",
+              "NOADS",
+              "The Cw"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "All American",
+            "NOADS",
+            "The Cw"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how to watch tonights all american series finale online free"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T22:51:30.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "All American",
+      "NOADS",
+      "The Cw"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:52.674Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260928-cbs-and-mtv-vmas-attract-a-com",
+    "canonicalTopic": "Cbs and Mtv Vmas Attract a Combined 84 Million Viewers Making It the Most-watched Since 2015 and Up 51 from Last Year",
+    "slug": "cbs-and-mtv-vmas-attract-a-combined-84-million-viewers-making-it-the-most-watched-since-2015-and-up-51-from-last-year",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-2-CBS20and20MTV20V",
+        "query": "Cbs and Mtv Vmas Attract a Combined 84 Million Viewers Making It the Most-watched Since 2015 and Up 51 from Last Year",
+        "sourceUrl": "https://variety.com/2026/tv/news/vma-ratings-cbs-mtv-most-watched-since-2015-up-last-year-1236877733/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-28T22:00:00.000Z",
+        "contentSnippet": "The Moon Man still has some life. CBS' and MTV's coverage of the 2026 MTV Video Music Awards averaged a combined 8.43 million viewers on Sunday night, according to Nielsen Live+same day fast nationals. Those numbers are subject to change once finals are in, but for now that makes it the most-watched VMAs in 11 […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T22:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "CBS and MTV VMAs Attract a Combined 8.4 Million Viewers, Making it the Most-Watched Since 2015 and Up 51% From Last Year",
+            "itemLink": "https://variety.com/2026/tv/news/vma-ratings-cbs-mtv-most-watched-since-2015-up-last-year-1236877733/",
+            "publishedDate": "2026-09-28T22:00:00.000Z",
+            "contentSnippet": "The Moon Man still has some life. CBS' and MTV's coverage of the 2026 MTV Video Music Awards averaged a combined 8.43 million viewers on Sunday night, according to Nielsen Live+same day fast nationals. Those numbers are subject to change once finals are in, but for now that makes it the most-watched VMAs in 11 […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "MTV",
+              "TV Ratings",
+              "Video Music Awards",
+              "VMAs"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "MTV",
+            "TV Ratings",
+            "Video Music Awards",
+            "VMAs"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "cbs and mtv vmas attract a combined 84 million viewers making it the most-watched since 2015 and up 51 from last year"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T22:00:00.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "MTV",
+      "TV Ratings",
+      "Video Music Awards",
+      "VMAs"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:52.790Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260928-spider-man-brand-new-day-re-re",
+    "canonicalTopic": "Spider-man Brand New Day Re-release in the Works with New Footage",
+    "slug": "spider-man-brand-new-day-re-release-in-the-works-with-new-footage",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-3-Spider-Man3A20Br",
+        "query": "Spider-man Brand New Day Re-release in the Works with New Footage",
+        "sourceUrl": "https://variety.com/2026/film/news/spider-man-brand-new-day-re-release-new-footage-tom-holland-1236877741/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-28T21:57:04.000Z",
+        "contentSnippet": "“Spider-Man: Brand New Day” is getting a re-release with new footage, Variety has confirmed, although details about what's in those new scenes remain under wraps. A release date has also yet to be revealed. “Brand New Day,” which launched July 31, was the box office story of the summer. The superhero blockbuster has grossed $2.49 […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T21:57:04.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "'Spider-Man: Brand New Day' Re-Release in the Works With New Footage",
+            "itemLink": "https://variety.com/2026/film/news/spider-man-brand-new-day-re-release-new-footage-tom-holland-1236877741/",
+            "publishedDate": "2026-09-28T21:57:04.000Z",
+            "contentSnippet": "“Spider-Man: Brand New Day” is getting a re-release with new footage, Variety has confirmed, although details about what's in those new scenes remain under wraps. A release date has also yet to be revealed. “Brand New Day,” which launched July 31, was the box office story of the summer. The superhero blockbuster has grossed $2.49 […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "Spider-Man: Brand New Day",
+              "Tom Holland",
+              "Zendaya"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "Spider-Man: Brand New Day",
+            "Tom Holland",
+            "Zendaya"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "spider-man brand new day re-release in the works with new footage"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T21:57:04.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "Spider-Man: Brand New Day",
+      "Tom Holland",
+      "Zendaya"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:52.865Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260928-miley-cyrus-scores-first-no-1-",
+    "canonicalTopic": "Miley Cyrus Scores First No 1 in over a Decade on Albums Chart While Ella Langley Extends Record on Singles Chart",
+    "slug": "miley-cyrus-scores-first-no-1-in-over-a-decade-on-albums-chart-while-ella-langley-extends-record-on-singles-chart",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-4-Miley20Cyrus20Sc",
+        "query": "Miley Cyrus Scores First No 1 in over a Decade on Albums Chart While Ella Langley Extends Record on Singles Chart",
+        "sourceUrl": "https://variety.com/2026/music/news/miley-cyrus-first-no-1-chart-ella-langley-extends-record-1236877731/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-28T21:51:34.000Z",
+        "contentSnippet": "Miley Cyrus has scored her first No. 1 album on the Billboard 200 in over a decade with her latest, \"Bass Persuades.\" The singer, who is going mononomously as Miley for this era, bows in the top spot with 61,000 equivalent album units. In a tight race, she landed ahead of Ella Langley's \"Dandelion,\" which […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T21:51:34.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Miley Cyrus Scores First No. 1 in Over a Decade on Albums Chart, While Ella Langley Extends Record on Singles Chart",
+            "itemLink": "https://variety.com/2026/music/news/miley-cyrus-first-no-1-chart-ella-langley-extends-record-1236877731/",
+            "publishedDate": "2026-09-28T21:51:34.000Z",
+            "contentSnippet": "Miley Cyrus has scored her first No. 1 album on the Billboard 200 in over a decade with her latest, \"Bass Persuades.\" The singer, who is going mononomously as Miley for this era, bows in the top spot with 61,000 equivalent album units. In a tight race, she landed ahead of Ella Langley's \"Dandelion,\" which […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "Billboard 200",
+              "Billboard Hot 100",
+              "Ella Langley",
+              "Miley Cyrus"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "Billboard 200",
+            "Billboard Hot 100",
+            "Ella Langley",
+            "Miley Cyrus"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "miley cyrus scores first no 1 in over a decade on albums chart while ella langley extends record on singles chart"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T21:51:34.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "Billboard 200",
+      "Billboard Hot 100",
+      "Ella Langley",
+      "Miley Cyrus"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:52.979Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260928-after-a-booming-year-horror-in",
+    "canonicalTopic": "After a Booming Year Horror Insiders Debate the Genres Future at Fantastic Fest You Can Take Big Swings and Youre Mitigating Your Risk",
+    "slug": "after-a-booming-year-horror-insiders-debate-the-genres-future-at-fantastic-fest-you-can-take-big-swings-and-youre-mitigating-your-risk",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-5-After20a20Boomin",
+        "query": "After a Booming Year Horror Insiders Debate the Genres Future at Fantastic Fest You Can Take Big Swings and Youre Mitigating Your Risk",
+        "sourceUrl": "https://variety.com/2026/film/festivals/horror-movies-future-filmmakers-shudder-debate-1236875312/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-28T21:12:22.000Z",
+        "contentSnippet": "2026 was filled with visionary horror films that rocked the box office, like “Obsession” and “Backrooms.” But what does the future of the genre look like? At this year's Fantastic Fest in Austin, I moderated a panel about fear, fandom and the future of the horror genre, which touched on several topics about the business […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T21:12:22.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "After a Booming Year, Horror Insiders Debate the Genre's Future at Fantastic Fest: 'You Can Take Big Swings and You're Mitigating Your Risk'",
+            "itemLink": "https://variety.com/2026/film/festivals/horror-movies-future-filmmakers-shudder-debate-1236875312/",
+            "publishedDate": "2026-09-28T21:12:22.000Z",
+            "contentSnippet": "2026 was filled with visionary horror films that rocked the box office, like “Obsession” and “Backrooms.” But what does the future of the genre look like? At this year's Fantastic Fest in Austin, I moderated a panel about fear, fandom and the future of the horror genre, which touched on several topics about the business […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Features",
+              "Festivals",
+              "Fantastic Fest",
+              "Shudder",
+              "Shudder Horror Panel"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Features",
+            "Festivals",
+            "Fantastic Fest",
+            "Shudder",
+            "Shudder Horror Panel"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "after a booming year horror insiders debate the genres future at fantastic fest you can take big swings and youre mitigating your risk"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T21:12:22.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Features",
+      "Festivals",
+      "Fantastic Fest",
+      "Shudder",
+      "Shudder Horror Panel"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-28T22:59:53.113Z",
     "pinterestScore": 79.2
   }
 ]
