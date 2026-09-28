@@ -452,5 +452,40 @@
     "overallStatus": "COMPLETED",
     "createdAt": "2026-09-27T17:13:11.682Z",
     "updatedAt": "2026-09-27T17:13:11.682Z"
+  },
+  {
+    "runId": "srun-1790624922687-hs0o3",
+    "topicId": "lm-tech-ai-20260926-virginia-tech-vs-boston-colleg",
+    "pillar": "tech-ai",
+    "canonicalTopic": "What Changed in Virginia Tech vs Boston College—and What Remains",
+    "contentHash": "cb59078ec9bf1ba57862e1780f447e6380f838c9b5fe1d6ce4d029bbcfd694a4",
+    "assetHash": "5a35981a1292b8a04247a92ac3a67acea997348cdf583b547667a5bff69598c9",
+    "idempotencyKey": "lm-soc-lm-tech-ai-20260926-virginia-tech-vs-boston-colleg-cb59078e",
+    "targetPlatforms": [
+      "instagram",
+      "facebook"
+    ],
+    "platformResults": {
+      "instagram": {
+        "platform": "instagram",
+        "status": "PUBLISHED",
+        "postId": "18048402659816880",
+        "postUrl": "https://instagram.com/p/18048402659816880",
+        "publishedAt": "2026-09-28T19:48:52.536Z",
+        "idempotencyKey": "lm-soc-lm-tech-ai-20260926-virginia-tech-vs-boston-colleg-instagram-1ecb738def8b"
+      },
+      "facebook": {
+        "platform": "facebook",
+        "status": "PUBLISHED",
+        "postId": "122323106264197726",
+        "postUrl": "https://facebook.com/122323106264197726",
+        "publishedAt": "2026-09-28T19:49:00.842Z",
+        "idempotencyKey": "lm-soc-lm-tech-ai-20260926-virginia-tech-vs-boston-colleg-facebook-241c03339b53"
+      }
+    },
+    "reviewScore": 90,
+    "overallStatus": "COMPLETED",
+    "createdAt": "2026-09-28T19:49:06.208Z",
+    "updatedAt": "2026-09-28T19:49:06.208Z"
   }
 ]
