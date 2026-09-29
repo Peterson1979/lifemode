@@ -487,5 +487,40 @@
     "overallStatus": "COMPLETED",
     "createdAt": "2026-09-28T19:49:06.208Z",
     "updatedAt": "2026-09-28T19:49:06.208Z"
+  },
+  {
+    "runId": "srun-1790705595990-eerln",
+    "topicId": "lm-travel-20260928-delta-flight-diverted-to-porto",
+    "pillar": "travel",
+    "canonicalTopic": "Delta flight diverted to Porto Portugal: What travelers need to know",
+    "contentHash": "59f3f77afd2fbdbb9c71d7eda097a3ea5e3fab239e1d6326cd092ab19c034c92",
+    "assetHash": "d567ad594c7b143022cc7b95da2109065864c009ea6ef42cc60b0768381b5e13",
+    "idempotencyKey": "lm-soc-lm-travel-20260928-delta-flight-diverted-to-porto-59f3f77a",
+    "targetPlatforms": [
+      "instagram",
+      "facebook"
+    ],
+    "platformResults": {
+      "instagram": {
+        "platform": "instagram",
+        "status": "PUBLISHED",
+        "postId": "18491660206100194",
+        "postUrl": "https://instagram.com/p/18491660206100194",
+        "publishedAt": "2026-09-29T18:13:21.790Z",
+        "idempotencyKey": "lm-soc-lm-travel-20260928-delta-flight-diverted-to-porto-instagram-b52f0f5ac1f0"
+      },
+      "facebook": {
+        "platform": "facebook",
+        "status": "PUBLISHED",
+        "postId": "122323297946197726",
+        "postUrl": "https://facebook.com/122323297946197726",
+        "publishedAt": "2026-09-29T18:13:33.840Z",
+        "idempotencyKey": "lm-soc-lm-travel-20260928-delta-flight-diverted-to-porto-facebook-b113f47d2f60"
+      }
+    },
+    "reviewScore": 90,
+    "overallStatus": "COMPLETED",
+    "createdAt": "2026-09-29T18:13:40.661Z",
+    "updatedAt": "2026-09-29T18:13:40.661Z"
   }
 ]
