@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-28T22:59:53.118Z",
+    "updatedAt": "2026-09-29T12:17:18.698Z",
     "revisionCyclesCount": 0
   },
   {
@@ -25807,12 +25807,38 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-houston20weather",
+        "query": "houston weather",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-29T11:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-29T11:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "houston weather",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
-      "boston weather"
+      "boston weather",
+      "houston weather"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-13T11:00:00.000Z",
     "tags": [
       "US",
@@ -25822,21 +25848,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-13T11:13:37.515Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-29T12:17:16.727Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260913-mn-vikings",
@@ -35488,12 +35515,37 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-raphinha",
+        "query": "raphinha",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-29T11:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-29T11:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "raphinha",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "raphinha"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-16T20:40:00.000Z",
     "tags": [
       "US",
@@ -35503,21 +35555,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-16T20:57:31.163Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-29T12:17:16.701Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260916-troy-aikman",
@@ -49982,7 +50035,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-28T22:59:53.311Z",
+    "updatedAt": "2026-09-29T12:17:18.833Z",
     "pinterestScore": 85.6,
     "revisionCyclesCount": 0
   },
@@ -50045,7 +50098,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-28T22:59:53.344Z",
+    "updatedAt": "2026-09-29T12:17:18.859Z",
     "pinterestScore": 84.8,
     "revisionCyclesCount": 0
   },
@@ -51794,10 +51847,47 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-4-New20York20Times20execu",
+        "query": "New York Times executive fatally shot by elderly in-laws, police say",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cred737qdv2no?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-29T04:06:43.000Z",
+        "contentSnippet": "Jonathan McKinsey's in-laws, who are both 77 years old, face multiple charges including first-degree murder.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T04:06:43.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "New York Times executive fatally shot by elderly in-laws, police say",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cred737qdv2no?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-29T04:06:43.000Z",
+            "contentSnippet": "Jonathan McKinsey's in-laws, who are both 77 years old, face multiple charges including first-degree murder.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
-      "new york"
+      "new york",
+      "new york times executive fatally shot by elderly in-laws, police say"
     ],
     "freshnessScore": 88,
     "createdAt": "2026-09-20T09:30:00.000Z",
@@ -51809,20 +51899,20 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 89,
-      "pinterestPotential": 83,
-      "socialPotential": 88,
-      "lifeModeRelevance": 90,
+      "searchPotential": 91,
+      "pinterestPotential": 85,
+      "socialPotential": 90,
+      "lifeModeRelevance": 92,
       "commercialPotential": 60,
       "freshness": 88,
       "competitionOpportunity": 70,
-      "originalityPotential": 85
+      "originalityPotential": 87
     },
-    "totalScore": 83.8,
+    "totalScore": 85.3,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-27T11:33:30.805Z",
+    "updatedAt": "2026-09-29T12:17:17.433Z",
     "pinterestScore": 85.3,
     "revisionCyclesCount": 0
   },
@@ -61470,12 +61560,61 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-rolling-stone-culture-5-Hayden20Panettie",
+        "query": "Hayden Panettiere’s Ex-Fiancé Claims Non-Family May Have ‘Destroyed’ Star’s Emails, Jewelry Missing",
+        "sourceUrl": "https://www.rollingstone.com/tv-movies/tv-movie-news/hayden-panettiere-klitschko-daughter-emails-jewelry-missing-1235633368/",
+        "publisherName": "Rolling Stone",
+        "publishedAt": "2026-09-28T23:05:17.000Z",
+        "contentSnippet": "Wladimir Klitschko is seeking standing to act on behalf of their 11-year-old daughter, the star’s sole heir, amid “urgent” concerns about potentially missing assets",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T23:05:17.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.rollingstone.com/feed/",
+            "feedTitle": "Rolling Stone",
+            "itemTitle": "Hayden Panettiere’s Ex-Fiancé Claims Non-Family May Have ‘Destroyed’ Star’s Emails, Jewelry Missing",
+            "itemLink": "https://www.rollingstone.com/tv-movies/tv-movie-news/hayden-panettiere-klitschko-daughter-emails-jewelry-missing-1235633368/",
+            "publishedDate": "2026-09-28T23:05:17.000Z",
+            "contentSnippet": "Wladimir Klitschko is seeking standing to act on behalf of their 11-year-old daughter, the star’s sole heir, amid “urgent” concerns about potentially missing assets",
+            "categories": [
+              "music",
+              "pop-culture",
+              "film",
+              "artists",
+              "interviews",
+              "TV & Movies",
+              "TV & Movies News",
+              "controversy",
+              "courts and crime",
+              "Hayden Panettiere"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "music",
+            "pop-culture",
+            "film",
+            "artists",
+            "interviews",
+            "TV & Movies",
+            "TV & Movies News",
+            "controversy",
+            "courts and crime",
+            "Hayden Panettiere"
+          ],
+          "feedName": "Rolling Stone",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
-      "hayden panettiere"
+      "hayden panettiere",
+      "hayden panettiere’s ex-fiancé claims non-family may have ‘destroyed’ star’s emails, jewelry missing"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-22T15:20:00.000Z",
     "tags": [
       "US",
@@ -61485,21 +61624,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
-      "pinterestPotential": 83,
-      "socialPotential": 88,
-      "lifeModeRelevance": 90,
+      "searchPotential": 87,
+      "pinterestPotential": 85,
+      "socialPotential": 90,
+      "lifeModeRelevance": 92,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
-      "originalityPotential": 85
+      "originalityPotential": 87
     },
-    "totalScore": 82.7,
+    "totalScore": 84.5,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-22T16:26:28.159Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-29T12:17:18.697Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260922-schd",
@@ -62405,6 +62545,54 @@
           "feedName": "MIT Technology Review",
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-4-Roundtables3A20The20De",
+        "query": "Roundtables: The Deadly Failures of The Virtual Border Wall",
+        "sourceUrl": "https://www.technologyreview.com/2026/09/28/1144890/roundtables-the-deadly-failures-of-the-virtual-border-wall/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-09-28T22:17:07.000Z",
+        "contentSnippet": "Listen to the session or watch below The US has spent billions building a “virtual wall” of surveillance towers along its southern border over the past 25 years, promising they will help detect and apprehend border crossers and save lives. But a groundbreaking investigation by MIT Technology Review has documented over a thousand people who…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T22:17:07.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "Roundtables: The Deadly Failures of The Virtual Border Wall",
+            "itemLink": "https://www.technologyreview.com/2026/09/28/1144890/roundtables-the-deadly-failures-of-the-virtual-border-wall/",
+            "publishedDate": "2026-09-28T22:17:07.000Z",
+            "contentSnippet": "Listen to the session or watch below The US has spent billions building a “virtual wall” of surveillance towers along its southern border over the past 25 years, promising they will help detect and apprehend border crossers and save lives. But a groundbreaking investigation by MIT Technology Review has documented over a thousand people who…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "Artificial intelligence",
+              "AI",
+              "artificial intelligence",
+              "Roundtables",
+              "Subscriber-Only Stories"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "Artificial intelligence",
+            "AI",
+            "artificial intelligence",
+            "Roundtables",
+            "Subscriber-Only Stories"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
@@ -62441,7 +62629,7 @@
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-09-28T22:59:50.192Z",
+    "updatedAt": "2026-09-29T12:17:17.010Z",
     "pinterestScore": 75.8,
     "revisionCyclesCount": 0
   },
@@ -69497,7 +69685,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-28T22:59:53.164Z",
+    "updatedAt": "2026-09-29T12:17:18.733Z",
     "pinterestScore": 87.8,
     "revisionCyclesCount": 0
   },
@@ -69560,7 +69748,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-28T22:59:53.226Z",
+    "updatedAt": "2026-09-29T12:17:18.774Z",
     "pinterestScore": 84.6,
     "revisionCyclesCount": 0
   },
@@ -69623,7 +69811,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-28T22:59:53.278Z",
+    "updatedAt": "2026-09-29T12:17:18.810Z",
     "pinterestScore": 82.9,
     "revisionCyclesCount": 0
   },
@@ -76093,13 +76281,52 @@
           "feedName": "Vogue Style & Culture",
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-5-TorishC3A9ju20Spring20202",
+        "query": "Torishéju Spring 2027 Ready-to-Wear",
+        "sourceUrl": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/torisheju",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-29T12:16:10.000Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T12:16:10.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Torishéju Spring 2027 Ready-to-Wear",
+            "itemLink": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/torisheju",
+            "publishedDate": "2026-09-29T12:16:10.000Z",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "sportmax spring 2027 ready-to-wear",
       "marco rambaldi spring 2027 ready-to-wear",
       "act no.1 spring 2027 ready-to-wear",
-      "giorgio armani spring 2027 ready-to-wear"
+      "giorgio armani spring 2027 ready-to-wear",
+      "torishéju spring 2027 ready-to-wear"
     ],
     "freshnessScore": 88,
     "createdAt": "2026-09-25T11:18:56.000Z",
@@ -76127,7 +76354,7 @@
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-09-27T11:33:31.444Z",
+    "updatedAt": "2026-09-29T12:17:17.717Z",
     "pinterestScore": 79.2,
     "revisionCyclesCount": 0
   },
@@ -85915,9 +86142,12 @@
     "totalScore": 82.7,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-26T15:56:19.523Z",
-    "pinterestScore": 85.3
+    "status": "REJECTED",
+    "updatedAt": "2026-09-29T12:24:05.432Z",
+    "pinterestScore": 85.3,
+    "rejectionReason": "AI Review decision was REJECT (score: 58) after 1 quality revision",
+    "revisionCyclesCount": 1,
+    "revisionAttempted": true
   },
   {
     "id": "lm-entertainment-20260926-diana-princess-of-wales",
@@ -93308,12 +93538,37 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-hubert20hurkacz",
+        "query": "hubert hurkacz",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-29T11:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-29T11:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "hubert hurkacz",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "hubert hurkacz"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-28T12:20:00.000Z",
     "tags": [
       "US",
@@ -93323,21 +93578,24 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 92,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 84,
+    "totalScore": 85.1,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-28T13:07:26.058Z",
-    "pinterestScore": 88.3
+    "status": "REJECTED",
+    "updatedAt": "2026-09-29T12:18:26.498Z",
+    "pinterestScore": 88.3,
+    "revisionCyclesCount": 1,
+    "rejectionReason": "AI Review decision was REJECT (score: 45) after 1 quality revision",
+    "revisionAttempted": true
   },
   {
     "id": "lm-entertainment-20260928-2026-winter-forecast-heavy-sno",
@@ -97241,9 +97499,10 @@
     "totalScore": 84,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-28T22:59:50.084Z",
-    "pinterestScore": 88.3
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-29T12:20:41.841Z",
+    "pinterestScore": 88.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-entertainment-20260928-dublin",
@@ -100882,6 +101141,3316 @@
     "opportunityType": "ARTICLE",
     "status": "SCORED",
     "updatedAt": "2026-09-28T22:59:53.113Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260929-south-sudan-vs-egypt",
+    "canonicalTopic": "South Sudan Vs Egypt",
+    "slug": "south-sudan-vs-egypt",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-south20sudan20vs20",
+        "query": "South Sudan Vs Egypt",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-29T12:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-29T12:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "south sudan vs egypt",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "south sudan vs egypt"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T12:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-29T12:17:16.635Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260929-aircraft-recovery-mishap-uss-e",
+    "canonicalTopic": "Aircraft Recovery Mishap Uss Eisenhower",
+    "slug": "aircraft-recovery-mishap-uss-eisenhower",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-aircraft20recove",
+        "query": "Aircraft Recovery Mishap Uss Eisenhower",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-29T11:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-29T11:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "aircraft recovery mishap uss eisenhower",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "aircraft recovery mishap uss eisenhower"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T11:30:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-29T12:17:16.692Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260929-payton-tolle",
+    "canonicalTopic": "Payton Tolle",
+    "slug": "payton-tolle",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-payton20tolle",
+        "query": "Payton Tolle",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-29T11:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-29T11:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "payton tolle",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "payton tolle"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T11:30:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-29T12:17:16.722Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260929-yemen",
+    "canonicalTopic": "Yemen",
+    "slug": "yemen",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-yemen",
+        "query": "Yemen",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-29T11:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-29T11:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "yemen",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "yemen"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T11:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-29T12:17:16.741Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260929-wwe-wrestlers",
+    "canonicalTopic": "Wwe Wrestlers",
+    "slug": "wwe-wrestlers",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-wwe20wrestlers",
+        "query": "Wwe Wrestlers",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-29T11:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-29T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "wwe wrestlers",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "wwe wrestlers"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T11:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-29T12:17:16.759Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260929-andrew-garfield",
+    "canonicalTopic": "Andrew Garfield",
+    "slug": "andrew-garfield",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-andrew20garfield",
+        "query": "Andrew Garfield",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-29T11:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-29T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "andrew garfield",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "andrew garfield"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T11:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-29T12:17:16.778Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260929-golf",
+    "canonicalTopic": "Golf",
+    "slug": "golf",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-golf",
+        "query": "Golf",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-29T11:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-29T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "golf",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "golf"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T11:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-29T12:17:16.795Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-tech-ai-20260929-boeing-incredibly-excited-to-s",
+    "canonicalTopic": "Boeing Incredibly Excited to Serve As Nations Only Astronaut Transportation",
+    "slug": "boeing-incredibly-excited-to-serve-as-nations-only-astronaut-transportation",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-1-Boeing2022incredibly20e",
+        "query": "Boeing Incredibly Excited to Serve As Nations Only Astronaut Transportation",
+        "sourceUrl": "https://arstechnica.com/space/2026/09/boeing-incredibly-excited-to-serve-as-nations-only-astronaut-transportation/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-28T22:24:33.000Z",
+        "contentSnippet": "\"We couldn't provide detailed pricing to the CLD suppliers.\"",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T22:24:33.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Boeing \"incredibly excited\" to serve as nation's only astronaut transportation",
+            "itemLink": "https://arstechnica.com/space/2026/09/boeing-incredibly-excited-to-serve-as-nations-only-astronaut-transportation/",
+            "publishedDate": "2026-09-28T22:24:33.000Z",
+            "contentSnippet": "\"We couldn't provide detailed pricing to the CLD suppliers.\"",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Space",
+              "Boeing",
+              "dragon",
+              "NASA",
+              "space",
+              "spacex",
+              "starliner"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Space",
+            "Boeing",
+            "dragon",
+            "NASA",
+            "space",
+            "spacex",
+            "starliner"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "boeing incredibly excited to serve as nations only astronaut transportation"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T22:24:33.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Space",
+      "Boeing",
+      "dragon",
+      "NASA",
+      "space",
+      "spacex",
+      "starliner"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:16.851Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260929-the-download-climate-tech-comp",
+    "canonicalTopic": "The Download Climate Tech Companies to Watch and Ais Discovery Problem",
+    "slug": "the-download-climate-tech-companies-to-watch-and-ais-discovery-problem",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-1-The20Download3A20clima",
+        "query": "The Download Climate Tech Companies to Watch and Ais Discovery Problem",
+        "sourceUrl": "https://www.technologyreview.com/2026/09/29/1145249/the-download-climate-tech-ai-scientific-discovery/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-09-29T12:10:00.000Z",
+        "contentSnippet": "This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. Coming soon: our 2026 list of Climate Tech Companies to Watch With the planet nearing 1.5 °C of warming, climate policies being unraveled, and Big Tech backpedaling on its climate ambitions,…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T12:10:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "The Download: climate tech companies to watch and AI’s discovery problem",
+            "itemLink": "https://www.technologyreview.com/2026/09/29/1145249/the-download-climate-tech-ai-scientific-discovery/",
+            "publishedDate": "2026-09-29T12:10:00.000Z",
+            "contentSnippet": "This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. Coming soon: our 2026 list of Climate Tech Companies to Watch With the planet nearing 1.5 °C of warming, climate policies being unraveled, and Big Tech backpedaling on its climate ambitions,…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "The Download"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "The Download"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the download climate tech companies to watch and ais discovery problem"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T12:10:00.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "The Download"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:16.906Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260929-coming-soon-our-2026-list-of-c",
+    "canonicalTopic": "Coming Soon Our 2026 List of Climate Tech Companies to Watch",
+    "slug": "coming-soon-our-2026-list-of-climate-tech-companies-to-watch",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-2-Coming20soon3A20Our202",
+        "query": "Coming Soon Our 2026 List of Climate Tech Companies to Watch",
+        "sourceUrl": "https://www.technologyreview.com/2026/09/29/1145183/2026-climate-tech-companies-to-watch-preview/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-09-29T11:00:00.000Z",
+        "contentSnippet": "Earlier this month, the UN announced the planet will tip past 1.5 ˚C of warming, “likely within the next few years,” squashing any lingering hope that nations would cut emissions fast enough to achieve the loftiest goal of the Paris climate agreement. In the US, the world’s second-largest-emitting country, its leader continues to deny climate…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T11:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "Coming soon: Our 2026 list of Climate Tech Companies to Watch",
+            "itemLink": "https://www.technologyreview.com/2026/09/29/1145183/2026-climate-tech-companies-to-watch-preview/",
+            "publishedDate": "2026-09-29T11:00:00.000Z",
+            "contentSnippet": "Earlier this month, the UN announced the planet will tip past 1.5 ˚C of warming, “likely within the next few years,” squashing any lingering hope that nations would cut emissions fast enough to achieve the loftiest goal of the Paris climate agreement. In the US, the world’s second-largest-emitting country, its leader continues to deny climate…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "Climate change and energy",
+              "App",
+              "Climate Tech List 2026"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "Climate change and energy",
+            "App",
+            "Climate Tech List 2026"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "coming soon our 2026 list of climate tech companies to watch"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T11:00:00.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "Climate change and energy",
+      "App",
+      "Climate Tech List 2026"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:16.953Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260929-making-ai-an-asset-not-an-expe",
+    "canonicalTopic": "Making Ai an Asset Not an Expense",
+    "slug": "making-ai-an-asset-not-an-expense",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-3-Making20AI20an20asset2",
+        "query": "Making Ai an Asset Not an Expense",
+        "sourceUrl": "https://www.technologyreview.com/2026/09/29/1145186/making-ai-an-asset-not-an-expense/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-09-29T10:43:45.000Z",
+        "contentSnippet": "When customers talk about AI costs, the conversation usually starts with token prices and ends with access to the latest, most capable model in the cloud. Do they always need that level of capability? Not necessarily. But that is often where the conversation goes. As AI moves from experimentation to production, model choice is only…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T10:43:45.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "Making AI an asset, not an expense",
+            "itemLink": "https://www.technologyreview.com/2026/09/29/1145186/making-ai-an-asset-not-an-expense/",
+            "publishedDate": "2026-09-29T10:43:45.000Z",
+            "contentSnippet": "When customers talk about AI costs, the conversation usually starts with token prices and ends with access to the latest, most capable model in the cloud. Do they always need that level of capability? Not necessarily. But that is often where the conversation goes. As AI moves from experimentation to production, model choice is only…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "Artificial intelligence",
+              "sponsored"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "Artificial intelligence",
+            "sponsored"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "making ai an asset not an expense"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T10:43:45.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "Artificial intelligence",
+      "sponsored"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:16.983Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260929-will-chinese-ai-companies-slow",
+    "canonicalTopic": "Will Chinese Ai Companies Slow Down a Top House Democrat Wants Answers",
+    "slug": "will-chinese-ai-companies-slow-down-a-top-house-democrat-wants-answers",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-Will20Chinese20AI20comp",
+        "query": "Will Chinese Ai Companies Slow Down a Top House Democrat Wants Answers",
+        "sourceUrl": "https://www.theverge.com/policy/1001767/khanna-ai-safety-china-treaty",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-29T12:00:00.000Z",
+        "contentSnippet": "As President Donald Trump prepares to meet tech and AI CEOs in Washington, Rep. Ro Khanna (D-CA) is calling for a treaty between the US and China to keep AI from wreaking havoc on the world. But wrangling leaders in both countries to take action could be a long shot. In letters shared exclusively with […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T12:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Will Chinese AI companies slow down? A top House Democrat wants answers",
+            "itemLink": "https://www.theverge.com/policy/1001767/khanna-ai-safety-china-treaty",
+            "publishedDate": "2026-09-29T12:00:00.000Z",
+            "contentSnippet": "As President Donald Trump prepares to meet tech and AI CEOs in Washington, Rep. Ro Khanna (D-CA) is calling for a treaty between the US and China to keep AI from wreaking havoc on the world. But wrangling leaders in both countries to take action could be a long shot. In letters shared exclusively with […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "Policy",
+              "Politics",
+              "Report"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "Policy",
+            "Politics",
+            "Report"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "will chinese ai companies slow down a top house democrat wants answers"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T12:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "Policy",
+      "Politics",
+      "Report"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:17.062Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260929-anthropic-warns-of-catastrophi",
+    "canonicalTopic": "Anthropic Warns of Catastrophic Ai Risks in Its Own Ipo Filing",
+    "slug": "anthropic-warns-of-catastrophic-ai-risks-in-its-own-ipo-filing",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-Anthropic20warns20of20E28098",
+        "query": "Anthropic Warns of Catastrophic Ai Risks in Its Own Ipo Filing",
+        "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/1001838/anthropic-ipo-prospectus-ai-safety-threat",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-29T11:48:27.000Z",
+        "contentSnippet": "As Anthropic gears up for its greatly anticipated public debut, a preview of the company's IPO filing reportedly details its mounting losses, leadership proposals to retain power, and how its AI development plans could \"further increase the risk that our models cause harm.\" These disclosures come as Anthropic eyes a $2 trillion valuation, more than […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T11:48:27.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Anthropic warns of ‘catastrophic’ AI risks in its own IPO filing",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/1001838/anthropic-ipo-prospectus-ai-safety-threat",
+            "publishedDate": "2026-09-29T11:48:27.000Z",
+            "contentSnippet": "As Anthropic gears up for its greatly anticipated public debut, a preview of the company's IPO filing reportedly details its mounting losses, leadership proposals to retain power, and how its AI development plans could \"further increase the risk that our models cause harm.\" These disclosures come as Anthropic eyes a $2 trillion valuation, more than […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "Anthropic",
+              "Business",
+              "News"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "Anthropic",
+            "Business",
+            "News"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "anthropic warns of catastrophic ai risks in its own ipo filing"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T11:48:27.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "Anthropic",
+      "Business",
+      "News"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:17.110Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260929-your-cars-data-privacy-problem",
+    "canonicalTopic": "Your Cars Data Privacy Problems Are Worse Than You Think",
+    "slug": "your-cars-data-privacy-problems-are-worse-than-you-think",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-Your20carE28099s20data20priv",
+        "query": "Your Cars Data Privacy Problems Are Worse Than You Think",
+        "sourceUrl": "https://www.theverge.com/transportation/1001463/car-data-privacy-northeastern-study-honda-gm-ford",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-29T10:00:00.000Z",
+        "contentSnippet": "You hear it all the time: Modern cars are basically smartphones on wheels. And just like the phone in your pocket, the car in your driveway collects vast amounts of data - tracking where you drive, how fast you accelerate, how hard you brake, how aggressively you turn, and much more. The legality of this […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Your car’s data privacy problems are worse than you think",
+            "itemLink": "https://www.theverge.com/transportation/1001463/car-data-privacy-northeastern-study-honda-gm-ford",
+            "publishedDate": "2026-09-29T10:00:00.000Z",
+            "contentSnippet": "You hear it all the time: Modern cars are basically smartphones on wheels. And just like the phone in your pocket, the car in your driveway collects vast amounts of data - tracking where you drive, how fast you accelerate, how hard you brake, how aggressively you turn, and much more. The legality of this […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Autonomous Cars",
+              "Cars",
+              "Electric Cars",
+              "News",
+              "Privacy",
+              "Tech",
+              "Transportation"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Autonomous Cars",
+            "Cars",
+            "Electric Cars",
+            "News",
+            "Privacy",
+            "Tech",
+            "Transportation"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "your cars data privacy problems are worse than you think"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T10:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Autonomous Cars",
+      "Cars",
+      "Electric Cars",
+      "News",
+      "Privacy",
+      "Tech",
+      "Transportation"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:17.156Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260929-nothings-new-flagship-headphon",
+    "canonicalTopic": "Nothings New Flagship Headphone 1 Pro Put You in the Studio",
+    "slug": "nothings-new-flagship-headphone-1-pro-put-you-in-the-studio",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-4-NothingE28099s20new20flagsh",
+        "query": "Nothings New Flagship Headphone 1 Pro Put You in the Studio",
+        "sourceUrl": "https://www.theverge.com/tech/1001797/nothings-headphone-1-pro-review",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-29T01:00:00.000Z",
+        "contentSnippet": "Nothing has been on a bit of an audio tear this year, releasing the solid Headphone A and the surprisingly good Ear 3A earbuds. The Headphone A released at $199, while the earbuds are under $100, leaving room for something fancier. That something is the Nothing Headphone 1 Pro, the company's new $399 flagship over-ears […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T01:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Nothing’s new flagship Headphone 1 Pro put you in the studio",
+            "itemLink": "https://www.theverge.com/tech/1001797/nothings-headphone-1-pro-review",
+            "publishedDate": "2026-09-29T01:00:00.000Z",
+            "contentSnippet": "Nothing has been on a bit of an audio tear this year, releasing the solid Headphone A and the surprisingly good Ear 3A earbuds. The Headphone A released at $199, while the earbuds are under $100, leaving room for something fancier. That something is the Nothing Headphone 1 Pro, the company's new $399 flagship over-ears […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Hands-on",
+              "Headphone Reviews",
+              "Reviews",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Hands-on",
+            "Headphone Reviews",
+            "Reviews",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "nothings new flagship headphone 1 pro put you in the studio"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T01:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Hands-on",
+      "Headphone Reviews",
+      "Reviews",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:17.210Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260929-my-favorite-airbnb-a-design-lo",
+    "canonicalTopic": "My Favorite Airbnb a Design Lovers Dream Home in the South of France",
+    "slug": "my-favorite-airbnb-a-design-lovers-dream-home-in-the-south-of-france",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-My20Favorite20Airbnb3A20",
+        "query": "My Favorite Airbnb a Design Lovers Dream Home in the South of France",
+        "sourceUrl": "https://www.cntraveler.com/story/my-favorite-airbnb-a-design-lovers-dream-home-in-the-south-of-france",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-29T11:30:00.000Z",
+        "contentSnippet": "Half an hour outside Marseille, this once sleepy fishing village has become a magnet for artsy types on the Med.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T11:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "My Favorite Airbnb: A Design Lover’s Dream Home in the South of France",
+            "itemLink": "https://www.cntraveler.com/story/my-favorite-airbnb-a-design-lovers-dream-home-in-the-south-of-france",
+            "publishedDate": "2026-09-29T11:30:00.000Z",
+            "contentSnippet": "Half an hour outside Marseille, this once sleepy fishing village has become a magnet for artsy types on the Med.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Places to Stay"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Places to Stay"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "my favorite airbnb a design lovers dream home in the south of france"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T11:30:00.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Places to Stay"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:17.262Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260929-openai-scraps-rollout-of-new-m",
+    "canonicalTopic": "Openai Scraps Rollout of New Model over Safety Concerns",
+    "slug": "openai-scraps-rollout-of-new-model-over-safety-concerns",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-1-OpenAI20scraps20rollou",
+        "query": "Openai Scraps Rollout of New Model over Safety Concerns",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cm5y5nynl75ko?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-29T09:14:13.000Z",
+        "contentSnippet": "The firm also issued an update on incidents in which its models accessed Australian government systems.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T09:14:13.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "OpenAI scraps rollout of new model over safety concerns",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cm5y5nynl75ko?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-29T09:14:13.000Z",
+            "contentSnippet": "The firm also issued an update on incidents in which its models accessed Australian government systems.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "openai scraps rollout of new model over safety concerns"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T09:14:13.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:17.307Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260929-evicted-spanish-pensioner-can-",
+    "canonicalTopic": "Evicted Spanish Pensioner Can Move Back Home Lawyer Says",
+    "slug": "evicted-spanish-pensioner-can-move-back-home-lawyer-says",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-2-Evicted20Spanish20pens",
+        "query": "Evicted Spanish Pensioner Can Move Back Home Lawyer Says",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cmkg8qgy9d9lo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-29T10:57:02.000Z",
+        "contentSnippet": "The eviction of Maricarmen Abascal, 87, prompted large-scale protests across Spain.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T10:57:02.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Evicted Spanish pensioner can move back home, lawyer says",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cmkg8qgy9d9lo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-29T10:57:02.000Z",
+            "contentSnippet": "The eviction of Maricarmen Abascal, 87, prompted large-scale protests across Spain.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "evicted spanish pensioner can move back home lawyer says"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T10:57:02.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:17.352Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260929-argentina-threatens-legal-acti",
+    "canonicalTopic": "Argentina Threatens Legal Action Against Uk over Falkland Islands Oil Exploration",
+    "slug": "argentina-threatens-legal-action-against-uk-over-falkland-islands-oil-exploration",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-3-Argentina20threatens20",
+        "query": "Argentina Threatens Legal Action Against Uk over Falkland Islands Oil Exploration",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cq5yj1835y1wo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-29T03:50:40.000Z",
+        "contentSnippet": "President Javier Milei set a two-week deadline for the Sea Lion oilfield project to be scrapped.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T03:50:40.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Argentina threatens legal action against UK over Falkland Islands oil exploration",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cq5yj1835y1wo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-29T03:50:40.000Z",
+            "contentSnippet": "President Javier Milei set a two-week deadline for the Sea Lion oilfield project to be scrapped.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "argentina threatens legal action against uk over falkland islands oil exploration"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T03:50:40.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:17.408Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260929-us-ban-on-canadian-alcohol-and",
+    "canonicalTopic": "Us Ban on Canadian Alcohol and Dairy Comes into Effect As Trade War Drags On",
+    "slug": "us-ban-on-canadian-alcohol-and-dairy-comes-into-effect-as-trade-war-drags-on",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-5-US20ban20on20Canadian20a",
+        "query": "Us Ban on Canadian Alcohol and Dairy Comes into Effect As Trade War Drags On",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cm1j43y146d2o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-29T04:10:33.000Z",
+        "contentSnippet": "It is the latest escalation in the Canada-US trade war after negotiations collapsed in late August, with no word on when talks may resume.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T04:10:33.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "US ban on Canadian alcohol and dairy comes into effect as trade war drags on",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cm1j43y146d2o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-29T04:10:33.000Z",
+            "contentSnippet": "It is the latest escalation in the Canada-US trade war after negotiations collapsed in late August, with no word on when talks may resume.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "us ban on canadian alcohol and dairy comes into effect as trade war drags on"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T04:10:33.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:17.487Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260929-all-hail-the-chicory-the-most-",
+    "canonicalTopic": "All Hail the Chicory—the Most Wonderful Thing You Can Put on Your Plate",
+    "slug": "all-hail-the-chicory-the-most-wonderful-thing-you-can-put-on-your-plate",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-1-All20Hail20the20Chicory",
+        "query": "All Hail the Chicory—the Most Wonderful Thing You Can Put on Your Plate",
+        "sourceUrl": "https://www.vogue.com/article/chicory",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-29T12:00:00.000Z",
+        "contentSnippet": "The chicory has a flavor so complex, that it seems immune to further seasoning, plenty of vitamin C, and the tendency, due to its bitterness, to make the body release the now-well-known satiety-signaling hormone, GLP-1.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T12:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "All Hail the Chicory—The Most Wonderful Thing You Can Put On Your Plate",
+            "itemLink": "https://www.vogue.com/article/chicory",
+            "publishedDate": "2026-09-29T12:00:00.000Z",
+            "contentSnippet": "The chicory has a flavor so complex, that it seems immune to further seasoning, plenty of vitamin C, and the tendency, due to its bitterness, to make the body release the now-well-known satiety-signaling hormone, GLP-1.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Magazine"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Magazine"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "all hail the chicory—the most wonderful thing you can put on your plate"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T12:00:00.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Magazine"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:17.540Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260929-hernan-diaz-knows-where-to-get",
+    "canonicalTopic": "Hernan Diaz Knows Where to Get the Best Cod in Stockholm",
+    "slug": "hernan-diaz-knows-where-to-get-the-best-cod-in-stockholm",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-2-Hernan20Diaz20Knows20Wh",
+        "query": "Hernan Diaz Knows Where to Get the Best Cod in Stockholm",
+        "sourceUrl": "https://www.vogue.com/article/hernan-diaz-guide-to-stockholm",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-29T12:00:00.000Z",
+        "contentSnippet": "Diaz's latest, 'Ply,' comes out today. Here he offers his guide to Stockholm, the city in which he spent much of his childhood.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T12:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Hernan Diaz Knows Where to Get the Best Cod in Stockholm",
+            "itemLink": "https://www.vogue.com/article/hernan-diaz-guide-to-stockholm",
+            "publishedDate": "2026-09-29T12:00:00.000Z",
+            "contentSnippet": "Diaz's latest, 'Ply,' comes out today. Here he offers his guide to Stockholm, the city in which he spent much of his childhood.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Culture / Books"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Culture / Books"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "hernan diaz knows where to get the best cod in stockholm"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T12:00:00.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Culture / Books"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:17.585Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260929-vogue100-hosted-an-intimate-ev",
+    "canonicalTopic": "Vogue100 Hosted an Intimate Evening at Da Niko—bvlgari Hotel Milanos Elegant New Dining Destination",
+    "slug": "vogue100-hosted-an-intimate-evening-at-da-niko-bvlgari-hotel-milanos-elegant-new-dining-destination",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-3-Vogue10020Hosted20an20I",
+        "query": "Vogue100 Hosted an Intimate Evening at Da Niko—bvlgari Hotel Milanos Elegant New Dining Destination",
+        "sourceUrl": "https://www.vogue.com/slideshow/vogue100-milan-fashion-week-da-niko-bvlgari-hotel",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-29T11:35:23.000Z",
+        "contentSnippet": "A landmark-filled week in the Capitale della Moda wrapped with a night of family-style dishes and fresh-off-the-runway fashion.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T11:35:23.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Vogue100 Hosted an Intimate Evening at Da Niko—Bvlgari Hotel Milano’s Elegant New Dining Destination",
+            "itemLink": "https://www.vogue.com/slideshow/vogue100-milan-fashion-week-da-niko-bvlgari-hotel",
+            "publishedDate": "2026-09-29T11:35:23.000Z",
+            "contentSnippet": "A landmark-filled week in the Capitale della Moda wrapped with a night of family-style dishes and fresh-off-the-runway fashion.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Living / Parties"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Living / Parties"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "vogue100 hosted an intimate evening at da niko—bvlgari hotel milanos elegant new dining destination"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T11:35:23.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Living / Parties"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:17.660Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260929-mame-kurogouchi-spring-2027-re",
+    "canonicalTopic": "Mame Kurogouchi Spring 2027 Ready-to-wear",
+    "slug": "mame-kurogouchi-spring-2027-ready-to-wear",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-4-Mame20Kurogouchi20Spri",
+        "query": "Mame Kurogouchi Spring 2027 Ready-to-wear",
+        "sourceUrl": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/mame-kurogouchi",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-29T12:16:10.000Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T12:16:10.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Mame Kurogouchi Spring 2027 Ready-to-Wear",
+            "itemLink": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/mame-kurogouchi",
+            "publishedDate": "2026-09-29T12:16:10.000Z",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "mame kurogouchi spring 2027 ready-to-wear"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T12:16:10.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Runway"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:17.694Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260929-the-swan-behind-the-mirror-rev",
+    "canonicalTopic": "The Swan Behind the Mirror Revisits the Rock Bottom of Reality Tv—and Makeover Culture",
+    "slug": "the-swan-behind-the-mirror-revisits-the-rock-bottom-of-reality-tv-and-makeover-culture",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-1-22The20Swan3A20Behind20t",
+        "query": "The Swan Behind the Mirror Revisits the Rock Bottom of Reality Tv—and Makeover Culture",
+        "sourceUrl": "https://www.allure.com/story/the-swan-behind-the-mirror-documentary-review-and-commentary",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-29T10:30:00.000Z",
+        "contentSnippet": "Equally mesmerizing and appalling, The Swan kept turning up the dial until we gasped.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T10:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "\"The Swan: Behind the Mirror\" Revisits the Rock Bottom of Reality TV—and Makeover Culture",
+            "itemLink": "https://www.allure.com/story/the-swan-behind-the-mirror-documentary-review-and-commentary",
+            "publishedDate": "2026-09-29T10:30:00.000Z",
+            "contentSnippet": "Equally mesmerizing and appalling, The Swan kept turning up the dial until we gasped.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Skin",
+              "Wellness",
+              "Hair"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Skin",
+            "Wellness",
+            "Hair"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the swan behind the mirror revisits the rock bottom of reality tv—and makeover culture"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T10:30:00.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Skin",
+      "Wellness",
+      "Hair"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:17.784Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260929-stanton-williams-designs-board",
+    "canonicalTopic": "Stanton Williams Designs Boarding Houses to Support the Culture of Winchester College",
+    "slug": "stanton-williams-designs-boarding-houses-to-support-the-culture-of-winchester-college",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-Stanton20Williams20des",
+        "query": "Stanton Williams Designs Boarding Houses to Support the Culture of Winchester College",
+        "sourceUrl": "https://www.dezeen.com/2026/09/29/stanton-williams-winchester-college/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-29T10:30:23.000Z",
+        "contentSnippet": "Architecture studio Stanton Williams has completed two boarding houses for girls at Winchester College, wrapping courtyards with gabled brick buildings that reference the historic layout and architecture of the 640-year-old site. Winchester College was originally founded in 1382, and the project is its first new boarding complex since 1912. It is also the first in The post Stanton Williams designs boarding houses to \"support the culture\" of Winchester College appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T10:30:23.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Stanton Williams designs boarding houses to \"support the culture\" of Winchester College",
+            "itemLink": "https://www.dezeen.com/2026/09/29/stanton-williams-winchester-college/",
+            "publishedDate": "2026-09-29T10:30:23.000Z",
+            "contentSnippet": "Architecture studio Stanton Williams has completed two boarding houses for girls at Winchester College, wrapping courtyards with gabled brick buildings that reference the historic layout and architecture of the 640-year-old site. Winchester College was originally founded in 1382, and the project is its first new boarding complex since 1912. It is also the first in The post Stanton Williams designs boarding houses to \"support the culture\" of Winchester College appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Exclusives",
+              "Courtyards",
+              "Bricks",
+              "Student housing",
+              "Education",
+              "Schools",
+              "Stanton Williams",
+              "Residential architecture and interiors"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Exclusives",
+            "Courtyards",
+            "Bricks",
+            "Student housing",
+            "Education",
+            "Schools",
+            "Stanton Williams",
+            "Residential architecture and interiors"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "stanton williams designs boarding houses to support the culture of winchester college"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T10:30:23.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Exclusives",
+      "Courtyards",
+      "Bricks",
+      "Student housing",
+      "Education",
+      "Schools",
+      "Stanton Williams",
+      "Residential architecture and interiors"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:17.851Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260929-populous-reveals-design-for-70",
+    "canonicalTopic": "Populous Reveals Design for 70000-seat Vietnamese National Stadium",
+    "slug": "populous-reveals-design-for-70000-seat-vietnamese-national-stadium",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-2-Populous20reveals20des",
+        "query": "Populous Reveals Design for 70000-seat Vietnamese National Stadium",
+        "sourceUrl": "https://www.dezeen.com/2026/09/29/vietnam-national-stadium-rach-chiec/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-29T10:00:47.000Z",
+        "contentSnippet": "Architecture studio Populous has unveiled its design for the Rach Chiec Stadium in Ho Chi Minh City, which will become the country's national stadium. Set to be built on the outskirts of the city, the stadium will be the largest in the country when completed, with around 30,000 seats more than the current record holder – The post Populous reveals design for 70,000-seat Vietnamese national stadium appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T10:00:47.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Populous reveals design for 70,000-seat Vietnamese national stadium",
+            "itemLink": "https://www.dezeen.com/2026/09/29/vietnam-national-stadium-rach-chiec/",
+            "publishedDate": "2026-09-29T10:00:47.000Z",
+            "contentSnippet": "Architecture studio Populous has unveiled its design for the Rach Chiec Stadium in Ho Chi Minh City, which will become the country's national stadium. Set to be built on the outskirts of the city, the stadium will be the largest in the country when completed, with around 30,000 seats more than the current record holder – The post Populous reveals design for 70,000-seat Vietnamese national stadium appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "News",
+              "Football",
+              "Vietnam",
+              "Stadiums",
+              "Populous"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "News",
+            "Football",
+            "Vietnam",
+            "Stadiums",
+            "Populous"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "populous reveals design for 70000-seat vietnamese national stadium"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T10:00:47.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "News",
+      "Football",
+      "Vietnam",
+      "Stadiums",
+      "Populous"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:17.900Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260929-formafantasma-named-creative-d",
+    "canonicalTopic": "Formafantasma Named Creative Directors of 800-year-old Apothecary and Perfumery",
+    "slug": "formafantasma-named-creative-directors-of-800-year-old-apothecary-and-perfumery",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-3-Formafantasma20named20",
+        "query": "Formafantasma Named Creative Directors of 800-year-old Apothecary and Perfumery",
+        "sourceUrl": "https://www.dezeen.com/2026/09/29/formafantasma-officina-profumo-farmaceutica-di-santa-maria-novella/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-29T09:35:46.000Z",
+        "contentSnippet": "One of the oldest surviving pharmacies in the world, Florence's Officina Profumo-Farmaceutica di Santa Maria Novella, has appointed Italian design duo Formafantasma as creative directors. Their new role will see studio founders Andrea Trimarchi and Simone Farresin focus primarily on the company's products. The studio aims to unravel their hidden histories and inform new launches, The post Formafantasma named creative directors of 800-year-old apothecary and perfumery appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T09:35:46.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Formafantasma named creative directors of 800-year-old apothecary and perfumery",
+            "itemLink": "https://www.dezeen.com/2026/09/29/formafantasma-officina-profumo-farmaceutica-di-santa-maria-novella/",
+            "publishedDate": "2026-09-29T09:35:46.000Z",
+            "contentSnippet": "One of the oldest surviving pharmacies in the world, Florence's Officina Profumo-Farmaceutica di Santa Maria Novella, has appointed Italian design duo Formafantasma as creative directors. Their new role will see studio founders Andrea Trimarchi and Simone Farresin focus primarily on the company's products. The studio aims to unravel their hidden histories and inform new launches, The post Formafantasma named creative directors of 800-year-old apothecary and perfumery appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Design",
+              "News",
+              "Business news",
+              "Florence",
+              "Formafantasma",
+              "Perfume"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Design",
+            "News",
+            "Business news",
+            "Florence",
+            "Formafantasma",
+            "Perfume"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "formafantasma named creative directors of 800-year-old apothecary and perfumery"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T09:35:46.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Design",
+      "News",
+      "Business news",
+      "Florence",
+      "Formafantasma",
+      "Perfume"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:17.956Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260929-capri-comfort-chair-by-piergio",
+    "canonicalTopic": "Capri Comfort Chair by Piergiorgio Cazzaniga for Andreu World",
+    "slug": "capri-comfort-chair-by-piergiorgio-cazzaniga-for-andreu-world",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-4-Capri20Comfort20chair20",
+        "query": "Capri Comfort Chair by Piergiorgio Cazzaniga for Andreu World",
+        "sourceUrl": "https://www.dezeen.com/2026/09/29/capri-comfort-armchairs-piergiorgio-cazzaniga-andreu-world-dezeen-showroom/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-29T09:30:55.000Z",
+        "contentSnippet": "Dezeen Showroom: designer Piergiorgio Cazzaniga and furniture brand Andreu World have added extra cushioning to one of their successful seating designs to make Capri Comfort – a minimalist executive chair that can now support longer periods of sitting. Capri Comfort is an evolution of the Capri line of lounge and executive chairs, which have a The post Capri Comfort chair by Piergiorgio Cazzaniga for Andreu World appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T09:30:55.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Capri Comfort chair by Piergiorgio Cazzaniga for Andreu World",
+            "itemLink": "https://www.dezeen.com/2026/09/29/capri-comfort-armchairs-piergiorgio-cazzaniga-andreu-world-dezeen-showroom/",
+            "publishedDate": "2026-09-29T09:30:55.000Z",
+            "contentSnippet": "Dezeen Showroom: designer Piergiorgio Cazzaniga and furniture brand Andreu World have added extra cushioning to one of their successful seating designs to make Capri Comfort – a minimalist executive chair that can now support longer periods of sitting. Capri Comfort is an evolution of the Capri line of lounge and executive chairs, which have a The post Capri Comfort chair by Piergiorgio Cazzaniga for Andreu World appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "Furniture",
+              "all",
+              "Chairs",
+              "Office chairs",
+              "Design",
+              "Do not show on the Homepage",
+              "Dezeen Showroom",
+              "Office furniture",
+              "Showroom highlights",
+              "Seating",
+              "Andreu World"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "Furniture",
+            "all",
+            "Chairs",
+            "Office chairs",
+            "Design",
+            "Do not show on the Homepage",
+            "Dezeen Showroom",
+            "Office furniture",
+            "Showroom highlights",
+            "Seating",
+            "Andreu World"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "capri comfort chair by piergiorgio cazzaniga for andreu world"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T09:30:55.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "Furniture",
+      "all",
+      "Chairs",
+      "Office chairs",
+      "Design",
+      "Do not show on the Homepage",
+      "Dezeen Showroom",
+      "Office furniture",
+      "Showroom highlights",
+      "Seating",
+      "Andreu World"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:18.002Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260929-renovated-warehouse-becomes-pe",
+    "canonicalTopic": "Renovated Warehouse Becomes Permanent Home of African Futures Institute in Ghana",
+    "slug": "renovated-warehouse-becomes-permanent-home-of-african-futures-institute-in-ghana",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-5-Renovated20warehouse20",
+        "query": "Renovated Warehouse Becomes Permanent Home of African Futures Institute in Ghana",
+        "sourceUrl": "https://www.dezeen.com/2026/09/29/african-futures-institute-headquarters-lesley-lokko-ghana/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-29T09:02:33.000Z",
+        "contentSnippet": "A former tile warehouse in Accra, Ghana, has been transformed into the headquarters of the African Futures Institute, an independent architecture school founded by Ghanaian-Scottish architect Lesley Lokko. Designed by Lokko with designer Fred Swart and architects Patrick Gentilezza, Patti Anahory and Laurence Lord, the renovated building contains research and education spaces for the school The post Renovated warehouse becomes permanent home of African Futures Institute in Ghana appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T09:02:33.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Renovated warehouse becomes permanent home of African Futures Institute in Ghana",
+            "itemLink": "https://www.dezeen.com/2026/09/29/african-futures-institute-headquarters-lesley-lokko-ghana/",
+            "publishedDate": "2026-09-29T09:02:33.000Z",
+            "contentSnippet": "A former tile warehouse in Accra, Ghana, has been transformed into the headquarters of the African Futures Institute, an independent architecture school founded by Ghanaian-Scottish architect Lesley Lokko. Designed by Lokko with designer Fred Swart and architects Patrick Gentilezza, Patti Anahory and Laurence Lord, the renovated building contains research and education spaces for the school The post Renovated warehouse becomes permanent home of African Futures Institute in Ghana appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Education",
+              "Schools",
+              "Adaptive reuse",
+              "Ghana",
+              "Lesley Lokko"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Education",
+            "Schools",
+            "Adaptive reuse",
+            "Ghana",
+            "Lesley Lokko"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "renovated warehouse becomes permanent home of african futures institute in ghana"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T09:02:33.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Education",
+      "Schools",
+      "Adaptive reuse",
+      "Ghana",
+      "Lesley Lokko"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:18.058Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260929-the-one-about-matthew-perry-tr",
+    "canonicalTopic": "The One About Matthew Perry Trailer Late Friends Stars Career 7 Million Sobriety Journey and More Explored in Netflix Doc",
+    "slug": "the-one-about-matthew-perry-trailer-late-friends-stars-career-7-million-sobriety-journey-and-more-explored-in-netflix-doc",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-1-The20One20About2",
+        "query": "The One About Matthew Perry Trailer Late Friends Stars Career 7 Million Sobriety Journey and More Explored in Netflix Doc",
+        "sourceUrl": "https://variety.com/2026/tv/news/the-one-about-matthew-perry-trailer-netflix-1236877519/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-29T12:00:00.000Z",
+        "contentSnippet": "The one about love. The one about laughter. “The One About Matthew Perry,\" a Netflix documentary about the late “Friends” star is coming to the streamer on Oct. 27, and a trailer was revealed Tuesday ahead of its release. The two-minute trailer chronicles Perry’s experience with fame and the realization that it was not actually […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T12:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "'The One About Matthew Perry' Trailer: Late 'Friends' Star's Career, $7 Million Sobriety Journey and More Explored in Netflix Doc",
+            "itemLink": "https://variety.com/2026/tv/news/the-one-about-matthew-perry-trailer-netflix-1236877519/",
+            "publishedDate": "2026-09-29T12:00:00.000Z",
+            "contentSnippet": "The one about love. The one about laughter. “The One About Matthew Perry,\" a Netflix documentary about the late “Friends” star is coming to the streamer on Oct. 27, and a trailer was revealed Tuesday ahead of its release. The two-minute trailer chronicles Perry’s experience with fame and the realization that it was not actually […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "Matthew Perry"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "Matthew Perry"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the one about matthew perry trailer late friends stars career 7 million sobriety journey and more explored in netflix doc"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T12:00:00.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "Matthew Perry"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:18.140Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260929-light-pillar-director-xu-zao-r",
+    "canonicalTopic": "Light Pillar Director Xu Zao Readies Ai-themed Follow-up Easy My Friend",
+    "slug": "light-pillar-director-xu-zao-readies-ai-themed-follow-up-easy-my-friend",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-2-Light20Pillar20D",
+        "query": "Light Pillar Director Xu Zao Readies Ai-themed Follow-up Easy My Friend",
+        "sourceUrl": "https://variety.com/2026/film/festivals/light-pillar-director-xu-zao-ai-themed-easy-my-friend-1236877974/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-29T11:57:48.000Z",
+        "contentSnippet": "\"Light Pillar,\" the Berlinale Perspectives animated feature from first-time director Xu Zao, is competing in the Hidden Dragons section for Chinese-language films at the Pingyao Crouching Tiger Hidden Dragon International Film Festival. The film is still seeking distribution in China. The story follows Zha, who works at a dilapidated film studio in northern China and […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T11:57:48.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "'Light Pillar' Director Xu Zao Readies AI-Themed Follow-Up 'Easy, My Friend'",
+            "itemLink": "https://variety.com/2026/film/festivals/light-pillar-director-xu-zao-ai-themed-easy-my-friend-1236877974/",
+            "publishedDate": "2026-09-29T11:57:48.000Z",
+            "contentSnippet": "\"Light Pillar,\" the Berlinale Perspectives animated feature from first-time director Xu Zao, is competing in the Hidden Dragons section for Chinese-language films at the Pingyao Crouching Tiger Hidden Dragon International Film Festival. The film is still seeking distribution in China. The story follows Zha, who works at a dilapidated film studio in northern China and […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Asia",
+              "Festivals",
+              "Global",
+              "News",
+              "Light Pillar",
+              "Pingyao International Film Festival",
+              "Xu Zao"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Asia",
+            "Festivals",
+            "Global",
+            "News",
+            "Light Pillar",
+            "Pingyao International Film Festival",
+            "Xu Zao"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "light pillar director xu zao readies ai-themed follow-up easy my friend"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T11:57:48.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Asia",
+      "Festivals",
+      "Global",
+      "News",
+      "Light Pillar",
+      "Pingyao International Film Festival",
+      "Xu Zao"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:18.194Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260929-richard-linklater-says-merrily",
+    "canonicalTopic": "Richard Linklater Says Merrily We Roll Along Starts Filming Again in a Few Months and Gives Progress Report on 20-year Production See You in 2040",
+    "slug": "richard-linklater-says-merrily-we-roll-along-starts-filming-again-in-a-few-months-and-gives-progress-report-on-20-year-production-see-you-in-2040",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-3-Richard20Linklat",
+        "query": "Richard Linklater Says Merrily We Roll Along Starts Filming Again in a Few Months and Gives Progress Report on 20-year Production See You in 2040",
+        "sourceUrl": "https://variety.com/2026/film/global/richard-linklater-merrily-we-roll-along-shoot-1236877922/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-29T11:49:54.000Z",
+        "contentSnippet": "Richard Linklater doesn’t like to be asked about his upcoming take on “Merrily We Roll Along.” “When I was doing ‘Boyhood,’ we worked in complete anonymity. No one knew about the film. This one, because it’s a Stephen Sondheim musical, is very public. I will have to answer this question for 20 years while we […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T11:49:54.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Richard Linklater Says ‘Merrily We Roll Along’ Starts Filming Again in a ‘Few Months’ and Gives ‘Progress Report’ on 20-Year Production: ‘See You in 2040’",
+            "itemLink": "https://variety.com/2026/film/global/richard-linklater-merrily-we-roll-along-shoot-1236877922/",
+            "publishedDate": "2026-09-29T11:49:54.000Z",
+            "contentSnippet": "Richard Linklater doesn’t like to be asked about his upcoming take on “Merrily We Roll Along.” “When I was doing ‘Boyhood,’ we worked in complete anonymity. No one knew about the film. This one, because it’s a Stephen Sondheim musical, is very public. I will have to answer this question for 20 years while we […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Global",
+              "Markets & Festivals",
+              "News",
+              "Ethan Hawke",
+              "Julie Delpy",
+              "Matthew McConaughey",
+              "Merrily We Roll Along",
+              "Richard Linklater",
+              "Zurich Film Festival"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Global",
+            "Markets & Festivals",
+            "News",
+            "Ethan Hawke",
+            "Julie Delpy",
+            "Matthew McConaughey",
+            "Merrily We Roll Along",
+            "Richard Linklater",
+            "Zurich Film Festival"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "richard linklater says merrily we roll along starts filming again in a few months and gives progress report on 20-year production see you in 2040"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T11:49:54.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Global",
+      "Markets & Festivals",
+      "News",
+      "Ethan Hawke",
+      "Julie Delpy",
+      "Matthew McConaughey",
+      "Merrily We Roll Along",
+      "Richard Linklater",
+      "Zurich Film Festival"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:18.293Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260929-channel-4-boss-says-network-st",
+    "canonicalTopic": "Channel 4 Boss Says Network Still Hasnt Found a New Chief Content Officer Im Looking for the Next Messiah",
+    "slug": "channel-4-boss-says-network-still-hasnt-found-a-new-chief-content-officer-im-looking-for-the-next-messiah",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-4-Channel20420Boss",
+        "query": "Channel 4 Boss Says Network Still Hasnt Found a New Chief Content Officer Im Looking for the Next Messiah",
+        "sourceUrl": "https://variety.com/2026/tv/global/channel-4-priya-dogra-ian-katz-content-officer-1236877943/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-29T11:13:07.000Z",
+        "contentSnippet": "Channel 4 boss Priya Dogra says she’s “looking for the next Messiah” to replace outgoing chief content officer Ian Katz. “You will hear hopefully in the coming weeks,” Dogra said, speaking at the Royal Television Society conference in London. “I can't pin down the time because it's an incredibly important decision for me. It's an […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T11:13:07.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Channel 4 Boss Says Network Still Hasn't Found a New Chief Content Officer: 'I'm Looking for the Next Messiah'",
+            "itemLink": "https://variety.com/2026/tv/global/channel-4-priya-dogra-ian-katz-content-officer-1236877943/",
+            "publishedDate": "2026-09-29T11:13:07.000Z",
+            "contentSnippet": "Channel 4 boss Priya Dogra says she’s “looking for the next Messiah” to replace outgoing chief content officer Ian Katz. “You will hear hopefully in the coming weeks,” Dogra said, speaking at the Royal Television Society conference in London. “I can't pin down the time because it's an incredibly important decision for me. It's an […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Global",
+              "News",
+              "Channel 4",
+              "Priya Dogra",
+              "Royal Television Society Conference"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Global",
+            "News",
+            "Channel 4",
+            "Priya Dogra",
+            "Royal Television Society Conference"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "channel 4 boss says network still hasnt found a new chief content officer im looking for the next messiah"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T11:13:07.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Global",
+      "News",
+      "Channel 4",
+      "Priya Dogra",
+      "Royal Television Society Conference"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:18.367Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260929-rome-mia-market-launches-europ",
+    "canonicalTopic": "Rome Mia Market Launches European Investment Hub with Caas Roeg Sutherland and Raj Singh of Media Capital Technologies Set to Attend Exclusive",
+    "slug": "rome-mia-market-launches-european-investment-hub-with-caas-roeg-sutherland-and-raj-singh-of-media-capital-technologies-set-to-attend-exclusive",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-5-Rome20MIA20Marke",
+        "query": "Rome Mia Market Launches European Investment Hub with Caas Roeg Sutherland and Raj Singh of Media Capital Technologies Set to Attend Exclusive",
+        "sourceUrl": "https://variety.com/2026/film/finance/rome-mia-market-european-investment-hub-1236877318/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-09-29T10:46:34.000Z",
+        "contentSnippet": "Rome’s MIA Market is launching a new initiative called European Investment Hub, which aims to help European industry professionals navigate the wide range of financial tools — in both the soft money and equity financing spheres — that are currently at their disposal. MIA (which stands for Mercato Internazionale Audiovisivo or International Audiovisual Market) will […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T10:46:34.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Rome MIA Market Launches European Investment Hub, With CAA’s Roeg Sutherland and Raj Singh of Media Capital Technologies Set to Attend (EXCLUSIVE)",
+            "itemLink": "https://variety.com/2026/film/finance/rome-mia-market-european-investment-hub-1236877318/",
+            "publishedDate": "2026-09-29T10:46:34.000Z",
+            "contentSnippet": "Rome’s MIA Market is launching a new initiative called European Investment Hub, which aims to help European industry professionals navigate the wide range of financial tools — in both the soft money and equity financing spheres — that are currently at their disposal. MIA (which stands for Mercato Internazionale Audiovisivo or International Audiovisual Market) will […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Finance",
+              "Global",
+              "Markets & Festivals",
+              "News",
+              "Raj Singh",
+              "Roeg Sutherland",
+              "Rome Mia Market"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Finance",
+            "Global",
+            "Markets & Festivals",
+            "News",
+            "Raj Singh",
+            "Roeg Sutherland",
+            "Rome Mia Market"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "rome mia market launches european investment hub with caas roeg sutherland and raj singh of media capital technologies set to attend exclusive"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T10:46:34.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Finance",
+      "Global",
+      "Markets & Festivals",
+      "News",
+      "Raj Singh",
+      "Roeg Sutherland",
+      "Rome Mia Market"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:18.463Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260929-watch-gracie-abrams-perform-lo",
+    "canonicalTopic": "Watch Gracie Abrams Perform Look at My Life on Fallon",
+    "slug": "watch-gracie-abrams-perform-look-at-my-life-on-fallon",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-rolling-stone-culture-1-Watch20Gracie20A",
+        "query": "Watch Gracie Abrams Perform Look at My Life on Fallon",
+        "sourceUrl": "https://www.rollingstone.com/music/music-news/gracie-abrams-look-at-my-life-performance-fallon-1235633577/",
+        "publisherName": "Rolling Stone",
+        "publishedAt": "2026-09-29T07:27:07.000Z",
+        "contentSnippet": "The musician released her most recent album, Daughter From Hell , in July",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T07:27:07.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.rollingstone.com/feed/",
+            "feedTitle": "Rolling Stone",
+            "itemTitle": "Watch Gracie Abrams Perform 'Look at My Life' on 'Fallon'",
+            "itemLink": "https://www.rollingstone.com/music/music-news/gracie-abrams-look-at-my-life-performance-fallon-1235633577/",
+            "publishedDate": "2026-09-29T07:27:07.000Z",
+            "contentSnippet": "The musician released her most recent album, Daughter From Hell , in July",
+            "categories": [
+              "music",
+              "pop-culture",
+              "film",
+              "artists",
+              "interviews",
+              "Music",
+              "Music News",
+              "Gracie Abrams",
+              "Jimmy Fallon",
+              "Late-Night TV",
+              "The Tonight Show"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "music",
+            "pop-culture",
+            "film",
+            "artists",
+            "interviews",
+            "Music",
+            "Music News",
+            "Gracie Abrams",
+            "Jimmy Fallon",
+            "Late-Night TV",
+            "The Tonight Show"
+          ],
+          "feedName": "Rolling Stone",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "watch gracie abrams perform look at my life on fallon"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T07:27:07.000Z",
+    "tags": [
+      "music",
+      "pop-culture",
+      "film",
+      "artists",
+      "interviews",
+      "Music",
+      "Music News",
+      "Gracie Abrams",
+      "Jimmy Fallon",
+      "Late-Night TV",
+      "The Tonight Show"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:18.508Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260929-zohran-mamdani-refuses-to-text",
+    "canonicalTopic": "Zohran Mamdani Refuses to Text Trump a Selfie of Him and Jimmy Kimmel",
+    "slug": "zohran-mamdani-refuses-to-text-trump-a-selfie-of-him-and-jimmy-kimmel",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-rolling-stone-culture-2-Zohran20Mamdani2",
+        "query": "Zohran Mamdani Refuses to Text Trump a Selfie of Him and Jimmy Kimmel",
+        "sourceUrl": "https://www.rollingstone.com/tv-movies/tv-movie-news/zohran-mamdani-jimmy-kimmel-donald-trump-selfie-1235633573/",
+        "publisherName": "Rolling Stone",
+        "publishedAt": "2026-09-29T07:15:07.000Z",
+        "contentSnippet": "Jimmy Kimmel Live kicked off a week of shows in Brooklyn at the Brooklyn Academy of Music last night",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T07:15:07.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.rollingstone.com/feed/",
+            "feedTitle": "Rolling Stone",
+            "itemTitle": "Zohran Mamdani Refuses to Text Trump a Selfie of Him and Jimmy Kimmel",
+            "itemLink": "https://www.rollingstone.com/tv-movies/tv-movie-news/zohran-mamdani-jimmy-kimmel-donald-trump-selfie-1235633573/",
+            "publishedDate": "2026-09-29T07:15:07.000Z",
+            "contentSnippet": "Jimmy Kimmel Live kicked off a week of shows in Brooklyn at the Brooklyn Academy of Music last night",
+            "categories": [
+              "music",
+              "pop-culture",
+              "film",
+              "artists",
+              "interviews",
+              "TV & Movies",
+              "TV & Movies News",
+              "Donald Trump",
+              "Jimmy Kimmel",
+              "Jimmy Kimmel Live",
+              "Late-Night TV",
+              "Zohran Mamdani"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "music",
+            "pop-culture",
+            "film",
+            "artists",
+            "interviews",
+            "TV & Movies",
+            "TV & Movies News",
+            "Donald Trump",
+            "Jimmy Kimmel",
+            "Jimmy Kimmel Live",
+            "Late-Night TV",
+            "Zohran Mamdani"
+          ],
+          "feedName": "Rolling Stone",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "zohran mamdani refuses to text trump a selfie of him and jimmy kimmel"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T07:15:07.000Z",
+    "tags": [
+      "music",
+      "pop-culture",
+      "film",
+      "artists",
+      "interviews",
+      "TV & Movies",
+      "TV & Movies News",
+      "Donald Trump",
+      "Jimmy Kimmel",
+      "Jimmy Kimmel Live",
+      "Late-Night TV",
+      "Zohran Mamdani"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:18.559Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260929-dennis-haskins-principal-beldi",
+    "canonicalTopic": "Dennis Haskins Principal Belding on Saved by the Bell Dead at 75",
+    "slug": "dennis-haskins-principal-belding-on-saved-by-the-bell-dead-at-75",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-rolling-stone-culture-3-Dennis20Haskins2",
+        "query": "Dennis Haskins Principal Belding on Saved by the Bell Dead at 75",
+        "sourceUrl": "https://www.rollingstone.com/tv-movies/tv-movie-news/dennis-haskins-principal-belding-saved-by-the-bell-obituary-1235633568/",
+        "publisherName": "Rolling Stone",
+        "publishedAt": "2026-09-29T06:42:32.000Z",
+        "contentSnippet": "\"Everyone loved Mr. Belding, and those of us who got to know Dennis loved him even more,\" his agent shared",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T06:42:32.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.rollingstone.com/feed/",
+            "feedTitle": "Rolling Stone",
+            "itemTitle": "Dennis Haskins, Principal Belding on ‘Saved by the Bell,’ Dead at 75",
+            "itemLink": "https://www.rollingstone.com/tv-movies/tv-movie-news/dennis-haskins-principal-belding-saved-by-the-bell-obituary-1235633568/",
+            "publishedDate": "2026-09-29T06:42:32.000Z",
+            "contentSnippet": "\"Everyone loved Mr. Belding, and those of us who got to know Dennis loved him even more,\" his agent shared",
+            "categories": [
+              "music",
+              "pop-culture",
+              "film",
+              "artists",
+              "interviews",
+              "TV & Movies",
+              "TV & Movies News",
+              "obit",
+              "Obituary",
+              "Saved By the Bell"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "music",
+            "pop-culture",
+            "film",
+            "artists",
+            "interviews",
+            "TV & Movies",
+            "TV & Movies News",
+            "obit",
+            "Obituary",
+            "Saved By the Bell"
+          ],
+          "feedName": "Rolling Stone",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dennis haskins principal belding on saved by the bell dead at 75"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T06:42:32.000Z",
+    "tags": [
+      "music",
+      "pop-culture",
+      "film",
+      "artists",
+      "interviews",
+      "TV & Movies",
+      "TV & Movies News",
+      "obit",
+      "Obituary",
+      "Saved By the Bell"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:18.610Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260929-miley-hits-number-one-on-album",
+    "canonicalTopic": "Miley Hits Number One on Albums Chart with Bass Persuades",
+    "slug": "miley-hits-number-one-on-albums-chart-with-bass-persuades",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-rolling-stone-culture-4-Miley20Hits20Num",
+        "query": "Miley Hits Number One on Albums Chart with Bass Persuades",
+        "sourceUrl": "https://www.rollingstone.com/music/music-news/miley-cyrus-number-one-album-bass-persuades-1235633373/",
+        "publisherName": "Rolling Stone",
+        "publishedAt": "2026-09-28T23:57:13.000Z",
+        "contentSnippet": "It’s the musician’s first time topping the Billboard 200 since she released Bangerz in 2013",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-28T23:57:13.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.rollingstone.com/feed/",
+            "feedTitle": "Rolling Stone",
+            "itemTitle": "Miley Hits Number One on Albums Chart With ‘Bass Persuades’",
+            "itemLink": "https://www.rollingstone.com/music/music-news/miley-cyrus-number-one-album-bass-persuades-1235633373/",
+            "publishedDate": "2026-09-28T23:57:13.000Z",
+            "contentSnippet": "It’s the musician’s first time topping the Billboard 200 since she released Bangerz in 2013",
+            "categories": [
+              "music",
+              "pop-culture",
+              "film",
+              "artists",
+              "interviews",
+              "Music",
+              "Music News",
+              "Beabadoobee",
+              "Billboard Charts",
+              "Ella Langley",
+              "Miley Cyrus",
+              "Morgan Wallen",
+              "Olivia Rodrigo",
+              "Riley Green"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "music",
+            "pop-culture",
+            "film",
+            "artists",
+            "interviews",
+            "Music",
+            "Music News",
+            "Beabadoobee",
+            "Billboard Charts",
+            "Ella Langley",
+            "Miley Cyrus",
+            "Morgan Wallen",
+            "Olivia Rodrigo",
+            "Riley Green"
+          ],
+          "feedName": "Rolling Stone",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "miley hits number one on albums chart with bass persuades"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-28T23:57:13.000Z",
+    "tags": [
+      "music",
+      "pop-culture",
+      "film",
+      "artists",
+      "interviews",
+      "Music",
+      "Music News",
+      "Beabadoobee",
+      "Billboard Charts",
+      "Ella Langley",
+      "Miley Cyrus",
+      "Morgan Wallen",
+      "Olivia Rodrigo",
+      "Riley Green"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-29T12:17:18.657Z",
     "pinterestScore": 79.2
   }
 ]
