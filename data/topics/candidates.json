@@ -1336,7 +1336,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-29T12:17:18.698Z",
+    "updatedAt": "2026-09-30T12:03:35.010Z",
     "revisionCyclesCount": 0
   },
   {
@@ -21899,7 +21899,7 @@
     "queryVariants": [
       "flood watch"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-12T07:40:00.000Z",
     "tags": [
       "US",
@@ -21909,21 +21909,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-12T07:53:55.056Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-30T12:03:30.987Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260912-mlb-wildcard-standings",
@@ -50035,7 +50036,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-29T12:17:18.833Z",
+    "updatedAt": "2026-09-30T12:03:35.200Z",
     "pinterestScore": 85.6,
     "revisionCyclesCount": 0
   },
@@ -50098,7 +50099,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-29T12:17:18.859Z",
+    "updatedAt": "2026-09-30T12:03:35.234Z",
     "pinterestScore": 84.8,
     "revisionCyclesCount": 0
   },
@@ -55129,12 +55130,37 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-adam20sandler",
+        "query": "adam sandler",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-30T11:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-30T11:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "adam sandler",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "adam sandler"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-21T11:30:00.000Z",
     "tags": [
       "US",
@@ -55144,21 +55170,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-21T12:11:44.557Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-09-30T12:03:31.190Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260921-nws",
@@ -69685,7 +69712,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-29T12:17:18.733Z",
+    "updatedAt": "2026-09-30T12:03:35.056Z",
     "pinterestScore": 87.8,
     "revisionCyclesCount": 0
   },
@@ -69748,7 +69775,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-29T12:17:18.774Z",
+    "updatedAt": "2026-09-30T12:03:35.120Z",
     "pinterestScore": 84.6,
     "revisionCyclesCount": 0
   },
@@ -69811,7 +69838,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-29T12:17:18.810Z",
+    "updatedAt": "2026-09-30T12:03:35.168Z",
     "pinterestScore": 82.9,
     "revisionCyclesCount": 0
   },
@@ -87913,12 +87940,37 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-cricinfo",
+        "query": "cricinfo",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-30T10:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-30T10:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "cricinfo",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "cricinfo"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-27T10:50:00.000Z",
     "tags": [
       "US",
@@ -87928,21 +87980,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 92,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 84,
+    "totalScore": 85.1,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-27T11:33:30.721Z",
-    "pinterestScore": 88.3
+    "status": "PUBLISHED",
+    "updatedAt": "2026-09-30T12:04:48.497Z",
+    "pinterestScore": 88.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-entertainment-20260927-brock-bowers",
@@ -104451,6 +104504,4484 @@
     "opportunityType": "ARTICLE",
     "status": "SCORED",
     "updatedAt": "2026-09-29T12:17:18.657Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260930-amir-jangoo",
+    "canonicalTopic": "Amir Jangoo",
+    "slug": "amir-jangoo",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-amir20jangoo",
+        "query": "Amir Jangoo",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-30T11:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-30T11:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "amir jangoo",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "amir jangoo"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T11:50:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-30T12:03:31.033Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260930-flyers",
+    "canonicalTopic": "Flyers",
+    "slug": "flyers",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-flyers",
+        "query": "Flyers",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-30T11:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-30T11:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "flyers",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "flyers"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T11:50:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-30T12:03:31.061Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260930-harry-meghan-press-intrusion-s",
+    "canonicalTopic": "Harry Meghan Press Intrusion School",
+    "slug": "harry-meghan-press-intrusion-school",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-harry20meghan20pr",
+        "query": "Harry Meghan Press Intrusion School",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-30T11:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-30T11:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "harry meghan press intrusion school",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "harry meghan press intrusion school"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T11:20:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-30T12:03:31.108Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260930-novak-djokovic",
+    "canonicalTopic": "Novak Djokovic",
+    "slug": "novak-djokovic",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-novak20djokovic",
+        "query": "Novak Djokovic",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-30T11:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-30T11:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "novak djokovic",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "novak djokovic"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T11:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-30T12:03:31.137Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260930-trump-aca-refund-checks",
+    "canonicalTopic": "Trump Aca Refund Checks",
+    "slug": "trump-aca-refund-checks",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-trump20aca20refun",
+        "query": "Trump Aca Refund Checks",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-30T11:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-30T11:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "trump aca refund checks",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "trump aca refund checks"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T11:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-30T12:03:31.176Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260930-sa-vs-aus",
+    "canonicalTopic": "Sa Vs Aus",
+    "slug": "sa-vs-aus",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-sa20vs20aus",
+        "query": "Sa Vs Aus",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-30T11:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-30T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "sa vs aus",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "sa vs aus"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T11:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-30T12:03:31.215Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20260930-iraq",
+    "canonicalTopic": "Iraq",
+    "slug": "iraq",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-iraq",
+        "query": "Iraq",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-09-30T11:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-09-30T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "iraq",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "iraq"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T11:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-09-30T12:03:31.236Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-tech-ai-20260930-were-not-going-to-shoot-oursel",
+    "canonicalTopic": "Were Not Going to Shoot Ourselves in the Foot over Hack Fallout Says Openais Chief Research Officer",
+    "slug": "were-not-going-to-shoot-ourselves-in-the-foot-over-hack-fallout-says-openais-chief-research-officer",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-1-E2809CWeE28099re20not2",
+        "query": "Were Not Going to Shoot Ourselves in the Foot over Hack Fallout Says Openais Chief Research Officer",
+        "sourceUrl": "https://www.technologyreview.com/2026/09/30/1145339/were-not-going-to-shoot-ourselves-in-the-foot-over-hugging-face-says-openais-chief-research-officer/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-09-30T10:40:30.000Z",
+        "contentSnippet": "Two months after the bombshell news that a swarm of its agents had broken their containment and hacked into the computers of the AI company Hugging Face, OpenAI is still putting out fires. A steady drip of disclosures about other hacks in the weeks since has kept OpenAI in the spotlight and raised serious questions…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T10:40:30.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "“We’re not going to shoot ourselves in the foot” over hack fallout, says OpenAI’s chief research officer",
+            "itemLink": "https://www.technologyreview.com/2026/09/30/1145339/were-not-going-to-shoot-ourselves-in-the-foot-over-hugging-face-says-openais-chief-research-officer/",
+            "publishedDate": "2026-09-30T10:40:30.000Z",
+            "contentSnippet": "Two months after the bombshell news that a swarm of its agents had broken their containment and hacked into the computers of the AI company Hugging Face, OpenAI is still putting out fires. A steady drip of disclosures about other hacks in the weeks since has kept OpenAI in the spotlight and raised serious questions…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "Artificial intelligence",
+              "App"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "Artificial intelligence",
+            "App"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "were not going to shoot ourselves in the foot over hack fallout says openais chief research officer"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T10:40:30.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "Artificial intelligence",
+      "App"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:31.363Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260930-cloudflare-plans-to-issue-quan",
+    "canonicalTopic": "Cloudflare Plans to Issue Quantum-safe Tls Certificates",
+    "slug": "cloudflare-plans-to-issue-quantum-safe-tls-certificates",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-1-Cloudflare20plans20to20",
+        "query": "Cloudflare Plans to Issue Quantum-safe Tls Certificates",
+        "sourceUrl": "https://arstechnica.com/security/2026/09/cloudflare-plans-to-issue-quantum-safe-tls-certificates/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-30T11:15:14.000Z",
+        "contentSnippet": "The move will be part of a major overhaul of the ecosystem for website authentication.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T11:15:14.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Cloudflare plans to issue quantum-safe TLS certificates",
+            "itemLink": "https://arstechnica.com/security/2026/09/cloudflare-plans-to-issue-quantum-safe-tls-certificates/",
+            "publishedDate": "2026-09-30T11:15:14.000Z",
+            "contentSnippet": "The move will be part of a major overhaul of the ecosystem for website authentication.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Biz & IT",
+              "Security",
+              "cryptography",
+              "post-quantum encryption",
+              "quantum computing"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Biz & IT",
+            "Security",
+            "cryptography",
+            "post-quantum encryption",
+            "quantum computing"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "cloudflare plans to issue quantum-safe tls certificates"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T11:15:14.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Biz & IT",
+      "Security",
+      "cryptography",
+      "post-quantum encryption",
+      "quantum computing"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:31.432Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260930-most-powerful-obesity-drug-yet",
+    "canonicalTopic": "Most Powerful Obesity Drug Yet People Lost Up to 25 of Weight in Trial",
+    "slug": "most-powerful-obesity-drug-yet-people-lost-up-to-25-of-weight-in-trial",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-2-Most20powerful20obesit",
+        "query": "Most Powerful Obesity Drug Yet People Lost Up to 25 of Weight in Trial",
+        "sourceUrl": "https://arstechnica.com/health/2026/09/most-powerful-obesity-drug-yet-people-lost-up-to-25-of-weight-in-trial/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-29T22:30:37.000Z",
+        "contentSnippet": "Retatrutide is a triple-hormone obesity drug simulating GLP-1, GIP, and glucagon.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T22:30:37.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Most powerful obesity drug yet: People lost up to 25% of weight in trial",
+            "itemLink": "https://arstechnica.com/health/2026/09/most-powerful-obesity-drug-yet-people-lost-up-to-25-of-weight-in-trial/",
+            "publishedDate": "2026-09-29T22:30:37.000Z",
+            "contentSnippet": "Retatrutide is a triple-hormone obesity drug simulating GLP-1, GIP, and glucagon.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Health",
+              "clinical trial",
+              "eli lilly",
+              "GIP",
+              "GLP-1",
+              "glucagon",
+              "obesity",
+              "retatrutide"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Health",
+            "clinical trial",
+            "eli lilly",
+            "GIP",
+            "GLP-1",
+            "glucagon",
+            "obesity",
+            "retatrutide"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "most powerful obesity drug yet people lost up to 25 of weight in trial"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T22:30:37.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Health",
+      "clinical trial",
+      "eli lilly",
+      "GIP",
+      "GLP-1",
+      "glucagon",
+      "obesity",
+      "retatrutide"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:31.512Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260930-protests-against-openai-get-in",
+    "canonicalTopic": "Protests Against Openai Get Increasingly Creative",
+    "slug": "protests-against-openai-get-increasingly-creative",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-3-Protests20against20Ope",
+        "query": "Protests Against Openai Get Increasingly Creative",
+        "sourceUrl": "https://arstechnica.com/ai/2026/09/what-iceberg-bay-area-artists-target-openai-with-titanic-themed-protest-art/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-29T21:52:58.000Z",
+        "contentSnippet": "New sculpture depicts AI leaders escaping a sinking ship.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T21:52:58.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Protests against OpenAI get increasingly creative",
+            "itemLink": "https://arstechnica.com/ai/2026/09/what-iceberg-bay-area-artists-target-openai-with-titanic-themed-protest-art/",
+            "publishedDate": "2026-09-29T21:52:58.000Z",
+            "contentSnippet": "New sculpture depicts AI leaders escaping a sinking ship.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "AI",
+              "art",
+              "openai"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "AI",
+            "art",
+            "openai"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "protests against openai get increasingly creative"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T21:52:58.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "AI",
+      "art",
+      "openai"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:31.575Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260930-amd-acquires-world-labs-ai-sta",
+    "canonicalTopic": "Amd Acquires World Labs Ai Startup Upping the Ante Against Nvidia",
+    "slug": "amd-acquires-world-labs-ai-startup-upping-the-ante-against-nvidia",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-4-AMD20acquires20World20L",
+        "query": "Amd Acquires World Labs Ai Startup Upping the Ante Against Nvidia",
+        "sourceUrl": "https://arstechnica.com/ai/2026/09/amd-acquires-world-labs-ai-pioneer-fei-fei-lis-world-models-startup/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-29T21:14:49.000Z",
+        "contentSnippet": "The deal, which is expected to close by year's end, is worth $8.2 billion.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T21:14:49.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "AMD acquires World Labs AI startup, upping the ante against Nvidia",
+            "itemLink": "https://arstechnica.com/ai/2026/09/amd-acquires-world-labs-ai-pioneer-fei-fei-lis-world-models-startup/",
+            "publishedDate": "2026-09-29T21:14:49.000Z",
+            "contentSnippet": "The deal, which is expected to close by year's end, is worth $8.2 billion.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "AI",
+              "acquisition",
+              "AMD",
+              "Fei-Fei Li",
+              "World Labs",
+              "world models"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "AI",
+            "acquisition",
+            "AMD",
+            "Fei-Fei Li",
+            "World Labs",
+            "world models"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "amd acquires world labs ai startup upping the ante against nvidia"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T21:14:49.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "AI",
+      "acquisition",
+      "AMD",
+      "Fei-Fei Li",
+      "World Labs",
+      "world models"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:31.651Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260930-trump-ads-paid-for-by-us-gover",
+    "canonicalTopic": "Trump Ads Paid for by Us Government Allegedly Violate Anti-propaganda Laws",
+    "slug": "trump-ads-paid-for-by-us-government-allegedly-violate-anti-propaganda-laws",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-5-Trump20ads20paid20for20b",
+        "query": "Trump Ads Paid for by Us Government Allegedly Violate Anti-propaganda Laws",
+        "sourceUrl": "https://arstechnica.com/tech-policy/2026/09/trump-ads-paid-for-by-us-government-allegedly-violate-anti-propaganda-laws/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-29T20:23:40.000Z",
+        "contentSnippet": "FCC unlikely to stop Trump ads described as illegal taxpayer-funded propaganda.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T20:23:40.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Trump ads paid for by US government allegedly violate anti-propaganda laws",
+            "itemLink": "https://arstechnica.com/tech-policy/2026/09/trump-ads-paid-for-by-us-government-allegedly-violate-anti-propaganda-laws/",
+            "publishedDate": "2026-09-29T20:23:40.000Z",
+            "contentSnippet": "FCC unlikely to stop Trump ads described as illegal taxpayer-funded propaganda.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Policy",
+              "FCC",
+              "Trump"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Policy",
+            "FCC",
+            "Trump"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "trump ads paid for by us government allegedly violate anti-propaganda laws"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T20:23:40.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Policy",
+      "FCC",
+      "Trump"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:31.733Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260930-samsung-gives-its-two-year-old",
+    "canonicalTopic": "Samsung Gives Its Two-year-old Galaxy Tab S Plus an Overhaul",
+    "slug": "samsung-gives-its-two-year-old-galaxy-tab-s-plus-an-overhaul",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-Samsung20gives20its20tw",
+        "query": "Samsung Gives Its Two-year-old Galaxy Tab S Plus an Overhaul",
+        "sourceUrl": "https://www.theverge.com/tech/1002533/samsung-galaxy-tab-s12-plus-ultra-android-tablets-specs-price",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-30T12:00:00.000Z",
+        "contentSnippet": "Since the Galaxy Tab S10 line, Samsung has updated its flagship Ultra tablet annually, but alternates its regular and Plus variants. It means that this year's Galaxy Tab S12 series includes an Ultra model with few changes from last year's Tab S11 Ultra, and a Plus variant that brings a bigger overhaul to the two-year-old […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T12:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Samsung gives its two-year-old Galaxy Tab S Plus an overhaul",
+            "itemLink": "https://www.theverge.com/tech/1002533/samsung-galaxy-tab-s12-plus-ultra-android-tablets-specs-price",
+            "publishedDate": "2026-09-30T12:00:00.000Z",
+            "contentSnippet": "Since the Galaxy Tab S10 line, Samsung has updated its flagship Ultra tablet annually, but alternates its regular and Plus variants. It means that this year's Galaxy Tab S12 series includes an Ultra model with few changes from last year's Tab S11 Ultra, and a Plus variant that brings a bigger overhaul to the two-year-old […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Adobe",
+              "Creators",
+              "Mobile",
+              "News",
+              "Samsung",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Adobe",
+            "Creators",
+            "Mobile",
+            "News",
+            "Samsung",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "samsung gives its two-year-old galaxy tab s plus an overhaul"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T12:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Adobe",
+      "Creators",
+      "Mobile",
+      "News",
+      "Samsung",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:31.805Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260930-samsungs-new-smarttag-is-small",
+    "canonicalTopic": "Samsungs New Smarttag Is Smaller Longer-lasting and Works with Iphones",
+    "slug": "samsungs-new-smarttag-is-smaller-longer-lasting-and-works-with-iphones",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-SamsungE28099s20new20SmartT",
+        "query": "Samsungs New Smarttag Is Smaller Longer-lasting and Works with Iphones",
+        "sourceUrl": "https://www.theverge.com/tech/1002552/samsung-galaxy-smarttag-3-design-battery-price-features",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-30T12:00:00.000Z",
+        "contentSnippet": "Samsung has announced its third-generation Bluetooth tracker, the Galaxy SmartTag 3. It combines a smaller design and improved battery life with a few new tracking and software features, including cross-OS support intended to make it easier to share tracking information with friends and family. As revealed by leaks, the SmartTag 3 has adopted a squircle […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T12:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Samsung’s new SmartTag is smaller, longer-lasting, and works with iPhones",
+            "itemLink": "https://www.theverge.com/tech/1002552/samsung-galaxy-smarttag-3-design-battery-price-features",
+            "publishedDate": "2026-09-30T12:00:00.000Z",
+            "contentSnippet": "Samsung has announced its third-generation Bluetooth tracker, the Galaxy SmartTag 3. It combines a smaller design and improved battery life with a few new tracking and software features, including cross-OS support intended to make it easier to share tracking information with friends and family. As revealed by leaks, the SmartTag 3 has adopted a squircle […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Gadgets",
+              "News",
+              "Samsung",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Gadgets",
+            "News",
+            "Samsung",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "samsungs new smarttag is smaller longer-lasting and works with iphones"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T12:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Gadgets",
+      "News",
+      "Samsung",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:31.887Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260930-apples-homepad-will-reportedly",
+    "canonicalTopic": "Apples Homepad Will Reportedly Launch on October 13th",
+    "slug": "apples-homepad-will-reportedly-launch-on-october-13th",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-AppleE28099s20HomePad20wi",
+        "query": "Apples Homepad Will Reportedly Launch on October 13th",
+        "sourceUrl": "https://www.theverge.com/news/1002563/apple-smart-home-hub-homepad-rumor-launch-date",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-30T11:11:24.000Z",
+        "contentSnippet": "Apple's long-rumored smart home hub will reportedly be revealed on October 13th. Bloomberg's Mark Gurman reports that the smart home device will be revealed alongside a new HomePod mini and an upgraded Apple TV device. All three products are set to showcase Siri AI, Apple's overhauled AI-powered assistant. The smart home hub, a new product […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T11:11:24.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Apple’s 'HomePad' will reportedly launch on October 13th",
+            "itemLink": "https://www.theverge.com/news/1002563/apple-smart-home-hub-homepad-rumor-launch-date",
+            "publishedDate": "2026-09-30T11:11:24.000Z",
+            "contentSnippet": "Apple's long-rumored smart home hub will reportedly be revealed on October 13th. Bloomberg's Mark Gurman reports that the smart home device will be revealed alongside a new HomePod mini and an upgraded Apple TV device. All three products are set to showcase Siri AI, Apple's overhauled AI-powered assistant. The smart home hub, a new product […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Apple",
+              "Apple Rumors",
+              "Gadgets",
+              "News",
+              "Smart Home",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Apple",
+            "Apple Rumors",
+            "Gadgets",
+            "News",
+            "Smart Home",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "apples homepad will reportedly launch on october 13th"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T11:11:24.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Apple",
+      "Apple Rumors",
+      "Gadgets",
+      "News",
+      "Smart Home",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:31.957Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260930-sam-altman-says-openai-wont-go",
+    "canonicalTopic": "Sam Altman Says Openai Wont Go Public Until Its Models Are Safe",
+    "slug": "sam-altman-says-openai-wont-go-public-until-its-models-are-safe",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-4-Sam20Altman20says20Open",
+        "query": "Sam Altman Says Openai Wont Go Public Until Its Models Are Safe",
+        "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/1002505/sam-altman-openai-ipo-devday-ai-safety",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-30T00:19:13.000Z",
+        "contentSnippet": "For months, people have wondered when OpenAI will go public. CEO Sam Altman says it won't happen until the company can make better promises about model safety, with no firm timeline in sight. \"We intend to continue with AI progress … but as the models have had this surge forward in capability, and we see […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T00:19:13.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Sam Altman says OpenAI won’t go public until its models are safe",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/1002505/sam-altman-openai-ipo-devday-ai-safety",
+            "publishedDate": "2026-09-30T00:19:13.000Z",
+            "contentSnippet": "For months, people have wondered when OpenAI will go public. CEO Sam Altman says it won't happen until the company can make better promises about model safety, with no firm timeline in sight. \"We intend to continue with AI progress … but as the models have had this surge forward in capability, and we see […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "OpenAI",
+              "Report"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "OpenAI",
+            "Report"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "sam altman says openai wont go public until its models are safe"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T00:19:13.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "OpenAI",
+      "Report"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:32.033Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20260930-trump-orders-us-government-to-",
+    "canonicalTopic": "Trump Orders Us Government to Call Ai Super Intelligence",
+    "slug": "trump-orders-us-government-to-call-ai-super-intelligence",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-5-Trump20orders20US20gove",
+        "query": "Trump Orders Us Government to Call Ai Super Intelligence",
+        "sourceUrl": "https://www.theverge.com/policy/1002468/trump-ai-superintelligence-executive-order-ai",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-09-29T22:25:45.000Z",
+        "contentSnippet": "The US executive branch is no longer acknowledging the existence of \"artificial intelligence.\" Going forward, official policy websites, policy documents, and press releases will refer only to \"Super Intelligence,\" thanks to a new executive order signed by President Donald Trump. \"The word super is the best word of all, and it's the simplest,\" Trump said […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T22:25:45.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Trump orders US government to call AI ‘Super Intelligence’",
+            "itemLink": "https://www.theverge.com/policy/1002468/trump-ai-superintelligence-executive-order-ai",
+            "publishedDate": "2026-09-29T22:25:45.000Z",
+            "contentSnippet": "The US executive branch is no longer acknowledging the existence of \"artificial intelligence.\" Going forward, official policy websites, policy documents, and press releases will refer only to \"Super Intelligence,\" thanks to a new executive order signed by President Donald Trump. \"The word super is the best word of all, and it's the simplest,\" Trump said […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "News",
+              "Policy",
+              "Politics"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "News",
+            "Policy",
+            "Politics"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "trump orders us government to call ai super intelligence"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T22:25:45.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "News",
+      "Policy",
+      "Politics"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:32.104Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20260930-barcel-discount-code-up-to-40-",
+    "canonicalTopic": "Barcel Discount Code Up to 40 Off September 2026",
+    "slug": "barcel-discount-code-up-to-40-off-september-2026",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-BarcelC3B320Discount20Cod",
+        "query": "Barcel Discount Code Up to 40 Off September 2026",
+        "sourceUrl": "https://www.cntraveler.com/story/barcelo-discount-code",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-29T21:06:51.000Z",
+        "contentSnippet": "Save up to 40% on your vacation getaway, plus an extra 10% with a verified Barceló promo code, hotel discounts, and more coupons you won’t want to miss this fall.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T21:06:51.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Barceló Discount Code: Up to 40% Off | September 2026",
+            "itemLink": "https://www.cntraveler.com/story/barcelo-discount-code",
+            "publishedDate": "2026-09-29T21:06:51.000Z",
+            "contentSnippet": "Save up to 40% on your vacation getaway, plus an extra 10% with a verified Barceló promo code, hotel discounts, and more coupons you won’t want to miss this fall.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Shopping"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "barcel discount code up to 40 off september 2026"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T21:06:51.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:32.170Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260930-this-lakeside-town-was-just-na",
+    "canonicalTopic": "This Lakeside Town Was Just Named the Best Quietcation in England",
+    "slug": "this-lakeside-town-was-just-named-the-best-quietcation-in-england",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-2-This20Lakeside20Town20W",
+        "query": "This Lakeside Town Was Just Named the Best Quietcation in England",
+        "sourceUrl": "https://www.cntraveler.com/story/this-lakeside-town-was-just-named-the-best-quietcation-in-england",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-29T20:38:31.000Z",
+        "contentSnippet": "With hundreds of walking trails, peaceful lake views, and plenty of cozy tea rooms, Lake District's Windermere is the perfect place for a slowed down quietcation.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T20:38:31.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "This Lakeside Town Was Just Named the Best 'Quietcation' in England",
+            "itemLink": "https://www.cntraveler.com/story/this-lakeside-town-was-just-named-the-best-quietcation-in-england",
+            "publishedDate": "2026-09-29T20:38:31.000Z",
+            "contentSnippet": "With hundreds of walking trails, peaceful lake views, and plenty of cozy tea rooms, Lake District's Windermere is the perfect place for a slowed down quietcation.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Destinations"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Destinations"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "this lakeside town was just named the best quietcation in england"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T20:38:31.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Destinations"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:32.249Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260930-what-happens-if-a-cruise-ship-",
+    "canonicalTopic": "What Happens If a Cruise Ship Leaves Without You",
+    "slug": "what-happens-if-a-cruise-ship-leaves-without-you",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-3-What20Happens20If20a20Cr",
+        "query": "What Happens If a Cruise Ship Leaves Without You",
+        "sourceUrl": "https://www.cntraveler.com/story/what-happens-if-a-cruise-ship-leaves-without-you",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-29T19:17:28.000Z",
+        "contentSnippet": "When they say \"all aboard,\" they mean it.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T19:17:28.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "What Happens If a Cruise Ship Leaves Without You?",
+            "itemLink": "https://www.cntraveler.com/story/what-happens-if-a-cruise-ship-leaves-without-you",
+            "publishedDate": "2026-09-29T19:17:28.000Z",
+            "contentSnippet": "When they say \"all aboard,\" they mean it.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "News & Advice",
+              "Cruise"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "News & Advice",
+            "Cruise"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "what happens if a cruise ship leaves without you"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T19:17:28.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "News & Advice",
+      "Cruise"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:32.313Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260930-where-to-eat-in-medelln-colomb",
+    "canonicalTopic": "Where to Eat in Medelln Colombia a Locals List",
+    "slug": "where-to-eat-in-medelln-colombia-a-locals-list",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-4-Where20to20Eat20in20Mede",
+        "query": "Where to Eat in Medelln Colombia a Locals List",
+        "sourceUrl": "https://www.cntraveler.com/story/where-to-eat-in-medellin-colombia-a-locals-list",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-29T19:15:31.000Z",
+        "contentSnippet": "From a no-frills stew shop to sceney concepts that make the most of Colombia's culinary bounty.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T19:15:31.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Where to Eat in Medellín, Colombia: A Local's List",
+            "itemLink": "https://www.cntraveler.com/story/where-to-eat-in-medellin-colombia-a-locals-list",
+            "publishedDate": "2026-09-29T19:15:31.000Z",
+            "contentSnippet": "From a no-frills stew shop to sceney concepts that make the most of Colombia's culinary bounty.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Destinations",
+              "Inspiration / Food & Drink"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Destinations",
+            "Inspiration / Food & Drink"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "where to eat in medelln colombia a locals list"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T19:15:31.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Destinations",
+      "Inspiration / Food & Drink"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:32.378Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260930-17-hudson-valley-hotels-that-a",
+    "canonicalTopic": "17 Hudson Valley Hotels That Are As Country-chic As the Region Itself",
+    "slug": "17-hudson-valley-hotels-that-are-as-country-chic-as-the-region-itself",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-5-1720Hudson20Valley20Hot",
+        "query": "17 Hudson Valley Hotels That Are As Country-chic As the Region Itself",
+        "sourceUrl": "https://www.cntraveler.com/gallery/best-hotels-in-the-hudson-valley",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-09-29T18:41:14.000Z",
+        "contentSnippet": "Whether you're chasing fall foliage or easy bathhouse access, a trip to the Hudson Valley is always a good idea.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T18:41:14.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "17 Hudson Valley Hotels That Are As Country-Chic as the Region Itself",
+            "itemLink": "https://www.cntraveler.com/gallery/best-hotels-in-the-hudson-valley",
+            "publishedDate": "2026-09-29T18:41:14.000Z",
+            "contentSnippet": "Whether you're chasing fall foliage or easy bathhouse access, a trip to the Hudson Valley is always a good idea.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Destinations"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Destinations"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "17 hudson valley hotels that are as country-chic as the region itself"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T18:41:14.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Destinations"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:32.457Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260930-russia-launches-largest-attack",
+    "canonicalTopic": "Russia Launches Largest Attack on Ukraine Energy Infrastructure Since Spring",
+    "slug": "russia-launches-largest-attack-on-ukraine-energy-infrastructure-since-spring",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-1-Russia20launches20larg",
+        "query": "Russia Launches Largest Attack on Ukraine Energy Infrastructure Since Spring",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/ckjw5jx2l393o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-30T11:47:27.000Z",
+        "contentSnippet": "At least six people were killed and 33 others injured across the country in the overnight attacks, local authorities reported.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T11:47:27.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Russia launches largest attack on Ukraine energy infrastructure since spring",
+            "itemLink": "https://www.bbc.co.uk/news/articles/ckjw5jx2l393o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-30T11:47:27.000Z",
+            "contentSnippet": "At least six people were killed and 33 others injured across the country in the overnight attacks, local authorities reported.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "russia launches largest attack on ukraine energy infrastructure since spring"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T11:47:27.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:32.541Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260930-last-uk-and-us-troops-leave-ir",
+    "canonicalTopic": "Last Uk and Us Troops Leave Iraq As Anti-islamic State Mission Ends",
+    "slug": "last-uk-and-us-troops-leave-iraq-as-anti-islamic-state-mission-ends",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-2-Last20UK20and20US20troop",
+        "query": "Last Uk and Us Troops Leave Iraq As Anti-islamic State Mission Ends",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/c65ym1dyn92mo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-30T11:36:23.000Z",
+        "contentSnippet": "The withdrawal of coalition forces, under a deal agreed two years ago, was a key demand of the Iraqi government.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T11:36:23.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Last UK and US troops leave Iraq as anti-Islamic State mission ends",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c65ym1dyn92mo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-30T11:36:23.000Z",
+            "contentSnippet": "The withdrawal of coalition forces, under a deal agreed two years ago, was a key demand of the Iraqi government.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "last uk and us troops leave iraq as anti-islamic state mission ends"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T11:36:23.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:32.619Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260930-chinese-ai-tool-told-researche",
+    "canonicalTopic": "Chinese Ai Tool Told Researchers How to Make Bioweapons",
+    "slug": "chinese-ai-tool-told-researchers-how-to-make-bioweapons",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-3-Chinese20AI20tool20told",
+        "query": "Chinese Ai Tool Told Researchers How to Make Bioweapons",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cmrergq3j7lgo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-29T23:15:29.000Z",
+        "contentSnippet": "Mindgard said it discovered in July that Kimi models K2.6 and K3 Swarm could evade developer's safety limits.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T23:15:29.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Chinese AI tool told researchers how to make bioweapons",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cmrergq3j7lgo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-29T23:15:29.000Z",
+            "contentSnippet": "Mindgard said it discovered in July that Kimi models K2.6 and K3 Swarm could evade developer's safety limits.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "chinese ai tool told researchers how to make bioweapons"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T23:15:29.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:32.688Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260930-girl-has-multiple-surgeries-to",
+    "canonicalTopic": "Girl Has Multiple Surgeries to Control Infections After Strike in Gaza",
+    "slug": "girl-has-multiple-surgeries-to-control-infections-after-strike-in-gaza",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-4-Girl20has20multiple20su",
+        "query": "Girl Has Multiple Surgeries to Control Infections After Strike in Gaza",
+        "sourceUrl": "https://www.bbc.co.uk/news/videos/c8n5d0e0n6wdo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-30T05:02:50.000Z",
+        "contentSnippet": "Witnesses say Raseel's tent was hit by an Israeli helicopter strike. Israel’s military says it has no record of the attack.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T05:02:50.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Girl has multiple surgeries to control infections after strike in Gaza",
+            "itemLink": "https://www.bbc.co.uk/news/videos/c8n5d0e0n6wdo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-30T05:02:50.000Z",
+            "contentSnippet": "Witnesses say Raseel's tent was hit by an Israeli helicopter strike. Israel’s military says it has no record of the attack.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "girl has multiple surgeries to control infections after strike in gaza"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T05:02:50.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:32.767Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20260930-six-flags-shuts-down-x2-roller",
+    "canonicalTopic": "Six Flags Shuts Down X2 Rollercoaster After More Than 100 Allege Brain Injuries",
+    "slug": "six-flags-shuts-down-x2-rollercoaster-after-more-than-100-allege-brain-injuries",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-5-Six20Flags20shuts20down",
+        "query": "Six Flags Shuts Down X2 Rollercoaster After More Than 100 Allege Brain Injuries",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cw14d37446d8o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-29T22:33:13.000Z",
+        "contentSnippet": "Hundreds of riders were allegedly injured on X2, which has seats that spin 360 degrees.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T22:33:13.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Six Flags shuts down X2 rollercoaster after more than 100 allege brain injuries",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cw14d37446d8o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-29T22:33:13.000Z",
+            "contentSnippet": "Hundreds of riders were allegedly injured on X2, which has seats that spin 360 degrees.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "six flags shuts down x2 rollercoaster after more than 100 allege brain injuries"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T22:33:13.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:32.854Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260930-how-to-apply-mascara-for-longe",
+    "canonicalTopic": "How to Apply Mascara for Longer Fuller Mess-free Lashes—with Photos and Videos",
+    "slug": "how-to-apply-mascara-for-longer-fuller-mess-free-lashes-with-photos-and-videos",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-1-How20to20Apply20Mascara",
+        "query": "How to Apply Mascara for Longer Fuller Mess-free Lashes—with Photos and Videos",
+        "sourceUrl": "https://www.allure.com/story/how-to-apply-mascara",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-30T00:15:00.000Z",
+        "contentSnippet": "Whether you’re a beginner or you feel like your technique has gotten rusty, these tips will turn mascara from an unwieldy chaos wand into a completely manageable must-have.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T00:15:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "How to Apply Mascara for Longer, Fuller, Mess-Free Lashes—With Photos and Videos",
+            "itemLink": "https://www.allure.com/story/how-to-apply-mascara",
+            "publishedDate": "2026-09-30T00:15:00.000Z",
+            "contentSnippet": "Whether you’re a beginner or you feel like your technique has gotten rusty, these tips will turn mascara from an unwieldy chaos wand into a completely manageable must-have.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Makeup",
+              "Makeup / Eyes"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Makeup",
+            "Makeup / Eyes"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how to apply mascara for longer fuller mess-free lashes—with photos and videos"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T00:15:00.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Makeup",
+      "Makeup / Eyes"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:32.943Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260930-7-best-olay-body-care-products",
+    "canonicalTopic": "7 Best Olay Body-care Products for Glowing Skin from Head to Toe",
+    "slug": "7-best-olay-body-care-products-for-glowing-skin-from-head-to-toe",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-2-720Best20Olay20Body-Car",
+        "query": "7 Best Olay Body-care Products for Glowing Skin from Head to Toe",
+        "sourceUrl": "https://www.allure.com/story/best-olay-body-care-products",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-29T22:47:36.000Z",
+        "contentSnippet": "Six beauty editors lathered, layered, and slathered their way through Olay’s body-care lineup—discover their favorites.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T22:47:36.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "7 Best Olay Body-Care Products for Glowing Skin from Head to Toe",
+            "itemLink": "https://www.allure.com/story/best-olay-body-care-products",
+            "publishedDate": "2026-09-29T22:47:36.000Z",
+            "contentSnippet": "Six beauty editors lathered, layered, and slathered their way through Olay’s body-care lineup—discover their favorites.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Skin",
+              "Skin / Bath & Body",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Skin",
+            "Skin / Bath & Body",
+            "Shopping"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "7 best olay body-care products for glowing skin from head to toe"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T22:47:36.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Skin",
+      "Skin / Bath & Body",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:33.020Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260930-has-dyson-pulled-the-499-camer",
+    "canonicalTopic": "Has Dyson Pulled the 499 Camerajet Toothbrush from Shelves",
+    "slug": "has-dyson-pulled-the-499-camerajet-toothbrush-from-shelves",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-3-Has20Dyson20Pulled20the",
+        "query": "Has Dyson Pulled the 499 Camerajet Toothbrush from Shelves",
+        "sourceUrl": "https://www.allure.com/story/dyson-toothbrush-issues-glitch",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-29T19:25:13.000Z",
+        "contentSnippet": "One Allure editor eulogizes his bright-burning, ephemeral affair with one of beauty’s most anticipated launches.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T19:25:13.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "Has Dyson Pulled the $499 CameraJet Toothbrush From Shelves?",
+            "itemLink": "https://www.allure.com/story/dyson-toothbrush-issues-glitch",
+            "publishedDate": "2026-09-29T19:25:13.000Z",
+            "contentSnippet": "One Allure editor eulogizes his bright-burning, ephemeral affair with one of beauty’s most anticipated launches.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Beauty Products",
+              "Wellness",
+              "Wellness / Oral Care"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Beauty Products",
+            "Wellness",
+            "Wellness / Oral Care"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "has dyson pulled the 499 camerajet toothbrush from shelves"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T19:25:13.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Beauty Products",
+      "Wellness",
+      "Wellness / Oral Care"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:33.093Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260930-28-bronde-hair-ideas-that-look",
+    "canonicalTopic": "28 Bronde Hair Ideas That Look Amazing on Everyone—see Photos",
+    "slug": "28-bronde-hair-ideas-that-look-amazing-on-everyone-see-photos",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-4-2820Bronde20Hair20Ideas",
+        "query": "28 Bronde Hair Ideas That Look Amazing on Everyone—see Photos",
+        "sourceUrl": "https://www.allure.com/gallery/bronde-hair-color-ideas",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-29T18:00:00.000Z",
+        "contentSnippet": "When you’re bored with brown but can’t quite commit to full-blown blonde, there’s no prettier or more versatile in-between than bronde.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T18:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "28 Bronde Hair Ideas That Look Amazing on Everyone—See Photos",
+            "itemLink": "https://www.allure.com/gallery/bronde-hair-color-ideas",
+            "publishedDate": "2026-09-29T18:00:00.000Z",
+            "contentSnippet": "When you’re bored with brown but can’t quite commit to full-blown blonde, there’s no prettier or more versatile in-between than bronde.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Hair / Color"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Hair / Color"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "28 bronde hair ideas that look amazing on everyone—see photos"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T18:00:00.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Hair / Color"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:33.170Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260930-4-best-korean-skin-care-device",
+    "canonicalTopic": "4 Best Korean Skin-care Devices 2026 for Glass-like Skin",
+    "slug": "4-best-korean-skin-care-devices-2026-for-glass-like-skin",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-5-420Best20Korean20Skin-C",
+        "query": "4 Best Korean Skin-care Devices 2026 for Glass-like Skin",
+        "sourceUrl": "https://www.allure.com/story/best-korean-skin-care-device",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-29T16:39:32.000Z",
+        "contentSnippet": "The latest skin-care tech, from LED light therapy to microcurrent, without leaving your bathroom.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-29T16:39:32.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "4 Best Korean Skin-Care Devices 2026 for Glass-Like Skin",
+            "itemLink": "https://www.allure.com/story/best-korean-skin-care-device",
+            "publishedDate": "2026-09-29T16:39:32.000Z",
+            "contentSnippet": "The latest skin-care tech, from LED light therapy to microcurrent, without leaving your bathroom.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Skin",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Skin",
+            "Shopping"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "4 best korean skin-care devices 2026 for glass-like skin"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-29T16:39:32.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Skin",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:33.240Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260930-watch-this-space-first-reactio",
+    "canonicalTopic": "Watch This Space First Reactions to Drew Henrys Courrges",
+    "slug": "watch-this-space-first-reactions-to-drew-henrys-courrges",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-1-E2809CWatch20This20SpaceE2",
+        "query": "Watch This Space First Reactions to Drew Henrys Courrges",
+        "sourceUrl": "https://www.vogue.com/article/watch-this-space-first-reactions-to-drew-henrys-courreges",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-30T12:00:01.000Z",
+        "contentSnippet": "Industry insiders give their first impressions of Drew Henry’s Courrèges, following his Wednesday debut.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T12:00:01.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "“Watch This Space”: First Reactions to Drew Henry’s Courrèges",
+            "itemLink": "https://www.vogue.com/article/watch-this-space-first-reactions-to-drew-henrys-courreges",
+            "publishedDate": "2026-09-30T12:00:01.000Z",
+            "contentSnippet": "Industry insiders give their first impressions of Drew Henry’s Courrèges, following his Wednesday debut.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Business / Fashion",
+              "Business / Fashion / Creative Directors",
+              "Business / Fashion / Fashion Month",
+              "Business"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Business / Fashion",
+            "Business / Fashion / Creative Directors",
+            "Business / Fashion / Fashion Month",
+            "Business"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "watch this space first reactions to drew henrys courrges"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T12:00:01.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Business / Fashion",
+      "Business / Fashion / Creative Directors",
+      "Business / Fashion / Fashion Month",
+      "Business"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:33.315Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260930-closet-case-meet-jeremyn-lee-t",
+    "canonicalTopic": "Closet Case Meet Jeremyn Lee the Shoe Designer Building His Own Freaky Footwear Archive",
+    "slug": "closet-case-meet-jeremyn-lee-the-shoe-designer-building-his-own-freaky-footwear-archive",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-2-Closet20Case3A20Meet20Je",
+        "query": "Closet Case Meet Jeremyn Lee the Shoe Designer Building His Own Freaky Footwear Archive",
+        "sourceUrl": "https://www.vogue.com/article/closet-case-jeremyn-lee",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-30T12:00:00.000Z",
+        "contentSnippet": "For this month’s installment of Closet Case, Jeremyn takes Vogue to his Brooklyn apartment for a behind-the-scenes look at his piles of Prada and his seemingly endless assortment of designer shoes.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T12:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Closet Case: Meet Jeremyn Lee, the Shoe Designer Building His Own Freaky Footwear Archive",
+            "itemLink": "https://www.vogue.com/article/closet-case-jeremyn-lee",
+            "publishedDate": "2026-09-30T12:00:00.000Z",
+            "contentSnippet": "For this month’s installment of Closet Case, Jeremyn takes Vogue to his Brooklyn apartment for a behind-the-scenes look at his piles of Prada and his seemingly endless assortment of designer shoes.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Fashion"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Fashion"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "closet case meet jeremyn lee the shoe designer building his own freaky footwear archive"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T12:00:00.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Fashion"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:33.425Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260930-at-lvy-gorvy-dayan-wangari-mat",
+    "canonicalTopic": "At Lvy Gorvy Dayan Wangari Mathenge Knits Together the Pieces of a Self",
+    "slug": "at-lvy-gorvy-dayan-wangari-mathenge-knits-together-the-pieces-of-a-self",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-3-At20LC3A9vy20Gorvy20Dayan2",
+        "query": "At Lvy Gorvy Dayan Wangari Mathenge Knits Together the Pieces of a Self",
+        "sourceUrl": "https://www.vogue.com/article/wangari-mathenge-re-membering-levy-gorvy-dayan",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-30T12:00:00.000Z",
+        "contentSnippet": "Mathenge has made her Lévy Gorvy Dayan debut with “Wangari Mathenge: Re-membering,” which features five new paintings and the artist’s first sculptures, made collaboratively with her mother and her mother’s friends in Nairobi.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T12:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "At Lévy Gorvy Dayan, Wangari Mathenge Knits Together the Pieces of a Self",
+            "itemLink": "https://www.vogue.com/article/wangari-mathenge-re-membering-levy-gorvy-dayan",
+            "publishedDate": "2026-09-30T12:00:00.000Z",
+            "contentSnippet": "Mathenge has made her Lévy Gorvy Dayan debut with “Wangari Mathenge: Re-membering,” which features five new paintings and the artist’s first sculptures, made collaboratively with her mother and her mother’s friends in Nairobi.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Culture / Arts"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Culture / Arts"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "at lvy gorvy dayan wangari mathenge knits together the pieces of a self"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T12:00:00.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Culture / Arts"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:33.508Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260930-jennifer-lawrence-puts-her-bes",
+    "canonicalTopic": "Jennifer Lawrence Puts Her Best Bangs Forward at Paris Fashion Week",
+    "slug": "jennifer-lawrence-puts-her-best-bangs-forward-at-paris-fashion-week",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-4-Jennifer20Lawrence20Pu",
+        "query": "Jennifer Lawrence Puts Her Best Bangs Forward at Paris Fashion Week",
+        "sourceUrl": "https://www.vogue.com/article/jennifer-lawrence-puts-her-best-bangs-forward-at-paris-fashion-week",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-30T10:24:40.000Z",
+        "contentSnippet": "From Birkin and butterfly bangs, to a brow-revealing fringe, Jennifer Lawrence took her wispy new set to the front row of Dior.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T10:24:40.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Jennifer Lawrence Puts Her Best Bangs Forward at Paris Fashion Week",
+            "itemLink": "https://www.vogue.com/article/jennifer-lawrence-puts-her-best-bangs-forward-at-paris-fashion-week",
+            "publishedDate": "2026-09-30T10:24:40.000Z",
+            "contentSnippet": "From Birkin and butterfly bangs, to a brow-revealing fringe, Jennifer Lawrence took her wispy new set to the front row of Dior.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Beauty / Celebrity Beauty",
+              "Beauty / Hair",
+              "Beauty"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Beauty / Celebrity Beauty",
+            "Beauty / Hair",
+            "Beauty"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "jennifer lawrence puts her best bangs forward at paris fashion week"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T10:24:40.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Beauty / Celebrity Beauty",
+      "Beauty / Hair",
+      "Beauty"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:33.587Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260930-dakota-johnson-says-goodbye-to",
+    "canonicalTopic": "Dakota Johnson Says Goodbye to the Blurred Lip",
+    "slug": "dakota-johnson-says-goodbye-to-the-blurred-lip",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-5-Dakota20Johnson20Says20",
+        "query": "Dakota Johnson Says Goodbye to the Blurred Lip",
+        "sourceUrl": "https://www.vogue.com/article/dakota-johnson-says-goodbye-to-the-blurred-lip",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-09-30T10:00:13.000Z",
+        "contentSnippet": "Appearing at the Verity premiere in New York, Dakota Johnson sported a fall beauty reset that felt both sumptuous and precise.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T10:00:13.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Dakota Johnson Says Goodbye to the Blurred Lip",
+            "itemLink": "https://www.vogue.com/article/dakota-johnson-says-goodbye-to-the-blurred-lip",
+            "publishedDate": "2026-09-30T10:00:13.000Z",
+            "contentSnippet": "Appearing at the Verity premiere in New York, Dakota Johnson sported a fall beauty reset that felt both sumptuous and precise.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Beauty / Celebrity Beauty",
+              "Beauty / Makeup",
+              "Beauty"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Beauty / Celebrity Beauty",
+            "Beauty / Makeup",
+            "Beauty"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dakota johnson says goodbye to the blurred lip"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T10:00:13.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Beauty / Celebrity Beauty",
+      "Beauty / Makeup",
+      "Beauty"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:33.649Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260930-rare-collectiv-surrounds-norwe",
+    "canonicalTopic": "Rare Collectiv Surrounds Norwegian Sauna with Timber Ribs That Evoke the Hull of a Ship",
+    "slug": "rare-collectiv-surrounds-norwegian-sauna-with-timber-ribs-that-evoke-the-hull-of-a-ship",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-Rare20Collectiv20surro",
+        "query": "Rare Collectiv Surrounds Norwegian Sauna with Timber Ribs That Evoke the Hull of a Ship",
+        "sourceUrl": "https://www.dezeen.com/2026/09/30/rare-collectiv-skroget-sauna/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-30T10:30:26.000Z",
+        "contentSnippet": "A skeletal frame of reclaimed timber surrounds the elongated form of Skroget, a community sauna and public deck in Norway designed by student architecture studio Rare Collectiv. Overlooking the busy harbour of Båtsfjord, known as Norway's fishing capital, the structure was designed and built by 15 students from the Design in Context course at the The post Rare Collectiv surrounds Norwegian sauna with timber ribs that \"evoke the hull of a ship\" appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T10:30:26.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Rare Collectiv surrounds Norwegian sauna with timber ribs that \"evoke the hull of a ship\"",
+            "itemLink": "https://www.dezeen.com/2026/09/30/rare-collectiv-skroget-sauna/",
+            "publishedDate": "2026-09-30T10:30:26.000Z",
+            "contentSnippet": "A skeletal frame of reclaimed timber surrounds the elongated form of Skroget, a community sauna and public deck in Norway designed by student architecture studio Rare Collectiv. Overlooking the busy harbour of Båtsfjord, known as Norway's fishing capital, the structure was designed and built by 15 students from the Design in Context course at the The post Rare Collectiv surrounds Norwegian sauna with timber ribs that \"evoke the hull of a ship\" appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Exclusives",
+              "Norway",
+              "Public and leisure",
+              "Reclaimed materials",
+              "Saunas",
+              "Wood",
+              "Wooden architecture"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Exclusives",
+            "Norway",
+            "Public and leisure",
+            "Reclaimed materials",
+            "Saunas",
+            "Wood",
+            "Wooden architecture"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "rare collectiv surrounds norwegian sauna with timber ribs that evoke the hull of a ship"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T10:30:26.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Exclusives",
+      "Norway",
+      "Public and leisure",
+      "Reclaimed materials",
+      "Saunas",
+      "Wood",
+      "Wooden architecture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:33.760Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260930-dezeens-top-five-houses-of-sep",
+    "canonicalTopic": "Dezeens Top Five Houses of September 2026",
+    "slug": "dezeens-top-five-houses-of-september-2026",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-2-Dezeens20top20five20ho",
+        "query": "Dezeens Top Five Houses of September 2026",
+        "sourceUrl": "https://www.dezeen.com/2026/09/30/top-houses-september-2026/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-30T10:00:33.000Z",
+        "contentSnippet": "A monolithic grey-brick home in Northern Ireland and a skinny house in Kyoto are among the most popular houses featured on Dezeen this month. Also included in our monthly roundup of our readers' favourite residences is a lime-rendered house in Mexico, a cross-laminated timber holiday home in Sweden and a home in India built alongside The post Dezeen's top five houses of September 2026 appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T10:00:33.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Dezeen's top five houses of September 2026",
+            "itemLink": "https://www.dezeen.com/2026/09/30/top-houses-september-2026/",
+            "publishedDate": "2026-09-30T10:00:33.000Z",
+            "contentSnippet": "A monolithic grey-brick home in Northern Ireland and a skinny house in Kyoto are among the most popular houses featured on Dezeen this month. Also included in our monthly roundup of our readers' favourite residences is a lime-rendered house in Mexico, a cross-laminated timber holiday home in Sweden and a home in India built alongside The post Dezeen's top five houses of September 2026 appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Houses of the month",
+              "Houses",
+              "Roundups",
+              "Residential architecture and interiors"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Houses of the month",
+            "Houses",
+            "Roundups",
+            "Residential architecture and interiors"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dezeens top five houses of september 2026"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T10:00:33.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Houses of the month",
+      "Houses",
+      "Roundups",
+      "Residential architecture and interiors"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:33.816Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260930-vauxhall-unveils-sharper-clean",
+    "canonicalTopic": "Vauxhall Unveils Sharper Cleaner Griffin Logo",
+    "slug": "vauxhall-unveils-sharper-cleaner-griffin-logo",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-3-Vauxhall20unveils2022sh",
+        "query": "Vauxhall Unveils Sharper Cleaner Griffin Logo",
+        "sourceUrl": "https://www.dezeen.com/2026/09/30/vauxhall-griffin-logo-streamline/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-30T09:45:54.000Z",
+        "contentSnippet": "British carmaker Vauxhall has updated its griffin emblem, which has been pared back and lost its flag for the first time. The logo is the 13th iteration of the brand's logo, which has incorporated a griffin since 1915. In the latest update, Vauxhall's previous flat logo introduced in 2020 was further simplified, with the griffin The post Vauxhall unveils \"sharper, cleaner\" griffin logo appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T09:45:54.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Vauxhall unveils \"sharper, cleaner\" griffin logo",
+            "itemLink": "https://www.dezeen.com/2026/09/30/vauxhall-griffin-logo-streamline/",
+            "publishedDate": "2026-09-30T09:45:54.000Z",
+            "contentSnippet": "British carmaker Vauxhall has updated its griffin emblem, which has been pared back and lost its flag for the first time. The logo is the 13th iteration of the brand's logo, which has incorporated a griffin since 1915. In the latest update, Vauxhall's previous flat logo introduced in 2020 was further simplified, with the griffin The post Vauxhall unveils \"sharper, cleaner\" griffin logo appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Design",
+              "Cars",
+              "Logos",
+              "Flat design",
+              "Rebrands",
+              "Vauxhall"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Design",
+            "Cars",
+            "Logos",
+            "Flat design",
+            "Rebrands",
+            "Vauxhall"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "vauxhall unveils sharper cleaner griffin logo"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T09:45:54.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Design",
+      "Cars",
+      "Logos",
+      "Flat design",
+      "Rebrands",
+      "Vauxhall"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:33.879Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260930-riba-paid-150000-to-former-pre",
+    "canonicalTopic": "Riba Paid 150000 to Former President Alan Jones to Settle Legal Dispute",
+    "slug": "riba-paid-150000-to-former-president-alan-jones-to-settle-legal-dispute",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-4-RIBA20paid20C2A31502C00020t",
+        "query": "Riba Paid 150000 to Former President Alan Jones to Settle Legal Dispute",
+        "sourceUrl": "https://www.dezeen.com/2026/09/30/riba-alan-jones-legal-dispute/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-30T09:00:02.000Z",
+        "contentSnippet": "The Royal Institute of British Architects has paid £150,000 to its former president Alan Jones, settling a long-running legal dispute over its handling of his personal information. The £150,000 payment was listed in a draft of the institute's annual financial report, seen by the British magazine Architect's Journal (AJ), which broke the news yesterday. In The post RIBA paid £150,000 to former president Alan Jones to settle legal dispute appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T09:00:02.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "RIBA paid £150,000 to former president Alan Jones to settle legal dispute",
+            "itemLink": "https://www.dezeen.com/2026/09/30/riba-alan-jones-legal-dispute/",
+            "publishedDate": "2026-09-30T09:00:02.000Z",
+            "contentSnippet": "The Royal Institute of British Architects has paid £150,000 to its former president Alan Jones, settling a long-running legal dispute over its handling of his personal information. The £150,000 payment was listed in a draft of the institute's annual financial report, seen by the British magazine Architect's Journal (AJ), which broke the news yesterday. In The post RIBA paid £150,000 to former president Alan Jones to settle legal dispute appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "News",
+              "RIBA"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "News",
+            "RIBA"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "riba paid 150000 to former president alan jones to settle legal dispute"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T09:00:02.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "News",
+      "RIBA"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:33.962Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20260930-recyclable-wildflower-installa",
+    "canonicalTopic": "Recyclable Wildflower Installation Among Timber Prototypes at Buildfest 2026",
+    "slug": "recyclable-wildflower-installation-among-timber-prototypes-at-buildfest-2026",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-5-Recyclable20Wildflowe",
+        "query": "Recyclable Wildflower Installation Among Timber Prototypes at Buildfest 2026",
+        "sourceUrl": "https://www.dezeen.com/2026/09/30/recyclable-wildflower-timber-installation-buildfest-2026/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-09-30T07:00:08.000Z",
+        "contentSnippet": "A recyclable timber pavilion designed to mimic wildflowers is among the prototypes built by students at BuildFest 2026, shown in this video produced by Dezeen. Designed by students from Lehigh University and Syracuse University, Wildflowers uses custom-designed 3D-printed joints to connect timber columns in an X shape that resembles flowers. It can be disassembled for future The post Recyclable Wildflower installation among timber prototypes at BuildFest 2026 appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T07:00:08.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Recyclable Wildflower installation among timber prototypes at BuildFest 2026",
+            "itemLink": "https://www.dezeen.com/2026/09/30/recyclable-wildflower-timber-installation-buildfest-2026/",
+            "publishedDate": "2026-09-30T07:00:08.000Z",
+            "contentSnippet": "A recyclable timber pavilion designed to mimic wildflowers is among the prototypes built by students at BuildFest 2026, shown in this video produced by Dezeen. Designed by students from Lehigh University and Syracuse University, Wildflowers uses custom-designed 3D-printed joints to connect timber columns in an X shape that resembles flowers. It can be disassembled for future The post Recyclable Wildflower installation among timber prototypes at BuildFest 2026 appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Installations",
+              "Videos",
+              "Recycling",
+              "Mass timber",
+              "New York",
+              "Wood",
+              "Flowers",
+              "Pavilions",
+              "Student projects"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Installations",
+            "Videos",
+            "Recycling",
+            "Mass timber",
+            "New York",
+            "Wood",
+            "Flowers",
+            "Pavilions",
+            "Student projects"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "recyclable wildflower installation among timber prototypes at buildfest 2026"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T07:00:08.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Installations",
+      "Videos",
+      "Recycling",
+      "Mass timber",
+      "New York",
+      "Wood",
+      "Flowers",
+      "Pavilions",
+      "Student projects"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:34.047Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260930-m-night-shyamalans-remain-firs",
+    "canonicalTopic": "M Night Shyamalans Remain First Reactions",
+    "slug": "m-night-shyamalans-remain-first-reactions",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-1-M20Night20Shyamalan",
+        "query": "M Night Shyamalans Remain First Reactions",
+        "sourceUrl": "https://www.hollywoodreporter.com/movies/movie-news/m-night-shyamalan-remain-first-reactions-jake-gyllenhaal-1236716931/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-30T11:32:16.000Z",
+        "contentSnippet": "The supernatural thriller, co-written by Nicholas Sparks and starring Jake Gyllenhaal, doesn't hit theaters till Feb. 5.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T11:32:16.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "M. Night Shyamalan's 'Remain': First Reactions",
+            "itemLink": "https://www.hollywoodreporter.com/movies/movie-news/m-night-shyamalan-remain-first-reactions-jake-gyllenhaal-1236716931/",
+            "publishedDate": "2026-09-30T11:32:16.000Z",
+            "contentSnippet": "The supernatural thriller, co-written by Nicholas Sparks and starring Jake Gyllenhaal, doesn't hit theaters till Feb. 5.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Movie News",
+              "Movies",
+              "ashley walters",
+              "Jake Gyllenhaal",
+              "Jay O. Sanders",
+              "Julie Hagerty",
+              "M. Night Shyamalan",
+              "Nicholas Sparks",
+              "Phoebe Dynevor",
+              "Remain"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Movie News",
+            "Movies",
+            "ashley walters",
+            "Jake Gyllenhaal",
+            "Jay O. Sanders",
+            "Julie Hagerty",
+            "M. Night Shyamalan",
+            "Nicholas Sparks",
+            "Phoebe Dynevor",
+            "Remain"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "m night shyamalans remain first reactions"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T11:32:16.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Movie News",
+      "Movies",
+      "ashley walters",
+      "Jake Gyllenhaal",
+      "Jay O. Sanders",
+      "Julie Hagerty",
+      "M. Night Shyamalan",
+      "Nicholas Sparks",
+      "Phoebe Dynevor",
+      "Remain"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:34.111Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260930-american-filmmaker-sam-pollard",
+    "canonicalTopic": "American Filmmaker Sam Pollard to Head Up London Film Festival Official Competition Jury",
+    "slug": "american-filmmaker-sam-pollard-to-head-up-london-film-festival-official-competition-jury",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-2-American20Filmmaker",
+        "query": "American Filmmaker Sam Pollard to Head Up London Film Festival Official Competition Jury",
+        "sourceUrl": "https://www.hollywoodreporter.com/movies/movie-news/sam-pollard-president-bfi-london-film-festival-juries-jury-1236716883/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-30T11:00:00.000Z",
+        "contentSnippet": "British-Egyptian star Amir El-Masry has been named president of the first feature competition, and 'Santosh' director Sandhya Suri will preside over the documentary selection.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T11:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "American Filmmaker Sam Pollard to Head Up London Film Festival Official Competition Jury",
+            "itemLink": "https://www.hollywoodreporter.com/movies/movie-news/sam-pollard-president-bfi-london-film-festival-juries-jury-1236716883/",
+            "publishedDate": "2026-09-30T11:00:00.000Z",
+            "contentSnippet": "British-Egyptian star Amir El-Masry has been named president of the first feature competition, and 'Santosh' director Sandhya Suri will preside over the documentary selection.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Movie News",
+              "Movies",
+              "Amir El Masry",
+              "BFI London Film Festival",
+              "BFI London Film Festival 2026",
+              "international",
+              "Sam Pollard",
+              "united kingdom"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Movie News",
+            "Movies",
+            "Amir El Masry",
+            "BFI London Film Festival",
+            "BFI London Film Festival 2026",
+            "international",
+            "Sam Pollard",
+            "united kingdom"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "american filmmaker sam pollard to head up london film festival official competition jury"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T11:00:00.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Movie News",
+      "Movies",
+      "Amir El Masry",
+      "BFI London Film Festival",
+      "BFI London Film Festival 2026",
+      "international",
+      "Sam Pollard",
+      "united kingdom"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:34.226Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260930-ryan-kwanten-signs-with-rain-f",
+    "canonicalTopic": "Ryan Kwanten Signs with Rain for Management",
+    "slug": "ryan-kwanten-signs-with-rain-for-management",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-3-Ryan20Kwanten20Sign",
+        "query": "Ryan Kwanten Signs with Rain for Management",
+        "sourceUrl": "https://www.hollywoodreporter.com/movies/movie-news/ryan-kwanten-representation-rain-management-1236716861/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-30T09:28:51.000Z",
+        "contentSnippet": "The Australian actor and producer is best known for his work on HBO's beloved hit 'True Blood.'",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T09:28:51.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Ryan Kwanten Signs With Rain for Management",
+            "itemLink": "https://www.hollywoodreporter.com/movies/movie-news/ryan-kwanten-representation-rain-management-1236716861/",
+            "publishedDate": "2026-09-30T09:28:51.000Z",
+            "contentSnippet": "The Australian actor and producer is best known for his work on HBO's beloved hit 'True Blood.'",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Movie News",
+              "Movies",
+              "australia",
+              "hbo",
+              "international",
+              "Ryan Kwanten",
+              "True Blood"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Movie News",
+            "Movies",
+            "australia",
+            "hbo",
+            "international",
+            "Ryan Kwanten",
+            "True Blood"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ryan kwanten signs with rain for management"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T09:28:51.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Movie News",
+      "Movies",
+      "australia",
+      "hbo",
+      "international",
+      "Ryan Kwanten",
+      "True Blood"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:34.281Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260930-massive-studios-garfield-movie",
+    "canonicalTopic": "Massive Studios Garfield Movie Writers and Producer Todd Garner Team on Ai Animated Short Films",
+    "slug": "massive-studios-garfield-movie-writers-and-producer-todd-garner-team-on-ai-animated-short-films",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-4-Massive20Studios2C2",
+        "query": "Massive Studios Garfield Movie Writers and Producer Todd Garner Team on Ai Animated Short Films",
+        "sourceUrl": "https://www.hollywoodreporter.com/movies/movie-news/massive-studios-capcut-ai-films-todd-garner-reza-safai-1236716824/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-30T09:25:57.000Z",
+        "contentSnippet": "Massive co-founder Reza Sixo Safai, scribes Paul A. Kaplan and Mark Torgove and Garner detailed the projects and their process during a panel at the Toronto International Film Festival.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T09:25:57.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Massive Studios, 'Garfield Movie' Writers and Producer Todd Garner Team on AI Animated Short Films",
+            "itemLink": "https://www.hollywoodreporter.com/movies/movie-news/massive-studios-capcut-ai-films-todd-garner-reza-safai-1236716824/",
+            "publishedDate": "2026-09-30T09:25:57.000Z",
+            "contentSnippet": "Massive co-founder Reza Sixo Safai, scribes Paul A. Kaplan and Mark Torgove and Garner detailed the projects and their process during a panel at the Toronto International Film Festival.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Movie News",
+              "Movies",
+              "A.I.",
+              "Artifical Intelligence",
+              "Todd Garner",
+              "Toronto International Film Festival"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Movie News",
+            "Movies",
+            "A.I.",
+            "Artifical Intelligence",
+            "Todd Garner",
+            "Toronto International Film Festival"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "massive studios garfield movie writers and producer todd garner team on ai animated short films"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T09:25:57.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Movie News",
+      "Movies",
+      "A.I.",
+      "Artifical Intelligence",
+      "Todd Garner",
+      "Toronto International Film Festival"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:34.397Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260930-can-drama-change-the-world-cre",
+    "canonicalTopic": "Can Drama Change the World Creators of Series on Far-right Politics Climate Crisis and More Weigh In",
+    "slug": "can-drama-change-the-world-creators-of-series-on-far-right-politics-climate-crisis-and-more-weigh-in",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-5-Can20Drama20Change2",
+        "query": "Can Drama Change the World Creators of Series on Far-right Politics Climate Crisis and More Weigh In",
+        "sourceUrl": "https://www.hollywoodreporter.com/tv/tv-news/can-drama-series-change-world-iberseries-far-right-politics-1236714321/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-09-30T08:35:21.000Z",
+        "contentSnippet": "Creatives behind the likes of 'Borgen,' 'The Best Immigrant,' eco-thriller 'After Us,' sexual aggression drama 'Pubertat,' and historical HIV drama 'Henki' shared their motivations and goals at Iberseries.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T08:35:21.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Can Drama Change the World? Creators of Series on Far-Right Politics, Climate Crisis and More Weigh in",
+            "itemLink": "https://www.hollywoodreporter.com/tv/tv-news/can-drama-series-change-world-iberseries-far-right-politics-1236714321/",
+            "publishedDate": "2026-09-30T08:35:21.000Z",
+            "contentSnippet": "Creatives behind the likes of 'Borgen,' 'The Best Immigrant,' eco-thriller 'After Us,' sexual aggression drama 'Pubertat,' and historical HIV drama 'Henki' shared their motivations and goals at Iberseries.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "TV",
+              "TV News",
+              "Iberseries & Platino Industria",
+              "Iberseries 2026",
+              "international"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "TV",
+            "TV News",
+            "Iberseries & Platino Industria",
+            "Iberseries 2026",
+            "international"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "can drama change the world creators of series on far-right politics climate crisis and more weigh in"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T08:35:21.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "TV",
+      "TV News",
+      "Iberseries & Platino Industria",
+      "Iberseries 2026",
+      "international"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:34.514Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260930-watch-zara-larsson-sexyy-red-p",
+    "canonicalTopic": "Watch Zara Larsson Sexyy Red Perform Lookin for the Hoes Live in Los Angeles",
+    "slug": "watch-zara-larsson-sexyy-red-perform-lookin-for-the-hoes-live-in-los-angeles",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-rolling-stone-culture-1-Watch20Zara20Lar",
+        "query": "Watch Zara Larsson Sexyy Red Perform Lookin for the Hoes Live in Los Angeles",
+        "sourceUrl": "https://www.rollingstone.com/music/music-news/zara-larsson-sexyy-red-lookin-for-the-hoes-live-los-angeles-1235634392/",
+        "publisherName": "Rolling Stone",
+        "publishedAt": "2026-09-30T07:19:21.000Z",
+        "contentSnippet": "Larsson's global Midnight Sun tour continues through early November",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T07:19:21.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.rollingstone.com/feed/",
+            "feedTitle": "Rolling Stone",
+            "itemTitle": "Watch Zara Larsson, Sexyy Red Perform 'Lookin' for the Hoes' Live in Los Angeles",
+            "itemLink": "https://www.rollingstone.com/music/music-news/zara-larsson-sexyy-red-lookin-for-the-hoes-live-los-angeles-1235634392/",
+            "publishedDate": "2026-09-30T07:19:21.000Z",
+            "contentSnippet": "Larsson's global Midnight Sun tour continues through early November",
+            "categories": [
+              "music",
+              "pop-culture",
+              "film",
+              "artists",
+              "interviews",
+              "Music",
+              "Music News",
+              "Sexyy Red",
+              "Zara Larsson"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "music",
+            "pop-culture",
+            "film",
+            "artists",
+            "interviews",
+            "Music",
+            "Music News",
+            "Sexyy Red",
+            "Zara Larsson"
+          ],
+          "feedName": "Rolling Stone",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "watch zara larsson sexyy red perform lookin for the hoes live in los angeles"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T07:19:21.000Z",
+    "tags": [
+      "music",
+      "pop-culture",
+      "film",
+      "artists",
+      "interviews",
+      "Music",
+      "Music News",
+      "Sexyy Red",
+      "Zara Larsson"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:34.603Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260930-watch-tom-morello-perform-sold",
+    "canonicalTopic": "Watch Tom Morello Perform Soldier in the Army of Love on Kimmel",
+    "slug": "watch-tom-morello-perform-soldier-in-the-army-of-love-on-kimmel",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-rolling-stone-culture-2-Watch20Tom20More",
+        "query": "Watch Tom Morello Perform Soldier in the Army of Love on Kimmel",
+        "sourceUrl": "https://www.rollingstone.com/music/music-news/tom-morello-soldier-in-the-army-of-love-performance-kimmel-1235634389/",
+        "publisherName": "Rolling Stone",
+        "publishedAt": "2026-09-30T06:43:42.000Z",
+        "contentSnippet": "The rousing track comes off the musician's new album, Everyone Gets Everything They Want",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T06:43:42.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.rollingstone.com/feed/",
+            "feedTitle": "Rolling Stone",
+            "itemTitle": "Watch Tom Morello Perform 'Soldier in the Army of Love' on 'Kimmel'",
+            "itemLink": "https://www.rollingstone.com/music/music-news/tom-morello-soldier-in-the-army-of-love-performance-kimmel-1235634389/",
+            "publishedDate": "2026-09-30T06:43:42.000Z",
+            "contentSnippet": "The rousing track comes off the musician's new album, Everyone Gets Everything They Want",
+            "categories": [
+              "music",
+              "pop-culture",
+              "film",
+              "artists",
+              "interviews",
+              "Music",
+              "Music News",
+              "Bruce Springsteen",
+              "Jimmy Kimmel",
+              "Jimmy Kimmel Live",
+              "Late-Night TV",
+              "Tom Morello"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "music",
+            "pop-culture",
+            "film",
+            "artists",
+            "interviews",
+            "Music",
+            "Music News",
+            "Bruce Springsteen",
+            "Jimmy Kimmel",
+            "Jimmy Kimmel Live",
+            "Late-Night TV",
+            "Tom Morello"
+          ],
+          "feedName": "Rolling Stone",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "watch tom morello perform soldier in the army of love on kimmel"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T06:43:42.000Z",
+    "tags": [
+      "music",
+      "pop-culture",
+      "film",
+      "artists",
+      "interviews",
+      "Music",
+      "Music News",
+      "Bruce Springsteen",
+      "Jimmy Kimmel",
+      "Jimmy Kimmel Live",
+      "Late-Night TV",
+      "Tom Morello"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:34.684Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260930-chris-brown-will-get-new-dog-a",
+    "canonicalTopic": "Chris Brown Will Get New Dog Attack Trial but Only If Housekeeper Rejects Reduced 95 Million Award",
+    "slug": "chris-brown-will-get-new-dog-attack-trial-but-only-if-housekeeper-rejects-reduced-95-million-award",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-rolling-stone-culture-3-Chris20Brown20Wi",
+        "query": "Chris Brown Will Get New Dog Attack Trial but Only If Housekeeper Rejects Reduced 95 Million Award",
+        "sourceUrl": "https://www.rollingstone.com/music/music-news/chris-brown-dog-attack-housekeeper-award-new-trial-1235634359/",
+        "publisherName": "Rolling Stone",
+        "publishedAt": "2026-09-30T03:27:27.000Z",
+        "contentSnippet": "A judge called the original $12.9 million in damages award \"excessive\"",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T03:27:27.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.rollingstone.com/feed/",
+            "feedTitle": "Rolling Stone",
+            "itemTitle": "Chris Brown Will Get New Dog Attack Trial, But Only If Housekeeper Rejects Reduced $9.5 Million Award",
+            "itemLink": "https://www.rollingstone.com/music/music-news/chris-brown-dog-attack-housekeeper-award-new-trial-1235634359/",
+            "publishedDate": "2026-09-30T03:27:27.000Z",
+            "contentSnippet": "A judge called the original $12.9 million in damages award \"excessive\"",
+            "categories": [
+              "music",
+              "pop-culture",
+              "film",
+              "artists",
+              "interviews",
+              "Music",
+              "Music News",
+              "Chris Brown",
+              "controversy",
+              "courts and crime"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "music",
+            "pop-culture",
+            "film",
+            "artists",
+            "interviews",
+            "Music",
+            "Music News",
+            "Chris Brown",
+            "controversy",
+            "courts and crime"
+          ],
+          "feedName": "Rolling Stone",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "chris brown will get new dog attack trial but only if housekeeper rejects reduced 95 million award"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T03:27:27.000Z",
+    "tags": [
+      "music",
+      "pop-culture",
+      "film",
+      "artists",
+      "interviews",
+      "Music",
+      "Music News",
+      "Chris Brown",
+      "controversy",
+      "courts and crime"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:34.800Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260930-feds-want-nearly-4-years-in-pr",
+    "canonicalTopic": "Feds Want Nearly 4 Years in Prison for Ai Music Fraudster Who Stole Millions",
+    "slug": "feds-want-nearly-4-years-in-prison-for-ai-music-fraudster-who-stole-millions",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-rolling-stone-culture-4-Feds20Want20Near",
+        "query": "Feds Want Nearly 4 Years in Prison for Ai Music Fraudster Who Stole Millions",
+        "sourceUrl": "https://www.rollingstone.com/music/music-news/feds-ai-music-fraudster-mike-smith-streaming-sentencing-1235634341/",
+        "publisherName": "Rolling Stone",
+        "publishedAt": "2026-09-30T00:33:00.000Z",
+        "contentSnippet": "Prosecutors are urging the judge to sentence Michael Smith to 46 months in federal prison to \"send a clear message\"",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T00:33:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.rollingstone.com/feed/",
+            "feedTitle": "Rolling Stone",
+            "itemTitle": "Feds Want Nearly 4 Years in Prison for AI Music Fraudster Who 'Stole Millions'",
+            "itemLink": "https://www.rollingstone.com/music/music-news/feds-ai-music-fraudster-mike-smith-streaming-sentencing-1235634341/",
+            "publishedDate": "2026-09-30T00:33:00.000Z",
+            "contentSnippet": "Prosecutors are urging the judge to sentence Michael Smith to 46 months in federal prison to \"send a clear message\"",
+            "categories": [
+              "music",
+              "pop-culture",
+              "film",
+              "artists",
+              "interviews",
+              "Music",
+              "Music News",
+              "Apple Music",
+              "Artificial intelligence",
+              "controversy",
+              "courts and crime",
+              "Spotify"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "music",
+            "pop-culture",
+            "film",
+            "artists",
+            "interviews",
+            "Music",
+            "Music News",
+            "Apple Music",
+            "Artificial intelligence",
+            "controversy",
+            "courts and crime",
+            "Spotify"
+          ],
+          "feedName": "Rolling Stone",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "feds want nearly 4 years in prison for ai music fraudster who stole millions"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T00:33:00.000Z",
+    "tags": [
+      "music",
+      "pop-culture",
+      "film",
+      "artists",
+      "interviews",
+      "Music",
+      "Music News",
+      "Apple Music",
+      "Artificial intelligence",
+      "controversy",
+      "courts and crime",
+      "Spotify"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:34.887Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20260930-michele-reiners-sister-shares-",
+    "canonicalTopic": "Michele Reiners Sister Shares Update After Her and Rob Reiners Deaths Our Lives Are Changed Forever",
+    "slug": "michele-reiners-sister-shares-update-after-her-and-rob-reiners-deaths-our-lives-are-changed-forever",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-rolling-stone-culture-5-Michele20ReinerE",
+        "query": "Michele Reiners Sister Shares Update After Her and Rob Reiners Deaths Our Lives Are Changed Forever",
+        "sourceUrl": "https://www.rollingstone.com/tv-movies/tv-movie-news/michele-reiner-sister-update-reaction-rob-reiner-deaths-1235634338/",
+        "publisherName": "Rolling Stone",
+        "publishedAt": "2026-09-30T00:20:05.000Z",
+        "contentSnippet": "The legendary director and his wife's son, Nick Reiner, was charged with the murder of his parents",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T00:20:05.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.rollingstone.com/feed/",
+            "feedTitle": "Rolling Stone",
+            "itemTitle": "Michele Reiner’s Sister Shares Update After Her and Rob Reiner’s Deaths: ‘Our Lives Are Changed Forever'",
+            "itemLink": "https://www.rollingstone.com/tv-movies/tv-movie-news/michele-reiner-sister-update-reaction-rob-reiner-deaths-1235634338/",
+            "publishedDate": "2026-09-30T00:20:05.000Z",
+            "contentSnippet": "The legendary director and his wife's son, Nick Reiner, was charged with the murder of his parents",
+            "categories": [
+              "music",
+              "pop-culture",
+              "film",
+              "artists",
+              "interviews",
+              "TV & Movies",
+              "TV & Movies News",
+              "controversy",
+              "Rob Reiner"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "music",
+            "pop-culture",
+            "film",
+            "artists",
+            "interviews",
+            "TV & Movies",
+            "TV & Movies News",
+            "controversy",
+            "Rob Reiner"
+          ],
+          "feedName": "Rolling Stone",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "michele reiners sister shares update after her and rob reiners deaths our lives are changed forever"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T00:20:05.000Z",
+    "tags": [
+      "music",
+      "pop-culture",
+      "film",
+      "artists",
+      "interviews",
+      "TV & Movies",
+      "TV & Movies News",
+      "controversy",
+      "Rob Reiner"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-09-30T12:03:35.007Z",
     "pinterestScore": 79.2
   }
 ]
