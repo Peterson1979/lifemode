@@ -25796,12 +25796,38 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-browns20schedule",
+        "query": "browns schedule",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-01T22:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-01T22:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "browns schedule",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
-      "lions schedule"
+      "lions schedule",
+      "browns schedule"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-13T11:00:00.000Z",
     "tags": [
       "US",
@@ -25811,21 +25837,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-13T11:13:37.506Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-10-01T22:25:01.068Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260913-boston-weather",
@@ -50107,7 +50134,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-10-01T12:35:44.803Z",
+    "updatedAt": "2026-10-01T22:25:05.133Z",
     "pinterestScore": 85.6,
     "revisionCyclesCount": 0
   },
@@ -50194,7 +50221,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-10-01T12:35:44.839Z",
+    "updatedAt": "2026-10-01T22:25:05.166Z",
     "pinterestScore": 84.8,
     "revisionCyclesCount": 0
   },
@@ -67919,11 +67946,62 @@
           "feedName": "Allure Beauty & Skincare",
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-2-1920Best20Early20Amazon",
+        "query": "19 Best Early Amazon Prime Day Beauty Deals 2026 to Shop Now",
+        "sourceUrl": "https://www.allure.com/story/best-early-amazon-prime-day-beauty-deals",
+        "publisherName": "Allure",
+        "publishedAt": "2026-10-01T17:17:18.000Z",
+        "contentSnippet": "From barrier-soothing skin care to multitasking hair tools, these early markdowns are already making waves in our carts.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T17:17:18.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "19 Best Early Amazon Prime Day Beauty Deals 2026 to Shop Now",
+            "itemLink": "https://www.allure.com/story/best-early-amazon-prime-day-beauty-deals",
+            "publishedDate": "2026-10-01T17:17:18.000Z",
+            "contentSnippet": "From barrier-soothing skin care to multitasking hair tools, these early markdowns are already making waves in our carts.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Shopping",
+              "Makeup",
+              "Skin",
+              "Hair",
+              "Wellness"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Shopping",
+            "Makeup",
+            "Skin",
+            "Hair",
+            "Wellness"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "16 best early amazon prime day k-beauty deals 2026",
-      "14 best early amazon prime day mature beauty deals 2026"
+      "14 best early amazon prime day mature beauty deals 2026",
+      "19 best early amazon prime day beauty deals 2026 to shop now"
     ],
     "freshnessScore": 88,
     "createdAt": "2026-09-23T20:40:23.000Z",
@@ -67955,7 +68033,7 @@
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-09-26T10:56:38.447Z",
+    "updatedAt": "2026-10-01T22:25:03.404Z",
     "pinterestScore": 79.2,
     "revisionCyclesCount": 0
   },
@@ -69834,7 +69912,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "PUBLISHED",
-    "updatedAt": "2026-10-01T12:35:44.613Z",
+    "updatedAt": "2026-10-01T22:25:04.912Z",
     "pinterestScore": 87.8,
     "revisionCyclesCount": 0
   },
@@ -69897,7 +69975,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-10-01T12:35:44.674Z",
+    "updatedAt": "2026-10-01T22:25:04.975Z",
     "pinterestScore": 84.6,
     "revisionCyclesCount": 0
   },
@@ -69960,7 +70038,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-10-01T12:35:44.713Z",
+    "updatedAt": "2026-10-01T22:25:05.023Z",
     "pinterestScore": 82.9,
     "revisionCyclesCount": 0
   },
@@ -76624,6 +76702,44 @@
           "feedName": "Vogue Style & Culture",
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-2-Schiaparelli20Spring20",
+        "query": "Schiaparelli Spring 2027 Ready-to-Wear",
+        "sourceUrl": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/schiaparelli",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-10-01T22:21:40.000Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T22:21:40.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Schiaparelli Spring 2027 Ready-to-Wear",
+            "itemLink": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/schiaparelli",
+            "publishedDate": "2026-10-01T22:21:40.000Z",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
@@ -76631,7 +76747,8 @@
       "marco rambaldi spring 2027 ready-to-wear",
       "act no.1 spring 2027 ready-to-wear",
       "giorgio armani spring 2027 ready-to-wear",
-      "torishéju spring 2027 ready-to-wear"
+      "torishéju spring 2027 ready-to-wear",
+      "schiaparelli spring 2027 ready-to-wear"
     ],
     "freshnessScore": 88,
     "createdAt": "2026-09-25T11:18:56.000Z",
@@ -76659,7 +76776,7 @@
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-09-29T12:17:17.717Z",
+    "updatedAt": "2026-10-01T22:25:02.583Z",
     "pinterestScore": 79.2,
     "revisionCyclesCount": 0
   },
@@ -87281,12 +87398,62 @@
           "feedName": "Dezeen Architecture & Design",
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-Fabrizio20Corneli20cre",
+        "query": "Fabrizio Corneli creates dramatic installation for glasses brand Lindberg",
+        "sourceUrl": "https://www.dezeen.com/2026/10/01/fabrizio-corneli-installation-glasses-brand-lindberg/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-10-01T20:00:15.000Z",
+        "contentSnippet": "Promotion: Danish eyewear brand Lindberg has presented a site-specific installation for the Armory Show in New York City, created with Italian artist Fabrizio Corneli. Called Enigma of Vision, the minimalist installation opened on 24 September as part of the city's annual Armory Show of contemporary art. From 10 to 15 November, the installation will also The post Fabrizio Corneli creates dramatic installation for glasses brand Lindberg appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T20:00:15.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Fabrizio Corneli creates dramatic installation for glasses brand Lindberg",
+            "itemLink": "https://www.dezeen.com/2026/10/01/fabrizio-corneli-installation-glasses-brand-lindberg/",
+            "publishedDate": "2026-10-01T20:00:15.000Z",
+            "contentSnippet": "Promotion: Danish eyewear brand Lindberg has presented a site-specific installation for the Armory Show in New York City, created with Italian artist Fabrizio Corneli. Called Enigma of Vision, the minimalist installation opened on 24 September as part of the city's annual Armory Show of contemporary art. From 10 to 15 November, the installation will also The post Fabrizio Corneli creates dramatic installation for glasses brand Lindberg appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Promotions",
+              "USA",
+              "Installations",
+              "New York City"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Promotions",
+            "USA",
+            "Installations",
+            "New York City"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "fabrizio corneli creates dramatic installation for glasses brand lindberg"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-25T20:00:15.000Z",
     "tags": [
       "architecture",
@@ -87309,16 +87476,17 @@
       "socialPotential": 80,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 88
     },
-    "totalScore": 77.4,
+    "totalScore": 77.6,
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-09-26T15:56:20.242Z",
-    "pinterestScore": 79.2
+    "updatedAt": "2026-10-01T22:25:03.466Z",
+    "pinterestScore": 79.2,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-entertainment-20260926-box-office-avengers-endgame-en",
@@ -104875,12 +105043,38 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-flyers20vs20devil",
+        "query": "flyers vs devils",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-01T22:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-01T22:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "flyers vs devils",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
-      "flyers"
+      "flyers",
+      "flyers vs devils"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-30T11:50:00.000Z",
     "tags": [
       "US",
@@ -104890,21 +105084,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 92,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 84,
+    "totalScore": 85.1,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-30T12:03:31.061Z",
-    "pinterestScore": 88.3
+    "status": "PUBLISHED",
+    "updatedAt": "2026-10-01T22:26:16.055Z",
+    "pinterestScore": 88.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-entertainment-20260930-harry-meghan-press-intrusion-s",
@@ -117434,8 +117629,9 @@
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-10-01T12:35:44.575Z",
-    "pinterestScore": 79
+    "updatedAt": "2026-10-01T22:25:04.864Z",
+    "pinterestScore": 79,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-wellbeing-20261001-thermal-cycling-protocols-cont",
@@ -117469,7 +117665,8 @@
       }
     ],
     "queryVariants": [
-      "thermal cycling protocols contrast therapy for cognitive resilience"
+      "thermal cycling protocols contrast therapy for cognitive resilience",
+      "thermal cycling protocols: contrast therapy for cognitive resilience"
     ],
     "freshnessScore": 90,
     "createdAt": "2026-10-01T12:35:41.484Z",
@@ -117495,8 +117692,3807 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-10-01T12:35:59.374Z",
+    "updatedAt": "2026-10-01T22:25:05.101Z",
     "pinterestScore": 83,
     "revisionCyclesCount": 0
+  },
+  {
+    "id": "lm-entertainment-20261001-lito-sousa",
+    "canonicalTopic": "Lito Sousa",
+    "slug": "lito-sousa",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-lito20sousa",
+        "query": "Lito Sousa",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-01T22:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-01T22:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "lito sousa",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "lito sousa"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T22:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-01T22:25:00.935Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261001-sabres-vs-blue-jackets",
+    "canonicalTopic": "Sabres Vs Blue Jackets",
+    "slug": "sabres-vs-blue-jackets",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-sabres20vs20blue20",
+        "query": "Sabres Vs Blue Jackets",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-01T22:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-01T22:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "sabres vs blue jackets",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "sabres vs blue jackets"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T22:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-01T22:25:01.015Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261001-lightning-vs-rangers",
+    "canonicalTopic": "Lightning Vs Rangers",
+    "slug": "lightning-vs-rangers",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-lightning20vs20ra",
+        "query": "Lightning Vs Rangers",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-01T22:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-01T22:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "lightning vs rangers",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "lightning vs rangers"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T22:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-01T22:25:01.060Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261001-harold-fannin-jr",
+    "canonicalTopic": "Harold Fannin Jr",
+    "slug": "harold-fannin-jr",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-harold20fannin20j",
+        "query": "Harold Fannin Jr",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-01T22:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-01T22:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "harold fannin jr",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "harold fannin jr"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T22:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-01T22:25:01.101Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261001-terremoto",
+    "canonicalTopic": "Terremoto",
+    "slug": "terremoto",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-terremoto",
+        "query": "Terremoto",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-01T21:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-01T21:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "terremoto",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "terremoto"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T21:50:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-01T22:25:01.128Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261001-time-magazine-trump-interview",
+    "canonicalTopic": "Time Magazine Trump Interview",
+    "slug": "time-magazine-trump-interview",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-time20magazine20t",
+        "query": "Time Magazine Trump Interview",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-01T21:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-01T21:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "time magazine trump interview",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "time magazine trump interview"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T21:50:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-01T22:25:01.174Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261001-amazon-kindle-colorsoft",
+    "canonicalTopic": "Amazon Kindle Colorsoft",
+    "slug": "amazon-kindle-colorsoft",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-amazon20kindle20c",
+        "query": "Amazon Kindle Colorsoft",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-01T21:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-01T21:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "amazon kindle colorsoft",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "amazon kindle colorsoft"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T21:50:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-01T22:25:01.215Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261001-lebron-james-philadelphia-76er",
+    "canonicalTopic": "Lebron James Philadelphia 76ers Helicopter Commute",
+    "slug": "lebron-james-philadelphia-76ers-helicopter-commute",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-lebron20james20ph",
+        "query": "Lebron James Philadelphia 76ers Helicopter Commute",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-01T21:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-01T21:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "lebron james philadelphia 76ers helicopter commute",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "lebron james philadelphia 76ers helicopter commute"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T21:40:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-01T22:25:01.281Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-tech-ai-20261001-hacks-of-2-federal-agencies-in",
+    "canonicalTopic": "Hacks of 2 Federal Agencies in a Month Have Spilled a Bonanza of Sensitive Data",
+    "slug": "hacks-of-2-federal-agencies-in-a-month-have-spilled-a-bonanza-of-sensitive-data",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-1-Hacks20of20220federal20a",
+        "query": "Hacks of 2 Federal Agencies in a Month Have Spilled a Bonanza of Sensitive Data",
+        "sourceUrl": "https://arstechnica.com/security/2026/10/hacks-of-2-federal-agencies-in-a-month-have-spilled-a-bonanza-of-sensitive-data/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-10-01T20:28:45.000Z",
+        "contentSnippet": "It has been a bad month for federal government cybersecurity.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T20:28:45.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Hacks of 2 federal agencies in a month have spilled a bonanza of sensitive data",
+            "itemLink": "https://arstechnica.com/security/2026/10/hacks-of-2-federal-agencies-in-a-month-have-spilled-a-bonanza-of-sensitive-data/",
+            "publishedDate": "2026-10-01T20:28:45.000Z",
+            "contentSnippet": "It has been a bad month for federal government cybersecurity.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Biz & IT",
+              "Security",
+              "breaches",
+              "Department of Defense",
+              "fbi",
+              "hacking",
+              "national security"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Biz & IT",
+            "Security",
+            "breaches",
+            "Department of Defense",
+            "fbi",
+            "hacking",
+            "national security"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "hacks of 2 federal agencies in a month have spilled a bonanza of sensitive data"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T20:28:45.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Biz & IT",
+      "Security",
+      "breaches",
+      "Department of Defense",
+      "fbi",
+      "hacking",
+      "national security"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:01.368Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261001-judge-dismisses-chegg-and-pens",
+    "canonicalTopic": "Judge Dismisses Chegg and Penske Antitrust Lawsuits Targeting Google Ai Search",
+    "slug": "judge-dismisses-chegg-and-penske-antitrust-lawsuits-targeting-google-ai-search",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-2-Judge20dismisses20Cheg",
+        "query": "Judge Dismisses Chegg and Penske Antitrust Lawsuits Targeting Google Ai Search",
+        "sourceUrl": "https://arstechnica.com/google/2026/10/antitrust-lawsuits-targeting-google-ai-search-dismissed-by-federal-judge/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-10-01T20:11:55.000Z",
+        "contentSnippet": "The court acknowledges AI search comes with consequences, but it's not an antitrust issue.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T20:11:55.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Judge dismisses Chegg and Penske antitrust lawsuits targeting Google AI search",
+            "itemLink": "https://arstechnica.com/google/2026/10/antitrust-lawsuits-targeting-google-ai-search-dismissed-by-federal-judge/",
+            "publishedDate": "2026-10-01T20:11:55.000Z",
+            "contentSnippet": "The court acknowledges AI search comes with consequences, but it's not an antitrust issue.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "AI",
+              "Google",
+              "Policy",
+              "ai search",
+              "antitrust",
+              "google"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "AI",
+            "Google",
+            "Policy",
+            "ai search",
+            "antitrust",
+            "google"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "judge dismisses chegg and penske antitrust lawsuits targeting google ai search"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T20:11:55.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "AI",
+      "Google",
+      "Policy",
+      "ai search",
+      "antitrust",
+      "google"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:01.460Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261001-can-good-design-stop-content-c",
+    "canonicalTopic": "Can Good Design Stop Content Creators from Having Sex in Robotaxis",
+    "slug": "can-good-design-stop-content-creators-from-having-sex-in-robotaxis",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-3-Can20good20design20stop",
+        "query": "Can Good Design Stop Content Creators from Having Sex in Robotaxis",
+        "sourceUrl": "https://arstechnica.com/cars/2026/10/can-good-design-stop-content-creators-from-having-sex-in-robotaxis/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-10-01T19:19:42.000Z",
+        "contentSnippet": "Autonomous vehicle designers have to worry about riders getting frisky in public.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T19:19:42.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Can good design stop content creators from having sex in robotaxis?",
+            "itemLink": "https://arstechnica.com/cars/2026/10/can-good-design-stop-content-creators-from-having-sex-in-robotaxis/",
+            "publishedDate": "2026-10-01T19:19:42.000Z",
+            "contentSnippet": "Autonomous vehicle designers have to worry about riders getting frisky in public.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Cars",
+              "robotaxi"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Cars",
+            "robotaxi"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "can good design stop content creators from having sex in robotaxis"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T19:19:42.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Cars",
+      "robotaxi"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:01.539Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261001-marvel-releases-one-last-visio",
+    "canonicalTopic": "Marvel Releases One Last Visionquest Trailer",
+    "slug": "marvel-releases-one-last-visionquest-trailer",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-4-Marvel20releases20one20",
+        "query": "Marvel Releases One Last Visionquest Trailer",
+        "sourceUrl": "https://arstechnica.com/culture/2026/10/marvel-releases-one-last-visionquest-trailer/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-10-01T18:04:48.000Z",
+        "contentSnippet": "\"This is a fight I likely won't win. We have said goodbye before. But remember, family is forever.\"",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T18:04:48.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Marvel releases one last VisionQuest trailer",
+            "itemLink": "https://arstechnica.com/culture/2026/10/marvel-releases-one-last-visionquest-trailer/",
+            "publishedDate": "2026-10-01T18:04:48.000Z",
+            "contentSnippet": "\"This is a fight I likely won't win. We have said goodbye before. But remember, family is forever.\"",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Culture",
+              "disney plus",
+              "entertainment",
+              "marvel studios",
+              "MCU Phase Six",
+              "Trailers",
+              "VisionQuest"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Culture",
+            "disney plus",
+            "entertainment",
+            "marvel studios",
+            "MCU Phase Six",
+            "Trailers",
+            "VisionQuest"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "marvel releases one last visionquest trailer"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T18:04:48.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Culture",
+      "disney plus",
+      "entertainment",
+      "marvel studios",
+      "MCU Phase Six",
+      "Trailers",
+      "VisionQuest"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:01.596Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261001-memory-executives-expect-ram-s",
+    "canonicalTopic": "Memory Executives Expect Ram Shortage to Continue Through 2028",
+    "slug": "memory-executives-expect-ram-shortage-to-continue-through-2028",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-5-Memory20executives20ex",
+        "query": "Memory Executives Expect Ram Shortage to Continue Through 2028",
+        "sourceUrl": "https://arstechnica.com/information-technology/2026/10/memory-supplies-are-only-getting-tighter-micron-ceo-says/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-10-01T17:49:56.000Z",
+        "contentSnippet": "Prices for memory sold for 2027 \"are much higher than 2026 prices.\"",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T17:49:56.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Memory executives expect RAM shortage to continue through 2028",
+            "itemLink": "https://arstechnica.com/information-technology/2026/10/memory-supplies-are-only-getting-tighter-micron-ceo-says/",
+            "publishedDate": "2026-10-01T17:49:56.000Z",
+            "contentSnippet": "Prices for memory sold for 2027 \"are much higher than 2026 prices.\"",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Biz & IT",
+              "Tech",
+              "Micron",
+              "RAM"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Biz & IT",
+            "Tech",
+            "Micron",
+            "RAM"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "memory executives expect ram shortage to continue through 2028"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T17:49:56.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Biz & IT",
+      "Tech",
+      "Micron",
+      "RAM"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:01.671Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261001-googles-new-guided-vision-feat",
+    "canonicalTopic": "Googles New Guided Vision Feature Can Help You Read the Fine Print",
+    "slug": "googles-new-guided-vision-feature-can-help-you-read-the-fine-print",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-GoogleE28099s20new20Guided20",
+        "query": "Googles New Guided Vision Feature Can Help You Read the Fine Print",
+        "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/1003756/google-gemini-live-guided-vision",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-10-01T19:47:51.000Z",
+        "contentSnippet": "Guided Vision is launching in Gemini Live on compatible Android devices today to use AI to give real-time audio descriptions of anything you point your phone's camera at. By sharing your camera in Gemini Live, you can have Google's AI help with things like reading small text, describing your surroundings, finding or identifying objects around […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T19:47:51.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Google’s new Guided Vision feature can help you read the fine print",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/1003756/google-gemini-live-guided-vision",
+            "publishedDate": "2026-10-01T19:47:51.000Z",
+            "contentSnippet": "Guided Vision is launching in Gemini Live on compatible Android devices today to use AI to give real-time audio descriptions of anything you point your phone's camera at. By sharing your camera in Gemini Live, you can have Google's AI help with things like reading small text, describing your surroundings, finding or identifying objects around […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "Android",
+              "Google",
+              "News",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "Android",
+            "Google",
+            "News",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "googles new guided vision feature can help you read the fine print"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T19:47:51.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "Android",
+      "Google",
+      "News",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:01.755Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261001-android-central-will-continue-",
+    "canonicalTopic": "Android Central Will Continue Despite Laying Off Its Staff",
+    "slug": "android-central-will-continue-despite-laying-off-its-staff",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-Android20Central20wil",
+        "query": "Android Central Will Continue Despite Laying Off Its Staff",
+        "sourceUrl": "https://www.theverge.com/tech/1003735/android-central-layoffs",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-10-01T19:20:29.000Z",
+        "contentSnippet": "Android Central, a blog focused on the Android ecosystem, laid off its staff yesterday, but owner Future confirms to The Verge that the site will continue publishing. Yesterday, four of the six staffers on Android Central's staff page posted publicly about the layoffs, including Shruti Shekar, Derrek Lee, Harish Jonnalagadda, and Nicholas Sutrich, and former […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T19:20:29.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Android Central 'will continue' despite laying off its staff",
+            "itemLink": "https://www.theverge.com/tech/1003735/android-central-layoffs",
+            "publishedDate": "2026-10-01T19:20:29.000Z",
+            "contentSnippet": "Android Central, a blog focused on the Android ecosystem, laid off its staff yesterday, but owner Future confirms to The Verge that the site will continue publishing. Yesterday, four of the six staffers on Android Central's staff page posted publicly about the layoffs, including Shruti Shekar, Derrek Lee, Harish Jonnalagadda, and Nicholas Sutrich, and former […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Android",
+              "Google",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Android",
+            "Google",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "android central will continue despite laying off its staff"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T19:20:29.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Android",
+      "Google",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:01.828Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261001-steam-deck-2-is-amd-gainsborou",
+    "canonicalTopic": "Steam Deck 2 Is Amd Gainsborough the Chip Valves Been Waiting For",
+    "slug": "steam-deck-2-is-amd-gainsborough-the-chip-valves-been-waiting-for",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-Steam20Deck2023A20Is20AMD",
+        "query": "Steam Deck 2 Is Amd Gainsborough the Chip Valves Been Waiting For",
+        "sourceUrl": "https://www.theverge.com/games/1003593/steam-deck-2-is-amd-gainsborough-the-chip-valves-been-waiting-for",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-10-01T18:52:58.000Z",
+        "contentSnippet": "The Steam Deck is four and a half years old, and handheld gamers are eagerly awaiting a Steam Deck 2 - but Valve has consistently said it needs a new chip with a \"generational leap\" in performance and efficiency before building the sequel. There's some reason to believe that chip has now broken cover: AMD […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T18:52:58.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Steam Deck 2: Is AMD Gainsborough the chip Valve’s been waiting for?",
+            "itemLink": "https://www.theverge.com/games/1003593/steam-deck-2-is-amd-gainsborough-the-chip-valves-been-waiting-for",
+            "publishedDate": "2026-10-01T18:52:58.000Z",
+            "contentSnippet": "The Steam Deck is four and a half years old, and handheld gamers are eagerly awaiting a Steam Deck 2 - but Valve has consistently said it needs a new chip with a \"generational leap\" in performance and efficiency before building the sequel. There's some reason to believe that chip has now broken cover: AMD […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AMD",
+              "Gaming",
+              "News",
+              "PC Gaming",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AMD",
+            "Gaming",
+            "News",
+            "PC Gaming",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "steam deck 2 is amd gainsborough the chip valves been waiting for"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T18:52:58.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AMD",
+      "Gaming",
+      "News",
+      "PC Gaming",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:01.909Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261001-judge-dismisses-antitrust-laws",
+    "canonicalTopic": "Judge Dismisses Antitrust Lawsuits over Googles Ai Overviews",
+    "slug": "judge-dismisses-antitrust-lawsuits-over-googles-ai-overviews",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-4-Judge20dismisses20anti",
+        "query": "Judge Dismisses Antitrust Lawsuits over Googles Ai Overviews",
+        "sourceUrl": "https://www.theverge.com/tech/1003589/google-ai-overviews-chegg-penske-lawsuits-dismissed",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-10-01T17:12:21.000Z",
+        "contentSnippet": "A federal judge has dismissed a pair of antitrust lawsuits filed by Chegg and Rolling Stone parent company Penske Media Corporation, which accused Google of driving away web traffic with its AI-powered search features, as reported earlier by Reuters. US District Judge Amit Mehta takes Google's side in a ruling on Wednesday, writing that PMC […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T17:12:21.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Judge dismisses antitrust lawsuits over Google’s AI Overviews",
+            "itemLink": "https://www.theverge.com/tech/1003589/google-ai-overviews-chegg-penske-lawsuits-dismissed",
+            "publishedDate": "2026-10-01T17:12:21.000Z",
+            "contentSnippet": "A federal judge has dismissed a pair of antitrust lawsuits filed by Chegg and Rolling Stone parent company Penske Media Corporation, which accused Google of driving away web traffic with its AI-powered search features, as reported earlier by Reuters. US District Judge Amit Mehta takes Google's side in a ruling on Wednesday, writing that PMC […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "Antitrust",
+              "Google",
+              "Law",
+              "Policy",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "Antitrust",
+            "Google",
+            "Law",
+            "Policy",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "judge dismisses antitrust lawsuits over googles ai overviews"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T17:12:21.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "Antitrust",
+      "Google",
+      "Law",
+      "Policy",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:01.984Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261001-sony-brings-ai-graphics-upscal",
+    "canonicalTopic": "Sony Brings Ai Graphics Upscaling to the Regular Ps5",
+    "slug": "sony-brings-ai-graphics-upscaling-to-the-regular-ps5",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-5-Sony20brings20AI20graph",
+        "query": "Sony Brings Ai Graphics Upscaling to the Regular Ps5",
+        "sourceUrl": "https://www.theverge.com/games/1003549/sony-ps5-quick-spectral-super-resolution-qssr",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-10-01T16:53:39.000Z",
+        "contentSnippet": "Sony is launching a new AI upscaling technology specifically for the regular PS5. The new tech, called Quick Spectral Super Resolution (QSSR), is a \"new performance tier of AI upscaling\" that's a result of Sony's Project Amethyst work with AMD, according to a blog post. Sony says that PlayStation Spectral Super Resolution (PSSR), which is […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T16:53:39.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Sony brings AI graphics upscaling to the regular PS5",
+            "itemLink": "https://www.theverge.com/games/1003549/sony-ps5-quick-spectral-super-resolution-qssr",
+            "publishedDate": "2026-10-01T16:53:39.000Z",
+            "contentSnippet": "Sony is launching a new AI upscaling technology specifically for the regular PS5. The new tech, called Quick Spectral Super Resolution (QSSR), is a \"new performance tier of AI upscaling\" that's a result of Sony's Project Amethyst work with AMD, according to a blog post. Sony says that PlayStation Spectral Super Resolution (PSSR), which is […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Gaming",
+              "News",
+              "PlayStation"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Gaming",
+            "News",
+            "PlayStation"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "sony brings ai graphics upscaling to the regular ps5"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T16:53:39.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Gaming",
+      "News",
+      "PlayStation"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:02.052Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20261001-deidesheim-is-the-tiny-german-",
+    "canonicalTopic": "Deidesheim Is the Tiny German Wine Town Youve Never Heard Of—and It Now Has a Three-star Michelin Restaurant",
+    "slug": "deidesheim-is-the-tiny-german-wine-town-youve-never-heard-of-and-it-now-has-a-three-star-michelin-restaurant",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-Deidesheim20Is20the20Ti",
+        "query": "Deidesheim Is the Tiny German Wine Town Youve Never Heard Of—and It Now Has a Three-star Michelin Restaurant",
+        "sourceUrl": "https://www.cntraveler.com/story/deidesheim-is-the-tiny-german-wine-town-youve-never-heard-of",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-10-01T20:49:44.000Z",
+        "contentSnippet": "Deidesheim is the quaint German hamlet you're unlikely to have crossed paths with—until now, that is.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T20:49:44.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Deidesheim Is the Tiny German Wine Town You’ve Never Heard Of—And It Now Has a Three-Star Michelin Restaurant",
+            "itemLink": "https://www.cntraveler.com/story/deidesheim-is-the-tiny-german-wine-town-youve-never-heard-of",
+            "publishedDate": "2026-10-01T20:49:44.000Z",
+            "contentSnippet": "Deidesheim is the quaint German hamlet you're unlikely to have crossed paths with—until now, that is.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Inspiration"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Inspiration"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "deidesheim is the tiny german wine town youve never heard of—and it now has a three-star michelin restaurant"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T20:49:44.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Inspiration"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:02.177Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261001-celestyal-cruise-promo-codes-f",
+    "canonicalTopic": "Celestyal Cruise Promo Codes for 2026",
+    "slug": "celestyal-cruise-promo-codes-for-2026",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-2-Celestyal20Cruise20Pro",
+        "query": "Celestyal Cruise Promo Codes for 2026",
+        "sourceUrl": "https://www.cntraveler.com/story/deals/celestyal-cruises-coupon-codes",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-10-01T20:26:44.000Z",
+        "contentSnippet": "Unlock incredible savings on your next Mediterranean adventure with verified Celestyal Cruises discount codes, coupons, and last-minute deals. Discover how to apply your savings and embark on an unforgettable journey.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T20:26:44.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Celestyal Cruise Promo Codes for 2026",
+            "itemLink": "https://www.cntraveler.com/story/deals/celestyal-cruises-coupon-codes",
+            "publishedDate": "2026-10-01T20:26:44.000Z",
+            "contentSnippet": "Unlock incredible savings on your next Mediterranean adventure with verified Celestyal Cruises discount codes, coupons, and last-minute deals. Discover how to apply your savings and embark on an unforgettable journey.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Shopping"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "celestyal cruise promo codes for 2026"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T20:26:44.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:02.228Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261001-how-we-pulled-it-off-norway-me",
+    "canonicalTopic": "How We Pulled It Off Norway Meets Sri Lanka at a Colorful Island Wedding",
+    "slug": "how-we-pulled-it-off-norway-meets-sri-lanka-at-a-colorful-island-wedding",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-3-How20We20Pulled20It20Off",
+        "query": "How We Pulled It Off Norway Meets Sri Lanka at a Colorful Island Wedding",
+        "sourceUrl": "https://www.cntraveler.com/story/sri-lanka-wedding-how-we-pulled-it-off",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-10-01T19:25:25.000Z",
+        "contentSnippet": "From the exuberant Hindu ceremony to the fireworks after their Norwegian white-gown-and-tux celebration.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T19:25:25.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "How We Pulled It Off: Norway Meets Sri Lanka at a Colorful Island Wedding",
+            "itemLink": "https://www.cntraveler.com/story/sri-lanka-wedding-how-we-pulled-it-off",
+            "publishedDate": "2026-10-01T19:25:25.000Z",
+            "contentSnippet": "From the exuberant Hindu ceremony to the fireworks after their Norwegian white-gown-and-tux celebration.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Inspiration / Destination Weddings"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Inspiration / Destination Weddings"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how we pulled it off norway meets sri lanka at a colorful island wedding"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T19:25:25.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Inspiration / Destination Weddings"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:02.312Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261001-helly-hansen-promo-code-save-1",
+    "canonicalTopic": "Helly Hansen Promo Code Save 15 on Outdoor Gear",
+    "slug": "helly-hansen-promo-code-save-15-on-outdoor-gear",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-4-Helly20Hansen20Promo20C",
+        "query": "Helly Hansen Promo Code Save 15 on Outdoor Gear",
+        "sourceUrl": "https://www.cntraveler.com/story/helly-hansen-promo-code",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-10-01T16:57:54.000Z",
+        "contentSnippet": "Gear up for your next adventure with a verified Helly Hansen discount code for 15% off on signing up to emails, plus seasonal markdown events offering discounts up to 50% this fall.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T16:57:54.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Helly Hansen Promo Code: Save 15% on Outdoor Gear",
+            "itemLink": "https://www.cntraveler.com/story/helly-hansen-promo-code",
+            "publishedDate": "2026-10-01T16:57:54.000Z",
+            "contentSnippet": "Gear up for your next adventure with a verified Helly Hansen discount code for 15% off on signing up to emails, plus seasonal markdown events offering discounts up to 50% this fall.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Shopping"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "helly hansen promo code save 15 on outdoor gear"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T16:57:54.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:02.377Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261001-where-was-east-of-eden-filmed-",
+    "canonicalTopic": "Where Was East of Eden Filmed New Zealand Stands in for a Bygone California",
+    "slug": "where-was-east-of-eden-filmed-new-zealand-stands-in-for-a-bygone-california",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-5-Where20Was20East20of20Ed",
+        "query": "Where Was East of Eden Filmed New Zealand Stands in for a Bygone California",
+        "sourceUrl": "https://www.cntraveler.com/story/where-was-east-of-eden-filmed-new-zealand-stands-in-for-a-bygone-california",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-10-01T16:34:09.000Z",
+        "contentSnippet": "The new Netflix adaptation of John Steinbeck's seminal novel was filmed in the same place as The Lord of the Rings and The Power of the Dog.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T16:34:09.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Where Was East of Eden Filmed? New Zealand Stands In for a Bygone California",
+            "itemLink": "https://www.cntraveler.com/story/where-was-east-of-eden-filmed-new-zealand-stands-in-for-a-bygone-california",
+            "publishedDate": "2026-10-01T16:34:09.000Z",
+            "contentSnippet": "The new Netflix adaptation of John Steinbeck's seminal novel was filmed in the same place as The Lord of the Rings and The Power of the Dog.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Inspiration / Style & Culture"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Inspiration / Style & Culture"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "where was east of eden filmed new zealand stands in for a bygone california"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T16:34:09.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Inspiration / Style & Culture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:02.464Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261001-venus-retrograde-2026-is-comin",
+    "canonicalTopic": "Venus Retrograde 2026 Is Coming—heres What It Means for Every Star Sign",
+    "slug": "venus-retrograde-2026-is-coming-heres-what-it-means-for-every-star-sign",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-1-Venus20Retrograde20202",
+        "query": "Venus Retrograde 2026 Is Coming—heres What It Means for Every Star Sign",
+        "sourceUrl": "https://www.vogue.com/article/venus-retrograde-astrology-every-star-sign",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-10-01T21:53:19.000Z",
+        "contentSnippet": "Think of Venus retrograde, which runs from October 3 to November 13, as a steamy, scandalous romance novel that fuels our passions and liaisons. Read on for our astrologer’s full breakdown by zodiac sign of what the Venus retrograde 2026 signifies.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T21:53:19.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Venus Retrograde 2026 Is Coming—Here’s What It Means for Every Star Sign",
+            "itemLink": "https://www.vogue.com/article/venus-retrograde-astrology-every-star-sign",
+            "publishedDate": "2026-10-01T21:53:19.000Z",
+            "contentSnippet": "Think of Venus retrograde, which runs from October 3 to November 13, as a steamy, scandalous romance novel that fuels our passions and liaisons. Read on for our astrologer’s full breakdown by zodiac sign of what the Venus retrograde 2026 signifies.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Living",
+              "Beauty / Wellness"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Living",
+            "Beauty / Wellness"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "venus retrograde 2026 is coming—heres what it means for every star sign"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T21:53:19.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Living",
+      "Beauty / Wellness"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:02.550Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261001-at-tom-ford-reflective-beauty-",
+    "canonicalTopic": "At Tom Ford Reflective Beauty Looks Good in the Mirror",
+    "slug": "at-tom-ford-reflective-beauty-looks-good-in-the-mirror",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-3-At20Tom20Ford2C20Reflect",
+        "query": "At Tom Ford Reflective Beauty Looks Good in the Mirror",
+        "sourceUrl": "https://www.vogue.com/article/tom-ford-ss27-beauty",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-10-01T21:04:01.000Z",
+        "contentSnippet": "How global makeup artist Lucy Bridges created reflective glam at Tom Ford's spring 2027 show.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T21:04:01.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "At Tom Ford, Reflective Beauty Looks Good In The Mirror",
+            "itemLink": "https://www.vogue.com/article/tom-ford-ss27-beauty",
+            "publishedDate": "2026-10-01T21:04:01.000Z",
+            "contentSnippet": "How global makeup artist Lucy Bridges created reflective glam at Tom Ford's spring 2027 show.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Beauty / Makeup",
+              "Beauty"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Beauty / Makeup",
+            "Beauty"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "at tom ford reflective beauty looks good in the mirror"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T21:04:01.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Beauty / Makeup",
+      "Beauty"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:02.655Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261001-25-incredible-gifts-to-give-th",
+    "canonicalTopic": "25 Incredible Gifts to Give the Women in Your Life from Pocket-size Luxuries to Thoughtful Tokens",
+    "slug": "25-incredible-gifts-to-give-the-women-in-your-life-from-pocket-size-luxuries-to-thoughtful-tokens",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-4-252B20Incredible20Gifts",
+        "query": "25 Incredible Gifts to Give the Women in Your Life from Pocket-size Luxuries to Thoughtful Tokens",
+        "sourceUrl": "https://www.vogue.com/article/gifts-for-women",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-10-01T20:23:39.000Z",
+        "contentSnippet": "From skin care and unique gifts to fabulous fashion finds, shop 25+ of the best gifts for women for a wife, mom, girlfriend, or best friend in 2026.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T20:23:39.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "25+ Incredible Gifts to Give the Women in Your Life, From Pocket-Size Luxuries to Thoughtful Tokens",
+            "itemLink": "https://www.vogue.com/article/gifts-for-women",
+            "publishedDate": "2026-10-01T20:23:39.000Z",
+            "contentSnippet": "From skin care and unique gifts to fabulous fashion finds, shop 25+ of the best gifts for women for a wife, mom, girlfriend, or best friend in 2026.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Shopping",
+              "Shopping / Gifting"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Shopping",
+            "Shopping / Gifting"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "25 incredible gifts to give the women in your life from pocket-size luxuries to thoughtful tokens"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T20:23:39.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Shopping",
+      "Shopping / Gifting"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:02.768Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261001-43-thoughts-i-had-about-episod",
+    "canonicalTopic": "43 Thoughts I Had About Episode 1 of Netflixs East of Eden Adaptation",
+    "slug": "43-thoughts-i-had-about-episode-1-of-netflixs-east-of-eden-adaptation",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-5-4320Thoughts20I20Had20Ab",
+        "query": "43 Thoughts I Had About Episode 1 of Netflixs East of Eden Adaptation",
+        "sourceUrl": "https://www.vogue.com/article/43-thoughts-i-had-about-episode-1-of-east-of-eden",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-10-01T20:19:28.000Z",
+        "contentSnippet": "I, too, want to creak back and forth gently on a rocking chair while I sit on a porch as a storm rolls in.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T20:19:28.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "43 Thoughts I Had About Episode 1 of Netflix’s ‘East of Eden’ Adaptation",
+            "itemLink": "https://www.vogue.com/article/43-thoughts-i-had-about-episode-1-of-east-of-eden",
+            "publishedDate": "2026-10-01T20:19:28.000Z",
+            "contentSnippet": "I, too, want to creak back and forth gently on a rocking chair while I sit on a porch as a storm rolls in.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Culture / TV & Movies"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Culture / TV & Movies"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "43 thoughts i had about episode 1 of netflixs east of eden adaptation"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T20:19:28.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Culture / TV & Movies"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:02.853Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261001-christa-pike-in-critical-condi",
+    "canonicalTopic": "Christa Pike in Critical Condition After Surviving Two Lethal Injections Lawyer Says",
+    "slug": "christa-pike-in-critical-condition-after-surviving-two-lethal-injections-lawyer-says",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-1-Christa20Pike20in20crit",
+        "query": "Christa Pike in Critical Condition After Surviving Two Lethal Injections Lawyer Says",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cmn4540d4z87o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-10-01T20:48:12.000Z",
+        "contentSnippet": "Pike’s lawyers have asked for her death sentence to be commuted following the botched execution.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T20:48:12.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Christa Pike in critical condition after surviving two lethal injections, lawyer says",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cmn4540d4z87o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-10-01T20:48:12.000Z",
+            "contentSnippet": "Pike’s lawyers have asked for her death sentence to be commuted following the botched execution.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "christa pike in critical condition after surviving two lethal injections lawyer says"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T20:48:12.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:02.952Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261001-what-happened-in-the-failed-ex",
+    "canonicalTopic": "What Happened in the Failed Execution of Christa Pike - and What Next",
+    "slug": "what-happened-in-the-failed-execution-of-christa-pike-and-what-next",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-2-What20happened20in20the",
+        "query": "What Happened in the Failed Execution of Christa Pike - and What Next",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/ckge4eql4q7eo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-10-01T19:25:58.000Z",
+        "contentSnippet": "The convicted killer is in hospital in Tennessee after surviving two lethal injections, in a case that has raised many questions.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T19:25:58.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "What happened in the failed execution of Christa Pike - and what next?",
+            "itemLink": "https://www.bbc.co.uk/news/articles/ckge4eql4q7eo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-10-01T19:25:58.000Z",
+            "contentSnippet": "The convicted killer is in hospital in Tennessee after surviving two lethal injections, in a case that has raised many questions.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "what happened in the failed execution of christa pike - and what next"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T19:25:58.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:03.034Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261001-netanyahu-says-flydubai-attack",
+    "canonicalTopic": "Netanyahu Says Flydubai Attacker Had Islamist Radical Indoctrination",
+    "slug": "netanyahu-says-flydubai-attacker-had-islamist-radical-indoctrination",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-3-Netanyahu20says20Flydu",
+        "query": "Netanyahu Says Flydubai Attacker Had Islamist Radical Indoctrination",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/crje8edqyej9o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-10-01T19:59:24.000Z",
+        "contentSnippet": "Israel's prime minister says the pilot who tried to take over the Flydubai plane clearly intended to \"down the plane\".",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T19:59:24.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Netanyahu says Flydubai attacker had 'Islamist radical indoctrination'",
+            "itemLink": "https://www.bbc.co.uk/news/articles/crje8edqyej9o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-10-01T19:59:24.000Z",
+            "contentSnippet": "Israel's prime minister says the pilot who tried to take over the Flydubai plane clearly intended to \"down the plane\".",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "netanyahu says flydubai attacker had islamist radical indoctrination"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T19:59:24.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:03.118Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261001-putin-warns-west-that-russia-i",
+    "canonicalTopic": "Putin Warns West That Russia Is Ready to Use Every Weapon to Protect Kaliningrad",
+    "slug": "putin-warns-west-that-russia-is-ready-to-use-every-weapon-to-protect-kaliningrad",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-4-Putin20warns20West20tha",
+        "query": "Putin Warns West That Russia Is Ready to Use Every Weapon to Protect Kaliningrad",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cqg7k7v499jjo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-10-01T19:38:30.000Z",
+        "contentSnippet": "The Russian leader insists Moscow is \"not threatening anyone\" and is merely responding to statements by Western leaders.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T19:38:30.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Putin warns West that Russia is ready to use every weapon to protect Kaliningrad",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cqg7k7v499jjo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-10-01T19:38:30.000Z",
+            "contentSnippet": "The Russian leader insists Moscow is \"not threatening anyone\" and is merely responding to statements by Western leaders.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "putin warns west that russia is ready to use every weapon to protect kaliningrad"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T19:38:30.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:03.206Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261001-renee-good-family-of-us-woman-",
+    "canonicalTopic": "Renee Good Family of Us Woman Killed by Ice Agent Sues Trump Officials",
+    "slug": "renee-good-family-of-us-woman-killed-by-ice-agent-sues-trump-officials",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-5-Renee20Good3A20Family20o",
+        "query": "Renee Good Family of Us Woman Killed by Ice Agent Sues Trump Officials",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cwly7y5gvxlmo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-10-01T20:30:47.000Z",
+        "contentSnippet": "Lawyers for Good's family say US officials created \"an unprecedented environment for state sponsored violence\" in Minneapolis.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T20:30:47.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Renee Good: Family of US woman killed by ICE agent sues Trump officials",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cwly7y5gvxlmo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-10-01T20:30:47.000Z",
+            "contentSnippet": "Lawyers for Good's family say US officials created \"an unprecedented environment for state sponsored violence\" in Minneapolis.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "renee good family of us woman killed by ice agent sues trump officials"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T20:30:47.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:03.289Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261001-6-best-lip-masks-2026-to-sooth",
+    "canonicalTopic": "6 Best Lip Masks 2026 to Soothe Dry Chapped Lips Overnight",
+    "slug": "6-best-lip-masks-2026-to-soothe-dry-chapped-lips-overnight",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-1-620Best20Lip20Masks20202",
+        "query": "6 Best Lip Masks 2026 to Soothe Dry Chapped Lips Overnight",
+        "sourceUrl": "https://www.allure.com/gallery/best-lip-mask",
+        "publisherName": "Allure",
+        "publishedAt": "2026-10-01T18:58:33.000Z",
+        "contentSnippet": "Swipe them on for smoother, plumper lips.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T18:58:33.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "6 Best Lip Masks 2026 to Soothe Dry, Chapped Lips Overnight",
+            "itemLink": "https://www.allure.com/gallery/best-lip-mask",
+            "publishedDate": "2026-10-01T18:58:33.000Z",
+            "contentSnippet": "Swipe them on for smoother, plumper lips.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Skin",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Skin",
+            "Shopping"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "6 best lip masks 2026 to soothe dry chapped lips overnight"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T18:58:33.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Skin",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:03.364Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261001-chain-siman-balances-old-and-n",
+    "canonicalTopic": "Chain Siman Balances Old and New at Gabled Mexican House",
+    "slug": "chain-siman-balances-old-and-new-at-gabled-mexican-house",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-2-Chain202B20Siman20balanc",
+        "query": "Chain Siman Balances Old and New at Gabled Mexican House",
+        "sourceUrl": "https://www.dezeen.com/2026/10/01/casa-ani-mexico-valle-de-bravo-chain-siman/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-10-01T17:00:18.000Z",
+        "contentSnippet": "Mexican architecture studio Chain + Siman has created a weekend house with a series of contemporary gables that connects to a stone-clad bunkhouse in Valle de Bravo, outside of Mexico City. Known as Casa Ani, the 689-square-metre residence was completed in 2025, a few hours from the Chain + Siman studio in Mexico City. The The post Chain + Siman balances \"old and new\" at gabled Mexican house appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T17:00:18.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Chain + Siman balances \"old and new\" at gabled Mexican house",
+            "itemLink": "https://www.dezeen.com/2026/10/01/casa-ani-mexico-valle-de-bravo-chain-siman/",
+            "publishedDate": "2026-10-01T17:00:18.000Z",
+            "contentSnippet": "Mexican architecture studio Chain + Siman has created a weekend house with a series of contemporary gables that connects to a stone-clad bunkhouse in Valle de Bravo, outside of Mexico City. Known as Casa Ani, the 689-square-metre residence was completed in 2025, a few hours from the Chain + Siman studio in Mexico City. The The post Chain + Siman balances \"old and new\" at gabled Mexican house appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Residential architecture and interiors",
+              "Mexico",
+              "Holiday homes",
+              "Gables",
+              "Valle de Bravo"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Residential architecture and interiors",
+            "Mexico",
+            "Holiday homes",
+            "Gables",
+            "Valle de Bravo"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "chain siman balances old and new at gabled mexican house"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T17:00:18.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Residential architecture and interiors",
+      "Mexico",
+      "Holiday homes",
+      "Gables",
+      "Valle de Bravo"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:03.541Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261001-san-francisco-exhibition-explo",
+    "canonicalTopic": "San Francisco Exhibition Explores the Radical Imagination of Rael San Fratello",
+    "slug": "san-francisco-exhibition-explores-the-radical-imagination-of-rael-san-fratello",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-3-San20Francisco20exhibi",
+        "query": "San Francisco Exhibition Explores the Radical Imagination of Rael San Fratello",
+        "sourceUrl": "https://www.dezeen.com/2026/10/01/rael-san-fratello-san-francisco-exhibition-yerba-buena-broom-roof/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-10-01T14:00:13.000Z",
+        "contentSnippet": "A structure made of bio-based thermoplastic and recycled broom heads is among the works featured in a mid-career retrospective of design studio Rael San Fratello at San Francisco's Yerba Buena Center for the Arts. The exhibition, Rael San Fratello: Prototypes and Provocations, features a range of work by the Oakland-based studio, which was founded in 2002 The post San Francisco exhibition explores the \"radical imagination\" of Rael San Fratello appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T14:00:13.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "San Francisco exhibition explores the \"radical imagination\" of Rael San Fratello",
+            "itemLink": "https://www.dezeen.com/2026/10/01/rael-san-fratello-san-francisco-exhibition-yerba-buena-broom-roof/",
+            "publishedDate": "2026-10-01T14:00:13.000Z",
+            "contentSnippet": "A structure made of bio-based thermoplastic and recycled broom heads is among the works featured in a mid-career retrospective of design studio Rael San Fratello at San Francisco's Yerba Buena Center for the Arts. The exhibition, Rael San Fratello: Prototypes and Provocations, features a range of work by the Oakland-based studio, which was founded in 2002 The post San Francisco exhibition explores the \"radical imagination\" of Rael San Fratello appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Materials",
+              "Design",
+              "3D printing",
+              "Rammed earth",
+              "Rael San Fratello",
+              "Protests",
+              "Biomaterials",
+              "Retrospectives",
+              "San Francisco",
+              "USA"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Materials",
+            "Design",
+            "3D printing",
+            "Rammed earth",
+            "Rael San Fratello",
+            "Protests",
+            "Biomaterials",
+            "Retrospectives",
+            "San Francisco",
+            "USA"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "san francisco exhibition explores the radical imagination of rael san fratello"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T14:00:13.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Materials",
+      "Design",
+      "3D printing",
+      "Rammed earth",
+      "Rael San Fratello",
+      "Protests",
+      "Biomaterials",
+      "Retrospectives",
+      "San Francisco",
+      "USA"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:03.631Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261001-our-planet-carpet-collection-b",
+    "canonicalTopic": "Our Planet Carpet Collection by Gensler and Ege Carpets",
+    "slug": "our-planet-carpet-collection-by-gensler-and-ege-carpets",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-4-Our20Planet20carpet20co",
+        "query": "Our Planet Carpet Collection by Gensler and Ege Carpets",
+        "sourceUrl": "https://www.dezeen.com/2026/10/01/our-planet-gensler-ege-carpets-dezeen-showroom/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-10-01T13:00:23.000Z",
+        "contentSnippet": "Dezeen Showroom: architecture studio Gensler worked with Danish manufacturer Ege Carpets to produce Our Planet, a collection of landscape-inspired carpets and rugs. The global architecture and design firm served as product design consultants on Our Planet, exploring how flooring can shape spatial experience and how the underlying structures of nature can serve as inspiration. The completed The post Our Planet carpet collection by Gensler and Ege Carpets appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T13:00:23.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Our Planet carpet collection by Gensler and Ege Carpets",
+            "itemLink": "https://www.dezeen.com/2026/10/01/our-planet-gensler-ege-carpets-dezeen-showroom/",
+            "publishedDate": "2026-10-01T13:00:23.000Z",
+            "contentSnippet": "Dezeen Showroom: architecture studio Gensler worked with Danish manufacturer Ege Carpets to produce Our Planet, a collection of landscape-inspired carpets and rugs. The global architecture and design firm served as product design consultants on Our Planet, exploring how flooring can shape spatial experience and how the underlying structures of nature can serve as inspiration. The completed The post Our Planet carpet collection by Gensler and Ege Carpets appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "Ege Carpets",
+              "Carpets",
+              "Rugs",
+              "all",
+              "Products",
+              "Design",
+              "Do not show on the Homepage",
+              "Dezeen Showroom",
+              "Textiles and soft furnishings",
+              "Surfaces",
+              "Gensler"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "Ege Carpets",
+            "Carpets",
+            "Rugs",
+            "all",
+            "Products",
+            "Design",
+            "Do not show on the Homepage",
+            "Dezeen Showroom",
+            "Textiles and soft furnishings",
+            "Surfaces",
+            "Gensler"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "our planet carpet collection by gensler and ege carpets"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T13:00:23.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "Ege Carpets",
+      "Carpets",
+      "Rugs",
+      "all",
+      "Products",
+      "Design",
+      "Do not show on the Homepage",
+      "Dezeen Showroom",
+      "Textiles and soft furnishings",
+      "Surfaces",
+      "Gensler"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:03.705Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261001-venom-frontman-conrad-cronos-l",
+    "canonicalTopic": "Venom Frontman Conrad Cronos Lant Dies at 63",
+    "slug": "venom-frontman-conrad-cronos-lant-dies-at-63",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-1-Venom20Frontman2",
+        "query": "Venom Frontman Conrad Cronos Lant Dies at 63",
+        "sourceUrl": "https://variety.com/2026/music/news/venom-cronos-dead-lant-1236897114/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-10-01T21:42:49.000Z",
+        "contentSnippet": "Conrad “Cronos” Lant, the frontman for the legendary Northern British heavy metal band Venom, has died, according to a post on the band’s social media sites and the Guardian. No cause of death was cited; he was 63. “For more than four decades, Conrad’s voice, bass and vision were at the heart of Venom,” reads […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T21:42:49.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Venom Frontman Conrad ‘Cronos’ Lant Dies at 63",
+            "itemLink": "https://variety.com/2026/music/news/venom-cronos-dead-lant-1236897114/",
+            "publishedDate": "2026-10-01T21:42:49.000Z",
+            "contentSnippet": "Conrad “Cronos” Lant, the frontman for the legendary Northern British heavy metal band Venom, has died, according to a post on the band’s social media sites and the Guardian. No cause of death was cited; he was 63. “For more than four decades, Conrad’s voice, bass and vision were at the heart of Venom,” reads […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "Venom"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "Venom"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "venom frontman conrad cronos lant dies at 63"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T21:42:49.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "Venom"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:03.781Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261001-ynon-kreiz-as-co-ceo-of-paramo",
+    "canonicalTopic": "Ynon Kreiz As Co-ceo of Paramount to Receive Pay Package Worth More Than 465 Million",
+    "slug": "ynon-kreiz-as-co-ceo-of-paramount-to-receive-pay-package-worth-more-than-465-million",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-2-Ynon20Kreiz2C20a",
+        "query": "Ynon Kreiz As Co-ceo of Paramount to Receive Pay Package Worth More Than 465 Million",
+        "sourceUrl": "https://variety.com/2026/film/news/ynon-kreiz-co-ceo-paramount-warner-bros-pay-package-salary-1236896994/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-10-01T20:44:47.000Z",
+        "contentSnippet": "Ynon Kreiz, as David Ellison's right-hand man at the merged Paramount-Warner Bros. Discovery, is getting a big pay bump over his pay package as CEO of Mattel. Kreiz, 61, signed an initial five-year employment contract with Paramount. He starts Oct. 5, one day before Paramount is set to close its $111 billion merger with Warner […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T20:44:47.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Ynon Kreiz, as Co-CEO of Paramount, to Receive Pay Package Worth More Than $46.5 Million",
+            "itemLink": "https://variety.com/2026/film/news/ynon-kreiz-co-ceo-paramount-warner-bros-pay-package-salary-1236896994/",
+            "publishedDate": "2026-10-01T20:44:47.000Z",
+            "contentSnippet": "Ynon Kreiz, as David Ellison's right-hand man at the merged Paramount-Warner Bros. Discovery, is getting a big pay bump over his pay package as CEO of Mattel. Kreiz, 61, signed an initial five-year employment contract with Paramount. He starts Oct. 5, one day before Paramount is set to close its $111 billion merger with Warner […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "Paramount-Warner Bros.",
+              "Ynon Kreiz"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "Paramount-Warner Bros.",
+            "Ynon Kreiz"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ynon kreiz as co-ceo of paramount to receive pay package worth more than 465 million"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T20:44:47.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "Paramount-Warner Bros.",
+      "Ynon Kreiz"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:03.897Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261001-bachelor-producers-send-legal-",
+    "canonicalTopic": "Bachelor Producers Send Legal Threat to Chris Harrisons New Dating Show the Vow Fox Nation Fights Back Malicious and Vindictive Claims",
+    "slug": "bachelor-producers-send-legal-threat-to-chris-harrisons-new-dating-show-the-vow-fox-nation-fights-back-malicious-and-vindictive-claims",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-3-E28098BachelorE2",
+        "query": "Bachelor Producers Send Legal Threat to Chris Harrisons New Dating Show the Vow Fox Nation Fights Back Malicious and Vindictive Claims",
+        "sourceUrl": "https://variety.com/2026/tv/news/bachelor-producers-legal-threat-chris-harrison-dating-show-1236896854/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-10-01T20:33:09.000Z",
+        "contentSnippet": "Warner Bros. TV and Fox Nation are butting heads over the latter's upcoming series, \"The Vow,\" hosted by former \"Bachelor\" host Chris Harrison. In the letter obtained by Variety, sent Sept. 18, WBTV, the studio that produces \"The Bachelor,\" sent a cease and desist to Fox Nation, claiming the new series appears to be, through […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T20:33:09.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "‘Bachelor’ Producers Send Legal Threat to Chris Harrison's New Dating Show 'The Vow'; Fox Nation Fights Back ‘Malicious and Vindictive’ Claims",
+            "itemLink": "https://variety.com/2026/tv/news/bachelor-producers-legal-threat-chris-harrison-dating-show-1236896854/",
+            "publishedDate": "2026-10-01T20:33:09.000Z",
+            "contentSnippet": "Warner Bros. TV and Fox Nation are butting heads over the latter's upcoming series, \"The Vow,\" hosted by former \"Bachelor\" host Chris Harrison. In the letter obtained by Variety, sent Sept. 18, WBTV, the studio that produces \"The Bachelor,\" sent a cease and desist to Fox Nation, claiming the new series appears to be, through […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "Chris Harrison",
+              "The Bachelor",
+              "The Vow"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "Chris Harrison",
+            "The Bachelor",
+            "The Vow"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "bachelor producers send legal threat to chris harrisons new dating show the vow fox nation fights back malicious and vindictive claims"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T20:33:09.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "Chris Harrison",
+      "The Bachelor",
+      "The Vow"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:04.043Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261001-chris-hansen-confronts-primeti",
+    "canonicalTopic": "Chris Hansen Confronts Primetime the Tragic Ending Seeing His Love Life Onscreen and Considering Legal Action Against A24 Because They Exploited Me",
+    "slug": "chris-hansen-confronts-primetime-the-tragic-ending-seeing-his-love-life-onscreen-and-considering-legal-action-against-a24-because-they-exploited-me",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-4-Chris20Hansen20C",
+        "query": "Chris Hansen Confronts Primetime the Tragic Ending Seeing His Love Life Onscreen and Considering Legal Action Against A24 Because They Exploited Me",
+        "sourceUrl": "https://variety.com/2026/film/features/chris-hansen-primetime-ending-a24-legal-action-1236894822/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-10-01T20:26:23.000Z",
+        "contentSnippet": "“Primetime” is a box office overachiever, but the subject of the A24 film calls it a “complete work of fiction.” Lance Oppenheim’s movie centers on “To Catch a Predator,” the popular “Dateline” segment that ran from 2004 to 2007. In the show, an advocacy group with adult decoys posing as children would chat with online […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T20:26:23.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Chris Hansen Confronts ‘Primetime': The Tragic Ending, Seeing His Love Life Onscreen and Considering Legal Action Against A24 Because 'They Exploited Me'",
+            "itemLink": "https://variety.com/2026/film/features/chris-hansen-primetime-ending-a24-legal-action-1236894822/",
+            "publishedDate": "2026-10-01T20:26:23.000Z",
+            "contentSnippet": "“Primetime” is a box office overachiever, but the subject of the A24 film calls it a “complete work of fiction.” Lance Oppenheim’s movie centers on “To Catch a Predator,” the popular “Dateline” segment that ran from 2004 to 2007. In the show, an advocacy group with adult decoys posing as children would chat with online […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Features",
+              "Chris Hansen",
+              "Primetime"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Features",
+            "Chris Hansen",
+            "Primetime"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "chris hansen confronts primetime the tragic ending seeing his love life onscreen and considering legal action against a24 because they exploited me"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T20:26:23.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Features",
+      "Chris Hansen",
+      "Primetime"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:04.234Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261001-landman-season-3-colm-feore-mu",
+    "canonicalTopic": "Landman Season 3 Colm Feore Mustafa Speaks Bobbi Salvor Menuez Francesca Xuereb Promoted to Series Regular Status",
+    "slug": "landman-season-3-colm-feore-mustafa-speaks-bobbi-salvor-menuez-francesca-xuereb-promoted-to-series-regular-status",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-5-Landman20Season2",
+        "query": "Landman Season 3 Colm Feore Mustafa Speaks Bobbi Salvor Menuez Francesca Xuereb Promoted to Series Regular Status",
+        "sourceUrl": "https://variety.com/2026/tv/news/landman-season-3-series-regulars-start-production-1236896271/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-10-01T20:00:00.000Z",
+        "contentSnippet": "\"Landman\" Season 3 is officially in production, with the hit Paramount+ oil industry drama promoting four cast members to series regular status. Colm Feore (Nate), Mustafa Speaks (Boss), Bobbi Salvor Menuez (Paigyn), and Francesca Xuereb (Cheyenne) have all been promoted going into the new season, which is shooting in Fort Worth, TX. Billy Bob Thornton […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T20:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "'Landman' Season 3: Colm Feore, Mustafa Speaks, Bobbi Salvor Menuez, Francesca Xuereb Promoted to Series Regular Status",
+            "itemLink": "https://variety.com/2026/tv/news/landman-season-3-series-regulars-start-production-1236896271/",
+            "publishedDate": "2026-10-01T20:00:00.000Z",
+            "contentSnippet": "\"Landman\" Season 3 is officially in production, with the hit Paramount+ oil industry drama promoting four cast members to series regular status. Colm Feore (Nate), Mustafa Speaks (Boss), Bobbi Salvor Menuez (Paigyn), and Francesca Xuereb (Cheyenne) have all been promoted going into the new season, which is shooting in Fort Worth, TX. Billy Bob Thornton […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "Landman",
+              "Paramount+"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "Landman",
+            "Paramount+"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "landman season 3 colm feore mustafa speaks bobbi salvor menuez francesca xuereb promoted to series regular status"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T20:00:00.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "Landman",
+      "Paramount+"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:04.362Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261001-ynon-kreiz-gets-315-million-si",
+    "canonicalTopic": "Ynon Kreiz Gets 315 Million Signing Bonus in Five-year Paramount-warner Bros Deal",
+    "slug": "ynon-kreiz-gets-315-million-signing-bonus-in-five-year-paramount-warner-bros-deal",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-1-Ynon20Kreiz20Gets20",
+        "query": "Ynon Kreiz Gets 315 Million Signing Bonus in Five-year Paramount-warner Bros Deal",
+        "sourceUrl": "https://www.hollywoodreporter.com/business/business-news/ynon-kreiz-paramount-warner-bros-pay-1236720588/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-10-01T21:30:30.000Z",
+        "contentSnippet": "An SEC filing discloses that Kreiz will receive annual compensation valued at around $30M in the deal.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T21:30:30.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Ynon Kreiz Gets $31.5 Million Signing Bonus In Five-Year Paramount-Warner Bros. Deal",
+            "itemLink": "https://www.hollywoodreporter.com/business/business-news/ynon-kreiz-paramount-warner-bros-pay-1236720588/",
+            "publishedDate": "2026-10-01T21:30:30.000Z",
+            "contentSnippet": "An SEC filing discloses that Kreiz will receive annual compensation valued at around $30M in the deal.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Business",
+              "Business News",
+              "paramount skydance",
+              "Warner Bros"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Business",
+            "Business News",
+            "paramount skydance",
+            "Warner Bros"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ynon kreiz gets 315 million signing bonus in five-year paramount-warner bros deal"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T21:30:30.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Business",
+      "Business News",
+      "paramount skydance",
+      "Warner Bros"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:04.458Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261001-streaming-ratings-neagley-outm",
+    "canonicalTopic": "Streaming Ratings Neagley Outmuscles Monster and Reacher for Top Spot",
+    "slug": "streaming-ratings-neagley-outmuscles-monster-and-reacher-for-top-spot",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-2-Streaming20Ratings3",
+        "query": "Streaming Ratings Neagley Outmuscles Monster and Reacher for Top Spot",
+        "sourceUrl": "https://www.hollywoodreporter.com/tv/tv-news/streaming-ratings-sept-14-20-2026-1236720517/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-10-01T20:54:05.000Z",
+        "contentSnippet": "The Prime Video spinoff puts up premiere week numbers in line with 'Reacher's' 2022 debut.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T20:54:05.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Streaming Ratings: 'Neagley' Outmuscles 'Monster' and 'Reacher' for Top Spot",
+            "itemLink": "https://www.hollywoodreporter.com/tv/tv-news/streaming-ratings-sept-14-20-2026-1236720517/",
+            "publishedDate": "2026-10-01T20:54:05.000Z",
+            "contentSnippet": "The Prime Video spinoff puts up premiere week numbers in line with 'Reacher's' 2022 debut.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "TV",
+              "TV News",
+              "Crew Girl",
+              "Monster: The Lizzie Borden Story",
+              "Neagley",
+              "Reacher",
+              "Streaming Ratings",
+              "TV Ratings"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "TV",
+            "TV News",
+            "Crew Girl",
+            "Monster: The Lizzie Borden Story",
+            "Neagley",
+            "Reacher",
+            "Streaming Ratings",
+            "TV Ratings"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "streaming ratings neagley outmuscles monster and reacher for top spot"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T20:54:05.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "TV",
+      "TV News",
+      "Crew Girl",
+      "Monster: The Lizzie Borden Story",
+      "Neagley",
+      "Reacher",
+      "Streaming Ratings",
+      "TV Ratings"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:04.548Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261001-nithya-raman-promises-shell-be",
+    "canonicalTopic": "Nithya Raman Promises Shell Be a Relentless Advocate for Hollywood",
+    "slug": "nithya-raman-promises-shell-be-a-relentless-advocate-for-hollywood",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-3-Nithya20Raman20Prom",
+        "query": "Nithya Raman Promises Shell Be a Relentless Advocate for Hollywood",
+        "sourceUrl": "https://www.hollywoodreporter.com/news/politics-news/nithya-raman-hollywood-position-karen-bass-polls-1236720525/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-10-01T20:39:18.000Z",
+        "contentSnippet": "Addressing a showbiz crowd, the mayoral candidate says she’s uniquely positioned to represent the industry.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T20:39:18.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Nithya Raman Promises She’ll Be a “Relentless Advocate” for Hollywood",
+            "itemLink": "https://www.hollywoodreporter.com/news/politics-news/nithya-raman-hollywood-position-karen-bass-polls-1236720525/",
+            "publishedDate": "2026-10-01T20:39:18.000Z",
+            "contentSnippet": "Addressing a showbiz crowd, the mayoral candidate says she’s uniquely positioned to represent the industry.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "News",
+              "Politics News",
+              "Karen Bass",
+              "nithya raman",
+              "Spencer Pratt"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "News",
+            "Politics News",
+            "Karen Bass",
+            "nithya raman",
+            "Spencer Pratt"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "nithya raman promises shell be a relentless advocate for hollywood"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T20:39:18.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "News",
+      "Politics News",
+      "Karen Bass",
+      "nithya raman",
+      "Spencer Pratt"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:04.633Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261001-google-wins-dismissal-of-pmc-l",
+    "canonicalTopic": "Google Wins Dismissal of Pmc Lawsuit over Ai Search Snippets",
+    "slug": "google-wins-dismissal-of-pmc-lawsuit-over-ai-search-snippets",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-4-Google20Wins20Dismi",
+        "query": "Google Wins Dismissal of Pmc Lawsuit over Ai Search Snippets",
+        "sourceUrl": "https://www.hollywoodreporter.com/business/business-news/google-wins-dismissal-of-pmc-lawsuit-over-ai-search-snippets-1236720513/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-10-01T20:32:26.000Z",
+        "contentSnippet": "The court said the issue isn't in the realm of antitrust laws and should be decided by lawmakers. Publishers have seen drops in search traffic because of AI overviews.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T20:32:26.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Google Wins Dismissal of PMC Lawsuit Over AI Search Snippets",
+            "itemLink": "https://www.hollywoodreporter.com/business/business-news/google-wins-dismissal-of-pmc-lawsuit-over-ai-search-snippets-1236720513/",
+            "publishedDate": "2026-10-01T20:32:26.000Z",
+            "contentSnippet": "The court said the issue isn't in the realm of antitrust laws and should be decided by lawmakers. Publishers have seen drops in search traffic because of AI overviews.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Business",
+              "Business News"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Business",
+            "Business News"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "google wins dismissal of pmc lawsuit over ai search snippets"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T20:32:26.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Business",
+      "Business News"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:04.708Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261001-landman-ups-4-actors-to-series",
+    "canonicalTopic": "Landman Ups 4 Actors to Series Regulars As Season 3 Begins Filming",
+    "slug": "landman-ups-4-actors-to-series-regulars-as-season-3-begins-filming",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-5-Landman20Ups20420Ac",
+        "query": "Landman Ups 4 Actors to Series Regulars As Season 3 Begins Filming",
+        "sourceUrl": "https://www.hollywoodreporter.com/tv/tv-news/landman-season-3-production-start-texas-1236720485/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-10-01T20:00:00.000Z",
+        "contentSnippet": "Colm Feore, Mustafa Speaks, Bobbi Salvor Menuez and Francesca Xuereb are all elevated when the Billy Bob Thornton series returns.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T20:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "'Landman' Ups 4 Actors to Series Regulars as Season 3 Begins Filming",
+            "itemLink": "https://www.hollywoodreporter.com/tv/tv-news/landman-season-3-production-start-texas-1236720485/",
+            "publishedDate": "2026-10-01T20:00:00.000Z",
+            "contentSnippet": "Colm Feore, Mustafa Speaks, Bobbi Salvor Menuez and Francesca Xuereb are all elevated when the Billy Bob Thornton series returns.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "TV",
+              "TV News",
+              "Billy Bob Thornton",
+              "Demi Moore",
+              "Landman",
+              "Taylor Sheridan"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "TV",
+            "TV News",
+            "Billy Bob Thornton",
+            "Demi Moore",
+            "Landman",
+            "Taylor Sheridan"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "landman ups 4 actors to series regulars as season 3 begins filming"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T20:00:00.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "TV",
+      "TV News",
+      "Billy Bob Thornton",
+      "Demi Moore",
+      "Landman",
+      "Taylor Sheridan"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T22:25:04.791Z",
+    "pinterestScore": 79.2
   }
 ]
