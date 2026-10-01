@@ -50053,6 +50053,30 @@
           ],
           "isSeasonal": true
         }
+      },
+      {
+        "source": "SEASONAL_CALENDAR",
+        "sourceId": "seasonal-2026-food-drink-6",
+        "query": "Late Summer Harvest: Preserving Heirloom Produce and Wild Ferments",
+        "publishedAt": "2026-10-01T12:35:41.484Z",
+        "volumeOrGrowth": 94,
+        "recordedAt": "2026-10-01T12:35:41.484Z",
+        "metadata": {
+          "seasonalPayload": {
+            "seasonalEvent": "Late Summer Harvest & Slow Fermentation",
+            "targetMonth": 10,
+            "relevanceWindowDays": 60,
+            "historicalSpikeMultiplier": 1.5
+          },
+          "suggestedPillar": "food-drink",
+          "curatedTags": [
+            "food-drink",
+            "seasonal-food",
+            "fermentation",
+            "harvest"
+          ],
+          "isSeasonal": true
+        }
       }
     ],
     "queryVariants": [
@@ -50083,7 +50107,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-30T21:56:58.754Z",
+    "updatedAt": "2026-10-01T12:35:44.803Z",
     "pinterestScore": 85.6,
     "revisionCyclesCount": 0
   },
@@ -50104,6 +50128,30 @@
           "seasonalPayload": {
             "seasonalEvent": "Autumn Hearth Cooking & Simmered Legumes",
             "targetMonth": 9,
+            "relevanceWindowDays": 60,
+            "historicalSpikeMultiplier": 1.5
+          },
+          "suggestedPillar": "food-drink",
+          "curatedTags": [
+            "food-drink",
+            "cooking",
+            "ingredients",
+            "kitchen"
+          ],
+          "isSeasonal": true
+        }
+      },
+      {
+        "source": "SEASONAL_CALENDAR",
+        "sourceId": "seasonal-2026-food-drink-7",
+        "query": "Slow Autumn Hearth: Hearty Legume Broths, Earthenware, and Root Vegetables",
+        "publishedAt": "2026-10-01T12:35:41.484Z",
+        "volumeOrGrowth": 90,
+        "recordedAt": "2026-10-01T12:35:41.484Z",
+        "metadata": {
+          "seasonalPayload": {
+            "seasonalEvent": "Autumn Hearth Cooking & Simmered Legumes",
+            "targetMonth": 10,
             "relevanceWindowDays": 60,
             "historicalSpikeMultiplier": 1.5
           },
@@ -50146,7 +50194,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-30T21:56:58.783Z",
+    "updatedAt": "2026-10-01T12:35:44.839Z",
     "pinterestScore": 84.8,
     "revisionCyclesCount": 0
   },
@@ -69786,7 +69834,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-30T21:56:58.638Z",
+    "updatedAt": "2026-10-01T12:35:44.613Z",
     "pinterestScore": 87.8,
     "revisionCyclesCount": 0
   },
@@ -69849,7 +69897,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-30T21:56:58.685Z",
+    "updatedAt": "2026-10-01T12:35:44.674Z",
     "pinterestScore": 84.6,
     "revisionCyclesCount": 0
   },
@@ -69912,7 +69960,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-30T21:56:58.727Z",
+    "updatedAt": "2026-10-01T12:35:44.713Z",
     "pinterestScore": 82.9,
     "revisionCyclesCount": 0
   },
@@ -76262,6 +76310,82 @@
           "feedName": "Vogue Style & Culture",
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-1-The20Row20Spring20202720",
+        "query": "The Row Spring 2027 Ready-to-Wear",
+        "sourceUrl": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/row",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-10-01T12:30:10.000Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T12:30:10.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "The Row Spring 2027 Ready-to-Wear",
+            "itemLink": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/row",
+            "publishedDate": "2026-10-01T12:30:10.000Z",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-4-Carven20Spring20202720R",
+        "query": "Carven Spring 2027 Ready-to-Wear",
+        "sourceUrl": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/carven",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-10-01T12:30:10.000Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T12:30:10.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Carven Spring 2027 Ready-to-Wear",
+            "itemLink": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/carven",
+            "publishedDate": "2026-10-01T12:30:10.000Z",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
@@ -76271,7 +76395,9 @@
       "msgm spring 2027 ready-to-wear",
       "hui spring 2027 ready-to-wear",
       "tom ford spring 2027 ready-to-wear",
-      "l'agence spring 2027 ready-to-wear"
+      "l'agence spring 2027 ready-to-wear",
+      "the row spring 2027 ready-to-wear",
+      "carven spring 2027 ready-to-wear"
     ],
     "freshnessScore": 88,
     "createdAt": "2026-09-25T11:18:56.000Z",
@@ -76299,7 +76425,7 @@
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-09-30T21:56:56.872Z",
+    "updatedAt": "2026-10-01T12:35:42.907Z",
     "pinterestScore": 79.2,
     "revisionCyclesCount": 0
   },
@@ -113314,5 +113440,4063 @@
     "status": "SCORED",
     "updatedAt": "2026-09-30T21:56:58.596Z",
     "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261001-elizabeth-hurley",
+    "canonicalTopic": "Elizabeth Hurley",
+    "slug": "elizabeth-hurley",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-elizabeth20hurle",
+        "query": "Elizabeth Hurley",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-01T12:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-01T12:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "elizabeth hurley",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "elizabeth hurley"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T12:20:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-01T12:35:41.601Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261001-daphne-joy",
+    "canonicalTopic": "Daphne Joy",
+    "slug": "daphne-joy",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-daphne20joy",
+        "query": "Daphne Joy",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-01T12:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-01T12:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "daphne joy",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "daphne joy"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T12:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-01T12:35:41.627Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261001-kat-timpf",
+    "canonicalTopic": "Kat Timpf",
+    "slug": "kat-timpf",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-kat20timpf",
+        "query": "Kat Timpf",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-01T11:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-01T11:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "kat timpf",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "kat timpf"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T11:50:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-01T12:35:41.653Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261001-learner-tien",
+    "canonicalTopic": "Learner Tien",
+    "slug": "learner-tien",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-learner20tien",
+        "query": "Learner Tien",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-01T11:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-01T11:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "learner tien",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "learner tien"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T11:40:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-01T12:35:41.682Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261001-eva-lys",
+    "canonicalTopic": "Eva Lys",
+    "slug": "eva-lys",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-eva20lys",
+        "query": "Eva Lys",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-01T11:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-01T11:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "eva lys",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "eva lys"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T11:40:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-01T12:35:41.701Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261001-october-2026-calendar",
+    "canonicalTopic": "October 2026 Calendar",
+    "slug": "october-2026-calendar",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-october20202620ca",
+        "query": "October 2026 Calendar",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-01T11:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-01T11:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "october 2026 calendar",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "october 2026 calendar"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T11:30:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-01T12:35:41.732Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261001-dominic-west",
+    "canonicalTopic": "Dominic West",
+    "slug": "dominic-west",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-dominic20west",
+        "query": "Dominic West",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-01T11:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-01T11:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "dominic west",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dominic west"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T11:20:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-01T12:35:41.755Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261001-rafael-jodar",
+    "canonicalTopic": "Rafael Jodar",
+    "slug": "rafael-jodar",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-rafael20jodar",
+        "query": "Rafael Jodar",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-01T11:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-01T11:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "rafael jodar",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "rafael jodar"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T11:20:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-01T12:35:41.778Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261001-channelview-tx",
+    "canonicalTopic": "Channelview Tx",
+    "slug": "channelview-tx",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-channelview20tx",
+        "query": "Channelview Tx",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-01T11:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-01T11:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "channelview tx",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "channelview tx"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T11:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-01T12:35:41.802Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-food-drink-20261001-fast-food",
+    "canonicalTopic": "Fast Food",
+    "slug": "fast-food",
+    "pillar": "food-drink",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-fast20food",
+        "query": "Fast Food",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-01T11:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-01T11:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "fast food",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "food-drink",
+          "curatedTags": [
+            "US",
+            "food-drink",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "fast food"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T11:10:00.000Z",
+    "tags": [
+      "US",
+      "food-drink",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 83,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 82.7,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-01T12:35:41.823Z",
+    "pinterestScore": 85.3
+  },
+  {
+    "id": "lm-tech-ai-20261001-dinosaur-killing-impact-crater",
+    "canonicalTopic": "Dinosaur-killing Impact Crater Might Have Been Teeming with Life",
+    "slug": "dinosaur-killing-impact-crater-might-have-been-teeming-with-life",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-1-Dinosaur-killing20imp",
+        "query": "Dinosaur-killing Impact Crater Might Have Been Teeming with Life",
+        "sourceUrl": "https://arstechnica.com/science/2026/09/dinosaur-killing-impact-crater-might-have-been-teeming-with-life/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-30T21:54:12.000Z",
+        "contentSnippet": "Hot, nutrient water might have lasted for over 5 million years after the impact.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T21:54:12.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Dinosaur-killing impact crater might have been teeming with life",
+            "itemLink": "https://arstechnica.com/science/2026/09/dinosaur-killing-impact-crater-might-have-been-teeming-with-life/",
+            "publishedDate": "2026-09-30T21:54:12.000Z",
+            "contentSnippet": "Hot, nutrient water might have lasted for over 5 million years after the impact.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Science",
+              "Chixculub",
+              "Earth science",
+              "geology",
+              "hydrothermal vents",
+              "impacts"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Science",
+            "Chixculub",
+            "Earth science",
+            "geology",
+            "hydrothermal vents",
+            "impacts"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dinosaur-killing impact crater might have been teeming with life"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T21:54:12.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Science",
+      "Chixculub",
+      "Earth science",
+      "geology",
+      "hydrothermal vents",
+      "impacts"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:41.883Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261001-fifth-unvaccinated-person-dies",
+    "canonicalTopic": "Fifth Unvaccinated Person Dies of Measles Cdc Still Not Counting All Deaths",
+    "slug": "fifth-unvaccinated-person-dies-of-measles-cdc-still-not-counting-all-deaths",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-2-Fifth20unvaccinated20p",
+        "query": "Fifth Unvaccinated Person Dies of Measles Cdc Still Not Counting All Deaths",
+        "sourceUrl": "https://arstechnica.com/health/2026/09/fifth-unvaccinated-person-dies-of-measles-cdc-still-not-counting-all-deaths/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-30T21:37:54.000Z",
+        "contentSnippet": "State health officials race to vaccinate residents by giving over 8,500 doses.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T21:37:54.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Fifth unvaccinated person dies of measles; CDC still not counting all deaths",
+            "itemLink": "https://arstechnica.com/health/2026/09/fifth-unvaccinated-person-dies-of-measles-cdc-still-not-counting-all-deaths/",
+            "publishedDate": "2026-09-30T21:37:54.000Z",
+            "contentSnippet": "State health officials race to vaccinate residents by giving over 8,500 doses.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Health",
+              "anti-vaccine",
+              "death",
+              "Infectious disease",
+              "measles",
+              "outbreak",
+              "pennsyvlania"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Health",
+            "anti-vaccine",
+            "death",
+            "Infectious disease",
+            "measles",
+            "outbreak",
+            "pennsyvlania"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "fifth unvaccinated person dies of measles cdc still not counting all deaths"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T21:37:54.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Health",
+      "anti-vaccine",
+      "death",
+      "Infectious disease",
+      "measles",
+      "outbreak",
+      "pennsyvlania"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:41.950Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261001-returning-from-vacation-the-go",
+    "canonicalTopic": "Returning from Vacation the Government Can Search Your Phone Without a Warrant",
+    "slug": "returning-from-vacation-the-government-can-search-your-phone-without-a-warrant",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-3-Returning20from20vacat",
+        "query": "Returning from Vacation the Government Can Search Your Phone Without a Warrant",
+        "sourceUrl": "https://arstechnica.com/tech-policy/2026/09/immigration-advocate-sues-border-agents-for-demanding-his-cell-phone/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-30T21:19:56.000Z",
+        "contentSnippet": "Reminder: The \"border exemption\" to your rights is real.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T21:19:56.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Returning from vacation? The government can search your phone without a warrant.",
+            "itemLink": "https://arstechnica.com/tech-policy/2026/09/immigration-advocate-sues-border-agents-for-demanding-his-cell-phone/",
+            "publishedDate": "2026-09-30T21:19:56.000Z",
+            "contentSnippet": "Reminder: The \"border exemption\" to your rights is real.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Policy",
+              "cbp",
+              "phone",
+              "searches"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Policy",
+            "cbp",
+            "phone",
+            "searches"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "returning from vacation the government can search your phone without a warrant"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T21:19:56.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Policy",
+      "cbp",
+      "phone",
+      "searches"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:42.018Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261001-a-local-network-of-implants-us",
+    "canonicalTopic": "A Local Network of Implants Uses Your Body As the Wiring",
+    "slug": "a-local-network-of-implants-uses-your-body-as-the-wiring",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-4-A20local20network20of20i",
+        "query": "A Local Network of Implants Uses Your Body As the Wiring",
+        "sourceUrl": "https://arstechnica.com/science/2026/09/scientists-built-implants-that-talk-to-each-other-through-body-tissue/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-30T21:06:56.000Z",
+        "contentSnippet": "It's possible to send electrical signals right through human tissues.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T21:06:56.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "A local network of implants uses your body as the wiring",
+            "itemLink": "https://arstechnica.com/science/2026/09/scientists-built-implants-that-talk-to-each-other-through-body-tissue/",
+            "publishedDate": "2026-09-30T21:06:56.000Z",
+            "contentSnippet": "It's possible to send electrical signals right through human tissues.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Science",
+              "bioengineering",
+              "Biology",
+              "implants"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Science",
+            "bioengineering",
+            "Biology",
+            "implants"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "a local network of implants uses your body as the wiring"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T21:06:56.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Science",
+      "bioengineering",
+      "Biology",
+      "implants"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:42.074Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261001-attackers-have-been-exploiting",
+    "canonicalTopic": "Attackers Have Been Exploiting Critical Zimbra Flaw to Steal Emails",
+    "slug": "attackers-have-been-exploiting-critical-zimbra-flaw-to-steal-emails",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-5-Attackers20have20been20",
+        "query": "Attackers Have Been Exploiting Critical Zimbra Flaw to Steal Emails",
+        "sourceUrl": "https://arstechnica.com/security/2026/09/attackers-have-been-exploiting-critical-zimbra-flaw-to-steal-emails/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-09-30T20:44:48.000Z",
+        "contentSnippet": "A simple email gives the attackers the ability to remotely inject OS commands.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T20:44:48.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Attackers have been exploiting critical Zimbra flaw to steal emails",
+            "itemLink": "https://arstechnica.com/security/2026/09/attackers-have-been-exploiting-critical-zimbra-flaw-to-steal-emails/",
+            "publishedDate": "2026-09-30T20:44:48.000Z",
+            "contentSnippet": "A simple email gives the attackers the ability to remotely inject OS commands.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Biz & IT",
+              "Security",
+              "exploits",
+              "remote code injection",
+              "vulnerabilities",
+              "zimbra collaboration server"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Biz & IT",
+            "Security",
+            "exploits",
+            "remote code injection",
+            "vulnerabilities",
+            "zimbra collaboration server"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "attackers have been exploiting critical zimbra flaw to steal emails"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T20:44:48.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Biz & IT",
+      "Security",
+      "exploits",
+      "remote code injection",
+      "vulnerabilities",
+      "zimbra collaboration server"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:42.136Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261001-the-download-ai-mind-reading-a",
+    "canonicalTopic": "The Download Ai Mind-reading and Creative Uses for Small Batteries",
+    "slug": "the-download-ai-mind-reading-and-creative-uses-for-small-batteries",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-1-The20Download3A20AI20E",
+        "query": "The Download Ai Mind-reading and Creative Uses for Small Batteries",
+        "sourceUrl": "https://www.technologyreview.com/2026/10/01/1145592/the-download-ai-mind-reading-small-batteries/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-10-01T12:10:00.000Z",
+        "contentSnippet": "This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. An AI “mind-reading” tool can reconstruct what you’re looking at based on a brain scan A new AI tool can guess what you’re looking at just by analyzing your brain scans—and…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T12:10:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "The Download: AI “mind-reading” and creative uses for small batteries",
+            "itemLink": "https://www.technologyreview.com/2026/10/01/1145592/the-download-ai-mind-reading-small-batteries/",
+            "publishedDate": "2026-10-01T12:10:00.000Z",
+            "contentSnippet": "This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. An AI “mind-reading” tool can reconstruct what you’re looking at based on a brain scan A new AI tool can guess what you’re looking at just by analyzing your brain scans—and…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "The Download"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "The Download"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the download ai mind-reading and creative uses for small batteries"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T12:10:00.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "The Download"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:42.200Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261001-an-ai-mind-reading-tool-can-re",
+    "canonicalTopic": "An Ai Mind-reading Tool Can Reconstruct What Youre Looking at Based on a Brain Scan",
+    "slug": "an-ai-mind-reading-tool-can-reconstruct-what-youre-looking-at-based-on-a-brain-scan",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-2-An20AI20E2809Cmind-rea",
+        "query": "An Ai Mind-reading Tool Can Reconstruct What Youre Looking at Based on a Brain Scan",
+        "sourceUrl": "https://www.technologyreview.com/2026/10/01/1145588/ai-mind-reading-reconstructs-what-youre-looking-at/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-10-01T10:32:24.000Z",
+        "contentSnippet": "A new AI tool can guess what you’re looking at just by analyzing your brain scans—and recreate that image with remarkable precision. It can go the other way too, and predict a person’s brain activity based on what they’re looking at. In the image above, for example, the left-hand image of each pair is what…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T10:32:24.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "An AI “mind-reading” tool can reconstruct what you’re looking at based on a brain scan",
+            "itemLink": "https://www.technologyreview.com/2026/10/01/1145588/ai-mind-reading-reconstructs-what-youre-looking-at/",
+            "publishedDate": "2026-10-01T10:32:24.000Z",
+            "contentSnippet": "A new AI tool can guess what you’re looking at just by analyzing your brain scans—and recreate that image with remarkable precision. It can go the other way too, and predict a person’s brain activity based on what they’re looking at. In the image above, for example, the left-hand image of each pair is what…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "Biotechnology and health",
+              "App",
+              "Summary"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "Biotechnology and health",
+            "App",
+            "Summary"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "an ai mind-reading tool can reconstruct what youre looking at based on a brain scan"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T10:32:24.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "Biotechnology and health",
+      "App",
+      "Summary"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:42.299Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261001-how-smaller-distributed-batter",
+    "canonicalTopic": "How Smaller Distributed Batteries Could Help the Grid",
+    "slug": "how-smaller-distributed-batteries-could-help-the-grid",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-3-How20smaller2C20distri",
+        "query": "How Smaller Distributed Batteries Could Help the Grid",
+        "sourceUrl": "https://www.technologyreview.com/2026/10/01/1145435/distributed-batteries/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-10-01T10:00:00.000Z",
+        "contentSnippet": "If you want to install a big battery in New York City, you have to cut through a notoriously tough tangle of regulations. That’s made it difficult to get large energy storage projects on the grid. Faced with those obstacles, some startups are getting creative, finding ways to use relatively small batteries in unexpected places,…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "How smaller, distributed batteries could help the grid",
+            "itemLink": "https://www.technologyreview.com/2026/10/01/1145435/distributed-batteries/",
+            "publishedDate": "2026-10-01T10:00:00.000Z",
+            "contentSnippet": "If you want to install a big battery in New York City, you have to cut through a notoriously tough tangle of regulations. That’s made it difficult to get large energy storage projects on the grid. Faced with those obstacles, some startups are getting creative, finding ways to use relatively small batteries in unexpected places,…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "Climate change and energy",
+              "App",
+              "Summary",
+              "The Spark"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "Climate change and energy",
+            "App",
+            "Summary",
+            "The Spark"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how smaller distributed batteries could help the grid"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T10:00:00.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "Climate change and energy",
+      "App",
+      "Summary",
+      "The Spark"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:42.353Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261001-huawei-made-a-whole-camera-to-",
+    "canonicalTopic": "Huawei Made a Whole Camera to Attach to Its Latest Phone",
+    "slug": "huawei-made-a-whole-camera-to-attach-to-its-latest-phone",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-Huawei20made20a20whole20",
+        "query": "Huawei Made a Whole Camera to Attach to Its Latest Phone",
+        "sourceUrl": "https://www.theverge.com/gadgets/1003196/huawei-mate-90-pro-max-ruiying-z10-camera",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-10-01T10:15:48.000Z",
+        "contentSnippet": "Over the last few years, Chinese Android manufacturers have followed Vivo's example of launching add-on \"teleconverter\" lenses for their flagship phones, enabling long-distance photography that the phones on their own could never match. Today, Huawei one-upped everybody with the add-on lens for its Mate 90 Pro Max flagship, which is not only a comically huge […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T10:15:48.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Huawei made a whole camera to attach to its latest phone",
+            "itemLink": "https://www.theverge.com/gadgets/1003196/huawei-mate-90-pro-max-ruiying-z10-camera",
+            "publishedDate": "2026-10-01T10:15:48.000Z",
+            "contentSnippet": "Over the last few years, Chinese Android manufacturers have followed Vivo's example of launching add-on \"teleconverter\" lenses for their flagship phones, enabling long-distance photography that the phones on their own could never match. Today, Huawei one-upped everybody with the add-on lens for its Mate 90 Pro Max flagship, which is not only a comically huge […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Cameras",
+              "Gadgets",
+              "Huawei",
+              "Mobile",
+              "News",
+              "Phones",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Cameras",
+            "Gadgets",
+            "Huawei",
+            "Mobile",
+            "News",
+            "Phones",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "huawei made a whole camera to attach to its latest phone"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T10:15:48.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Cameras",
+      "Gadgets",
+      "Huawei",
+      "Mobile",
+      "News",
+      "Phones",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:42.411Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261001-this-very-fancy-e-bike-is-one-",
+    "canonicalTopic": "This Very Fancy E-bike Is One of the First to Go Semi-solid State",
+    "slug": "this-very-fancy-e-bike-is-one-of-the-first-to-go-semi-solid-state",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-This20very20fancy20e-bi",
+        "query": "This Very Fancy E-bike Is One of the First to Go Semi-solid State",
+        "sourceUrl": "https://www.theverge.com/news/1003195/lemmos-fancy-e-bike-is-one-of-the-first-with-a-semi-solid-state-battery",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-10-01T10:11:29.000Z",
+        "contentSnippet": "The Lemmo 3 is the first cargo bike from the respected German e-bike maker. This premium, step-through longtail is a slightly less insane take on Rivian's Also TM-B, with one major advantage: It's one of the first electric bikes to feature a semi-solid state battery. Semi-solid state batteries are far safer than traditional lithium-ion batteries. […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T10:11:29.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "This very fancy e-bike is one of the first to go semi-solid state",
+            "itemLink": "https://www.theverge.com/news/1003195/lemmos-fancy-e-bike-is-one-of-the-first-with-a-semi-solid-state-battery",
+            "publishedDate": "2026-10-01T10:11:29.000Z",
+            "contentSnippet": "The Lemmo 3 is the first cargo bike from the respected German e-bike maker. This premium, step-through longtail is a slightly less insane take on Rivian's Also TM-B, with one major advantage: It's one of the first electric bikes to feature a semi-solid state battery. Semi-solid state batteries are far safer than traditional lithium-ion batteries. […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Electric Bikes",
+              "News",
+              "Rideables",
+              "Transportation"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Electric Bikes",
+            "News",
+            "Rideables",
+            "Transportation"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "this very fancy e-bike is one of the first to go semi-solid state"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T10:11:29.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Electric Bikes",
+      "News",
+      "Rideables",
+      "Transportation"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:42.478Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261001-the-people-of-utah-vs-kevin-ol",
+    "canonicalTopic": "The People of Utah Vs Kevin Oleary",
+    "slug": "the-people-of-utah-vs-kevin-oleary",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-The20People20of20Utah20v",
+        "query": "The People of Utah Vs Kevin Oleary",
+        "sourceUrl": "https://www.theverge.com/cs/features/993343/stratos-utah-kevin-oleary-data-center-backlash",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-10-01T10:00:02.000Z",
+        "contentSnippet": "On the morning of May 11th, the celebrity investor Kevin O’Leary appeared on Fox Business and announced that he was under attack by Chinese agents. For weeks, he had been going on TV and posting online to tout his project, called Wonder Valley, after his nickname from the reality show Shark Tank, Mr. Wonderful. It […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T10:00:02.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "The People of Utah vs. Kevin O'Leary",
+            "itemLink": "https://www.theverge.com/cs/features/993343/stratos-utah-kevin-oleary-data-center-backlash",
+            "publishedDate": "2026-10-01T10:00:02.000Z",
+            "contentSnippet": "On the morning of May 11th, the celebrity investor Kevin O’Leary appeared on Fox Business and announced that he was under attack by Chinese agents. For weeks, he had been going on TV and posting online to tout his project, called Wonder Valley, after his nickname from the reality show Shark Tank, Mr. Wonderful. It […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Features"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Features"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the people of utah vs kevin oleary"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T10:00:02.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Features"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:42.520Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261001-noise-from-universals-latest-r",
+    "canonicalTopic": "Noise from Universals Latest Ride Made Rich Locals Furious Fast",
+    "slug": "noise-from-universals-latest-ride-made-rich-locals-furious-fast",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-4-Noise20from20Universal",
+        "query": "Noise from Universals Latest Ride Made Rich Locals Furious Fast",
+        "sourceUrl": "https://www.theverge.com/entertainment/1003182/universal-hollywood-fast-and-furious-rollercoaster-noise",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-10-01T09:00:04.000Z",
+        "contentSnippet": "Universal Studios Hollywood has pledged to erect another sound barrier around its latest attraction after local residents complained about the bloodcurdling screams from riders. In a meeting attended by at least 350 people yesterday, park execs also promised that Fast & Furious: Hollywood Drift won't operate between 8AM and 9AM for the rest of the […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T09:00:04.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Noise from Universal's latest ride made rich locals furious, fast",
+            "itemLink": "https://www.theverge.com/entertainment/1003182/universal-hollywood-fast-and-furious-rollercoaster-noise",
+            "publishedDate": "2026-10-01T09:00:04.000Z",
+            "contentSnippet": "Universal Studios Hollywood has pledged to erect another sound barrier around its latest attraction after local residents complained about the bloodcurdling screams from riders. In a meeting attended by at least 350 people yesterday, park execs also promised that Fast & Furious: Hollywood Drift won't operate between 8AM and 9AM for the rest of the […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Entertainment",
+              "News"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Entertainment",
+            "News"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "noise from universals latest ride made rich locals furious fast"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T09:00:04.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Entertainment",
+      "News"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:42.584Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261001-vivos-x-fold-6-accidentally-fe",
+    "canonicalTopic": "Vivos X Fold 6 Accidentally Feels Like a Throwback",
+    "slug": "vivos-x-fold-6-accidentally-feels-like-a-throwback",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-5-VivoE28099s20X20Fold20620acc",
+        "query": "Vivos X Fold 6 Accidentally Feels Like a Throwback",
+        "sourceUrl": "https://www.theverge.com/tech/1002680/vivo-x-fold-6-global-release-specs-cameras",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-10-01T02:00:00.000Z",
+        "contentSnippet": "It's a quirk of the release calendar that when Vivo's X Fold 6 launched in China this June, it was just another foldable. Now that it's ready for its global release, the size and aspect ratio feel oddly old-fashioned. The X Fold 6 is much the same size as Vivo's previous foldables, and most other […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T02:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Vivo’s X Fold 6 accidentally feels like a throwback",
+            "itemLink": "https://www.theverge.com/tech/1002680/vivo-x-fold-6-global-release-specs-cameras",
+            "publishedDate": "2026-10-01T02:00:00.000Z",
+            "contentSnippet": "It's a quirk of the release calendar that when Vivo's X Fold 6 launched in China this June, it was just another foldable. Now that it's ready for its global release, the size and aspect ratio feel oddly old-fashioned. The X Fold 6 is much the same size as Vivo's previous foldables, and most other […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Foldable Phones",
+              "Gadgets",
+              "Mobile",
+              "News",
+              "Phones",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Foldable Phones",
+            "Gadgets",
+            "Mobile",
+            "News",
+            "Phones",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "vivos x fold 6 accidentally feels like a throwback"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T02:00:00.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Foldable Phones",
+      "Gadgets",
+      "Mobile",
+      "News",
+      "Phones",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:42.637Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20261001-one-of-europes-oldest-cities-i",
+    "canonicalTopic": "One of Europes Oldest Cities Is Also an Amazing Underrated Place to Eat",
+    "slug": "one-of-europes-oldest-cities-is-also-an-amazing-underrated-place-to-eat",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-One20of20Europes20Olde",
+        "query": "One of Europes Oldest Cities Is Also an Amazing Underrated Place to Eat",
+        "sourceUrl": "https://www.cntraveler.com/story/one-of-europes-oldest-cities-is-also-an-amazing-underrated-place-to-eat",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-10-01T09:00:00.000Z",
+        "contentSnippet": "An Andalusian food scene so often overshadowed by the likes of Seville and Granada is finally stepping out of the shadows.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T09:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "One of Europe's Oldest Cities Is Also an Amazing, Underrated Place to Eat",
+            "itemLink": "https://www.cntraveler.com/story/one-of-europes-oldest-cities-is-also-an-amazing-underrated-place-to-eat",
+            "publishedDate": "2026-10-01T09:00:00.000Z",
+            "contentSnippet": "An Andalusian food scene so often overshadowed by the likes of Seville and Granada is finally stepping out of the shadows.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Destinations",
+              "Inspiration / Food & Drink"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Destinations",
+            "Inspiration / Food & Drink"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "one of europes oldest cities is also an amazing underrated place to eat"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T09:00:00.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Destinations",
+      "Inspiration / Food & Drink"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:42.703Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261001-amber-valletta-has-always-had-",
+    "canonicalTopic": "Amber Valletta Has Always Had Great Hair",
+    "slug": "amber-valletta-has-always-had-great-hair",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-2-Amber20Valletta20Has20A",
+        "query": "Amber Valletta Has Always Had Great Hair",
+        "sourceUrl": "https://www.vogue.com/article/amber-valletta-teddy-charles-maison-beaux",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-10-01T12:01:00.000Z",
+        "contentSnippet": "Supermodel Amber Valletta reveals her latest project—created with hairstylist Teddy Charles. And of course, it's naturally eco-friendly.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T12:01:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Amber Valletta Has Always Had Great Hair",
+            "itemLink": "https://www.vogue.com/article/amber-valletta-teddy-charles-maison-beaux",
+            "publishedDate": "2026-10-01T12:01:00.000Z",
+            "contentSnippet": "Supermodel Amber Valletta reveals her latest project—created with hairstylist Teddy Charles. And of course, it's naturally eco-friendly.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Beauty / Hair",
+              "Beauty"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Beauty / Hair",
+            "Beauty"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "amber valletta has always had great hair"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T12:01:00.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Beauty / Hair",
+      "Beauty"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:42.776Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261001-on-the-podcast-grace-coddingto",
+    "canonicalTopic": "On the Podcast Grace Coddington Talks Her New Book and How Fashion Has Changed Since the September Issue",
+    "slug": "on-the-podcast-grace-coddington-talks-her-new-book-and-how-fashion-has-changed-since-the-september-issue",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-3-On20the20Podcast3A20Grac",
+        "query": "On the Podcast Grace Coddington Talks Her New Book and How Fashion Has Changed Since the September Issue",
+        "sourceUrl": "https://www.vogue.com/article/on-the-podcast-grace-coddington-on-how-fashion-has-changed-and-the-september-issue",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-10-01T11:14:40.000Z",
+        "contentSnippet": "For this Thursday’s episode of “The Run-Through,” Grace Coddington joined Chloe in the studio for a conversation about her latest book, “Grace: Now,” a massive yellow tome compiling her favorite fashion shoots from the last decade.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T11:14:40.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "On the Podcast: Grace Coddington Talks Her New Book and How Fashion Has Changed Since ‘The September Issue’",
+            "itemLink": "https://www.vogue.com/article/on-the-podcast-grace-coddington-on-how-fashion-has-changed-and-the-september-issue",
+            "publishedDate": "2026-10-01T11:14:40.000Z",
+            "contentSnippet": "For this Thursday’s episode of “The Run-Through,” Grace Coddington joined Chloe in the studio for a conversation about her latest book, “Grace: Now,” a massive yellow tome compiling her favorite fashion shoots from the last decade.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Culture / Books",
+              "Fashion"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Culture / Books",
+            "Fashion"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "on the podcast grace coddington talks her new book and how fashion has changed since the september issue"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T11:14:40.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Culture / Books",
+      "Fashion"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:42.881Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261001-27-enchanting-old-photos-of-a-",
+    "canonicalTopic": "27 Enchanting Old Photos of a Young Julie Andrews",
+    "slug": "27-enchanting-old-photos-of-a-young-julie-andrews",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-5-2720Enchanting20Old20Ph",
+        "query": "27 Enchanting Old Photos of a Young Julie Andrews",
+        "sourceUrl": "https://www.vogue.com/slideshow/photos-of-a-young-julie-andrews",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-10-01T10:39:30.000Z",
+        "contentSnippet": "In celebration of her tremendous body of work, we at Vogue have turned the clock back to the 1940s–1980s, seeking out some of the best vintage pictures of the wonderful Julie Andrews that we could find.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T10:39:30.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "27 Enchanting Old Photos of a Young Julie Andrews",
+            "itemLink": "https://www.vogue.com/slideshow/photos-of-a-young-julie-andrews",
+            "publishedDate": "2026-10-01T10:39:30.000Z",
+            "contentSnippet": "In celebration of her tremendous body of work, we at Vogue have turned the clock back to the 1940s–1980s, seeking out some of the best vintage pictures of the wonderful Julie Andrews that we could find.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Culture / TV & Movies"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Culture / TV & Movies"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "27 enchanting old photos of a young julie andrews"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T10:39:30.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Culture / TV & Movies"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:42.960Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261001-33-halloween-nail-art-ideas-th",
+    "canonicalTopic": "33 Halloween Nail Art Ideas That Are Equal Parts Eerie and Cute",
+    "slug": "33-halloween-nail-art-ideas-that-are-equal-parts-eerie-and-cute",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-1-3320Halloween20Nail20Ar",
+        "query": "33 Halloween Nail Art Ideas That Are Equal Parts Eerie and Cute",
+        "sourceUrl": "https://www.allure.com/gallery/halloween-nail-art-ideas",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-30T23:00:00.000Z",
+        "contentSnippet": "Macabre or magical, at-home or pro-painted—whatever your manicure MO, we’ve summoned some seriously spooky nail art inspiration.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T23:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "33 Halloween Nail Art Ideas That Are Equal Parts Eerie and Cute",
+            "itemLink": "https://www.allure.com/gallery/halloween-nail-art-ideas",
+            "publishedDate": "2026-09-30T23:00:00.000Z",
+            "contentSnippet": "Macabre or magical, at-home or pro-painted—whatever your manicure MO, we’ve summoned some seriously spooky nail art inspiration.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Nails"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Nails"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "33 halloween nail art ideas that are equal parts eerie and cute"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T23:00:00.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Nails"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:43.020Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261001-7-best-eye-creams-for-wrinkles",
+    "canonicalTopic": "7 Best Eye Creams for Wrinkles to Smooth Firm and Brighten",
+    "slug": "7-best-eye-creams-for-wrinkles-to-smooth-firm-and-brighten",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-2-720Best20Eye20Creams20fo",
+        "query": "7 Best Eye Creams for Wrinkles to Smooth Firm and Brighten",
+        "sourceUrl": "https://www.allure.com/gallery/best-anti-aging-eye-creams",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-30T22:26:14.000Z",
+        "contentSnippet": "These deeply hydrating formulas go the extra mile to target crow's feet, sagging skin, and more.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T22:26:14.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "7 Best Eye Creams for Wrinkles to Smooth, Firm, and Brighten",
+            "itemLink": "https://www.allure.com/gallery/best-anti-aging-eye-creams",
+            "publishedDate": "2026-09-30T22:26:14.000Z",
+            "contentSnippet": "These deeply hydrating formulas go the extra mile to target crow's feet, sagging skin, and more.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Skin",
+              "Skin / Aging",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Skin",
+            "Skin / Aging",
+            "Shopping"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "7 best eye creams for wrinkles to smooth firm and brighten"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T22:26:14.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Skin",
+      "Skin / Aging",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:43.079Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261001-us-death-row-inmate-survives-e",
+    "canonicalTopic": "Us Death Row Inmate Survives Execution Attempt After Two Lethal Injections",
+    "slug": "us-death-row-inmate-survives-execution-attempt-after-two-lethal-injections",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-1-US20death20row20inmate20",
+        "query": "Us Death Row Inmate Survives Execution Attempt After Two Lethal Injections",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cq8r6rjdvlx6o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-10-01T09:59:59.000Z",
+        "contentSnippet": "Killer Christa Pike's lawyer says she is being given \"life-saving measures\" in hospital after two syringes of pentobarbital.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T09:59:59.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "US death row inmate survives execution attempt after two lethal injections",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cq8r6rjdvlx6o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-10-01T09:59:59.000Z",
+            "contentSnippet": "Killer Christa Pike's lawyer says she is being given \"life-saving measures\" in hospital after two syringes of pentobarbital.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "us death row inmate survives execution attempt after two lethal injections"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T09:59:59.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:43.147Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261001-too-early-to-say-if-iran-invol",
+    "canonicalTopic": "Too Early to Say If Iran Involved in Dubai-tel Aviv Flight Attack Israeli Pm Says",
+    "slug": "too-early-to-say-if-iran-involved-in-dubai-tel-aviv-flight-attack-israeli-pm-says",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-2-Too20early20to20say20if20",
+        "query": "Too Early to Say If Iran Involved in Dubai-tel Aviv Flight Attack Israeli Pm Says",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cqgmrm7xd8wyo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-10-01T11:26:46.000Z",
+        "contentSnippet": "A pilot who stabbed another pilot on an Israel-bound plane is being investigated in Saudi Arabia, Benjamin Netanyahu says.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T11:26:46.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Too early to say if Iran involved in Dubai-Tel Aviv flight attack, Israeli PM says",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cqgmrm7xd8wyo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-10-01T11:26:46.000Z",
+            "contentSnippet": "A pilot who stabbed another pilot on an Israel-bound plane is being investigated in Saudi Arabia, Benjamin Netanyahu says.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "too early to say if iran involved in dubai-tel aviv flight attack israeli pm says"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T11:26:46.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:43.216Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261001-rosenberg-putin-shows-no-sign-",
+    "canonicalTopic": "Rosenberg Putin Shows No Sign of Stopping the War As Russia Doubles Down on Ukraine",
+    "slug": "rosenberg-putin-shows-no-sign-of-stopping-the-war-as-russia-doubles-down-on-ukraine",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-4-Rosenberg3A20Putin20sho",
+        "query": "Rosenberg Putin Shows No Sign of Stopping the War As Russia Doubles Down on Ukraine",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cqx2ze420kpyo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-09-30T23:10:06.000Z",
+        "contentSnippet": "A foreign policy speech by the Russian president will be keenly watched, but all signs point to the full-scale invasion continuing.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T23:10:06.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Rosenberg: Putin shows no sign of stopping the war as Russia doubles down on Ukraine",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cqx2ze420kpyo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-09-30T23:10:06.000Z",
+            "contentSnippet": "A foreign policy speech by the Russian president will be keenly watched, but all signs point to the full-scale invasion continuing.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "rosenberg putin shows no sign of stopping the war as russia doubles down on ukraine"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T23:10:06.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:43.288Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261001-japan-raises-permanent-residen",
+    "canonicalTopic": "Japan Raises Permanent Residency Fee by 20 Times",
+    "slug": "japan-raises-permanent-residency-fee-by-20-times",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-5-Japan20raises20permane",
+        "query": "Japan Raises Permanent Residency Fee by 20 Times",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/c6y8z8xeg8j1o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-10-01T02:57:43.000Z",
+        "contentSnippet": "The hikes are part of immigration policy changes introduced to manage Japan's growing foreign population.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T02:57:43.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Japan raises permanent residency fee by 20 times",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c6y8z8xeg8j1o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-10-01T02:57:43.000Z",
+            "contentSnippet": "The hikes are part of immigration policy changes introduced to manage Japan's growing foreign population.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "japan raises permanent residency fee by 20 times"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T02:57:43.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:43.339Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261001-white-brick-extension-defines-",
+    "canonicalTopic": "White-brick Extension Defines Design Museum Gent Revamp",
+    "slug": "white-brick-extension-defines-design-museum-gent-revamp",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-White-brick20extensio",
+        "query": "White-brick Extension Defines Design Museum Gent Revamp",
+        "sourceUrl": "https://www.dezeen.com/2026/10/01/carmody-groarke-design-museum-gent/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-10-01T10:45:07.000Z",
+        "contentSnippet": "Architecture studios Carmody Groarke, Atama and Re-st have completed the revamp of Design Museum Gent in Belgium, adding a geometric volume wrapped in waste-based white bricks. Set to reopen to the public in Ghent this weekend, the timber-framed wing introduces educational and event spaces to the museum, along with additional exhibition space. The team, which The post White-brick extension defines Design Museum Gent revamp appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T10:45:07.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "White-brick extension defines Design Museum Gent revamp",
+            "itemLink": "https://www.dezeen.com/2026/10/01/carmody-groarke-design-museum-gent/",
+            "publishedDate": "2026-10-01T10:45:07.000Z",
+            "contentSnippet": "Architecture studios Carmody Groarke, Atama and Re-st have completed the revamp of Design Museum Gent in Belgium, adding a geometric volume wrapped in waste-based white bricks. Set to reopen to the public in Ghent this weekend, the timber-framed wing introduces educational and event spaces to the museum, along with additional exhibition space. The team, which The post White-brick extension defines Design Museum Gent revamp appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "News",
+              "White",
+              "Bricks",
+              "Extensions",
+              "Galleries",
+              "Belgium",
+              "Ghent",
+              "Carmody Groarke"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "News",
+            "White",
+            "Bricks",
+            "Extensions",
+            "Galleries",
+            "Belgium",
+            "Ghent",
+            "Carmody Groarke"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "white-brick extension defines design museum gent revamp"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T10:45:07.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "News",
+      "White",
+      "Bricks",
+      "Extensions",
+      "Galleries",
+      "Belgium",
+      "Ghent",
+      "Carmody Groarke"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:43.395Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261001-cf-mller-transforms-psychiatri",
+    "canonicalTopic": "Cf Mller Transforms Psychiatric Hospital in Denmark into Museum",
+    "slug": "cf-mller-transforms-psychiatric-hospital-in-denmark-into-museum",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-2-CF20MC3B8ller20transforms",
+        "query": "Cf Mller Transforms Psychiatric Hospital in Denmark into Museum",
+        "sourceUrl": "https://www.dezeen.com/2026/10/01/cf-moller-mind-museum/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-10-01T10:30:02.000Z",
+        "contentSnippet": "Danish studio CF Møller has completed the Mind Museum on the island of Funen in Denmark, guided by the \"clear spatial structure\" of the former psychiatric hospital it occupies. Located in the town of Middelfart, the Mind Museum tells the history of psychiatry in Denmark and the early 19th-century hospital itself. CF Møller's ambition was The post CF Møller transforms psychiatric hospital in Denmark into museum appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T10:30:02.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "CF Møller transforms psychiatric hospital in Denmark into museum",
+            "itemLink": "https://www.dezeen.com/2026/10/01/cf-moller-mind-museum/",
+            "publishedDate": "2026-10-01T10:30:02.000Z",
+            "contentSnippet": "Danish studio CF Møller has completed the Mind Museum on the island of Funen in Denmark, guided by the \"clear spatial structure\" of the former psychiatric hospital it occupies. Located in the town of Middelfart, the Mind Museum tells the history of psychiatry in Denmark and the early 19th-century hospital itself. CF Møller's ambition was The post CF Møller transforms psychiatric hospital in Denmark into museum appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Exclusives",
+              "Museums",
+              "CF Møller",
+              "Hospitals",
+              "Renovations",
+              "Public and leisure",
+              "Adaptive reuse",
+              "Mental health",
+              "Denmark"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Exclusives",
+            "Museums",
+            "CF Møller",
+            "Hospitals",
+            "Renovations",
+            "Public and leisure",
+            "Adaptive reuse",
+            "Mental health",
+            "Denmark"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "cf mller transforms psychiatric hospital in denmark into museum"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T10:30:02.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Exclusives",
+      "Museums",
+      "CF Møller",
+      "Hospitals",
+      "Renovations",
+      "Public and leisure",
+      "Adaptive reuse",
+      "Mental health",
+      "Denmark"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:43.456Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261001-dezeens-favourite-furniture-an",
+    "canonicalTopic": "Dezeens Favourite Furniture and Lighting from September",
+    "slug": "dezeens-favourite-furniture-and-lighting-from-september",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-3-Dezeens20favourite20f",
+        "query": "Dezeens Favourite Furniture and Lighting from September",
+        "sourceUrl": "https://www.dezeen.com/2026/10/01/dezeens-favourite-furniture-and-lighting-from-september/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-10-01T10:15:05.000Z",
+        "contentSnippet": "Dezeen's editorial team has been trawling design weeks across Europe this month to seek out some of the best new furniture and lighting. Below, we've compiled ten favourites from London Design Festival, Helsinki Design Week, Currents and beyond. Split Lamp by Jake Robertson chosen by Amy Frearson, editor-at-large \"The wealth of design talent in London The post Dezeen's favourite furniture and lighting from September appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T10:15:05.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Dezeen's favourite furniture and lighting from September",
+            "itemLink": "https://www.dezeen.com/2026/10/01/dezeens-favourite-furniture-and-lighting-from-september/",
+            "publishedDate": "2026-10-01T10:15:05.000Z",
+            "contentSnippet": "Dezeen's editorial team has been trawling design weeks across Europe this month to seek out some of the best new furniture and lighting. Below, we've compiled ten favourites from London Design Festival, Helsinki Design Week, Currents and beyond. Split Lamp by Jake Robertson chosen by Amy Frearson, editor-at-large \"The wealth of design talent in London The post Dezeen's favourite furniture and lighting from September appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "Furniture",
+              "Lighting",
+              "all",
+              "Design",
+              "London Design Festival",
+              "Roundups",
+              "Helsinki Design Week",
+              "Currents"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "Furniture",
+            "Lighting",
+            "all",
+            "Design",
+            "London Design Festival",
+            "Roundups",
+            "Helsinki Design Week",
+            "Currents"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dezeens favourite furniture and lighting from september"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T10:15:05.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "Furniture",
+      "Lighting",
+      "all",
+      "Design",
+      "London Design Festival",
+      "Roundups",
+      "Helsinki Design Week",
+      "Currents"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:43.514Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261001-david-chipperfield-architects-",
+    "canonicalTopic": "David Chipperfield Architects Celebrates Two of Its Most Important Projects in Short Film",
+    "slug": "david-chipperfield-architects-celebrates-two-of-its-most-important-projects-in-short-film",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-4-David20Chipperfield20A",
+        "query": "David Chipperfield Architects Celebrates Two of Its Most Important Projects in Short Film",
+        "sourceUrl": "https://www.dezeen.com/2026/10/01/david-chipperfield-hepworth-turner-contemporary/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-10-01T10:00:53.000Z",
+        "contentSnippet": "British studio David Chipperfield Architects celebrates 15 years of the Hepworth Wakefield and Turner Contemporary in this short film, shared exclusively with Dezeen. Opened within weeks of each other in 2011, the Hepworth Wakefield gallery in West Yorkshire and the Turner Contemporary museum in Margate are considered two of the studio's most important projects, influencing The post David Chipperfield Architects celebrates two of its \"most important projects\" in short film appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T10:00:53.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "David Chipperfield Architects celebrates two of its \"most important projects\" in short film",
+            "itemLink": "https://www.dezeen.com/2026/10/01/david-chipperfield-hepworth-turner-contemporary/",
+            "publishedDate": "2026-10-01T10:00:53.000Z",
+            "contentSnippet": "British studio David Chipperfield Architects celebrates 15 years of the Hepworth Wakefield and Turner Contemporary in this short film, shared exclusively with Dezeen. Opened within weeks of each other in 2011, the Hepworth Wakefield gallery in West Yorkshire and the Turner Contemporary museum in Margate are considered two of the studio's most important projects, influencing The post David Chipperfield Architects celebrates two of its \"most important projects\" in short film appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Exclusives",
+              "Videos",
+              "UK",
+              "England",
+              "Margate",
+              "Architecture videos",
+              "Turner Contemporary",
+              "David Chipperfield",
+              "Wakefield"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Exclusives",
+            "Videos",
+            "UK",
+            "England",
+            "Margate",
+            "Architecture videos",
+            "Turner Contemporary",
+            "David Chipperfield",
+            "Wakefield"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "david chipperfield architects celebrates two of its most important projects in short film"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T10:00:53.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Exclusives",
+      "Videos",
+      "UK",
+      "England",
+      "Margate",
+      "Architecture videos",
+      "Turner Contemporary",
+      "David Chipperfield",
+      "Wakefield"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:43.607Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261001-eight-architecture-and-design-",
+    "canonicalTopic": "Eight Architecture and Design Events in October from Dezeen Events Guide",
+    "slug": "eight-architecture-and-design-events-in-october-from-dezeen-events-guide",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-5-Eight20architecture20a",
+        "query": "Eight Architecture and Design Events in October from Dezeen Events Guide",
+        "sourceUrl": "https://www.dezeen.com/2026/10/01/architecture-design-events-october-2026/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-10-01T09:30:59.000Z",
+        "contentSnippet": "Archtober, Design Week Lagos, Designblok and Design Week Mexico are among the key events featured in Dezeen Events Guide this October. Other events taking place during the month include the Stirling Prize ceremony, Dutch Design Week, Design Miami Paris and Design Week South Africa. Archtober 1 to 31 October, USA Archtober is an annual architecture festival that The post Eight architecture and design events in October from Dezeen Events Guide appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T09:30:59.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Eight architecture and design events in October from Dezeen Events Guide",
+            "itemLink": "https://www.dezeen.com/2026/10/01/architecture-design-events-october-2026/",
+            "publishedDate": "2026-10-01T09:30:59.000Z",
+            "contentSnippet": "Archtober, Design Week Lagos, Designblok and Design Week Mexico are among the key events featured in Dezeen Events Guide this October. Other events taking place during the month include the Stirling Prize ceremony, Dutch Design Week, Design Miami Paris and Design Week South Africa. Archtober 1 to 31 October, USA Archtober is an annual architecture festival that The post Eight architecture and design events in October from Dezeen Events Guide appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Design",
+              "Architecture and design events",
+              "Dezeen Events Guide"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Design",
+            "Architecture and design events",
+            "Dezeen Events Guide"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "eight architecture and design events in october from dezeen events guide"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T09:30:59.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Design",
+      "Architecture and design events",
+      "Dezeen Events Guide"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:43.673Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261001-julianne-moore-to-receive-life",
+    "canonicalTopic": "Julianne Moore to Receive Lifetime Achievement Award from the Debut Director Jesse Eisenberg at Rome Film Festival",
+    "slug": "julianne-moore-to-receive-lifetime-achievement-award-from-the-debut-director-jesse-eisenberg-at-rome-film-festival",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-1-Julianne20Moore2",
+        "query": "Julianne Moore to Receive Lifetime Achievement Award from the Debut Director Jesse Eisenberg at Rome Film Festival",
+        "sourceUrl": "https://variety.com/2026/film/festivals/julianne-moore-award-jesse-eisenberg-rome-film-festival-1236894605/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-10-01T11:52:02.000Z",
+        "contentSnippet": "Julianne Moore will be honored with a lifetime achievement award at the Rome Film Festival. The Oscar-winning actress will attend the Italian premiere of her new film “The Debut,” directed by Jesse Eisenberg, who will also hand her the prize. The Rome Film Festival honor for Moore was announced in a statement by Salvatore Nastasi, […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T11:52:02.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Julianne Moore to Receive Lifetime Achievement Award From 'The Debut' Director Jesse Eisenberg at Rome Film Festival",
+            "itemLink": "https://variety.com/2026/film/festivals/julianne-moore-award-jesse-eisenberg-rome-film-festival-1236894605/",
+            "publishedDate": "2026-10-01T11:52:02.000Z",
+            "contentSnippet": "Julianne Moore will be honored with a lifetime achievement award at the Rome Film Festival. The Oscar-winning actress will attend the Italian premiere of her new film “The Debut,” directed by Jesse Eisenberg, who will also hand her the prize. The Rome Film Festival honor for Moore was announced in a statement by Salvatore Nastasi, […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Festivals",
+              "Global",
+              "News",
+              "Jesse Eisenberg",
+              "Julianne Moore",
+              "Rome Film Festival"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Festivals",
+            "Global",
+            "News",
+            "Jesse Eisenberg",
+            "Julianne Moore",
+            "Rome Film Festival"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "julianne moore to receive lifetime achievement award from the debut director jesse eisenberg at rome film festival"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T11:52:02.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Festivals",
+      "Global",
+      "News",
+      "Jesse Eisenberg",
+      "Julianne Moore",
+      "Rome Film Festival"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:43.780Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261001-woody-allens-new-movie-to-star",
+    "canonicalTopic": "Woody Allens New Movie to Star Marton Csokas Jemima Kirke and More As Westend Boards Sales",
+    "slug": "woody-allens-new-movie-to-star-marton-csokas-jemima-kirke-and-more-as-westend-boards-sales",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-2-Woody20AllenE280",
+        "query": "Woody Allens New Movie to Star Marton Csokas Jemima Kirke and More As Westend Boards Sales",
+        "sourceUrl": "https://variety.com/2026/film/global/woody-allen-new-movie-cast-marton-csokas-jemima-kirke-1236894614/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-10-01T11:30:02.000Z",
+        "contentSnippet": "Marton Csokas (\"The Lord of the Rings,\" \"The Equalizer\") and Jemima Kirke (\"Girls,\" \"Sex Education\") have joined the cast of Woody Allen’s new feature, which is set to begin shooting in Madrid on Oct. 5. WestEnd Films has boarded world sales. Written and directed by Allen, the contemporary comedy will also star Jakob Oftebro (\"Hamilton,\" […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T11:30:02.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Woody Allen’s New Movie to Star Marton Csokas, Jemima Kirke and More as WestEnd Boards Sales",
+            "itemLink": "https://variety.com/2026/film/global/woody-allen-new-movie-cast-marton-csokas-jemima-kirke-1236894614/",
+            "publishedDate": "2026-10-01T11:30:02.000Z",
+            "contentSnippet": "Marton Csokas (\"The Lord of the Rings,\" \"The Equalizer\") and Jemima Kirke (\"Girls,\" \"Sex Education\") have joined the cast of Woody Allen’s new feature, which is set to begin shooting in Madrid on Oct. 5. WestEnd Films has boarded world sales. Written and directed by Allen, the contemporary comedy will also star Jakob Oftebro (\"Hamilton,\" […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Global",
+              "News",
+              "Westend Films",
+              "Woody Allen"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Global",
+            "News",
+            "Westend Films",
+            "Woody Allen"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "woody allens new movie to star marton csokas jemima kirke and more as westend boards sales"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T11:30:02.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Global",
+      "News",
+      "Westend Films",
+      "Woody Allen"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:43.875Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261001-after-i-swear-scores-7-bafta-s",
+    "canonicalTopic": "After I Swear Scores 7 Bafta Scotland Nods Tourettes Campaigner John Davidson to Watch Ceremony from Separate Area Within Venue Following N-word Controversy",
+    "slug": "after-i-swear-scores-7-bafta-scotland-nods-tourettes-campaigner-john-davidson-to-watch-ceremony-from-separate-area-within-venue-following-n-word-controversy",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-3-After20E28098I20",
+        "query": "After I Swear Scores 7 Bafta Scotland Nods Tourettes Campaigner John Davidson to Watch Ceremony from Separate Area Within Venue Following N-word Controversy",
+        "sourceUrl": "https://variety.com/2026/film/global/john-davidson-attend-bafta-scotland-ceremony-separate-area-1236894584/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-10-01T10:13:22.000Z",
+        "contentSnippet": "Just over than seven months after the British Academy faced one of its biggest controversies in years after the N-word was shouted out during the BAFTA Film awards ceremony, BAFTA has had to revisit the moment as it contends with the upcoming BAFTA Scotland awards. The incident — which came to significantly overshadow the 2026 […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T10:13:22.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "After ‘I Swear’ Scores 7 BAFTA Scotland Nods, Tourette’s Campaigner John Davidson to Watch Ceremony From 'Separate' Area Within Venue Following N-Word Controversy",
+            "itemLink": "https://variety.com/2026/film/global/john-davidson-attend-bafta-scotland-ceremony-separate-area-1236894584/",
+            "publishedDate": "2026-10-01T10:13:22.000Z",
+            "contentSnippet": "Just over than seven months after the British Academy faced one of its biggest controversies in years after the N-word was shouted out during the BAFTA Film awards ceremony, BAFTA has had to revisit the moment as it contends with the upcoming BAFTA Scotland awards. The incident — which came to significantly overshadow the 2026 […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Global",
+              "News",
+              "BAFTA",
+              "I Swear",
+              "John Davidson"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Global",
+            "News",
+            "BAFTA",
+            "I Swear",
+            "John Davidson"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "after i swear scores 7 bafta scotland nods tourettes campaigner john davidson to watch ceremony from separate area within venue following n-word controversy"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T10:13:22.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Global",
+      "News",
+      "BAFTA",
+      "I Swear",
+      "John Davidson"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:44.055Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261001-ballet-star-tiler-peck-to-make",
+    "canonicalTopic": "Ballet Star Tiler Peck to Make London West End Debut in Susan Stromans Little Dancer Exclusive",
+    "slug": "ballet-star-tiler-peck-to-make-london-west-end-debut-in-susan-stromans-little-dancer-exclusive",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-5-Ballet20Star20Ti",
+        "query": "Ballet Star Tiler Peck to Make London West End Debut in Susan Stromans Little Dancer Exclusive",
+        "sourceUrl": "https://variety.com/2026/theater/news/tiler-peck-west-end-debut-little-dancer-musical-1236893451/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-10-01T08:30:00.000Z",
+        "contentSnippet": "New York City Ballet principal dancer Tiler Peck will make her West End debut in \"Little Dancer,\" the Lynn Ahrens and Stephen Flaherty musical about the girl who posed for Edgar Degas' famous sculpture. It opens at London's Theatre Royal Haymarket on Feb. 15, 2027. Susan Stroman directs and choreographs the limited run, which will […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T08:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Ballet Star Tiler Peck to Make London West End Debut in Susan Stroman's 'Little Dancer' (EXCLUSIVE)",
+            "itemLink": "https://variety.com/2026/theater/news/tiler-peck-west-end-debut-little-dancer-musical-1236893451/",
+            "publishedDate": "2026-10-01T08:30:00.000Z",
+            "contentSnippet": "New York City Ballet principal dancer Tiler Peck will make her West End debut in \"Little Dancer,\" the Lynn Ahrens and Stephen Flaherty musical about the girl who posed for Edgar Degas' famous sculpture. It opens at London's Theatre Royal Haymarket on Feb. 15, 2027. Susan Stroman directs and choreographs the limited run, which will […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Global",
+              "News",
+              "Little Dancer",
+              "Tiler Peck"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Global",
+            "News",
+            "Little Dancer",
+            "Tiler Peck"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ballet star tiler peck to make london west end debut in susan stromans little dancer exclusive"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T08:30:00.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Global",
+      "News",
+      "Little Dancer",
+      "Tiler Peck"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:44.153Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261001-caitlin-clarks-signature-nike-",
+    "canonicalTopic": "Caitlin Clarks Signature Nike Shoe the Caitlin 1 Makes Its Long-awaited Debut",
+    "slug": "caitlin-clarks-signature-nike-shoe-the-caitlin-1-makes-its-long-awaited-debut",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-1-Caitlin20Clarks20Si",
+        "query": "Caitlin Clarks Signature Nike Shoe the Caitlin 1 Makes Its Long-awaited Debut",
+        "sourceUrl": "https://www.hollywoodreporter.com/lifestyle/shopping/caitlin-clark-nike-caitlin-1-basketball-shoes-release-buy-1236718005/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-10-01T12:00:00.000Z",
+        "contentSnippet": "On Oct. 1, the duo's multi-year partnership finally delivers Clark's first signature silhouette.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T12:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Caitlin Clark's Signature Nike Shoe, the Caitlin 1, Makes Its Long-Awaited Debut",
+            "itemLink": "https://www.hollywoodreporter.com/lifestyle/shopping/caitlin-clark-nike-caitlin-1-basketball-shoes-release-buy-1236718005/",
+            "publishedDate": "2026-10-01T12:00:00.000Z",
+            "contentSnippet": "On Oct. 1, the duo's multi-year partnership finally delivers Clark's first signature silhouette.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Lifestyle",
+              "Shopping",
+              "Caitlin Clark",
+              "fashion",
+              "nike",
+              "shoes",
+              "shopping"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Lifestyle",
+            "Shopping",
+            "Caitlin Clark",
+            "fashion",
+            "nike",
+            "shoes",
+            "shopping"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "caitlin clarks signature nike shoe the caitlin 1 makes its long-awaited debut"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T12:00:00.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Lifestyle",
+      "Shopping",
+      "Caitlin Clark",
+      "fashion",
+      "nike",
+      "shoes",
+      "shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:44.222Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261001-julianne-moore-to-receive-rome",
+    "canonicalTopic": "Julianne Moore to Receive Rome Film Fest Lifetime Award",
+    "slug": "julianne-moore-to-receive-rome-film-fest-lifetime-award",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-2-Julianne20Moore20to",
+        "query": "Julianne Moore to Receive Rome Film Fest Lifetime Award",
+        "sourceUrl": "https://www.hollywoodreporter.com/movies/movie-news/julianne-moore-rome-film-fest-lifetime-award-the-debut-1236718112/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-10-01T11:43:03.000Z",
+        "contentSnippet": "Jesse Eisenberg, who directs Moore in 'The Debut' will present the Oscar-winning actress with her career-spanning honor.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T11:43:03.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Julianne Moore to Receive Rome Film Fest Lifetime Award",
+            "itemLink": "https://www.hollywoodreporter.com/movies/movie-news/julianne-moore-rome-film-fest-lifetime-award-the-debut-1236718112/",
+            "publishedDate": "2026-10-01T11:43:03.000Z",
+            "contentSnippet": "Jesse Eisenberg, who directs Moore in 'The Debut' will present the Oscar-winning actress with her career-spanning honor.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Movie News",
+              "Movies",
+              "international",
+              "Jesse Eisenberg",
+              "Julianne Moore",
+              "Rome Film Festival",
+              "The Debut"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Movie News",
+            "Movies",
+            "international",
+            "Jesse Eisenberg",
+            "Julianne Moore",
+            "Rome Film Festival",
+            "The Debut"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "julianne moore to receive rome film fest lifetime award"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T11:43:03.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Movie News",
+      "Movies",
+      "international",
+      "Jesse Eisenberg",
+      "Julianne Moore",
+      "Rome Film Festival",
+      "The Debut"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:44.278Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261001-netflixs-new-releases-coming-i",
+    "canonicalTopic": "Netflixs New Releases Coming in October 2026",
+    "slug": "netflixs-new-releases-coming-in-october-2026",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-3-NetflixE28099s20New",
+        "query": "Netflixs New Releases Coming in October 2026",
+        "sourceUrl": "https://www.hollywoodreporter.com/tv/tv-news/netflix-october-2026-new-releases-movies-tv-1236718064/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-10-01T11:00:00.000Z",
+        "contentSnippet": "Take a look at the movies and TV shows that are hitting the streaming service this month.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T11:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Netflix’s New Releases Coming in October 2026",
+            "itemLink": "https://www.hollywoodreporter.com/tv/tv-news/netflix-october-2026-new-releases-movies-tv-1236718064/",
+            "publishedDate": "2026-10-01T11:00:00.000Z",
+            "contentSnippet": "Take a look at the movies and TV shows that are hitting the streaming service this month.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "TV",
+              "TV News",
+              "East of Eden",
+              "Netflix"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "TV",
+            "TV News",
+            "East of Eden",
+            "Netflix"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "netflixs new releases coming in october 2026"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T11:00:00.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "TV",
+      "TV News",
+      "East of Eden",
+      "Netflix"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:44.324Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261001-nathan-fielders-elizabeth-holm",
+    "canonicalTopic": "Nathan Fielders Elizabeth Holmes Documentary Holds a Raucous and Revealing Nyff Screening",
+    "slug": "nathan-fielders-elizabeth-holmes-documentary-holds-a-raucous-and-revealing-nyff-screening",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-4-Nathan20Fielders20E",
+        "query": "Nathan Fielders Elizabeth Holmes Documentary Holds a Raucous and Revealing Nyff Screening",
+        "sourceUrl": "https://www.hollywoodreporter.com/movies/movie-news/you-can-see-everything-a24-release-date-showtimes-1236718070/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-10-01T09:40:00.000Z",
+        "contentSnippet": "'You Can See Everything' shows the elephant — sort of.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T09:40:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Nathan Fielder's Elizabeth Holmes Documentary Holds a Raucous and Revealing NYFF Screening",
+            "itemLink": "https://www.hollywoodreporter.com/movies/movie-news/you-can-see-everything-a24-release-date-showtimes-1236718070/",
+            "publishedDate": "2026-10-01T09:40:00.000Z",
+            "contentSnippet": "'You Can See Everything' shows the elephant — sort of.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Movie News",
+              "Movies",
+              "Elizabeth Holmes",
+              "Lance Oppenheim",
+              "Nathan Fielder",
+              "NYFF",
+              "You Can See Everything"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Movie News",
+            "Movies",
+            "Elizabeth Holmes",
+            "Lance Oppenheim",
+            "Nathan Fielder",
+            "NYFF",
+            "You Can See Everything"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "nathan fielders elizabeth holmes documentary holds a raucous and revealing nyff screening"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T09:40:00.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Movie News",
+      "Movies",
+      "Elizabeth Holmes",
+      "Lance Oppenheim",
+      "Nathan Fielder",
+      "NYFF",
+      "You Can See Everything"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:44.420Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261001-mercedes-rons-fault-franchise-",
+    "canonicalTopic": "Mercedes Rons Fault Franchise Initially Felt Impossible to Make Banijay Producer Recalls",
+    "slug": "mercedes-rons-fault-franchise-initially-felt-impossible-to-make-banijay-producer-recalls",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-5-Mercedes20Rons20Fau",
+        "query": "Mercedes Rons Fault Franchise Initially Felt Impossible to Make Banijay Producer Recalls",
+        "sourceUrl": "https://www.hollywoodreporter.com/business/business-news/mercedes-ron-fault-prime-felt-impossible-banijay-producer-1236718009/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-10-01T07:30:00.000Z",
+        "contentSnippet": "Pokeepsie Films' Carolina Bang and fellow Banijay creatives also told Iberseries 2026 in Madrid why and how they keep stories authentic, universal – and even \"obscure.\"",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T07:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Mercedes Ron's 'Fault' Franchise Initially Felt \"Impossible\" to Make, Banijay Producer Recalls",
+            "itemLink": "https://www.hollywoodreporter.com/business/business-news/mercedes-ron-fault-prime-felt-impossible-banijay-producer-1236718009/",
+            "publishedDate": "2026-10-01T07:30:00.000Z",
+            "contentSnippet": "Pokeepsie Films' Carolina Bang and fellow Banijay creatives also told Iberseries 2026 in Madrid why and how they keep stories authentic, universal – and even \"obscure.\"",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Business",
+              "Business News",
+              "Iberseries & Platino Industria",
+              "Iberseries 2026",
+              "international"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Business",
+            "Business News",
+            "Iberseries & Platino Industria",
+            "Iberseries 2026",
+            "international"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "mercedes rons fault franchise initially felt impossible to make banijay producer recalls"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T07:30:00.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Business",
+      "Business News",
+      "Iberseries & Platino Industria",
+      "Iberseries 2026",
+      "international"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:44.515Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-wellbeing-20261001-circadian-light-management-and",
+    "canonicalTopic": "Circadian Light Management and Cold Season Vitality Protocols",
+    "slug": "circadian-light-management-and-cold-season-vitality-protocols",
+    "pillar": "wellbeing",
+    "sourceSignals": [
+      {
+        "source": "SEASONAL_CALENDAR",
+        "sourceId": "seasonal-2026-wellbeing-1",
+        "query": "Circadian Light Management and Cold Season Vitality Protocols",
+        "publishedAt": "2026-10-01T12:35:41.484Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T12:35:41.484Z",
+        "metadata": {
+          "seasonalPayload": {
+            "seasonalEvent": "Cold Weather Restorative Wellness",
+            "targetMonth": 10,
+            "relevanceWindowDays": 60,
+            "historicalSpikeMultiplier": 1.5
+          },
+          "suggestedPillar": "wellbeing",
+          "curatedTags": [
+            "wellbeing",
+            "light-therapy",
+            "sleep",
+            "winter"
+          ],
+          "isSeasonal": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "circadian light management and cold season vitality protocols"
+    ],
+    "freshnessScore": 90,
+    "createdAt": "2026-10-01T12:35:41.484Z",
+    "tags": [
+      "wellbeing",
+      "light-therapy",
+      "sleep",
+      "winter"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 69,
+      "pinterestPotential": 81,
+      "socialPotential": 82,
+      "lifeModeRelevance": 92,
+      "commercialPotential": 60,
+      "freshness": 90,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 79.1,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-01T12:35:44.575Z",
+    "pinterestScore": 79
+  },
+  {
+    "id": "lm-wellbeing-20261001-thermal-cycling-protocols-cont",
+    "canonicalTopic": "Thermal Cycling Protocols Contrast Therapy for Cognitive Resilience",
+    "slug": "thermal-cycling-protocols-contrast-therapy-for-cognitive-resilience",
+    "pillar": "wellbeing",
+    "sourceSignals": [
+      {
+        "source": "SEASONAL_CALENDAR",
+        "sourceId": "seasonal-2026-wellbeing-5",
+        "query": "Thermal Cycling Protocols Contrast Therapy for Cognitive Resilience",
+        "publishedAt": "2026-10-01T12:35:41.484Z",
+        "volumeOrGrowth": 90,
+        "recordedAt": "2026-10-01T12:35:41.484Z",
+        "metadata": {
+          "seasonalPayload": {
+            "seasonalEvent": "Winter Longevity & Cold Adaptations",
+            "targetMonth": 10,
+            "relevanceWindowDays": 60,
+            "historicalSpikeMultiplier": 1.5
+          },
+          "suggestedPillar": "wellbeing",
+          "curatedTags": [
+            "wellbeing",
+            "sauna",
+            "recovery",
+            "longevity"
+          ],
+          "isSeasonal": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "thermal cycling protocols contrast therapy for cognitive resilience"
+    ],
+    "freshnessScore": 90,
+    "createdAt": "2026-10-01T12:35:41.484Z",
+    "tags": [
+      "wellbeing",
+      "sauna",
+      "recovery",
+      "longevity"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 71,
+      "pinterestPotential": 87,
+      "socialPotential": 90,
+      "lifeModeRelevance": 92,
+      "commercialPotential": 60,
+      "freshness": 90,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 81.6,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE",
+    "status": "PUBLISHED",
+    "updatedAt": "2026-10-01T12:35:59.374Z",
+    "pinterestScore": 83,
+    "revisionCyclesCount": 0
   }
 ]
