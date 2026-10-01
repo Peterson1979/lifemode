@@ -522,5 +522,40 @@
     "overallStatus": "COMPLETED",
     "createdAt": "2026-09-29T18:13:40.661Z",
     "updatedAt": "2026-09-29T18:13:40.661Z"
+  },
+  {
+    "runId": "srun-1790879573400-p1zc2",
+    "topicId": "lm-wellbeing-20261001-thermal-cycling-protocols-cont",
+    "pillar": "wellbeing",
+    "canonicalTopic": "Navigating Thermal Cycling Protocols Contrast Therapy for Cognitive Resilience: Principles and Common Pitfalls",
+    "contentHash": "abc233171c968237108ae997db3f9291af9d949597b65ae530f240b78fb39fb4",
+    "assetHash": "700d308c92c03f07eefd89652097732cf952cc34fdf83aa6c1844699d9733c90",
+    "idempotencyKey": "lm-soc-lm-wellbeing-20261001-thermal-cycling-protocols-cont-abc23317",
+    "targetPlatforms": [
+      "instagram",
+      "facebook"
+    ],
+    "platformResults": {
+      "instagram": {
+        "platform": "instagram",
+        "status": "PUBLISHED",
+        "postId": "18079775873523359",
+        "postUrl": "https://instagram.com/p/18079775873523359",
+        "publishedAt": "2026-10-01T18:32:58.109Z",
+        "idempotencyKey": "lm-soc-lm-wellbeing-20261001-thermal-cycling-protocols-cont-instagram-cd36ad8cd993"
+      },
+      "facebook": {
+        "platform": "facebook",
+        "status": "PUBLISHED",
+        "postId": "122323688966197726",
+        "postUrl": "https://facebook.com/122323688966197726",
+        "publishedAt": "2026-10-01T18:33:08.139Z",
+        "idempotencyKey": "lm-soc-lm-wellbeing-20261001-thermal-cycling-protocols-cont-facebook-844d9de31bc8"
+      }
+    },
+    "reviewScore": 90,
+    "overallStatus": "COMPLETED",
+    "createdAt": "2026-10-01T18:33:11.619Z",
+    "updatedAt": "2026-10-01T18:33:11.619Z"
   }
 ]
