@@ -309,7 +309,7 @@ export class ThreadsPlatformAdapter implements ISocialPlatformAdapter {
     accessToken: string,
     fetchImpl: typeof fetch
   ): Promise<void> {
-    const statusEndpoint = `${THREADS_API_BASE}/${creationId}?fields=status,error_message,status_code&access_token=${encodeURIComponent(accessToken)}`;
+    const statusEndpoint = `${THREADS_API_BASE}/${creationId}?fields=status,error_message&access_token=${encodeURIComponent(accessToken)}`;
 
     for (let attempt = 1; attempt <= this.maxPollAttempts; attempt++) {
       let statusRes: Response;
