@@ -49842,6 +49842,30 @@
           ],
           "isSeasonal": true
         }
+      },
+      {
+        "source": "SEASONAL_CALENDAR",
+        "sourceId": "seasonal-2026-food-drink-6",
+        "query": "Late Summer Harvest: Preserving Heirloom Produce and Wild Ferments",
+        "publishedAt": "2026-10-02T12:00:37.345Z",
+        "volumeOrGrowth": 94,
+        "recordedAt": "2026-10-02T12:00:37.345Z",
+        "metadata": {
+          "seasonalPayload": {
+            "seasonalEvent": "Late Summer Harvest & Slow Fermentation",
+            "targetMonth": 10,
+            "relevanceWindowDays": 60,
+            "historicalSpikeMultiplier": 1.5
+          },
+          "suggestedPillar": "food-drink",
+          "curatedTags": [
+            "food-drink",
+            "seasonal-food",
+            "fermentation",
+            "harvest"
+          ],
+          "isSeasonal": true
+        }
       }
     ],
     "queryVariants": [
@@ -49872,7 +49896,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-27T11:33:32.447Z",
+    "updatedAt": "2026-10-02T12:00:40.133Z",
     "pinterestScore": 85.6,
     "revisionCyclesCount": 0
   },
@@ -49893,6 +49917,30 @@
           "seasonalPayload": {
             "seasonalEvent": "Autumn Hearth Cooking & Simmered Legumes",
             "targetMonth": 9,
+            "relevanceWindowDays": 60,
+            "historicalSpikeMultiplier": 1.5
+          },
+          "suggestedPillar": "food-drink",
+          "curatedTags": [
+            "food-drink",
+            "cooking",
+            "ingredients",
+            "kitchen"
+          ],
+          "isSeasonal": true
+        }
+      },
+      {
+        "source": "SEASONAL_CALENDAR",
+        "sourceId": "seasonal-2026-food-drink-7",
+        "query": "Slow Autumn Hearth: Hearty Legume Broths, Earthenware, and Root Vegetables",
+        "publishedAt": "2026-10-02T12:00:37.345Z",
+        "volumeOrGrowth": 90,
+        "recordedAt": "2026-10-02T12:00:37.345Z",
+        "metadata": {
+          "seasonalPayload": {
+            "seasonalEvent": "Autumn Hearth Cooking & Simmered Legumes",
+            "targetMonth": 10,
             "relevanceWindowDays": 60,
             "historicalSpikeMultiplier": 1.5
           },
@@ -49935,7 +49983,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-27T11:33:32.473Z",
+    "updatedAt": "2026-10-02T12:00:40.159Z",
     "pinterestScore": 84.8,
     "revisionCyclesCount": 0
   },
@@ -51868,12 +51916,49 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-5-Japans20first20mayor20",
+        "query": "Japan's first mayor to take maternity leave lands on TIME100 Next list",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cqj3d3d37nxgo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-10-02T05:53:51.000Z",
+        "contentSnippet": "Shoko Kawata's maternity leave drew mixed reactions in Japan, a country struggling to lift birth rates.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T05:53:51.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Japan's first mayor to take maternity leave lands on TIME100 Next list",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cqj3d3d37nxgo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-10-02T05:53:51.000Z",
+            "contentSnippet": "Shoko Kawata's maternity leave drew mixed reactions in Japan, a country struggling to lift birth rates.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
-      "japan"
+      "japan",
+      "japan's first mayor to take maternity leave lands on time100 next list"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-20T09:30:00.000Z",
     "tags": [
       "US",
@@ -51883,20 +51968,20 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
-      "pinterestPotential": 92,
-      "socialPotential": 88,
-      "lifeModeRelevance": 90,
+      "searchPotential": 87,
+      "pinterestPotential": 94,
+      "socialPotential": 90,
+      "lifeModeRelevance": 92,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
-      "originalityPotential": 85
+      "originalityPotential": 87
     },
-    "totalScore": 84,
+    "totalScore": 85.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-21T12:12:55.548Z",
+    "updatedAt": "2026-10-02T12:00:38.690Z",
     "pinterestScore": 88.3,
     "revisionCyclesCount": 0
   },
@@ -53938,12 +54023,38 @@
           ],
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-braves20schedule",
+        "query": "braves schedule",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-02T10:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-02T10:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "braves schedule",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
-      "ravens schedule"
+      "ravens schedule",
+      "braves schedule"
     ],
-    "freshnessScore": 85,
+    "freshnessScore": 88,
     "createdAt": "2026-09-20T14:50:00.000Z",
     "tags": [
       "US",
@@ -53953,21 +54064,22 @@
     "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
     "primaryIntent": "informational",
     "scoring": {
-      "searchPotential": 85,
+      "searchPotential": 89,
       "pinterestPotential": 83,
       "socialPotential": 88,
       "lifeModeRelevance": 90,
       "commercialPotential": 60,
-      "freshness": 85,
+      "freshness": 88,
       "competitionOpportunity": 70,
       "originalityPotential": 85
     },
-    "totalScore": 82.7,
+    "totalScore": 83.8,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-20T15:35:21.194Z",
-    "pinterestScore": 85.3
+    "updatedAt": "2026-10-02T12:00:37.533Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-now-20260920-cory-booker",
@@ -67429,11 +67541,62 @@
           "feedName": "Allure Beauty & Skincare",
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-3-1920Best20Early20Amazon",
+        "query": "19 Best Early Amazon Prime Day Beauty Deals 2026 to Shop Now",
+        "sourceUrl": "https://www.allure.com/story/best-early-amazon-prime-day-beauty-deals",
+        "publisherName": "Allure",
+        "publishedAt": "2026-10-01T17:17:18.000Z",
+        "contentSnippet": "From barrier-soothing skin care to multitasking hair tools, these early markdowns are already making waves in our carts.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T17:17:18.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "19 Best Early Amazon Prime Day Beauty Deals 2026 to Shop Now",
+            "itemLink": "https://www.allure.com/story/best-early-amazon-prime-day-beauty-deals",
+            "publishedDate": "2026-10-01T17:17:18.000Z",
+            "contentSnippet": "From barrier-soothing skin care to multitasking hair tools, these early markdowns are already making waves in our carts.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Shopping",
+              "Makeup",
+              "Skin",
+              "Hair",
+              "Wellness"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Shopping",
+            "Makeup",
+            "Skin",
+            "Hair",
+            "Wellness"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "16 best early amazon prime day k-beauty deals 2026",
-      "14 best early amazon prime day mature beauty deals 2026"
+      "14 best early amazon prime day mature beauty deals 2026",
+      "19 best early amazon prime day beauty deals 2026 to shop now"
     ],
     "freshnessScore": 88,
     "createdAt": "2026-09-23T20:40:23.000Z",
@@ -67465,7 +67628,7 @@
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-09-26T10:56:38.447Z",
+    "updatedAt": "2026-10-02T12:00:38.925Z",
     "pinterestScore": 79.2,
     "revisionCyclesCount": 0
   },
@@ -69344,7 +69507,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-27T11:33:32.340Z",
+    "updatedAt": "2026-10-02T12:00:39.986Z",
     "pinterestScore": 87.8,
     "revisionCyclesCount": 0
   },
@@ -69407,7 +69570,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-09-27T11:33:32.387Z",
+    "updatedAt": "2026-10-02T12:00:40.028Z",
     "pinterestScore": 84.6,
     "revisionCyclesCount": 0
   },
@@ -69470,7 +69633,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-09-27T11:33:32.424Z",
+    "updatedAt": "2026-10-02T12:00:40.064Z",
     "pinterestScore": 82.9,
     "revisionCyclesCount": 0
   },
@@ -75706,13 +75869,52 @@
           "feedName": "Vogue Style & Culture",
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-3-Loewe20Spring20202720Re",
+        "query": "Loewe Spring 2027 Ready-to-Wear",
+        "sourceUrl": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/loewe",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-10-02T11:56:24.000Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T11:56:24.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Loewe Spring 2027 Ready-to-Wear",
+            "itemLink": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/loewe",
+            "publishedDate": "2026-10-02T11:56:24.000Z",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "blumarine spring 2027 ready-to-wear",
       "moschino spring 2027 ready-to-wear",
       "ferragamo spring 2027 ready-to-wear",
-      "msgm spring 2027 ready-to-wear"
+      "msgm spring 2027 ready-to-wear",
+      "loewe spring 2027 ready-to-wear"
     ],
     "freshnessScore": 88,
     "createdAt": "2026-09-25T11:18:56.000Z",
@@ -75740,7 +75942,7 @@
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-09-26T15:56:20.185Z",
+    "updatedAt": "2026-10-02T12:00:38.777Z",
     "pinterestScore": 79.2,
     "revisionCyclesCount": 0
   },
@@ -75901,13 +76103,52 @@
           "feedName": "Vogue Style & Culture",
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-1-Issey20Miyake20Spring20",
+        "query": "Issey Miyake Spring 2027 Ready-to-Wear",
+        "sourceUrl": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/issey-miyake",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-10-02T11:56:24.000Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T11:56:24.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Issey Miyake Spring 2027 Ready-to-Wear",
+            "itemLink": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/issey-miyake",
+            "publishedDate": "2026-10-02T11:56:24.000Z",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
       "sportmax spring 2027 ready-to-wear",
       "marco rambaldi spring 2027 ready-to-wear",
       "act no.1 spring 2027 ready-to-wear",
-      "giorgio armani spring 2027 ready-to-wear"
+      "giorgio armani spring 2027 ready-to-wear",
+      "issey miyake spring 2027 ready-to-wear"
     ],
     "freshnessScore": 88,
     "createdAt": "2026-09-25T11:18:56.000Z",
@@ -75935,7 +76176,7 @@
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-09-27T11:33:31.444Z",
+    "updatedAt": "2026-10-02T12:00:38.715Z",
     "pinterestScore": 79.2,
     "revisionCyclesCount": 0
   },
@@ -85661,9 +85902,10 @@
     "totalScore": 82.7,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-26T15:56:19.523Z",
-    "pinterestScore": 85.3
+    "status": "PUBLISHED",
+    "updatedAt": "2026-10-02T12:02:33.294Z",
+    "pinterestScore": 85.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-entertainment-20260926-diana-princess-of-wales",
@@ -90358,5 +90600,4709 @@
     "status": "SCORED",
     "updatedAt": "2026-09-27T11:33:32.303Z",
     "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261002-ms-rachel",
+    "canonicalTopic": "Ms Rachel",
+    "slug": "ms-rachel",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-ms20rachel",
+        "query": "Ms Rachel",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-02T11:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-02T11:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "ms rachel",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ms rachel"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T11:40:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-02T12:00:37.418Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261002-oj-simpson",
+    "canonicalTopic": "Oj Simpson",
+    "slug": "oj-simpson",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-oj20simpson",
+        "query": "Oj Simpson",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-02T11:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-02T11:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "oj simpson",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "oj simpson"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T11:30:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-02T12:00:37.436Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261002-tiafoe",
+    "canonicalTopic": "Tiafoe",
+    "slug": "tiafoe",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-tiafoe",
+        "query": "Tiafoe",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-02T11:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-02T11:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "tiafoe",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "tiafoe"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T11:20:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-02T12:00:37.453Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261002-asian-games-medal-tally",
+    "canonicalTopic": "Asian Games Medal Tally",
+    "slug": "asian-games-medal-tally",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-asian20games20med",
+        "query": "Asian Games Medal Tally",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-02T11:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-02T11:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "asian games medal tally",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "asian games medal tally"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T11:20:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-02T12:00:37.476Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261002-aryna-sabalenka",
+    "canonicalTopic": "Aryna Sabalenka",
+    "slug": "aryna-sabalenka",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-aryna20sabalenka",
+        "query": "Aryna Sabalenka",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-02T11:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-02T11:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "aryna sabalenka",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "aryna sabalenka"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T11:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-02T12:00:37.493Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261002-angie-nixon",
+    "canonicalTopic": "Angie Nixon",
+    "slug": "angie-nixon",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-angie20nixon",
+        "query": "Angie Nixon",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-02T11:00:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-02T11:00:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "angie nixon",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "angie nixon"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T11:00:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-02T12:00:37.508Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261002-israel-plane",
+    "canonicalTopic": "Israel Plane",
+    "slug": "israel-plane",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-7-israel20plane",
+        "query": "Israel Plane",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-02T10:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-02T10:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "israel plane",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "israel plane"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T10:50:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-02T12:00:37.523Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261002-special-victims-unit",
+    "canonicalTopic": "Special Victims Unit",
+    "slug": "special-victims-unit",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-special20victims",
+        "query": "Special Victims Unit",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-02T10:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-02T10:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "special victims unit",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "special victims unit"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T10:50:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-02T12:00:37.554Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261002-baseball-playoffs",
+    "canonicalTopic": "Baseball Playoffs",
+    "slug": "baseball-playoffs",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-baseball20playof",
+        "query": "Baseball Playoffs",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-02T10:50:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-02T10:50:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "baseball playoffs",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "baseball playoffs"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T10:50:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-02T12:00:37.572Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-tech-ai-20261002-tcl-is-right-to-question-samsu",
+    "canonicalTopic": "Tcl Is Right to Question Samsungs Use of the Term Mini Led",
+    "slug": "tcl-is-right-to-question-samsungs-use-of-the-term-mini-led",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-1-TCL20is20right20to20ques",
+        "query": "Tcl Is Right to Question Samsungs Use of the Term Mini Led",
+        "sourceUrl": "https://arstechnica.com/gadgets/2026/10/tcl-is-right-to-question-samsungs-use-of-the-term-mini-led/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-10-02T10:30:11.000Z",
+        "contentSnippet": "Can it be Mini LED without a FALD backlight?",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T10:30:11.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "TCL is right to question Samsung’s use of the term “Mini LED”",
+            "itemLink": "https://arstechnica.com/gadgets/2026/10/tcl-is-right-to-question-samsungs-use-of-the-term-mini-led/",
+            "publishedDate": "2026-10-02T10:30:11.000Z",
+            "contentSnippet": "Can it be Mini LED without a FALD backlight?",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Features",
+              "Tech",
+              "Mini LED",
+              "Samsung",
+              "tcl",
+              "TVs"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Features",
+            "Tech",
+            "Mini LED",
+            "Samsung",
+            "tcl",
+            "TVs"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "tcl is right to question samsungs use of the term mini led"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T10:30:11.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Features",
+      "Tech",
+      "Mini LED",
+      "Samsung",
+      "tcl",
+      "TVs"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:37.615Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261002-venus-mysterious-haze-is-actua",
+    "canonicalTopic": "Venus Mysterious Haze Is Actually Cosmic Dust",
+    "slug": "venus-mysterious-haze-is-actually-cosmic-dust",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-2-Venus20mysterious20ha",
+        "query": "Venus Mysterious Haze Is Actually Cosmic Dust",
+        "sourceUrl": "https://arstechnica.com/science/2026/10/venus-mysterious-haze-is-actually-cosmic-dust/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-10-01T22:27:04.000Z",
+        "contentSnippet": "A physical model show that iron dust and sulfuric acid create the right properties.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T22:27:04.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Venus' mysterious haze is actually cosmic dust",
+            "itemLink": "https://arstechnica.com/science/2026/10/venus-mysterious-haze-is-actually-cosmic-dust/",
+            "publishedDate": "2026-10-01T22:27:04.000Z",
+            "contentSnippet": "A physical model show that iron dust and sulfuric acid create the right properties.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Science",
+              "astronomy",
+              "atmospheric science",
+              "Haze",
+              "planetary science",
+              "Venus"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Science",
+            "astronomy",
+            "atmospheric science",
+            "Haze",
+            "planetary science",
+            "Venus"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "venus mysterious haze is actually cosmic dust"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T22:27:04.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Science",
+      "astronomy",
+      "atmospheric science",
+      "Haze",
+      "planetary science",
+      "Venus"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:37.650Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261002-spacex-describes-surgical-inte",
+    "canonicalTopic": "Spacex Describes Surgical Intervention Before Launch of Latest Crew Mission",
+    "slug": "spacex-describes-surgical-intervention-before-launch-of-latest-crew-mission",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-3-SpaceX20describes20sur",
+        "query": "Spacex Describes Surgical Intervention Before Launch of Latest Crew Mission",
+        "sourceUrl": "https://arstechnica.com/space/2026/10/spacex-describes-surgical-intervention-before-launch-of-latest-crew-mission/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-10-01T22:07:33.000Z",
+        "contentSnippet": "With Crew-13, Jessica Watkins became the first Black woman to lead a mission into space.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T22:07:33.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "SpaceX describes surgical intervention before launch of latest crew mission",
+            "itemLink": "https://arstechnica.com/space/2026/10/spacex-describes-surgical-intervention-before-launch-of-latest-crew-mission/",
+            "publishedDate": "2026-10-01T22:07:33.000Z",
+            "contentSnippet": "With Crew-13, Jessica Watkins became the first Black woman to lead a mission into space.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Science",
+              "Space",
+              "commercial crew",
+              "Commercial space",
+              "crew dragon",
+              "Crew-13",
+              "human spaceflight",
+              "international space station",
+              "NASA",
+              "spacex"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Science",
+            "Space",
+            "commercial crew",
+            "Commercial space",
+            "crew dragon",
+            "Crew-13",
+            "human spaceflight",
+            "international space station",
+            "NASA",
+            "spacex"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "spacex describes surgical intervention before launch of latest crew mission"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T22:07:33.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Science",
+      "Space",
+      "commercial crew",
+      "Commercial space",
+      "crew dragon",
+      "Crew-13",
+      "human spaceflight",
+      "international space station",
+      "NASA",
+      "spacex"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:37.703Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261002-hacks-of-2-federal-agencies-in",
+    "canonicalTopic": "Hacks of 2 Federal Agencies in a Month Have Spilled a Bonanza of Sensitive Data",
+    "slug": "hacks-of-2-federal-agencies-in-a-month-have-spilled-a-bonanza-of-sensitive-data",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-4-Hacks20of20220federal20a",
+        "query": "Hacks of 2 Federal Agencies in a Month Have Spilled a Bonanza of Sensitive Data",
+        "sourceUrl": "https://arstechnica.com/security/2026/10/hacks-of-2-federal-agencies-in-a-month-have-spilled-a-bonanza-of-sensitive-data/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-10-01T20:28:45.000Z",
+        "contentSnippet": "It has been a bad month for federal government cybersecurity.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T20:28:45.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Hacks of 2 federal agencies in a month have spilled a bonanza of sensitive data",
+            "itemLink": "https://arstechnica.com/security/2026/10/hacks-of-2-federal-agencies-in-a-month-have-spilled-a-bonanza-of-sensitive-data/",
+            "publishedDate": "2026-10-01T20:28:45.000Z",
+            "contentSnippet": "It has been a bad month for federal government cybersecurity.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Biz & IT",
+              "Security",
+              "breaches",
+              "Department of Defense",
+              "fbi",
+              "hacking",
+              "national security"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Biz & IT",
+            "Security",
+            "breaches",
+            "Department of Defense",
+            "fbi",
+            "hacking",
+            "national security"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "hacks of 2 federal agencies in a month have spilled a bonanza of sensitive data"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T20:28:45.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Biz & IT",
+      "Security",
+      "breaches",
+      "Department of Defense",
+      "fbi",
+      "hacking",
+      "national security"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:37.751Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261002-judge-dismisses-chegg-and-pens",
+    "canonicalTopic": "Judge Dismisses Chegg and Penske Antitrust Lawsuits Targeting Google Ai Search",
+    "slug": "judge-dismisses-chegg-and-penske-antitrust-lawsuits-targeting-google-ai-search",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-5-Judge20dismisses20Cheg",
+        "query": "Judge Dismisses Chegg and Penske Antitrust Lawsuits Targeting Google Ai Search",
+        "sourceUrl": "https://arstechnica.com/google/2026/10/antitrust-lawsuits-targeting-google-ai-search-dismissed-by-federal-judge/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-10-01T20:11:55.000Z",
+        "contentSnippet": "The court acknowledges AI search comes with consequences, but it's not an antitrust issue.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T20:11:55.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Judge dismisses Chegg and Penske antitrust lawsuits targeting Google AI search",
+            "itemLink": "https://arstechnica.com/google/2026/10/antitrust-lawsuits-targeting-google-ai-search-dismissed-by-federal-judge/",
+            "publishedDate": "2026-10-01T20:11:55.000Z",
+            "contentSnippet": "The court acknowledges AI search comes with consequences, but it's not an antitrust issue.",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "AI",
+              "Google",
+              "Policy",
+              "ai search",
+              "antitrust",
+              "google"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "AI",
+            "Google",
+            "Policy",
+            "ai search",
+            "antitrust",
+            "google"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "judge dismisses chegg and penske antitrust lawsuits targeting google ai search"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T20:11:55.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "AI",
+      "Google",
+      "Policy",
+      "ai search",
+      "antitrust",
+      "google"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:37.799Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261002-amazon-writes-scary-blog-warni",
+    "canonicalTopic": "Amazon Writes Scary Blog Warning Communities Not to Block Data Centers",
+    "slug": "amazon-writes-scary-blog-warning-communities-not-to-block-data-centers",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-1-Amazon20writes20scary20",
+        "query": "Amazon Writes Scary Blog Warning Communities Not to Block Data Centers",
+        "sourceUrl": "https://www.theverge.com/tech/1003929/amazon-ai-data-center-blog-warning",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-10-02T11:52:20.000Z",
+        "contentSnippet": "Amazon is calling for people to support AI data center projects, or risk irreparable harm to the US economy and national security. In a more than 3,000 word blog posted today, Amazon web services CEO Matt Garman pushed back on public concerns around the impact that data centers may have on jobs, power demands, and […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T11:52:20.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Amazon writes scary blog warning communities not to block data centers",
+            "itemLink": "https://www.theverge.com/tech/1003929/amazon-ai-data-center-blog-warning",
+            "publishedDate": "2026-10-02T11:52:20.000Z",
+            "contentSnippet": "Amazon is calling for people to support AI data center projects, or risk irreparable harm to the US economy and national security. In a more than 3,000 word blog posted today, Amazon web services CEO Matt Garman pushed back on public concerns around the impact that data centers may have on jobs, power demands, and […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "Amazon",
+              "News",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "Amazon",
+            "News",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "amazon writes scary blog warning communities not to block data centers"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T11:52:20.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "Amazon",
+      "News",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:37.844Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261002-ai-music-maker-suno-now-genera",
+    "canonicalTopic": "Ai Music Maker Suno Now Generates Spoken Words",
+    "slug": "ai-music-maker-suno-now-generates-spoken-words",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-2-AI20music20maker20Suno20",
+        "query": "Ai Music Maker Suno Now Generates Spoken Words",
+        "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/1003925/suno-speech-ai-voice-feature-beta-availability",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-10-02T09:42:19.000Z",
+        "contentSnippet": "Suno is branching out from the world of AI music, launching a new feature that generates spoken voices based on scripts or prompted descriptions. Speech is now available in public beta across Suno's web and mobile platforms, and allows you to simultaneously generate voiceovers and background music to accompany them. \"Music will always be at […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T09:42:19.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "AI music maker Suno now generates spoken words",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/1003925/suno-speech-ai-voice-feature-beta-availability",
+            "publishedDate": "2026-10-02T09:42:19.000Z",
+            "contentSnippet": "Suno is branching out from the world of AI music, launching a new feature that generates spoken voices based on scripts or prompted descriptions. Speech is now available in public beta across Suno's web and mobile platforms, and allows you to simultaneously generate voiceovers and background music to accompany them. \"Music will always be at […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "News",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "News",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ai music maker suno now generates spoken words"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T09:42:19.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "News",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:37.878Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261002-apples-reportedly-developing-a",
+    "canonicalTopic": "Apples Reportedly Developing a Smart Home Camera That Doesnt Record Video",
+    "slug": "apples-reportedly-developing-a-smart-home-camera-that-doesnt-record-video",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-3-AppleE28099s20reportedly20d",
+        "query": "Apples Reportedly Developing a Smart Home Camera That Doesnt Record Video",
+        "sourceUrl": "https://www.theverge.com/tech/1003877/apple-security-camera-no-video",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-10-01T22:51:36.000Z",
+        "contentSnippet": "Apple's rumored push into smart home tech could include a smart home security camera that only gives users text event descriptions instead of video footage. Mark Gurman said in the first episode of the Power On podcast that the camera will be part of \"a new Apple smart home ecosystem,\" alongside Apple's rumored smart home […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T22:51:36.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Apple’s reportedly developing a smart home camera that doesn’t record video",
+            "itemLink": "https://www.theverge.com/tech/1003877/apple-security-camera-no-video",
+            "publishedDate": "2026-10-01T22:51:36.000Z",
+            "contentSnippet": "Apple's rumored push into smart home tech could include a smart home security camera that only gives users text event descriptions instead of video footage. Mark Gurman said in the first episode of the Power On podcast that the camera will be part of \"a new Apple smart home ecosystem,\" alongside Apple's rumored smart home […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Apple",
+              "Apple Rumors",
+              "Cameras",
+              "Gadgets",
+              "News",
+              "Smart Home",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Apple",
+            "Apple Rumors",
+            "Cameras",
+            "Gadgets",
+            "News",
+            "Smart Home",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "apples reportedly developing a smart home camera that doesnt record video"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T22:51:36.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Apple",
+      "Apple Rumors",
+      "Cameras",
+      "Gadgets",
+      "News",
+      "Smart Home",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:37.926Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261002-googles-new-guided-vision-feat",
+    "canonicalTopic": "Googles New Guided Vision Feature Can Help You Read the Fine Print",
+    "slug": "googles-new-guided-vision-feature-can-help-you-read-the-fine-print",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-4-GoogleE28099s20new20Guided20",
+        "query": "Googles New Guided Vision Feature Can Help You Read the Fine Print",
+        "sourceUrl": "https://www.theverge.com/ai-artificial-intelligence/1003756/google-gemini-live-guided-vision",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-10-01T19:47:51.000Z",
+        "contentSnippet": "Guided Vision is launching in Gemini Live on compatible Android devices today to use AI to give real-time audio descriptions of anything you point your phone's camera at. By sharing your camera in Gemini Live, you can have Google's AI help with things like reading small text, describing your surroundings, finding or identifying objects around […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T19:47:51.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Google’s new Guided Vision feature can help you read the fine print",
+            "itemLink": "https://www.theverge.com/ai-artificial-intelligence/1003756/google-gemini-live-guided-vision",
+            "publishedDate": "2026-10-01T19:47:51.000Z",
+            "contentSnippet": "Guided Vision is launching in Gemini Live on compatible Android devices today to use AI to give real-time audio descriptions of anything you point your phone's camera at. By sharing your camera in Gemini Live, you can have Google's AI help with things like reading small text, describing your surroundings, finding or identifying objects around […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "AI",
+              "Android",
+              "Google",
+              "News",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "AI",
+            "Android",
+            "Google",
+            "News",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "googles new guided vision feature can help you read the fine print"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T19:47:51.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "AI",
+      "Android",
+      "Google",
+      "News",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:37.970Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261002-android-central-will-continue-",
+    "canonicalTopic": "Android Central Will Continue Despite Laying Off Its Staff",
+    "slug": "android-central-will-continue-despite-laying-off-its-staff",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-the-verge-5-Android20Central20wil",
+        "query": "Android Central Will Continue Despite Laying Off Its Staff",
+        "sourceUrl": "https://www.theverge.com/tech/1003735/android-central-layoffs",
+        "publisherName": "The Verge",
+        "publishedAt": "2026-10-01T19:20:29.000Z",
+        "contentSnippet": "Android Central, a blog focused on the Android ecosystem, laid off its staff yesterday, but owner Future confirms to The Verge that the site will continue publishing. Yesterday, four of the six staffers on Android Central's staff page posted publicly about the layoffs, including Shruti Shekar, Derrek Lee, Harish Jonnalagadda, and Nicholas Sutrich, and former […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T19:20:29.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.theverge.com/rss/index.xml",
+            "feedTitle": "The Verge",
+            "itemTitle": "Android Central 'will continue' despite laying off its staff",
+            "itemLink": "https://www.theverge.com/tech/1003735/android-central-layoffs",
+            "publishedDate": "2026-10-01T19:20:29.000Z",
+            "contentSnippet": "Android Central, a blog focused on the Android ecosystem, laid off its staff yesterday, but owner Future confirms to The Verge that the site will continue publishing. Yesterday, four of the six staffers on Android Central's staff page posted publicly about the layoffs, including Shruti Shekar, Derrek Lee, Harish Jonnalagadda, and Nicholas Sutrich, and former […]",
+            "categories": [
+              "tech",
+              "ai",
+              "gadgets",
+              "future",
+              "culture",
+              "Android",
+              "Google",
+              "Tech"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "ai",
+            "gadgets",
+            "future",
+            "culture",
+            "Android",
+            "Google",
+            "Tech"
+          ],
+          "feedName": "The Verge",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "android central will continue despite laying off its staff"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T19:20:29.000Z",
+    "tags": [
+      "tech",
+      "ai",
+      "gadgets",
+      "future",
+      "culture",
+      "Android",
+      "Google",
+      "Tech"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:38.011Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261002-a-new-contest-pits-competitors",
+    "canonicalTopic": "A New Contest Pits Competitors Against Each Other in a Race to Biological Youth",
+    "slug": "a-new-contest-pits-competitors-against-each-other-in-a-race-to-biological-youth",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-1-A20new20contest20pits2",
+        "query": "A New Contest Pits Competitors Against Each Other in a Race to Biological Youth",
+        "sourceUrl": "https://www.technologyreview.com/2026/10/02/1145610/younger-contest-race-to-biological-youth/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-10-02T09:00:00.000Z",
+        "contentSnippet": "This week, I officially signed up for an unusual competition. One that rewards competitors for getting younger. I recently turned 40, and I don’t need reminding that both time and my chronological age only tick forward. But this game is focused on competitors’ biological ages—figures that are meant to provide a better way to measure…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T09:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "A new contest pits competitors against each other in a race to biological youth",
+            "itemLink": "https://www.technologyreview.com/2026/10/02/1145610/younger-contest-race-to-biological-youth/",
+            "publishedDate": "2026-10-02T09:00:00.000Z",
+            "contentSnippet": "This week, I officially signed up for an unusual competition. One that rewards competitors for getting younger. I recently turned 40, and I don’t need reminding that both time and my chronological age only tick forward. But this game is focused on competitors’ biological ages—figures that are meant to provide a better way to measure…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "Biotechnology and health",
+              "App",
+              "Summary",
+              "The Checkup"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "Biotechnology and health",
+            "App",
+            "Summary",
+            "The Checkup"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "a new contest pits competitors against each other in a race to biological youth"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T09:00:00.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "Biotechnology and health",
+      "App",
+      "Summary",
+      "The Checkup"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:38.060Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261002-dont-be-fooled-llms-dont-reaso",
+    "canonicalTopic": "Dont Be Fooled—llms Dont Reason",
+    "slug": "dont-be-fooled-llms-dont-reason",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-2-DonE28099t20be20fooled",
+        "query": "Dont Be Fooled—llms Dont Reason",
+        "sourceUrl": "https://www.technologyreview.com/2026/10/02/1145639/dont-be-fooled-llms-dont-reason/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-10-02T08:00:00.000Z",
+        "contentSnippet": "On an afternoon in Seoul in March 2016, I watched a program I helped build put a stone on the fifth line of a Go board in what looked like a gift to its human opponent. Move 37 in game two of the five-game match looked so absurd that some commentators thought it was a…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T08:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "Don’t be fooled—LLMs don’t reason",
+            "itemLink": "https://www.technologyreview.com/2026/10/02/1145639/dont-be-fooled-llms-dont-reason/",
+            "publishedDate": "2026-10-02T08:00:00.000Z",
+            "contentSnippet": "On an afternoon in Seoul in March 2016, I watched a program I helped build put a stone on the fifth line of a Go board in what looked like a gift to its human opponent. Move 37 in game two of the five-game match looked so absurd that some commentators thought it was a…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "Artificial intelligence",
+              "App",
+              "Opinion"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "Artificial intelligence",
+            "App",
+            "Opinion"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "dont be fooled—llms dont reason"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T08:00:00.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "Artificial intelligence",
+      "App",
+      "Opinion"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:38.087Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261002-the-download-ai-mind-reading-a",
+    "canonicalTopic": "The Download Ai Mind-reading and Creative Uses for Small Batteries",
+    "slug": "the-download-ai-mind-reading-and-creative-uses-for-small-batteries",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-3-The20Download3A20AI20E",
+        "query": "The Download Ai Mind-reading and Creative Uses for Small Batteries",
+        "sourceUrl": "https://www.technologyreview.com/2026/10/01/1145592/the-download-ai-mind-reading-small-batteries/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-10-01T12:10:00.000Z",
+        "contentSnippet": "This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. An AI “mind-reading” tool can reconstruct what you’re looking at based on a brain scan A new AI tool can guess what you’re looking at just by analyzing your brain scans—and…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T12:10:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "The Download: AI “mind-reading” and creative uses for small batteries",
+            "itemLink": "https://www.technologyreview.com/2026/10/01/1145592/the-download-ai-mind-reading-small-batteries/",
+            "publishedDate": "2026-10-01T12:10:00.000Z",
+            "contentSnippet": "This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. An AI “mind-reading” tool can reconstruct what you’re looking at based on a brain scan A new AI tool can guess what you’re looking at just by analyzing your brain scans—and…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "The Download"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "The Download"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the download ai mind-reading and creative uses for small batteries"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T12:10:00.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "The Download"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:38.132Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261002-an-ai-mind-reading-tool-can-re",
+    "canonicalTopic": "An Ai Mind-reading Tool Can Reconstruct What Youre Looking at from a Brain Scan",
+    "slug": "an-ai-mind-reading-tool-can-reconstruct-what-youre-looking-at-from-a-brain-scan",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-4-An20AI20E2809Cmind-rea",
+        "query": "An Ai Mind-reading Tool Can Reconstruct What Youre Looking at from a Brain Scan",
+        "sourceUrl": "https://www.technologyreview.com/2026/10/01/1145588/ai-mind-reading-reconstructs-what-youre-looking-at/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-10-01T10:32:24.000Z",
+        "contentSnippet": "A new AI tool can guess what you’re looking at just by analyzing your brain scans—and re-create that image with remarkable precision. It can go the other way, too, and predict a person’s brain activity based on what they’re looking at. In the image above, for example, the left-hand image of each pair is what…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T10:32:24.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "An AI “mind-reading” tool can reconstruct what you’re looking at from a brain scan",
+            "itemLink": "https://www.technologyreview.com/2026/10/01/1145588/ai-mind-reading-reconstructs-what-youre-looking-at/",
+            "publishedDate": "2026-10-01T10:32:24.000Z",
+            "contentSnippet": "A new AI tool can guess what you’re looking at just by analyzing your brain scans—and re-create that image with remarkable precision. It can go the other way, too, and predict a person’s brain activity based on what they’re looking at. In the image above, for example, the left-hand image of each pair is what…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "Biotechnology and health",
+              "App",
+              "Summary"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "Biotechnology and health",
+            "App",
+            "Summary"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "an ai mind-reading tool can reconstruct what youre looking at from a brain scan"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T10:32:24.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "Biotechnology and health",
+      "App",
+      "Summary"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:38.183Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-tech-ai-20261002-how-smaller-distributed-batter",
+    "canonicalTopic": "How Smaller Distributed Batteries Could Help the Grid",
+    "slug": "how-smaller-distributed-batteries-could-help-the-grid",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-mit-tech-review-5-How20smaller2C20distri",
+        "query": "How Smaller Distributed Batteries Could Help the Grid",
+        "sourceUrl": "https://www.technologyreview.com/2026/10/01/1145435/distributed-batteries/",
+        "publisherName": "MIT Technology Review",
+        "publishedAt": "2026-10-01T10:00:00.000Z",
+        "contentSnippet": "If you want to install a big battery in New York City, you have to cut through a notoriously tough tangle of regulations. That’s made it difficult to get large energy storage projects on the grid. Faced with those obstacles, some startups are getting creative, finding ways to use relatively small batteries in unexpected places,…",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.technologyreview.com/feed/",
+            "feedTitle": "MIT Technology Review",
+            "itemTitle": "How smaller, distributed batteries could help the grid",
+            "itemLink": "https://www.technologyreview.com/2026/10/01/1145435/distributed-batteries/",
+            "publishedDate": "2026-10-01T10:00:00.000Z",
+            "contentSnippet": "If you want to install a big battery in New York City, you have to cut through a notoriously tough tangle of regulations. That’s made it difficult to get large energy storage projects on the grid. Faced with those obstacles, some startups are getting creative, finding ways to use relatively small batteries in unexpected places,…",
+            "categories": [
+              "emerging-tech",
+              "ai",
+              "biotech",
+              "computing",
+              "climate-tech",
+              "Climate change and energy",
+              "App",
+              "Summary",
+              "The Spark"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "emerging-tech",
+            "ai",
+            "biotech",
+            "computing",
+            "climate-tech",
+            "Climate change and energy",
+            "App",
+            "Summary",
+            "The Spark"
+          ],
+          "feedName": "MIT Technology Review",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how smaller distributed batteries could help the grid"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T10:00:00.000Z",
+    "tags": [
+      "emerging-tech",
+      "ai",
+      "biotech",
+      "computing",
+      "climate-tech",
+      "Climate change and energy",
+      "App",
+      "Summary",
+      "The Spark"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:38.222Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20261002-a-neuro-wellness-spa-retreat-a",
+    "canonicalTopic": "A Neuro-wellness Spa Retreat—and Why Are Travelers Flocking to Them",
+    "slug": "a-neuro-wellness-spa-retreat-and-why-are-travelers-flocking-to-them",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-What20Is20a20Neuro-Well",
+        "query": "A Neuro-wellness Spa Retreat—and Why Are Travelers Flocking to Them",
+        "sourceUrl": "https://www.cntraveler.com/story/is-a-neuro-wellness-spa-retreat-really-worth-it",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-10-01T22:49:37.000Z",
+        "contentSnippet": "A travel writer with a family history of Alzheimer’s disease grapples with the wellness trend of neurological optimization that aims to make the mind sharper—and perhaps less disease-prone.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T22:49:37.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "What Is a Neuro-Wellness Spa Retreat—and Why Are Travelers Flocking to Them?",
+            "itemLink": "https://www.cntraveler.com/story/is-a-neuro-wellness-spa-retreat-really-worth-it",
+            "publishedDate": "2026-10-01T22:49:37.000Z",
+            "contentSnippet": "A travel writer with a family history of Alzheimer’s disease grapples with the wellness trend of neurological optimization that aims to make the mind sharper—and perhaps less disease-prone.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Inspiration / Wellness & Spas"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Inspiration / Wellness & Spas"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "a neuro-wellness spa retreat—and why are travelers flocking to them"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T22:49:37.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Inspiration / Wellness & Spas"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:38.273Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261002-deidesheim-is-the-tiny-german-",
+    "canonicalTopic": "Deidesheim Is the Tiny German Wine Town Youve Never Heard Of—and It Now Has a Three-star Michelin Restaurant",
+    "slug": "deidesheim-is-the-tiny-german-wine-town-youve-never-heard-of-and-it-now-has-a-three-star-michelin-restaurant",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-2-Deidesheim20Is20the20Ti",
+        "query": "Deidesheim Is the Tiny German Wine Town Youve Never Heard Of—and It Now Has a Three-star Michelin Restaurant",
+        "sourceUrl": "https://www.cntraveler.com/story/deidesheim-is-the-tiny-german-wine-town-youve-never-heard-of",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-10-01T20:49:44.000Z",
+        "contentSnippet": "Deidesheim is the quaint German hamlet you're unlikely to have crossed paths with—until now, that is.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T20:49:44.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Deidesheim Is the Tiny German Wine Town You’ve Never Heard Of—And It Now Has a Three-Star Michelin Restaurant",
+            "itemLink": "https://www.cntraveler.com/story/deidesheim-is-the-tiny-german-wine-town-youve-never-heard-of",
+            "publishedDate": "2026-10-01T20:49:44.000Z",
+            "contentSnippet": "Deidesheim is the quaint German hamlet you're unlikely to have crossed paths with—until now, that is.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Inspiration"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Inspiration"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "deidesheim is the tiny german wine town youve never heard of—and it now has a three-star michelin restaurant"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T20:49:44.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Inspiration"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:38.340Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261002-celestyal-cruise-promo-codes-f",
+    "canonicalTopic": "Celestyal Cruise Promo Codes for 2026",
+    "slug": "celestyal-cruise-promo-codes-for-2026",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-3-Celestyal20Cruise20Pro",
+        "query": "Celestyal Cruise Promo Codes for 2026",
+        "sourceUrl": "https://www.cntraveler.com/story/deals/celestyal-cruises-coupon-codes",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-10-01T20:26:44.000Z",
+        "contentSnippet": "Unlock incredible savings on your next Mediterranean adventure with verified Celestyal Cruises discount codes, coupons, and last-minute deals. Discover how to apply your savings and embark on an unforgettable journey.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T20:26:44.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Celestyal Cruise Promo Codes for 2026",
+            "itemLink": "https://www.cntraveler.com/story/deals/celestyal-cruises-coupon-codes",
+            "publishedDate": "2026-10-01T20:26:44.000Z",
+            "contentSnippet": "Unlock incredible savings on your next Mediterranean adventure with verified Celestyal Cruises discount codes, coupons, and last-minute deals. Discover how to apply your savings and embark on an unforgettable journey.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Shopping"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "celestyal cruise promo codes for 2026"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T20:26:44.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:38.368Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261002-how-we-pulled-it-off-norway-me",
+    "canonicalTopic": "How We Pulled It Off Norway Meets Sri Lanka at a Colorful Island Wedding",
+    "slug": "how-we-pulled-it-off-norway-meets-sri-lanka-at-a-colorful-island-wedding",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-4-How20We20Pulled20It20Off",
+        "query": "How We Pulled It Off Norway Meets Sri Lanka at a Colorful Island Wedding",
+        "sourceUrl": "https://www.cntraveler.com/story/sri-lanka-wedding-how-we-pulled-it-off",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-10-01T19:25:25.000Z",
+        "contentSnippet": "From the exuberant Hindu ceremony to the fireworks after their Norwegian white-gown-and-tux celebration.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T19:25:25.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "How We Pulled It Off: Norway Meets Sri Lanka at a Colorful Island Wedding",
+            "itemLink": "https://www.cntraveler.com/story/sri-lanka-wedding-how-we-pulled-it-off",
+            "publishedDate": "2026-10-01T19:25:25.000Z",
+            "contentSnippet": "From the exuberant Hindu ceremony to the fireworks after their Norwegian white-gown-and-tux celebration.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Inspiration / Destination Weddings"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Inspiration / Destination Weddings"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how we pulled it off norway meets sri lanka at a colorful island wedding"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T19:25:25.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Inspiration / Destination Weddings"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:38.415Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261002-helly-hansen-promo-code-save-1",
+    "canonicalTopic": "Helly Hansen Promo Code Save 15 on Outdoor Gear",
+    "slug": "helly-hansen-promo-code-save-15-on-outdoor-gear",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-5-Helly20Hansen20Promo20C",
+        "query": "Helly Hansen Promo Code Save 15 on Outdoor Gear",
+        "sourceUrl": "https://www.cntraveler.com/story/helly-hansen-promo-code",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-10-01T16:57:54.000Z",
+        "contentSnippet": "Gear up for your next adventure with a verified Helly Hansen discount code for 15% off on signing up to emails, plus seasonal markdown events offering discounts up to 50% this fall.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T16:57:54.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "Helly Hansen Promo Code: Save 15% on Outdoor Gear",
+            "itemLink": "https://www.cntraveler.com/story/helly-hansen-promo-code",
+            "publishedDate": "2026-10-01T16:57:54.000Z",
+            "contentSnippet": "Gear up for your next adventure with a verified Helly Hansen discount code for 15% off on signing up to emails, plus seasonal markdown events offering discounts up to 50% this fall.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Shopping"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "helly hansen promo code save 15 on outdoor gear"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T16:57:54.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:38.451Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261002-i-was-not-going-to-let-others-",
+    "canonicalTopic": "I Was Not Going to Let Others Die - Pilot of Flydubai Flight Describes Cockpit Attack by Co-pilot",
+    "slug": "i-was-not-going-to-let-others-die-pilot-of-flydubai-flight-describes-cockpit-attack-by-co-pilot",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-1-I20was20not20going20to20",
+        "query": "I Was Not Going to Let Others Die - Pilot of Flydubai Flight Describes Cockpit Attack by Co-pilot",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/c639m98gde00o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-10-02T09:08:06.000Z",
+        "contentSnippet": "Capt Smit Machchhar tells Indian Prime Minister Narendra Modi he opened the cockpit door to let others in during the attack.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T09:08:06.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "'I was not going to let others die' - pilot of Flydubai flight describes cockpit attack by co-pilot",
+            "itemLink": "https://www.bbc.co.uk/news/articles/c639m98gde00o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-10-02T09:08:06.000Z",
+            "contentSnippet": "Capt Smit Machchhar tells Indian Prime Minister Narendra Modi he opened the cockpit door to let others in during the attack.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "i was not going to let others die - pilot of flydubai flight describes cockpit attack by co-pilot"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T09:08:06.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:38.511Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261002-christa-pike-in-critical-condi",
+    "canonicalTopic": "Christa Pike in Critical Condition After Surviving Two Lethal Injections Lawyer Says",
+    "slug": "christa-pike-in-critical-condition-after-surviving-two-lethal-injections-lawyer-says",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-2-Christa20Pike20in20crit",
+        "query": "Christa Pike in Critical Condition After Surviving Two Lethal Injections Lawyer Says",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cmn4540d4z87o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-10-02T11:06:10.000Z",
+        "contentSnippet": "Pike’s lawyers have asked for her death sentence to be commuted following the botched execution.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T11:06:10.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Christa Pike in critical condition after surviving two lethal injections, lawyer says",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cmn4540d4z87o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-10-02T11:06:10.000Z",
+            "contentSnippet": "Pike’s lawyers have asked for her death sentence to be commuted following the botched execution.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "christa pike in critical condition after surviving two lethal injections lawyer says"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T11:06:10.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:38.564Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261002-ashamed-cornell-students-gathe",
+    "canonicalTopic": "Ashamed Cornell Students Gather to Voice Anger over Alleged Gang Rape",
+    "slug": "ashamed-cornell-students-gather-to-voice-anger-over-alleged-gang-rape",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-3-Ashamed3A20Cornell20s",
+        "query": "Ashamed Cornell Students Gather to Voice Anger over Alleged Gang Rape",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cm0e3ed1er1yo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-10-02T10:00:24.000Z",
+        "contentSnippet": "Students tell the BBC that the tension on campus has become palpable since allegations from 2024 resurfaced.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T10:00:24.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "'Ashamed': Cornell students gather to voice anger over alleged gang rape",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cm0e3ed1er1yo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-10-02T10:00:24.000Z",
+            "contentSnippet": "Students tell the BBC that the tension on campus has become palpable since allegations from 2024 resurfaced.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ashamed cornell students gather to voice anger over alleged gang rape"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T10:00:24.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:38.611Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261002-seoul-warns-further-action-if-",
+    "canonicalTopic": "Seoul Warns Further Action If Ukraine Does Not Apologise over Prisoner-of-war Row",
+    "slug": "seoul-warns-further-action-if-ukraine-does-not-apologise-over-prisoner-of-war-row",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-4-Seoul20warns20further",
+        "query": "Seoul Warns Further Action If Ukraine Does Not Apologise over Prisoner-of-war Row",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cm1dld14weero?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-10-02T03:09:13.000Z",
+        "contentSnippet": "President Lee Jae Myung also accused Kyiv of \"attempting to provoke a war on the Korean Peninsula\".",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T03:09:13.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Seoul warns 'further action' if Ukraine does not apologise over prisoner-of-war row",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cm1dld14weero?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-10-02T03:09:13.000Z",
+            "contentSnippet": "President Lee Jae Myung also accused Kyiv of \"attempting to provoke a war on the Korean Peninsula\".",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "seoul warns further action if ukraine does not apologise over prisoner-of-war row"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T03:09:13.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:38.665Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261002-the-15-best-new-design-and-art",
+    "canonicalTopic": "The 15 Best New Design and Art Books to Know This Fall",
+    "slug": "the-15-best-new-design-and-art-books-to-know-this-fall",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-2-The201520Best20New20Desi",
+        "query": "The 15 Best New Design and Art Books to Know This Fall",
+        "sourceUrl": "https://www.vogue.com/article/best-new-design-and-art-books",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-10-02T10:40:28.000Z",
+        "contentSnippet": "Need design inspiration, gift-giving advice, or hosting tips for the upcoming holiday season? These new books have it all.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T10:40:28.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "The 15 Best New Design and Art Books to Know This Fall",
+            "itemLink": "https://www.vogue.com/article/best-new-design-and-art-books",
+            "publishedDate": "2026-10-02T10:40:28.000Z",
+            "contentSnippet": "Need design inspiration, gift-giving advice, or hosting tips for the upcoming holiday season? These new books have it all.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Living"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Living"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the 15 best new design and art books to know this fall"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T10:40:28.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Living"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:38.755Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261002-the-10-best-airbnbs-in-the-cot",
+    "canonicalTopic": "The 10 Best Airbnbs in the Cotswolds to Book Yourself into for a Weekend Away",
+    "slug": "the-10-best-airbnbs-in-the-cotswolds-to-book-yourself-into-for-a-weekend-away",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-4-The201020Best20Airbnbs20",
+        "query": "The 10 Best Airbnbs in the Cotswolds to Book Yourself into for a Weekend Away",
+        "sourceUrl": "https://www.vogue.com/article/airbnbs-in-the-cotswolds",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-10-02T10:00:00.000Z",
+        "contentSnippet": "Heading to the English countryside? Book an Airbnb in the Cotswolds for your own perfect cozy cottage. Here, 10 Vogue-approved listings to start with.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "The 10 Best Airbnbs in the Cotswolds to Book Yourself Into for a Weekend Away",
+            "itemLink": "https://www.vogue.com/article/airbnbs-in-the-cotswolds",
+            "publishedDate": "2026-10-02T10:00:00.000Z",
+            "contentSnippet": "Heading to the English countryside? Book an Airbnb in the Cotswolds for your own perfect cozy cottage. Here, 10 Vogue-approved listings to start with.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Shopping",
+              "Living / Travel",
+              "travel_destination"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Shopping",
+            "Living / Travel",
+            "travel_destination"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the 10 best airbnbs in the cotswolds to book yourself into for a weekend away"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T10:00:00.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Shopping",
+      "Living / Travel",
+      "travel_destination"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:38.827Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261002-how-to-build-a-dry-skin-routin",
+    "canonicalTopic": "How to Build a Dry Skin Routine",
+    "slug": "how-to-build-a-dry-skin-routine",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-1-How20to20Build20a20Dry20",
+        "query": "How to Build a Dry Skin Routine",
+        "sourceUrl": "https://www.allure.com/story/dry-skin-care-routine",
+        "publisherName": "Allure",
+        "publishedAt": "2026-10-02T00:15:00.000Z",
+        "contentSnippet": "Keep it simple and get your skin on the path to a hydrated, happier future.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T00:15:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "How to Build a Dry Skin Routine",
+            "itemLink": "https://www.allure.com/story/dry-skin-care-routine",
+            "publishedDate": "2026-10-02T00:15:00.000Z",
+            "contentSnippet": "Keep it simple and get your skin on the path to a hydrated, happier future.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Skin"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Skin"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how to build a dry skin routine"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T00:15:00.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Skin"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:38.854Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261002-6-best-lip-masks-2026-to-sooth",
+    "canonicalTopic": "6 Best Lip Masks 2026 to Soothe Dry Chapped Lips Overnight",
+    "slug": "6-best-lip-masks-2026-to-soothe-dry-chapped-lips-overnight",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-2-620Best20Lip20Masks20202",
+        "query": "6 Best Lip Masks 2026 to Soothe Dry Chapped Lips Overnight",
+        "sourceUrl": "https://www.allure.com/gallery/best-lip-mask",
+        "publisherName": "Allure",
+        "publishedAt": "2026-10-01T18:58:33.000Z",
+        "contentSnippet": "Swipe them on for smoother, plumper lips.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-01T18:58:33.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "6 Best Lip Masks 2026 to Soothe Dry, Chapped Lips Overnight",
+            "itemLink": "https://www.allure.com/gallery/best-lip-mask",
+            "publishedDate": "2026-10-01T18:58:33.000Z",
+            "contentSnippet": "Swipe them on for smoother, plumper lips.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Skin",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Skin",
+            "Shopping"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "6 best lip masks 2026 to soothe dry chapped lips overnight"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-01T18:58:33.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Skin",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:38.895Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261002-33-halloween-nail-art-ideas-th",
+    "canonicalTopic": "33 Halloween Nail Art Ideas That Are Equal Parts Eerie and Cute",
+    "slug": "33-halloween-nail-art-ideas-that-are-equal-parts-eerie-and-cute",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-4-3320Halloween20Nail20Ar",
+        "query": "33 Halloween Nail Art Ideas That Are Equal Parts Eerie and Cute",
+        "sourceUrl": "https://www.allure.com/gallery/halloween-nail-art-ideas",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-30T23:00:00.000Z",
+        "contentSnippet": "Macabre or magical, at-home or pro-painted—whatever your manicure MO, we’ve summoned some seriously spooky nail art inspiration.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T23:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "33 Halloween Nail Art Ideas That Are Equal Parts Eerie and Cute",
+            "itemLink": "https://www.allure.com/gallery/halloween-nail-art-ideas",
+            "publishedDate": "2026-09-30T23:00:00.000Z",
+            "contentSnippet": "Macabre or magical, at-home or pro-painted—whatever your manicure MO, we’ve summoned some seriously spooky nail art inspiration.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Nails"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Nails"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "33 halloween nail art ideas that are equal parts eerie and cute"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T23:00:00.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Nails"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:38.970Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261002-7-best-eye-creams-for-wrinkles",
+    "canonicalTopic": "7 Best Eye Creams for Wrinkles to Smooth Firm and Brighten",
+    "slug": "7-best-eye-creams-for-wrinkles-to-smooth-firm-and-brighten",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-allure-beauty-5-720Best20Eye20Creams20fo",
+        "query": "7 Best Eye Creams for Wrinkles to Smooth Firm and Brighten",
+        "sourceUrl": "https://www.allure.com/gallery/best-anti-aging-eye-creams",
+        "publisherName": "Allure",
+        "publishedAt": "2026-09-30T22:26:14.000Z",
+        "contentSnippet": "These deeply hydrating formulas go the extra mile to target crow's feet, sagging skin, and more.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-09-30T22:26:14.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.allure.com/feed/rss",
+            "feedTitle": "Allure",
+            "itemTitle": "7 Best Eye Creams for Wrinkles to Smooth, Firm, and Brighten",
+            "itemLink": "https://www.allure.com/gallery/best-anti-aging-eye-creams",
+            "publishedDate": "2026-09-30T22:26:14.000Z",
+            "contentSnippet": "These deeply hydrating formulas go the extra mile to target crow's feet, sagging skin, and more.",
+            "categories": [
+              "skincare",
+              "makeup",
+              "haircare",
+              "fragrance",
+              "beauty-routines",
+              "cosmetics",
+              "Skin",
+              "Skin / Aging",
+              "Shopping"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "skincare",
+            "makeup",
+            "haircare",
+            "fragrance",
+            "beauty-routines",
+            "cosmetics",
+            "Skin",
+            "Skin / Aging",
+            "Shopping"
+          ],
+          "feedName": "Allure Beauty & Skincare",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "7 best eye creams for wrinkles to smooth firm and brighten"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-09-30T22:26:14.000Z",
+    "tags": [
+      "skincare",
+      "makeup",
+      "haircare",
+      "fragrance",
+      "beauty-routines",
+      "cosmetics",
+      "Skin",
+      "Skin / Aging",
+      "Shopping"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:39.012Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261002-snhetta-captures-the-magic-of-",
+    "canonicalTopic": "Snhetta Captures the Magic of the Mountains with Lookout in Lech",
+    "slug": "snhetta-captures-the-magic-of-the-mountains-with-lookout-in-lech",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-SnC3B8hetta2022captures20t",
+        "query": "Snhetta Captures the Magic of the Mountains with Lookout in Lech",
+        "sourceUrl": "https://www.dezeen.com/2026/10/02/snohetta-lech-mountain-mirror/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-10-02T10:35:30.000Z",
+        "contentSnippet": "Stepping stones lead across a reflective pool of water at Lech Mountain Mirror, a viewpoint in the Austrian Alps, designed by architecture studio Snøhetta to invite a moment of pause. Located in a village called Lech in the Vorarlberg region, the installation comprises a shallow pool of water on the roof of the Zugerbergbahn cable The post Snøhetta \"captures the magic of the mountains\" with lookout in Lech appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T10:35:30.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Snøhetta \"captures the magic of the mountains\" with lookout in Lech",
+            "itemLink": "https://www.dezeen.com/2026/10/02/snohetta-lech-mountain-mirror/",
+            "publishedDate": "2026-10-02T10:35:30.000Z",
+            "contentSnippet": "Stepping stones lead across a reflective pool of water at Lech Mountain Mirror, a viewpoint in the Austrian Alps, designed by architecture studio Snøhetta to invite a moment of pause. Located in a village called Lech in the Vorarlberg region, the installation comprises a shallow pool of water on the roof of the Zugerbergbahn cable The post Snøhetta \"captures the magic of the mountains\" with lookout in Lech appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Austria",
+              "Landscape architecture",
+              "Alps",
+              "Installations",
+              "Viewpoints",
+              "Snøhetta",
+              "Water"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Austria",
+            "Landscape architecture",
+            "Alps",
+            "Installations",
+            "Viewpoints",
+            "Snøhetta",
+            "Water"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "snhetta captures the magic of the mountains with lookout in lech"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T10:35:30.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Austria",
+      "Landscape architecture",
+      "Alps",
+      "Installations",
+      "Viewpoints",
+      "Snøhetta",
+      "Water"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:39.057Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261002-broken-pitch-roof-tops-wooden-",
+    "canonicalTopic": "Broken-pitch Roof Tops Wooden House in Yakami by Enter-archi",
+    "slug": "broken-pitch-roof-tops-wooden-house-in-yakami-by-enter-archi",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-2-Broken-pitch20roof20to",
+        "query": "Broken-pitch Roof Tops Wooden House in Yakami by Enter-archi",
+        "sourceUrl": "https://www.dezeen.com/2026/10/02/house-yakami-enter-archi-japan/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-10-02T10:30:05.000Z",
+        "contentSnippet": "A distinctive roof maximises mountain views and prevents snow build-up at this timber-framed house in Japan's Shimane Prefecture, designed by Japanese studio Enter-Archi. Named House in Yakami after the rural town where it is located, the one-storey home was organised by Enter-Archi as three connected volumes with courtyards in between. A covered parking space occupies the The post Broken-pitch roof tops wooden House in Yakami by Enter-Archi appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T10:30:05.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Broken-pitch roof tops wooden House in Yakami by Enter-Archi",
+            "itemLink": "https://www.dezeen.com/2026/10/02/house-yakami-enter-archi-japan/",
+            "publishedDate": "2026-10-02T10:30:05.000Z",
+            "contentSnippet": "A distinctive roof maximises mountain views and prevents snow build-up at this timber-framed house in Japan's Shimane Prefecture, designed by Japanese studio Enter-Archi. Named House in Yakami after the rural town where it is located, the one-storey home was organised by Enter-Archi as three connected volumes with courtyards in between. A covered parking space occupies the The post Broken-pitch roof tops wooden House in Yakami by Enter-Archi appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Exclusives",
+              "Japan",
+              "Japanese architecture",
+              "Residential architecture and interiors",
+              "Wood",
+              "Courtyards",
+              "Houses",
+              "Japanese houses",
+              "Wooden architecture"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Exclusives",
+            "Japan",
+            "Japanese architecture",
+            "Residential architecture and interiors",
+            "Wood",
+            "Courtyards",
+            "Houses",
+            "Japanese houses",
+            "Wooden architecture"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "broken-pitch roof tops wooden house in yakami by enter-archi"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T10:30:05.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Exclusives",
+      "Japan",
+      "Japanese architecture",
+      "Residential architecture and interiors",
+      "Wood",
+      "Courtyards",
+      "Houses",
+      "Japanese houses",
+      "Wooden architecture"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:39.099Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261002-vollebak-creates-rock-jacket-f",
+    "canonicalTopic": "Vollebak Creates Rock Jacket from 54000 Slate Tiles",
+    "slug": "vollebak-creates-rock-jacket-from-54000-slate-tiles",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-3-Vollebak20creates20Roc",
+        "query": "Vollebak Creates Rock Jacket from 54000 Slate Tiles",
+        "sourceUrl": "https://www.dezeen.com/2026/10/02/vollebak-rock-jacket-slate-tiles/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-10-02T10:05:39.000Z",
+        "contentSnippet": "Experimental clothing brand Vollebak has made a one-off coat covered in over 50,000 half-centimetre-square pieces of slate. Named Rock Jacket, the coat is the latest piece designed by Vollebak that aims to challenge traditional clothing material choices. It follows jackets made from graphene, copper, American walnut and Dyneema – a fibre that is 15 times The post Vollebak creates Rock Jacket from 54,000 slate tiles appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T10:05:39.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Vollebak creates Rock Jacket from 54,000 slate tiles",
+            "itemLink": "https://www.dezeen.com/2026/10/02/vollebak-rock-jacket-slate-tiles/",
+            "publishedDate": "2026-10-02T10:05:39.000Z",
+            "contentSnippet": "Experimental clothing brand Vollebak has made a one-off coat covered in over 50,000 half-centimetre-square pieces of slate. Named Rock Jacket, the coat is the latest piece designed by Vollebak that aims to challenge traditional clothing material choices. It follows jackets made from graphene, copper, American walnut and Dyneema – a fibre that is 15 times The post Vollebak creates Rock Jacket from 54,000 slate tiles appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Design",
+              "Clothing",
+              "Jackets",
+              "Vollebak"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Design",
+            "Clothing",
+            "Jackets",
+            "Vollebak"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "vollebak creates rock jacket from 54000 slate tiles"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T10:05:39.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Design",
+      "Clothing",
+      "Jackets",
+      "Vollebak"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:39.137Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261002-were-scared-of-metas-adorable-",
+    "canonicalTopic": "Were Scared of Metas Adorable Ai Device",
+    "slug": "were-scared-of-metas-adorable-ai-device",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-4-Were20scared20of20Meta",
+        "query": "Were Scared of Metas Adorable Ai Device",
+        "sourceUrl": "https://www.dezeen.com/2026/10/02/muse-ai-charm-new-york-jails-dezeen-weekly-podcast/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-10-02T10:00:23.000Z",
+        "contentSnippet": "Why are AI companies opting for cute design? And why is New York building \"jailscrapers\"? Listen to the latest episode of Dezeen Weekly now. This week, Dezeen features editor Nat Barker, design editor Jennifer Hahn and editor-in-chief Tom Ravenscroft consider the launch of Meta's Muse Charm AI device. Then, they delve into New York City's The post We're scared of Meta's adorable AI device appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T10:00:23.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "We're scared of Meta's adorable AI device",
+            "itemLink": "https://www.dezeen.com/2026/10/02/muse-ai-charm-new-york-jails-dezeen-weekly-podcast/",
+            "publishedDate": "2026-10-02T10:00:23.000Z",
+            "contentSnippet": "Why are AI companies opting for cute design? And why is New York building \"jailscrapers\"? Listen to the latest episode of Dezeen Weekly now. This week, Dezeen features editor Nat Barker, design editor Jennifer Hahn and editor-in-chief Tom Ravenscroft consider the launch of Meta's Muse Charm AI device. Then, they delve into New York City's The post We're scared of Meta's adorable AI device appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "Dezeen Weekly",
+              "all",
+              "Architecture",
+              "Design",
+              "Technology",
+              "Podcasts",
+              "Artificial intelligence (AI)",
+              "Gadgets",
+              "Meta"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "Dezeen Weekly",
+            "all",
+            "Architecture",
+            "Design",
+            "Technology",
+            "Podcasts",
+            "Artificial intelligence (AI)",
+            "Gadgets",
+            "Meta"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "were scared of metas adorable ai device"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T10:00:23.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "Dezeen Weekly",
+      "all",
+      "Architecture",
+      "Design",
+      "Technology",
+      "Podcasts",
+      "Artificial intelligence (AI)",
+      "Gadgets",
+      "Meta"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:39.168Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261002-zonify-wall-and-zonify-table-b",
+    "canonicalTopic": "Zonify Wall and Zonify Table by Studio Stockholm for Zilenzio",
+    "slug": "zonify-wall-and-zonify-table-by-studio-stockholm-for-zilenzio",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-5-Zonify20Wall20and20Zoni",
+        "query": "Zonify Wall and Zonify Table by Studio Stockholm for Zilenzio",
+        "sourceUrl": "https://www.dezeen.com/2026/10/02/zonify-wall-zonify-table-studio-stockholm-zilenzio-dezeen-showroom/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-10-02T09:30:51.000Z",
+        "contentSnippet": "Dezeen Showroom: acoustic solutions brand Zilenzio has released Zonify Wall and Zonify Table, a duo of sound-absorbing products for streamlining in-person and digital meetings. Created in collaboration with Studio Stockholm, Zonify Wall is a large, wall-mounted acoustic panel, while Zonify Table is a smaller desk screen with integrated dimmable lighting. Both products feature a distinctive pleated The post Zonify Wall and Zonify Table by Studio Stockholm for Zilenzio appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T09:30:51.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Zonify Wall and Zonify Table by Studio Stockholm for Zilenzio",
+            "itemLink": "https://www.dezeen.com/2026/10/02/zonify-wall-zonify-table-studio-stockholm-zilenzio-dezeen-showroom/",
+            "publishedDate": "2026-10-02T09:30:51.000Z",
+            "contentSnippet": "Dezeen Showroom: acoustic solutions brand Zilenzio has released Zonify Wall and Zonify Table, a duo of sound-absorbing products for streamlining in-person and digital meetings. Created in collaboration with Studio Stockholm, Zonify Wall is a large, wall-mounted acoustic panel, while Zonify Table is a smaller desk screen with integrated dimmable lighting. Both products feature a distinctive pleated The post Zonify Wall and Zonify Table by Studio Stockholm for Zilenzio appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Acoustic panels",
+              "Do not show on the Homepage",
+              "Zilenzio",
+              "Dezeen Showroom",
+              "Office furniture",
+              "Tables",
+              "Acoustic products"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Acoustic panels",
+            "Do not show on the Homepage",
+            "Zilenzio",
+            "Dezeen Showroom",
+            "Office furniture",
+            "Tables",
+            "Acoustic products"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "zonify wall and zonify table by studio stockholm for zilenzio"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T09:30:51.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Acoustic panels",
+      "Do not show on the Homepage",
+      "Zilenzio",
+      "Dezeen Showroom",
+      "Office furniture",
+      "Tables",
+      "Acoustic products"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:39.210Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261002-the-celebrity-traitors-scores-",
+    "canonicalTopic": "The Celebrity Traitors Scores Record-breaking Season 2 Premiere with Nearly 9 Million Viewers",
+    "slug": "the-celebrity-traitors-scores-record-breaking-season-2-premiere-with-nearly-9-million-viewers",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-1-The20Celebrity20",
+        "query": "The Celebrity Traitors Scores Record-breaking Season 2 Premiere with Nearly 9 Million Viewers",
+        "sourceUrl": "https://variety.com/2026/tv/global/celebrity-traitors-premiere-ratings-record-9-million-1236897450/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-10-02T10:54:28.000Z",
+        "contentSnippet": "The second season of the U.K.'s \"Celebrity Traitors\" is off to a record-breaking start. More than 8.8 million viewers watched Thursday night's premiere of the BBC's devious reality show, according to overnight numbers, with viewership peaking at 9 million. In addition, over 50% of people watching TV were tuning into \"The Celebrity Traitors,\" making it […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T10:54:28.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "'The Celebrity Traitors' Scores Record-Breaking Season 2 Premiere With Nearly 9 Million Viewers",
+            "itemLink": "https://variety.com/2026/tv/global/celebrity-traitors-premiere-ratings-record-9-million-1236897450/",
+            "publishedDate": "2026-10-02T10:54:28.000Z",
+            "contentSnippet": "The second season of the U.K.'s \"Celebrity Traitors\" is off to a record-breaking start. More than 8.8 million viewers watched Thursday night's premiere of the BBC's devious reality show, according to overnight numbers, with viewership peaking at 9 million. In addition, over 50% of people watching TV were tuning into \"The Celebrity Traitors,\" making it […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Global",
+              "News",
+              "BBC",
+              "The Celebrity Traitors"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Global",
+            "News",
+            "BBC",
+            "The Celebrity Traitors"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the celebrity traitors scores record-breaking season 2 premiere with nearly 9 million viewers"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T10:54:28.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Global",
+      "News",
+      "BBC",
+      "The Celebrity Traitors"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:39.271Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261002-a-talent-for-murder-director-a",
+    "canonicalTopic": "A Talent for Murder Director Anton Corbijn Praises Helen Mirrens Performance As Controversial Author Patricia Highsmith Shes a Great Jerk",
+    "slug": "a-talent-for-murder-director-anton-corbijn-praises-helen-mirrens-performance-as-controversial-author-patricia-highsmith-shes-a-great-jerk",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-2-E28098A20Talent2",
+        "query": "A Talent for Murder Director Anton Corbijn Praises Helen Mirrens Performance As Controversial Author Patricia Highsmith Shes a Great Jerk",
+        "sourceUrl": "https://variety.com/2026/film/global/anton-corbijn-helen-mirren-patricia-highsmith-1236894582/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-10-02T10:15:43.000Z",
+        "contentSnippet": "In “A Talent for Murder,” director Anton Corbijn takes a closer look at writer Patricia Highsmith. Known for creating everyone’s favorite psychopath Tom Ripley, Highsmith – played by Helen Mirren – became a controversial figure because of her antisemitic and misanthropic statements. “By all accounts, she was much worse than what we show in the […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T10:15:43.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "‘A Talent for Murder’ Director Anton Corbijn Praises Helen Mirren’s Performance as Controversial Author Patricia Highsmith: ‘She’s a Great Jerk!’",
+            "itemLink": "https://variety.com/2026/film/global/anton-corbijn-helen-mirren-patricia-highsmith-1236894582/",
+            "publishedDate": "2026-10-02T10:15:43.000Z",
+            "contentSnippet": "In “A Talent for Murder,” director Anton Corbijn takes a closer look at writer Patricia Highsmith. Known for creating everyone’s favorite psychopath Tom Ripley, Highsmith – played by Helen Mirren – became a controversial figure because of her antisemitic and misanthropic statements. “By all accounts, she was much worse than what we show in the […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Global",
+              "Markets & Festivals",
+              "News",
+              "A Talent for Murder",
+              "Alden Ehrenreich",
+              "Anton Corbijn",
+              "Helen Mirren",
+              "Patricia Highsmith",
+              "Zurich Film Festival"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Global",
+            "Markets & Festivals",
+            "News",
+            "A Talent for Murder",
+            "Alden Ehrenreich",
+            "Anton Corbijn",
+            "Helen Mirren",
+            "Patricia Highsmith",
+            "Zurich Film Festival"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "a talent for murder director anton corbijn praises helen mirrens performance as controversial author patricia highsmith shes a great jerk"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T10:15:43.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Global",
+      "Markets & Festivals",
+      "News",
+      "A Talent for Murder",
+      "Alden Ehrenreich",
+      "Anton Corbijn",
+      "Helen Mirren",
+      "Patricia Highsmith",
+      "Zurich Film Festival"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:39.351Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261002-charlie-cox-to-lead-the-kings-",
+    "canonicalTopic": "Charlie Cox to Lead the Kings Ransom Play in London",
+    "slug": "charlie-cox-to-lead-the-kings-ransom-play-in-london",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-3-Charlie20Cox20to",
+        "query": "Charlie Cox to Lead the Kings Ransom Play in London",
+        "sourceUrl": "https://variety.com/2026/theater/global/charlie-cox-the-kings-ransom-play-london-1236894603/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-10-02T10:00:00.000Z",
+        "contentSnippet": "\"Daredevil\" star Charlie Cox is returning to the London stage this winter to lead \"The King's Ransom,\" a new play by Stuart Slade. World premiering at the Donmar Warehouse, \"The King's Ransom\" is set in 1977 Memphis and stars Cox as Vince Black, a small-time crook who is offered the opportunity of a lifetime. \"The […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T10:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Charlie Cox to Lead 'The King's Ransom' Play in London",
+            "itemLink": "https://variety.com/2026/theater/global/charlie-cox-the-kings-ransom-play-london-1236894603/",
+            "publishedDate": "2026-10-02T10:00:00.000Z",
+            "contentSnippet": "\"Daredevil\" star Charlie Cox is returning to the London stage this winter to lead \"The King's Ransom,\" a new play by Stuart Slade. World premiering at the Donmar Warehouse, \"The King's Ransom\" is set in 1977 Memphis and stars Cox as Vince Black, a small-time crook who is offered the opportunity of a lifetime. \"The […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Global",
+              "News",
+              "Charlie Cox"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Global",
+            "News",
+            "Charlie Cox"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "charlie cox to lead the kings ransom play in london"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T10:00:00.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Global",
+      "News",
+      "Charlie Cox"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:39.391Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261002-michael-de-luca-and-pamela-abd",
+    "canonicalTopic": "Michael De Luca and Pamela Abdy to Depart at Warner Bros Following Paramount Close",
+    "slug": "michael-de-luca-and-pamela-abdy-to-depart-at-warner-bros-following-paramount-close",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-4-Michael20De20Luc",
+        "query": "Michael De Luca and Pamela Abdy to Depart at Warner Bros Following Paramount Close",
+        "sourceUrl": "https://variety.com/2026/film/news/michael-de-luca-pamela-abdy-exit-warner-bros-paramount-merger-close-1236897365/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-10-02T06:15:17.000Z",
+        "contentSnippet": "Michael De Luca and Pamela Abdy’s term as chiefs of Warner Bros. is coming to an end. Multiple sources told Variety that De Luca and Abdy will not be part of David Ellison's management team after the merger between Paramount Skydance and Warner Bros. Discovery closes. The landmark $110 billion pact is expected to be […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T06:15:17.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Michael De Luca and Pamela Abdy to Depart at Warner Bros. Following Paramount Close",
+            "itemLink": "https://variety.com/2026/film/news/michael-de-luca-pamela-abdy-exit-warner-bros-paramount-merger-close-1236897365/",
+            "publishedDate": "2026-10-02T06:15:17.000Z",
+            "contentSnippet": "Michael De Luca and Pamela Abdy’s term as chiefs of Warner Bros. is coming to an end. Multiple sources told Variety that De Luca and Abdy will not be part of David Ellison's management team after the merger between Paramount Skydance and Warner Bros. Discovery closes. The landmark $110 billion pact is expected to be […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "Michael De Luca",
+              "Pamela Abdy"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "Michael De Luca",
+            "Pamela Abdy"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "michael de luca and pamela abdy to depart at warner bros following paramount close"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T06:15:17.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "Michael De Luca",
+      "Pamela Abdy"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:39.443Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261002-cameron-winter-at-carnegie-hal",
+    "canonicalTopic": "Cameron Winter at Carnegie Hall Review Paul Thomas Anderson Directs a Rapturous Solo Concert Movie Built Around the Songs — and Haunting Sound — of Cameron Winter",
+    "slug": "cameron-winter-at-carnegie-hall-review-paul-thomas-anderson-directs-a-rapturous-solo-concert-movie-built-around-the-songs-and-haunting-sound-of-cameron-winter",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-5-Cameron20Winter2",
+        "query": "Cameron Winter at Carnegie Hall Review Paul Thomas Anderson Directs a Rapturous Solo Concert Movie Built Around the Songs — and Haunting Sound — of Cameron Winter",
+        "sourceUrl": "https://variety.com/2026/film/reviews/cameron-winter-at-carnegie-hall-review-paul-thomas-anderson-1236897129/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-10-02T05:51:46.000Z",
+        "contentSnippet": "The slow rolling piano echo through the hall like a rhapsody from the deep. The sound is rich, lustrous, bottom-heavy, grand. And that voice! Winter sings in a low baritone (and occasionally a high one) of astonishing power, the notes hanging there in a suspended quaver so bold it’s hypnotic.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T05:51:46.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "'Cameron Winter at Carnegie Hall' Review: Paul Thomas Anderson Directs a Rapturous Solo Concert Movie Built Around the Songs — and Haunting Sound — of Cameron Winter",
+            "itemLink": "https://variety.com/2026/film/reviews/cameron-winter-at-carnegie-hall-review-paul-thomas-anderson-1236897129/",
+            "publishedDate": "2026-10-02T05:51:46.000Z",
+            "contentSnippet": "The slow rolling piano echo through the hall like a rhapsody from the deep. The sound is rich, lustrous, bottom-heavy, grand. And that voice! Winter sings in a low baritone (and occasionally a high one) of astonishing power, the notes hanging there in a suspended quaver so bold it’s hypnotic.",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Reviews",
+              "Cameron Winter at Carnegie Hall",
+              "Paul Thomas Anderson"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Reviews",
+            "Cameron Winter at Carnegie Hall",
+            "Paul Thomas Anderson"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "cameron winter at carnegie hall review paul thomas anderson directs a rapturous solo concert movie built around the songs — and haunting sound — of cameron winter"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T05:51:46.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Reviews",
+      "Cameron Winter at Carnegie Hall",
+      "Paul Thomas Anderson"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:39.538Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261002-woody-allens-madrid-film-king-",
+    "canonicalTopic": "Woody Allens Madrid Film King Charles and Ozzy Osbourne Ai Microdrama and M&a Iberseries Wrap",
+    "slug": "woody-allens-madrid-film-king-charles-and-ozzy-osbourne-ai-microdrama-and-m-a-iberseries-wrap",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-1-Woody20Allens20Madr",
+        "query": "Woody Allens Madrid Film King Charles and Ozzy Osbourne Ai Microdrama and M&a Iberseries Wrap",
+        "sourceUrl": "https://www.hollywoodreporter.com/business/business-news/woody-allen-madrid-film-iberseries-platino-industria-wrap-1236714367/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-10-02T08:30:00.000Z",
+        "contentSnippet": "The sixth edition of the industry gathering, which has featured debates about hot-button industry topics in Madrid, is coming to an end Friday.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T08:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Woody Allen's Madrid Film, King Charles and Ozzy Osbourne, AI, Microdrama and M&A: Iberseries Wrap",
+            "itemLink": "https://www.hollywoodreporter.com/business/business-news/woody-allen-madrid-film-iberseries-platino-industria-wrap-1236714367/",
+            "publishedDate": "2026-10-02T08:30:00.000Z",
+            "contentSnippet": "The sixth edition of the industry gathering, which has featured debates about hot-button industry topics in Madrid, is coming to an end Friday.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Business",
+              "Business News",
+              "artificial intelligence",
+              "Iberseries & Platino Industria",
+              "Iberseries 2026",
+              "international",
+              "King Charles III",
+              "microdramas",
+              "Ozzy Osbourne",
+              "Telemundo",
+              "Woody Allen"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Business",
+            "Business News",
+            "artificial intelligence",
+            "Iberseries & Platino Industria",
+            "Iberseries 2026",
+            "international",
+            "King Charles III",
+            "microdramas",
+            "Ozzy Osbourne",
+            "Telemundo",
+            "Woody Allen"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "woody allens madrid film king charles and ozzy osbourne ai microdrama and m&a iberseries wrap"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T08:30:00.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Business",
+      "Business News",
+      "artificial intelligence",
+      "Iberseries & Platino Industria",
+      "Iberseries 2026",
+      "international",
+      "King Charles III",
+      "microdramas",
+      "Ozzy Osbourne",
+      "Telemundo",
+      "Woody Allen"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:39.603Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261002-american-horror-story-13-jeffr",
+    "canonicalTopic": "American Horror Story 13 Jeffrey Dahmer Actor on That Coven Cliffhanger and Sharing the Serial Killer with Co-star Evan Peters",
+    "slug": "american-horror-story-13-jeffrey-dahmer-actor-on-that-coven-cliffhanger-and-sharing-the-serial-killer-with-co-star-evan-peters",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-2-American20Horror20S",
+        "query": "American Horror Story 13 Jeffrey Dahmer Actor on That Coven Cliffhanger and Sharing the Serial Killer with Co-star Evan Peters",
+        "sourceUrl": "https://www.hollywoodreporter.com/tv/tv-features/ahs-13-jeffrey-dahmer-return-seth-gabel-cliffhanger-1236717562/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-10-02T05:31:00.000Z",
+        "contentSnippet": "Seth Gabel returns as the notorious Dahmer in the new season of Ryan Murphy's horror franchise, reuniting him with Peters, who took on the role in the first season of 'Monster.'",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T05:31:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "'American Horror Story: 13' Jeffrey Dahmer Actor on That 'Coven' Cliffhanger and Sharing the Serial Killer With Co-Star Evan Peters",
+            "itemLink": "https://www.hollywoodreporter.com/tv/tv-features/ahs-13-jeffrey-dahmer-return-seth-gabel-cliffhanger-1236717562/",
+            "publishedDate": "2026-10-02T05:31:00.000Z",
+            "contentSnippet": "Seth Gabel returns as the notorious Dahmer in the new season of Ryan Murphy's horror franchise, reuniting him with Peters, who took on the role in the first season of 'Monster.'",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "TV",
+              "TV Features",
+              "American Horror Story",
+              "American Horror Story: Hotel",
+              "Dahmer Monster: The Jeffrey Dahmer Story",
+              "Evan Peters",
+              "Jeffrey dahmer",
+              "Ryan Murphy",
+              "Sarah Paulson",
+              "The Rookie",
+              "The Watcher"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "TV",
+            "TV Features",
+            "American Horror Story",
+            "American Horror Story: Hotel",
+            "Dahmer Monster: The Jeffrey Dahmer Story",
+            "Evan Peters",
+            "Jeffrey dahmer",
+            "Ryan Murphy",
+            "Sarah Paulson",
+            "The Rookie",
+            "The Watcher"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "american horror story 13 jeffrey dahmer actor on that coven cliffhanger and sharing the serial killer with co-star evan peters"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T05:31:00.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "TV",
+      "TV Features",
+      "American Horror Story",
+      "American Horror Story: Hotel",
+      "Dahmer Monster: The Jeffrey Dahmer Story",
+      "Evan Peters",
+      "Jeffrey dahmer",
+      "Ryan Murphy",
+      "Sarah Paulson",
+      "The Rookie",
+      "The Watcher"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:39.686Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261002-kelly-clarkson-loves-ai-but-sa",
+    "canonicalTopic": "Kelly Clarkson Loves Ai but Says Ai Artists Shouldnt Be Competing with Humans on Music Charts",
+    "slug": "kelly-clarkson-loves-ai-but-says-ai-artists-shouldnt-be-competing-with-humans-on-music-charts",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-3-Kelly20Clarkson20Lo",
+        "query": "Kelly Clarkson Loves Ai but Says Ai Artists Shouldnt Be Competing with Humans on Music Charts",
+        "sourceUrl": "https://www.hollywoodreporter.com/music/music-news/kelly-clarkson-ai-artists-shouldnt-be-music-charts-humans-1236720709/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-10-02T04:22:28.000Z",
+        "contentSnippet": "\"We can’t lose human. We can’t lose what that is. But there could be an appetite for both,\" she said of the controversial technology.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T04:22:28.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Kelly Clarkson Loves AI, But Says AI Artists Shouldn't Be \"Competing With Humans\" on Music Charts",
+            "itemLink": "https://www.hollywoodreporter.com/music/music-news/kelly-clarkson-ai-artists-shouldnt-be-music-charts-humans-1236720709/",
+            "publishedDate": "2026-10-02T04:22:28.000Z",
+            "contentSnippet": "\"We can’t lose human. We can’t lose what that is. But there could be an appetite for both,\" she said of the controversial technology.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Music",
+              "Music News",
+              "AI",
+              "Artifical Intelligence",
+              "Kelly Clarkson"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Music",
+            "Music News",
+            "AI",
+            "Artifical Intelligence",
+            "Kelly Clarkson"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "kelly clarkson loves ai but says ai artists shouldnt be competing with humans on music charts"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T04:22:28.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Music",
+      "Music News",
+      "AI",
+      "Artifical Intelligence",
+      "Kelly Clarkson"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:39.762Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261002-ben-affleck-explains-his-appro",
+    "canonicalTopic": "Ben Affleck Explains His Approach to Using Ai Ethically on New Movie Animals Its Not About Making Fake People or Replacing Anybody Ever",
+    "slug": "ben-affleck-explains-his-approach-to-using-ai-ethically-on-new-movie-animals-its-not-about-making-fake-people-or-replacing-anybody-ever",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-4-Ben20Affleck20Expla",
+        "query": "Ben Affleck Explains His Approach to Using Ai Ethically on New Movie Animals Its Not About Making Fake People or Replacing Anybody Ever",
+        "sourceUrl": "https://www.hollywoodreporter.com/movies/movie-news/ben-affleck-approach-ai-ethically-animals-replacing-1236720613/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-10-02T03:35:09.000Z",
+        "contentSnippet": "\"I wouldn't use something that trains on or has learned from any work that is copywritten, or that is an intelligence created by a peer of mine or somebody that I look up to,\" the actor-director emphasized.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T03:35:09.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Ben Affleck Explains His Approach to Using AI Ethically on New Movie 'Animals': \"It's Not About Making Fake People or Replacing Anybody, Ever\"",
+            "itemLink": "https://www.hollywoodreporter.com/movies/movie-news/ben-affleck-approach-ai-ethically-animals-replacing-1236720613/",
+            "publishedDate": "2026-10-02T03:35:09.000Z",
+            "contentSnippet": "\"I wouldn't use something that trains on or has learned from any work that is copywritten, or that is an intelligence created by a peer of mine or somebody that I look up to,\" the actor-director emphasized.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Movie News",
+              "Movies",
+              "AI",
+              "animals",
+              "Ben Affleck",
+              "Events",
+              "Kerry Washington"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Movie News",
+            "Movies",
+            "AI",
+            "animals",
+            "Ben Affleck",
+            "Events",
+            "Kerry Washington"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ben affleck explains his approach to using ai ethically on new movie animals its not about making fake people or replacing anybody ever"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T03:35:09.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Movie News",
+      "Movies",
+      "AI",
+      "animals",
+      "Ben Affleck",
+      "Events",
+      "Kerry Washington"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:39.861Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261002-ken-urker-the-father-of-gypsy-",
+    "canonicalTopic": "Ken Urker the Father of Gypsy-rose Blanchards Daughter Dies at 34",
+    "slug": "ken-urker-the-father-of-gypsy-rose-blanchards-daughter-dies-at-34",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-5-Ken20Urker2C20the20",
+        "query": "Ken Urker the Father of Gypsy-rose Blanchards Daughter Dies at 34",
+        "sourceUrl": "https://www.hollywoodreporter.com/tv/tv-news/ken-urker-dead-father-gypsy-rose-blanchard-daughter-1236720726/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-10-02T03:15:14.000Z",
+        "contentSnippet": "Urker also appeared in Lifetime's 'Gypsy Rose: Life After Lockup' with Blanchard.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T03:15:14.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Ken Urker, the Father of Gypsy-Rose Blanchard’s Daughter, Dies at 34",
+            "itemLink": "https://www.hollywoodreporter.com/tv/tv-news/ken-urker-dead-father-gypsy-rose-blanchard-daughter-1236720726/",
+            "publishedDate": "2026-10-02T03:15:14.000Z",
+            "contentSnippet": "Urker also appeared in Lifetime's 'Gypsy Rose: Life After Lockup' with Blanchard.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "TV",
+              "TV News",
+              "gypsy rose blanchard"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "TV",
+            "TV News",
+            "gypsy rose blanchard"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ken urker the father of gypsy-rose blanchards daughter dies at 34"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-02T03:15:14.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "TV",
+      "TV News",
+      "gypsy rose blanchard"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:39.908Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-wellbeing-20261002-circadian-light-management-and",
+    "canonicalTopic": "Circadian Light Management and Cold Season Vitality Protocols",
+    "slug": "circadian-light-management-and-cold-season-vitality-protocols",
+    "pillar": "wellbeing",
+    "sourceSignals": [
+      {
+        "source": "SEASONAL_CALENDAR",
+        "sourceId": "seasonal-2026-wellbeing-1",
+        "query": "Circadian Light Management and Cold Season Vitality Protocols",
+        "publishedAt": "2026-10-02T12:00:37.345Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-02T12:00:37.345Z",
+        "metadata": {
+          "seasonalPayload": {
+            "seasonalEvent": "Cold Weather Restorative Wellness",
+            "targetMonth": 10,
+            "relevanceWindowDays": 60,
+            "historicalSpikeMultiplier": 1.5
+          },
+          "suggestedPillar": "wellbeing",
+          "curatedTags": [
+            "wellbeing",
+            "light-therapy",
+            "sleep",
+            "winter"
+          ],
+          "isSeasonal": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "circadian light management and cold season vitality protocols"
+    ],
+    "freshnessScore": 90,
+    "createdAt": "2026-10-02T12:00:37.345Z",
+    "tags": [
+      "wellbeing",
+      "light-therapy",
+      "sleep",
+      "winter"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 69,
+      "pinterestPotential": 81,
+      "socialPotential": 82,
+      "lifeModeRelevance": 92,
+      "commercialPotential": 60,
+      "freshness": 90,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 79.1,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-02T12:00:39.951Z",
+    "pinterestScore": 79
+  },
+  {
+    "id": "lm-wellbeing-20261002-thermal-cycling-protocols-cont",
+    "canonicalTopic": "Thermal Cycling Protocols Contrast Therapy for Cognitive Resilience",
+    "slug": "thermal-cycling-protocols-contrast-therapy-for-cognitive-resilience",
+    "pillar": "wellbeing",
+    "sourceSignals": [
+      {
+        "source": "SEASONAL_CALENDAR",
+        "sourceId": "seasonal-2026-wellbeing-5",
+        "query": "Thermal Cycling Protocols Contrast Therapy for Cognitive Resilience",
+        "publishedAt": "2026-10-02T12:00:37.345Z",
+        "volumeOrGrowth": 90,
+        "recordedAt": "2026-10-02T12:00:37.345Z",
+        "metadata": {
+          "seasonalPayload": {
+            "seasonalEvent": "Winter Longevity & Cold Adaptations",
+            "targetMonth": 10,
+            "relevanceWindowDays": 60,
+            "historicalSpikeMultiplier": 1.5
+          },
+          "suggestedPillar": "wellbeing",
+          "curatedTags": [
+            "wellbeing",
+            "sauna",
+            "recovery",
+            "longevity"
+          ],
+          "isSeasonal": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "thermal cycling protocols contrast therapy for cognitive resilience"
+    ],
+    "freshnessScore": 90,
+    "createdAt": "2026-10-02T12:00:37.345Z",
+    "tags": [
+      "wellbeing",
+      "sauna",
+      "recovery",
+      "longevity"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 71,
+      "pinterestPotential": 87,
+      "socialPotential": 90,
+      "lifeModeRelevance": 92,
+      "commercialPotential": 60,
+      "freshness": 90,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 81.6,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE",
+    "status": "PUBLISHED",
+    "updatedAt": "2026-10-02T12:02:38.296Z",
+    "pinterestScore": 83,
+    "revisionCyclesCount": 0
   }
 ]
