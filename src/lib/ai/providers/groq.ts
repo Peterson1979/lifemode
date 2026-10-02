@@ -6,6 +6,7 @@ export interface GroqProviderOptions {
   apiKey?: string;
   defaultModel?: string;
   fetchFn?: typeof fetch;
+  omitResponseFormat?: boolean;
 }
 
 /**
@@ -65,12 +66,14 @@ export class GroqProvider implements IAIProvider {
   readonly defaultModel: string;
   private readonly apiKey: string;
   private readonly fetchFn: typeof fetch;
+  private readonly omitResponseFormat: boolean;
 
   constructor(options: GroqProviderOptions = {}) {
     const config = loadAIConfig().groq;
     this.apiKey = options.apiKey !== undefined ? options.apiKey : config.apiKey;
     this.defaultModel = options.defaultModel || config.model || 'openai/gpt-oss-20b';
     this.fetchFn = options.fetchFn || globalThis.fetch.bind(globalThis);
+    this.omitResponseFormat = Boolean(options.omitResponseFormat);
   }
 
   isConfigured(): boolean {
@@ -118,16 +121,20 @@ export class GroqProvider implements IAIProvider {
       messages,
     };
 
-    if (isJsonExpected) {
+    if (model.includes('gpt-oss') || model.includes('r1')) {
+      body.reasoning_effort = 'low';
+    }
+
+    if (isJsonExpected && !this.omitResponseFormat) {
       body.response_format = { type: 'json_object' };
     }
 
     const maxTokens = request.maxOutputTokens || (
       request.taskType === 'content_generation' ? 6000 :
-      request.taskType === 'content_review' ? 2000 : undefined
+      request.taskType === 'content_review' ? 1500 : undefined
     );
     if (maxTokens) {
-      body.max_tokens = maxTokens;
+      body.max_tokens = model.includes('qwen') ? Math.min(950, maxTokens) : maxTokens;
     }
 
     if (request.temperature !== undefined) {
@@ -186,11 +193,13 @@ export class GroqProvider implements IAIProvider {
       // Sanitize Bearer tokens or sensitive headers from error messages
       const sanitizedMsg = rawMsg.replace(/Bearer\s+[A-Za-z0-9._-]+/gi, 'Bearer REDACTED');
 
-      // If Groq rejected response_format: { type: 'json_object' } with "Failed to generate JSON. Please adjust your prompt."
+      // If Groq rejected response_format: { type: 'json_object' } with "Failed to generate JSON" or "Failed to validate JSON"
       // attempt a single bounded fallback retry without response_format, allowing prompt-guided JSON generation
       const isJsonGrammarFailure = status === 400 &&
         Boolean(body.response_format) &&
-        (sanitizedMsg.toLowerCase().includes('failed to generate json') || sanitizedMsg.toLowerCase().includes('json'));
+        (sanitizedMsg.toLowerCase().includes('failed to generate json') ||
+         sanitizedMsg.toLowerCase().includes('failed to validate json') ||
+         sanitizedMsg.toLowerCase().includes('json'));
 
       if (isJsonGrammarFailure && !controller.signal.aborted) {
         const fallbackBody = { ...body };

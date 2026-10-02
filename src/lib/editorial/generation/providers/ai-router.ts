@@ -31,10 +31,35 @@ export class AIRouterGenerationProvider implements IGenerationProvider {
    * Cleans JSON and parses the response into a structured article package.
    */
   private parseGeneratedJson(rawText: string, request?: GenerationRequest): GeneratedArticle {
-    const parsed = extractAndParseJson<any>(rawText);
-    const rawContent = parsed.content || '';
+    const parsed = extractAndParseJson<any>(rawText, { allowRepair: true });
+    
+    const root = (parsed && typeof parsed === 'object')
+      ? (parsed.article && typeof parsed.article === 'object' && !Array.isArray(parsed.article)
+          ? parsed.article
+          : parsed.data && typeof parsed.data === 'object' && !Array.isArray(parsed.data)
+          ? parsed.data
+          : parsed)
+      : {};
 
-    if (!rawContent.trim() || !parsed.title?.trim()) {
+    const rawTitle = (
+      root.title || root.headline || root.titleAngle || root.name ||
+      parsed.title || parsed.headline || request?.titleAngle || ''
+    ).trim();
+
+    let rawContent = '';
+    const contentCandidate = root.content || root.article || root.body || root.text || root.markdown ||
+      root.article_body || root.article_content || root.main_content || root.body_content ||
+      parsed.content || parsed.article || parsed.body || parsed.text || parsed.markdown;
+
+    if (typeof contentCandidate === 'string') {
+      rawContent = contentCandidate.trim();
+    } else if (Array.isArray(contentCandidate)) {
+      rawContent = contentCandidate.map((p: any) => (typeof p === 'string' ? p : p?.text || p?.content || JSON.stringify(p))).join('\n\n').trim();
+    } else if (contentCandidate && typeof contentCandidate === 'object') {
+      rawContent = (contentCandidate.content || contentCandidate.body || contentCandidate.text || JSON.stringify(contentCandidate)).trim();
+    }
+
+    if (!rawContent || !rawTitle) {
       throw new Error('Generated output is missing required content or title.');
     }
 
@@ -58,6 +83,14 @@ export class AIRouterGenerationProvider implements IGenerationProvider {
       }
     }
 
+    // Clean up any accidental promotional phrases for informational articles
+    if (request && !request.affiliateIntent && !request.affiliateGuidance?.hasMatches) {
+      cleanContent = cleanContent
+        .replace(/\b(?:affiliate link|buy now with code|use promo code|purchase via our link|exclusive discount code|click here to buy)\b/gi, '')
+        .replace(/[ \t]{2,}/g, ' ')
+        .trim();
+    }
+
     const internalLinks = Array.isArray(parsed.internalLinks) && parsed.internalLinks.length > 0
       ? parsed.internalLinks
       : extractedMetadata.internalLinks;
@@ -70,11 +103,14 @@ export class AIRouterGenerationProvider implements IGenerationProvider {
       ? parsed.socialHooks
       : extractedMetadata.socialHooks;
 
+    const description = parsed.description?.trim() || parsed.excerpt?.trim() || request?.factSheet?.articleAngle || `An editorial overview of ${parsed.title || 'the topic'}.`;
+    const excerpt = parsed.excerpt?.trim() || description;
+
     return {
-      title: parsed.title || '',
+      title: rawTitle,
       slug: parsed.slug || '',
-      description: parsed.description || '',
-      excerpt: parsed.excerpt || '',
+      description,
+      excerpt,
       content: cleanContent,
       faq: Array.isArray(parsed.faq) ? parsed.faq : [],
       sources: Array.isArray(parsed.sources) ? parsed.sources : [],
@@ -95,7 +131,7 @@ export class AIRouterGenerationProvider implements IGenerationProvider {
       requestId: request.topicId,
       responseFormat: 'json',
       validateJson: true,
-      maxOutputTokens: 3000,
+      maxOutputTokens: 1600,
     };
 
     let routerError: Error | null = null;

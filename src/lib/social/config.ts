@@ -27,6 +27,11 @@ export interface PlatformCredentials {
     boardId?: string;
     configured: boolean;
   };
+  threads: {
+    accessToken?: string;
+    userId?: string;
+    configured: boolean;
+  };
 }
 
 export interface SocialImageConfig {
@@ -113,20 +118,24 @@ export function loadSocialConfig(overrides: Partial<SocialAutomationConfig> = {}
   const storageDir = overrides.storageDir || getEnvVar('LIFEMODE_SOCIAL_STORAGE_DIR') || 'data/social';
 
   // Facebook credentials
-  const fbToken = getEnvVar('FACEBOOK_PAGE_ACCESS_TOKEN') || getEnvVar('FB_PAGE_TOKEN');
-  const fbPageId = getEnvVar('FACEBOOK_PAGE_ID') || getEnvVar('FB_PAGE_ID');
+  const fbToken = overrides.credentials?.facebook?.pageAccessToken || getEnvVar('FACEBOOK_PAGE_ACCESS_TOKEN') || getEnvVar('FB_PAGE_TOKEN');
+  const fbPageId = overrides.credentials?.facebook?.pageId || getEnvVar('FACEBOOK_PAGE_ID') || getEnvVar('FB_PAGE_ID');
 
   // Instagram credentials
-  const igToken = getEnvVar('INSTAGRAM_ACCESS_TOKEN') || fbToken;
-  const igAccountId = getEnvVar('INSTAGRAM_BUSINESS_ACCOUNT_ID') || getEnvVar('INSTAGRAM_ACCOUNT_ID') || getEnvVar('IG_ACCOUNT_ID');
+  const igToken = overrides.credentials?.instagram?.accessToken || getEnvVar('INSTAGRAM_ACCESS_TOKEN') || fbToken;
+  const igAccountId = overrides.credentials?.instagram?.businessAccountId || getEnvVar('INSTAGRAM_BUSINESS_ACCOUNT_ID') || getEnvVar('INSTAGRAM_ACCOUNT_ID') || getEnvVar('IG_ACCOUNT_ID');
 
   // Pinterest credentials
-  const pinToken = getEnvVar('PINTEREST_ACCESS_TOKEN') || getEnvVar('PIN_ACCESS_TOKEN');
-  const pinBoardId = getEnvVar('PINTEREST_BOARD_ID') || getEnvVar('PIN_BOARD_ID');
+  const pinToken = overrides.credentials?.pinterest?.accessToken || getEnvVar('PINTEREST_ACCESS_TOKEN') || getEnvVar('PIN_ACCESS_TOKEN');
+  const pinBoardId = overrides.credentials?.pinterest?.boardId || getEnvVar('PINTEREST_BOARD_ID') || getEnvVar('PIN_BOARD_ID');
+
+  // Threads credentials
+  const threadsToken = overrides.credentials?.threads?.accessToken || getEnvVar('THREADS_ACCESS_TOKEN') || getEnvVar('THREADS_TOKEN');
+  const threadsUserId = overrides.credentials?.threads?.userId || getEnvVar('THREADS_USER_ID') || '28272717349017680';
 
   // Image provider credentials
-  const cfImageApiKey = getEnvVar('CLOUDFLARE_IMAGE_API_KEY') || getEnvVar('CF_API_TOKEN');
-  const cfAccountId = getEnvVar('CLOUDFLARE_ACCOUNT_ID');
+  const cfImageApiKey = overrides.imageConfig?.apiKey || getEnvVar('CLOUDFLARE_IMAGE_API_KEY') || getEnvVar('CF_API_TOKEN');
+  const cfAccountId = overrides.imageConfig?.accountId || getEnvVar('CLOUDFLARE_ACCOUNT_ID');
   const openaiKey = getEnvVar('OPENAI_API_KEY');
 
   // Storage credentials (Cloudflare R2 / S3-compatible)
@@ -158,17 +167,22 @@ export function loadSocialConfig(overrides: Partial<SocialAutomationConfig> = {}
     facebook: {
       pageAccessToken: fbToken,
       pageId: fbPageId,
-      configured: Boolean(fbToken && fbPageId),
+      configured: overrides.credentials?.facebook?.configured ?? Boolean(fbToken && fbPageId),
     },
     instagram: {
       accessToken: igToken,
       businessAccountId: igAccountId,
-      configured: Boolean(igToken && igAccountId),
+      configured: overrides.credentials?.instagram?.configured ?? Boolean(igToken && igAccountId),
     },
     pinterest: {
       accessToken: pinToken,
       boardId: pinBoardId,
-      configured: Boolean(pinToken && pinBoardId),
+      configured: overrides.credentials?.pinterest?.configured ?? Boolean(pinToken && pinBoardId),
+    },
+    threads: {
+      accessToken: threadsToken,
+      userId: threadsUserId,
+      configured: overrides.credentials?.threads?.configured ?? Boolean(threadsToken && threadsUserId),
     },
   };
 
@@ -196,9 +210,10 @@ export function loadSocialConfig(overrides: Partial<SocialAutomationConfig> = {}
     gitRemote,
     gitBranch,
     platforms: {
-      facebook: true,
-      instagram: true,
-      pinterest: true,
+      facebook: overrides.platforms?.facebook ?? true,
+      instagram: overrides.platforms?.instagram ?? true,
+      pinterest: overrides.platforms?.pinterest ?? true,
+      threads: overrides.platforms?.threads ?? true,
     },
     credentials,
     imageConfig,

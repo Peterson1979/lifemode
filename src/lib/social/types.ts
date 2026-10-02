@@ -4,14 +4,35 @@ export type { PillarSlug, OpportunityType, EditorialTopic };
 /**
  * Supported Social Media Platforms in LifeMode Social Automation V1.
  */
-export type SocialPlatform = 'facebook' | 'instagram' | 'pinterest';
+/**
+ * Supported Social Media Platforms in LifeMode Social Automation.
+ */
+export type SocialPlatform = 'facebook' | 'instagram' | 'pinterest' | 'threads';
 
-export const ALL_SOCIAL_PLATFORMS: SocialPlatform[] = ['facebook', 'instagram', 'pinterest'];
+export const ALL_SOCIAL_PLATFORMS: SocialPlatform[] = ['facebook', 'instagram', 'pinterest', 'threads'];
 
 /**
  * Standard visual aspect ratios supported by social automation.
  */
 export type SocialImageFormat = '1080x1350' | '1080x1080';
+
+/**
+ * Supported social media content types.
+ */
+export type SocialMediaType = 'image' | 'carousel' | 'video' | 'text';
+
+/**
+ * Supported social source projects in the LifeMode ecosystem.
+ */
+export type SocialSourceProject =
+  | 'dreamly-ai'
+  | 'ai-zodiac'
+  | 'get-ai-set'
+  | 'lifemode'
+  | 'dreamlyai'
+  | 'aizodiac'
+  | 'getaiset'
+  | string;
 
 /**
  * Social opportunity representation derived from candidate selection.
@@ -33,6 +54,10 @@ export interface SocialOpportunity {
   articleDescription?: string;
   publishedAt?: string;
   articleImage?: string;
+  carouselImages?: string[];
+  videoUrl?: string;
+  mediaType?: SocialMediaType;
+  sourceProject?: string;
 }
 
 /**
@@ -59,6 +84,7 @@ export interface SocialBrief {
   articleDescription?: string;
   publishedAt?: string;
   articleImage?: string;
+  sourceProject?: string;
 }
 
 /**
@@ -82,23 +108,27 @@ export interface GeneratedSocialContent {
   targetPlatforms: SocialPlatform[];
   sourceReferences?: Array<{ name: string; url: string }>;
   destinationUrl?: string;
+  sourceProject?: string;
 }
 
 /**
- * Visual media asset generated for social dissemination.
+ * Visual or multimedia asset generated for social dissemination.
  */
 export interface SocialVisualAsset {
   assetId: string;
   format: SocialImageFormat;
-  mimeType: 'image/png' | 'image/jpeg' | 'image/webp' | 'image/svg+xml';
+  mimeType: 'image/png' | 'image/jpeg' | 'image/webp' | 'image/svg+xml' | 'video/mp4';
   width: number;
   height: number;
-  assetHash: string; // SHA-256 hash of image data
+  assetHash: string; // SHA-256 hash of media data
   altText: string;
   headlineOverlay?: string;
   buffer?: Buffer | Uint8Array;
   url?: string;
   isFixture?: boolean;
+  mediaType?: 'image' | 'video';
+  videoUrl?: string;
+  durationSeconds?: number;
 }
 
 /**
@@ -113,7 +143,16 @@ export interface SocialPlatformPackage {
   hashtags: string[];
   destinationUrl?: string;
   boardId?: string; // Pinterest specific
-  mediaAsset: SocialVisualAsset;
+  mediaAsset?: SocialVisualAsset;
+  carouselAssets?: SocialVisualAsset[];
+  carouselItems?: Array<{
+    url: string;
+    mediaType?: 'image' | 'video';
+    altText?: string;
+  }>;
+  videoUrl?: string;
+  mediaType?: SocialMediaType;
+  sourceProject?: string;
   preparedPayload: Record<string, any>;
   idempotencyKey: string;
 }
@@ -160,12 +199,51 @@ export interface SocialManifestEntry {
   contentHash: string;
   assetHash: string;
   idempotencyKey: string;
+  sourceProject?: string;
+  contentType?: SocialMediaType;
   targetPlatforms: SocialPlatform[];
   platformResults: Partial<Record<SocialPlatform, SocialPlatformPublishResult>>;
   reviewScore: number;
   overallStatus: 'COMPLETED' | 'DRY_RUN' | 'FAILED' | 'REJECTED' | 'PARTIAL';
   createdAt: string;
   updatedAt: string;
+}
+
+/**
+ * Input package for cross-project content distribution to LifeMode social channels (e.g. Threads).
+ */
+export interface CrossProjectSocialContent {
+  sourceProject: SocialSourceProject;
+  contentId: string;
+  contentType: 'carousel' | 'video' | 'image' | 'text';
+  title: string;
+  caption: string;
+  destinationUrl?: string;
+  hashtags?: string[];
+  scheduledDate?: string;
+  imageUrl?: string;
+  carouselItems?: Array<{
+    url: string;
+    mediaType?: 'image' | 'video';
+    altText?: string;
+  }>;
+  videoUrl?: string;
+  videoDurationSeconds?: number;
+  pillar?: PillarSlug;
+  targetPlatforms?: SocialPlatform[];
+}
+
+/**
+ * Result of cross-project social publication.
+ */
+export interface CrossProjectPublishResult {
+  sourceProject: string;
+  contentId: string;
+  contentType: 'carousel' | 'video' | 'image' | 'text';
+  platformResults: Partial<Record<SocialPlatform, SocialPlatformPublishResult>>;
+  overallStatus: 'COMPLETED' | 'DRY_RUN' | 'FAILED' | 'SKIPPED' | 'PARTIAL';
+  idempotencyKey: string;
+  error?: string;
 }
 
 /**
@@ -178,6 +256,7 @@ export interface StorageTestDetails {
   facebookPreparation: 'SUCCESS' | 'FAIL';
   instagramPreparation: 'SUCCESS' | 'FAIL';
   pinterestPreparation: 'SUCCESS' | 'FAIL';
+  threadsPreparation?: 'SUCCESS' | 'FAIL';
   externalPublication: 'SKIPPED';
   gitCommitPush: 'SKIPPED';
 }

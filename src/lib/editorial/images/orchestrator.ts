@@ -12,6 +12,8 @@ import { CloudflareR2SocialAssetStorageProvider } from '../../social/images/stor
 import type { ISocialAssetStorageProvider } from '../../social/images/storage/contracts.ts';
 import { EditorialImageCostGuard } from './cost-guard.ts';
 import { generateEditorialImagePrompt } from '../image-prompt.ts';
+import { buildVisualBrief } from '../visual-brief.ts';
+import { validateVisualRelevance } from '../visual-relevance.ts';
 
 export interface EditorialImageOrchestratorOptions {
   dryRun?: boolean;
@@ -106,9 +108,15 @@ export async function orchestrateEditorialImage(
     };
   }
 
-  // 3. Prepare Image Generation Input
+  // 3. Prepare Image Generation Input via Visual Brief
+  const visualBrief = buildVisualBrief(publishPackage, {
+    pillar: publishPackage.pillar,
+    tags: publishPackage.tags,
+  });
+
   const prompt =
     publishPackage.imageMetadata?.prompt ||
+    visualBrief.aiGenerationPrompt ||
     generateEditorialImagePrompt({
       title: publishPackage.title,
       description: publishPackage.description,
@@ -226,6 +234,30 @@ export async function orchestrateEditorialImage(
       skipped: false,
       reason: 'generation-failed',
       error: 'All configured editorial image providers failed to produce image bytes.',
+    };
+  }
+
+  // 5.5. Visual Relevance QA Gate on Actual Generated Image Bytes
+  const visualQA = await validateVisualRelevance(
+    publishPackage,
+    visualBrief,
+    {
+      imageBuffer: generatedResult.imageBuffer,
+      prompt,
+      source: generatedResult.provider,
+    }
+  );
+
+  if (!visualQA.relevant) {
+    log(
+      `[IMAGE] article=${articleId} status=rejected reason=visual-relevance-failed detected=${visualQA.detected_subject} expected=${visualQA.expected_subject} flags=${visualQA.flags.join(',')}`
+    );
+    // Explicitly enforce rule: NO IMAGE > IRRELEVANT IMAGE
+    return {
+      success: false,
+      skipped: true,
+      reason: 'visual-relevance-failed',
+      error: `Generated image rejected by Visual Relevance QA: ${visualQA.reason}`,
     };
   }
 

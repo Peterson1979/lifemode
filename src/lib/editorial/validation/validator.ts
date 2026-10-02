@@ -10,6 +10,8 @@ import { hasLeakedInternalMetadata } from '../sanitization.ts';
 import { VALID_PILLARS } from '../types.ts';
 import { isPersonTopic, PERSON_MIN_REQUIRED_SOURCES } from '../person-policy.ts';
 import { validateImageSemanticRelevance } from '../image-prompt.ts';
+import { buildVisualBrief } from '../visual-brief.ts';
+import { validateVisualRelevanceSync } from '../visual-relevance.ts';
 
 const PLACEHOLDER_PATTERNS: RegExp[] = [
   /\{\{[^}]+\}\}/,
@@ -208,10 +210,28 @@ export function validateEditorialArticle(
       }
     }
 
-    // Internal metadata leak check
-    if (hasLeakedInternalMetadata(content)) {
-      errors.push('Article content contains un-sanitized internal editorial metadata sections.');
+    // Duplicate paragraph check (verbatim repetition across sections)
+    const paragraphs = content.split(/\n\s*\n/).map((p) => p.trim()).filter((p) => p.length > 80 && !p.startsWith('#'));
+    const uniqueParagraphs = new Set<string>();
+    let hasDuplicateParagraphs = false;
+    for (const p of paragraphs) {
+      if (uniqueParagraphs.has(p)) {
+        hasDuplicateParagraphs = true;
+        break;
+      }
+      uniqueParagraphs.add(p);
+    }
+    if (hasDuplicateParagraphs) {
+      errors.push('Article content contains verbatim duplicate paragraphs repeated across sections.');
       checks.structure = false;
+    }
+
+    // Fact sheet sufficiency and grounding check
+    if (context.factSheet) {
+      if (!context.factSheet.isSufficient) {
+        errors.push(context.factSheet.insufficiencyReason || 'Topic source material is insufficient to ground the article without fabrication.');
+        checks.evidence = false;
+      }
     }
   }
 
@@ -482,8 +502,15 @@ export function validateEditorialArticle(
           topicId: context.topicId,
         }
       );
+
+      const visualBrief = context.visualBrief || buildVisualBrief(article, { pillar: context.pillar, tags: context.tags });
+      const visualRelevance = validateVisualRelevanceSync(article, visualBrief, context.imageMetadata);
+
       if (!semanticCheck.valid) {
         errors.push(`Hero image failed semantic relevance validation: ${semanticCheck.reason}`);
+        checks.image = false;
+      } else if (!visualRelevance.relevant) {
+        errors.push(`Hero image failed visual relevance validation: ${visualRelevance.reason}`);
         checks.image = false;
       } else {
         checks.image = true;
@@ -501,8 +528,15 @@ export function validateEditorialArticle(
         topicId: context.topicId,
       }
     );
+
+    const visualBrief = context.visualBrief || buildVisualBrief(article, { pillar: context.pillar, tags: context.tags });
+    const visualRelevance = validateVisualRelevanceSync(article, visualBrief, context.imageMetadata);
+
     if (!semanticCheck.valid) {
       warnings.push(`Hero image may have semantic relevance issues: ${semanticCheck.reason}`);
+    }
+    if (!visualRelevance.relevant) {
+      warnings.push(`Hero image may have visual relevance issues: ${visualRelevance.reason}`);
     }
     checks.image = true;
   } else {

@@ -98,7 +98,7 @@ export class FreeNewsApiProvider extends BaseTopicDataProvider<NewsData> {
     const items: NewsItem[] = [];
 
     const nowMs = Date.now();
-    const maxAgeMs = 7 * 24 * 60 * 60 * 1000; // max 7 days old to ensure current relevance
+    const maxAgeMs = 30 * 24 * 60 * 60 * 1000; // max 30 days old to ensure current relevance
 
     for (const article of rawList) {
       const url = (article.url || '').trim();

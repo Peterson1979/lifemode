@@ -272,7 +272,7 @@ export class AIRouter {
         // Validate JSON structure if expected
         if (request.responseFormat === 'json' || request.validateJson) {
           try {
-            extractAndParseJson(response.text);
+            extractAndParseJson(response.text, { allowRepair: true });
           } catch (jsonErr: any) {
             const malformedError: AIProviderError = {
               code: 'MALFORMED_OUTPUT',

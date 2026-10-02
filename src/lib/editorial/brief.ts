@@ -18,6 +18,7 @@ import {
   generatePersonTitle,
   PERSON_DO_NOT_CLAIM_GUARDRAILS,
 } from './person-policy.ts';
+import { buildFactSheet, determineContentType } from './fact-sheet.ts';
 
 export interface BriefGenerationOptions {
   format?: ArticleFormat;
@@ -716,6 +717,8 @@ export function synthesizeEditorialBrief(
     riskLevel,
     estimatedWordCount,
     outlineSections,
+    factSheet: buildFactSheet(topic, effectiveEvidence, topic.sourceSignals),
+    contentType: determineContentType(topic),
     createdAt: new Date().toISOString(),
   };
 }

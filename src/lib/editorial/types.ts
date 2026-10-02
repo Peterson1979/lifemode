@@ -264,6 +264,8 @@ export interface ContentBrief {
     heading: string;
     keyPoints: string[];
   }>;
+  factSheet?: import('./fact-sheet.ts').StructuredFactSheet;
+  contentType?: import('./fact-sheet.ts').EditorialContentType;
   createdAt: string;
 }
 

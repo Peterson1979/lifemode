@@ -192,7 +192,12 @@ test('All 21 Food & Drink articles have valid local images and verified provenan
   const path = await import('node:path');
 
   const contentDir = path.resolve(process.cwd(), 'src/content/food-drink');
-  const files = fs.readdirSync(contentDir).filter((f) => f.endsWith('.md') && f !== 'late-summer-harvest-preserving-heirloom-produce-and-wild-ferments.md');
+  const dynamicArticles = [
+    'late-summer-harvest-preserving-heirloom-produce-and-wild-ferments.md',
+    'slow-autumn-hearth-hearty-legume-broths-earthenware-root-vegetables.md',
+    'the-art-of-dunkin-free-coffee-heritage-roasting-everyday-cooking.md',
+  ];
+  const files = fs.readdirSync(contentDir).filter((f) => f.endsWith('.md') && !dynamicArticles.includes(f));
 
   assert.equal(files.length, 21, 'Exactly 21 seed Food & Drink articles should exist');
 

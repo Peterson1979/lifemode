@@ -63,10 +63,13 @@ export function determineTargetPlatforms(topic: EditorialTopic): SocialPlatform[
     platforms.push('pinterest');
   }
 
-  // High discussion / community engagement works great on Facebook & Instagram
+  // High discussion / community engagement works great on Facebook, Instagram, and Threads
   if (socialScore >= 65 || platforms.length === 0) {
     platforms.push('instagram');
     platforms.push('facebook');
+    platforms.push('threads');
+  } else {
+    platforms.push('threads');
   }
 
   // Ensure unique list

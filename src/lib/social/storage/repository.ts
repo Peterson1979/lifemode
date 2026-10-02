@@ -9,7 +9,7 @@ export interface ISocialHistoryRepository {
   recordEntry(entry: SocialManifestEntry): Promise<void>;
   isTopicRecentlyPublished(topicId: string, withinDays?: number): Promise<boolean>;
   isPillarRecentlyPublished(pillar: PillarSlug, withinDays?: number, referenceDate?: Date | string): Promise<boolean>;
-  isPlatformPublished(topicId: string, platform: SocialPlatform): Promise<boolean>;
+  isPlatformPublished(topicId: string, platform: SocialPlatform, sourceProject?: string): Promise<boolean>;
   isContentDuplicate(contentHash: string): Promise<boolean>;
   isAssetDuplicate(assetHash: string): Promise<boolean>;
 }
@@ -22,11 +22,17 @@ export function hashString(content: string): string {
 }
 
 /**
- * Creates a deterministic idempotency key for a topic, platform, and content combination.
+ * Creates a deterministic idempotency key for a topic, platform, content, and source project combination.
  */
-export function createIdempotencyKey(topicId: string, platform: SocialPlatform, contentHash: string): string {
+export function createIdempotencyKey(
+  topicId: string,
+  platform: SocialPlatform,
+  contentHash: string,
+  sourceProject?: string
+): string {
   const shortHash = contentHash.slice(0, 12);
-  return `lm-soc-${topicId}-${platform}-${shortHash}`;
+  const prefix = sourceProject && sourceProject !== 'lifemode' ? `lm-soc-${sourceProject}` : 'lm-soc';
+  return `${prefix}-${topicId}-${platform}-${shortHash}`;
 }
 
 export class FilesystemSocialHistoryRepository implements ISocialHistoryRepository {
@@ -56,7 +62,10 @@ export class FilesystemSocialHistoryRepository implements ISocialHistoryReposito
   async recordEntry(entry: SocialManifestEntry): Promise<void> {
     const current = await this.loadHistory();
     const index = current.findIndex(
-      (item) => item.idempotencyKey === entry.idempotencyKey || item.topicId === entry.topicId
+      (item) =>
+        item.idempotencyKey === entry.idempotencyKey ||
+        (item.topicId === entry.topicId &&
+          (!entry.sourceProject || item.sourceProject === entry.sourceProject))
     );
 
     if (index >= 0) {
@@ -85,6 +94,8 @@ export class FilesystemSocialHistoryRepository implements ISocialHistoryReposito
       current[index] = {
         ...existing,
         ...entry,
+        sourceProject: entry.sourceProject || existing.sourceProject,
+        contentType: entry.contentType || existing.contentType,
         platformResults: mergedPlatformResults,
         overallStatus: allTargetPublished ? 'COMPLETED' : anyPublished ? 'PARTIAL' : entry.overallStatus,
         updatedAt: new Date().toISOString(),
@@ -139,12 +150,21 @@ export class FilesystemSocialHistoryRepository implements ISocialHistoryReposito
     });
   }
 
-  async isPlatformPublished(topicId: string, platform: SocialPlatform): Promise<boolean> {
+  async isPlatformPublished(
+    topicId: string,
+    platform: SocialPlatform,
+    sourceProject?: string
+  ): Promise<boolean> {
     const history = await this.loadHistory();
     const normalizedTarget = topicId.trim().toLowerCase();
+    const normalizedSource = sourceProject ? sourceProject.trim().toLowerCase() : undefined;
+
     return history.some((item) => {
       const matchTopicId = item.topicId && item.topicId.trim().toLowerCase() === normalizedTarget;
       if (!matchTopicId) return false;
+      if (normalizedSource && item.sourceProject && item.sourceProject.trim().toLowerCase() !== normalizedSource) {
+        return false;
+      }
       const res = item.platformResults?.[platform];
       return res && res.status === 'PUBLISHED';
     });

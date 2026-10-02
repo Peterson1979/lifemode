@@ -30,3 +30,8 @@ export * from './platforms/contracts.ts';
 export * from './platforms/facebook.ts';
 export * from './platforms/instagram.ts';
 export * from './platforms/pinterest.ts';
+export * from './platforms/threads.ts';
+
+// Cross-Project Distribution (Dreamly AI, AI Zodiac, GetAISet, LifeMode)
+export * from './cross-project.ts';
+

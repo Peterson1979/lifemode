@@ -75,6 +75,8 @@ export interface GenerationRequest {
   }>;
   tags?: string[];
   isPerson?: boolean;
+  factSheet?: import('../fact-sheet.ts').StructuredFactSheet;
+  contentType?: import('../fact-sheet.ts').EditorialContentType;
   revisionContext?: GenerationRevisionContext;
 }
 

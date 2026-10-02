@@ -9,24 +9,123 @@
  */
 
 /**
- * Strips common JSON formatting flaws such as trailing commas before closing braces/brackets.
+ * Strips common JSON formatting flaws such as trailing commas before closing braces/brackets,
+ * and escapes raw unescaped newlines/tabs inside string literals.
  */
 function sanitizeJsonCandidate(jsonStr: string): string {
-  return jsonStr
+  const s = jsonStr
     // Remove trailing commas before } or ]
     .replace(/,\s*([}\]])/g, '$1')
-    // Remove control characters (except newline, tab, carriage return)
+    // Remove non-printable control characters
     .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F-\u009F]/g, '');
+
+  let inString = false;
+  let escape = false;
+  let result = '';
+
+  for (let i = 0; i < s.length; i++) {
+    const char = s[i];
+    if (escape) {
+      escape = false;
+      result += char;
+      continue;
+    }
+    if (char === '\\') {
+      escape = true;
+      result += char;
+      continue;
+    }
+    if (char === '"') {
+      inString = !inString;
+      result += char;
+      continue;
+    }
+    if (inString) {
+      if (char === '\n') {
+        result += '\\n';
+      } else if (char === '\r') {
+        result += '\\r';
+      } else if (char === '\t') {
+        result += '\\t';
+      } else {
+        result += char;
+      }
+    } else {
+      result += char;
+    }
+  }
+
+  return result;
+}
+
+/**
+ * Repairs unclosed strings, brackets, and braces in truncated JSON objects.
+ */
+function repairTruncatedJson(str: string): string {
+  let s = str.trim();
+  const firstBrace = s.indexOf('{');
+  if (firstBrace === -1) return s;
+  s = s.slice(firstBrace);
+
+  let inString = false;
+  let escape = false;
+  let openBraces = 0;
+  let openBrackets = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    const char = s[i];
+    if (escape) {
+      escape = false;
+      continue;
+    }
+    if (char === '\\') {
+      escape = true;
+      continue;
+    }
+    if (char === '"') {
+      inString = !inString;
+      continue;
+    }
+    if (!inString) {
+      if (char === '{') openBraces++;
+      else if (char === '}') openBraces = Math.max(0, openBraces - 1);
+      else if (char === '[') openBrackets++;
+      else if (char === ']') openBrackets = Math.max(0, openBrackets - 1);
+    }
+  }
+
+  if (inString) {
+    s += '"';
+  }
+
+  // Remove trailing comma or incomplete key-value fragment
+  s = s.replace(/,\s*$/, '');
+
+  while (openBrackets > 0) {
+    s += ']';
+    openBrackets--;
+  }
+  while (openBraces > 0) {
+    s += '}';
+    openBraces--;
+  }
+
+  return s;
+}
+
+export interface JsonExtractorOptions {
+  allowRepair?: boolean;
 }
 
 /**
  * Robustly extracts and parses JSON from raw LLM output.
  *
  * @param rawText The raw text output from an AI model.
+ * @param options Optional configuration (e.g. allowRepair).
  * @returns The parsed JavaScript object or array.
  * @throws Error if no valid JSON structure could be extracted or parsed.
  */
-export function extractAndParseJson<T = any>(rawText: string): T {
+export function extractAndParseJson<T = any>(rawText: string, options?: JsonExtractorOptions): T {
   if (!rawText || typeof rawText !== 'string') {
     throw new Error('Cannot parse JSON from empty or non-string input');
   }
@@ -90,7 +189,17 @@ export function extractAndParseJson<T = any>(rawText: string): T {
     }
   }
 
-  // 5. Final attempt: sanitized whole trimmed string
+  // 5. Attempt repair on truncated JSON structure if explicitly allowed
+  if (options?.allowRepair) {
+    try {
+      const repaired = repairTruncatedJson(trimmed);
+      return JSON.parse(sanitizeJsonCandidate(repaired));
+    } catch {
+      // Continue to final attempt
+    }
+  }
+
+  // 6. Final attempt: sanitized whole trimmed string
   try {
     return JSON.parse(sanitizeJsonCandidate(trimmed));
   } catch (finalErr: any) {

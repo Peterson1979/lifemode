@@ -22,6 +22,14 @@ on:
         description: 'Minimum social score threshold (0-100)'
         type: number
         default: 80
+      source:
+        description: 'Optional content source (lifemode, dreamly-ai, ai-zodiac, get-ai-set)'
+        type: string
+        default: 'lifemode'
+      content_id:
+        description: 'Optional specific content or manifest ID (e.g. social-2026-10-02)'
+        type: string
+        default: ''
 
 concurrency:
   group: social-automation
@@ -80,9 +88,13 @@ jobs:
           INSTAGRAM_BUSINESS_ACCOUNT_ID: ${{ secrets.INSTAGRAM_BUSINESS_ACCOUNT_ID || secrets.INSTAGRAM_ACCOUNT_ID }}
           PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
           PINTEREST_BOARD_ID: ${{ secrets.PINTEREST_BOARD_ID }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID || '28272717349017680' }}
 
           # Social Automation Runtime Settings
           LIFEMODE_SOCIAL_ENABLED: "true"
+          LIFEMODE_SOCIAL_SOURCE: ${{ github.event_name == 'workflow_dispatch' && inputs.source || 'lifemode' }}
+          LIFEMODE_SOCIAL_CONTENT_ID: ${{ github.event_name == 'workflow_dispatch' && inputs.content_id || '' }}
           LIFEMODE_SOCIAL_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && (inputs.publish == false && 'false' || 'true') || 'true' }}
           LIFEMODE_SOCIAL_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && (inputs.dry_run == true && 'true' || 'false') || 'false' }}
           LIFEMODE_SOCIAL_COMMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run == true && 'false' || 'true' }}

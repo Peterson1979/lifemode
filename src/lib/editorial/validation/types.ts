@@ -96,6 +96,8 @@ export interface EditorialValidationContext {
   isAlreadyPublished?: boolean;
   isPerson?: boolean;
   recentTitles?: string[];
+  factSheet?: import('../fact-sheet.ts').StructuredFactSheet;
+  visualBrief?: import('../visual-brief.ts').StructuredVisualBrief;
 }
 
 export interface EditorialValidationOptions {

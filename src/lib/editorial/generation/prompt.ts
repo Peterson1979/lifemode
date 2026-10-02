@@ -339,6 +339,34 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
     );
   }
 
+  // Content Type Guidance
+  const effectiveContentType = request.contentType || request.factSheet?.contentType || 'EVERGREEN_GUIDE';
+  if (effectiveContentType === 'NEWS') {
+    systemPromptParts.push(
+      '',
+      '### NEWS / CURRENT EVENT EDITORIAL STRUCTURE:',
+      '- Structure the article organically around:',
+      '  1. What happened (clear, direct lead without preamble).',
+      '  2. What is confirmed (verified facts, confirmed numbers, entities involved).',
+      '  3. Important context & background (how this developed, relevant precedents).',
+      '  4. Why it matters (implications for readers, industry, or culture).',
+      '  5. What happens next (only what is supported by verified reporting; do not guess).',
+      '- Preserve strict factual grounding in the verified fact sheet. Never invent scores, outcomes, dates, quotes, or claims.'
+    );
+  } else if (effectiveContentType === 'EXPLAINER') {
+    systemPromptParts.push(
+      '',
+      '### EXPLAINER EDITORIAL STRUCTURE:',
+      '- Structure the article to explain the underlying subject, mechanism, system, or issue clearly with accessible clarity and contextual depth.'
+    );
+  } else {
+    systemPromptParts.push(
+      '',
+      '### EVERGREEN / GUIDE EDITORIAL STRUCTURE:',
+      '- Produce a durable, deeply useful article grounded in practical insight rather than pretending the content is breaking news.'
+    );
+  }
+
   const isPerson = isPersonTopic({
     canonicalTopic: request.topicId,
     title: request.titleAngle,
@@ -376,6 +404,7 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
     `- Topic ID: ${request.topicId}`,
     `- Pillar: ${request.pillar}`,
     `- Editorial Format: ${request.format}`,
+    `- Content Mode: ${effectiveContentType}`,
     `- Target Audience: ${request.audience}`,
     `- Primary Intent: ${request.primaryIntent}${request.secondaryIntent ? ` (Secondary: ${request.secondaryIntent})` : ''}`,
     `- Primary Keyword: "${request.searchTargets.primaryKeyword}"`,
@@ -417,6 +446,31 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
     `Important: Do NOT output these planning notes or generic headings. Execute this mental structure directly into the full Markdown text inside the "content" field.`,
   );
 
+  // Injected Structured Fact Sheet as strict factual boundary
+  // Injected Structured Fact Sheet as strict factual boundary
+  if (request.factSheet) {
+    const fs = request.factSheet;
+    userPromptParts.push(
+      '',
+      `### Structured Fact Sheet (Mandatory Factual Boundary):`,
+      `- Primary Entity: "${fs.primaryEntity}"`,
+      fs.event ? `- Event / Context: "${fs.event}"` : '',
+      fs.people.length > 0 ? `- People / Key Figures: ${fs.people.map((p) => `${p.name}${p.role ? ` (${p.role})` : ''}`).join(', ')}` : '',
+      fs.organizations.length > 0 ? `- Organizations Involved: ${fs.organizations.join(', ')}` : '',
+      fs.locations.length > 0 ? `- Locations: ${fs.locations.join(', ')}` : '',
+      fs.dates.length > 0 ? `- Confirmed Dates: ${fs.dates.join(', ')}` : '',
+      fs.importantNumbers.length > 0 ? `- Confirmed Statistics / Numbers: ${fs.importantNumbers.join(', ')}` : '',
+      '',
+      `Confirmed Facts from Source Material:`,
+      ...fs.confirmedFacts.map((f, i) => `  ${i + 1}. ${f.claim}${f.publisher ? ` [Source: ${f.publisher}]` : ''}`),
+      '',
+      `Factual Grounding Rules:`,
+      `- Treat this Fact Sheet as the strict factual boundary for the article.`,
+      `- Substantially rewrite the narrative in original language; do NOT copy source sentence wording.`,
+      `- Do NOT invent quotes, statistics, dates, people, or events not supported by this Fact Sheet.`
+    );
+  }
+
   if (request.sourceBackedFacts && request.sourceBackedFacts.length > 0) {
     userPromptParts.push(
       '',
@@ -432,7 +486,9 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
       `- Do NOT fabricate citations or external sources not supported by this evidence.`,
       `- If a specific claim or detail is not supported by the evidence, omit or phrase it cautiously rather than guessing.`
     );
-  } else if (request.evidence && request.evidence.length > 0) {
+  }
+
+  if (request.evidence && request.evidence.length > 0) {
     userPromptParts.push(
       '',
       `### Verified Research Evidence & Factual Grounding:`,
@@ -447,7 +503,7 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
       `- Do NOT fabricate citations or external sources not supported by this evidence.`,
       `- If a specific claim or detail is not supported by the evidence, omit or phrase it cautiously rather than guessing.`
     );
-  } else if (request.requiredSources && request.requiredSources.length > 0) {
+  } else if (!request.factSheet && !request.sourceBackedFacts?.length && request.requiredSources && request.requiredSources.length > 0) {
     userPromptParts.push(
       '',
       `### Supplied Sources (Use only these for citations):`,

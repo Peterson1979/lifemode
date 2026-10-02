@@ -2936,11 +2936,12 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
   });
 
   await t.test('76. Higher frequency topics (Style, Entertainment, Food & Drink, Travel, Wellbeing) remain eligible and preferred', async () => {
-    const styleTopic = createMockTopic({ id: 'top-style', pillar: 'style', totalScore: 85, status: 'PUBLISHED', publishedAt: '2026-09-23T08:00:00Z' });
-    const entertainmentTopic = createMockTopic({ id: 'top-entertainment', pillar: 'entertainment', totalScore: 85, status: 'PUBLISHED', publishedAt: '2026-09-23T08:00:00Z' });
-    const foodTopic = createMockTopic({ id: 'top-food', pillar: 'food-drink', totalScore: 85, status: 'PUBLISHED', publishedAt: '2026-09-23T08:00:00Z' });
-    const travelTopic = createMockTopic({ id: 'top-travel', pillar: 'travel', totalScore: 85, status: 'PUBLISHED', publishedAt: '2026-09-23T08:00:00Z' });
-    const wellbeingTopic = createMockTopic({ id: 'top-wellbeing', pillar: 'wellbeing', totalScore: 85, status: 'PUBLISHED', publishedAt: '2026-09-23T08:00:00Z' });
+    const recentIso = new Date(Date.now() - 2 * 3600 * 1000).toISOString();
+    const styleTopic = createMockTopic({ id: 'top-style', pillar: 'style', totalScore: 85, status: 'PUBLISHED', publishedAt: recentIso });
+    const entertainmentTopic = createMockTopic({ id: 'top-entertainment', pillar: 'entertainment', totalScore: 85, status: 'PUBLISHED', publishedAt: recentIso });
+    const foodTopic = createMockTopic({ id: 'top-food', pillar: 'food-drink', totalScore: 85, status: 'PUBLISHED', publishedAt: recentIso });
+    const travelTopic = createMockTopic({ id: 'top-travel', pillar: 'travel', totalScore: 85, status: 'PUBLISHED', publishedAt: recentIso });
+    const wellbeingTopic = createMockTopic({ id: 'top-wellbeing', pillar: 'wellbeing', totalScore: 85, status: 'PUBLISHED', publishedAt: recentIso });
 
     const selected = await selectSocialOpportunities([styleTopic, entertainmentTopic, foodTopic, travelTopic, wellbeingTopic], {
       maxOpportunities: 3,

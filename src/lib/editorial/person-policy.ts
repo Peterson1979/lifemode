@@ -17,6 +17,9 @@ const NON_PERSON_TERMS = new Set([
   'japanese minka',
   'solheim cup',
   'meteor shower',
+  'fidelity bitcoin',
+  'fidelity',
+  'bitcoin',
 ]);
 
 /**
@@ -71,10 +74,10 @@ export const PERSON_DO_NOT_CLAIM_GUARDRAILS: string[] = [
 ];
 
 export const NON_PERSON_CONCEPT_WORDS = new Set([
-  'guide', 'modern', 'series', 'watch', 'flight', 'islands', 'habits', 'living',
+  'guide', 'modern', 'series', 'watch', 'flight', 'islands', 'island', 'habits', 'living',
   'report', 'study', 'model', 'models', 'test', 'review', 'tech', 'architecture',
   'architectural', 'timber', 'pavilion', 'pavilions', 'structure', 'structures', 'building',
-  'spaces', 'workspaces', 'design', 'minimalist', 'mindful', 'audio', 'coastal',
+  'spaces', 'workspaces', 'design', 'minimalist', 'mindful', 'audio', 'coastal', 'coast',
   'retreat', 'retreats', 'interiors', 'gardens', 'lighting', 'coffee', 'keyboards', 'desk',
   'quantum', 'entanglement', 'computing', 'physics', 'science', 'learning',
   'intelligence', 'network', 'networks', 'system', 'systems', 'memory', 'solitude',
@@ -82,8 +85,8 @@ export const NON_PERSON_CONCEPT_WORDS = new Set([
   'wellness', 'fitness', 'nutrition', 'fasting', 'ergonomics', 'hardware', 'software',
   'acoustics', 'sound', 'photography', 'camera', 'analog', 'digital', 'journaling',
   'tea', 'espresso', 'brewing', 'fermentation', 'recipes', 'cooking', 'dining',
-  'travel', 'hotel', 'hotels', 'stays', 'beaches', 'mountains', 'trails', 'resorts',
-  'cities', 'culture', 'history', 'trends', 'signal', 'signals', 'zeitgeist', 'destination', 'destinations',
+  'travel', 'hotel', 'hotels', 'stays', 'beaches', 'beach', 'mountains', 'mountain', 'trails', 'trail', 'resorts', 'resort',
+  'cities', 'city', 'culture', 'history', 'trends', 'signal', 'signals', 'zeitgeist', 'destination', 'destinations',
   'solar', 'microgrid', 'resilience', 'energy', 'power', 'grid', 'climate', 'sustainability', 'sustainable',
   'environment', 'environmental', 'urban', 'house', 'housing', 'heating', 'cooling', 'residential',
   'geothermal', 'workstation', 'biophilic', 'workspace', 'calm', 'technology', 'devices', 'device',
@@ -96,7 +99,9 @@ export const NON_PERSON_CONCEPT_WORDS = new Set([
   'olive', 'oil', 'extraction', 'harvest', 'harvesting', 'culinary', 'gastronomy', 'ingredient', 'ingredients',
   'wine', 'dish', 'dishes', 'table', 'curation', 'preservation', 'yield', 'yields', 'treasury', 'inflation',
   'rates', 'notes', 'bonds', 'currency', 'sovereign', 'portfolio', 'asset', 'assets', 'liquidity',
-  'cup', 'showers', 'movies', 'streaming', 'monograph', 'renovation', 'minka', 'earthquakes',
+  'cup', 'showers', 'movies', 'streaming', 'monograph', 'renovation', 'minka', 'earthquakes', 'ocean', 'bay',
+  'guacamole', 'avocado', 'salad', 'bread', 'sourdough', 'soup', 'curry', 'pasta', 'tacos', 'dip', 'dips',
+  'pie', 'apple', 'pizza', 'burger', 'cookie', 'cookies', 'cake', 'sauce', 'stew', 'roast', 'smoothie', 'matcha',
 ]);
 
 export interface PersonDetectionInput {

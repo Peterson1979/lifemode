@@ -26,6 +26,7 @@ import type { ISocialPlatformAdapter } from './platforms/contracts.ts';
 import { FacebookPlatformAdapter } from './platforms/facebook.ts';
 import { InstagramPlatformAdapter } from './platforms/instagram.ts';
 import { PinterestPlatformAdapter } from './platforms/pinterest.ts';
+import { ThreadsPlatformAdapter } from './platforms/threads.ts';
 import type { ISocialAssetStorageProvider } from './images/storage/contracts.ts';
 import { FixtureSocialAssetStorageProvider } from './images/storage/fixture.ts';
 import { CloudflareR2SocialAssetStorageProvider } from './images/storage/r2.ts';
@@ -102,6 +103,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
     ['facebook', new FacebookPlatformAdapter()],
     ['instagram', new InstagramPlatformAdapter()],
     ['pinterest', new PinterestPlatformAdapter()],
+    ['threads', new ThreadsPlatformAdapter()],
   ]);
   const platformAdapters = options.platformAdapters || defaultAdapters;
 
@@ -109,6 +111,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
     facebook: { published: 0, failed: 0, skipped: 0 },
     instagram: { published: 0, failed: 0, skipped: 0 },
     pinterest: { published: 0, failed: 0, skipped: 0 },
+    threads: { published: 0, failed: 0, skipped: 0 },
   };
 
   // Fail fast in storage-test mode if R2 storage is not configured
@@ -120,6 +123,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
       facebookPreparation: 'FAIL' as const,
       instagramPreparation: 'FAIL' as const,
       pinterestPreparation: 'FAIL' as const,
+      threadsPreparation: 'FAIL' as const,
       externalPublication: 'SKIPPED' as const,
       gitCommitPush: 'SKIPPED' as const,
     };
@@ -133,6 +137,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
       '* Facebook preparation:   FAIL',
       '* Instagram preparation:  FAIL',
       '* Pinterest preparation:  FAIL',
+      '* Threads preparation:    FAIL',
       '* external publication:   SKIPPED',
       '* git commit/push:        SKIPPED',
       '====================================================',
@@ -237,9 +242,10 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
 
   // 2. Select Social Opportunities with Freshness & Platform Configuration Gating
   const configuredPlatforms: SocialPlatform[] = [];
-  if (config.credentials.facebook.configured) configuredPlatforms.push('facebook');
-  if (config.credentials.instagram.configured) configuredPlatforms.push('instagram');
-  if (config.credentials.pinterest.configured) configuredPlatforms.push('pinterest');
+  if (config.credentials.facebook.configured || platformAdapters.has('facebook')) configuredPlatforms.push('facebook');
+  if (config.credentials.instagram.configured || platformAdapters.has('instagram')) configuredPlatforms.push('instagram');
+  if (config.credentials.pinterest.configured || platformAdapters.has('pinterest')) configuredPlatforms.push('pinterest');
+  if (config.credentials.threads.configured || platformAdapters.has('threads')) configuredPlatforms.push('threads');
 
   let opportunities = await selectSocialOpportunities(candidatePool, {
     maxOpportunities: config.maxOpportunities,
@@ -264,7 +270,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
         socialPotential: 90,
         pinterestPotential: 90,
         opportunityType: 'ARTICLE_AND_SOCIAL',
-        targetPlatforms: ['facebook', 'instagram', 'pinterest'],
+        targetPlatforms: Array.from(platformAdapters.keys()),
         destinationUrl: `${config.baseUrl}/style/the-art-of-intentional-living-in-the-modern-era`,
         tags: ['style', 'mindfulness', 'design'],
       },
@@ -305,6 +311,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
     facebook: 'FAIL',
     instagram: 'FAIL',
     pinterest: 'FAIL',
+    threads: 'FAIL',
   };
 
   // 3. Process Each Opportunity Sequentially with Failure Isolation
@@ -417,8 +424,8 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
 
       const platformResults: Partial<Record<SocialPlatform, SocialPlatformPublishResult>> = {};
       const targetPlatforms = config.storageTest
-        ? (['facebook', 'instagram', 'pinterest'] as SocialPlatform[])
-        : opp.targetPlatforms;
+        ? (Array.from(platformAdapters.keys()) as SocialPlatform[])
+        : opp.targetPlatforms.filter((p) => platformAdapters.has(p));
 
       // Step H: Platform Preparation & Publication
       for (const platform of targetPlatforms) {
@@ -507,8 +514,8 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
         (r) => r?.status === 'PUBLISHED' || r?.status === 'DRY_RUN'
       );
       const allTargetPublished =
-        opp.targetPlatforms.length > 0 &&
-        opp.targetPlatforms.every(
+        targetPlatforms.length > 0 &&
+        targetPlatforms.every(
           (p) => platformResults[p]?.status === 'PUBLISHED' || platformResults[p]?.status === 'DRY_RUN'
         );
 
@@ -537,7 +544,11 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
         manifestEntries.push(entry);
       }
 
-      if (anySuccess || (config.storageTest && storageTestPrepStatus.facebook === 'SUCCESS' && storageTestPrepStatus.instagram === 'SUCCESS' && storageTestPrepStatus.pinterest === 'SUCCESS')) {
+      const storagePrepPassed =
+        targetPlatforms.length > 0 &&
+        targetPlatforms.every((p) => storageTestPrepStatus[p] === 'SUCCESS');
+
+      if (anySuccess || (config.storageTest && storagePrepPassed)) {
         succeededCount++;
       } else {
         failedCount++;
@@ -584,10 +595,13 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
 
   // In storage-test mode, produce the exact required CLI report
   if (config.storageTest) {
-    const fbOk = storageTestPrepStatus.facebook === 'SUCCESS';
-    const igOk = storageTestPrepStatus.instagram === 'SUCCESS';
-    const pinOk = storageTestPrepStatus.pinterest === 'SUCCESS';
-    const testPassed = fbOk && igOk && pinOk && Boolean(lastUploadedPublicUrl && lastUploadedPublicUrl.startsWith('https://'));
+    const testedPlatforms = Array.from(platformAdapters.keys()) as SocialPlatform[];
+    const prepPassed =
+      testedPlatforms.length > 0 &&
+      testedPlatforms.every((p) => storageTestPrepStatus[p] === 'SUCCESS');
+    const testPassed =
+      prepPassed &&
+      Boolean(lastUploadedPublicUrl && lastUploadedPublicUrl.startsWith('https://'));
 
     const testStatus: SocialAutomationResult['status'] = testPassed ? 'SUCCESS' : 'FAILED';
     const storageTestDetails = {
@@ -597,6 +611,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
       facebookPreparation: storageTestPrepStatus.facebook,
       instagramPreparation: storageTestPrepStatus.instagram,
       pinterestPreparation: storageTestPrepStatus.pinterest,
+      threadsPreparation: storageTestPrepStatus.threads,
       externalPublication: 'SKIPPED' as const,
       gitCommitPush: 'SKIPPED' as const,
     };
@@ -611,6 +626,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
       `* Facebook preparation:   ${storageTestPrepStatus.facebook}`,
       `* Instagram preparation:  ${storageTestPrepStatus.instagram}`,
       `* Pinterest preparation:  ${storageTestPrepStatus.pinterest}`,
+      `* Threads preparation:    ${storageTestPrepStatus.threads}`,
       '* external publication:   SKIPPED',
       '* git commit/push:        SKIPPED',
       '====================================================',
@@ -655,7 +671,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
   const summaryLines = [
     `Social Automation Run [${status}]`,
     `Selected: ${opportunities.length} | Succeeded: ${succeededCount} | Rejected: ${rejectedCount} | Failed: ${failedCount}`,
-    `Platforms: Facebook (${platformSummary.facebook.published} pub, ${platformSummary.facebook.failed} fail) | Instagram (${platformSummary.instagram.published} pub, ${platformSummary.instagram.failed} fail) | Pinterest (${platformSummary.pinterest.published} pub, ${platformSummary.pinterest.failed} fail)`,
+    `Platforms: Facebook (${platformSummary.facebook.published} pub, ${platformSummary.facebook.failed} fail) | Instagram (${platformSummary.instagram.published} pub, ${platformSummary.instagram.failed} fail) | Pinterest (${platformSummary.pinterest.published} pub, ${platformSummary.pinterest.failed} fail) | Threads (${platformSummary.threads.published} pub, ${platformSummary.threads.failed} fail)`,
     `Push to Remote: ${pushedToRemote ? 'COMPLETED' : 'SKIPPED'}`,
   ];
 

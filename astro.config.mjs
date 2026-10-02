@@ -22,7 +22,6 @@ export default defineConfig({
     '/now/apple-tv-last-seen-series-what-you-need-to-know': '/tech-ai/apple-tv-last-seen-series-what-you-need-to-know',
     '/now/downdetector-guide-2026': '/tech-ai/downdetector-guide-2026',
     '/now/cable-tv-a-modern-guide-to-trends-signals-zeitgeist': '/culture/cable-tv-a-modern-guide-to-trends-signals-zeitgeist',
-    '/now/delta-flight-2311-rapid-descent-what-to-know': '/travel/delta-flight-2311-rapid-descent-what-to-know',
     '/now/fire-weather-watch-what-to-know': '/travel/fire-weather-watch-what-to-know',
     '/now/jose-trevino-what-to-know': '/culture/jose-trevino-what-to-know',
     '/now/josh-hartnett-actor-netflix-below': '/culture/josh-hartnett-actor-netflix-below',

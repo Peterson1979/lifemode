@@ -20,8 +20,6 @@ export const EXISTING_TITLE_REPLACEMENTS: Record<string, string> = {
     'The quietest islands in the Azores: hot springs, volcanic trails, and solitary coastlines',
   'travel/minimalist-coastal-retreats-architecture-and-secluded-stays':
     'Minimalist coastal retreats: secluded architecture across the Mediterranean',
-  'travel/delta-flight-2311-rapid-descent-a-modern-guide-to-destinatio':
-    'What happened aboard Delta Flight 2311: understanding rapid emergency descents',
   'travel/laguna-beach-modern-guide':
     'Laguna Beach: a modern blueprint for intentional coastal travel',
 

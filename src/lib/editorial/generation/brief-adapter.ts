@@ -2,6 +2,7 @@ import type { ContentBrief } from '../types.ts';
 import type { GenerationRequest } from './types.ts';
 import { matchAffiliateOpportunities } from '../affiliate/index.ts';
 import type { AffiliateMatchResult } from '../affiliate/types.ts';
+import { buildFactSheet, determineContentType } from '../fact-sheet.ts';
 
 export interface BriefAdapterOptions {
   contentInstructions?: string;
@@ -19,6 +20,28 @@ export function briefToGenerationRequest(
   options: BriefAdapterOptions = {}
 ): GenerationRequest {
   const affiliateGuidance = options.affiliateGuidance || matchAffiliateOpportunities(brief);
+
+  const fallbackTopic = {
+    id: brief.topicId,
+    canonicalTopic: brief.workingTitle || brief.titleAngle || brief.topicId,
+    slug: brief.slug,
+    pillar: brief.pillar,
+    tags: brief.searchTargets?.secondaryKeywords || [],
+    sourceSignals: (brief as any).sourceSignals || [],
+  } as any;
+
+  const factSheet =
+    brief.factSheet ||
+    buildFactSheet(
+      fallbackTopic,
+      brief.evidence || [],
+      (brief as any).sourceSignals || []
+    );
+
+  const contentType =
+    brief.contentType ||
+    factSheet.contentType ||
+    determineContentType(fallbackTopic);
 
   return {
     topicId: brief.topicId,
@@ -63,5 +86,7 @@ export function briefToGenerationRequest(
     contentInstructions: options.contentInstructions,
     estimatedWordCount: brief.estimatedWordCount,
     outlineSections: brief.outlineSections,
+    factSheet,
+    contentType,
   };
 }

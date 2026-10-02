@@ -15,6 +15,7 @@ import { loadCandidates, saveCandidates, mergeCandidateTopic } from '../discover
 import { selectEditorialCandidates } from '../selection.ts';
 import { slugify } from '../normalization.ts';
 import { buildContentBrief } from '../brief.ts';
+import { buildFactSheet } from '../fact-sheet.ts';
 import { briefToGenerationRequest } from '../generation/brief-adapter.ts';
 import { runGenerationPipeline } from '../generation/runner.ts';
 import { FixtureGenerationProvider } from '../generation/providers/fixture.ts';
@@ -631,6 +632,7 @@ export async function runEditorialAutomation(
       if (evidenceResult.items && evidenceResult.items.length > 0) {
         brief.evidence = evidenceResult.items;
         topic.evidence = evidenceResult.items;
+        brief.factSheet = buildFactSheet(topic, evidenceResult.items, topic.sourceSignals);
         topic.researchRequired = true;
         topic.researchStatus = 'SUCCESS';
       } else {
@@ -638,7 +640,7 @@ export async function runEditorialAutomation(
         topic.researchStatus = 'NOT_REQUIRED';
       }
 
-      // Convert to Generation Request (includes brief.evidence)
+      // Convert to Generation Request (includes brief.evidence and structured factSheet)
       const generationRequest = briefToGenerationRequest(brief);
 
       // Stage 4: GENERATION
