@@ -557,5 +557,33 @@
     "overallStatus": "COMPLETED",
     "createdAt": "2026-10-01T18:33:11.619Z",
     "updatedAt": "2026-10-01T18:33:11.619Z"
+  },
+  {
+    "runId": "crun-1790940536540-ykb33",
+    "topicId": "social-2026-10-02",
+    "pillar": "style",
+    "canonicalTopic": "Neurobiology of Dreaming",
+    "contentHash": "71bd3eadab9f4ff7f3558bd86f643d3b4ecd50e2a0c41b432e2cab1d46234483",
+    "assetHash": "118fe6eabc22c6bd85992cd92412119255496e5753868b0b815be102446e5cc8",
+    "idempotencyKey": "lm-soc-dreamly-ai-social-2026-10-02-threads-71bd3eadab9f",
+    "sourceProject": "dreamly-ai",
+    "contentType": "carousel",
+    "targetPlatforms": [
+      "threads"
+    ],
+    "platformResults": {
+      "threads": {
+        "platform": "threads",
+        "status": "PUBLISHED",
+        "postId": "18626480065033699",
+        "postUrl": "https://www.threads.net/@lifemodehq/post/18626480065033699",
+        "publishedAt": "2026-10-02T11:28:28.898Z",
+        "idempotencyKey": "lm-soc-dreamly-ai-social-2026-10-02-threads-71bd3eadab9f"
+      }
+    },
+    "reviewScore": 90,
+    "overallStatus": "COMPLETED",
+    "createdAt": "2026-10-02T11:28:28.877Z",
+    "updatedAt": "2026-10-02T11:28:28.877Z"
   }
 ]
