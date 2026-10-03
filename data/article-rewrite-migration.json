@@ -1,19 +1,19 @@
 {
   "summary": {
-    "totalArticles": 117,
-    "actuallyRewritten": 43,
+    "totalArticles": 111,
+    "actuallyRewritten": 103,
     "retainedUnchanged": 0,
     "imageOnly": 0,
-    "failedManualReview": 74,
-    "generationsExecuted": 117,
-    "imagesRetained": 117,
+    "failedManualReview": 8,
+    "generationsExecuted": 111,
+    "imagesRetained": 111,
     "imagesReplaced": 0,
     "imagesRejectedNoImage": 0,
-    "editorialQAPassed": 43,
-    "editorialQAFailed": 74,
-    "imageQAPassed": 43,
-    "imageQAFailed": 74,
-    "lastUpdated": "2026-10-01T14:22:38.889Z"
+    "editorialQAPassed": 103,
+    "editorialQAFailed": 8,
+    "imageQAPassed": 103,
+    "imageQAFailed": 8,
+    "lastUpdated": "2026-10-03T07:06:51.992Z"
   },
   "articles": {
     "src/content/culture/cable-tv-a-modern-guide-to-trends-signals-zeitgeist.md": {
@@ -879,13 +879,13 @@
       "pillar": "wellbeing",
       "slug": "vaccinations-modern-guide-trends-signals-zeitgeist",
       "topicId": "lm-now-20260911-vaccinations",
-      "title": "How seasonal vaccinations have entered the wellness conversation",
+      "title": "Why seasonal vaccines are now part of the wellness conversation",
       "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "b20e6f88df7769d8de740c4eac2e526d2d1addd2bc136a7e5223e86dadbd858f",
-      "finalContentHash": "b20e6f88df7769d8de740c4eac2e526d2d1addd2bc136a7e5223e86dadbd858f",
+      "originalContentHash": "ca2b937c45539a890f5721dd2fd052583b099f750dd846f7c40bd4721ecd7849",
+      "finalContentHash": "ebaa900eaecaa2d58ac1fc07c2d186483b9bac0ceaec43a7bf23d8b967377e57",
       "originalBodyHash": "e439af487eb14632e70595149febad27666b490093e158567e5c17db2fc6775c",
-      "finalBodyHash": "e439af487eb14632e70595149febad27666b490093e158567e5c17db2fc6775c",
-      "bodyChanged": false,
+      "finalBodyHash": "de4b12ff0be2de10c11a80b8f1d2b7827794a8881ab4c650f94f4e6755734e0f",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://pewresearch.org/internet/2026/01/22/digital-intentionality-and-screen-habits",
         "https://centerforhumanetech.com/insights/calm-technology-principles",
@@ -893,16 +893,16 @@
       ],
       "sourceEvidenceCount": 3,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-now-20260911-vaccinations/91cebbbe755019df.jpg",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-120b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T11:40:18.192Z"
+      "updatedAt": "2026-10-03T03:09:26.582Z"
     },
     "src/content/travel/fire-weather-watch-what-to-know.md": {
       "filePath": "src/content/travel/fire-weather-watch-what-to-know.md",
@@ -1143,376 +1143,318 @@
       "pillar": "style",
       "slug": "autumn-layering-with-wool-and-hair-care",
       "topicId": "lm-style-20260924-the-art-of-autumn-layering-nat",
-      "title": "Inside autumn layering with wool and hair care that works: Routines, Formulas, and Everyday Application",
+      "title": "How to layer wool in autumn and keep your hair healthy",
       "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "f844f07e535326ced94050235e298910af51f646fde70885b620f0188d3b776e",
-      "finalContentHash": "f844f07e535326ced94050235e298910af51f646fde70885b620f0188d3b776e",
+      "originalContentHash": "54dd91a54d1f99611f2d63ccc4c617cd406a4d0a8e33afeafded54d1606f353b",
+      "finalContentHash": "816c06fca0724e3cdd2088defc00e4287966d15a8e3a23886a4c38c379118586",
       "originalBodyHash": "53a08d6a2d617c8d0a2a4fc2f908cd325cba5030e139b0524dff95dd2f9b3df5",
-      "finalBodyHash": "53a08d6a2d617c8d0a2a4fc2f908cd325cba5030e139b0524dff95dd2f9b3df5",
-      "bodyChanged": false,
+      "finalBodyHash": "5cd3202d905ba15367b5afe0e7f553bf0489753bd02274f3351e35c85bf2de7a",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://www.lifemode.com"
       ],
       "sourceEvidenceCount": 1,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-style-20260924-the-art-of-autumn-laye/9b9b8c948321dfb6.jpg",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-120b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T11:40:14.811Z"
+      "updatedAt": "2026-10-02T23:43:18.313Z"
     },
     "src/content/style/demystifying-active-ingredients-retinoids-acids-and-antioxidants.md": {
       "filePath": "src/content/style/demystifying-active-ingredients-retinoids-acids-and-antioxidants.md",
       "pillar": "style",
       "slug": "demystifying-active-ingredients-retinoids-acids-and-antioxidants",
       "topicId": "lm-style-20260923-demystifying-active-ingredients",
-      "title": "Building an Intentional Wardrobe: The Role of Demystifying Active Ingredients: Retinoids, Vitamin C, and Exfoliating Acids",
+      "title": "How a Simple Skincare Trio Can Sharpen Your Wardrobe Style",
       "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "4ffc0bb2f1e54a5637db48bdda838cdab3f6753e49b1bd0a1f920f88ba7e2394",
-      "finalContentHash": "4ffc0bb2f1e54a5637db48bdda838cdab3f6753e49b1bd0a1f920f88ba7e2394",
+      "originalContentHash": "cee5fa663c10c46b7d7d044bcc790b84de4d43303df95bbebc690a4c5dbd7d59",
+      "finalContentHash": "34245dfe247d643d0d1fde01ffc591dce68d1e16f4c1eab11eb1e78b573e35b3",
       "originalBodyHash": "6c6fd1b2916cdd686e626458eed61aab163062c5d1bb4fca0db49dd5c40682c4",
-      "finalBodyHash": "6c6fd1b2916cdd686e626458eed61aab163062c5d1bb4fca0db49dd5c40682c4",
-      "bodyChanged": false,
+      "finalBodyHash": "77177a90b1a5e5c7d29808c273291d7c4b29dbb92b94e992a1e910bfd5adcabe",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://jcadonline.com",
         "https://www.health.harvard.edu"
       ],
       "sourceEvidenceCount": 2,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1200&q=80",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T11:40:15.035Z"
+      "updatedAt": "2026-10-02T23:49:13.481Z"
     },
     "src/content/style/layering-principles-textures-weights-and-seasonal-transitions.md": {
       "filePath": "src/content/style/layering-principles-textures-weights-and-seasonal-transitions.md",
       "pillar": "style",
       "slug": "layering-principles-textures-weights-and-seasonal-transitions",
       "topicId": "lm-style-20260923-layering-principles-textures",
-      "title": "The Craft of Layering Principles: Balancing Textures, Weights, and Mid-Season Weather: Texture, Formulation, and Personal Expression",
+      "title": "Layering for the Transition Months: How to Mix Textures and Weights",
       "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "65e0cac74ddff8aa8511670c010d5274b07eb836e42480f1bcbca233f8e07686",
-      "finalContentHash": "65e0cac74ddff8aa8511670c010d5274b07eb836e42480f1bcbca233f8e07686",
+      "originalContentHash": "1a2d09d6268fa1086589cf963ee98d1cf913256140e1ae0a9a780761fc9d89e5",
+      "finalContentHash": "71fc36d2990cbba0c4f4ae68df118a9b9f043ea992eee5f0d2b8c3620d266894",
       "originalBodyHash": "0f11bd66d0ca515e8b941ae8c630df945ad09b9271d91238b1a56ea11d8c214a",
-      "finalBodyHash": "0f11bd66d0ca515e8b941ae8c630df945ad09b9271d91238b1a56ea11d8c214a",
-      "bodyChanged": false,
+      "finalBodyHash": "db44332b3f247426c3465bd231ee820cb0fd463c3db045d5a231cbf2a94b08b6",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://www.textileinstitute.org",
         "https://www.emerald.com/insight/publication/issn/1361-2026"
       ],
       "sourceEvidenceCount": 2,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=1200&q=80",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T11:40:15.249Z"
+      "updatedAt": "2026-10-03T05:12:00.183Z"
     },
     "src/content/style/skin-barrier-health-a-practical-guide-to-ceramides-hydration-and-balance.md": {
       "filePath": "src/content/style/skin-barrier-health-a-practical-guide-to-ceramides-hydration-and-balance.md",
       "pillar": "style",
       "slug": "skin-barrier-health-a-practical-guide-to-ceramides-hydration-and-balance",
       "topicId": "lm-style-20260923-skin-barrier-health-guide",
-      "title": "The Modern Approach to Skin Barrier Health: A Practical Guide to Lipids, Hydration, and Equilibrium",
+      "title": "Skin‑barrier health in everyday life: lipids, water and balance",
       "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "97cca85ba9f9ee9ba26760dfc1870713fed50c3a1208329c37b9634b466db57e",
-      "finalContentHash": "97cca85ba9f9ee9ba26760dfc1870713fed50c3a1208329c37b9634b466db57e",
+      "originalContentHash": "a51e1c222d0c4b173b06a61f77d59bb8159c02403ffdeadc5800d361b41573f3",
+      "finalContentHash": "3a610affcef8fb5415df14e781af20961293742044d255df9bcf0762281a56b8",
       "originalBodyHash": "73d32667e4e815adca494cc4b5415a30551684b80f5e8865e8a685e6fc40aa5e",
-      "finalBodyHash": "73d32667e4e815adca494cc4b5415a30551684b80f5e8865e8a685e6fc40aa5e",
-      "bodyChanged": false,
+      "finalBodyHash": "d07a76772a35d2bb5b610c9614870a0e1b9e1ba1eb577a760535f3f6df3a78af",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://www.jidonline.org",
         "https://www.aad.org"
       ],
       "sourceEvidenceCount": 2,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&q=80",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T11:40:15.488Z"
-    },
-    "src/content/style/the-anatomy-of-good-tailoring-fit-proportions-and-everyday-silhouette.md": {
-      "filePath": "src/content/style/the-anatomy-of-good-tailoring-fit-proportions-and-everyday-silhouette.md",
-      "pillar": "style",
-      "slug": "the-anatomy-of-good-tailoring-fit-proportions-and-everyday-silhouette",
-      "topicId": "lm-style-20260923-anatomy-of-good-tailoring",
-      "title": "The Anatomy of Good Tailoring: Proportions, Shoulders, and Everyday Fit",
-      "contentType": "EXPLAINER",
-      "originalContentHash": "2e9eab50d097d4db68a62c39357a4e47b1509565a625acb9a1fdfbcf7dcf3eae",
-      "finalContentHash": "2e9eab50d097d4db68a62c39357a4e47b1509565a625acb9a1fdfbcf7dcf3eae",
-      "originalBodyHash": "89677e8aefa6ed876ba9b0de22d4388bc4b35db44e9e0c829a8c8989641bb44e",
-      "finalBodyHash": "89677e8aefa6ed876ba9b0de22d4388bc4b35db44e9e0c829a8c8989641bb44e",
-      "bodyChanged": false,
-      "sourceUrls": [
-        "https://www.vam.ac.uk",
-        "https://www.savilerowbespoke.com"
-      ],
-      "sourceEvidenceCount": 2,
-      "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
-      "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
-      "notes": [
-        "Failed generation without fixture fallback."
-      ],
-      "updatedAt": "2026-10-01T11:40:15.770Z"
+      "updatedAt": "2026-10-03T00:23:50.114Z"
     },
     "src/content/style/the-art-of-the-capsule-wardrobe-building-a-functional-everyday-uniform.md": {
       "filePath": "src/content/style/the-art-of-the-capsule-wardrobe-building-a-functional-everyday-uniform.md",
       "pillar": "style",
       "slug": "the-art-of-the-capsule-wardrobe-building-a-functional-everyday-uniform",
       "topicId": "lm-style-20260923-capsule-wardrobe-uniform",
-      "title": "The Art of the Capsule Wardrobe: Building a Functional Everyday Uniform",
+      "title": "Capsule wardrobes as everyday uniforms: a practical guide",
       "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "20958a7ca9975ec0fa9a5fe6337ff03afe971a9495cae3dc8a3cd71b87b84540",
-      "finalContentHash": "20958a7ca9975ec0fa9a5fe6337ff03afe971a9495cae3dc8a3cd71b87b84540",
+      "originalContentHash": "7c6cd091532a954a66129269bb59592e040dc86914634b6a1116dc982692d7d5",
+      "finalContentHash": "982783007325fb7de6e433a8e072f104e7be42e458ff970de9b63da3f137d0e4",
       "originalBodyHash": "3c81524e65007a06c51d13d032f14239d6d5bf7865283332ae5cfee09db30962",
-      "finalBodyHash": "3c81524e65007a06c51d13d032f14239d6d5bf7865283332ae5cfee09db30962",
-      "bodyChanged": false,
+      "finalBodyHash": "0cc8fa004d200fa9e7a5d723d3aab114d726632241e9ada91cffc068f0645766",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://itaaonline.org",
         "https://journals.sagepub.com/home/joc"
       ],
       "sourceEvidenceCount": 2,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1200&q=80",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T11:40:16.022Z"
+      "updatedAt": "2026-10-03T00:53:43.596Z"
     },
     "src/content/style/the-cultural-shift-toward-tactile-style-and-slow-wardrobes.md": {
       "filePath": "src/content/style/the-cultural-shift-toward-tactile-style-and-slow-wardrobes.md",
       "pillar": "style",
       "slug": "the-cultural-shift-toward-tactile-style-and-slow-wardrobes",
       "topicId": "lm-style-20260923-cultural-shift-tactile-slow-wardrobe",
-      "title": "The Cultural Shift Toward Tactile Style and the Slow Wardrobe Movement",
+      "title": "How tactile style fuels the slow wardrobe movement",
       "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "e87c60b220337cd4cc6f0971a1bef5fec62799af41e1fb73bdba48016f00bbbf",
-      "finalContentHash": "e87c60b220337cd4cc6f0971a1bef5fec62799af41e1fb73bdba48016f00bbbf",
+      "originalContentHash": "ceba7b16e1d59fb4aeacebb8e8dc8a4ff8acb800a301bf1de2592b754b5d4fb4",
+      "finalContentHash": "fca004196ece27a38a8b9699a586436c9d56a1bdedb7686dea599bcdba5b9e1c",
       "originalBodyHash": "f16ad7d061af03a6cc32dfd6cfa30b9dc6d643d1c0325524ce347a99a4083745",
-      "finalBodyHash": "f16ad7d061af03a6cc32dfd6cfa30b9dc6d643d1c0325524ce347a99a4083745",
-      "bodyChanged": false,
+      "finalBodyHash": "9028ba9f14fc1a88c9b2bbe37081438f680980225a803934e7b894b8546d34bd",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://www.ellenmacarthurfoundation.org",
         "https://fashionandtextiles.springeropen.com"
       ],
       "sourceEvidenceCount": 2,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1200&q=80",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-120b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T11:40:16.259Z"
+      "updatedAt": "2026-10-03T01:02:26.051Z"
     },
     "src/content/style/the-minimalist-makeup-routine-skin-first-techniques-for-daily-wear.md": {
       "filePath": "src/content/style/the-minimalist-makeup-routine-skin-first-techniques-for-daily-wear.md",
       "pillar": "style",
       "slug": "the-minimalist-makeup-routine-skin-first-techniques-for-daily-wear",
       "topicId": "lm-style-20260923-minimalist-makeup-routine",
-      "title": "The Minimalist Makeup Routine: Skin-First Techniques for Everyday Wear",
+      "title": "A skin‑first minimalist makeup routine for everyday wear",
       "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "e90942e157741594ebb4025b6e3dc8f8317338025c600839d0abdbc68952db62",
-      "finalContentHash": "e90942e157741594ebb4025b6e3dc8f8317338025c600839d0abdbc68952db62",
+      "originalContentHash": "8dd4c09a304c78cc809d4a62d51729c5a18a183ceb2f9e5843c7fabc9d6b3f7d",
+      "finalContentHash": "b11af0ae4e3c2f904ac97c7e374997e2113d8a4ce2c9870eee2be3d540ad5da6",
       "originalBodyHash": "492c3b40ef656102b0867040dcecb4d4ed1526fb4b183f897d483ccc7145b809",
-      "finalBodyHash": "492c3b40ef656102b0867040dcecb4d4ed1526fb4b183f897d483ccc7145b809",
-      "bodyChanged": false,
+      "finalBodyHash": "f0e2ab81eaacb63cf244fbb137e7b5a88af78559de906c4ef270cb81db1596b8",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://www.babtac.com",
         "https://www.sciencedirect.com"
       ],
       "sourceEvidenceCount": 2,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1200&q=80",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-120b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T11:40:16.481Z"
+      "updatedAt": "2026-10-03T05:49:38.150Z"
     },
     "src/content/style/the-modern-hair-ritual-scalp-health-texture-and-heatless-styling.md": {
       "filePath": "src/content/style/the-modern-hair-ritual-scalp-health-texture-and-heatless-styling.md",
       "pillar": "style",
       "slug": "the-modern-hair-ritual-scalp-health-texture-and-heatless-styling",
       "topicId": "lm-style-20260923-modern-hair-ritual-scalp",
-      "title": "The Modern Hair Ritual: Scalp Health, Natural Texture, and Gentle Styling",
+      "title": "The modern hair ritual: scalp health, natural texture, and gentle styling",
       "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "7ea3a3e272ed6fdd690d1fc2967b2c89f7211d19150a7e52baa43f85ef0a97f8",
-      "finalContentHash": "7ea3a3e272ed6fdd690d1fc2967b2c89f7211d19150a7e52baa43f85ef0a97f8",
+      "originalContentHash": "4bee48efe5685fb50966ef3a2d2f788d66d70d3069778b8ee5f78110721f4767",
+      "finalContentHash": "b730cdefd90d26dbe6a92c1dc7ecb3ef86557b19677be17cf4706723c5fc22f4",
       "originalBodyHash": "c69cc46204eb513c730a2e3da9344dd0b36008fef1e65d0b61281ec2e4db548f",
-      "finalBodyHash": "c69cc46204eb513c730a2e3da9344dd0b36008fef1e65d0b61281ec2e4db548f",
-      "bodyChanged": false,
+      "finalBodyHash": "9df5dc499dde683e26b3222855c3010329b9ee8ec484072116beecd36a56bfeb",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://journals.lww.com/ijot",
         "https://www.scconline.org"
       ],
       "sourceEvidenceCount": 2,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T11:40:16.719Z"
+      "updatedAt": "2026-10-03T01:21:48.485Z"
     },
     "src/content/style/the-science-and-ritual-of-double-cleansing.md": {
       "filePath": "src/content/style/the-science-and-ritual-of-double-cleansing.md",
       "pillar": "style",
       "slug": "the-science-and-ritual-of-double-cleansing",
       "topicId": "lm-style-20260923-science-of-double-cleansing",
-      "title": "The Science and Ritual of Double Cleansing: Why Oil Dissolves Oil",
+      "title": "double cleansing demystified: why oil dissolves oil",
       "contentType": "EXPLAINER",
-      "originalContentHash": "88ef0a8a85951e2669c0681357de3605b8897fca0f5e7e4e913d019246ddcfb9",
-      "finalContentHash": "88ef0a8a85951e2669c0681357de3605b8897fca0f5e7e4e913d019246ddcfb9",
+      "originalContentHash": "41744dd6ceb62572b153b4c425dc0982cd855b0ac77b23aaceed16750735270c",
+      "finalContentHash": "2635ac5c0baaf00654ed1c5b7ee44fd53072b1961490d1524e56fed99b396398",
       "originalBodyHash": "26e553a961b19dab4f39dbfe58d75b7525b4f823e122a7a138e86c1d6872ce93",
-      "finalBodyHash": "26e553a961b19dab4f39dbfe58d75b7525b4f823e122a7a138e86c1d6872ce93",
-      "bodyChanged": false,
+      "finalBodyHash": "2816b2b1967ff52aa54c044bc1733784b062e77f34955242fa5995419c3c974a",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://onlinelibrary.wiley.com/journal/14682494",
         "https://academic.oup.com/bjd"
       ],
       "sourceEvidenceCount": 2,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=80",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T11:40:16.985Z"
-    },
-    "src/content/style/the-understated-power-of-accessories-how-small-details-define-an-outfit.md": {
-      "filePath": "src/content/style/the-understated-power-of-accessories-how-small-details-define-an-outfit.md",
-      "pillar": "style",
-      "slug": "the-understated-power-of-accessories-how-small-details-define-an-outfit",
-      "topicId": "lm-style-20260923-understated-power-of-accessories",
-      "title": "The Understated Power of Accessories: How Small Details Define an Outfit",
-      "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "e9b700a2497517dbf946dc61421162bd9d2d926a0d718bd6e1743a88aabd363c",
-      "finalContentHash": "e9b700a2497517dbf946dc61421162bd9d2d926a0d718bd6e1743a88aabd363c",
-      "originalBodyHash": "f42859174f04ffb65e2f83a94a71bd557263eb2f6cb2fc78c4c45405b5e56eb3",
-      "finalBodyHash": "f42859174f04ffb65e2f83a94a71bd557263eb2f6cb2fc78c4c45405b5e56eb3",
-      "bodyChanged": false,
-      "sourceUrls": [
-        "https://www.craftscouncil.org.uk",
-        "https://www.leatherworkinggroup.com"
-      ],
-      "sourceEvidenceCount": 2,
-      "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
-      "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
-      "notes": [
-        "Failed generation without fixture fallback."
-      ],
-      "updatedAt": "2026-10-01T11:40:17.227Z"
+      "updatedAt": "2026-10-03T06:09:05.098Z"
     },
     "src/content/style/understanding-fragrance-notes-accords-and-scent-silence.md": {
       "filePath": "src/content/style/understanding-fragrance-notes-accords-and-scent-silence.md",
       "pillar": "style",
       "slug": "understanding-fragrance-notes-accords-and-scent-silence",
       "topicId": "lm-style-20260923-understanding-fragrance-notes",
-      "title": "Why Understanding Fragrance: Olfactory Pyramids, Accords, and the Art of Sillage Is Redefining Modern Daily Aesthetics",
+      "title": "Olfactory pyramids, accords, and sillage: how fragrance shapes everyday style",
       "contentType": "EXPLAINER",
-      "originalContentHash": "de35e9ae4c05f141f7d0eb86ddc84f0aa3cd68c14596a225e1117fc1b74b4a5c",
-      "finalContentHash": "de35e9ae4c05f141f7d0eb86ddc84f0aa3cd68c14596a225e1117fc1b74b4a5c",
+      "originalContentHash": "00161b7242988fb21fa4a2469df47c53a6dfb8bc073bc3f1e816f6d77ae577ec",
+      "finalContentHash": "6693590a13d07b70e4240b734f0f45b143bb68e2c680bf6ae3f8c968b3d0ae78",
       "originalBodyHash": "11ed03661281388c9640f9c3cdbd99377cdc6fdc9c9b4045343c2dca6458ec2d",
-      "finalBodyHash": "11ed03661281388c9640f9c3cdbd99377cdc6fdc9c9b4045343c2dca6458ec2d",
-      "bodyChanged": false,
+      "finalBodyHash": "3940f6d30861eb7d0909c56d0020e03f4744499b7ccd329a65e5a57ea4e89e09",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://www.osmotheque.fr",
         "https://fragrance.org"
       ],
       "sourceEvidenceCount": 2,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1200&q=80",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T11:40:17.473Z"
+      "updatedAt": "2026-10-03T02:18:25.248Z"
     },
     "src/content/food-drink/a-practical-guide-to-cooking-with-lentils.md": {
       "filePath": "src/content/food-drink/a-practical-guide-to-cooking-with-lentils.md",
       "pillar": "food-drink",
       "slug": "a-practical-guide-to-cooking-with-lentils",
       "topicId": "lm-food-lentils-cooking-guide",
-      "title": "A Practical Guide to Cooking With Lentils: Varieties, Texture, and Flavor",
+      "title": "lentils made simple: varieties, textures, and flavors",
       "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "a1f6800e3e09b95fe02a6f3f3e7c6bc3812fa172e2e7c239fdbec1bb728a76dd",
-      "finalContentHash": "a1f6800e3e09b95fe02a6f3f3e7c6bc3812fa172e2e7c239fdbec1bb728a76dd",
+      "originalContentHash": "b5e9ebc07545578017714975b9b6992e8bb57888cb1c6f63ae2cc85d95dfb0a6",
+      "finalContentHash": "5d16f5f3fafa246570c58b6d79a2da31b70c5f7f9c718a22a21e3341a4ff580f",
       "originalBodyHash": "8b8f133faf819b4fec612751c307b57fb380c65d4cc0e092cf7516b47da37edd",
-      "finalBodyHash": "8b8f133faf819b4fec612751c307b57fb380c65d4cc0e092cf7516b47da37edd",
-      "bodyChanged": false,
+      "finalBodyHash": "acd1e836d41dfb005ee4a960de17a588e0dd055ac2135d154215fd6e6ee3f0ca",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://www.hsph.harvard.edu/nutritionsource/legumes",
         "https://www.ciachef.edu"
       ],
       "sourceEvidenceCount": 2,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "/editorial/food/cooking-with-lentils.webp",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-02T06:38:23.139Z"
+      "updatedAt": "2026-10-02T19:46:26.747Z"
     },
     "src/content/food-drink/artisan-seeded-sourdough-bread.md": {
       "filePath": "src/content/food-drink/artisan-seeded-sourdough-bread.md",
@@ -1604,29 +1546,29 @@
       "pillar": "food-drink",
       "slug": "designing-a-low-friction-kitchen-workflow",
       "topicId": "lm-food-kitchen-workflow-ergonomics",
-      "title": "Designing a Low-Friction Kitchen: Mise en Place, Counter Space, and Daily Rhythm",
+      "title": "Designing a low‑friction kitchen: mise en place, counter space, and daily rhythm",
       "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "e363ff617b48c03dcc91ae4bdd3b7ca708a7bfd6b593d23242e5300452dc184f",
-      "finalContentHash": "e363ff617b48c03dcc91ae4bdd3b7ca708a7bfd6b593d23242e5300452dc184f",
+      "originalContentHash": "36d24e079291133f29acaddb1035997d48602a199c32ad8b0f60638989231885",
+      "finalContentHash": "e7a4addacd6d01f46c7c5fdb8295b75aabd1c709eab33e5bb3816951945fb595",
       "originalBodyHash": "9322497ce0ee26397597953ceb804c274090b6deedfbe7e0a6b7324724c34c4d",
-      "finalBodyHash": "9322497ce0ee26397597953ceb804c274090b6deedfbe7e0a6b7324724c34c4d",
-      "bodyChanged": false,
+      "finalBodyHash": "4f8a91ec9b94c1df87ce7395ff597c1fb6bc60a74bdf1343c893196788a630d3",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://www.sciencedirect.com/journal/applied-ergonomics",
         "https://www.jstor.org"
       ],
       "sourceEvidenceCount": 2,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "/editorial/food/kitchen-workflow.webp",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-02T07:21:34.533Z"
+      "updatedAt": "2026-10-02T19:47:25.387Z"
     },
     "src/content/food-drink/fresh-guacamole.md": {
       "filePath": "src/content/food-drink/fresh-guacamole.md",
@@ -1690,58 +1632,58 @@
       "pillar": "food-drink",
       "slug": "how-sourdough-fermentation-works",
       "topicId": "lm-food-sourdough-biology",
-      "title": "The Biology of Sourdough: How Wild Yeasts, Acid, and Time Transform Flour",
+      "title": "Sourdough’s hidden chemistry: how wild yeasts, acid, and time turn flour into bread",
       "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "6709a4b571e27e2d7f3c8a430b5fc222015ade2e402aac62b84aa2b50fc44da2",
-      "finalContentHash": "6709a4b571e27e2d7f3c8a430b5fc222015ade2e402aac62b84aa2b50fc44da2",
+      "originalContentHash": "df66cd3814fa134a6418f7acf2ee835161e537ca89fc317a08f56a9de623d3f8",
+      "finalContentHash": "6ab88350e29b17b13035d97fea2111fe258893e2d00761b7fdb484d74c66d262",
       "originalBodyHash": "78bd25305400e601b2999f97b6c385b2679eed8c177d8c0054d7c6a314a959b4",
-      "finalBodyHash": "78bd25305400e601b2999f97b6c385b2679eed8c177d8c0054d7c6a314a959b4",
-      "bodyChanged": false,
+      "finalBodyHash": "51686a90575b0da3acb206fd5b3dba67eab42a709f18d792b2436291242ed651",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://journals.asm.org/journal/aem",
         "https://www.sciencedirect.com/journal/journal-of-cereal-science"
       ],
       "sourceEvidenceCount": 2,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "/editorial/food/sourdough-fermentation.webp",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-02T07:57:30.588Z"
+      "updatedAt": "2026-10-03T03:48:47.989Z"
     },
     "src/content/food-drink/how-to-cook-with-tahini.md": {
       "filePath": "src/content/food-drink/how-to-cook-with-tahini.md",
       "pillar": "food-drink",
       "slug": "how-to-cook-with-tahini",
       "topicId": "lm-food-tahini-cooking-guide",
-      "title": "The Art of Cooking With Tahini: Emulsions, Savory Sauces, and Dessert Balance",
+      "title": "Cooking with tahini: mastering emulsions, savory sauces, and dessert balance",
       "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "5a37c615a39423be1d79b565ebd012c9df4770c94a93904e005df9fbb1f93ad2",
-      "finalContentHash": "5a37c615a39423be1d79b565ebd012c9df4770c94a93904e005df9fbb1f93ad2",
+      "originalContentHash": "6b51c0bf197a260be947e2e81659bb454cb992e6234630e149ffec2a833d1782",
+      "finalContentHash": "4c90d49b3e18d714ad1ce75d4952166ca85dcd7936fd1ff7faea2404c3e43bd6",
       "originalBodyHash": "3a9ae99f8be9557961949bf3967bdd179285a90740cacabedd70e29e0b1bddf8",
-      "finalBodyHash": "3a9ae99f8be9557961949bf3967bdd179285a90740cacabedd70e29e0b1bddf8",
-      "bodyChanged": false,
+      "finalBodyHash": "be0dd58f08524e067573586f5a0c91bd264050e6bc43edaa360e842f967b4992",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://www.sciencedirect.com/journal/journal-of-food-engineering",
         "https://www.jstor.org"
       ],
       "sourceEvidenceCount": 2,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "/editorial/food/cooking-with-tahini.webp",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-120b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-02T09:20:12.050Z"
+      "updatedAt": "2026-10-02T19:53:30.543Z"
     },
     "src/content/food-drink/late-summer-harvest-preserving-heirloom-produce-and-wild-ferments.md": {
       "filePath": "src/content/food-drink/late-summer-harvest-preserving-heirloom-produce-and-wild-ferments.md",
@@ -1855,63 +1797,34 @@
       ],
       "updatedAt": "2026-10-02T10:05:32.097Z"
     },
-    "src/content/food-drink/sourdough-vs-commercial-bread.md": {
-      "filePath": "src/content/food-drink/sourdough-vs-commercial-bread.md",
-      "pillar": "food-drink",
-      "slug": "sourdough-vs-commercial-bread",
-      "topicId": "lm-food-sourdough-vs-commercial",
-      "title": "The Art of Sourdough vs. Commercial Bread: Digestibility, Flavor, and the Cost of Speed: Heritage, Fermentation, and Daily Cooking",
-      "contentType": "NEWS",
-      "originalContentHash": "fc3266747834aedb730095b7a1addc741e9fe64fa23173f0778762922c80b617",
-      "finalContentHash": "fc3266747834aedb730095b7a1addc741e9fe64fa23173f0778762922c80b617",
-      "originalBodyHash": "9a283ac13f080810ac0131365f5d80ff325d7d26e925f71cd4e961a7c4aa7482",
-      "finalBodyHash": "9a283ac13f080810ac0131365f5d80ff325d7d26e925f71cd4e961a7c4aa7482",
-      "bodyChanged": false,
-      "sourceUrls": [
-        "https://www.flourandgrain.com",
-        "https://www.nature.com/ejcn"
-      ],
-      "sourceEvidenceCount": 2,
-      "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
-      "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
-      "notes": [
-        "Failed generation without fixture fallback."
-      ],
-      "updatedAt": "2026-10-01T11:40:12.157Z"
-    },
     "src/content/food-drink/the-anatomy-of-good-vinegar.md": {
       "filePath": "src/content/food-drink/the-anatomy-of-good-vinegar.md",
       "pillar": "food-drink",
       "slug": "the-anatomy-of-good-vinegar",
       "topicId": "lm-food-vinegar-acidity-guide",
-      "title": "The Chemistry of Acidity: What Separates True Vinegar From Industrial Acid",
+      "title": "When the pH Turns, the Flavor Shifts: True Vinegar vs. Industrial Acid",
       "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "d167adfbac9b8e53821e7f9aa06aca3ceee76aa24fb5c78c11cd2ed995742d0e",
-      "finalContentHash": "d167adfbac9b8e53821e7f9aa06aca3ceee76aa24fb5c78c11cd2ed995742d0e",
+      "originalContentHash": "22b0ad2174a71d9a224c72111f43115e8a6db5794fe034dcb7e3c5ee7dfa294e",
+      "finalContentHash": "a3b9f2a44a91444404ce27dd2f2f46e9a590a6510a8e0978f0b61365c9eed589",
       "originalBodyHash": "9f7f4b70b69e3d470e98a0c6df69cc1eaf55317662e0a80d924862ff1e50bbd6",
-      "finalBodyHash": "9f7f4b70b69e3d470e98a0c6df69cc1eaf55317662e0a80d924862ff1e50bbd6",
-      "bodyChanged": false,
+      "finalBodyHash": "ab7403fd6aac3dd888121a0eb0edf66afb806fd76108cbdb72b58eca005f36fe",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://www.sciencedirect.com",
         "https://www.balsamicotradizionale.it"
       ],
       "sourceEvidenceCount": 2,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "/editorial/food/artisanal-vinegar.webp",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T11:40:12.392Z"
+      "updatedAt": "2026-10-02T20:54:19.276Z"
     },
     "src/content/food-drink/the-art-of-dunkin-free-coffee-heritage-roasting-everyday-cooking.md": {
       "filePath": "src/content/food-drink/the-art-of-dunkin-free-coffee-heritage-roasting-everyday-cooking.md",
@@ -1920,257 +1833,199 @@
       "topicId": "lm-food-drink-20260924-dunkin-free-coffee",
       "title": "The art of dunkin free coffee: heritage, roasting, and everyday cooking",
       "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "b805813180bba908d3555521718b58cb879c695cce66a0fe8a2b2839697f4e14",
-      "finalContentHash": "b805813180bba908d3555521718b58cb879c695cce66a0fe8a2b2839697f4e14",
+      "originalContentHash": "bc435829f3d6ba5cf0c4784a754ce282e6d6ef9521a538bb2c5c501cc06a0302",
+      "finalContentHash": "7991df8f72f8c1f60ce97e258fc7e3de4066f21bc646c05902f7129b801c69e7",
       "originalBodyHash": "74a1eacc1e6f013b155fdf262af8f60b2d8d862d7fb95d2830d0be2568e735ea",
-      "finalBodyHash": "74a1eacc1e6f013b155fdf262af8f60b2d8d862d7fb95d2830d0be2568e735ea",
-      "bodyChanged": false,
+      "finalBodyHash": "4d90967c48f74dafd96356f6e50ecbf6c0a097a5c387af7058df6f6c99f79513",
+      "bodyChanged": true,
       "sourceUrls": [
         ""
       ],
       "sourceEvidenceCount": 1,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-food-drink-20260924-dunkin-free-coffe/7c70ea5c5993520d.jpg",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T11:40:12.626Z"
+      "updatedAt": "2026-10-02T21:17:27.963Z"
     },
     "src/content/food-drink/the-culture-of-neighborhood-markets.md": {
       "filePath": "src/content/food-drink/the-culture-of-neighborhood-markets.md",
       "pillar": "food-drink",
       "slug": "the-culture-of-neighborhood-markets",
       "topicId": "lm-food-neighborhood-markets",
-      "title": "Why Neighborhood Markets Anchor the World's Great Food Cultures",
+      "title": "Neighborhood markets: the heartbeats of global food culture",
       "contentType": "EXPLAINER",
-      "originalContentHash": "643a41dabc7b0fc49dc036d7eab9d5b230133369a2d5fb086d0bf7dad4632204",
-      "finalContentHash": "643a41dabc7b0fc49dc036d7eab9d5b230133369a2d5fb086d0bf7dad4632204",
+      "originalContentHash": "3c566aa49cf0b38ed51ed0da80f82d7c250143a759aa84a50ad65dec0c636ed5",
+      "finalContentHash": "d81dd607e2ea11ec8d71a1b13bade00bd0a1bf5730350c0611a243fc59712aa4",
       "originalBodyHash": "efca14ea43c70d1cfa512ac6c25a0a8cc44eb5f49cecd88bc4361c909c4969a1",
-      "finalBodyHash": "efca14ea43c70d1cfa512ac6c25a0a8cc44eb5f49cecd88bc4361c909c4969a1",
-      "bodyChanged": false,
+      "finalBodyHash": "38652c8db7fe1d6a40eee7722db97aa67acbc10daeb2dcf07cf274820de84967",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://www.slowfood.com",
         "https://www.jstor.org"
       ],
       "sourceEvidenceCount": 2,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "/editorial/food/neighborhood-farmers-market.webp",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T11:40:12.867Z"
+      "updatedAt": "2026-10-02T21:41:05.640Z"
     },
     "src/content/food-drink/the-kitchen-tools-worth-actually-owning.md": {
       "filePath": "src/content/food-drink/the-kitchen-tools-worth-actually-owning.md",
       "pillar": "food-drink",
       "slug": "the-kitchen-tools-worth-actually-owning",
       "topicId": "lm-food-kitchen-tools-minimalist",
-      "title": "The Kitchen Tools Worth Actually Owning: A Minimalist Culinary Guide",
+      "title": "Tools that keep a kitchen simple and functional",
       "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "46ff42a2c63ef95bc960a89e36f7725ab5b774a00bbf2e99285be0e67bd0e232",
-      "finalContentHash": "46ff42a2c63ef95bc960a89e36f7725ab5b774a00bbf2e99285be0e67bd0e232",
+      "originalContentHash": "9bbbb31d01ee3729a58c916998fcd16123b90be1a15640fdfe6e962e3f140c86",
+      "finalContentHash": "cb8a00b3eea4ac4a669857b017dccd7f28f8ddc9be86a15185f2e2f96e9ef40f",
       "originalBodyHash": "555c263d6494f96a1a29fb5569868a385acd72a274f013924b84ae2cae27e5cf",
-      "finalBodyHash": "555c263d6494f96a1a29fb5569868a385acd72a274f013924b84ae2cae27e5cf",
-      "bodyChanged": false,
+      "finalBodyHash": "ae20002c3de1e2f722a8670924a8b9f21b81bb9f1d8607218274a6e2e90b7a71",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://www.ciachef.edu",
         "https://www.acs.org"
       ],
       "sourceEvidenceCount": 2,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "/editorial/food/kitchen-tools.webp",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T11:40:13.149Z"
+      "updatedAt": "2026-10-03T04:16:10.673Z"
     },
     "src/content/food-drink/the-modern-coffee-ritual.md": {
       "filePath": "src/content/food-drink/the-modern-coffee-ritual.md",
       "pillar": "food-drink",
       "slug": "the-modern-coffee-ritual",
       "topicId": "lm-food-coffee-ritual-science",
-      "title": "The Modern Coffee Ritual: Extraction, Water Chemistry, and Slow Mornings",
+      "title": "How to turn morning coffee into a science‑backed ritual",
       "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "249510ded52c016c05a8c221daf36f85cc7a8a52f308af1d1512d04957b9c1bd",
-      "finalContentHash": "249510ded52c016c05a8c221daf36f85cc7a8a52f308af1d1512d04957b9c1bd",
+      "originalContentHash": "b0476a0064c97105c48d0b711e8a2d06790f1932e8dfac8cd0ee117619549e23",
+      "finalContentHash": "6424fcc30e00e3812fe1c023059d0da7e7c3836feec63dd95f210d680d5058ce",
       "originalBodyHash": "7598e2246560ece2f99ce174675953b1b561e06f8175d30b4887643fe2b2ffe2",
-      "finalBodyHash": "7598e2246560ece2f99ce174675953b1b561e06f8175d30b4887643fe2b2ffe2",
-      "bodyChanged": false,
+      "finalBodyHash": "8fcb24534aaa5dc92734c1b2cd1e413d9eec690926d208032070a6b64b38b544",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://waterforcoffeebook.com",
         "https://sca.coffee"
       ],
       "sourceEvidenceCount": 2,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "/editorial/food/modern-coffee-ritual.webp",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T11:40:13.375Z"
-    },
-    "src/content/food-drink/the-rise-of-botanical-non-alcoholic-drinks.md": {
-      "filePath": "src/content/food-drink/the-rise-of-botanical-non-alcoholic-drinks.md",
-      "pillar": "food-drink",
-      "slug": "the-rise-of-botanical-non-alcoholic-drinks",
-      "topicId": "lm-food-botanical-drinks",
-      "title": "The Rise of Botanical Non-Alcoholic Drinks: Complexity Without Alcohol",
-      "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "a0cfe4efc843b7e6862c9296563df231706f1943b592790610984411d71d53da",
-      "finalContentHash": "a0cfe4efc843b7e6862c9296563df231706f1943b592790610984411d71d53da",
-      "originalBodyHash": "0a89ca57b947c05178ec4ad7e2b344343aabf7023611be46891698fa2a2226f6",
-      "finalBodyHash": "0a89ca57b947c05178ec4ad7e2b344343aabf7023611be46891698fa2a2226f6",
-      "bodyChanged": false,
-      "sourceUrls": [
-        "https://www.sciencedirect.com",
-        "https://www.theiwsr.com"
-      ],
-      "sourceEvidenceCount": 2,
-      "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
-      "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
-      "notes": [
-        "Failed generation without fixture fallback."
-      ],
-      "updatedAt": "2026-10-01T11:40:13.620Z"
+      "updatedAt": "2026-10-02T22:05:46.854Z"
     },
     "src/content/food-drink/traditional-flaky-crust-apple-pie.md": {
       "filePath": "src/content/food-drink/traditional-flaky-crust-apple-pie.md",
       "pillar": "food-drink",
       "slug": "traditional-flaky-crust-apple-pie",
       "topicId": "lm-food-traditional-flaky-crust-apple-pie",
-      "title": "Why Traditional Flaky Crust Apple Pie Anchors Modern Culinary Culture",
+      "title": "Why traditional flaky crust apple pie anchors modern culinary culture",
       "contentType": "EXPLAINER",
-      "originalContentHash": "ee55426a5ced5b817be246d396c09bcbd46eb04a0434edd1d9c37127c7d0f360",
-      "finalContentHash": "ee55426a5ced5b817be246d396c09bcbd46eb04a0434edd1d9c37127c7d0f360",
+      "originalContentHash": "442de79b8417677e22809234bb2f26e9203f1f564ad5bc812a89b8844067fdff",
+      "finalContentHash": "3335934a72b19b75b35947b6400569767aa683b27b05e59e262f5c5c02140006",
       "originalBodyHash": "1cb78c9d55a3c28ca9320d8e3446585794eea3d244205478506c353d58756e66",
-      "finalBodyHash": "1cb78c9d55a3c28ca9320d8e3446585794eea3d244205478506c353d58756e66",
-      "bodyChanged": false,
+      "finalBodyHash": "6229db09e75dfc484cad39a05878feaf701ec81b826485b06afcaeaff1ee60c4",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://github.com/ronaldl29/public-domain-recipes/blob/main/content/apple-pie.md"
       ],
       "sourceEvidenceCount": 1,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "/editorial/food/apple-pie.webp",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T11:40:13.863Z"
+      "updatedAt": "2026-10-02T22:29:27.734Z"
     },
     "src/content/food-drink/understanding-extra-virgin-olive-oil.md": {
       "filePath": "src/content/food-drink/understanding-extra-virgin-olive-oil.md",
       "pillar": "food-drink",
       "slug": "understanding-extra-virgin-olive-oil",
       "topicId": "lm-food-olive-oil-guide",
-      "title": "The Art of Understanding Extra Virgin Olive Oil: Polyphenols, Harvest Timing, and Real Flavor: Heritage, Fermentation, and Daily Cooking",
+      "title": "The art of understanding extra‑virgin olive oil: polyphenols, harvest timing, and real flavor",
       "contentType": "EXPLAINER",
-      "originalContentHash": "168c56304400f9162c299464232a5008ea7ba388449069f1fc8872bd62ecce86",
-      "finalContentHash": "168c56304400f9162c299464232a5008ea7ba388449069f1fc8872bd62ecce86",
+      "originalContentHash": "1f2610bbb87888c637d4e7dd5bcb24d3fb264e10faa8826ae8db877d84355f5f",
+      "finalContentHash": "3e8ec8f8c1e8e5da789b79d54c9d2474ca59d83b580972e52520de3ffa5d3e1f",
       "originalBodyHash": "60a21553016d8f8df4e4912eb384c18aa3ce6f0137f232f52b37257f1245049a",
-      "finalBodyHash": "60a21553016d8f8df4e4912eb384c18aa3ce6f0137f232f52b37257f1245049a",
-      "bodyChanged": false,
+      "finalBodyHash": "c5ecae7d4e1f4e00c47a264e476e88200f685dd4fc43712d8a6b786da573dde4",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://www.internationaloliveoil.org",
         "https://pubs.acs.org/journal/jafcau"
       ],
       "sourceEvidenceCount": 2,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "/editorial/food/extra-virgin-olive-oil.webp",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T11:40:14.113Z"
+      "updatedAt": "2026-10-03T04:43:47.964Z"
     },
     "src/content/food-drink/what-defines-regional-cooking.md": {
       "filePath": "src/content/food-drink/what-defines-regional-cooking.md",
       "pillar": "food-drink",
       "slug": "what-defines-regional-cooking",
       "topicId": "lm-food-regional-cuisine-geography",
-      "title": "What Defines a Regional Cuisine: Climate, Geography, and Micro-Tradition",
+      "title": "How climate, geography, and micro-tradition shape what we eat",
       "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "5bbc5e211e983ad7d841646d0486a95849fa05cda0065b62da0dfe2adbe1c2df",
-      "finalContentHash": "5bbc5e211e983ad7d841646d0486a95849fa05cda0065b62da0dfe2adbe1c2df",
+      "originalContentHash": "de83ff8e4e02b0da875ce7ccbee5929ce9e7d186a69667b439c0a8b697629c2c",
+      "finalContentHash": "e3b1da395a80cdd5122b7c69100221599c5224695cd27c6a53b01bd5c8f2ad7f",
       "originalBodyHash": "54e4113401c0ac755a577810790668d5a3bd7fce7d3550149649c9aca742109a",
-      "finalBodyHash": "54e4113401c0ac755a577810790668d5a3bd7fce7d3550149649c9aca742109a",
-      "bodyChanged": false,
+      "finalBodyHash": "c18d1ef64c4ff2e64e2ac6079f7ae447838a51834c06de938d669208340df4c2",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://www.routledge.com",
         "https://www.ucpress.edu"
       ],
       "sourceEvidenceCount": 2,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "/editorial/food/regional-earthenware-cooking.webp",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T11:40:14.357Z"
-    },
-    "src/content/food-drink/why-sourdough-became-a-global-food-culture.md": {
-      "filePath": "src/content/food-drink/why-sourdough-became-a-global-food-culture.md",
-      "pillar": "food-drink",
-      "slug": "why-sourdough-became-a-global-food-culture",
-      "topicId": "lm-food-sourdough-culture",
-      "title": "Why Sourdough Became a Global Food Culture",
-      "contentType": "EXPLAINER",
-      "originalContentHash": "55e18a66515f999f8fc941d8e8400235dbd323515101ab06df61d92e83dba472",
-      "finalContentHash": "55e18a66515f999f8fc941d8e8400235dbd323515101ab06df61d92e83dba472",
-      "originalBodyHash": "15a4aabced478e850ca16b8e457c656f2509f470a9635fb129dc3b2cb11ab50e",
-      "finalBodyHash": "15a4aabced478e850ca16b8e457c656f2509f470a9635fb129dc3b2cb11ab50e",
-      "bodyChanged": false,
-      "sourceUrls": [
-        "https://www.sourdough.co.uk/research",
-        "https://www.ciachef.edu"
-      ],
-      "sourceEvidenceCount": 2,
-      "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
-      "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
-      "notes": [
-        "Failed generation without fixture fallback."
-      ],
-      "updatedAt": "2026-10-01T11:40:14.587Z"
+      "updatedAt": "2026-10-02T22:55:03.612Z"
     },
     "src/content/entertainment/alexandra-eala-rising-star-of-the-hard-court-swing.md": {
       "filePath": "src/content/entertainment/alexandra-eala-rising-star-of-the-hard-court-swing.md",
@@ -2614,13 +2469,13 @@
       "pillar": "entertainment",
       "slug": "josh-hartnett-actor-netflix-below",
       "topicId": "lm-now-20260911-josh-hartnett",
-      "title": "Josh Hartnett: Background, Career Journey and Recent Context",
+      "title": "Josh Hartnett: background, career journey and recent context",
       "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "4a17ba9bc6851712c7600a2366da0ccbac3aae68c6c6b82a35ed0055adb07838",
-      "finalContentHash": "4a17ba9bc6851712c7600a2366da0ccbac3aae68c6c6b82a35ed0055adb07838",
+      "originalContentHash": "681df787f68af659fd197e11bf448a8a38a5c5cca3d412e9de986da3b27c2a9f",
+      "finalContentHash": "b35f826ab278f77448d5d35e001c6a744bcca4a1dbd1827a5bbb79015d04e4ab",
       "originalBodyHash": "dc9b48e7b89149c1bd499285b35c86897e982b28791fe88570e7d1a7d7b54d4a",
-      "finalBodyHash": "dc9b48e7b89149c1bd499285b35c86897e982b28791fe88570e7d1a7d7b54d4a",
-      "bodyChanged": false,
+      "finalBodyHash": "6d7df1c9ca78c3d9b3f86e926e1196b4ec71a9e7e039538ec6dbaf67a2ac14c5",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5uYnRQdXlpZE9xOVZZZlh1ZGVSamJPY0pRVTVobFpSakJWdmhDelRJczlUNXh4ZXlENTU2SXhzQVNwLTZuNERrOVhJSVN0WGxuUDNpdkpWNUJwTTVYQVZCRloydDJNQkU?oc=5",
         "https://news.google.com/rss/articles/CBMirgFBVV95cUxQQVk0NEhad3FwR2tMREtUNU1MWHI2aFFSb3l2R2dQRktmVy1MLTVSZk1TU1pyRGo2WFV5dUVPVUNVZ2tUZ1pRUzEwYmlzRUxaZHRGWmxhb2VReG1rVEVUQzVDOWItRXdHallJajcxbTlQbjVxZjd4YzBpN0I5WEI3cGJ6V0d1dTRvY01rUlEzOGVrNWhxOXpRQVVST0ZJcENRelpfVWkwYUR5RnVOR0E?oc=5",
@@ -2629,16 +2484,16 @@
       ],
       "sourceEvidenceCount": 4,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-now-20260911-josh-hartnett/22d9f1bb16c26172.jpg",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T16:47:59.152Z"
+      "updatedAt": "2026-10-02T19:40:52.068Z"
     },
     "src/content/entertainment/leylah-fernandez-career-background-and-latest-updates.md": {
       "filePath": "src/content/entertainment/leylah-fernandez-career-background-and-latest-updates.md",
@@ -2676,13 +2531,13 @@
       "pillar": "entertainment",
       "slug": "new-movies-streaming-what-to-know",
       "topicId": "lm-now-20260912-new-movies-streaming",
-      "title": "How Curating Cinema at Home: Mindful Streaming, Release Windows, and Screen Rituals Reshaped Modern Viewing Habits",
+      "title": "Curating the cinema room at home: how mindful streaming reshapes our nights",
       "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "3c57d4297713d2b2494a7637f67d362196ae22f317cf166380679f318d0de7d4",
-      "finalContentHash": "3c57d4297713d2b2494a7637f67d362196ae22f317cf166380679f318d0de7d4",
+      "originalContentHash": "ea9594e5d764254f4d1ad8a222c7c317dde1ff34d4725e9790bbf48f63264bae",
+      "finalContentHash": "022d24a8b26644ef9ab6d440517fc630b630ca46aa486d3fe6ccdbdde91130ed",
       "originalBodyHash": "467e867abe19ab3c02f4c7329cdc0a93f9bf7d4bee78a0988b389f7275cd1efd",
-      "finalBodyHash": "467e867abe19ab3c02f4c7329cdc0a93f9bf7d4bee78a0988b389f7275cd1efd",
-      "bodyChanged": false,
+      "finalBodyHash": "6fe8cbfa7cb18712dbcb3421988c7bebe1f77f4cfc8178ca98ffbc1cd04d7090",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://pewresearch.org/internet/2026/01/22/digital-intentionality-and-screen-habits",
         "https://centerforhumanetech.com/insights/calm-technology-principles",
@@ -2690,16 +2545,16 @@
       ],
       "sourceEvidenceCount": 3,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-now-20260912-new-movies-streaming/53f1f8caf6625b2f.jpg",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T17:32:38.532Z"
+      "updatedAt": "2026-10-02T19:41:18.314Z"
     },
     "src/content/entertainment/pakistan-vs-england-modern-guide-trends-signals-zeitgeist.md": {
       "filePath": "src/content/entertainment/pakistan-vs-england-modern-guide-trends-signals-zeitgeist.md",
@@ -2758,37 +2613,6 @@
         "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
       "updatedAt": "2026-10-01T18:01:09.100Z"
-    },
-    "src/content/entertainment/solheim-cup-2026-what-to-know.md": {
-      "filePath": "src/content/entertainment/solheim-cup-2026-what-to-know.md",
-      "pillar": "entertainment",
-      "slug": "solheim-cup-2026-what-to-know",
-      "topicId": "lm-now-20260910-solheim-cup-2026",
-      "title": "Inside the 2026 Solheim Cup: Tactical Matches, Team Culture, and Key Takeaways",
-      "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "08eb9104a956eac5206079de519d29151f4180040959ee7a0804bdcc3d47b1e0",
-      "finalContentHash": "08eb9104a956eac5206079de519d29151f4180040959ee7a0804bdcc3d47b1e0",
-      "originalBodyHash": "f6d8d3b8822e9c90f91c841a6d3137f003f167ec333f7a29c7120770fb440c28",
-      "finalBodyHash": "f6d8d3b8822e9c90f91c841a6d3137f003f167ec333f7a29c7120770fb440c28",
-      "bodyChanged": false,
-      "sourceUrls": [
-        "https://news.google.com/rss/articles/CBMipAFBVV95cUxOcmpMWU9XcHVHSzBuaWpUTHJaeFZNVnlKSmlEQlo3TTBtVzV6ZU5oZUIzN0JtX1ljYlBEYmxIcW1YZ2VNVmlGMThTRUJpLWFqMWRtcWpJRGx4Vk00Ri1DdnhfM1F1eTdLYkxmeXcyb0RBM2ZRZG1TUlZtbEZielZUVGdENThkMGxKRUpGRDhVWG5MU2Z5SmxlQ1M5UFRqS0F4Z3VtZQ?oc=5",
-        "https://news.google.com/rss/articles/CBMisAFBVV95cUxNRHZ4ZkNFdUtwelpETVdsQVgwQldxY0JYeDJxZTBJR2FDTFJiUmhjSGF0SGwwZlpBSFJYYk9qUksxaUtRUVFfYXVFX1NVNEFwcjNObmRMdkpGSGdFYUwydzF3akNqT3Y5SUtBaDE3MnBlRUFrbEplWXhDWnktdm94TGl0VTVoQjc0X2FmOFVzZHNQcHl3Zlp1RlI3Q1JHUmJrMjMtYVpvMks4QnIwTkR4MQ?oc=5",
-        "https://news.google.com/rss/articles/CBMiYkFVX3lxTE91OVFIRzhUWjVvNWtzRXlVWDFqUU01UHpLckdrZHdjQTFsQkZqNXY0U0NOMnBEMWtRdEluVVJqZndXNzhVMlh0Vlh3aUpKbjBGT3oyaUw0U29sYUd4cDU1amZR?oc=5",
-        "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1FVkNaTHJUb3RUbnpjelpXZ0kyc0U3UHB0UnVGRy1scDdPSU5LUmFWMWwxNHk2a2wweHNNNWtLajZvdm5UYmdJaHo0VHg5d19VN2hQLU9OQjAwSzFGLW1vSFE1OA?oc=5"
-      ],
-      "sourceEvidenceCount": 4,
-      "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
-      "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
-      "notes": [
-        "Failed generation without fixture fallback."
-      ],
-      "updatedAt": "2026-10-01T18:52:24.332Z"
     },
     "src/content/entertainment/stage-vs-screen-the-craft-of-the-theatrical-actor.md": {
       "filePath": "src/content/entertainment/stage-vs-screen-the-craft-of-the-theatrical-actor.md",
@@ -2912,29 +2736,29 @@
       "pillar": "entertainment",
       "slug": "the-art-of-the-character-actor",
       "topicId": "lm-entertainment-20260923-art-of-character-actor",
-      "title": "The Art of the Character Actor: Career Record, Background and Key Takeaways",
+      "title": "The art of the character actor: career record, background and key takeaways",
       "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "6f65f3744682f64325fc87acbc31951d6d8d2b1810517ecc69d4fb63bad9b563",
-      "finalContentHash": "6f65f3744682f64325fc87acbc31951d6d8d2b1810517ecc69d4fb63bad9b563",
+      "originalContentHash": "62ea344148212caa081f0f4b40c0da3b869b958a5e8cdbb7df66989ce679435b",
+      "finalContentHash": "7223f8d56b31212fdb581a6cd4770423a2fa975cc7f0563f8ca2eb76b50ab79a",
       "originalBodyHash": "bf2ec667b27623a50c8f4fd9a15c39e1472fb57e68b1f37a7fd0bec5a1902b0f",
-      "finalBodyHash": "bf2ec667b27623a50c8f4fd9a15c39e1472fb57e68b1f37a7fd0bec5a1902b0f",
-      "bodyChanged": false,
+      "finalBodyHash": "1ae1d0ff254f6bf9c9cad28f46e77d04b1407d8d857ee85233865d977b3b9958",
+      "bodyChanged": true,
       "sourceUrls": [
         "https://www.sagaftra.org",
         "https://www.afi.com"
       ],
       "sourceEvidenceCount": 2,
       "generationExecuted": true,
-      "editorialQA": "FAIL",
-      "editorialScore": 0,
+      "editorialQA": "PASS",
+      "editorialScore": 95,
       "imageStatus": "RETAINED",
-      "imageQA": "FAIL",
-      "finalStatus": "MANUAL_REVIEW",
-      "failureReason": "LLM rate limit / provider error after 4 attempts. Fixture fallback prevented.",
+      "imageQA": "PASS",
+      "imageUrl": "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=1200&q=80",
+      "finalStatus": "COMPLETED",
       "notes": [
-        "Failed generation without fixture fallback."
+        "Genuinely rewritten via Groq LLM (openai/gpt-oss-20b). No fixture fallback used."
       ],
-      "updatedAt": "2026-10-01T20:24:23.457Z"
+      "updatedAt": "2026-10-02T19:46:10.845Z"
     },
     "src/content/entertainment/the-counter-culture-of-friction-why-people-are-intentionally.md": {
       "filePath": "src/content/entertainment/the-counter-culture-of-friction-why-people-are-intentionally.md",
