@@ -637,5 +637,57 @@
     "overallStatus": "PARTIAL",
     "createdAt": "2026-10-02T18:00:03.800Z",
     "updatedAt": "2026-10-02T18:00:03.800Z"
+  },
+  {
+    "runId": "srun-1791133085359-w5lcc",
+    "topicId": "lm-entertainment-20260924-gofundme",
+    "pillar": "entertainment",
+    "canonicalTopic": "Inside GoFundMe: Stories, Spotlight, and Cultural Impact",
+    "contentHash": "6f7a5546dcb3da64f165e2a0c1805b4110da8ae33a3a31bc9079d57031783ef9",
+    "assetHash": "1dc8723b2af42872c44d653759bd8701dc07a9bf22c3e0f80677c65feb3be328",
+    "idempotencyKey": "lm-soc-lm-entertainment-20260924-gofundme-6f7a5546",
+    "targetPlatforms": [
+      "pinterest",
+      "instagram",
+      "facebook",
+      "threads"
+    ],
+    "platformResults": {
+      "pinterest": {
+        "platform": "pinterest",
+        "status": "NOT_CONFIGURED",
+        "error": "Pinterest credentials (PINTEREST_ACCESS_TOKEN and PINTEREST_BOARD_ID) not configured.",
+        "publishedAt": "2026-10-04T16:58:08.189Z",
+        "idempotencyKey": "lm-soc-lm-entertainment-20260924-gofundme-pinterest-acc983b3b061"
+      },
+      "instagram": {
+        "platform": "instagram",
+        "status": "PUBLISHED",
+        "postId": "17909464521490319",
+        "postUrl": "https://instagram.com/p/17909464521490319",
+        "publishedAt": "2026-10-04T16:58:08.189Z",
+        "idempotencyKey": "lm-soc-lm-entertainment-20260924-gofundme-instagram-cedba930a193"
+      },
+      "facebook": {
+        "platform": "facebook",
+        "status": "PUBLISHED",
+        "postId": "122324292662197726",
+        "postUrl": "https://facebook.com/122324292662197726",
+        "publishedAt": "2026-10-04T16:58:19.112Z",
+        "idempotencyKey": "lm-soc-lm-entertainment-20260924-gofundme-facebook-95c96d50ab62"
+      },
+      "threads": {
+        "platform": "threads",
+        "status": "PUBLISHED",
+        "postId": "18340466503279006",
+        "postUrl": "https://www.threads.net/@lifemodehq/post/18340466503279006",
+        "publishedAt": "2026-10-04T16:58:23.804Z",
+        "idempotencyKey": "lm-soc-lm-entertainment-20260924-gofundme-threads-022b5c7cdc71"
+      }
+    },
+    "reviewScore": 90,
+    "overallStatus": "PARTIAL",
+    "createdAt": "2026-10-04T16:58:40.009Z",
+    "updatedAt": "2026-10-04T16:58:40.010Z"
   }
 ]
