@@ -49896,7 +49896,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-10-03T20:41:08.517Z",
+    "updatedAt": "2026-10-04T11:53:23.875Z",
     "pinterestScore": 85.6,
     "revisionCyclesCount": 0
   },
@@ -49983,7 +49983,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-10-03T20:41:08.539Z",
+    "updatedAt": "2026-10-04T11:53:23.907Z",
     "pinterestScore": 84.8,
     "revisionCyclesCount": 0
   },
@@ -69507,7 +69507,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
     "status": "PUBLISHED",
-    "updatedAt": "2026-10-03T20:41:08.395Z",
+    "updatedAt": "2026-10-04T11:53:23.669Z",
     "pinterestScore": 87.8,
     "revisionCyclesCount": 0
   },
@@ -69570,7 +69570,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-10-03T20:41:08.432Z",
+    "updatedAt": "2026-10-04T11:53:23.732Z",
     "pinterestScore": 84.6,
     "revisionCyclesCount": 0
   },
@@ -69633,7 +69633,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "CANDIDATE",
-    "updatedAt": "2026-10-03T20:41:08.462Z",
+    "updatedAt": "2026-10-04T11:53:23.780Z",
     "pinterestScore": 82.9,
     "revisionCyclesCount": 0
   },
@@ -69756,9 +69756,10 @@
     "totalScore": 84,
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE_AND_SOCIAL",
-    "status": "CANDIDATE",
-    "updatedAt": "2026-09-24T16:38:49.071Z",
-    "pinterestScore": 88.3
+    "status": "PUBLISHED",
+    "updatedAt": "2026-10-04T11:54:32.751Z",
+    "pinterestScore": 88.3,
+    "revisionCyclesCount": 0
   },
   {
     "id": "lm-entertainment-20260924-billie-lourd",
@@ -75908,6 +75909,44 @@
           "feedName": "Vogue Style & Culture",
           "isLiveIngestion": true
         }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-1-Miu20Miu20Spring20202720",
+        "query": "Miu Miu Spring 2027 Ready-to-Wear",
+        "sourceUrl": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/miu-miu",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-10-04T11:50:57.000Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-04T11:50:57.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Miu Miu Spring 2027 Ready-to-Wear",
+            "itemLink": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/miu-miu",
+            "publishedDate": "2026-10-04T11:50:57.000Z",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
       }
     ],
     "queryVariants": [
@@ -75915,7 +75954,8 @@
       "moschino spring 2027 ready-to-wear",
       "ferragamo spring 2027 ready-to-wear",
       "msgm spring 2027 ready-to-wear",
-      "loewe spring 2027 ready-to-wear"
+      "loewe spring 2027 ready-to-wear",
+      "miu miu spring 2027 ready-to-wear"
     ],
     "freshnessScore": 88,
     "createdAt": "2026-09-25T11:18:56.000Z",
@@ -75943,7 +75983,7 @@
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-10-02T12:00:38.777Z",
+    "updatedAt": "2026-10-04T11:53:21.935Z",
     "pinterestScore": 79.2,
     "revisionCyclesCount": 0
   },
@@ -95241,7 +95281,7 @@
     "priorityTier": "LOW_PRIORITY",
     "opportunityType": "ARTICLE",
     "status": "SCORED",
-    "updatedAt": "2026-10-03T20:41:08.367Z",
+    "updatedAt": "2026-10-04T11:53:23.620Z",
     "pinterestScore": 79,
     "revisionCyclesCount": 0
   },
@@ -95304,7 +95344,7 @@
     "priorityTier": "CANDIDATE",
     "opportunityType": "ARTICLE",
     "status": "PUBLISHED",
-    "updatedAt": "2026-10-03T20:41:08.498Z",
+    "updatedAt": "2026-10-04T11:53:23.843Z",
     "pinterestScore": 83,
     "revisionCyclesCount": 0
   },
@@ -100079,6 +100119,2559 @@
     "opportunityType": "ARTICLE",
     "status": "SCORED",
     "updatedAt": "2026-10-03T20:41:08.330Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261004-jalen-coker",
+    "canonicalTopic": "Jalen Coker",
+    "slug": "jalen-coker",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-1-jalen20coker",
+        "query": "Jalen Coker",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-04T11:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-04T11:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "jalen coker",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "jalen coker"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T11:40:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-04T11:53:21.263Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261004-sara-bejlek",
+    "canonicalTopic": "Sara Bejlek",
+    "slug": "sara-bejlek",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-2-sara20bejlek",
+        "query": "Sara Bejlek",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-04T11:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-04T11:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "sara bejlek",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "sara bejlek"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T11:40:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-04T11:53:21.298Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261004-ukraine-news",
+    "canonicalTopic": "Ukraine News",
+    "slug": "ukraine-news",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-3-ukraine20news",
+        "query": "Ukraine News",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-04T11:40:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-04T11:40:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "ukraine news",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "ukraine news"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T11:40:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-04T11:53:21.331Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261004-truck-driver",
+    "canonicalTopic": "Truck Driver",
+    "slug": "truck-driver",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-4-truck20driver",
+        "query": "Truck Driver",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-04T11:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-04T11:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "truck driver",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "truck driver"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T11:30:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-04T11:53:21.362Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261004-chicago-fire",
+    "canonicalTopic": "Chicago Fire",
+    "slug": "chicago-fire",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-5-chicago20fire",
+        "query": "Chicago Fire",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-04T11:30:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-04T11:30:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "chicago fire",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "chicago fire"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T11:30:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-04T11:53:21.401Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261004-alexander-zverev",
+    "canonicalTopic": "Alexander Zverev",
+    "slug": "alexander-zverev",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-6-alexander20zvere",
+        "query": "Alexander Zverev",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-04T11:20:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-04T11:20:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "alexander zverev",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "alexander zverev"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T11:20:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-04T11:53:21.435Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261004-novak-djokovic",
+    "canonicalTopic": "Novak Djokovic",
+    "slug": "novak-djokovic",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-8-novak20djokovic",
+        "query": "Novak Djokovic",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-04T11:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-04T11:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "novak djokovic",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "novak djokovic"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T11:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-04T11:53:21.463Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261004-naomi-osaka",
+    "canonicalTopic": "Naomi Osaka",
+    "slug": "naomi-osaka",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-9-naomi20osaka",
+        "query": "Naomi Osaka",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-04T11:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-04T11:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "naomi osaka",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "naomi osaka"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T11:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-04T11:53:21.487Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-entertainment-20261004-twin-cities-marathon-2026",
+    "canonicalTopic": "Twin Cities Marathon 2026",
+    "slug": "twin-cities-marathon-2026",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "GOOGLE_TRENDS",
+        "sourceId": "gtrends-gtrends-US-10-twin20cities20mar",
+        "query": "Twin Cities Marathon 2026",
+        "sourceUrl": "https://trends.google.com/trending/rss?geo=US",
+        "publishedAt": "2026-10-04T11:10:00.000Z",
+        "volumeOrGrowth": 95,
+        "recordedAt": "2026-10-04T11:10:00.000Z",
+        "metadata": {
+          "googleTrendsPayload": {
+            "query": "twin cities marathon 2026",
+            "relativeInterestScore": 70,
+            "isBreakout": false,
+            "relatedQueries": [],
+            "geoRegion": "US"
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "US",
+            "entertainment",
+            "trending"
+          ],
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "twin cities marathon 2026"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T11:10:00.000Z",
+    "tags": [
+      "US",
+      "entertainment",
+      "trending"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "informational",
+    "scoring": {
+      "searchPotential": 85,
+      "pinterestPotential": 92,
+      "socialPotential": 88,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 85
+    },
+    "totalScore": 84,
+    "priorityTier": "CANDIDATE",
+    "opportunityType": "ARTICLE_AND_SOCIAL",
+    "status": "CANDIDATE",
+    "updatedAt": "2026-10-04T11:53:21.525Z",
+    "pinterestScore": 88.3
+  },
+  {
+    "id": "lm-tech-ai-20261004-milt-windler-nasa-flight-direc",
+    "canonicalTopic": "Milt Windler Nasa Flight Director Who Helped Save Apollo 13 Dies at 94",
+    "slug": "milt-windler-nasa-flight-director-who-helped-save-apollo-13-dies-at-94",
+    "pillar": "tech-ai",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-ars-technica-1-Milt20Windler2C20NASA20f",
+        "query": "Milt Windler Nasa Flight Director Who Helped Save Apollo 13 Dies at 94",
+        "sourceUrl": "https://arstechnica.com/space/2026/10/milt-windler-nasa-flight-director-who-helped-save-apollo-13-dies-at-94/",
+        "publisherName": "Ars Technica - All content",
+        "publishedAt": "2026-10-03T19:45:17.000Z",
+        "contentSnippet": "\"...we were making history.\"",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-03T19:45:17.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.arstechnica.com/arstechnica/index",
+            "feedTitle": "Ars Technica - All content",
+            "itemTitle": "Milt Windler, NASA flight director who helped save Apollo 13, dies at 94",
+            "itemLink": "https://arstechnica.com/space/2026/10/milt-windler-nasa-flight-director-who-helped-save-apollo-13-dies-at-94/",
+            "publishedDate": "2026-10-03T19:45:17.000Z",
+            "contentSnippet": "\"...we were making history.\"",
+            "categories": [
+              "tech",
+              "hardware",
+              "software",
+              "security",
+              "science",
+              "Space",
+              "apollo 10",
+              "Apollo 12",
+              "apollo 13",
+              "apollo 14",
+              "apollo 15",
+              "apollo 8",
+              "Canadarm",
+              "international space station",
+              "Maroon Flight",
+              "Milt Windler",
+              "Milton Windler",
+              "mission control",
+              "NASA flight director",
+              "obituary",
+              "presidential medal of freedom",
+              "Skylab",
+              "Space exploration",
+              "space history",
+              "Space shuttle"
+            ]
+          },
+          "suggestedPillar": "tech-ai",
+          "curatedTags": [
+            "tech",
+            "hardware",
+            "software",
+            "security",
+            "science",
+            "Space",
+            "apollo 10",
+            "Apollo 12",
+            "apollo 13",
+            "apollo 14",
+            "apollo 15",
+            "apollo 8",
+            "Canadarm",
+            "international space station",
+            "Maroon Flight",
+            "Milt Windler",
+            "Milton Windler",
+            "mission control",
+            "NASA flight director",
+            "obituary",
+            "presidential medal of freedom",
+            "Skylab",
+            "Space exploration",
+            "space history",
+            "Space shuttle"
+          ],
+          "feedName": "Ars Technica",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "milt windler nasa flight director who helped save apollo 13 dies at 94"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-03T19:45:17.000Z",
+    "tags": [
+      "tech",
+      "hardware",
+      "software",
+      "security",
+      "science",
+      "Space",
+      "apollo 10",
+      "Apollo 12",
+      "apollo 13",
+      "apollo 14",
+      "apollo 15",
+      "apollo 8",
+      "Canadarm",
+      "international space station",
+      "Maroon Flight",
+      "Milt Windler",
+      "Milton Windler",
+      "mission control",
+      "NASA flight director",
+      "obituary",
+      "presidential medal of freedom",
+      "Skylab",
+      "Space exploration",
+      "space history",
+      "Space shuttle"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 77,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 75.9,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-04T11:53:21.605Z",
+    "pinterestScore": 75.8
+  },
+  {
+    "id": "lm-travel-20261004-the-best-affordable-hotels-in-",
+    "canonicalTopic": "The Best Affordable Hotels in Japan from Historic Tokyo Stays to Kyoto Boutiques",
+    "slug": "the-best-affordable-hotels-in-japan-from-historic-tokyo-stays-to-kyoto-boutiques",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-cntraveler-1-The20Best20Affordable20",
+        "query": "The Best Affordable Hotels in Japan from Historic Tokyo Stays to Kyoto Boutiques",
+        "sourceUrl": "https://www.cntraveler.com/gallery/the-best-affordable-hotels-in-japan-from-historic-tokyo-stays-to-kyoto-boutiques",
+        "publisherName": "Condé Nast Traveler",
+        "publishedAt": "2026-10-04T11:30:00.000Z",
+        "contentSnippet": "Before you start planning your next visit, consult our list of the cheapest nicest hotels in Japan.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-04T11:30:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.cntraveler.com/feed/rss",
+            "feedTitle": "Condé Nast Traveler",
+            "itemTitle": "The Best Affordable Hotels in Japan, From Historic Tokyo Stays to Kyoto Boutiques",
+            "itemLink": "https://www.cntraveler.com/gallery/the-best-affordable-hotels-in-japan-from-historic-tokyo-stays-to-kyoto-boutiques",
+            "publishedDate": "2026-10-04T11:30:00.000Z",
+            "contentSnippet": "Before you start planning your next visit, consult our list of the cheapest nicest hotels in Japan.",
+            "categories": [
+              "travel",
+              "destinations",
+              "boutique-hotels",
+              "itineraries",
+              "culture",
+              "Places to Stay"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "destinations",
+            "boutique-hotels",
+            "itineraries",
+            "culture",
+            "Places to Stay"
+          ],
+          "feedName": "Condé Nast Traveler",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "the best affordable hotels in japan from historic tokyo stays to kyoto boutiques"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T11:30:00.000Z",
+    "tags": [
+      "travel",
+      "destinations",
+      "boutique-hotels",
+      "itineraries",
+      "culture",
+      "Places to Stay"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-04T11:53:21.679Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261004-kyiv-bridge-hit-in-further-rus",
+    "canonicalTopic": "Kyiv Bridge Hit in Further Russian Drone Attack As German Chancellor Makes Surprise Visit",
+    "slug": "kyiv-bridge-hit-in-further-russian-drone-attack-as-german-chancellor-makes-surprise-visit",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-1-Kyiv20bridge20hit20in20f",
+        "query": "Kyiv Bridge Hit in Further Russian Drone Attack As German Chancellor Makes Surprise Visit",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/ckreyjzzzywqo?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-10-04T11:25:35.000Z",
+        "contentSnippet": "Footage shows a drone hitting the Pivnichyi (Northern) Bridge as vehicles move across it, creating a large fireball.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-04T11:25:35.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Kyiv bridge hit in further Russian drone attack as German chancellor makes surprise visit",
+            "itemLink": "https://www.bbc.co.uk/news/articles/ckreyjzzzywqo?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-10-04T11:25:35.000Z",
+            "contentSnippet": "Footage shows a drone hitting the Pivnichyi (Northern) Bridge as vehicles move across it, creating a large fireball.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "kyiv bridge hit in further russian drone attack as german chancellor makes surprise visit"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T11:25:35.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-04T11:53:21.770Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261004-australia-investigating-flydub",
+    "canonicalTopic": "Australia Investigating Flydubai Co-pilots Links to Country",
+    "slug": "australia-investigating-flydubai-co-pilots-links-to-country",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-2-Australia20investigat",
+        "query": "Australia Investigating Flydubai Co-pilots Links to Country",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/cxly4nym57q9o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-10-04T06:19:17.000Z",
+        "contentSnippet": "State police and the country's security agency are looking into the co-pilot, who attempted to take control of a Flydubai plane travelling to Israel.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-04T06:19:17.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Australia investigating Flydubai co-pilot's links to country",
+            "itemLink": "https://www.bbc.co.uk/news/articles/cxly4nym57q9o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-10-04T06:19:17.000Z",
+            "contentSnippet": "State police and the country's security agency are looking into the co-pilot, who attempted to take control of a Flydubai plane travelling to Israel.",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "australia investigating flydubai co-pilots links to country"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T06:19:17.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-04T11:53:21.830Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-travel-20261004-cornell-president-says-univers",
+    "canonicalTopic": "Cornell President Says University Must Do Better After Frat House Rape Allegations",
+    "slug": "cornell-president-says-university-must-do-better-after-frat-house-rape-allegations",
+    "pillar": "travel",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-bbc-world-4-Cornell20president20sa",
+        "query": "Cornell President Says University Must Do Better After Frat House Rape Allegations",
+        "sourceUrl": "https://www.bbc.co.uk/news/articles/ckly0leelnz4o?at_medium=RSS&at_campaign=rss",
+        "publisherName": "BBC News",
+        "publishedAt": "2026-10-04T00:11:25.000Z",
+        "contentSnippet": "Michael Kotlikoff described the allegations of a woman who says she was drugged and gang raped as \"deeply disturbing\".",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-04T00:11:25.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "feedTitle": "BBC News",
+            "itemTitle": "Cornell president says university 'must do better' after frat house rape allegations",
+            "itemLink": "https://www.bbc.co.uk/news/articles/ckly0leelnz4o?at_medium=RSS&at_campaign=rss",
+            "publishedDate": "2026-10-04T00:11:25.000Z",
+            "contentSnippet": "Michael Kotlikoff described the allegations of a woman who says she was drugged and gang raped as \"deeply disturbing\".",
+            "categories": [
+              "travel",
+              "culture",
+              "slow-travel",
+              "world-heritage"
+            ]
+          },
+          "suggestedPillar": "travel",
+          "curatedTags": [
+            "travel",
+            "culture",
+            "slow-travel",
+            "world-heritage"
+          ],
+          "feedName": "BBC World & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "cornell president says university must do better after frat house rape allegations"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T00:11:25.000Z",
+    "tags": [
+      "travel",
+      "culture",
+      "slow-travel",
+      "world-heritage"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-04T11:53:21.904Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261004-on-snl-taylor-swift-and-dakota",
+    "canonicalTopic": "On Snl Taylor Swift and Dakota Johnson Prove Bestie Style Doesnt Have to Mean Matchy-matchy",
+    "slug": "on-snl-taylor-swift-and-dakota-johnson-prove-bestie-style-doesnt-have-to-mean-matchy-matchy",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-2-On20E28098SNL2CE2809920Tay",
+        "query": "On Snl Taylor Swift and Dakota Johnson Prove Bestie Style Doesnt Have to Mean Matchy-matchy",
+        "sourceUrl": "https://www.vogue.com/article/taylor-swift-and-dakota-johnson-saturday-night-live",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-10-04T11:35:14.000Z",
+        "contentSnippet": "Taylor Swift joined her “Patient Zero” costar during her “Saturday Night Live” monologue, with the friends trading their co-ords for two very different takes on the statement mini.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-04T11:35:14.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "On ‘SNL,’ Taylor Swift and Dakota Johnson Prove Bestie Style Doesn’t Have to Mean Matchy-Matchy",
+            "itemLink": "https://www.vogue.com/article/taylor-swift-and-dakota-johnson-saturday-night-live",
+            "publishedDate": "2026-10-04T11:35:14.000Z",
+            "contentSnippet": "Taylor Swift joined her “Patient Zero” costar during her “Saturday Night Live” monologue, with the friends trading their co-ords for two very different takes on the statement mini.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Fashion / Celebrity Style",
+              "Fashion"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Fashion / Celebrity Style",
+            "Fashion"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "on snl taylor swift and dakota johnson prove bestie style doesnt have to mean matchy-matchy"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T11:35:14.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Fashion / Celebrity Style",
+      "Fashion"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-04T11:53:22.028Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261004-from-the-archives-rebel-with-a",
+    "canonicalTopic": "From the Archives Rebel with a Shrine",
+    "slug": "from-the-archives-rebel-with-a-shrine",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-3-From20the20Archives3A20R",
+        "query": "From the Archives Rebel with a Shrine",
+        "sourceUrl": "https://www.vogue.com/article/from-the-archives-rebel-with-a-shrine",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-10-04T11:00:00.000Z",
+        "contentSnippet": "In a culture that worships youth, James Dean remains one of our most potent icons—a young man for whom youth itself was a torture.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-04T11:00:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "From the Archives: Rebel with a Shrine",
+            "itemLink": "https://www.vogue.com/article/from-the-archives-rebel-with-a-shrine",
+            "publishedDate": "2026-10-04T11:00:00.000Z",
+            "contentSnippet": "In a culture that worships youth, James Dean remains one of our most potent icons—a young man for whom youth itself was a torture.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Magazine"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Magazine"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "from the archives rebel with a shrine"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T11:00:00.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Magazine"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-04T11:53:22.072Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261004-lily-brant-followed-in-her-mom",
+    "canonicalTopic": "Lily Brant Followed in Her Moms Alaa Footsteps—after Practicing in Heels on a Treadmill",
+    "slug": "lily-brant-followed-in-her-moms-alaa-footsteps-after-practicing-in-heels-on-a-treadmill",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-4-Lily20Brant20Followed20",
+        "query": "Lily Brant Followed in Her Moms Alaa Footsteps—after Practicing in Heels on a Treadmill",
+        "sourceUrl": "https://www.vogue.com/slideshow/lily-brant-alaia-paris-fashion-week-diary",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-10-04T10:46:31.000Z",
+        "contentSnippet": "For her Paris Fashion Week runway debut, 20-year-old Lily Brant took a little advice from Stephanie Seymour and revisited her lifelong connection to Alaïa.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-04T10:46:31.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Lily Brant Followed in Her Mom’s Alaïa Footsteps—After Practicing in Heels on a Treadmill",
+            "itemLink": "https://www.vogue.com/slideshow/lily-brant-alaia-paris-fashion-week-diary",
+            "publishedDate": "2026-10-04T10:46:31.000Z",
+            "contentSnippet": "For her Paris Fashion Week runway debut, 20-year-old Lily Brant took a little advice from Stephanie Seymour and revisited her lifelong connection to Alaïa.",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Fashion / Fashion Week",
+              "Fashion"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Fashion / Fashion Week",
+            "Fashion"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "lily brant followed in her moms alaa footsteps—after practicing in heels on a treadmill"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T10:46:31.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Fashion / Fashion Week",
+      "Fashion"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-04T11:53:22.166Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261004-niccol-pasqualetti-spring-2027",
+    "canonicalTopic": "Niccol Pasqualetti Spring 2027 Ready-to-wear",
+    "slug": "niccol-pasqualetti-spring-2027-ready-to-wear",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-vogue-style-5-NiccolC3B220Pasqualetti20",
+        "query": "Niccol Pasqualetti Spring 2027 Ready-to-wear",
+        "sourceUrl": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/niccolo-pasqualetti",
+        "publisherName": "Vogue",
+        "publishedAt": "2026-10-04T11:50:57.000Z",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-04T11:50:57.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.vogue.com/feed/rss",
+            "feedTitle": "Vogue",
+            "itemTitle": "Niccolò Pasqualetti Spring 2027 Ready-to-Wear",
+            "itemLink": "https://www.vogue.com/fashion-shows/spring-2027-ready-to-wear/niccolo-pasqualetti",
+            "publishedDate": "2026-10-04T11:50:57.000Z",
+            "categories": [
+              "fashion-trends",
+              "personal-style",
+              "capsule-wardrobe",
+              "accessories",
+              "beauty-culture",
+              "Runway"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "fashion-trends",
+            "personal-style",
+            "capsule-wardrobe",
+            "accessories",
+            "beauty-culture",
+            "Runway"
+          ],
+          "feedName": "Vogue Style & Culture",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "niccol pasqualetti spring 2027 ready-to-wear"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T11:50:57.000Z",
+    "tags": [
+      "fashion-trends",
+      "personal-style",
+      "capsule-wardrobe",
+      "accessories",
+      "beauty-culture",
+      "Runway"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-04T11:53:22.218Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261004-museum-vonk-is-a-testing-groun",
+    "canonicalTopic": "Museum Vonk Is a Testing Ground for Affordable Bio-based Construction",
+    "slug": "museum-vonk-is-a-testing-ground-for-affordable-bio-based-construction",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-1-Museum20Vonk20is2022a20te",
+        "query": "Museum Vonk Is a Testing Ground for Affordable Bio-based Construction",
+        "sourceUrl": "https://www.dezeen.com/2026/10/04/museum-vonk-studio-marco-vermeulen/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-10-04T10:00:01.000Z",
+        "contentSnippet": "Pigmented lime plaster colours the hempcrete facades of this wedge-shaped history museum in Eindhoven, completed by Dutch studio Studio Marco Vermeulen with a palette of biomaterials. Located on the site of a former driving-school track in the Dutch city, Museum Vonk explores 10,000 years of regional history in a hands-on and interactive way. It was The post Museum Vonk is \"a testing ground for affordable bio-based construction\" appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-04T10:00:01.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Museum Vonk is \"a testing ground for affordable bio-based construction\"",
+            "itemLink": "https://www.dezeen.com/2026/10/04/museum-vonk-studio-marco-vermeulen/",
+            "publishedDate": "2026-10-04T10:00:01.000Z",
+            "contentSnippet": "Pigmented lime plaster colours the hempcrete facades of this wedge-shaped history museum in Eindhoven, completed by Dutch studio Studio Marco Vermeulen with a palette of biomaterials. Located on the site of a former driving-school track in the Dutch city, Museum Vonk explores 10,000 years of regional history in a hands-on and interactive way. It was The post Museum Vonk is \"a testing ground for affordable bio-based construction\" appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Architecture",
+              "Exclusives",
+              "Netherlands",
+              "Eindhoven",
+              "Museums",
+              "Cross-laminated timber",
+              "Hempcrete",
+              "Studio Marco Vermeulen",
+              "Biomaterials"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Architecture",
+            "Exclusives",
+            "Netherlands",
+            "Eindhoven",
+            "Museums",
+            "Cross-laminated timber",
+            "Hempcrete",
+            "Studio Marco Vermeulen",
+            "Biomaterials"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "museum vonk is a testing ground for affordable bio-based construction"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T10:00:01.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Architecture",
+      "Exclusives",
+      "Netherlands",
+      "Eindhoven",
+      "Museums",
+      "Cross-laminated timber",
+      "Hempcrete",
+      "Studio Marco Vermeulen",
+      "Biomaterials"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-04T11:53:22.286Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261004-five-innovative-and-practical-",
+    "canonicalTopic": "Five Innovative and Practical Modular Furniture Designs",
+    "slug": "five-innovative-and-practical-modular-furniture-designs",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-2-Five20innovative20and20",
+        "query": "Five Innovative and Practical Modular Furniture Designs",
+        "sourceUrl": "https://www.dezeen.com/2026/10/04/innovative-practical-modular-furniture-designs/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-10-04T09:00:44.000Z",
+        "contentSnippet": "Our latest roundup looks at modular furniture pieces that are both practical and surprising, ranging from an alternative to bespoke cabinetry to a furniture system made up of squishy balls. Amoreba by Golem Amoreba is comprised of hundreds of soft, upholstered balls that can be combined in a wide range of configurations. Architecture and design The post Five innovative and practical modular furniture designs appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-04T09:00:44.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Five innovative and practical modular furniture designs",
+            "itemLink": "https://www.dezeen.com/2026/10/04/innovative-practical-modular-furniture-designs/",
+            "publishedDate": "2026-10-04T09:00:44.000Z",
+            "contentSnippet": "Our latest roundup looks at modular furniture pieces that are both practical and surprising, ranging from an alternative to bespoke cabinetry to a furniture system made up of squishy balls. Amoreba by Golem Amoreba is comprised of hundreds of soft, upholstered balls that can be combined in a wide range of configurations. Architecture and design The post Five innovative and practical modular furniture designs appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "Furniture",
+              "all",
+              "Design",
+              "Modular furniture",
+              "Roundups"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "Furniture",
+            "all",
+            "Design",
+            "Modular furniture",
+            "Roundups"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "five innovative and practical modular furniture designs"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T09:00:44.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "Furniture",
+      "all",
+      "Design",
+      "Modular furniture",
+      "Roundups"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-04T11:53:22.342Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-style-20261004-space-popular-creates-carpet-c",
+    "canonicalTopic": "Space Popular Creates Carpet-covered Gallery for Nieuwe Instituut",
+    "slug": "space-popular-creates-carpet-covered-gallery-for-nieuwe-instituut",
+    "pillar": "style",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-dezeen-3-Space20Popular20create",
+        "query": "Space Popular Creates Carpet-covered Gallery for Nieuwe Instituut",
+        "sourceUrl": "https://www.dezeen.com/2026/10/04/space-popular-nieuwe-instituut-collection-gallery-rotterdam/",
+        "publisherName": "Dezeen",
+        "publishedAt": "2026-10-04T05:00:48.000Z",
+        "contentSnippet": "Architecture and design studio Space Popular has completed a gallery space for the Nieuwe Instituut in Rotterdam, using a colourful gridded carpet to demarcate its collection. Occupying a long, narrow volume within the museum, the Collection Gallery serves as a permanent space to exhibit the Nieuwe Instituut's physical and digital collection documenting the history of The post Space Popular creates carpet-covered gallery for Nieuwe Instituut appeared first on Dezeen .",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-04T05:00:48.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.dezeen.com/feed/",
+            "feedTitle": "Dezeen",
+            "itemTitle": "Space Popular creates carpet-covered gallery for Nieuwe Instituut",
+            "itemLink": "https://www.dezeen.com/2026/10/04/space-popular-nieuwe-instituut-collection-gallery-rotterdam/",
+            "publishedDate": "2026-10-04T05:00:48.000Z",
+            "contentSnippet": "Architecture and design studio Space Popular has completed a gallery space for the Nieuwe Instituut in Rotterdam, using a colourful gridded carpet to demarcate its collection. Occupying a long, narrow volume within the museum, the Collection Gallery serves as a permanent space to exhibit the Nieuwe Instituut's physical and digital collection documenting the history of The post Space Popular creates carpet-covered gallery for Nieuwe Instituut appeared first on Dezeen .",
+            "categories": [
+              "architecture",
+              "interiors",
+              "design",
+              "sustainability",
+              "materials",
+              "tea-houses",
+              "all",
+              "Design",
+              "Netherlands",
+              "Rotterdam",
+              "Exhibitions",
+              "Carpets",
+              "Space Popular",
+              "Nieuwe Instituut"
+            ]
+          },
+          "suggestedPillar": "style",
+          "curatedTags": [
+            "architecture",
+            "interiors",
+            "design",
+            "sustainability",
+            "materials",
+            "tea-houses",
+            "all",
+            "Design",
+            "Netherlands",
+            "Rotterdam",
+            "Exhibitions",
+            "Carpets",
+            "Space Popular",
+            "Nieuwe Instituut"
+          ],
+          "feedName": "Dezeen Architecture & Design",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "space popular creates carpet-covered gallery for nieuwe instituut"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T05:00:48.000Z",
+    "tags": [
+      "architecture",
+      "interiors",
+      "design",
+      "sustainability",
+      "materials",
+      "tea-houses",
+      "all",
+      "Design",
+      "Netherlands",
+      "Rotterdam",
+      "Exhibitions",
+      "Carpets",
+      "Space Popular",
+      "Nieuwe Instituut"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-04T11:53:22.405Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261004-pete-hegseth-chugs-spider-mans",
+    "canonicalTopic": "Pete Hegseth Chugs Spider-mans Non-alcoholic B—- Beer in Snl Cold Open That Mocks Tom Holland Mitch Mcconnell and Jd Vance",
+    "slug": "pete-hegseth-chugs-spider-mans-non-alcoholic-b-beer-in-snl-cold-open-that-mocks-tom-holland-mitch-mcconnell-and-jd-vance",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-1-Pete20Hegseth20C",
+        "query": "Pete Hegseth Chugs Spider-mans Non-alcoholic B—- Beer in Snl Cold Open That Mocks Tom Holland Mitch Mcconnell and Jd Vance",
+        "sourceUrl": "https://variety.com/2026/tv/news/snl-pete-hegseth-spider-man-non-alcoholic-beer-1236898415/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-10-04T04:10:00.000Z",
+        "contentSnippet": "In the Oct. 3 cold open on “Saturday Night Live,” Andrew Dismukes and Ashley Padilla play Republican strategists who have their work cut out for them building buzz for their party. Marcello Hernández comes in first as Marco Rubio, who speaks to constituents in Spanish, admits that Trump did not live up to expectations and […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-04T04:10:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Pete Hegseth Chugs 'Spider-Man’s Non-Alcoholic B—- Beer' in 'SNL' Cold Open That Mocks Tom Holland, Mitch McConnell and JD Vance",
+            "itemLink": "https://variety.com/2026/tv/news/snl-pete-hegseth-spider-man-non-alcoholic-beer-1236898415/",
+            "publishedDate": "2026-10-04T04:10:00.000Z",
+            "contentSnippet": "In the Oct. 3 cold open on “Saturday Night Live,” Andrew Dismukes and Ashley Padilla play Republican strategists who have their work cut out for them building buzz for their party. Marcello Hernández comes in first as Marco Rubio, who speaks to constituents in Spanish, admits that Trump did not live up to expectations and […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "Pete Hegseth",
+              "Saturday Night Live",
+              "SNL",
+              "Tom Holland"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "Pete Hegseth",
+            "Saturday Night Live",
+            "SNL",
+            "Tom Holland"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "pete hegseth chugs spider-mans non-alcoholic b—- beer in snl cold open that mocks tom holland mitch mcconnell and jd vance"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T04:10:00.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "Pete Hegseth",
+      "Saturday Night Live",
+      "SNL",
+      "Tom Holland"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-04T11:53:22.516Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261004-taylor-swift-crashes-dakota-jo",
+    "canonicalTopic": "Taylor Swift Crashes Dakota Johnsons Saturday Night Live Hosting Stint My Literal Therapist",
+    "slug": "taylor-swift-crashes-dakota-johnsons-snl-monologue-as-her-breakup-therapist-shows-travis-kelce-love-with-cleveland-shoutout",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-2-Taylor20Swift20C",
+        "query": "Taylor Swift Crashes Dakota Johnsons Snl Monologue As Her Breakup Therapist Shows Travis Kelce Love with Cleveland Shoutout",
+        "sourceUrl": "https://variety.com/2026/music/news/taylor-swift-snl-cameo-dakota-johnson-saturday-night-live-1236898411/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-10-04T03:49:52.000Z",
+        "contentSnippet": "Predictions that Taylor Swift would make a cameo on \"Saturday Night Live\" with host Dakota Johnson came to fruition when the duo appeared together in the opening monologue. After Johnson joked about her failed relationships, she said \"I have really good friends. They don't judge me, they're really supportive. Ladies and gentlemen, my literal therapist.\" […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-04T03:49:52.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Taylor Swift Crashes Dakota Johnson's 'SNL' Monologue as Her Breakup Therapist, Shows Travis Kelce Love with Cleveland Shoutout",
+            "itemLink": "https://variety.com/2026/music/news/taylor-swift-snl-cameo-dakota-johnson-saturday-night-live-1236898411/",
+            "publishedDate": "2026-10-04T03:49:52.000Z",
+            "contentSnippet": "Predictions that Taylor Swift would make a cameo on \"Saturday Night Live\" with host Dakota Johnson came to fruition when the duo appeared together in the opening monologue. After Johnson joked about her failed relationships, she said \"I have really good friends. They don't judge me, they're really supportive. Ladies and gentlemen, my literal therapist.\" […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "Dakota Johnson",
+              "Saturday Night Live",
+              "Taylor Swift",
+              "The Life of a Showgirl: The Encore"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "Dakota Johnson",
+            "Saturday Night Live",
+            "Taylor Swift",
+            "The Life of a Showgirl: The Encore"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      },
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-1-Taylor20Swift20Cras",
+        "query": "Taylor Swift Crashes Dakota Johnsons Saturday Night Live Hosting Stint My Literal Therapist",
+        "sourceUrl": "https://www.hollywoodreporter.com/tv/tv-news/taylor-swift-dakota-johnson-saturday-night-live-1236721702/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-10-04T03:47:27.000Z",
+        "contentSnippet": "The \"Patient Zero\" singer gave Travis Kelce a subtle salute during the 'Verity' star's opening monologue.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-04T03:47:27.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Taylor Swift Crashes Dakota Johnson's 'Saturday Night Live' Hosting Stint: \"My Literal Therapist!\"",
+            "itemLink": "https://www.hollywoodreporter.com/tv/tv-news/taylor-swift-dakota-johnson-saturday-night-live-1236721702/",
+            "publishedDate": "2026-10-04T03:47:27.000Z",
+            "contentSnippet": "The \"Patient Zero\" singer gave Travis Kelce a subtle salute during the 'Verity' star's opening monologue.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "TV",
+              "TV News",
+              "Dakota Johnson",
+              "saturday night live",
+              "SNL",
+              "Taylor Swift",
+              "Verity"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "TV",
+            "TV News",
+            "Dakota Johnson",
+            "saturday night live",
+            "SNL",
+            "Taylor Swift",
+            "Verity"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "taylor swift crashes dakota johnsons snl monologue as her breakup therapist shows travis kelce love with cleveland shoutout",
+      "taylor swift crashes dakota johnsons saturday night live hosting stint my literal therapist"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T03:49:52.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "Dakota Johnson",
+      "Saturday Night Live",
+      "Taylor Swift",
+      "The Life of a Showgirl: The Encore",
+      "movies",
+      "tv",
+      "entertainment-culture",
+      "TV",
+      "TV News",
+      "saturday night live",
+      "SNL",
+      "Verity"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-04T11:53:23.159Z",
+    "pinterestScore": 79.2,
+    "revisionCyclesCount": 0
+  },
+  {
+    "id": "lm-entertainment-20261004-a-statement-review-just-what-w",
+    "canonicalTopic": "A Statement Review Just What We Need Right Now — Another Movie About Climate Change but Tom Mccarthys Historically Based Talkfest Reveals How Much We Knew in 1980",
+    "slug": "a-statement-review-just-what-we-need-right-now-another-movie-about-climate-change-but-tom-mccarthys-historically-based-talkfest-reveals-how-much-we-knew-in-1980",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-3-A20Statement20Re",
+        "query": "A Statement Review Just What We Need Right Now — Another Movie About Climate Change but Tom Mccarthys Historically Based Talkfest Reveals How Much We Knew in 1980",
+        "sourceUrl": "https://variety.com/2026/film/reviews/a-statement-review-paul-rudd-paul-giamatti-nyff-1236898120/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-10-04T00:15:11.000Z",
+        "contentSnippet": "On paper, \"A Statement\" sounds like an interesting movie, but it’s at once talky and flat, grabby and meandering, impassioned and neutral. It wants to be a \"firebrand\" docudrama, yet I can’t imagine who the audience is going to be for it. My heartless prediction: next to no one.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-04T00:15:11.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "'A Statement' Review: Just What We Need Right Now — Another Movie About Climate Change! But Tom McCarthy's Historically Based Talkfest Reveals How Much We Knew in 1980",
+            "itemLink": "https://variety.com/2026/film/reviews/a-statement-review-paul-rudd-paul-giamatti-nyff-1236898120/",
+            "publishedDate": "2026-10-04T00:15:11.000Z",
+            "contentSnippet": "On paper, \"A Statement\" sounds like an interesting movie, but it’s at once talky and flat, grabby and meandering, impassioned and neutral. It wants to be a \"firebrand\" docudrama, yet I can’t imagine who the audience is going to be for it. My heartless prediction: next to no one.",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "Reviews",
+              "A Statement",
+              "Paul Giamatti",
+              "Paul Rudd"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "Reviews",
+            "A Statement",
+            "Paul Giamatti",
+            "Paul Rudd"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "a statement review just what we need right now — another movie about climate change but tom mccarthys historically based talkfest reveals how much we knew in 1980"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T00:15:11.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "Reviews",
+      "A Statement",
+      "Paul Giamatti",
+      "Paul Rudd"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-04T11:53:22.785Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261004-lawrence-rothman-on-their-new-",
+    "canonicalTopic": "Lawrence Rothman on Their New Album Here Lives Love/sawdust to Stardust a Growing Legacy Producing Other Artists and the Talk with Bowie That Changed Everything",
+    "slug": "lawrence-rothman-on-their-new-album-here-lives-love-sawdust-to-stardust-a-growing-legacy-producing-other-artists-and-the-talk-with-bowie-that-changed-everything",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-4-Lawrence20Rothma",
+        "query": "Lawrence Rothman on Their New Album Here Lives Love/sawdust to Stardust a Growing Legacy Producing Other Artists and the Talk with Bowie That Changed Everything",
+        "sourceUrl": "https://variety.com/2026/music/news/lawrence-rothman-here-lies-love-album-producer-americana-1236898339/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-10-03T23:50:49.000Z",
+        "contentSnippet": "Lawrence Rothman has a lot of nerve, starting an album with a song called \"The Meaning,\" and then daring to ask some of the questions inherent in the big picture created by those two words — like, if not what is the meaning of life, then what is the meaning of music? (Of course, for […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-03T23:50:49.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Lawrence Rothman on Their New Album, 'Here Lives Love/Sawdust to Stardust,' a Growing Legacy Producing Other Artists, and the Talk with Bowie That Changed Everything",
+            "itemLink": "https://variety.com/2026/music/news/lawrence-rothman-here-lies-love-album-producer-americana-1236898339/",
+            "publishedDate": "2026-10-03T23:50:49.000Z",
+            "contentSnippet": "Lawrence Rothman has a lot of nerve, starting an album with a song called \"The Meaning,\" and then daring to ask some of the questions inherent in the big picture created by those two words — like, if not what is the meaning of life, then what is the meaning of music? (Of course, for […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "Amanda Shires",
+              "Floria Sigismondi",
+              "Jason Isbell",
+              "Lawrence Rothman",
+              "Maggie Rose",
+              "Tift Merritt"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "Amanda Shires",
+            "Floria Sigismondi",
+            "Jason Isbell",
+            "Lawrence Rothman",
+            "Maggie Rose",
+            "Tift Merritt"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "lawrence rothman on their new album here lives love/sawdust to stardust a growing legacy producing other artists and the talk with bowie that changed everything"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-03T23:50:49.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "Amanda Shires",
+      "Floria Sigismondi",
+      "Jason Isbell",
+      "Lawrence Rothman",
+      "Maggie Rose",
+      "Tift Merritt"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-04T11:53:22.944Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261004-paul-rudd-says-he-stopped-brin",
+    "canonicalTopic": "Paul Rudd Says He Stopped Bringing His Phone to Film Sets Because Hes Addicted Like Everybody Else Theyre Facilitating Our Own Destruction",
+    "slug": "paul-rudd-says-he-stopped-bringing-his-phone-to-film-sets-because-hes-addicted-like-everybody-else-theyre-facilitating-our-own-destruction",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-variety-entertainment-5-Paul20Rudd20Says",
+        "query": "Paul Rudd Says He Stopped Bringing His Phone to Film Sets Because Hes Addicted Like Everybody Else Theyre Facilitating Our Own Destruction",
+        "sourceUrl": "https://variety.com/2026/film/news/paul-rudd-phone-addiction-a-statement-nyff-1236898348/",
+        "publisherName": "Variety",
+        "publishedAt": "2026-10-03T23:43:13.000Z",
+        "contentSnippet": "Paul Rudd plays the moderator of the first-ever meeting dedicated to solving America’s climate crisis in “A Statement,” the latest film from Oscar-winning director Tom McCarthy. Set at a Florida beachside resort in 1980, the film follows 20 experts who spend a weekend in a conference room and — analogous to “12 Angry Men” — […]",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-03T23:43:13.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://variety.com/feed/",
+            "feedTitle": "Variety",
+            "itemTitle": "Paul Rudd Says He Stopped Bringing His Phone to Film Sets Because He’s ‘Addicted Like Everybody Else’: ‘They’re Facilitating Our Own Destruction’",
+            "itemLink": "https://variety.com/2026/film/news/paul-rudd-phone-addiction-a-statement-nyff-1236898348/",
+            "publishedDate": "2026-10-03T23:43:13.000Z",
+            "contentSnippet": "Paul Rudd plays the moderator of the first-ever meeting dedicated to solving America’s climate crisis in “A Statement,” the latest film from Oscar-winning director Tom McCarthy. Set at a Florida beachside resort in 1980, the film follows 20 experts who spend a weekend in a conference room and — analogous to “12 Angry Men” — […]",
+            "categories": [
+              "film",
+              "television",
+              "music",
+              "celebrity",
+              "awards",
+              "festivals",
+              "interviews",
+              "News",
+              "A Statement",
+              "New York Film Festival",
+              "Paul Rudd",
+              "Tom Mccarthy"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "film",
+            "television",
+            "music",
+            "celebrity",
+            "awards",
+            "festivals",
+            "interviews",
+            "News",
+            "A Statement",
+            "New York Film Festival",
+            "Paul Rudd",
+            "Tom Mccarthy"
+          ],
+          "feedName": "Variety",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "paul rudd says he stopped bringing his phone to film sets because hes addicted like everybody else theyre facilitating our own destruction"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-03T23:43:13.000Z",
+    "tags": [
+      "film",
+      "television",
+      "music",
+      "celebrity",
+      "awards",
+      "festivals",
+      "interviews",
+      "News",
+      "A Statement",
+      "New York Film Festival",
+      "Paul Rudd",
+      "Tom Mccarthy"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-04T11:53:23.061Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261004-how-freaks-sent-zach-lipovsky-",
+    "canonicalTopic": "How Freaks Sent Zach Lipovsky and Adam B Stein to Hollywood That Film Changed Our Lives",
+    "slug": "how-freaks-sent-zach-lipovsky-and-adam-b-stein-to-hollywood-that-film-changed-our-lives",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-2-How20E28098FreaksE2",
+        "query": "How Freaks Sent Zach Lipovsky and Adam B Stein to Hollywood That Film Changed Our Lives",
+        "sourceUrl": "https://www.hollywoodreporter.com/movies/movie-news/freaks-zach-lipovsky-adam-b-stein-hollywood-1236721594/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-10-04T01:18:31.000Z",
+        "contentSnippet": "Their breakout 2018 sci-fi thriller debuted at the Vancouver Film Festival. Now they’re returning with ‘Freaks 2’ and as bankable horror directors and writers.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-04T01:18:31.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "How ‘Freaks’ Sent Zach Lipovsky and Adam B. Stein to Hollywood: “That Film Changed Our Lives”",
+            "itemLink": "https://www.hollywoodreporter.com/movies/movie-news/freaks-zach-lipovsky-adam-b-stein-hollywood-1236721594/",
+            "publishedDate": "2026-10-04T01:18:31.000Z",
+            "contentSnippet": "Their breakout 2018 sci-fi thriller debuted at the Vancouver Film Festival. Now they’re returning with ‘Freaks 2’ and as bankable horror directors and writers.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Movie News",
+              "Movies",
+              "Adam B. Stein",
+              "Sony Pictures",
+              "Vancouver",
+              "Zach Lipovsky"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Movie News",
+            "Movies",
+            "Adam B. Stein",
+            "Sony Pictures",
+            "Vancouver",
+            "Zach Lipovsky"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "how freaks sent zach lipovsky and adam b stein to hollywood that film changed our lives"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T01:18:31.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Movie News",
+      "Movies",
+      "Adam B. Stein",
+      "Sony Pictures",
+      "Vancouver",
+      "Zach Lipovsky"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-04T11:53:23.254Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261004-jeremy-strong-says-he-doesnt-n",
+    "canonicalTopic": "Jeremy Strong Says He Doesnt Need to Apologize for Method Acting Its in Service of the Material",
+    "slug": "jeremy-strong-says-he-doesnt-need-to-apologize-for-method-acting-its-in-service-of-the-material",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-3-Jeremy20Strong20Say",
+        "query": "Jeremy Strong Says He Doesnt Need to Apologize for Method Acting Its in Service of the Material",
+        "sourceUrl": "https://www.hollywoodreporter.com/movies/movie-news/jeremy-strong-method-acting-never-intention-interfere-1236721716/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-10-04T00:58:57.000Z",
+        "contentSnippet": "\"I’m just there to commit utterly to serving the material,\" the Oscar nominee said of his approach to acting.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-04T00:58:57.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Jeremy Strong Says He Doesn't \"Need to Apologize\" for Method Acting: “It’s in Service of the Material”",
+            "itemLink": "https://www.hollywoodreporter.com/movies/movie-news/jeremy-strong-method-acting-never-intention-interfere-1236721716/",
+            "publishedDate": "2026-10-04T00:58:57.000Z",
+            "contentSnippet": "\"I’m just there to commit utterly to serving the material,\" the Oscar nominee said of his approach to acting.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Movie News",
+              "Movies",
+              "Jeremy Strong",
+              "The Social Reckoning"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Movie News",
+            "Movies",
+            "Jeremy Strong",
+            "The Social Reckoning"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "jeremy strong says he doesnt need to apologize for method acting its in service of the material"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T00:58:57.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Movie News",
+      "Movies",
+      "Jeremy Strong",
+      "The Social Reckoning"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-04T11:53:23.354Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261004-a-statement-review-a-top-ensem",
+    "canonicalTopic": "A Statement Review a Top Ensemble Including Paul Rudd Amy Ryan and John Turturro Breathes Surprising Vitality into Dry Docu-drama",
+    "slug": "a-statement-review-a-top-ensemble-including-paul-rudd-amy-ryan-and-john-turturro-breathes-surprising-vitality-into-dry-docu-drama",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-4-E28098A20StatementE",
+        "query": "A Statement Review a Top Ensemble Including Paul Rudd Amy Ryan and John Turturro Breathes Surprising Vitality into Dry Docu-drama",
+        "sourceUrl": "https://www.hollywoodreporter.com/movies/movie-reviews/a-statement-review-paul-rudd-amy-ryan-john-turturro-1236721637/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-10-04T00:15:00.000Z",
+        "contentSnippet": "Paul Giamatti, Evan Peters and Tatiana Maslany also star in Tom McCarthy’s account of a 1980 conference at which a group of experts is tasked with getting ahead of the climate crisis.",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-04T00:15:00.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "‘A Statement’ Review: A Top Ensemble Including Paul Rudd, Amy Ryan and John Turturro Breathes Surprising Vitality Into Dry Docu-Drama",
+            "itemLink": "https://www.hollywoodreporter.com/movies/movie-reviews/a-statement-review-paul-rudd-amy-ryan-john-turturro-1236721637/",
+            "publishedDate": "2026-10-04T00:15:00.000Z",
+            "contentSnippet": "Paul Giamatti, Evan Peters and Tatiana Maslany also star in Tom McCarthy’s account of a 1980 conference at which a group of experts is tasked with getting ahead of the climate crisis.",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "Movie Reviews",
+              "Movies",
+              "Amy Ryan",
+              "Evan Peters",
+              "Jason Clarke",
+              "John Turturro",
+              "New York Film Festival",
+              "New York Film Festival 2026",
+              "Paul Giamatti",
+              "Paul Rudd",
+              "Tatiana Maslany",
+              "Tom McCarthy"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "Movie Reviews",
+            "Movies",
+            "Amy Ryan",
+            "Evan Peters",
+            "Jason Clarke",
+            "John Turturro",
+            "New York Film Festival",
+            "New York Film Festival 2026",
+            "Paul Giamatti",
+            "Paul Rudd",
+            "Tatiana Maslany",
+            "Tom McCarthy"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "a statement review a top ensemble including paul rudd amy ryan and john turturro breathes surprising vitality into dry docu-drama"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-04T00:15:00.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "Movie Reviews",
+      "Movies",
+      "Amy Ryan",
+      "Evan Peters",
+      "Jason Clarke",
+      "John Turturro",
+      "New York Film Festival",
+      "New York Film Festival 2026",
+      "Paul Giamatti",
+      "Paul Rudd",
+      "Tatiana Maslany",
+      "Tom McCarthy"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-04T11:53:23.469Z",
+    "pinterestScore": 79.2
+  },
+  {
+    "id": "lm-entertainment-20261004-florence-pugh-on-how-zoe-kazan",
+    "canonicalTopic": "Florence Pugh on How Zoe Kazan East of Eden Collaboration Helped Boost Her Confidence",
+    "slug": "florence-pugh-on-how-zoe-kazan-east-of-eden-collaboration-helped-boost-her-confidence",
+    "pillar": "entertainment",
+    "sourceSignals": [
+      {
+        "source": "RSS_FEEDS",
+        "sourceId": "rss-hollywood-reporter-5-Florence20Pugh20on2",
+        "query": "Florence Pugh on How Zoe Kazan East of Eden Collaboration Helped Boost Her Confidence",
+        "sourceUrl": "https://www.hollywoodreporter.com/tv/tv-features/florence-pugh-east-of-eden-zoe-kazan-boosted-confidence-1236721680/",
+        "publisherName": "The Hollywood Reporter",
+        "publishedAt": "2026-10-03T22:06:56.000Z",
+        "contentSnippet": "The actress who plays the central character of Cathy and serves as an executive producer on the well-reviewed Netflix adaptation was Kazan's first and only choice for the role: \"I didn't have a backup.\"",
+        "volumeOrGrowth": 80,
+        "recordedAt": "2026-10-03T22:06:56.000Z",
+        "metadata": {
+          "rssPayload": {
+            "feedUrl": "https://www.hollywoodreporter.com/feed/",
+            "feedTitle": "The Hollywood Reporter",
+            "itemTitle": "Florence Pugh on How Zoe Kazan 'East of Eden' Collaboration Helped Boost Her Confidence",
+            "itemLink": "https://www.hollywoodreporter.com/tv/tv-features/florence-pugh-east-of-eden-zoe-kazan-boosted-confidence-1236721680/",
+            "publishedDate": "2026-10-03T22:06:56.000Z",
+            "contentSnippet": "The actress who plays the central character of Cathy and serves as an executive producer on the well-reviewed Netflix adaptation was Kazan's first and only choice for the role: \"I didn't have a backup.\"",
+            "categories": [
+              "movies",
+              "tv",
+              "celebrity",
+              "entertainment-culture",
+              "awards",
+              "TV",
+              "TV Features",
+              "East of Eden",
+              "Events",
+              "Florence Pugh",
+              "Netflix",
+              "Red Carpet",
+              "Zoe Kazan"
+            ]
+          },
+          "suggestedPillar": "entertainment",
+          "curatedTags": [
+            "movies",
+            "tv",
+            "celebrity",
+            "entertainment-culture",
+            "awards",
+            "TV",
+            "TV Features",
+            "East of Eden",
+            "Events",
+            "Florence Pugh",
+            "Netflix",
+            "Red Carpet",
+            "Zoe Kazan"
+          ],
+          "feedName": "The Hollywood Reporter",
+          "isLiveIngestion": true
+        }
+      }
+    ],
+    "queryVariants": [
+      "florence pugh on how zoe kazan east of eden collaboration helped boost her confidence"
+    ],
+    "freshnessScore": 85,
+    "createdAt": "2026-10-03T22:06:56.000Z",
+    "tags": [
+      "movies",
+      "tv",
+      "celebrity",
+      "entertainment-culture",
+      "awards",
+      "TV",
+      "TV Features",
+      "East of Eden",
+      "Events",
+      "Florence Pugh",
+      "Netflix",
+      "Red Carpet",
+      "Zoe Kazan"
+    ],
+    "targetAudience": "Modern curious readers seeking high-signal editorial lifestyle perspectives.",
+    "primaryIntent": "inspirational",
+    "scoring": {
+      "searchPotential": 60,
+      "pinterestPotential": 87,
+      "socialPotential": 80,
+      "lifeModeRelevance": 90,
+      "commercialPotential": 60,
+      "freshness": 85,
+      "competitionOpportunity": 70,
+      "originalityPotential": 88
+    },
+    "totalScore": 77.4,
+    "priorityTier": "LOW_PRIORITY",
+    "opportunityType": "ARTICLE",
+    "status": "SCORED",
+    "updatedAt": "2026-10-04T11:53:23.564Z",
     "pinterestScore": 79.2
   }
 ]
