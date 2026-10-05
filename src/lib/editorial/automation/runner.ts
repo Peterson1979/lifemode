@@ -507,7 +507,7 @@ export async function runEditorialAutomation(
     existingPillarDistribution,
     existingPillarRecency,
     enablePillarBalancing: true,
-    guaranteedPillars: ['style', 'entertainment'],
+    guaranteedPillars: request.guaranteedPillars || ['food-drink'],
     feedbackSignals,
   });
 

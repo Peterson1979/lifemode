@@ -1,0 +1,200 @@
+---
+export interface CommonMistake {
+  mistake: string;
+  whyItMatters: string;
+  howToFix: string;
+}
+
+export interface Props {
+  mistakes: CommonMistake[];
+}
+
+const { mistakes = [] } = Astro.props;
+---
+
+{mistakes.length > 0 && (
+  <section class="mistakes-section" aria-labelledby="mistakes-heading">
+    <div class="section-title-row">
+      <span class="section-kicker-badge">Error Prevention</span>
+      <h2 id="mistakes-heading" class="section-heading">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+          <line x1="12" y1="9" x2="12" y2="13"></line>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+        Common Mistakes to Avoid
+      </h2>
+    </div>
+    <div class="mistakes-list">
+      {mistakes.map((item) => (
+        <div class="mistake-card">
+          <div class="mistake-header">
+            <span class="mistake-cross-icon" aria-hidden="true">✕</span>
+            <span class="mistake-title">{item.mistake}</span>
+          </div>
+          <div class="mistake-body">
+            <div class="mistake-impact-box">
+              <span class="impact-label">Why it matters:</span>
+              <p>{item.whyItMatters}</p>
+            </div>
+            <div class="mistake-fix-box">
+              <span class="fix-label">The right way:</span>
+              <p>{item.howToFix}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .mistakes-section {
+    margin: var(--space-8) 0;
+  }
+
+  .section-title-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    margin-bottom: var(--space-4);
+  }
+
+  .section-kicker-badge {
+    font-family: var(--font-sans);
+    font-size: 0.725rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--semantic-danger);
+  }
+
+  .section-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  .section-heading svg {
+    color: var(--semantic-danger);
+    flex-shrink: 0;
+  }
+
+  .mistakes-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .mistake-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mistake-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: var(--semantic-danger);
+  }
+
+  .mistake-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .mistake-cross-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--semantic-danger-light);
+    color: var(--semantic-danger);
+    font-size: 0.75rem;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+
+  .mistake-title {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-text-primary);
+    line-height: 1.35;
+  }
+
+  .mistake-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+
+  @media (max-width: 640px) {
+    .mistake-body {
+      grid-template-columns: 1fr;
+      gap: var(--space-2);
+    }
+  }
+
+  .mistake-impact-box,
+  .mistake-fix-box {
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .mistake-impact-box {
+    background-color: var(--semantic-danger-light);
+  }
+
+  .mistake-fix-box {
+    background-color: var(--semantic-optimal-light);
+  }
+
+  .impact-label {
+    font-family: var(--font-mono);
+    font-size: 0.675rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--semantic-danger-text);
+  }
+
+  .fix-label {
+    font-family: var(--font-mono);
+    font-size: 0.675rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--semantic-optimal-text);
+  }
+
+  .mistake-impact-box p,
+  .mistake-fix-box p {
+    font-size: 0.85rem;
+    color: var(--color-text-primary);
+    margin: 0;
+    line-height: 1.45;
+  }
+</style>

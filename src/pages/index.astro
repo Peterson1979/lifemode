@@ -1,461 +1,539 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import TopicHubCard from '../components/TopicHubCard.astro';
 import ArticleCard from '../components/ArticleCard.astro';
-import PillarBadge from '../components/PillarBadge.astro';
-import EcosystemCard from '../components/EcosystemCard.astro';
+import ToolCard from '../components/ToolCard.astro';
+import ChecklistCard from '../components/ChecklistCard.astro';
+import DailyIdeasPicks from '../components/DailyIdeasPicks.astro';
+import PromotionalAppsSection from '../components/PromotionalAppsSection.astro';
+import TrustBanner from '../components/TrustBanner.astro';
+import TopicDataSection from '../components/topic-data/TopicDataSection.astro';
 import { getCollection } from 'astro:content';
-import { PILLARS, PILLAR_SLUGS, SITE_CONFIG, type PillarSlug } from '../config/site';
-import { ECOSYSTEM_PROJECTS } from '../config/ecosystem';
+import { SITE_CONFIG, PILLARS } from '../config/site';
+import { getCuratedPicks } from '../lib/commerce/curated-picks';
 import { generateWebsiteSchema } from '../utils/seo';
 
-// Fetch articles from all 7 collections
-const [
-  styleDocs,
-  travelDocs,
-  foodDrinkDocs,
-  techAiDocs,
-  moneyDocs,
-  wellbeingDocs,
-  entertainmentDocs,
-] = await Promise.all([
-  getCollection('style'),
-  getCollection('travel'),
-  getCollection('food-drink'),
-  getCollection('tech-ai'),
-  getCollection('money'),
-  getCollection('wellbeing'),
-  getCollection('entertainment'),
+// Fetch collections with empty-state resilience
+const [allTools, allGuides, allChecklists, allHealth, allWealth, allHome, allLife, allTech] = await Promise.all([
+  getCollection('tools').catch(() => []),
+  getCollection('guides').catch(() => []),
+  getCollection('checklists').catch(() => []),
+  getCollection('health').catch(() => []),
+  getCollection('wealth').catch(() => []),
+  getCollection('home').catch(() => []),
+  getCollection('life').catch(() => []),
+  getCollection('tech-ai').catch(() => []),
 ]);
 
-interface ArticleEntry {
-  id: string;
-  pillar: PillarSlug;
-  data: {
-    title: string;
-    description: string;
-    pubDate: Date;
-    updatedDate?: Date;
-    author?: string;
-    featured?: boolean;
-    draft?: boolean;
-    image?: string;
-    imageAlt?: string;
-    imagePrompt?: string;
-    readingTime?: string;
-    format?: string;
-    tags?: string[];
-  };
-}
-
-// Gather all articles from all collections
-const allArticles: ArticleEntry[] = [
-  ...styleDocs.map((doc) => ({ id: doc.id, pillar: 'style' as PillarSlug, data: doc.data })),
-  ...travelDocs.map((doc) => ({ id: doc.id, pillar: 'travel' as PillarSlug, data: doc.data })),
-  ...foodDrinkDocs.map((doc) => ({ id: doc.id, pillar: 'food-drink' as PillarSlug, data: doc.data })),
-  ...techAiDocs.map((doc) => ({ id: doc.id, pillar: 'tech-ai' as PillarSlug, data: doc.data })),
-  ...moneyDocs.map((doc) => ({ id: doc.id, pillar: 'money' as PillarSlug, data: doc.data })),
-  ...wellbeingDocs.map((doc) => ({ id: doc.id, pillar: 'wellbeing' as PillarSlug, data: doc.data })),
-  ...entertainmentDocs.map((doc) => ({ id: doc.id, pillar: 'entertainment' as PillarSlug, data: doc.data })),
+// 6 Primary Topic Pillars
+const primaryPillars = [
+  { ...PILLARS['health'], count: allHealth.length },
+  { ...PILLARS['wealth'], count: allWealth.length },
+  { ...PILLARS['home'], count: allHome.length + allGuides.length },
+  { ...PILLARS['life'], count: allLife.length },
+  { ...PILLARS['tech-ai'], count: allTech.length },
+  { ...PILLARS['tools'], count: allTools.length },
 ];
 
-// Deduplicate all non-draft articles and sort deterministically by publication date (newest first)
-const seenIds = new Set<string>();
-const uniqueArticles: ArticleEntry[] = [];
-for (const article of allArticles) {
-  if (!article.data.draft && !seenIds.has(article.id)) {
-    seenIds.add(article.id);
-    uniqueArticles.push(article);
-  }
-}
+// Sort guides by date
+const activeGuides = allGuides.sort(
+  (a: any, b: any) =>
+    new Date(b.data.publishedDate || b.data.pubDate || 0).getTime() -
+    new Date(a.data.publishedDate || a.data.pubDate || 0).getTime()
+);
 
-uniqueArticles.sort((a, b) => {
-  const timeA = new Date(a.data.pubDate).getTime();
-  const timeB = new Date(b.data.pubDate).getTime();
-  if (timeB !== timeA) return timeB - timeA;
-  return a.id.localeCompare(b.id);
-});
+const featuredGuides = activeGuides.slice(0, 6);
+const featuredTools = allTools.slice(0, 4);
+const featuredChecklists = allChecklists.slice(0, 3);
 
-// Deterministic Latest-3 Featured package:
-// Automatically driven by the latest 3 unique articles from daily content refresh
-const leadArticle = uniqueArticles[0] || null;
-const secondaryArticles = uniqueArticles
-  .filter((a) => a.id !== leadArticle?.id)
-  .slice(0, 2);
+// Curated Contextual Product Picks
+const homeCommercePicks = getCuratedPicks(['lodge-10-cast-iron', 'tramontina-tri-ply-12', 'chainmail-scrubber', 'oxo-herb-keeper']);
 
-const featuredIds = new Set<string>();
-if (leadArticle) featuredIds.add(leadArticle.id);
-secondaryArticles.forEach((a) => featuredIds.add(a.id));
-
-// Latest stories section displays the subsequent recent articles (deduplicated against featured)
-const latestDispatches = uniqueArticles
-  .filter((a) => !featuredIds.has(a.id))
-  .slice(0, 6);
+// Life Hacks Video Trio for Homepage
+const videoHacks = [
+  {
+    title: 'The Leidenfrost Test: Stainless Steel Non-Stick Secret',
+    category: 'Kitchen Hack',
+    time: '2:15',
+    thumbnail: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&q=80&auto=format&fit=crop',
+  },
+  {
+    title: 'How to Clean & Oil Cast Iron in Under 3 Minutes',
+    category: 'Cookware Care',
+    time: '3:20',
+    thumbnail: 'https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?w=600&q=80&auto=format&fit=crop',
+  },
+  {
+    title: 'Keep Fresh Herbs Crisp & Fresh for 3+ Weeks',
+    category: 'Food Preservation',
+    time: '1:45',
+    thumbnail: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80&auto=format&fit=crop',
+  },
+];
 
 const websiteSchema = generateWebsiteSchema();
 ---
 
 <BaseLayout
-  title="LifeMode — Ideas for living well now"
+  title="LifeMode — Practical Guides, Tools & Ideas for Modern Life"
   description={SITE_CONFIG.description}
   jsonLd={websiteSchema}
 >
-  <!-- Main Intro Header -->
-  <section class="hero-editorial">
-    <div class="container">
+  <!-- 1. SIMPLIFIED EDITORIAL HERO WITH SEARCH CENTERPIECE -->
+  <section class="hero-section">
+    <div class="container hero-inner">
       <h1 class="hero-heading">
-        Ideas for living well now
+        Practical guides, tools, and ideas for modern life.
       </h1>
-      <p class="hero-lead">
-        Practical guides, thoughtful tools, and clear ideas across technology, travel, food &amp; drink, personal finance, wellbeing, and everyday life.
+
+      <p class="hero-subheading">
+        Clear answers, tested routines, and decision frameworks for health, home, work, and everyday living.
       </p>
 
-      <!-- Topic Quick Nav Ribbon -->
-      <div class="hero-pillar-ribbon">
-        <span class="ribbon-label">Explore Topics:</span>
-        <div class="ribbon-badges">
-          {PILLAR_SLUGS.map((slug) => (
-            <PillarBadge pillar={slug} size="sm" />
-          ))}
+      <!-- Centerpiece Search Trigger Box -->
+      <div class="hero-search-box">
+        <button class="hero-search-btn" id="hero-open-search" aria-label="Open search modal">
+          <svg class="search-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
+          <span class="search-prompt">Search guides, tools, routines, or questions...</span>
+          <kbd class="hero-kbd">⌘K</kbd>
+        </button>
+
+        <div class="hero-quick-chips">
+          <span class="chips-title">Popular:</span>
+          <button class="hero-chip" data-search="cast iron">Cast-iron care</button>
+          <button class="hero-chip" data-search="coffee stain">Coffee stains</button>
+          <button class="hero-chip" data-search="sleep">Sleep routines</button>
+          <button class="hero-chip" data-search="side hustle">Side hustles</button>
+          <button class="hero-chip" data-search="ai">AI workflows</button>
+          <button class="hero-chip" data-search="maintenance">Home maintenance</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Featured 3-Article Magazine Package (Dominant Lead + 2 Secondary Stories) -->
-  {leadArticle ? (
-    <section class="section">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <span class="section-kicker">Featured</span>
-            <h2 class="section-title">Today's Highlights</h2>
-          </div>
-          <a href={`/${leadArticle.pillar}`} class="section-link">
-            Explore {PILLARS[leadArticle.pillar]?.name || leadArticle.pillar} &rarr;
-          </a>
-        </div>
-
-        <div class={secondaryArticles.length > 0 ? "grid-lead-secondary" : "lead-single-wrap"}>
-          <!-- Dominant Lead Feature -->
-          <div class="lead-card-col">
-            <ArticleCard
-              pillar={leadArticle.pillar}
-              slug={leadArticle.id}
-              title={leadArticle.data.title}
-              description={leadArticle.data.description}
-              pubDate={leadArticle.data.pubDate}
-              author={leadArticle.data.author}
-              image={leadArticle.data.image}
-              imageAlt={leadArticle.data.imageAlt}
-              readingTime={leadArticle.data.readingTime}
-              format={leadArticle.data.format}
-              tags={leadArticle.data.tags}
-              variant="lead"
-              featured={true}
-            />
-          </div>
-
-          <!-- Secondary Companion Stories -->
-          {secondaryArticles.length > 0 && (
-            <div class="secondary-col">
-              <span class="secondary-header-kicker">More Recent Stories</span>
-              {secondaryArticles.map((article) => (
-                <ArticleCard
-                  pillar={article.pillar}
-                  slug={article.id}
-                  title={article.data.title}
-                  description={article.data.description}
-                  pubDate={article.data.pubDate}
-                  author={article.data.author}
-                  image={article.data.image}
-                  imageAlt={article.data.imageAlt}
-                  readingTime={article.data.readingTime}
-                  format={article.data.format}
-                  tags={article.data.tags}
-                  variant="horizontal"
-                />
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
-    </section>
-  ) : (
-    <section class="section">
-      <div class="container">
-        <div class="empty-state-editorial">
-          <span class="section-kicker">Welcome</span>
-          <h2 class="empty-state-title">Welcome to LifeMode</h2>
-          <p class="empty-state-text">
-            Our first collection of stories and guides is on the way. Explore our topics and tools below.
-          </p>
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- Latest Stories (Deduplicated Grid) -->
-  {latestDispatches.length > 0 && (
-    <section class="section latest-stories-section">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <span class="section-kicker">Fresh Perspectives</span>
-            <h2 class="section-title">Latest Stories</h2>
-            <p class="section-subtitle">Recent articles, deep dives, and practical guides</p>
-          </div>
-        </div>
-
-        <div class="grid-3">
-          {latestDispatches.map((article) => (
-            <ArticleCard
-              pillar={article.pillar}
-              slug={article.id}
-              title={article.data.title}
-              description={article.data.description}
-              pubDate={article.data.pubDate}
-              author={article.data.author}
-              image={article.data.image}
-              imageAlt={article.data.imageAlt}
-              readingTime={article.data.readingTime}
-              format={article.data.format}
-              tags={article.data.tags}
-              variant="card"
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- Topics Discovery Showcase -->
-  <section class="section pillar-showcase-section">
+  <!-- 2. SIX LIFEMODE PRIMARY TOPIC HUBS -->
+  <section class="section topic-clusters-section">
     <div class="container">
       <div class="section-header">
         <div>
           <span class="section-kicker">Topics</span>
-          <h2 class="section-title">Explore Topics</h2>
-          <p class="section-subtitle">Browse stories across all LifeMode subjects</p>
+          <h2 class="section-title">Explore by Topic</h2>
+          <p class="section-desc">Practical guides, tools, and ideas organized across our core areas.</p>
         </div>
       </div>
 
-      <div class="pillar-showcase-grid">
-        {PILLAR_SLUGS.map((slug) => {
-          const pillar = PILLARS[slug];
+      <div class="topics-grid">
+        {primaryPillars.map((pillar) => (
+          <TopicHubCard pillar={pillar} count={pillar.count} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. FEATURED GUIDES -->
+  <section class="section section-alt guides-showcase-section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker">Guides</span>
+          <h2 class="section-title">Featured Guides</h2>
+          <p class="section-desc">Step-by-step instructions, care protocols, and decision frameworks.</p>
+        </div>
+        <a href="/guides/" class="section-link">All guides ({allGuides.length}) &rarr;</a>
+      </div>
+
+      <div class="guides-grid">
+        {featuredGuides.map((guide) => {
+          const slug = guide.id.replace(/\.[^/.]+$/, '');
+          const guideUrl = `/${guide.data.category}/${slug}/`;
           return (
-            <article class="pillar-card" style={`--pillar-color: ${pillar.color}; --pillar-bg: ${pillar.bgLight};`}>
-              <div class="pillar-accent-bar" style={`background-color: ${pillar.color};`}></div>
-              <div class="pillar-card-content">
-                <div class="pillar-card-header">
-                  <PillarBadge pillar={slug} size="sm" asLink={false} />
-                </div>
-                <h3 class="pillar-card-title">{pillar.tagline}</h3>
-                <p class="pillar-card-desc">{pillar.description}</p>
-                <div class="pillar-card-footer">
-                  <a href={`/${pillar.slug}`} class="pillar-card-link">
-                    <span>Explore {pillar.name}</span>
-                    <span aria-hidden="true">&rarr;</span>
-                  </a>
-                </div>
-              </div>
-            </article>
+            <ArticleCard
+              pillar="home"
+              url={guideUrl}
+              title={guide.data.title}
+              description={guide.data.quickSummary || guide.data.seoDescription}
+              pubDate={guide.data.publishedDate}
+              author={guide.data.author?.name || 'LifeMode Editorial'}
+              readingTime={guide.data.readTime || '4 min read'}
+              contentType={guide.data.contentType}
+              variant="card"
+            />
           );
         })}
       </div>
     </div>
   </section>
 
-  <!-- Apps & Tools Discovery Showcase -->
-  <section class="section ecosystem-showcase-section">
+  <!-- 4. INTERACTIVE TOOLS -->
+  <section class="section tools-showcase-section">
     <div class="container">
       <div class="section-header">
         <div>
-          <span class="section-kicker">Interactive</span>
-          <h2 class="section-title">Apps &amp; Tools</h2>
-          <p class="section-subtitle">Helpful tools and interactive experiences built by our team</p>
+          <span class="section-kicker">Tools</span>
+          <h2 class="section-title">Interactive Tools</h2>
+          <p class="section-desc">Calculators, solvers, and planners for everyday tasks.</p>
         </div>
+        <a href="/tools/" class="section-link">View all tools &rarr;</a>
       </div>
 
-      <div class="grid-2">
-        {ECOSYSTEM_PROJECTS.map((project) => (
-          <EcosystemCard project={project} />
+      <div class="tools-grid-quartet">
+        {featuredTools.map((tool) => (
+          <ToolCard tool={tool} />
         ))}
       </div>
     </div>
   </section>
+
+  <!-- 5. CHECKLISTS & CHEAT SHEETS -->
+  {featuredChecklists.length > 0 && (
+    <section class="section section-alt checklists-showcase-section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">Checklists</span>
+            <h2 class="section-title">Checklists &amp; Cheat Sheets</h2>
+            <p class="section-desc">Printable and interactive routines for home and daily life.</p>
+          </div>
+          <a href="/checklists/" class="section-link">All checklists &rarr;</a>
+        </div>
+
+        <div class="checklists-grid">
+          {featuredChecklists.map((chk) => (
+            <ChecklistCard checklist={chk} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- 6. VIDEO LIFE HACKS -->
+  <section class="section life-hacks-spotlight-section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker">Life Hacks</span>
+          <h2 class="section-title">Video Life Hacks</h2>
+          <p class="section-desc">Quick, visual demonstrations of clever everyday shortcuts.</p>
+        </div>
+        <a href="/life-hacks" class="section-link">All video hacks &rarr;</a>
+      </div>
+
+      <div class="video-hacks-grid">
+        {videoHacks.map((vh) => (
+          <a href="/life-hacks" class="video-preview-card">
+            <div class="video-thumb-wrap">
+              <img src={vh.thumbnail} alt={vh.title} class="video-thumb-img" loading="lazy" />
+              <div class="video-play-overlay">
+                <span class="video-play-btn">▶</span>
+              </div>
+              <span class="video-duration-badge">{vh.time}</span>
+            </div>
+            <div class="video-card-body">
+              <span class="video-category-tag">{vh.category}</span>
+              <h3 class="video-card-title">{vh.title}</h3>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. CONTEXTUAL DAILY IDEAS STORE LAYER -->
+  {homeCommercePicks.length > 0 && (
+    <section class="section section-alt daily-ideas-home-section" id="daily-ideas">
+      <div class="container">
+        <DailyIdeasPicks products={homeCommercePicks} />
+      </div>
+    </section>
+  )}
+
+  <!-- 8. CANONICAL APPS & TOOLS SECTION -->
+  <PromotionalAppsSection />
+
+  <!-- 9. EDITORIAL STANDARDS & TRUST BANNER -->
+  <TrustBanner />
+
+  <!-- 10. LIVING INTELLIGENCE PULSE -->
+  <TopicDataSection pillar="home" pillarName="Living Intelligence" />
 </BaseLayout>
 
+<script>
+  const heroSearchBtn = document.getElementById('hero-open-search');
+  const openSearchBtn = document.getElementById('open-search-btn');
+
+  heroSearchBtn?.addEventListener('click', () => {
+    openSearchBtn?.click();
+  });
+
+  document.querySelectorAll('.hero-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const q = chip.getAttribute('data-search') || '';
+      openSearchBtn?.click();
+      setTimeout(() => {
+        const input = document.getElementById('global-search-input') as HTMLInputElement;
+        if (input) {
+          input.value = q;
+          input.dispatchEvent(new Event('input'));
+        }
+      }, 100);
+    });
+  });
+</script>
+
 <style>
-  .hero-kicker-wrap {
-    margin-bottom: 0.5rem;
+  /* Hero Section */
+  .hero-section {
+    background: linear-gradient(180deg, #ffffff 0%, var(--color-bg) 100%);
+    border-bottom: 1px solid var(--color-border);
+    padding: 4.5rem 0 3.5rem 0;
   }
 
-  .hero-pillar-ribbon {
+  .hero-inner {
+    text-align: center;
+    max-width: 860px;
+    margin-inline: auto;
+  }
+
+  .hero-heading {
+    font-size: clamp(2.2rem, 4.5vw, 3.25rem);
+    font-weight: 800;
+    line-height: 1.18;
+    letter-spacing: -0.03em;
+    color: var(--color-text-primary);
+    margin-bottom: 1.15rem;
+  }
+
+  .hero-subheading {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 640px;
+    margin-inline: auto;
+    margin-bottom: 2.25rem;
+  }
+
+  /* Centerpiece Search Trigger */
+  .hero-search-box {
+    max-width: 680px;
+    margin-inline: auto;
+  }
+
+  .hero-search-btn {
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 0.85rem;
-    flex-wrap: wrap;
-    padding-top: var(--space-6);
-    border-top: 1px solid var(--color-border);
+    padding: 0.95rem 1.25rem;
+    background-color: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-full);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: left;
   }
 
-  .ribbon-label {
-    font-family: var(--font-sans);
+  .hero-search-btn:hover {
+    border-color: var(--color-primary-accent);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.15);
+    transform: translateY(-1px);
+  }
+
+  .search-svg {
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+  }
+
+  .search-prompt {
+    flex-grow: 1;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hero-kbd {
+    background-color: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.2rem 0.55rem;
     font-size: 0.75rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-family: var(--font-mono);
     color: var(--color-text-muted);
+    font-weight: 700;
   }
 
-  .ribbon-badges {
+  .hero-quick-chips {
     display: flex;
-    gap: 0.65rem;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
   }
 
-  .lead-single-wrap {
-    max-width: 880px;
-    margin: 0 auto;
-  }
-
-  .secondary-col {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-5);
-  }
-
-  .secondary-header-kicker {
-    font-family: var(--font-sans);
-    font-size: 0.725rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
+  .chips-title {
+    font-size: 0.775rem;
+    font-weight: 600;
     color: var(--color-text-muted);
-    padding-bottom: var(--space-2);
-    border-bottom: 2px solid var(--color-border);
   }
 
-  .empty-state-editorial {
-    padding: var(--space-16) var(--space-8);
-    text-align: center;
+  .hero-chip {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-  }
-
-  .empty-state-title {
-    font-family: var(--font-display);
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    margin-top: 0.5rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .empty-state-text {
+    border-radius: var(--radius-full);
+    padding: 0.25rem 0.65rem;
+    font-size: 0.775rem;
+    font-weight: 600;
     color: var(--color-text-secondary);
-    font-size: 1.05rem;
-    line-height: 1.65;
-    max-width: 560px;
-    margin: 0 auto;
+    cursor: pointer;
+    transition: all var(--transition-fast);
   }
 
-  .latest-stories-section {
-    padding-top: var(--space-6);
+  .hero-chip:hover {
+    border-color: var(--color-primary-accent);
+    color: var(--color-primary-accent);
+    transform: translateY(-1px);
   }
 
-  /* Pillar Showcase Section */
-  .pillar-showcase-section {
-    background-color: #f1f5f9;
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
+  /* Grid Layouts */
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-6);
   }
 
-  .pillar-showcase-grid {
+  .guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .tools-grid-quartet {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .checklists-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+  }
+
+  /* Video Hacks Spotlight */
+  .video-hacks-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--space-6);
   }
 
-  .pillar-card {
+  .video-preview-card {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    text-decoration: none;
     box-shadow: var(--shadow-sm);
-    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
-  }
-
-  .pillar-card:hover {
-    border-color: var(--color-border-hover);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-hover);
-  }
-
-  .pillar-accent-bar {
-    height: 4px;
-    width: 100%;
-  }
-
-  .pillar-card-content {
-    padding: 1.75rem;
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
   }
 
-  .pillar-card-header {
-    margin-bottom: 0.85rem;
+  .video-preview-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-border-hover);
+    box-shadow: var(--shadow-card);
+    text-decoration: none;
   }
 
-  .pillar-card-title {
-    font-family: var(--font-display);
-    font-size: 1.3rem;
+  .video-thumb-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #0f172a;
+    overflow: hidden;
+  }
+
+  .video-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.88;
+    transition: transform 0.4s ease;
+  }
+
+  .video-preview-card:hover .video-thumb-img {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+
+  .video-play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 3rem;
+    height: 3rem;
+    background-color: rgba(15, 23, 42, 0.85);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-fast), background-color var(--transition-fast);
+  }
+
+  .video-play-btn {
+    color: #ffffff;
+    font-size: 1rem;
+    margin-left: 2px;
+  }
+
+  .video-preview-card:hover .video-play-overlay {
+    transform: translate(-50%, -50%) scale(1.1);
+    background-color: #e11d48;
+    border-color: #e11d48;
+  }
+
+  .video-duration-badge {
+    position: absolute;
+    bottom: 0.6rem;
+    right: 0.6rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+  }
+
+  .video-card-body {
+    padding: var(--space-4) var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .video-category-tag {
+    font-size: 0.725rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #e11d48;
+  }
+
+  .video-card-title {
+    font-family: var(--font-sans);
+    font-size: 1rem;
     font-weight: 700;
     color: var(--color-text-primary);
-    margin-bottom: 0.5rem;
-    line-height: 1.25;
-  }
-
-  .pillar-card-desc {
-    font-size: 0.875rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
-  }
-
-  .pillar-card-footer {
-    margin-top: auto;
-    padding-top: 1rem;
-    border-top: 1px solid var(--color-border-subtle);
-  }
-
-  .pillar-card-link {
-    font-family: var(--font-sans);
-    font-size: 0.775rem;
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--pillar-color, var(--color-primary-accent));
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    transition: gap var(--transition-fast);
-  }
-
-  .pillar-card-link:hover {
-    gap: 0.55rem;
-  }
-
-  /* Ecosystem Section */
-  .ecosystem-showcase-section {
-    padding-top: var(--space-12);
-    padding-bottom: var(--space-16);
+    line-height: 1.35;
+    margin: 0;
   }
 </style>

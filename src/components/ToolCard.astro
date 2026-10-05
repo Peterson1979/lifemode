@@ -1,0 +1,129 @@
+---
+import { CATEGORIES } from '../utils/categories';
+
+export interface Props {
+  tool: {
+    id: string;
+    data: {
+      title: string;
+      category?: string;
+      toolType?: string;
+      summary: string;
+      badge?: string;
+    };
+  };
+}
+
+const { tool } = Astro.props;
+const slug = tool.id.replace(/\.[^/.]+$/, '');
+const cat = tool.data.category ? CATEGORIES[tool.data.category] : undefined;
+---
+
+<div class="tool-showcase-card">
+  <div class="tool-showcase-meta">
+    <span class="badge tool-badge-pill">🛠️ Interactive Utility</span>
+    {cat && (
+      <span class="tool-cat-badge" style={`color: ${cat.badgeColor}; background-color: ${cat.lightBg}; border: 1px solid ${cat.borderColor};`}>
+        {cat.icon} {cat.title}
+      </span>
+    )}
+  </div>
+  <h3 class="tool-showcase-title">
+    <a href={`/tools/${slug}/`}>{tool.data.title}</a>
+  </h3>
+  <p class="tool-showcase-summary">{tool.data.summary}</p>
+  <div class="tool-card-action">
+    <a href={`/tools/${slug}/`} class="btn btn-outline tool-launch-btn">
+      Launch Tool &rarr;
+    </a>
+  </div>
+</div>
+
+<style>
+  .tool-showcase-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .tool-showcase-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-border-hover);
+    box-shadow: var(--shadow-card);
+  }
+
+  .tool-showcase-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .tool-badge-pill {
+    font-size: 0.725rem;
+    font-weight: 700;
+    padding: 0.15rem 0.55rem;
+    border-radius: var(--radius-full);
+    background-color: rgba(37, 99, 235, 0.08);
+    color: var(--color-primary-accent);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+  }
+
+  .tool-cat-badge {
+    font-size: 0.725rem;
+    font-weight: 700;
+    padding: 0.15rem 0.55rem;
+    border-radius: var(--radius-full);
+  }
+
+  .tool-showcase-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 var(--space-2) 0;
+  }
+
+  .tool-showcase-title a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .tool-showcase-title a:hover {
+    color: var(--color-primary-accent);
+  }
+
+  .tool-showcase-summary {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    margin-bottom: var(--space-5);
+    flex-grow: 1;
+  }
+
+  .tool-card-action {
+    margin-top: auto;
+  }
+
+  .tool-launch-btn {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius-sm);
+    color: var(--color-primary-accent);
+    border-color: var(--color-border);
+  }
+
+  .tool-launch-btn:hover {
+    background-color: rgba(37, 99, 235, 0.06);
+    border-color: var(--color-primary-accent);
+    color: var(--color-primary-accent);
+  }
+</style>

@@ -1,53 +1,69 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { PILLARS, PILLAR_SLUGS } from '../config/site';
+import { CATEGORIES } from '../utils/categories';
+import { getCanonicalUrl } from '../utils/seo';
+
+const categories = Object.values(CATEGORIES);
+const canonicalUrl = getCanonicalUrl('/about');
 ---
 
 <BaseLayout
-  title="About — LifeMode"
-  description="Learn about LifeMode, a global English-language lifestyle and media publication."
+  title="About LifeMode — Practical Reference & Decision Platform"
+  description="Learn about LifeMode's mission to provide reliable, practical, and fact-checked everyday household reference, culinary craft, and decision support."
+  canonicalUrl={canonicalUrl}
 >
-  <div class="page-shell container-prose">
+  <div class="page-shell container-prose" style="padding-top: var(--space-8); padding-bottom: var(--space-20);">
     <header style="margin-bottom: var(--space-8);">
-      <span class="hero-tag">About</span>
-      <h1 class="page-title">LifeMode</h1>
-      <p class="page-lead">
-        A global English-language lifestyle and media publication exploring ideas, guides, and discoveries for living well now.
+      <span class="badge" style="background-color: rgba(37, 99, 235, 0.1); color: var(--color-primary-accent); border: 1px solid rgba(37, 99, 235, 0.2); font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: var(--radius-full); margin-bottom: var(--space-3); display: inline-block;">
+        About
+      </span>
+      <h1 class="page-title" style="font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; color: var(--color-text-primary); margin-bottom: var(--space-3);">
+        About LifeMode
+      </h1>
+      <p class="page-lead" style="font-size: 1.15rem; color: var(--color-text-secondary); line-height: 1.6;">
+        Authoritative reference guidance, culinary inspiration, and interactive decision tools for thoughtful everyday living.
       </p>
     </header>
 
     <div class="prose">
-      <h2>Our Mission</h2>
+      <h2>Why We Built LifeMode</h2>
       <p>
-        In an era of relentless information noise, LifeMode curates clarity. We publish thoughtful, original, and reader-focused editorial content across style, beauty, technology, travel, personal finance, wellbeing, and entertainment.
+        <strong>LifeMode</strong> was created to serve as a modern practical reference library and culinary hub. In a digital ecosystem saturated with content noise and superficial summaries, we prioritize clarity, scientific fact-checking, step-by-step instructional integrity, and interactive decision-support utilities over vanity metrics.
       </p>
 
-      <h2>Topics We Cover</h2>
+      <h2>Our Core Knowledge Domains</h2>
       <p>
-        LifeMode covers our core editorial subjects:
+        LifeMode organizes practical knowledge into focused, structured domains:
       </p>
 
       <ul>
-        {PILLAR_SLUGS.map((slug) => {
-          const pillar = PILLARS[slug];
-          return (
-            <li>
-              <strong><a href={`/${pillar.slug}`}>{pillar.name}</a>:</strong> {pillar.description}
-            </li>
-          );
-        })}
+        <li>
+          <strong><a href="/food-drink">Food &amp; Drink</a>:</strong> Thoughtful culinary recipes, fermentation science, cooking techniques, and mindful kitchen essentials.
+        </li>
+        {categories.map((cat) => (
+          <li>
+            <strong><a href={`/${cat.slug}`}>{cat.title}</a>:</strong> {cat.description}
+          </li>
+        ))}
+        <li>
+          <strong><a href="/tools">Interactive Tools</a>:</strong> Privacy-preserving browser calculators, stain diagnosis assistants, and schedule planners.
+        </li>
+        <li>
+          <strong><a href="/checklists">Printable Checklists</a>:</strong> High-utility cheat sheets and maintenance routines optimized for browser tracking and printing.
+        </li>
       </ul>
 
-      <h2>Editorial Standards</h2>
+      <h2>Rigorous Verification Standards</h2>
       <p>
-        Our stories and guides prioritize substance, clarity, and everyday utility. To learn more about our commitment to factual accuracy, independent sourcing, and transparency, read our <a href="/editorial-standards">Editorial Standards</a>.
+        All content published on LifeMode undergoes strict research, cross-referencing with authoritative extension offices, agricultural guidelines, manufacturer technical manuals, and consumer safety testing standards.
       </p>
 
       <h2>Publisher &amp; Contact</h2>
       <p>
         <strong>Publication:</strong> LifeMode<br />
         <strong>Published &amp; Operated by:</strong> Oberhauser Péter Zoltán<br />
-        <strong>Editorial &amp; General Inquiries:</strong> <a href="mailto:contact@lifemode.life">contact@lifemode.life</a>
+        <strong>Editorial Desk:</strong> <a href="mailto:editorial@lifemode.life">editorial@lifemode.life</a><br />
+        <strong>General Inquiries:</strong> <a href="mailto:contact@lifemode.life">contact@lifemode.life</a>
       </p>
     </div>
   </div>

@@ -1,0 +1,128 @@
+---
+export interface SourceItem {
+  title?: string;
+  name?: string;
+  publisher?: string;
+  url?: string;
+  note?: string;
+}
+
+export interface Props {
+  sources: (SourceItem | any)[];
+}
+
+const { sources = [] } = Astro.props;
+
+const normalizedSources = sources.map((src) => {
+  if (typeof src === 'string') {
+    return { title: src, publisher: 'Reference', url: undefined, note: undefined };
+  }
+  return {
+    title: src.title || src.name || 'Reference Standard',
+    publisher: src.publisher || (src.name && src.url ? 'Verified Source' : 'Practical Standards'),
+    url: src.url,
+    note: src.note,
+  };
+});
+---
+
+{normalizedSources.length > 0 && (
+  <section class="sources-section" aria-labelledby="sources-heading">
+    <div class="sources-container">
+      <h3 id="sources-heading" class="sources-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        Fact-Checking Sources &amp; Authoritative References
+      </h3>
+      <p class="sources-intro">
+        LifeMode verifies practical recommendations against authoritative industry standards, agricultural extension offices, manufacturer specifications, and consumer testing laboratories:
+      </p>
+      <ul class="sources-list">
+        {normalizedSources.map((src) => (
+          <li class="source-item">
+            <span class="source-publisher">{src.publisher}:</span>{' '}
+            {src.url ? (
+              <a href={src.url} target="_blank" rel="noopener noreferrer nofollow" class="source-link">
+                {src.title}
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                  <polyline points="15 3 21 3 21 9"/>
+                  <line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+              </a>
+            ) : (
+              <span class="source-title">{src.title}</span>
+            )}
+            {src.note && <span class="source-note"> — {src.note}</span>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}
+
+<style>
+  .sources-section {
+    margin: var(--space-8) 0 var(--space-6) 0;
+  }
+
+  .sources-container {
+    background-color: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-5) var(--space-6);
+  }
+
+  .sources-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-primary);
+    margin-top: 0;
+    margin-bottom: var(--space-2);
+  }
+
+  .sources-intro {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-3);
+    line-height: 1.5;
+  }
+
+  .sources-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .source-item {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .source-publisher {
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .source-link {
+    color: var(--color-primary-accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .source-note {
+    color: var(--color-text-dim);
+    font-style: italic;
+  }
+</style>

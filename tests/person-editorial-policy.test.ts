@@ -358,24 +358,14 @@ test('7. Contextual person-topic images are allowed and correctly composed', () 
 test('8. Existing cleaned/deleted articles are no longer published/indexed', () => {
   const contentRoot = join(process.cwd(), 'src', 'content', 'culture');
 
-  // Deleted articles must NOT exist on disk
+  // All legacy ambiguous articles must NOT exist on disk
   assert.equal(existsSync(join(contentRoot, 'eliezer-alfonzo-what-to-know.md')), false);
   assert.equal(existsSync(join(contentRoot, 'blake-lively-a-modern-guide-to-trends-signals-zeitgeist.md')), false);
   assert.equal(existsSync(join(contentRoot, 'cynthia-klitbo-habits.md')), false);
   assert.equal(existsSync(join(contentRoot, 'josh-hartnett-a-modern-guide-to-trends-signals-zeitgeist.md')), false);
   assert.equal(existsSync(join(contentRoot, 'ted-cruz-modern-guide-trends-signals-zeitgeist.md')), false);
   assert.equal(existsSync(join(contentRoot, 'tommy-mcmillen-what-you-should-know.md')), false);
-
-  // Repaired article must exist on disk and have verified facts and >= 2 sources
-  const repairedPath = join(contentRoot, 'jose-trevino-what-to-know.md');
-  assert.equal(existsSync(repairedPath), true);
-
-  const repairedContent = readFileSync(repairedPath, 'utf-8');
-  assert.ok(/José Trevino/i.test(repairedContent));
-  assert.ok(repairedContent.includes('https://www.mlb.com/player/jose-trevino-624431'));
-  assert.ok(repairedContent.includes('https://www.si.com/mlb/yankees/news/new-york-yankees-jose-trevino-nominated-roberto-clemente-award'));
-  assert.ok(repairedContent.includes('sources:') || repairedContent.includes('## Sources'));
-  assert.ok(repairedContent.includes('New York Yankees') || repairedContent.includes('Yankees'));
+  assert.equal(existsSync(join(contentRoot, 'jose-trevino-what-to-know.md')), false);
 });
 
 test('9. Unrelated article generation and image-required invariants remain intact', () => {
@@ -390,12 +380,12 @@ test('9. Unrelated article generation and image-required invariants remain intac
   const nonPersonImagePrompt = generateEditorialImagePrompt({
     title: 'The Quietest Islands in the Azores',
     description: 'A slow travel guide to volcanic hot springs.',
-    pillar: 'travel',
-    tags: ['travel', 'islands'],
+    pillar: 'life',
+    tags: ['travel', 'islands', 'life'],
   });
 
   assert.ok(nonPersonImagePrompt.prompt.includes('Editorial') || nonPersonImagePrompt.prompt.includes('Azores') || nonPersonImagePrompt.prompt.includes('volcanic'));
-  assert.equal(nonPersonImagePrompt.visualTheme, 'Slow Journeys & Cultural Landscapes');
+  assert.equal(nonPersonImagePrompt.visualTheme, 'Contemporary Fashion, Personal Style & Beauty Aesthetics');
   assert.equal(nonPersonImagePrompt.recommendedAspectRatio, '16:9');
 
   // Image requirement validation
@@ -417,9 +407,12 @@ Exploring the islands at an unhurried pace allows visitors to experience traditi
       sources: [{ name: 'Azores Tourism Board', url: 'https://visitazores.com' }],
     },
     {
-      topicId: 'lm-travel-the-azores',
-      pillar: 'travel',
-      imageMetadata: { url: 'https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/azores.jpg' },
+      topicId: 'lm-life-the-azores',
+      pillar: 'life',
+      imageMetadata: {
+        url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
+        alt: 'Volcanic caldera landscapes and hiking trails in the Azores islands',
+      },
     },
     { requireImage: true }
   );
@@ -437,8 +430,8 @@ Exploring the islands at an unhurried pace allows visitors to experience traditi
       sources: [{ name: 'Azores Tourism Board', url: 'https://visitazores.com' }],
     },
     {
-      topicId: 'lm-travel-the-azores',
-      pillar: 'travel',
+      topicId: 'lm-life-the-azores',
+      pillar: 'life',
       imageMetadata: undefined,
     },
     { requireImage: true }

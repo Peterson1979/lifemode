@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { PILLARS, PILLAR_SLUGS } from '../config/site';
+import { PILLARS } from '../config/site';
 ---
 
 <BaseLayout
@@ -30,7 +30,7 @@ import { PILLARS, PILLAR_SLUGS } from '../config/site';
         Explore Topics
       </h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-4);">
-        {PILLAR_SLUGS.map((slug) => {
+        {(['health', 'wealth', 'home', 'life', 'tech-ai', 'tools'] as const).map((slug) => {
           const pillar = PILLARS[slug];
           return (
             <a

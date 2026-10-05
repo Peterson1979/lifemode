@@ -316,18 +316,39 @@ test('9. Automation runner seamlessly advances through RESEARCH -> GENERATION ->
   const tmpStorage = path.join(os.tmpdir(), `test-research-9-${Date.now()}-${Math.random().toString(36).slice(2)}.json`);
 
   try {
+    const discoveryAdapter = {
+      name: 'Tech-AI Signal Adapter',
+      sourceType: 'RSS_FEEDS' as const,
+      fetchSignals: async () => ({
+        provider: 'Tech-AI Signal Adapter',
+        sourceType: 'RSS_FEEDS' as const,
+        status: 'AVAILABLE' as const,
+        signals: [
+          {
+            source: 'RSS_FEEDS' as const,
+            sourceId: 'rss-tech-ai-01',
+            rawQuery: 'Private Local LLM Hardware Architectures',
+            timestamp: new Date().toISOString(),
+            category: 'tech-ai',
+            metrics: { relativeInterest: 95, searchVolume: 18000, visualPotentialScore: 90 },
+          },
+        ],
+        fetchedAt: new Date().toISOString(),
+      }),
+    };
+
     const result = await runEditorialAutomation({
       enabled: true,
       dryRun: true,
       allowCommit: false,
       maxOpportunities: 1,
-      minScoreThreshold: 80,
+      minScoreThreshold: 75,
       providerMode: 'fixture',
       storagePath: tmpStorage,
       contentRoot: contentDir,
       gitRepoRoot: repoDir,
       researchProvider: new FixtureEditorialResearchProvider(),
-      discoveryAdapters: [new FixtureDiscoveryAdapter()],
+      discoveryAdapters: [discoveryAdapter],
     });
 
     assert.equal(result.processedCount, 1);

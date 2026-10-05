@@ -1,0 +1,392 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import QuickAnswer from '../components/QuickAnswer.astro';
+import KeyFacts from '../components/KeyFacts.astro';
+import StepList from '../components/StepList.astro';
+import CommonMistakes from '../components/CommonMistakes.astro';
+import ProTips from '../components/ProTips.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import SourcesList from '../components/SourcesList.astro';
+import AuthorCard from '../components/AuthorCard.astro';
+import DecisionMatrix from '../components/DecisionMatrix.astro';
+import EditorialInfographic from '../components/EditorialInfographic.astro';
+import RelatedCluster from '../components/RelatedCluster.astro';
+import DailyIdeasPicks from '../components/DailyIdeasPicks.astro';
+import RecipeDetails from '../components/RecipeDetails.astro';
+import { getCuratedPicks } from '../lib/commerce/curated-picks';
+import { CATEGORIES } from '../utils/categories';
+import { PILLARS, type PillarSlug } from '../config/site';
+import { getCanonicalUrl } from '../utils/seo';
+
+export interface Props {
+  guide?: any;
+  entry?: any;
+  pillar?: any;
+  relatedEntries?: any[];
+}
+
+const { guide, entry, pillar: propPillar, relatedEntries = [] } = Astro.props;
+const currentArticle = guide || entry;
+const { data = {}, id = '' } = currentArticle || {};
+
+// Determine category or pillar
+const categoryKey = data.category || (propPillar ? propPillar.slug : undefined) || 'home';
+const categoryMeta = CATEGORIES[categoryKey];
+const pillarConfig = PILLARS[categoryKey as PillarSlug] || propPillar || (categoryMeta ? PILLARS['home'] : undefined);
+
+const slug = id.replace(/\.[^/.]+$/, '');
+const isPillarRoute = !categoryMeta && pillarConfig;
+const pagePath = isPillarRoute ? `/${pillarConfig.slug}/${slug}` : `/${categoryKey}/${slug}`;
+const canonicalUrl = getCanonicalUrl(pagePath);
+
+const breadcrumbItems = [
+  { label: 'Home', url: '/' },
+  { 
+    label: categoryMeta ? categoryMeta.title : (pillarConfig ? pillarConfig.name : 'Guides'), 
+    url: categoryMeta ? `/${categoryMeta.slug}/` : (pillarConfig ? `/${pillarConfig.slug}` : '/guides') 
+  },
+  { label: data.title, url: `${pagePath}/` },
+];
+
+// Product picks for contextual commerce layer
+const rawPicks = (data as any).dailyIdeasPicks;
+const curatedProductIds = rawPicks || (
+  id.includes('cookware') ? ['lodge-10-cast-iron', 'tramontina-tri-ply-12', 'chainmail-scrubber'] :
+  id.includes('cast-iron') ? ['lodge-10-cast-iron', 'chainmail-scrubber'] :
+  id.includes('herbs') ? ['oxo-herb-keeper'] :
+  id.includes('fabrics') || id.includes('washing-machine') ? ['wool-dryer-balls'] :
+  undefined
+);
+
+const dailyIdeasProducts = curatedProductIds ? getCuratedPicks(curatedProductIds) : [];
+
+const publishedDate = data.publishedDate || data.pubDate || new Date();
+const updatedDate = data.updatedDate;
+const readTime = data.readingTime || data.readTime || '4 min read';
+const summaryText = data.quickSummary || data.description;
+const isDecision = data.contentType === 'decision';
+const isRecipe = data.format === 'recipe' || Boolean(data.ingredients);
+
+// Schema.org Article / HowTo
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': isDecision ? 'Article' : 'HowTo',
+  name: data.title,
+  headline: data.title,
+  description: summaryText,
+  datePublished: publishedDate instanceof Date ? publishedDate.toISOString() : publishedDate,
+  dateModified: updatedDate instanceof Date ? updatedDate.toISOString() : (updatedDate || publishedDate),
+  author: {
+    '@type': 'Person',
+    name: typeof data.author === 'string' ? data.author : (data.author?.name || 'LifeMode Editorial Team'),
+    jobTitle: typeof data.author === 'object' ? data.author?.role : 'Practical Knowledge Researcher',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'LifeMode',
+    url: 'https://lifemode.life',
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonicalUrl,
+  },
+  ...(data.steps && data.steps.length > 0 && !isDecision ? {
+    step: data.steps.map((s: any) => ({
+      '@type': 'HowToStep',
+      position: s.stepNumber,
+      name: s.title,
+      text: s.description,
+    })),
+    ...(data.toolsNeeded && { tool: data.toolsNeeded.map((t: string) => ({ '@type': 'HowToTool', name: t })) }),
+    ...(data.materialsNeeded && { supply: data.materialsNeeded.map((m: string) => ({ '@type': 'HowToSupply', name: m })) }),
+    ...(data.timeNeeded && { totalTime: 'PT30M' }),
+  } : {}),
+};
+---
+
+<BaseLayout
+  title={data.seoTitle || `${data.title} — LifeMode`}
+  description={data.seoDescription || summaryText}
+  canonicalUrl={canonicalUrl}
+  type="article"
+  pubDate={publishedDate instanceof Date ? publishedDate : new Date(publishedDate)}
+  updatedDate={updatedDate ? (updatedDate instanceof Date ? updatedDate : new Date(updatedDate)) : undefined}
+  author={typeof data.author === 'string' ? data.author : (data.author?.name || 'LifeMode Editorial Team')}
+  image={data.image}
+  jsonLd={articleSchema}
+>
+  <div class="container-narrow guide-page-wrapper">
+    <!-- Breadcrumbs Navigation -->
+    <Breadcrumbs items={breadcrumbItems} />
+
+    <!-- Article Header -->
+    <header class="guide-header">
+      <div class="guide-badges">
+        {categoryMeta ? (
+          <a 
+            href={`/${categoryMeta.slug}/`} 
+            class="badge category-badge" 
+            style={`color: ${categoryMeta.badgeColor}; background-color: ${categoryMeta.lightBg}; border: 1px solid ${categoryMeta.borderColor};`}
+          >
+            <span>{categoryMeta.icon}</span> {categoryMeta.title}
+          </a>
+        ) : pillarConfig ? (
+          <a 
+            href={`/${pillarConfig.slug}`} 
+            class="badge category-badge" 
+            style={`color: ${pillarConfig.color}; background-color: ${pillarConfig.bgLight}; border: 1px solid ${pillarConfig.color}40;`}
+          >
+            {pillarConfig.icon && <span>{pillarConfig.icon}</span>} {pillarConfig.name}
+          </a>
+        ) : null}
+
+        {data.contentType && (
+          <span class="badge type-badge">
+            {isDecision ? '⚖️ Decision Guide' : '📖 Practical Reference'}
+          </span>
+        )}
+
+        {data.format && data.format !== 'standard' && (
+          <span class="badge type-badge">
+            {data.format === 'recipe' ? '🍳 Culinary Recipe' : data.format.replace('-', ' ')}
+          </span>
+        )}
+      </div>
+
+      <h1 class="guide-main-title">{data.title}</h1>
+
+      {summaryText && (
+        <p class="guide-lead-summary">{summaryText}</p>
+      )}
+
+      <!-- Author & Verification Card -->
+      <AuthorCard
+        author={data.author}
+        reviewedBy={data.reviewedBy}
+        publishedDate={publishedDate}
+        updatedDate={updatedDate}
+        readTime={readTime}
+      />
+
+      <!-- Hero Image (if available) -->
+      {data.image && (
+        <figure class="guide-hero-figure">
+          <img
+            src={data.image}
+            alt={data.imageAlt || data.title}
+            class="guide-hero-img"
+            loading="eager"
+            decoding="async"
+          />
+          {data.imageAttribution && (
+            <figcaption class="guide-hero-caption">{data.imageAttribution}</figcaption>
+          )}
+        </figure>
+      )}
+    </header>
+
+    <!-- Quick Direct Answer (only when available) -->
+    {data.quickSummary && isDecision && (
+      <QuickAnswer summary={data.quickSummary} />
+    )}
+
+    <!-- Key Structured Facts (only when facts exist) -->
+    {data.keyFacts && data.keyFacts.length > 0 && (
+      <KeyFacts
+        facts={data.keyFacts}
+        difficulty={data.difficulty}
+        timeNeeded={data.timeNeeded}
+      />
+    )}
+
+    <!-- Decision Matrix (for decision comparisons) -->
+    {isDecision && (data.decisionCriteria || data.comparisonTable) && (
+      <DecisionMatrix
+        criteria={data.decisionCriteria}
+        comparisonTable={data.comparisonTable}
+      />
+    )}
+
+    <!-- Culinary Recipe Details (for recipes) -->
+    {isRecipe && (data.ingredients || data.directions) && (
+      <RecipeDetails
+        recipe={{
+          title: data.title || '',
+          description: data.summary || data.description || '',
+          prepTime: data.prepTime,
+          cookTime: data.cookTime,
+          totalTime: data.totalTime,
+          servings: data.servings,
+          cuisine: data.cuisine,
+          mealType: data.mealType,
+          dietaryTags: data.dietaryTags,
+          ingredients: data.ingredients || [],
+          directions: data.directions || [],
+          source: data.source,
+          sourceUrl: data.sourceUrl,
+        }}
+      />
+    )}
+
+    <!-- Main Markdown Body -->
+    <article class="prose guide-markdown-body">
+      <slot />
+      {data.infographic && (
+        <div class="guide-infographic-embed">
+          <EditorialInfographic infographic={data.infographic} />
+        </div>
+      )}
+    </article>
+
+    <!-- Step-by-Step Instructions (for reference guides) -->
+    {data.steps && data.steps.length > 0 && (
+      <section class="guide-steps-section" aria-labelledby="steps-heading">
+        <h2 id="steps-heading" class="section-title">
+          <span>📋</span> Step-by-Step Practical Protocol
+        </h2>
+        <StepList
+          steps={data.steps}
+          materialsNeeded={data.materialsNeeded}
+          toolsNeeded={data.toolsNeeded}
+        />
+      </section>
+    )}
+
+    <!-- Common Mistakes to Avoid -->
+    {data.commonMistakes && data.commonMistakes.length > 0 && (
+      <CommonMistakes mistakes={data.commonMistakes} />
+    )}
+
+    <!-- Pro Tips -->
+    {data.proTips && data.proTips.length > 0 && (
+      <ProTips tips={data.proTips} />
+    )}
+
+    <!-- FAQ Accordion -->
+    {data.faqs && data.faqs.length > 0 && (
+      <FaqAccordion faqs={data.faqs} />
+    )}
+
+    <!-- Daily Ideas Store Contextual Layer -->
+    {dailyIdeasProducts.length > 0 && (
+      <DailyIdeasPicks products={dailyIdeasProducts} />
+    )}
+
+    <!-- Sources & Fact Checking -->
+    {data.sources && data.sources.length > 0 && (
+      <SourcesList sources={data.sources} />
+    )}
+
+    <!-- Internal Linking / Related Cluster -->
+    <RelatedCluster
+      currentCategory={categoryKey}
+      relatedGuides={data.relatedGuides}
+      relatedTools={data.relatedTools}
+      relatedChecklists={data.relatedChecklists}
+      relatedEntries={relatedEntries}
+    />
+  </div>
+</BaseLayout>
+
+<style>
+  .guide-page-wrapper {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-20);
+  }
+
+  .guide-badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .category-badge {
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    transition: opacity var(--transition-fast);
+  }
+
+  .category-badge:hover {
+    opacity: 0.85;
+    text-decoration: none;
+  }
+
+  .type-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    background-color: var(--color-surface-subtle);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+  }
+
+  .guide-main-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .guide-lead-summary {
+    font-size: 1.15rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-4);
+  }
+
+  .guide-markdown-body {
+    margin: var(--space-8) 0;
+  }
+
+  .guide-hero-figure {
+    margin: var(--space-6) 0 var(--space-8) 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-card);
+    position: relative;
+    width: 100%;
+  }
+
+  .guide-hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    max-height: 560px;
+    display: block;
+  }
+
+  .guide-hero-caption {
+    padding: var(--space-2) var(--space-4);
+    font-size: 0.75rem;
+    color: var(--color-text-dim, #94a3b8);
+    background-color: var(--color-surface-subtle);
+    border-top: 1px solid var(--color-border-subtle);
+    text-align: right;
+    font-family: var(--font-sans);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-top: var(--space-10);
+    margin-bottom: var(--space-4);
+  }
+</style>

@@ -1,0 +1,342 @@
+---
+---
+
+<div class="tool-widget-container" id="fabric-care-advisor-app">
+  <div class="tool-controls-grid">
+    <div class="tool-field">
+      <label for="fabric-type-select" class="field-label">1. Primary Fabric Material</label>
+      <select id="fabric-type-select" class="tool-select">
+        <option value="merino-wool">Merino Wool / Cashmere (Protein Fiber)</option>
+        <option value="linen">Pure French/Belgian Linen (Bast Fiber)</option>
+        <option value="cotton">Long-Staple / Supima Cotton</option>
+        <option value="silk">100% Mulberry Silk (Delicate)</option>
+        <option value="synthetic-active">Athletic Spandex / Polyester Blend</option>
+        <option value="raw-denim">Selvedge / Raw Indigo Denim</option>
+      </select>
+    </div>
+
+    <div class="tool-field">
+      <label for="fabric-garment-type" class="field-label">2. Garment Item Type</label>
+      <select id="fabric-garment-type" class="tool-select">
+        <option value="knitwear">Sweater / Knit Cardigan</option>
+        <option value="shirt">Tailored Shirt / Blouse</option>
+        <option value="tee">Everyday T-Shirt / Undergarments</option>
+        <option value="bedding">Sheets / Pillowcases / Towels</option>
+        <option value="activewear">Gym Leggings / Running Tops</option>
+      </select>
+    </div>
+
+    <div class="tool-field">
+      <label for="fabric-soil-level" class="field-label">3. Cleaning Need</label>
+      <select id="fabric-soil-level" class="tool-select">
+        <option value="refresh">Light Odor / Gentle Refresh (Rarely Worn)</option>
+        <option value="normal" selected>Standard Daily Wear Soil</option>
+        <option value="stains">Heavy Food / Sweat Marks</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="calculator-result-box" id="fabric-result-box">
+    <!-- Result dynamically rendered via client JS -->
+  </div>
+</div>
+
+<script>
+  interface FabricCareData {
+    name: string;
+    temp: string;
+    cycle: string;
+    detergent: string;
+    drying: string;
+    warning: string;
+    whyItMatters: string;
+  }
+
+  const FABRIC_DB: Record<string, FabricCareData> = {
+    'merino-wool': {
+      name: 'Merino Wool & Cashmere',
+      temp: 'Cold Water (≤ 30°C / 85°F)',
+      cycle: 'Wool / Hand-Wash (Low Spin ≤ 600 RPM)',
+      detergent: 'pH-Neutral Wool Detergent (Enzyme-Free / No Protease)',
+      drying: 'Lay Flat on Clean Towel; Reshape while damp (Never Tumble Dry)',
+      warning: 'Standard laundry detergents contain protease enzymes that actively digest protein-based wool and cashmere fibers, causing thinning and holes.',
+      whyItMatters: 'Wool scales lock together and shrink under friction and hot water. Cold water and flat drying preserve dimensional shape and softness for decades.'
+    },
+    'linen': {
+      name: 'Pure Flax Linen',
+      temp: 'Cool to Warm Water (30–40°C / 85–104°F)',
+      cycle: 'Gentle Cycle (Plenty of water room; avoid overloading drum)',
+      detergent: 'Mild Liquid Detergent (No optical brighteners or bleach)',
+      drying: 'Line Dry or Tumble Dry Low until slightly damp; Steam Iron',
+      warning: 'Never over-dry linen in high heat dryers; extreme bone-dry heat makes natural flax fibers brittle and prone to snapping.',
+      whyItMatters: 'Flax fibers soften naturally over time with moisture and wear. Line drying preserves the natural airy drape without wrinkling creases.'
+    },
+    'cotton': {
+      name: 'Long-Staple & Supima Cotton',
+      temp: 'Cold to Warm (30°C for darks, 40°C for whites)',
+      cycle: 'Normal / Cotton Cycle',
+      detergent: 'Standard Enzyme Liquid Detergent',
+      drying: 'Medium Tumble Dry with Wool Dryer Balls or Line Dry',
+      warning: 'High heat tumble drying causes irreversible shrinkage in raw cotton knit collars and hems.',
+      whyItMatters: 'Cold water preserves vibrant dyes and prevents collar baconing on premium tees and button-downs.'
+    },
+    'silk': {
+      name: '100% Pure Mulberry Silk',
+      temp: 'Cold Water (≤ 20°C / 70°F)',
+      cycle: 'Hand Wash Only or Delicate Bagged Cold Cycle',
+      detergent: 'Specialized Silk / Delicate Wash (Neutral pH)',
+      drying: 'Roll in Towel to Press Out Water; Dry Flat Away from Direct Sun',
+      warning: 'Never wring, twist, or expose damp silk to direct sunlight, which degrades protein luster and causes yellowing.',
+      whyItMatters: 'Silk is a continuous protein filament. Low agitation and gentle air drying maintain its natural tensile strength and hypoallergenic surface.'
+    },
+    'synthetic-active': {
+      name: 'Athletic Spandex & Poly Blends',
+      temp: 'Cold Water (≤ 30°C / 85°F)',
+      cycle: 'Activewear / Synthetics Cycle',
+      detergent: 'Sport Wash / Enzyme Detergent (NEVER use Fabric Softener)',
+      drying: 'Air / Hang Dry (Synthetics dry in <2 hours naturally)',
+      warning: 'Liquid fabric softeners coat synthetic fibers in waxy silicone, trapping body odor bacteria permanently inside the weave and ruining moisture wicking.',
+      whyItMatters: 'Cold water protects elastane/spandex elasticity from heat decay, preventing saggy waistbands and transparent stretch wear.'
+    },
+    'raw-denim': {
+      name: 'Selvedge & Raw Indigo Denim',
+      temp: 'Cold Water Bath Soak',
+      cycle: 'Inside-Out Cold Gentle (or Bathtub Soak with Minimal Agitation)',
+      detergent: 'Dark Garment Detergent or Woolite Darks',
+      drying: 'Hang Dry by Belt Loops or Cuff Inverted',
+      warning: 'Never tumble dry raw denim; spin cycle creases create permanent white lightning streak fading lines across indigo dye.',
+      whyItMatters: 'Submersion in cold water preserves natural indigo honeycombs and whiskers while removing dust and body oils.'
+    }
+  };
+
+  function updateFabricCare() {
+    const fabricEl = document.getElementById('fabric-type-select') as HTMLSelectElement;
+    const garmentEl = document.getElementById('fabric-garment-type') as HTMLSelectElement;
+    const soilEl = document.getElementById('fabric-soil-level') as HTMLSelectElement;
+    const resultBox = document.getElementById('fabric-result-box');
+
+    if (!fabricEl || !garmentEl || !soilEl || !resultBox) return;
+
+    const fabricKey = fabricEl.value;
+    const data = FABRIC_DB[fabricKey] || FABRIC_DB['cotton'];
+
+    resultBox.innerHTML = `
+      <div class="calc-header-summary">
+        <span class="calc-badge">Textile Protocol: ${data.name}</span>
+        <h3 class="calc-title">Optimal Washing &amp; Fabric Preservation Protocol</h3>
+        <p class="calc-desc">Customized care rules to protect garment longevity, fit, and textile hand feel.</p>
+      </div>
+
+      <div class="calc-stats-banner">
+        <div class="calc-stat-block highlight-block">
+          <span class="calc-stat-label">Water Temperature</span>
+          <div class="calc-stat-num-group">
+            <span class="calc-stat-val" style="font-size: 1.3rem;">${data.temp}</span>
+          </div>
+          <span class="calc-subtext">Protects fiber elasticity and dyes</span>
+        </div>
+
+        <div class="calc-stat-block">
+          <span class="calc-stat-label">Washing Cycle</span>
+          <div class="calc-stat-num-group">
+            <span class="calc-stat-val" style="font-size: 1.15rem;">${data.cycle}</span>
+          </div>
+          <span class="calc-subtext">Agitation and spin control</span>
+        </div>
+
+        <div class="calc-stat-block">
+          <span class="calc-stat-label">Drying Protocol</span>
+          <div class="calc-stat-num-group">
+            <span class="calc-stat-val" style="font-size: 1.1rem;">${data.drying}</span>
+          </div>
+          <span class="calc-subtext">Prevents thermal degradation</span>
+        </div>
+      </div>
+
+      <div class="calc-breakdown-section">
+        <div class="care-detail-row">
+          <strong>🧴 Recommended Detergent Chemistry:</strong>
+          <span>${data.detergent}</span>
+        </div>
+        <div class="care-detail-row" style="margin-top: 0.75rem;">
+          <strong>🔬 Why this matters:</strong>
+          <span>${data.whyItMatters}</span>
+        </div>
+      </div>
+
+      <div class="calc-danger-box">
+        <strong>⚠️ Critical Mistake to Avoid:</strong> ${data.warning}
+      </div>
+    `;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    updateFabricCare();
+    ['fabric-type-select', 'fabric-garment-type', 'fabric-soil-level'].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('change', updateFabricCare);
+      }
+    });
+  });
+</script>
+
+<style>
+  .tool-widget-container {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+    margin: var(--space-6) 0;
+  }
+
+  .tool-controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-5);
+    margin-bottom: var(--space-8);
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .tool-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .field-label {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .tool-select {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.95rem;
+    color: var(--color-text-primary);
+    background-color: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    outline: none;
+    transition: border-color var(--transition-fast);
+  }
+
+  .tool-select:focus {
+    border-color: var(--color-primary-accent);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  }
+
+  .calculator-result-box {
+    background: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+  }
+
+  .calc-badge {
+    display: inline-block;
+    font-size: 0.725rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #2563eb;
+    background: rgba(37, 99, 235, 0.1);
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-2);
+  }
+
+  .calc-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 var(--space-1);
+    color: var(--color-text-primary);
+  }
+
+  .calc-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--space-6);
+  }
+
+  .calc-stats-banner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .calc-stat-block {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .highlight-block {
+    border-color: #2563eb;
+    background: rgba(37, 99, 235, 0.03);
+  }
+
+  .calc-stat-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-1);
+  }
+
+  .calc-stat-num-group {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    margin-bottom: var(--space-1);
+  }
+
+  .calc-stat-val {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .calc-subtext {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+  }
+
+  .calc-breakdown-section {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    margin-bottom: var(--space-5);
+  }
+
+  .care-detail-row {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .care-detail-row strong {
+    color: var(--color-text-primary);
+  }
+
+  .calc-danger-box {
+    background: #fef2f2;
+    border-left: 3px solid #dc2626;
+    padding: var(--space-4);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 0.875rem;
+    color: #991b1b;
+    line-height: 1.5;
+  }
+</style>

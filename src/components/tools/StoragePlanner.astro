@@ -1,0 +1,316 @@
+---
+---
+
+<div class="tool-widget-container" id="storage-planner-app">
+  <div class="tool-controls-grid">
+    <div class="tool-field">
+      <label for="storage-space-type" class="field-label">1. Storage Zone Type</label>
+      <select id="storage-space-type" class="tool-select">
+        <option value="reach-in">Reach-in Closet (Standard 4–6 ft)</option>
+        <option value="walk-in">Walk-in Closet (Large 6–10 ft)</option>
+        <option value="under-bed">Under-Bed Storage Zone</option>
+        <option value="linen-closet">Narrow Linen / Utility Closet (2–3 ft)</option>
+      </select>
+    </div>
+
+    <div class="tool-field">
+      <label for="storage-width" class="field-label">2. Width (Linear Feet)</label>
+      <input type="number" id="storage-width" class="tool-input" value="5" min="2" max="15" step="0.5" />
+    </div>
+
+    <div class="tool-field">
+      <label for="storage-category" class="field-label">3. Primary Items Stored</label>
+      <select id="storage-category" class="tool-select">
+        <option value="seasonal-clothing">Seasonal Clothing &amp; Sweaters</option>
+        <option value="bedding-linens">Bulky Comforters, Blankets &amp; Pillows</option>
+        <option value="mixed-wardrobe">Daily Mixed Wardrobe (Hanging + Folded)</option>
+        <option value="shoes-accessories">Shoes, Bags &amp; Accessories</option>
+      </select>
+    </div>
+
+    <div class="tool-field">
+      <label for="storage-tier" class="field-label">4. Vertical Organization</label>
+      <select id="storage-tier" class="tool-select">
+        <option value="single">Single Hanging Rod + Top Shelf</option>
+        <option value="double" selected>Double Hanging Rods (High / Low)</option>
+        <option value="shelves">Full Shelf Stack (Modular Cubes)</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="calculator-result-box" id="storage-result-box">
+    <!-- Result dynamically rendered via client JS -->
+  </div>
+</div>
+
+<script>
+  function calculateStorage() {
+    const typeEl = document.getElementById('storage-space-type') as HTMLSelectElement;
+    const widthEl = document.getElementById('storage-width') as HTMLInputElement;
+    const catEl = document.getElementById('storage-category') as HTMLSelectElement;
+    const tierEl = document.getElementById('storage-tier') as HTMLSelectElement;
+    const resultBox = document.getElementById('storage-result-box');
+
+    if (!typeEl || !widthEl || !catEl || !tierEl || !resultBox) return;
+
+    const width = parseFloat(widthEl.value) || 5;
+    const spaceType = typeEl.value;
+    const category = catEl.value;
+    const tier = tierEl.value;
+
+    let hangingGarments = Math.round(width * (tier === 'double' ? 24 : 12));
+    let binCapacity100L = Math.max(1, Math.round(width * 0.8));
+    let shelfVolumeCuFt = Math.round(width * 1.5 * 3); // 1.5ft depth * 3ft height avg
+
+    let recommendationTitle = 'Optimized Closet Allocation';
+    let recommendations: string[] = [];
+
+    if (category === 'seasonal-clothing') {
+      recommendationTitle = 'Seasonal Wardrobe Preservation Layout';
+      recommendations = [
+        `Use ${binCapacity100L} large fabric storage bags (100L) on the highest overhead shelf to seal off-season wools and coats from dust.`,
+        `Dedicate lower hanging rail for active seasonal essentials (${Math.round(hangingGarments * 0.6)} garments).`,
+        `Insert cedar blocks into sweater bins to naturally deter moths without chemical residues.`
+      ];
+    } else if (category === 'bedding-linens') {
+      recommendationTitle = 'Bulky Bedding & Linen Optimization';
+      recommendations = [
+        `Compress spare duvet inserts and winter blankets into ${Math.ceil(width * 0.6)} structured storage totes.`,
+        `Store rolled sheet sets inside their matching pillowcases to prevent mismatched linen clutter.`,
+        `Reserve lowest floor tier for heavy spare blankets in breathable canvas organizers.`
+      ];
+    } else {
+      recommendationTitle = 'High-Frequency Daily Wardrobe Setup';
+      recommendations = [
+        `Upper Rod: Shirts, blouses, and light jackets (${Math.round(hangingGarments * 0.55)} items).`,
+        `Lower Rod: Folded trousers on velvet grip hangers (${Math.round(hangingGarments * 0.45)} items).`,
+        `Middle/Top Shelf: Clear acrylic bins for socks, belts, and daily accessories.`
+      ];
+    }
+
+    resultBox.innerHTML = `
+      <div class="calc-header-summary">
+        <span class="calc-badge">Configuration: ${spaceType.toUpperCase()} (${width} FT)</span>
+        <h3 class="calc-title">${recommendationTitle}</h3>
+        <p class="calc-desc">Calculated spatial blueprint based on ${width} linear feet of storage capacity.</p>
+      </div>
+
+      <div class="calc-stats-banner">
+        <div class="calc-stat-block">
+          <span class="calc-stat-label">Hanging Capacity</span>
+          <div class="calc-stat-num-group">
+            <span class="calc-stat-val">${hangingGarments}</span>
+            <span class="calc-stat-unit">Garments</span>
+          </div>
+          <span class="calc-subtext">${tier === 'double' ? 'Dual-tier configuration' : 'Single rod clearance'}</span>
+        </div>
+
+        <div class="calc-stat-block highlight-block">
+          <span class="calc-stat-label">Top Shelf / Bin Capacity</span>
+          <div class="calc-stat-num-group">
+            <span class="calc-stat-val">${binCapacity100L}</span>
+            <span class="calc-stat-unit">&times; 100L Totes</span>
+          </div>
+          <span class="calc-subtext">Dust-sealed bulk storage</span>
+        </div>
+
+        <div class="calc-stat-block">
+          <span class="calc-stat-label">Usable Volume</span>
+          <div class="calc-stat-num-group">
+            <span class="calc-stat-val">~${shelfVolumeCuFt}</span>
+            <span class="calc-stat-unit">Cu. Ft.</span>
+          </div>
+          <span class="calc-subtext">Estimated total spatial capacity</span>
+        </div>
+      </div>
+
+      <div class="calc-breakdown-section">
+        <h4 class="section-subhead">📋 Strategic Spatial Recommendations:</h4>
+        <ul class="storage-checklist">
+          ${recommendations.map(rec => `<li><span class="bullet-check">✓</span> <span>${rec}</span></li>`).join('')}
+        </ul>
+      </div>
+    `;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    calculateStorage();
+    ['storage-space-type', 'storage-width', 'storage-category', 'storage-tier'].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('input', calculateStorage);
+        el.addEventListener('change', calculateStorage);
+      }
+    });
+  });
+</script>
+
+<style>
+  .tool-widget-container {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+    margin: var(--space-6) 0;
+  }
+
+  .tool-controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-5);
+    margin-bottom: var(--space-8);
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .tool-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .field-label {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .tool-select, .tool-input {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.95rem;
+    color: var(--color-text-primary);
+    background-color: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    outline: none;
+    transition: border-color var(--transition-fast);
+  }
+
+  .tool-select:focus, .tool-input:focus {
+    border-color: var(--color-primary-accent);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  }
+
+  .calculator-result-box {
+    background: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+  }
+
+  .calc-badge {
+    display: inline-block;
+    font-size: 0.725rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #7c3aed;
+    background: rgba(124, 58, 237, 0.1);
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-2);
+  }
+
+  .calc-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 var(--space-1);
+    color: var(--color-text-primary);
+  }
+
+  .calc-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--space-6);
+  }
+
+  .calc-stats-banner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .calc-stat-block {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .highlight-block {
+    border-color: #7c3aed;
+    background: rgba(124, 58, 237, 0.03);
+  }
+
+  .calc-stat-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-1);
+  }
+
+  .calc-stat-num-group {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    margin-bottom: var(--space-1);
+  }
+
+  .calc-stat-val {
+    font-family: var(--font-display);
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .calc-stat-unit {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .calc-subtext {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+  }
+
+  .section-subhead {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: var(--space-4) 0 var(--space-3);
+    color: var(--color-text-primary);
+  }
+
+  .storage-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .storage-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .bullet-check {
+    color: #7c3aed;
+    font-weight: 700;
+  }
+</style>

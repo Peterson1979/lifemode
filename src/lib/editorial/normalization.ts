@@ -115,6 +115,12 @@ export function slugify(text: string): string {
  * Keyword-based heuristic to infer the most appropriate LifeMode pillar if unspecified.
  */
 const PILLAR_KEYWORDS: Record<PillarSlug, string[]> = {
+  health: ['health', 'longevity', 'metabolic', 'glucose', 'blood sugar', 'protein', 'nutrition', 'aging', 'biological age', 'sleep', 'recovery', 'fitness', 'workout', 'wearable', 'wellness tech', 'vitality', 'circadian'],
+  wealth: ['wealth', 'money', 'side hustle', 'online income', 'freelancing', 'digital products', 'creator economy', 'remote work', 'ecommerce', 'online business', 'selling online', 'passive income', 'consulting'],
+  home: ['home', 'kitchen', 'food', 'cooking', 'cleaning', 'laundry', 'stain', 'maintenance', 'storage', 'organization', 'pantry', 'closet', 'appliance', 'cookware', 'cast iron', 'decluttering'],
+  life: ['life', 'style', 'fashion', 'beauty', 'skincare', 'grooming', 'wardrobe', 'capsule', 'productivity', 'routine', 'travel', 'experience', 'destination', 'daily life'],
+  'tech-ai': ['tech', 'ai', 'artificial intelligence', 'gadget', 'software', 'prompt', 'automation', 'tool', 'app', 'hardware', 'llm', 'computing', 'digital', 'workflow', 'ai side hustle'],
+  tools: ['tool', 'calculator', 'finder', 'solver', 'cheat sheet', 'checklist', 'interactive', 'planner', 'selector'],
   style: [
     'style', 'fashion', 'outfit', 'wardrobe', 'clothing', 'garment', 'linen', 'tailoring', 'capsule',
     'beauty', 'skincare', 'makeup', 'cosmetics', 'serum', 'moisturizer', 'cleanser', 'sunscreen',
@@ -122,7 +128,6 @@ const PILLAR_KEYWORDS: Record<PillarSlug, string[]> = {
     'accessories', 'jewelry', 'footwear', 'shoes', 'boots', 'dermatology', 'grooming', 'trend',
   ],
   travel: ['travel', 'trip', 'destination', 'hotel', 'flight', 'itinerary', 'vacation', 'resort', 'city', 'explore', 'island', 'coastal', 'stay', 'kyoto', 'azores', 'europe'],
-  'tech-ai': ['tech', 'ai', 'artificial intelligence', 'gadget', 'software', 'prompt', 'automation', 'tool', 'app', 'hardware', 'llm', 'computing', 'digital', 'workflow'],
   money: ['money', 'finance', 'invest', 'wealth', 'budget', 'saving', 'portfolio', 'income', 'crypto', 'stock', 'tax', 'yield', 'treasury', 'cash', 'asset'],
   wellbeing: ['wellbeing', 'health', 'fitness', 'nutrition', 'workout', 'diet', 'sleep', 'mindfulness', 'longevity', 'mental', 'vitality', 'circadian', 'recovery', 'sauna', 'light'],
   entertainment: [
@@ -132,12 +137,13 @@ const PILLAR_KEYWORDS: Record<PillarSlug, string[]> = {
     'pop-culture', 'lifestyle', 'marriage', 'relationship', 'premiere', 'box-office', 'hollywood',
   ],
   'food-drink': ['food', 'drink', 'recipe', 'cooking', 'ingredient', 'kitchen', 'cuisine', 'sourdough', 'fermentation', 'meal', 'baking', 'culinary', 'dish', 'beverage', 'tea', 'coffee'],
+  'life-hacks': ['hack', 'life hack', 'shortcut', 'quick fix', 'clever trick', 'household hack', 'diy fix', 'smart tip'],
 };
 
 /**
  * Infers the closest matching pillar from query keywords using weighted scoring.
  */
-export function inferPillarFromKeywords(text: string, defaultPillar: PillarSlug = 'style'): PillarSlug {
+export function inferPillarFromKeywords(text: string, defaultPillar: PillarSlug = 'life'): PillarSlug {
   const lower = text.toLowerCase();
 
   let bestPillar = defaultPillar;

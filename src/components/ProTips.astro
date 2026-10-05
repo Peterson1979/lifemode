@@ -1,0 +1,106 @@
+---
+export interface Props {
+  tips: string[];
+}
+
+const { tips = [] } = Astro.props;
+---
+
+{tips.length > 0 && (
+  <section class="protips-section" aria-labelledby="protips-heading">
+    <div class="protip-card">
+      <div class="protip-header">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 16v-4"></path>
+          <path d="M12 8h.01"></path>
+        </svg>
+        <span class="protip-kicker">Expert Field Guidance</span>
+        <h3 id="protips-heading" class="protip-title">
+          Practical Pro Tips & Best Practices
+        </h3>
+      </div>
+      <ul class="protip-list">
+        {tips.map((tip) => (
+          <li>
+            <span class="protip-bullet" aria-hidden="true">→</span>
+            <span>{tip}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}
+
+<style>
+  .protips-section {
+    margin: var(--space-8) 0;
+  }
+
+  .protip-card {
+    background: linear-gradient(180deg, var(--topic-tools-light) 0%, var(--color-surface) 100%);
+    border: 1.5px solid var(--topic-tools-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5) var(--space-6);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .protip-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--topic-tools-border);
+  }
+
+  .protip-header svg {
+    color: var(--topic-tools);
+    margin-bottom: var(--space-1);
+  }
+
+  .protip-kicker {
+    font-family: var(--font-sans);
+    font-size: 0.725rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--topic-tools);
+  }
+
+  .protip-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  .protip-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .protip-list li {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .protip-bullet {
+    color: var(--topic-tools);
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1.4;
+    flex-shrink: 0;
+  }
+</style>

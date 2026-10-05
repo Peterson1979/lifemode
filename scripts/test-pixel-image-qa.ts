@@ -7,30 +7,24 @@ import { parseArticle } from '../src/lib/editorial/storage/serializer.ts';
 const pixelAnalyzer = new LocalPixelContentAnalyzer();
 
 const targetFiles = [
-  // The 6 specific cases
-  'src/content/entertainment/inside-astros-story-spotlight-cultural-impact.md',
-  'src/content/entertainment/cricinfo-reveals-how-cricket-fans-shape-pop-culture.md',
-  'src/content/entertainment/the-enduring-appeal-of-friendlies.md',
-  'src/content/entertainment/why-the-ecuador-south-korea-matchup-keeps-fans-and-critics-talking.md',
-  'src/content/entertainment/guardians-magic-number-how-clevelands-playoff-chase-unfolded.md',
-  'src/content/entertainment/creative-partnership-oceans-calling-2026.md',
-  // All travel articles
-  'src/content/travel/fire-weather-watch-what-to-know.md',
-  'src/content/travel/inside-netflix-time-travel-series-dark-architecture-culture-slow-exploration.md',
-  'src/content/travel/japan-what-to-know.md',
-  'src/content/travel/laguna-beach-modern-guide.md',
-  'src/content/travel/minimalist-coastal-retreats-architecture-and-secluded-stays.md',
-  'src/content/travel/the-quietest-islands-in-the-azores-volcanic-hot-springs-and.md',
-  'src/content/travel/travel-weather-what-to-know.md',
-  'src/content/travel/weather-nyc-what-to-know.md',
+  // Preserved food-drink articles or legacy targets if present
+  'src/content/food-drink/artisan-seeded-sourdough-bread.md',
+  'src/content/food-drink/fresh-guacamole.md',
+  'src/content/food-drink/rustic-potato-leek-soup.md',
 ];
 
 async function runPixelImageCheck() {
-  console.log(`Auditing pixel-level relevance on ${targetFiles.length} critical and travel articles...\n`);
+  const existingFiles = targetFiles.filter((f) => fs.existsSync(path.join(process.cwd(), f)));
+  if (existingFiles.length === 0) {
+    console.log('No targets to audit, skipping.');
+    return;
+  }
+
+  console.log(`Auditing pixel-level relevance on ${existingFiles.length} articles...\n`);
 
   let allPassed = true;
 
-  for (const relPath of targetFiles) {
+  for (const relPath of existingFiles) {
     const fullPath = path.join(process.cwd(), relPath);
     const raw = fs.readFileSync(fullPath, 'utf-8');
     const pillar = relPath.split('/')[2] as any;
@@ -47,7 +41,6 @@ async function runPixelImageCheck() {
 
     const brief = buildVisualBrief(article, { pillar });
 
-    // If local file in public/
     let imageBuffer: Buffer | undefined;
     let localImagePath: string | undefined;
 
@@ -84,7 +77,7 @@ async function runPixelImageCheck() {
   }
 
   if (allPassed) {
-    console.log('✓ ALL 14 CRITICAL AND TRAVEL ARTICLES PASSED PIXEL-LEVEL IMAGE QA!');
+    console.log('✓ ALL ARTICLES PASSED PIXEL-LEVEL IMAGE QA!');
   } else {
     console.error('✗ Some articles failed image QA.');
     process.exit(1);

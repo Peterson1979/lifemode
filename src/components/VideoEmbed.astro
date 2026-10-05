@@ -1,0 +1,286 @@
+---
+export interface VideoProps {
+  type: 'youtube' | 'local' | 'animated-svg';
+  videoId?: string;
+  url?: string;
+  title: string;
+  description: string;
+  thumbnail?: string;
+  duration?: string;
+  transcript?: string;
+  creator?: string;
+  attribution?: string;
+}
+
+export interface Props {
+  video: VideoProps;
+}
+
+const { video } = Astro.props;
+
+// Schema.org VideoObject
+const videoSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: video.title,
+  description: video.description,
+  thumbnailUrl: video.thumbnail || (video.videoId ? `https://i.ytimg.com/vi/${video.videoId}/hqdefault.jpg` : 'https://lifemode.life/og-default.svg'),
+  uploadDate: '2026-01-01T00:00:00+00:00',
+  duration: video.duration || 'PT2M30S',
+  embedUrl: video.videoId ? `https://www.youtube-nocookie.com/embed/${video.videoId}` : video.url,
+};
+
+const posterImg = video.thumbnail || (video.videoId ? `https://i.ytimg.com/vi/${video.videoId}/hqdefault.jpg` : '');
+---
+
+<div class="video-section-wrapper" aria-labelledby="video-title-heading">
+  <div class="video-header">
+    <span class="video-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polygon points="5 3 19 12 5 21 5 3"/>
+      </svg>
+      Practical Demonstration
+    </span>
+    <h3 id="video-title-heading" class="video-title">{video.title}</h3>
+    <p class="video-desc">{video.description}</p>
+  </div>
+
+  {video.type === 'youtube' && video.videoId && (
+    <div class="video-facade-container" data-video-id={video.videoId} id={`facade-${video.videoId}`}>
+      {posterImg && (
+        <img 
+          src={posterImg} 
+          alt={video.title} 
+          class="video-facade-poster" 
+          loading="lazy" 
+        />
+      )}
+      <div class="video-facade-overlay">
+        <button class="video-play-btn" aria-label={`Play demonstration video: ${video.title}`}>
+          <div class="video-play-icon"></div>
+        </button>
+        <div class="video-facade-meta">
+          <h4>{video.title}</h4>
+          <p>Click to load video ({video.duration ? video.duration.replace('PT', '').toLowerCase() : 'demo'})</p>
+        </div>
+      </div>
+    </div>
+  )}
+
+  {video.type === 'local' && video.url && (
+    <div class="local-video-container">
+      <video controls preload="metadata" poster={posterImg} class="responsive-video">
+        <source src={video.url} type="video/mp4" />
+        <p>Your browser does not support HTML5 video. <a href={video.url}>Download the video</a>.</p>
+      </video>
+    </div>
+  )}
+
+  {video.type === 'animated-svg' && (
+    <div class="animated-demo-box">
+      <div class="demo-animation-stage">
+        <slot />
+      </div>
+    </div>
+  )}
+
+  {video.attribution && (
+    <p class="video-attribution">
+      Demonstration source / Attribution: <strong>{video.attribution}</strong> {video.creator && `by ${video.creator}`}
+    </p>
+  )}
+
+  {video.transcript && (
+    <details class="video-transcript-details">
+      <summary class="transcript-summary">
+        <span>📝 Read Video Transcript &amp; Notes</span>
+      </summary>
+      <div class="transcript-content">
+        <p>{video.transcript}</p>
+      </div>
+    </details>
+  )}
+</div>
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(videoSchema)} />
+
+<script>
+  // Lazy Facade activation on user click
+  document.querySelectorAll<HTMLElement>('.video-facade-container').forEach(container => {
+    container.addEventListener('click', () => {
+      const videoId = container.getAttribute('data-video-id');
+      if (!videoId) return;
+
+      const iframe = document.createElement('iframe');
+      iframe.setAttribute('src', `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`);
+      iframe.setAttribute('title', 'Video Demonstration');
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+      iframe.setAttribute('allowfullscreen', 'true');
+      iframe.className = 'active-video-iframe';
+
+      container.innerHTML = '';
+      container.appendChild(iframe);
+    });
+  });
+</script>
+
+<style>
+  .video-section-wrapper {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    margin: var(--space-8) 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .video-header {
+    margin-bottom: var(--space-4);
+  }
+
+  .video-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #e11d48;
+    background-color: rgba(225, 29, 72, 0.1);
+    border: 1px solid rgba(225, 29, 72, 0.2);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.5rem;
+  }
+
+  .video-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-top: 0.25rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .video-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+  }
+
+  .video-facade-container {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background-color: #0f172a;
+    cursor: pointer;
+  }
+
+  .video-facade-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-facade-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.2) 0%, rgba(15, 23, 42, 0.8) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+    text-align: center;
+  }
+
+  .video-play-btn {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-full);
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-elevated);
+    transition: transform var(--transition-fast);
+    margin-bottom: var(--space-3);
+  }
+
+  .video-facade-container:hover .video-play-btn {
+    transform: scale(1.08);
+  }
+
+  .video-play-icon {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 0 10px 18px;
+    border-color: transparent transparent transparent #0f172a;
+    margin-left: 4px;
+  }
+
+  .video-facade-meta h4 {
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .video-facade-meta p {
+    color: #94a3b8;
+    font-size: 0.82rem;
+    margin-bottom: 0;
+  }
+
+  .responsive-video {
+    width: 100%;
+    border-radius: var(--radius-md);
+    background-color: #000;
+  }
+
+  :global(.active-video-iframe) {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+    border-radius: var(--radius-md);
+  }
+
+  .video-attribution {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-top: var(--space-3);
+  }
+
+  .video-transcript-details {
+    margin-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-3);
+  }
+
+  .transcript-summary {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+  }
+
+  .transcript-content {
+    margin-top: var(--space-2);
+    font-size: 0.88rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    background-color: var(--color-surface-subtle);
+    padding: var(--space-4);
+    border-radius: var(--radius-sm);
+  }
+</style>

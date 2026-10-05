@@ -1,0 +1,66 @@
+---
+export interface Props {
+  pros: string[];
+  cons: string[];
+  prosTitle?: string;
+  consTitle?: string;
+}
+
+const {
+  pros = [],
+  cons = [],
+  prosTitle = 'Advantages & Key Strengths',
+  consTitle = 'Trade-Offs & Limitations'
+} = Astro.props;
+---
+
+<div class="pros-cons-grid">
+  {pros.length > 0 && (
+    <div class="pro-card">
+      <div class="pro-header">
+        <span class="pro-icon" aria-hidden="true">+</span>
+        <span>{prosTitle}</span>
+      </div>
+      <ul class="pro-list">
+        {pros.map((item) => (
+          <li>
+            <span class="pro-bullet" aria-hidden="true">✓</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  {cons.length > 0 && (
+    <div class="con-card">
+      <div class="con-header">
+        <span class="con-icon" aria-hidden="true">−</span>
+        <span>{consTitle}</span>
+      </div>
+      <ul class="con-list">
+        {cons.map((item) => (
+          <li>
+            <span class="con-bullet" aria-hidden="true">✕</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+</div>
+
+<style>
+  .pro-bullet {
+    color: var(--semantic-optimal);
+    font-weight: 800;
+    line-height: 1.4;
+    flex-shrink: 0;
+  }
+  .con-bullet {
+    color: var(--semantic-danger);
+    font-weight: 800;
+    line-height: 1.4;
+    flex-shrink: 0;
+  }
+</style>

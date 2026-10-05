@@ -1,0 +1,424 @@
+---
+---
+
+<div class="tool-widget-container" id="stain-solver-app">
+  <div class="tool-controls-grid">
+    <div class="tool-field">
+      <label for="stain-select" class="field-label">1. Select Stain Type</label>
+      <select id="stain-select" class="tool-select">
+        <option value="coffee">Coffee / Tea</option>
+        <option value="grease">Cooking Oil / Butter / Grease</option>
+        <option value="red-wine">Red Wine / Berry Juice</option>
+        <option value="blood">Blood / Protein Stain</option>
+        <option value="ink">Ballpoint Ink</option>
+        <option value="chocolate">Chocolate / Cocoa</option>
+        <option value="sweat">Yellow Sweat / Deodorant Stain</option>
+        <option value="tomato">Tomato Sauce / Ketchup</option>
+      </select>
+    </div>
+
+    <div class="tool-field">
+      <label for="fabric-select" class="field-label">2. Select Fabric Type</label>
+      <select id="fabric-select" class="tool-select">
+        <option value="cotton">Cotton / Linen (Standard)</option>
+        <option value="synthetic">Polyester / Nylon (Synthetics)</option>
+        <option value="wool">Wool / Cashmere (Delicate Protein)</option>
+        <option value="silk">Silk (Ultra Delicate)</option>
+        <option value="denim">Heavy Denim</option>
+      </select>
+    </div>
+
+    <div class="tool-field">
+      <label for="freshness-select" class="field-label">3. Stain Freshness</label>
+      <select id="freshness-select" class="tool-select">
+        <option value="fresh">Fresh (Within 1 hour)</option>
+        <option value="dried">Dried / Set (Hours to days old)</option>
+        <option value="washed">Already Washed & Dried</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="treatment-result-box" id="treatment-result">
+    <!-- Result dynamically rendered via client JS -->
+  </div>
+</div>
+
+<script>
+  interface StainData {
+    name: string;
+    temp: string;
+    agent: string;
+    steps: string[];
+    criticalWarning: string;
+    chemistryExplanation: string;
+  }
+
+  const STAIN_DATABASE: Record<string, StainData> = {
+    'coffee': {
+      name: 'Coffee / Tannin Stain',
+      temp: 'Cold Water (Fresh) or Warm Water (Tannin soak)',
+      agent: 'Dish soap + White Distilled Vinegar (1 tbsp vinegar + 1 tsp soap in 1L cold water)',
+      steps: [
+        'Blot (never rub) with a clean white cloth to absorb excess liquid.',
+        'Flush from the BACK of the fabric with cold water to push tannin particles out.',
+        'Apply vinegar/soap solution and let sit for 10-15 minutes.',
+        'Launder on highest temperature safe for the fabric using enzyme-based detergent.',
+        'Air dry completely; inspect before machine drying (heat permanently sets tannins).'
+      ],
+      criticalWarning: 'Never use hot water first on tannins—heat oxidizes and bakes plant tannins into the fabric fibres.',
+      chemistryExplanation: 'Coffee contains tannins (polyphenols) that form hydrogen bonds with cellulose and synthetic fibres. Acidic vinegar helps dissolve the bond while mild surfactants break surface tension.'
+    },
+    'grease': {
+      name: 'Oil / Grease / Lipids',
+      temp: 'Warm to Hot Water (Lipid melting point)',
+      agent: 'Concentrated liquid dishwashing detergent (e.g. Dawn) or Baking Soda paste',
+      steps: [
+        'Blot liquid grease; sprinkle baking soda/cornstarch on the spot and let sit 15 min to draw out lipids.',
+        'Brush away the powder.',
+        'Massage a drop of concentrated grease-cutting dish soap directly into the stain.',
+        'Let sit for 10 minutes, then rinse with warm water.',
+        'Wash in normal cycle with laundry detergent.'
+      ],
+      criticalWarning: 'Do not wet with cold water first; cold water solidifies grease into fibre pores.',
+      chemistryExplanation: 'Lipids are non-polar and hydrophobic. Dish soaps contain amphiphilic surfactants with hydrophobic tails that encapsulate oil molecules and hydrophilic heads that dissolve in water.'
+    },
+    'red-wine': {
+      name: 'Red Wine / Anthocyanins',
+      temp: 'Cold Water',
+      agent: 'Hydrogen Peroxide (3%) + Liquid Dish Soap (2:1 ratio) OR Table Salt + Cold Club Soda',
+      steps: [
+        'Immediately blot up as much wine as possible with a clean paper towel.',
+        'If fresh: Cover heavily with table salt or baking soda to absorb pigments, then vacuum/shake off.',
+        'Mix 2 parts 3% hydrogen peroxide with 1 part dish soap (for light/colorfast fabrics).',
+        'Sponge onto the stain and let sit 5-10 minutes.',
+        'Rinse thoroughly with cold water and wash immediately.'
+      ],
+      criticalWarning: 'Never expose to heat or hot water. If fabric is dark or silk/wool, test peroxide on hidden seam first.',
+      chemistryExplanation: 'Red wine color stems from anthocyanin pigments. Hydrogen peroxide acts as a mild oxidizing bleach that breaks down the chromophore double bonds that reflect red light.'
+    },
+    'blood': {
+      name: 'Blood / Protein Stain',
+      temp: 'Strictly Cold Water (Under 30°C / 85°F)',
+      agent: '3% Hydrogen Peroxide or Saline Soak (Cold Salt Water) + Enzyme Detergent',
+      steps: [
+        'Hold the back of the stain under forceful COLD running water.',
+        'Apply 3% hydrogen peroxide directly (watch for bubbling reaction) or soak in cold saltwater for 30 minutes.',
+        'Rub gently with enzyme-based liquid detergent.',
+        'Wash in cold water.',
+        'Always air dry to confirm stain is 100% removed before applying heat.'
+      ],
+      criticalWarning: 'Hot water will instantly coagulate and denature hemoglobin proteins, welding them permanently to fabric.',
+      chemistryExplanation: 'Hemoglobin is an iron-rich protein. Cold water keeps protein molecules soluble, while protease enzyme detergents break peptide bonds into water-soluble amino acids.'
+    },
+    'ink': {
+      name: 'Ballpoint / Permanent Ink',
+      temp: 'Room Temperature / Cool',
+      agent: 'Isopropyl Alcohol (70-90%) or Hand Sanitizer',
+      steps: [
+        'Place a clean paper towel directly under the stained area to catch dissolved ink.',
+        'Dab isopropyl alcohol onto the back of the stain using a cotton swab.',
+        'Blot with paper towel as ink transfers through.',
+        'Repeat until no further ink transfers.',
+        'Pre-treat with standard laundry detergent and wash normally.'
+      ],
+      criticalWarning: 'Do not use water first on solvent-based ballpoint ink—water will cause the solvent carrier to bleed and spread.',
+      chemistryExplanation: 'Ballpoint inks use oil-based solvent carriers. Polar water cannot dissolve them; non-polar alcohols break the solvent binders quickly.'
+    },
+    'chocolate': {
+      name: 'Chocolate (Lipid + Protein + Tannin)',
+      temp: 'Cold then Warm',
+      agent: 'Dull butter knife (to scrape) + Cold Water Rinse + Heavy-Duty Enzyme Detergent',
+      steps: [
+        'Gently scrape off excess dried chocolate with a dull knife or spoon edge.',
+        'Rinse from the back with cold water to remove protein and cocoa solids.',
+        'Rub liquid detergent with enzymes into the stain and allow 15 minutes to penetrate fats and sugars.',
+        'Launder in the warmest water recommended on the garment care label.'
+      ],
+      criticalWarning: 'Avoid hot water initially until sugars and proteins are flushed out.',
+      chemistryExplanation: 'Chocolate is a complex triple-threat stain containing cocoa butter fats, dairy proteins, and sugar tannins.'
+    },
+    'sweat': {
+      name: 'Sweat / Deodorant Aluminum Buildup',
+      temp: 'Warm Water Soak',
+      agent: 'White Distilled Vinegar (1:1 with water) + Baking Soda Paste OR Oxygen Bleach',
+      steps: [
+        'Soak garments in equal parts white vinegar and warm water for 30 minutes.',
+        'Mix baking soda with hydrogen peroxide into a paste and scrub into underarm areas with an old soft toothbrush.',
+        'Let sit for 20 minutes.',
+        'Wash with oxygen bleach on the regular cycle.'
+      ],
+      criticalWarning: 'Chlorine bleach will react with sweat proteins and aluminum to turn the stain permanently bright yellow.',
+      chemistryExplanation: 'Underarm stains are caused by the reaction between antiperspirant aluminum salts and sweat proteins. Acidic vinegar breaks mineral-protein complexes.'
+    },
+    'tomato': {
+      name: 'Tomato / Lycopene & Oil',
+      temp: 'Cold Water then Sunlight',
+      agent: 'Dish soap + White Vinegar + Natural Sunlight UV Exposure',
+      steps: [
+        'Scrape solid residue; flush immediately from the back with cold water.',
+        'Dab liquid dish soap onto the spot to break down tomato seed oils.',
+        'Rinse with white vinegar.',
+        'Wash normally.',
+        'Dry in direct sunlight—natural UV radiation breaks down stubborn lycopene molecules completely.'
+      ],
+      criticalWarning: 'Never iron or hot-dry before the yellow-orange tint is fully gone.',
+      chemistryExplanation: 'Lycopene is a fat-soluble carotenoid pigment highly sensitive to photochemical oxidation by ultraviolet solar rays.'
+    }
+  };
+
+  const stainSelect = document.getElementById('stain-select') as HTMLSelectElement;
+  const fabricSelect = document.getElementById('fabric-select') as HTMLSelectElement;
+  const freshnessSelect = document.getElementById('freshness-select') as HTMLSelectElement;
+  const resultBox = document.getElementById('treatment-result');
+
+  function updateSolver() {
+    if (!resultBox || !stainSelect || !fabricSelect || !freshnessSelect) return;
+
+    const stainKey = stainSelect.value;
+    const fabric = fabricSelect.value;
+    const freshness = freshnessSelect.value;
+    const data = STAIN_DATABASE[stainKey];
+
+    if (!data) return;
+
+    let fabricAlert = '';
+    if (fabric === 'silk' || fabric === 'wool') {
+      fabricAlert = `
+        <div class="fabric-caution-box">
+          <strong>⚠️ Delicate Fabric Warning (${fabric.toUpperCase()}):</strong> Do NOT use harsh rubbing, chlorine bleach, or strong oxygen bleaches. Always test remedies on an unexposed interior hem first.
+        </div>
+      `;
+    }
+
+    let freshnessNote = '';
+    if (freshness === 'washed') {
+      freshnessNote = `
+        <div class="freshness-note-box">
+          <strong>🔄 Set-In Note:</strong> Because this item has already been dried/washed, multiple soaking cycles with oxygen bleach or enzyme detergents may be required.
+        </div>
+      `;
+    }
+
+    resultBox.innerHTML = `
+      <div class="treatment-header">
+        <div class="treatment-tag">Targeted Action Protocol</div>
+        <h3 class="treatment-name">${data.name} on ${fabric.toUpperCase()}</h3>
+      </div>
+
+      ${fabricAlert}
+      ${freshnessNote}
+
+      <div class="treatment-summary-grid">
+        <div class="param-box">
+          <span class="param-label">Recommended Water Temp</span>
+          <span class="param-val">${data.temp}</span>
+        </div>
+        <div class="param-box">
+          <span class="param-label">Primary Active Agent</span>
+          <span class="param-val">${data.agent}</span>
+        </div>
+      </div>
+
+      <div class="critical-alert-box">
+        <div class="alert-icon">🛑</div>
+        <div class="alert-text"><strong>Crucial Rule:</strong> ${data.criticalWarning}</div>
+      </div>
+
+      <div class="procedure-box">
+        <h4 class="procedure-title">Step-by-Step Removal Procedure:</h4>
+        <ol class="procedure-steps">
+          ${data.steps.map(s => `<li>${s}</li>`).join('')}
+        </ol>
+      </div>
+
+      <div class="science-box">
+        <strong>💡 Why this works (The Chemistry):</strong>
+        <p>${data.chemistryExplanation}</p>
+      </div>
+    `;
+  }
+
+  stainSelect?.addEventListener('change', updateSolver);
+  fabricSelect?.addEventListener('change', updateSolver);
+  freshnessSelect?.addEventListener('change', updateSolver);
+
+  updateSolver();
+</script>
+
+<style>
+  .tool-widget-container {
+    background-color: #ffffff;
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-sm);
+    margin: 2rem 0;
+  }
+
+  .tool-controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--slate-200);
+  }
+
+  .tool-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .field-label {
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--slate-800);
+  }
+
+  .tool-select {
+    padding: 0.65rem 0.85rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--slate-900);
+    background-color: var(--slate-50);
+    border: 1px solid var(--slate-300);
+    border-radius: var(--radius-md);
+    outline: none;
+    cursor: pointer;
+    transition: border-color var(--transition-fast);
+  }
+
+  .tool-select:focus {
+    border-color: var(--accent-blue);
+    background-color: #ffffff;
+  }
+
+  :global(.treatment-header) {
+    margin-bottom: 1.25rem;
+  }
+
+  :global(.treatment-tag) {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-emerald);
+    margin-bottom: 0.25rem;
+  }
+
+  :global(.treatment-name) {
+    font-size: 1.4rem;
+    color: var(--slate-900);
+    margin: 0;
+  }
+
+  :global(.treatment-summary-grid) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  :global(.param-box) {
+    background-color: var(--slate-50);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+  }
+
+  :global(.param-label) {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--slate-500);
+    margin-bottom: 0.25rem;
+  }
+
+  :global(.param-val) {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--slate-900);
+  }
+
+  :global(.critical-alert-box) {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background-color: var(--accent-rose-light);
+    border: 1px solid var(--accent-rose-border);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  :global(.alert-icon) {
+    font-size: 1.25rem;
+  }
+
+  :global(.alert-text) {
+    font-size: 0.92rem;
+    color: #881337;
+    line-height: 1.5;
+  }
+
+  :global(.procedure-box) {
+    background-color: #ffffff;
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  :global(.procedure-title) {
+    font-size: 1.05rem;
+    color: var(--slate-900);
+    margin-top: 0;
+    margin-bottom: 0.85rem;
+  }
+
+  :global(.procedure-steps) {
+    padding-left: 1.25rem;
+    margin: 0;
+  }
+
+  :global(.procedure-steps li) {
+    font-size: 0.95rem;
+    color: var(--slate-700);
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
+  }
+
+  :global(.procedure-steps li:last-child) {
+    margin-bottom: 0;
+  }
+
+  :global(.science-box) {
+    background-color: var(--accent-blue-light);
+    border: 1px solid var(--accent-blue-border);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    font-size: 0.88rem;
+    color: #1e3a8a;
+  }
+
+  :global(.science-box p) {
+    margin-top: 0.35rem;
+    margin-bottom: 0;
+    color: #1e40af;
+  }
+
+  :global(.fabric-caution-box), :global(.freshness-note-box) {
+    background-color: var(--accent-amber-light);
+    border: 1px solid var(--accent-amber-border);
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1rem;
+    font-size: 0.88rem;
+    color: #78350f;
+    margin-bottom: 1rem;
+  }
+</style>

@@ -1,0 +1,410 @@
+---
+---
+
+<div class="tool-widget-container" id="maintenance-planner-app">
+  <div class="tool-controls-grid">
+    <div class="tool-field">
+      <label for="home-type-select" class="field-label">1. Dwelling Type</label>
+      <select id="home-type-select" class="tool-select">
+        <option value="single-family">Single-Family Detached Home</option>
+        <option value="townhouse">Townhouse / Semi-Detached</option>
+        <option value="condo-apartment">Condominium / Apartment</option>
+      </select>
+    </div>
+
+    <div class="tool-field">
+      <label for="season-select" class="field-label">2. Target Season / Schedule</label>
+      <select id="season-select" class="tool-select">
+        <option value="spring">🌱 Spring (Renewal & Moisture Checks)</option>
+        <option value="summer">☀️ Summer (Cooling & Exterior Care)</option>
+        <option value="fall">🍂 Fall (Winter Prep & Weatherproofing)</option>
+        <option value="winter">❄️ Winter (Freezing Prevention & Indoor QA)</option>
+        <option value="monthly">🔄 Monthly Routine (All Year)</option>
+      </select>
+    </div>
+
+    <div class="tool-field">
+      <label for="equipment-select" class="field-label">3. Appliance Profile</label>
+      <select id="equipment-select" class="tool-select">
+        <option value="standard">Standard (HVAC, Washer/Dryer, Refrigerator)</option>
+        <option value="gas-fireplace">Gas Heating + Fireplace / Chimney</option>
+        <option value="sump-pump">Basement + Sump Pump & Dehumidifier</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="planner-actions-bar no-print">
+    <button class="btn btn-secondary print-schedule-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 6 2 18 2 18 9"/>
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+        <rect x="6" y="14" width="12" height="8"/>
+      </svg>
+      Print Schedule
+    </button>
+  </div>
+
+  <div class="planner-schedule-card" id="schedule-output">
+    <!-- Schedule rendered dynamically -->
+  </div>
+</div>
+
+<script>
+  interface MaintenanceTask {
+    title: string;
+    description: string;
+    frequency: string;
+    priority: 'Critical' | 'Recommended' | 'Preventive';
+    timeEst: string;
+    dangerAvoidance: string;
+  }
+
+  const TASKS_DATA: Record<string, MaintenanceTask[]> = {
+    'spring': [
+      {
+        title: 'Inspect Gutters & Downspouts',
+        description: 'Clear decomposed winter leaves; ensure downspout extensions discharge water at least 5-6 feet away from foundation walls.',
+        frequency: 'Early Spring',
+        priority: 'Critical',
+        timeEst: '45 mins',
+        dangerAvoidance: 'Prevents foundation hydrostatic pressure and basement moisture seepage.'
+      },
+      {
+        title: 'Service Air Conditioning Condenser',
+        description: 'Remove outdoor debris/leaves from AC exterior unit; clear 2ft radius around condenser; vacuum exterior fins gently with a soft brush.',
+        frequency: 'Spring',
+        priority: 'Recommended',
+        timeEst: '30 mins',
+        dangerAvoidance: 'Prevents compressor overheating and lowers peak cooling utility bills by 15%.'
+      },
+      {
+        title: 'Check Window & Door Weatherstripping',
+        description: 'Inspect seals for winter cracking. Re-caulk any exterior gaps around window frames with 100% silicone exterior sealant.',
+        frequency: 'Spring',
+        priority: 'Preventive',
+        timeEst: '45 mins',
+        dangerAvoidance: 'Prevents rain penetration and spring insect infestation.'
+      }
+    ],
+    'summer': [
+      {
+        title: 'Clean Refrigerator Condenser Coils',
+        description: 'Pull unit forward; vacuum dust and pet hair from rear/underneath condenser coils and empty condensation drip pan.',
+        frequency: 'Summer',
+        priority: 'Recommended',
+        timeEst: '20 mins',
+        dangerAvoidance: 'Reduces compressor thermal load during high summer ambient temperatures.'
+      },
+      {
+        title: 'Inspect Washing Machine Water Inflow Hoses',
+        description: 'Check rubber hoses for blisters, cracks, or stiffness. Replace standard rubber with braided stainless steel hoses every 5 years.',
+        frequency: 'Mid-Summer',
+        priority: 'Critical',
+        timeEst: '15 mins',
+        dangerAvoidance: 'Washing machine hose burst is a leading cause of catastrophic residential water damage.'
+      },
+      {
+        title: 'Test GFCI Outlets & Smoke/CO Alarms',
+        description: 'Press the "Test" button on all kitchen, bathroom, and exterior GFCI outlets. Check detector expiration dates (10-yr max lifespan).',
+        frequency: 'Semi-Annual',
+        priority: 'Critical',
+        timeEst: '15 mins',
+        dangerAvoidance: 'Prevents electrical fire and shock hazards.'
+      }
+    ],
+    'fall': [
+      {
+        title: 'Drain Exterior Hose Bibs / Spigots',
+        description: 'Disconnect all garden hoses, turn off interior shutoff valves for outdoor faucets, and open outdoor taps to drain trapped water.',
+        frequency: 'Mid-to-Late Fall',
+        priority: 'Critical',
+        timeEst: '20 mins',
+        dangerAvoidance: 'Prevents trapped water freezing, expanding, and rupturing interior copper/PEX water supply pipes.'
+      },
+      {
+        title: 'Clean Dryer Ductwork & Vent Hood',
+        description: 'Disconnect flexible transition duct behind dryer and use a rotating brush kit to remove compressed lint along the full exhaust run to exterior.',
+        frequency: 'Fall',
+        priority: 'Critical',
+        timeEst: '45 mins',
+        dangerAvoidance: 'Dryer lint buildup is responsible for nearly 3,000 residential structural fires annually.'
+      },
+      {
+        title: 'Replace Furnace / HVAC Filter',
+        description: 'Install fresh MERV 8–11 pleated filter prior to the heating season.',
+        frequency: 'Fall (then every 60-90 days)',
+        priority: 'Recommended',
+        timeEst: '5 mins',
+        dangerAvoidance: 'Protects blower motor and heat exchanger from thermal stress.'
+      }
+    ],
+    'winter': [
+      {
+        title: 'Monitor Indoor Relative Humidity',
+        description: 'Maintain indoor humidity between 30% and 45% using ventilation/dehumidifiers to prevent condensation on cold window glass and exterior corners.',
+        frequency: 'Weekly in Winter',
+        priority: 'Recommended',
+        timeEst: '5 mins',
+        dangerAvoidance: 'Prevents black mold (Stachybotrys / Cladosporium) growth behind furniture on exterior walls.'
+      },
+      {
+        title: 'Inspect Pipe Insulation in Unconditioned Spaces',
+        description: 'Verify foam pipe sleeves are intact on supply lines running through crawlspaces, attics, or unheated basements.',
+        frequency: 'Early Winter',
+        priority: 'Critical',
+        timeEst: '25 mins',
+        dangerAvoidance: 'Prevents freeze burst during prolonged sub-zero polar vortex events.'
+      }
+    ],
+    'monthly': [
+      {
+        title: 'Inspect HVAC Filter & Airflow',
+        description: 'Hold filter to light; replace if opaque with dust or pet hair.',
+        frequency: 'Monthly',
+        priority: 'Recommended',
+        timeEst: '5 mins',
+        dangerAvoidance: 'Extends system life and maintains indoor air quality.'
+      },
+      {
+        title: 'Clean Range Hood Grease Filters',
+        description: 'Soak aluminum mesh filters in hot water with baking soda and grease-cutting dish soap for 20 minutes.',
+        frequency: 'Monthly',
+        priority: 'Preventive',
+        timeEst: '25 mins',
+        dangerAvoidance: 'Prevents flammable grease buildup over the stove.'
+      },
+      {
+        title: 'Run Sanitizing Descale Cycle on Dishwasher / Washer',
+        description: 'Run empty hot cycle with 2 cups white vinegar or specialized citric acid tablet to clear biofilm and hard water scale.',
+        frequency: 'Monthly',
+        priority: 'Preventive',
+        timeEst: '5 mins (hands-on)',
+        dangerAvoidance: 'Eliminates bacteria, unpleasant odors, and detergent scum.'
+      }
+    ]
+  };
+
+  const homeSelect = document.getElementById('home-type-select') as HTMLSelectElement;
+  const seasonSelect = document.getElementById('season-select') as HTMLSelectElement;
+  const equipSelect = document.getElementById('equipment-select') as HTMLSelectElement;
+  const outputCard = document.getElementById('schedule-output');
+  const printBtn = document.querySelector('.print-schedule-btn');
+
+  function renderSchedule() {
+    if (!outputCard || !homeSelect || !seasonSelect || !equipSelect) return;
+
+    const season = seasonSelect.value;
+    const home = homeSelect.options[homeSelect.selectedIndex].text;
+    const tasks = TASKS_DATA[season] || [];
+
+    outputCard.innerHTML = `
+      <div class="schedule-header">
+        <div class="schedule-badge">Personalized Action Schedule</div>
+        <h3 class="schedule-title">${season.toUpperCase()} Maintenance Plan for ${home}</h3>
+      </div>
+
+      <div class="tasks-schedule-list">
+        ${tasks.map((t, idx) => `
+          <div class="task-plan-item priority-${t.priority.toLowerCase()}">
+            <div class="task-top-row">
+              <span class="task-index-badge">${idx + 1}</span>
+              <span class="task-plan-title">${t.title}</span>
+              <span class="task-priority-tag tag-${t.priority.toLowerCase()}">${t.priority}</span>
+            </div>
+            <p class="task-plan-desc">${t.description}</p>
+            <div class="task-meta-pills">
+              <span class="meta-pill">⏱️ ${t.timeEst}</span>
+              <span class="meta-pill">📅 ${t.frequency}</span>
+            </div>
+            <div class="danger-avoid-box">
+              <strong>🛡️ Asset Protection / Safety Rationale:</strong> ${t.dangerAvoidance}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  homeSelect?.addEventListener('change', renderSchedule);
+  seasonSelect?.addEventListener('change', renderSchedule);
+  equipSelect?.addEventListener('change', renderSchedule);
+  printBtn?.addEventListener('click', () => window.print());
+
+  renderSchedule();
+</script>
+
+<style>
+  .tool-widget-container {
+    background-color: #ffffff;
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-sm);
+    margin: 2rem 0;
+  }
+
+  .tool-controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tool-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .field-label {
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--slate-800);
+  }
+
+  .tool-select {
+    padding: 0.65rem 0.85rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--slate-900);
+    background-color: var(--slate-50);
+    border: 1px solid var(--slate-300);
+    border-radius: var(--radius-md);
+    outline: none;
+    cursor: pointer;
+  }
+
+  .planner-actions-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--slate-200);
+  }
+
+  :global(.schedule-header) {
+    margin-bottom: 1.5rem;
+  }
+
+  :global(.schedule-badge) {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-amber);
+    background-color: var(--accent-amber-light);
+    border: 1px solid var(--accent-amber-border);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.4rem;
+  }
+
+  :global(.schedule-title) {
+    font-size: 1.35rem;
+    color: var(--slate-900);
+    margin: 0;
+  }
+
+  :global(.tasks-schedule-list) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  :global(.task-plan-item) {
+    background-color: #ffffff;
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-md);
+    padding: 1.35rem;
+    box-shadow: var(--shadow-xs);
+  }
+
+  :global(.task-top-row) {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  :global(.task-index-badge) {
+    width: 1.6rem;
+    height: 1.6rem;
+    background-color: var(--slate-900);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.82rem;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  :global(.task-plan-title) {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--slate-900);
+    flex-grow: 1;
+  }
+
+  :global(.task-priority-tag) {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--radius-full);
+  }
+
+  :global(.tag-critical) {
+    background-color: var(--accent-rose-light);
+    color: var(--accent-rose);
+    border: 1px solid var(--accent-rose-border);
+  }
+
+  :global(.tag-recommended) {
+    background-color: var(--accent-blue-light);
+    color: var(--accent-blue);
+    border: 1px solid var(--accent-blue-border);
+  }
+
+  :global(.tag-preventive) {
+    background-color: var(--accent-emerald-light);
+    color: var(--accent-emerald);
+    border: 1px solid var(--accent-emerald-border);
+  }
+
+  :global(.task-plan-desc) {
+    font-size: 0.95rem;
+    color: var(--slate-700);
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+  }
+
+  :global(.task-meta-pills) {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+  }
+
+  :global(.meta-pill) {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--slate-600);
+    background-color: var(--slate-100);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-sm);
+  }
+
+  :global(.danger-avoid-box) {
+    background-color: var(--slate-50);
+    border-left: 3px solid var(--accent-amber);
+    padding: 0.6rem 0.85rem;
+    font-size: 0.88rem;
+    color: #78350f;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+</style>

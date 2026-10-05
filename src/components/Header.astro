@@ -26,14 +26,14 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
       <span class="site-topbar-pulse" aria-hidden="true"></span>
       <span>{todayFormatted}</span>
     </div>
-    <span class="topbar-right">Ideas for living well now</span>
+    <span class="topbar-right">{SITE_CONFIG.slogan}</span>
   </div>
 </div>
 
 <!-- Main Sticky Header -->
 <header class="site-header">
   <div class="container header-container">
-    <!-- Brand Masthead with New Logo WebP -->
+    <!-- Brand Masthead with LifeMode Logo WebP -->
     <a href="/" class="brand-wrapper" aria-label="LifeMode Homepage">
       <img
         src="/assets/branding/lifemode-logo.webp"
@@ -48,60 +48,75 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
 
     <!-- Desktop Navigation -->
     <nav class="nav-desktop" aria-label="Primary Navigation">
-      {SITE_CONFIG.navLinks.map((link) => {
-        const active = isActive(link.href);
-        const pillarConfig = PILLARS[link.slug as PillarSlug];
-        return (
-          <li>
-            <a
-              href={link.href}
-              class={active ? 'active' : ''}
-              style={pillarConfig ? `--nav-accent: ${pillarConfig.color}` : undefined}
-            >
-              {link.name}
-            </a>
-          </li>
-        );
-      })}
-    </nav>
-
-    <!-- Mobile Drawer -->
-    <details class="mobile-nav-details">
-      <summary class="mobile-nav-summary" aria-label="Toggle navigation menu">
-        <span class="menu-icon-bar"></span>
-        <span class="menu-icon-bar"></span>
-        <span class="menu-icon-bar"></span>
-      </summary>
-      <div class="mobile-drawer-menu">
-        <div class="mobile-drawer-header">
-          <span class="mobile-drawer-title">Explore Topics</span>
-        </div>
-        <nav aria-label="Mobile Navigation">
-          <ul class="mobile-nav-list">
+      <ul class="nav-list">
+        {SITE_CONFIG.navLinks.map((link) => {
+          const active = isActive(link.href);
+          const pillarConfig = PILLARS[link.slug as PillarSlug];
+          return (
             <li>
-              <a href="/" class={`mobile-nav-link ${currentPath === '/' ? 'active' : ''}`}>
-                <span>Home</span>
+              <a
+                href={link.href}
+                class={active ? 'active' : ''}
+                style={pillarConfig ? `--nav-accent: ${pillarConfig.color}` : undefined}
+              >
+                {pillarConfig && <span class="nav-dot" style={`background-color: ${pillarConfig.color}`}></span>}
+                <span>{link.name}</span>
               </a>
             </li>
-            {SITE_CONFIG.navLinks.map((link) => {
-              const active = isActive(link.href);
-              const pillar = PILLARS[link.slug as PillarSlug];
-              return (
-                <li>
-                  <a
-                    href={link.href}
-                    class={`mobile-nav-link ${active ? 'active' : ''}`}
-                  >
-                    <span class="mobile-nav-dot" style={pillar ? `background-color: ${pillar.color}` : undefined}></span>
-                    <span>{link.name}</span>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-      </div>
-    </details>
+          );
+        })}
+      </ul>
+    </nav>
+
+    <!-- Header Actions (Search Button + Mobile Menu) -->
+    <div class="header-actions">
+      <button id="open-search-btn" class="header-search-btn" aria-label="Search guides, tools, and recipes">
+        <svg class="search-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="m21 21-4.3-4.3"/>
+        </svg>
+        <span class="search-btn-label">Search</span>
+        <kbd class="search-btn-kbd">⌘K</kbd>
+      </button>
+
+      <!-- Mobile Drawer -->
+      <details class="mobile-nav-details">
+        <summary class="mobile-nav-summary" aria-label="Toggle navigation menu">
+          <span class="menu-icon-bar"></span>
+          <span class="menu-icon-bar"></span>
+          <span class="menu-icon-bar"></span>
+        </summary>
+        <div class="mobile-drawer-menu">
+          <div class="mobile-drawer-header">
+            <span class="mobile-drawer-title">Explore LifeMode</span>
+          </div>
+          <nav aria-label="Mobile Navigation">
+            <ul class="mobile-nav-list">
+              <li>
+                <a href="/" class={`mobile-nav-link ${currentPath === '/' ? 'active' : ''}`}>
+                  <span>Home</span>
+                </a>
+              </li>
+              {SITE_CONFIG.navLinks.map((link) => {
+                const active = isActive(link.href);
+                const pillar = PILLARS[link.slug as PillarSlug];
+                return (
+                  <li>
+                    <a
+                      href={link.href}
+                      class={`mobile-nav-link ${active ? 'active' : ''}`}
+                    >
+                      <span class="mobile-nav-dot" style={pillar ? `background-color: ${pillar.color}` : undefined}></span>
+                      <span>{link.name}</span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        </div>
+      </details>
+    </div>
   </div>
 </header>
 
@@ -119,9 +134,9 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
   }
 
   .brand-logo-img {
-    height: 84px;
+    height: 76px;
     width: auto;
-    max-height: 88px;
+    max-height: 80px;
     object-fit: contain;
     transition: opacity var(--transition-fast), transform var(--transition-fast);
   }
@@ -131,15 +146,35 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
     transform: translateY(-1px);
   }
 
+  .nav-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+  }
+
   .nav-desktop a {
-    font-size: 0.775rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--color-text-secondary);
-    padding: 0.45rem 0.8rem;
+    padding: 0.4rem 0.6rem;
     border-radius: var(--radius-full);
     transition: color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+    white-space: nowrap;
+  }
+
+  .nav-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
   }
 
   .nav-desktop a:hover {
@@ -151,6 +186,48 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
     color: var(--color-text-primary);
     background-color: var(--color-surface-subtle);
     box-shadow: inset 0 0 0 1.5px var(--nav-accent, var(--color-primary-accent));
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .header-search-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.75rem;
+    border-radius: var(--radius-full);
+    background-color: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .header-search-btn:hover {
+    background-color: var(--color-surface-tint);
+    border-color: var(--color-border-hover);
+    color: var(--color-text-primary);
+  }
+
+  .search-btn-icon {
+    flex-shrink: 0;
+  }
+
+  .search-btn-kbd {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 0.1rem 0.35rem;
+    font-size: 0.675rem;
+    font-family: var(--font-mono);
+    color: var(--color-text-muted);
   }
 
   .mobile-nav-details {
@@ -250,16 +327,25 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
     background-color: var(--color-primary-accent);
   }
 
-  @media (max-width: 840px) {
-    .brand-logo-img {
-      height: 70px;
-      max-height: 72px;
+  @media (max-width: 1140px) {
+    .nav-desktop {
+      display: none;
     }
     .mobile-nav-details {
       display: block;
     }
-    .nav-desktop {
+  }
+
+  @media (max-width: 640px) {
+    .search-btn-label, .search-btn-kbd {
       display: none;
+    }
+    .header-search-btn {
+      padding: 0.55rem;
+    }
+    .brand-logo-img {
+      height: 60px;
+      max-height: 64px;
     }
   }
 </style>

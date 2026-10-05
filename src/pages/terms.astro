@@ -1,17 +1,25 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCanonicalUrl } from '../utils/seo';
+
+const canonicalUrl = getCanonicalUrl('/terms');
 ---
 
 <BaseLayout
   title="Terms of Service — LifeMode"
-  description="LifeMode terms of service, editorial usage guidelines, and publisher information."
+  description="LifeMode terms of service, editorial usage guidelines, tool usage rules, and publisher information."
+  canonicalUrl={canonicalUrl}
 >
-  <div class="page-shell container-prose">
+  <div class="page-shell container-prose" style="padding-top: var(--space-8); padding-bottom: var(--space-20);">
     <header style="margin-bottom: var(--space-8);">
-      <span class="hero-tag">Legal &amp; Guidelines</span>
-      <h1 class="page-title">Terms of Service</h1>
-      <p class="page-lead">
-        Guidelines for reading, citing, and interacting with LifeMode editorial publications.
+      <span class="badge" style="background-color: rgba(37, 99, 235, 0.1); color: var(--color-primary-accent); border: 1px solid rgba(37, 99, 235, 0.2); font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: var(--radius-full); margin-bottom: var(--space-3); display: inline-block;">
+        Legal &amp; Guidelines
+      </span>
+      <h1 class="page-title" style="font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; color: var(--color-text-primary); margin-bottom: var(--space-3);">
+        Terms of Service
+      </h1>
+      <p class="page-lead" style="font-size: 1.15rem; color: var(--color-text-secondary); line-height: 1.6;">
+        Guidelines for reading, using interactive utilities, citing, and interacting with LifeMode publications.
       </p>
     </header>
 
@@ -23,12 +31,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <h2>2. Editorial Content &amp; Intellectual Property</h2>
       <p>
-        All articles, guides, essays, photography curation, and original commentary published on LifeMode are protected by applicable copyright and intellectual property laws. Short quotations and links are welcomed with clear attribution to LifeMode.
+        All original written guides, custom interactive tools, decision matrices, design schemas, recipes, and checklists published on LifeMode are protected by applicable copyright and intellectual property laws. Users are permitted to print checklists and guides for personal, non-commercial use. Commercial redistribution, wholesale scraping, or unauthorized republication without prior written consent is strictly prohibited.
       </p>
 
       <h2>3. Informational &amp; Educational Purpose</h2>
       <p>
-        LifeMode articles covering technology, personal finance, travel, wellbeing, and lifestyle are published strictly for informational and educational purposes. They do not constitute individualized professional, financial, legal, or medical advice.
+        The content, calculators, recipes, decision guides, and checklists provided on LifeMode are for general educational, culinary reference, and household decision support purposes only. LifeMode does not provide professional architectural, structural engineering, electrical contracting, licensed plumbing, financial, legal, or medical advice. For complex structural, hazardous, or high-voltage situations, always consult certified licensed trade professionals.
       </p>
 
       <h2>4. External Links &amp; Third-Party Services</h2>
@@ -40,7 +48,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p>
         <strong>Publication:</strong> LifeMode<br />
         <strong>Publisher / Operator:</strong> Oberhauser Péter Zoltán<br />
-        <strong>Contact:</strong> <a href="mailto:contact@lifemode.life">contact@lifemode.life</a>
+        <strong>Editorial Desk:</strong> <a href="mailto:editorial@lifemode.life">editorial@lifemode.life</a><br />
+        <strong>General Inquiries:</strong> <a href="mailto:contact@lifemode.life">contact@lifemode.life</a>
       </p>
     </div>
   </div>

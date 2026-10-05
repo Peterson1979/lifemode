@@ -1,0 +1,37 @@
+---
+export interface StatItem {
+  number: string;
+  unit?: string;
+  label: string;
+  context?: string;
+  variant?: 'health' | 'wealth' | 'home' | 'life' | 'tech' | 'default';
+}
+
+export interface Props {
+  stats?: StatItem[];
+  number?: string;
+  unit?: string;
+  label?: string;
+  context?: string;
+  variant?: 'health' | 'wealth' | 'home' | 'life' | 'tech' | 'default';
+}
+
+const { stats, number, unit, label, context, variant = 'default' } = Astro.props;
+
+const statList: StatItem[] = stats || (number && label ? [{ number, unit, label, context, variant }] : []);
+---
+
+{statList.length > 0 && (
+  <div class="editorial-stats-grid">
+    {statList.map((stat) => (
+      <div class={`editorial-stat-card ${stat.variant || variant}`}>
+        <span class="stat-label">{stat.label}</span>
+        <div class="stat-value-group">
+          <span class="stat-number">{stat.number}</span>
+          {stat.unit && <span class="stat-unit">{stat.unit}</span>}
+        </div>
+        {stat.context && <p class="stat-context">{stat.context}</p>}
+      </div>
+    ))}
+  </div>
+)}

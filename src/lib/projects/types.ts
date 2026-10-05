@@ -13,6 +13,7 @@ export interface OwnedProject {
   ctaLabel: string;
   ctaHeadline?: string;
   ctaDescription?: string;
+  logoUrl?: string;
   // Semantic matching configuration
   keywords: string[];
   negativeKeywords?: string[];

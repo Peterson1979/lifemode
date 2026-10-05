@@ -1,0 +1,466 @@
+---
+---
+
+<div id="search-modal" class="search-modal-backdrop" hidden role="dialog" aria-modal="true" aria-labelledby="search-input-label">
+  <div class="search-modal-container">
+    <div class="search-modal-header">
+      <div class="search-input-wrapper">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="m21 21-4.3-4.3"/>
+        </svg>
+        <span id="search-input-label" class="sr-only">Search LifeMode guides, tools, and recipes</span>
+        <input 
+          id="global-search-input" 
+          type="text" 
+          placeholder="What are you trying to solve? (e.g. coffee stains, store rice, pan care, sourdough...)" 
+          autocomplete="off" 
+          spellcheck="false"
+        />
+        <button id="close-search-btn" class="modal-close-btn" aria-label="Close search">
+          <kbd>ESC</kbd>
+        </button>
+      </div>
+
+      <!-- Quick Category Filters -->
+      <div class="search-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="food-kitchen">Kitchen &amp; Food Care</button>
+        <button class="filter-btn" data-filter="food-drink">Food &amp; Drink</button>
+        <button class="filter-btn" data-filter="cleaning-laundry">Cleaning &amp; Laundry</button>
+        <button class="filter-btn" data-filter="home-maintenance">Home Maintenance</button>
+        <button class="filter-btn" data-filter="storage-organization">Storage &amp; Org</button>
+        <button class="filter-btn" data-filter="everyday-how-to">How-To</button>
+        <button class="filter-btn" data-filter="tools">🛠️ Tools</button>
+        <button class="filter-btn" data-filter="checklists">📋 Checklists</button>
+      </div>
+    </div>
+
+    <div class="search-modal-body">
+      <div id="search-results-list" class="search-results-list">
+        <div class="search-empty-state">
+          <p class="empty-prompt">Type any everyday question, task, recipe, or item to find vetted reference guides and tools.</p>
+          <div class="search-suggestions">
+            <span class="sugg-label">Popular searches:</span>
+            <button class="sugg-chip" data-search="cast iron">cast-iron pan care</button>
+            <button class="sugg-chip" data-search="coffee stain">remove coffee stain</button>
+            <button class="sugg-chip" data-search="store rice">store cooked rice</button>
+            <button class="sugg-chip" data-search="sourdough">sourdough fermentation</button>
+            <button class="sugg-chip" data-search="pantry">organize pantry</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-modal-footer">
+      <span class="nav-hint"><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
+      <span class="nav-hint"><kbd>↵</kbd> to select</span>
+      <span class="nav-hint"><kbd>ESC</kbd> to close</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .search-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 200;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 4rem 1rem 1rem 1rem;
+    animation: fadeIn 0.15s ease-out;
+  }
+
+  .search-modal-backdrop[hidden] {
+    display: none;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .search-modal-container {
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 680px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-hover);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .search-modal-header {
+    border-bottom: 1px solid var(--color-border);
+    padding: 1.1rem 1.25rem 0.85rem 1.25rem;
+    background-color: var(--color-surface);
+  }
+
+  .search-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+  }
+
+  .search-icon {
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+  }
+
+  #global-search-input {
+    width: 100%;
+    border: none;
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    color: var(--color-text-primary);
+    outline: none;
+    padding: 0.4rem 0;
+    background: transparent;
+  }
+
+  #global-search-input::placeholder {
+    color: var(--color-text-dim);
+    font-size: 0.95rem;
+  }
+
+  .modal-close-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+  }
+
+  .modal-close-btn kbd {
+    background-color: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xs);
+    padding: 0.2rem 0.5rem;
+    font-size: 0.725rem;
+    font-family: var(--font-mono);
+    color: var(--color-text-muted);
+    font-weight: 600;
+  }
+
+  .search-filters {
+    display: flex;
+    gap: 0.4rem;
+    overflow-x: auto;
+    padding-top: 0.75rem;
+    padding-bottom: 0.25rem;
+    scrollbar-width: none;
+  }
+
+  .search-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-surface-subtle);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all var(--transition-fast);
+  }
+
+  .filter-btn.active, .filter-btn:hover {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border-color: var(--color-primary);
+  }
+
+  .search-modal-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 0.75rem 1.25rem;
+    min-height: 240px;
+    max-height: 50vh;
+  }
+
+  .search-empty-state {
+    padding: 2rem 0;
+    text-align: center;
+  }
+
+  .empty-prompt {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.25rem;
+  }
+
+  .search-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .sugg-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-dim);
+  }
+
+  .sugg-chip {
+    background-color: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    padding: 0.25rem 0.65rem;
+    font-size: 0.82rem;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: background var(--transition-fast);
+  }
+
+  .sugg-chip:hover {
+    background-color: var(--color-surface-tint);
+    color: var(--color-text-primary);
+  }
+
+  .search-modal-footer {
+    background-color: var(--color-surface-subtle);
+    border-top: 1px solid var(--color-border);
+    padding: 0.6rem 1.25rem;
+    display: flex;
+    gap: 1.25rem;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  .nav-hint kbd {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
+    padding: 0.1rem 0.35rem;
+    font-family: var(--font-mono);
+  }
+
+  :global(.search-result-item) {
+    display: block;
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all var(--transition-fast);
+    margin-bottom: 0.4rem;
+  }
+
+  :global(.search-result-item:hover), :global(.search-result-item.selected) {
+    background-color: var(--color-surface-subtle);
+    border-color: var(--color-border);
+    text-decoration: none;
+  }
+
+  :global(.result-top-row) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+  }
+
+  :global(.result-badge) {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.15rem 0.45rem;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-surface-tint);
+    color: var(--color-text-primary);
+  }
+
+  :global(.result-cat) {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  :global(.result-title) {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 0.2rem;
+  }
+
+  :global(.result-summary) {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  interface SearchItem {
+    id: string;
+    title: string;
+    summary: string;
+    category: string;
+    categoryName: string;
+    type: string;
+    url: string;
+    badge: string;
+  }
+
+  let searchIndex: SearchItem[] = [];
+  let isIndexLoaded = false;
+  let activeFilter = 'all';
+
+  const modal = document.getElementById('search-modal');
+  const input = document.getElementById('global-search-input') as HTMLInputElement;
+  const resultsContainer = document.getElementById('search-results-list');
+  const closeBtn = document.getElementById('close-search-btn');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+
+  async function loadSearchIndex() {
+    if (isIndexLoaded) return;
+    try {
+      const res = await fetch('/search.json');
+      if (res.ok) {
+        searchIndex = await res.json();
+        isIndexLoaded = true;
+      }
+    } catch (e) {
+      console.error('Failed to load search index:', e);
+    }
+  }
+
+  function openModal() {
+    if (!modal) return;
+    modal.hidden = false;
+    loadSearchIndex();
+    setTimeout(() => input?.focus(), 50);
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  function renderResults(query: string) {
+    if (!resultsContainer) return;
+
+    let filtered = searchIndex;
+
+    // Apply category filter
+    if (activeFilter !== 'all') {
+      if (activeFilter === 'tools') {
+        filtered = filtered.filter(item => item.type === 'Interactive Tool');
+      } else if (activeFilter === 'checklists') {
+        filtered = filtered.filter(item => item.type === 'Checklist & Printable');
+      } else {
+        filtered = filtered.filter(item => item.category === activeFilter);
+      }
+    }
+
+    // Apply search query
+    const q = query.trim().toLowerCase();
+    if (q) {
+      filtered = filtered.filter(item => 
+        item.title.toLowerCase().includes(q) ||
+        item.summary.toLowerCase().includes(q) ||
+        item.categoryName.toLowerCase().includes(q)
+      );
+    }
+
+    if (filtered.length === 0) {
+      resultsContainer.innerHTML = `
+        <div class="search-empty-state">
+          <p class="empty-prompt">No matches found for "<strong>${query}</strong>". Try a different term or browse categories.</p>
+        </div>
+      `;
+      return;
+    }
+
+    resultsContainer.innerHTML = filtered.map(item => `
+      <a href="${item.url}" class="search-result-item">
+        <div class="result-top-row">
+          <span class="result-cat">${item.categoryName}</span>
+          <span class="result-badge">${item.badge}</span>
+        </div>
+        <div class="result-title">${item.title}</div>
+        <div class="result-summary">${item.summary}</div>
+      </a>
+    `).join('');
+  }
+
+  // Event Listeners for all open-search buttons on page
+  document.addEventListener('click', (e) => {
+    const target = (e.target as HTMLElement).closest('#open-search-btn, #hero-open-search, [data-open-search]');
+    if (target) {
+      openModal();
+    }
+  });
+
+  closeBtn?.addEventListener('click', closeModal);
+
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === '/' && !modal?.hidden === false && document.activeElement?.tagName !== 'INPUT' && document.activeElement?.tagName !== 'TEXTAREA') {
+      e.preventDefault();
+      openModal();
+    }
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      modal?.hidden ? openModal() : closeModal();
+    }
+    if (e.key === 'Escape' && !modal?.hidden) {
+      closeModal();
+    }
+  });
+
+  input?.addEventListener('input', (e) => {
+    renderResults((e.target as HTMLInputElement).value);
+  });
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.getAttribute('data-filter') || 'all';
+      renderResults(input?.value || '');
+    });
+  });
+
+  document.querySelectorAll('.sugg-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const searchVal = chip.getAttribute('data-search') || '';
+      if (input) {
+        input.value = searchVal;
+        renderResults(searchVal);
+      }
+    });
+  });
+</script>

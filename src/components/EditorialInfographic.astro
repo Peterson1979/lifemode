@@ -1,0 +1,1072 @@
+---
+import type { EditorialInfographicData } from '../content.config';
+
+export interface Props {
+  infographic: EditorialInfographicData;
+}
+
+const { infographic } = Astro.props;
+const { type, kicker, title, description, steps, outcome, formula, decisionTree, comparison, timeline } = infographic;
+---
+
+<figure class={`editorial-infographic-card type-${type}`} role="figure" aria-label={title}>
+  <!-- Header with Kicker & Title -->
+  <figcaption class="infographic-header">
+    <div class="infographic-kicker-row">
+      {kicker && <span class="infographic-kicker">{kicker}</span>}
+      {kicker && <span class="kicker-dot" aria-hidden="true">&bull;</span>}
+      <span class="infographic-type-tag">
+        {type === 'process-flow' && 'Process Chain'}
+        {type === 'mechanism' && 'Scientific Mechanism'}
+        {type === 'safety-pathway' && 'Safety Protocol Pathway'}
+        {type === 'formula' && 'Sizing Calculation'}
+        {type === 'decision-tree' && 'Decision Tree'}
+        {type === 'comparison' && 'Comparison Matrix'}
+        {type === 'timeline' && 'Chronological Timeline'}
+      </span>
+    </div>
+    <h3 class="infographic-title">{title}</h3>
+    {description && <p class="infographic-desc">{description}</p>}
+  </figcaption>
+
+  <!-- Type 1: Process Flow & Type 2: Mechanism & Type 3: Safety Pathway -->
+  {(type === 'process-flow' || type === 'mechanism' || type === 'safety-pathway') && steps && steps.length > 0 && (
+    <div class="infographic-steps-container">
+      <ol class="infographic-steps-grid" role="list">
+        {steps.map((step, idx) => {
+          const variant = step.variant || 'default';
+          const isLast = idx === steps.length - 1;
+          return (
+            <li class={`step-item variant-${variant}`}>
+              <div class="step-card">
+                <div class="step-card-top">
+                  {step.badge ? (
+                    <span class={`step-badge variant-${variant}`}>{step.badge}</span>
+                  ) : step.stepNumber ? (
+                    <span class={`step-badge variant-${variant}`}>Step {step.stepNumber}</span>
+                  ) : (
+                    <span class={`step-badge variant-${variant}`}>Phase {idx + 1}</span>
+                  )}
+                  {step.icon && <span class="step-icon" aria-hidden="true">{step.icon}</span>}
+                </div>
+                <h4 class="step-name">{step.title}</h4>
+                <p class="step-detail">{step.description}</p>
+              </div>
+
+              {!isLast && (
+                <div class="step-arrow-connector" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" class="arrow-line-h" />
+                    <polyline points="12 5 19 12 12 19" class="arrow-head-h" />
+                    <line x1="12" y1="5" x2="12" y2="19" class="arrow-line-v" />
+                    <polyline points="5 12 12 19 19 12" class="arrow-head-v" />
+                  </svg>
+                </div>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+
+      <!-- Outcome / Key Takeaway Card -->
+      {outcome && (
+        <div class="infographic-outcome-wrap">
+          <div class="outcome-down-connector" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="4" x2="12" y2="18"></line>
+              <polyline points="18 12 12 18 6 12"></polyline>
+            </svg>
+          </div>
+          <div class="infographic-outcome-card">
+            {outcome.icon && <span class="outcome-icon" aria-hidden="true">{outcome.icon}</span>}
+            <div class="outcome-text">
+              {outcome.badge && <span class="outcome-badge">{outcome.badge}</span>}
+              <h4 class="outcome-title">{outcome.title}</h4>
+              <p class="outcome-desc">{outcome.description}</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  )}
+
+  <!-- Type 4: Formula Card -->
+  {type === 'formula' && formula && (
+    <div class="infographic-formula-container">
+      <!-- Formula Display -->
+      <div class="formula-banner">
+        <span class="formula-label">Calculation Model:</span>
+        <code class="formula-code">{formula.expression}</code>
+      </div>
+
+      <!-- Variables breakdown if provided -->
+      {formula.variables && formula.variables.length > 0 && (
+        <dl class="formula-variables-list">
+          {formula.variables.map((v) => (
+            <div class="formula-var-row">
+              <dt class="var-name">{v.name}:</dt>
+              <dd class="var-desc">{v.description}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
+
+      <!-- Presets / Example Sizing Cards -->
+      {formula.presets && formula.presets.length > 0 && (
+        <div class="formula-presets-wrapper">
+          <h4 class="presets-heading">Quick Sizing Reference Table</h4>
+          <div class="formula-presets-grid">
+            {formula.presets.map((preset) => (
+              <div class="preset-card">
+                <div class="preset-card-header">
+                  {preset.icon && <span class="preset-icon" aria-hidden="true">{preset.icon}</span>}
+                  <span class="preset-label">{preset.label}</span>
+                </div>
+                <div class="preset-value">{preset.value}</div>
+                {preset.note && <div class="preset-note">{preset.note}</div>}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  )}
+
+  <!-- Type 5: Decision Tree -->
+  {type === 'decision-tree' && decisionTree && (
+    <div class="infographic-decision-container">
+      <div class="decision-prompt-bar">
+        <span class="prompt-icon" aria-hidden="true">💡</span>
+        <span class="prompt-text">{decisionTree.question}</span>
+      </div>
+
+      <div class="decision-branches-grid">
+        {decisionTree.branches.map((branch, index) => {
+          const variant = branch.variant || 'default';
+          return (
+            <div class={`decision-branch-card variant-${variant}`}>
+              <div class="branch-top-bar">
+                <span class="branch-num">Option {index + 1}</span>
+                {branch.tag && <span class="branch-tag">{branch.tag}</span>}
+              </div>
+
+              <div class="branch-condition-box">
+                <span class="condition-prefix">IF:</span>
+                <span class="condition-text">{branch.condition}</span>
+              </div>
+
+              <div class="branch-arrow-down" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="4" x2="12" y2="18"></line>
+                  <polyline points="18 12 12 18 6 12"></polyline>
+                </svg>
+              </div>
+
+              <div class="branch-result-box">
+                <div class="result-header">
+                  {branch.icon && <span class="result-icon" aria-hidden="true">{branch.icon}</span>}
+                  <div>
+                    <h4 class="result-rec">{branch.recommendation}</h4>
+                    {branch.sizeOrSpec && <span class="result-spec">{branch.sizeOrSpec}</span>}
+                  </div>
+                </div>
+                <p class="result-reason">{branch.reason}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  )}
+
+  <!-- Type 6: Comparison Matrix -->
+  {type === 'comparison' && comparison && (
+    <div class="infographic-comparison-container">
+      {comparison.columns && comparison.columns.length > 0 && (
+        <div class="comparison-cards-grid">
+          {comparison.columns.map((col) => (
+            <div class={`comparison-column-card ${col.isRecommended ? 'is-recommended' : ''}`}>
+              <div class="comparison-column-header">
+                {col.badge && <span class="comparison-badge">{col.badge}</span>}
+                <div class="comparison-title-row">
+                  {col.icon && <span class="comparison-icon" aria-hidden="true">{col.icon}</span>}
+                  <h4 class="comparison-column-title">{col.title}</h4>
+                </div>
+                {col.subtitle && <p class="comparison-column-subtitle">{col.subtitle}</p>}
+              </div>
+
+              {col.features && col.features.length > 0 && (
+                <ul class="comparison-features-list">
+                  {col.features.map((feat) => (
+                    <li class={`comparison-feature-item ${feat.highlight ? 'is-highlighted' : ''}`}>
+                      <span class="feature-label">{feat.label}:</span>
+                      <span class="feature-val">{feat.value}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {col.verdict && (
+                <div class="comparison-verdict-box">
+                  <span class="verdict-label">Editorial Verdict</span>
+                  <p class="verdict-text">{col.verdict}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+
+      {comparison.rows && comparison.rows.length > 0 && (
+        <div class="comparison-table-wrapper">
+          <table class="infographic-table">
+            {comparison.headers && (
+              <thead>
+                <tr>
+                  {comparison.headers.map((h) => <th>{h}</th>)}
+                </tr>
+              </thead>
+            )}
+            <tbody>
+              {comparison.rows.map((row) => (
+                <tr>
+                  {row.map((cell) => <td>{cell}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  )}
+
+  <!-- Type 7: Chronological Timeline -->
+  {type === 'timeline' && timeline && (
+    <div class="infographic-timeline-container">
+      <div class="timeline-track">
+        {timeline.events.map((evt, idx) => (
+          <div class={`timeline-node ${evt.highlight ? 'is-highlight' : ''}`}>
+            <div class="timeline-marker-col">
+              <div class="timeline-bullet">{idx + 1}</div>
+              <div class="timeline-line" aria-hidden="true"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-card-header">
+                <span class="timeline-era">{evt.timeOrEra}</span>
+                {evt.badge && <span class="timeline-badge">{evt.badge}</span>}
+              </div>
+              <h4 class="timeline-title">{evt.title}</h4>
+              <p class="timeline-desc">{evt.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      {timeline.summary && (
+        <div class="timeline-summary-bar">
+          <span class="timeline-summary-label">Key Lifecycle Insight:</span>
+          <span class="timeline-summary-text">{timeline.summary}</span>
+        </div>
+      )}
+    </div>
+  )}
+</figure>
+
+<style>
+  .editorial-infographic-card {
+    background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-surface-subtle) 100%);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    margin: var(--space-8) 0;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .editorial-infographic-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary-accent) 0%, #059669 100%);
+  }
+
+  /* Comparison Styles */
+  .comparison-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+  }
+
+  .comparison-column-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    position: relative;
+  }
+
+  .comparison-column-card.is-recommended {
+    border-color: var(--color-primary-accent);
+    box-shadow: 0 0 0 1px var(--color-primary-accent), 0 4px 12px rgba(37, 99, 235, 0.08);
+  }
+
+  .comparison-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.2rem 0.5rem;
+    background: var(--color-primary-accent);
+    color: #ffffff;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-2);
+    align-self: flex-start;
+  }
+
+  .comparison-title-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .comparison-column-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  .comparison-column-subtitle {
+    font-size: 0.825rem;
+    color: var(--color-text-muted);
+    margin-top: 0.25rem;
+  }
+
+  .comparison-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-grow: 1;
+  }
+
+  .comparison-feature-item {
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.35rem 0;
+    border-bottom: 1px dashed var(--color-border-subtle);
+  }
+
+  .comparison-feature-item.is-highlighted {
+    font-weight: 600;
+    color: var(--color-primary-accent);
+  }
+
+  .feature-label {
+    color: var(--color-text-secondary);
+  }
+
+  .feature-val {
+    color: var(--color-text-primary);
+    font-weight: 500;
+    text-align: right;
+  }
+
+  .comparison-verdict-box {
+    margin-top: var(--space-3);
+    padding: var(--space-3);
+    background: var(--color-surface-subtle);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--color-primary-accent);
+  }
+
+  .verdict-label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary-accent);
+    margin-bottom: 0.25rem;
+  }
+
+  .verdict-text {
+    font-size: 0.825rem;
+    color: var(--color-text-primary);
+    margin: 0;
+    line-height: 1.45;
+  }
+
+  /* Timeline Styles */
+  .timeline-track {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+  }
+
+  .timeline-node {
+    display: flex;
+    gap: var(--space-4);
+  }
+
+  .timeline-marker-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .timeline-bullet {
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-full);
+    background: var(--color-surface);
+    border: 2px solid var(--color-primary-accent);
+    color: var(--color-primary-accent);
+    font-size: 0.75rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .timeline-node.is-highlight .timeline-bullet {
+    background: var(--color-primary-accent);
+    color: #ffffff;
+  }
+
+  .timeline-line {
+    width: 2px;
+    background: var(--color-border);
+    flex-grow: 1;
+    margin: 4px 0;
+  }
+
+  .timeline-node:last-child .timeline-line {
+    display: none;
+  }
+
+  .timeline-card {
+    flex-grow: 1;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    margin-bottom: var(--space-2);
+  }
+
+  .timeline-card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: 0.35rem;
+  }
+
+  .timeline-era {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--color-primary-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .timeline-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.1rem 0.4rem;
+    background: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    color: var(--color-text-muted);
+  }
+
+  .timeline-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 0.35rem 0;
+    color: var(--color-text-primary);
+  }
+
+  .timeline-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .timeline-summary-bar {
+    margin-top: var(--space-4);
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    display: flex;
+    gap: var(--space-2);
+    font-size: 0.85rem;
+    align-items: baseline;
+  }
+
+  .timeline-summary-label {
+    font-weight: 700;
+    color: var(--color-primary-accent);
+    white-space: nowrap;
+  }
+
+  .timeline-summary-text {
+    color: var(--color-text-secondary);
+  }
+
+  .infographic-header {
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .infographic-kicker-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .infographic-kicker {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary-accent);
+  }
+
+  .kicker-dot {
+    color: var(--color-text-dim);
+    font-size: 0.875rem;
+  }
+
+  .infographic-type-tag {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border-subtle);
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--radius-full);
+  }
+
+  .infographic-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1.3;
+    margin: 0 0 var(--space-1) 0;
+  }
+
+  .infographic-desc {
+    font-size: 0.925rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* --- STEPS / PROCESS / MECHANISM / SAFETY PATHWAY --- */
+  .infographic-steps-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    .infographic-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      align-items: stretch;
+      gap: var(--space-3);
+    }
+  }
+
+  .step-item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .step-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .step-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Variant stylings */
+  .step-item.variant-default .step-card {
+    border-color: var(--color-border);
+  }
+  .step-item.variant-default .step-card:hover {
+    border-color: var(--color-primary-accent);
+  }
+
+  .step-item.variant-danger .step-card {
+    background-color: rgba(225, 29, 72, 0.03);
+    border-color: rgba(225, 29, 72, 0.35);
+  }
+  .step-item.variant-danger .step-card:hover {
+    border-color: #e11d48;
+  }
+
+  .step-item.variant-safe .step-card,
+  .step-item.variant-success .step-card {
+    background-color: rgba(5, 150, 105, 0.03);
+    border-color: rgba(5, 150, 105, 0.35);
+  }
+  .step-item.variant-safe .step-card:hover,
+  .step-item.variant-success .step-card:hover {
+    border-color: #059669;
+  }
+
+  .step-item.variant-warning .step-card {
+    background-color: rgba(217, 119, 6, 0.03);
+    border-color: rgba(217, 119, 6, 0.35);
+  }
+
+  .step-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+
+  .step-badge {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-surface-subtle);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border-subtle);
+  }
+
+  .step-badge.variant-danger {
+    background-color: rgba(225, 29, 72, 0.12);
+    color: #be123c;
+    border-color: rgba(225, 29, 72, 0.25);
+  }
+
+  .step-badge.variant-safe,
+  .step-badge.variant-success {
+    background-color: rgba(5, 150, 105, 0.12);
+    color: #065f46;
+    border-color: rgba(5, 150, 105, 0.25);
+  }
+
+  .step-badge.variant-warning {
+    background-color: rgba(217, 119, 6, 0.12);
+    color: #92400e;
+    border-color: rgba(217, 119, 6, 0.25);
+  }
+
+  .step-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  .step-name {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .step-detail {
+    font-size: 0.825rem;
+    color: var(--color-text-secondary);
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  /* Connectors */
+  .step-arrow-connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary-accent);
+    padding: var(--space-2) 0;
+  }
+
+  .arrow-line-h, .arrow-head-h { display: none; }
+  .arrow-line-v, .arrow-head-v { display: block; }
+
+  @media (min-width: 768px) {
+    .step-arrow-connector {
+      display: none; /* In horizontal grid, the grid layout and card headers imply the sequence */
+    }
+  }
+
+  /* Outcome section */
+  .infographic-outcome-wrap {
+    margin-top: var(--space-4);
+  }
+
+  .outcome-down-connector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #059669;
+    margin: var(--space-1) 0;
+  }
+
+  .infographic-outcome-card {
+    background: linear-gradient(135deg, rgba(5, 150, 105, 0.08) 0%, rgba(5, 150, 105, 0.02) 100%);
+    border: 1.5px solid rgba(5, 150, 105, 0.35);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4) var(--space-5);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  .outcome-icon {
+    font-size: 1.75rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .outcome-text {
+    flex: 1;
+  }
+
+  .outcome-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.675rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #065f46;
+    background-color: rgba(5, 150, 105, 0.15);
+    padding: 0.15rem 0.45rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-1);
+  }
+
+  .outcome-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #065f46;
+    margin: 0 0 0.25rem 0;
+  }
+
+  .outcome-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  /* --- FORMULA STYLES --- */
+  .infographic-formula-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .formula-banner {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(37, 99, 235, 0.02) 100%);
+    border: 1.5px solid rgba(37, 99, 235, 0.25);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4) var(--space-5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    text-align: center;
+  }
+
+  .formula-label {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-primary-accent);
+  }
+
+  .formula-code {
+    font-family: var(--font-mono);
+    font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    background: var(--color-surface);
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    display: inline-block;
+  }
+
+  .formula-variables-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+    margin: 0;
+    padding: var(--space-3) var(--space-4);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-md);
+  }
+
+  .formula-var-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    font-size: 0.85rem;
+  }
+
+  .var-name {
+    font-weight: 700;
+    color: var(--color-primary-accent);
+  }
+
+  .var-desc {
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .presets-heading {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-3) 0;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .formula-presets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--space-3);
+  }
+
+  .preset-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3) var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    transition: transform var(--transition-fast), border-color var(--transition-fast);
+  }
+
+  .preset-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-primary-accent);
+  }
+
+  .preset-card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .preset-icon {
+    font-size: 1.1rem;
+  }
+
+  .preset-label {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--color-text-primary);
+  }
+
+  .preset-value {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-primary-accent);
+  }
+
+  .preset-note {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  /* --- DECISION TREE STYLES --- */
+  .decision-prompt-bar {
+    background-color: rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3) var(--space-4);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  .prompt-icon {
+    font-size: 1.25rem;
+  }
+
+  .prompt-text {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-primary-accent);
+  }
+
+  .decision-branches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .decision-branch-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .decision-branch-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary-accent);
+  }
+
+  .branch-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+
+  .branch-num {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .branch-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.45rem;
+    border-radius: var(--radius-full);
+    background-color: var(--color-surface-subtle);
+    border: 1px solid var(--color-border-subtle);
+    color: var(--color-text-secondary);
+  }
+
+  .branch-condition-box {
+    background-color: var(--color-surface-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.85rem;
+    line-height: 1.35;
+    color: var(--color-text-secondary);
+  }
+
+  .condition-prefix {
+    font-family: var(--font-mono);
+    font-weight: 800;
+    color: var(--color-primary-accent);
+    margin-right: 0.25rem;
+  }
+
+  .branch-arrow-down {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-primary-accent);
+    padding: 0.1rem 0;
+  }
+
+  .branch-result-box {
+    background: linear-gradient(180deg, var(--color-surface-subtle) 0%, var(--color-surface) 100%);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+  }
+
+  .result-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
+  }
+
+  .result-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+    margin-top: 0.1rem;
+  }
+
+  .result-rec {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  .result-spec {
+    font-family: var(--font-mono);
+    font-size: 0.725rem;
+    color: var(--color-primary-accent);
+    font-weight: 600;
+  }
+
+  .result-reason {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+    margin: 0;
+  }
+</style>

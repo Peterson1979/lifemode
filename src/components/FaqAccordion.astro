@@ -1,0 +1,64 @@
+---
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface Props {
+  faqs: FaqItem[];
+}
+
+const { faqs = [] } = Astro.props;
+
+const faqSchema = faqs.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.answer,
+    },
+  })),
+} : null;
+---
+
+{faqs.length > 0 && (
+  <section class="faqs-section" aria-labelledby="faq-section-heading">
+    <h2 id="faq-section-heading" class="faq-heading">
+      <span class="faq-icon">❓</span> Frequently Asked Questions
+    </h2>
+    <div class="faq-accordion-group">
+      {faqs.map((faq) => (
+        <details class="faq-item">
+          <summary class="faq-question">{faq.question}</summary>
+          <div class="faq-answer">
+            <p>{faq.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </section>
+)}
+
+{faqSchema && (
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+)}
+
+<style>
+  .faqs-section {
+    margin: 2.5rem 0;
+  }
+
+  .faq-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .faq-icon {
+    font-size: 1.4rem;
+  }
+</style>

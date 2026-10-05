@@ -198,8 +198,8 @@ test('Excerpt Quality: Accepts concise, informative human descriptions', () => {
 });
 
 test('Public Terminology: Site configuration uses clean reader-facing language', () => {
-  assert.strictEqual(SITE_CONFIG.title, 'LifeMode — Ideas for living well now');
-  assert.strictEqual(SITE_CONFIG.slogan, 'Ideas for living well now');
+  assert.strictEqual(SITE_CONFIG.title, 'LifeMode — Practical Guides, Tools & Ideas for Everyday Life');
+  assert.strictEqual(SITE_CONFIG.slogan, 'Practical guides, tools, and ideas for modern life');
   assert.ok(!SITE_CONFIG.description.toLowerCase().includes('editorial pillars'));
   assert.ok(!SITE_CONFIG.description.toLowerCase().includes('contemporary editorial journal'));
   assert.ok(!SITE_CONFIG.description.toLowerCase().includes('lead editorial dispatch'));

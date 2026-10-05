@@ -474,7 +474,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
               platform,
               status: 'SKIPPED',
               postId: undefined,
-              postUrl: pkg.mediaAsset.url,
+              postUrl: pkg.mediaAsset?.url,
               publishedAt: new Date().toISOString(),
               idempotencyKey: pkg.idempotencyKey,
             };

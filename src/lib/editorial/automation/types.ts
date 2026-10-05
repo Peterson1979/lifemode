@@ -130,6 +130,7 @@ export interface AutomationRequest {
   providerMode?: 'fixture' | 'router'; // default: 'fixture'
   accelerationEnabled?: boolean; // default: false
   accelerationMaxOpportunities?: number; // default: 5
+  guaranteedPillars?: PillarSlug[]; // e.g. ['food-drink']
   
   // Custom provider injections
   discoveryAdapters?: IDiscoveryAdapter[];

@@ -1,0 +1,552 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DailyIdeasPicks from '../../components/DailyIdeasPicks.astro';
+import TopicDataSection from '../../components/topic-data/TopicDataSection.astro';
+import { PILLARS } from '../../config/site';
+import { getCuratedPicks } from '../../lib/commerce/curated-picks';
+import { generateBreadcrumbSchema } from '../../utils/seo';
+
+const pillar = PILLARS['life-hacks'];
+
+export interface LifeHackVideo {
+  id: string;
+  title: string;
+  description: string;
+  thumbnail: string;
+  duration?: string;
+  category?: string;
+  videoUrl: string;
+  creator?: string;
+}
+
+// Dedicated curated video library — YouTube videos only, zero text articles.
+const lifeHackVideos: LifeHackVideo[] = [
+  {
+    id: 'pan-heating-technique',
+    title: 'How to Properly Heat a Pan',
+    description: 'Learn the exact temperature test that prevents sticking when cooking with stainless steel cookware.',
+    thumbnail: 'https://i.ytimg.com/vi/CB-SCA1reqE/hqdefault.jpg',
+    duration: '2:15',
+    category: 'Cookware Care',
+    videoUrl: 'https://www.youtube.com/watch?v=CB-SCA1reqE',
+    creator: 'Rouxbe',
+  },
+  {
+    id: 'basic-knife-skills',
+    title: 'Basic Knife Skills',
+    description: 'Master the fundamental chef grip, claw hand technique, and slicing motions for safe, efficient prep.',
+    thumbnail: 'https://i.ytimg.com/vi/G-Fg7l7G1zw/hqdefault.jpg',
+    duration: '3:45',
+    category: 'Kitchen Skill',
+    videoUrl: 'https://www.youtube.com/watch?v=G-Fg7l7G1zw',
+    creator: 'Tasty',
+  },
+  {
+    id: 'clean-season-cast-iron',
+    title: "How to Clean and Season a Cast-Iron Pan",
+    description: 'The proven America’s Test Kitchen routine for washing, drying on stovetop heat, and seasoning cast iron pans.',
+    thumbnail: 'https://i.ytimg.com/vi/kmVmKmR0CXA/hqdefault.jpg',
+    duration: '4:20',
+    category: 'Cookware Care',
+    videoUrl: 'https://www.youtube.com/watch?v=kmVmKmR0CXA',
+    creator: "America's Test Kitchen",
+  },
+  {
+    id: 'fresh-herbs-storage-guide',
+    title: "Expert's Guide to Fresh Herbs",
+    description: 'Keep tender and woody fresh herbs crisp and vibrant for weeks with proper moisture control methods.',
+    thumbnail: 'https://i.ytimg.com/vi/GJ0lNZwoAKM/hqdefault.jpg',
+    duration: '3:10',
+    category: 'Food Preservation',
+    videoUrl: 'https://www.youtube.com/watch?v=GJ0lNZwoAKM',
+    creator: "America's Test Kitchen",
+  },
+  {
+    id: 'unclog-any-drain-ask-toh',
+    title: 'How to Unclog Any Drain',
+    description: 'Plumbing expert Richard Trethewey demonstrates mechanical drain clearance techniques for sinks, tubs, and showers.',
+    thumbnail: 'https://i.ytimg.com/vi/LpDLynrXln8/hqdefault.jpg',
+    duration: '5:30',
+    category: 'Plumbing & Drainage',
+    videoUrl: 'https://www.youtube.com/watch?v=LpDLynrXln8',
+    creator: 'This Old House',
+  },
+  {
+    id: 'repair-stripped-screw-hole',
+    title: 'How to Repair a Stripped Screw Hole',
+    description: 'Tom Silva shares simple wood restoration tricks to firmly fix loose screws in doors, cabinets, and furniture.',
+    thumbnail: 'https://i.ytimg.com/vi/nA0a0KJH9tA/hqdefault.jpg',
+    duration: '3:50',
+    category: 'Home Repair',
+    videoUrl: 'https://www.youtube.com/watch?v=nA0a0KJH9tA',
+    creator: 'This Old House',
+  },
+  {
+    id: 'patch-drywall-hole-guide',
+    title: 'How to Patch a Drywall Hole',
+    description: 'Step-by-step tutorial on creating clean drywall backing, taping, and applying joint compound smoothly.',
+    thumbnail: 'https://i.ytimg.com/vi/PLGmTzEGSIY/hqdefault.jpg',
+    duration: '4:15',
+    category: 'Home Maintenance',
+    videoUrl: 'https://www.youtube.com/watch?v=PLGmTzEGSIY',
+    creator: 'This Old House',
+  },
+  {
+    id: 'fold-fitted-sheet-pro',
+    title: 'How to Fold a Fitted Sheet like a PRO',
+    description: 'Transform bulky fitted sheets into neat, stackable rectangular bundles in under a minute.',
+    thumbnail: 'https://i.ytimg.com/vi/0O3N-vbGb38/hqdefault.jpg',
+    duration: '2:30',
+    category: 'Organization',
+    videoUrl: 'https://www.youtube.com/watch?v=0O3N-vbGb38',
+    creator: 'GoCleanCo',
+  },
+  {
+    id: 'perfect-crispy-bacon-atk',
+    title: "How to Cook Bacon So It's Crispy, Tender, and the Most Perfect Ever",
+    description: 'The science-backed skillet technique using a splash of water for evenly rendered, crispy bacon.',
+    thumbnail: 'https://i.ytimg.com/vi/2guC4Badq2s/hqdefault.jpg',
+    duration: '3:20',
+    category: 'Culinary Technique',
+    videoUrl: 'https://www.youtube.com/watch?v=2guC4Badq2s',
+    creator: "America's Test Kitchen",
+  },
+  {
+    id: 'wirecutter-fitted-sheet-method',
+    title: 'How to Fold a Fitted Sheet: Our Best Method',
+    description: 'Wirecutter’s tested, reliable folding technique for fitted bed sheets without frustration.',
+    thumbnail: 'https://i.ytimg.com/vi/JGZCyVkMhIM/hqdefault.jpg',
+    duration: '1:45',
+    category: 'Organization',
+    videoUrl: 'https://www.youtube.com/watch?v=JGZCyVkMhIM',
+    creator: 'NYT Wirecutter',
+  },
+  {
+    id: 'replace-polybutylene-piping',
+    title: 'How To Replace Polybutylene Water Piping',
+    description: 'Plumbing diagnosis and replacement protocols for aging household supply lines and valves.',
+    thumbnail: 'https://i.ytimg.com/vi/2ALEi8EqkGs/hqdefault.jpg',
+    duration: '6:10',
+    category: 'Home Plumbing',
+    videoUrl: 'https://www.youtube.com/watch?v=2ALEi8EqkGs',
+    creator: 'This Old House',
+  },
+  {
+    id: 'patch-cracked-drywall-toh',
+    title: 'How to Patch Cracked Drywall',
+    description: 'Professional methods for cutting out stress cracks, applying mesh tape, and blending wall texture.',
+    thumbnail: 'https://i.ytimg.com/vi/YU1z2y11KZY/hqdefault.jpg',
+    duration: '4:40',
+    category: 'Home Repair',
+    videoUrl: 'https://www.youtube.com/watch?v=YU1z2y11KZY',
+    creator: 'This Old House',
+  },
+];
+
+const hackProductPicks = getCuratedPicks(['chainmail-scrubber', 'lodge-10-cast-iron', 'oxo-herb-keeper', 'wool-dryer-balls']);
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: pillar.name, url: `/${pillar.slug}` },
+]);
+---
+
+<BaseLayout
+  title={`${pillar.name} — Video Shortcuts & Smart Everyday Fixes | LifeMode`}
+  description={pillar.description}
+  jsonLd={breadcrumbSchema}
+>
+  <!-- Breadcrumb Navigation -->
+  <div class="container" style="padding-top: var(--space-6);">
+    <nav aria-label="Breadcrumbs" class="breadcrumb-nav">
+      <ol class="breadcrumb-list">
+        <li><a href="/">Home</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">&rsaquo;</li>
+        <li class="breadcrumb-current" aria-current="page">{pillar.name}</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Video Pillar Hero -->
+  <section class="hero-video-pillar">
+    <div class="container">
+      <div class="video-pillar-badge">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <span>🎬 Curated Video Destination</span>
+      </div>
+
+      <h1 class="video-pillar-title">{pillar.name}</h1>
+      <p class="video-pillar-lead">{pillar.description}</p>
+
+      <div class="video-format-pill">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <polygon points="5 3 19 12 5 21 5 3"/>
+        </svg>
+        <span>Practical visual demonstrations &bull; Clever shortcuts &bull; Zero fluff</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Grid / Hub Content -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker">Curated Visual Library</span>
+          <h2 class="section-title">Quick Fixes &amp; Smart Shortcuts</h2>
+          <p class="section-desc">Actionable, step-by-step visual solutions for everyday living</p>
+        </div>
+      </div>
+
+      {lifeHackVideos.length > 0 ? (
+        <div class="video-cards-grid">
+          {lifeHackVideos.map((video) => (
+            <article class="video-entry-card" id={`video-${video.id}`}>
+              <a href={video.videoUrl} target="_blank" rel="noopener noreferrer" class="video-thumbnail-wrapper" aria-label={`Watch ${video.title} on YouTube`}>
+                <img src={video.thumbnail} alt={video.title} class="video-thumbnail-img" loading="lazy" />
+                <div class="video-play-overlay" aria-hidden="true">
+                  <div class="play-btn-circle">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                      <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                  </div>
+                </div>
+                {video.duration && (
+                  <span class="video-duration-tag">{video.duration}</span>
+                )}
+              </a>
+
+              <div class="video-card-body">
+                {video.category && (
+                  <span class="video-tag">{video.category}</span>
+                )}
+                <h3 class="video-card-title">
+                  <a href={video.videoUrl} target="_blank" rel="noopener noreferrer">
+                    {video.title}
+                  </a>
+                </h3>
+                <p class="video-card-desc">{video.description}</p>
+                {video.creator && (
+                  <span class="video-creator-credit">By {video.creator}</span>
+                )}
+                <div class="video-card-foot">
+                  <a
+                    href={video.videoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-watch-video"
+                  >
+                    <span>Watch on YouTube</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="video-empty-state">
+          <div class="video-empty-icon" aria-hidden="true">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+              <line x1="7" y1="2" x2="7" y2="22"/>
+              <line x1="17" y1="2" x2="17" y2="22"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+            </svg>
+          </div>
+          <h3 class="video-empty-title">Video Library in Production</h3>
+          <p class="video-empty-lead">
+            Life Hacks is our dedicated video-first destination. Practical short-form video demonstrations and clever visual shortcuts are currently being curated.
+          </p>
+          <div class="video-empty-actions">
+            <a href="/" class="btn btn-outline">Return to Homepage</a>
+            <a href="/guides/" class="btn btn-outline" style="color: var(--color-primary-accent);">Browse Reference Guides &rarr;</a>
+          </div>
+        </div>
+      )}
+
+      <!-- Contextual Commerce Picks for Household Shortcuts -->
+      {hackProductPicks.length > 0 && (
+        <div style="margin-top: var(--space-16);">
+          <DailyIdeasPicks
+            products={hackProductPicks}
+            title="Tools & Essentials for Smart Everyday Shortcuts"
+            subtitle="Curated finds tested to make household tasks, cooking, and storage effortless."
+          />
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Topic Intelligence -->
+  <TopicDataSection pillar="life-hacks" pillarName="Life Hacks" />
+</BaseLayout>
+
+<style>
+  .hero-video-pillar {
+    padding: var(--space-8) 0 var(--space-12) 0;
+    background: linear-gradient(180deg, rgba(6, 182, 212, 0.06) 0%, transparent 100%);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .video-pillar-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #0891b2;
+    background-color: rgba(6, 182, 212, 0.1);
+    border: 1px solid rgba(6, 182, 212, 0.25);
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-4);
+  }
+
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #0891b2;
+    border-radius: 50%;
+    animation: pulseGlow 2s infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .video-pillar-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .video-pillar-lead {
+    font-size: 1.15rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 680px;
+    margin-bottom: var(--space-6);
+  }
+
+  .video-format-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 0.4rem 0.9rem;
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .video-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .video-entry-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .video-entry-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--color-border-hover);
+  }
+
+  .video-thumbnail-wrapper {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background-color: #0f172a;
+    overflow: hidden;
+    display: block;
+    text-decoration: none;
+  }
+
+  .video-thumbnail-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(15, 23, 42, 0.35);
+    transition: background var(--transition-fast);
+  }
+
+  .video-entry-card:hover .video-play-overlay {
+    background: rgba(15, 23, 42, 0.15);
+  }
+
+  .play-btn-circle {
+    width: 52px;
+    height: 52px;
+    background-color: #ffffff;
+    color: #0f172a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 3px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    transition: transform var(--transition-fast);
+  }
+
+  .video-entry-card:hover .play-btn-circle {
+    transform: scale(1.1);
+  }
+
+  .video-duration-tag {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    background-color: rgba(15, 23, 42, 0.85);
+    color: #ffffff;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+  }
+
+  .video-card-body {
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .video-tag {
+    font-size: 0.725rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #0891b2;
+    margin-bottom: var(--space-2);
+  }
+
+  .video-card-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: var(--space-2);
+  }
+
+  .video-card-title a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+  }
+
+  .video-card-title a:hover {
+    color: #0891b2;
+  }
+
+  .video-card-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin-bottom: var(--space-4);
+    flex-grow: 1;
+  }
+
+  .video-creator-credit {
+    font-size: 0.775rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-3);
+  }
+
+  .video-card-foot {
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  .btn-watch-video {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.825rem;
+    font-weight: 700;
+    color: #0891b2;
+    text-decoration: none;
+    transition: gap var(--transition-fast);
+  }
+
+  .btn-watch-video:hover {
+    gap: 0.55rem;
+  }
+
+  .video-empty-state {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-12) var(--space-8);
+    text-align: center;
+    max-width: 640px;
+    margin: var(--space-6) auto;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .video-empty-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-full);
+    background-color: rgba(6, 182, 212, 0.08);
+    color: #0891b2;
+    margin-bottom: var(--space-5);
+  }
+
+  .video-empty-title {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .video-empty-lead {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-6);
+  }
+
+  .video-empty-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+</style>

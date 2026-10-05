@@ -1,0 +1,407 @@
+---
+---
+
+<div class="tool-widget-container" id="food-storage-app">
+  <div class="tool-controls-grid">
+    <div class="tool-field">
+      <label for="food-category-select" class="field-label">1. Food Category</label>
+      <select id="food-category-select" class="tool-select">
+        <option value="all">All Food Types</option>
+        <option value="produce">Fresh Produce & Herbs</option>
+        <option value="dairy-eggs">Dairy & Eggs</option>
+        <option value="pantry-grains">Pantry Staples & Grains</option>
+        <option value="meat-protein">Proteins & Leftovers</option>
+        <option value="bakery">Bakery & Bread</option>
+      </select>
+    </div>
+
+    <div class="tool-field">
+      <label for="food-item-select" class="field-label">2. Select Food Item</label>
+      <select id="food-item-select" class="tool-select">
+        <!-- Populated via script -->
+      </select>
+    </div>
+  </div>
+
+  <div class="storage-result-card" id="storage-result">
+    <!-- Storage data rendered via script -->
+  </div>
+</div>
+
+<script>
+  interface FoodStorageItem {
+    id: string;
+    name: string;
+    category: string;
+    pantry: string;
+    fridge: string;
+    freezer: string;
+    optimalLocation: 'Pantry' | 'Fridge' | 'Counter' | 'Freezer';
+    containerType: string;
+    criticalRule: string;
+    spoilageSigns: string[];
+    shelfLifeExtenderTip: string;
+  }
+
+  const FOOD_ITEMS: FoodStorageItem[] = [
+    {
+      id: 'cooked-rice',
+      name: 'Cooked Rice (All Varieties)',
+      category: 'pantry-grains',
+      pantry: 'Do NOT store at room temperature (Max 1-2 hours)',
+      fridge: '3 to 4 Days (Below 4°C / 40°F)',
+      freezer: '3 to 6 Months (Airtight portioned bags)',
+      optimalLocation: 'Fridge',
+      containerType: 'Shallow airtight glass/BPA-free plastic container (under 2 inches deep)',
+      criticalRule: 'Cool rapidly within 1 hour after cooking. Storing warm rice at room temp triggers Bacillus cereus spore germination.',
+      spoilageSigns: ['Sour, fermented odor', 'Slimy or sticky surface texture', 'Hardening and chalky white discoloration'],
+      shelfLifeExtenderTip: 'Spread freshly cooked rice on a baking sheet for 10 minutes to cool rapidly before sealing in the fridge.'
+    },
+    {
+      id: 'fresh-herbs-soft',
+      name: 'Soft Herbs (Cilantro, Parsley, Dill, Mint)',
+      category: 'produce',
+      pantry: '1-2 Days (wilts quickly)',
+      fridge: '2 to 3 Weeks (Bouquet method in water jar)',
+      freezer: '1 Month (Pureed in olive oil ice cubes)',
+      optimalLocation: 'Fridge',
+      containerType: 'Glass jar with 1 inch water at bottom, loose plastic bag draped over top',
+      criticalRule: 'Trim 1/2 inch off stem ends before placing in water. Basil is the exception: store basil at room temp (fridge turns leaves black).',
+      spoilageSigns: ['Black, slimy rotting stems', 'Yellowing leaves', 'Musty odor'],
+      shelfLifeExtenderTip: 'Change the water in the jar every 2 days to prevent bacterial biofilm buildup on stems.'
+    },
+    {
+      id: 'bread-loaf',
+      name: 'Artisan & Sliced Bread',
+      category: 'bakery',
+      pantry: '3 to 5 Days (Room temp bread box or paper bag)',
+      fridge: 'NEVER refrigerate (Stales 3x faster via retrogradation)',
+      freezer: '3 Months (Pre-sliced in heavy freezer bag)',
+      optimalLocation: 'Counter',
+      containerType: 'Breathable bread box, linen bag, or paper bag (avoid plastic for crusty breads)',
+      criticalRule: 'Refrigerators accelerate starch retrogradation, recrystallizing amylose molecules and causing rapid staling.',
+      spoilageSigns: ['White/green fuzzy mold spots', 'Sour alcohol-like odor', 'Rock-hard stale crumb'],
+      shelfLifeExtenderTip: 'Slice whole loaves upon buying and freeze immediately. Toast slices straight from the freezer.'
+    },
+    {
+      id: 'fresh-eggs',
+      name: 'Whole Fresh Eggs (Commercial US vs EU)',
+      category: 'dairy-eggs',
+      pantry: 'Unwashed farm eggs: 2-3 Weeks; Washed eggs: Do not store in pantry',
+      fridge: '3 to 5 Weeks in original carton on interior shelf',
+      freezer: 'Whisked whites/yolks: 1 Year (Never freeze in shell)',
+      optimalLocation: 'Fridge',
+      containerType: 'Original cardboard carton (prevents odor absorption and moisture loss)',
+      criticalRule: 'Store on the central/back refrigerator shelf, NEVER in the refrigerator door rack where temperature fluctuates 5°C on every opening.',
+      spoilageSigns: ['Fails float test (floats upright to surface = large air cell)', 'Rotten sulfur odor upon cracking', 'Pink or iridescent egg white'],
+      shelfLifeExtenderTip: 'Keep in original carton with pointed end facing down to keep the yolk centered and air cell at top.'
+    },
+    {
+      id: 'raw-chicken',
+      name: 'Raw Poultry (Breast, Thighs, Whole)',
+      category: 'meat-protein',
+      pantry: 'Do NOT store (Immediate hazard)',
+      fridge: '1 to 2 Days max (Bottom shelf at 1-3°C)',
+      freezer: '9 to 12 Months (Vacuum sealed or tight double wrapped)',
+      optimalLocation: 'Fridge',
+      containerType: 'Sealed leak-proof tray placed inside a rimmed pan/plate on lowest shelf',
+      criticalRule: 'Always place on the bottom shelf to prevent juices containing Salmonella/Campylobacter from dripping onto other food.',
+      spoilageSigns: ['Gray or greenish color', 'Slimy film that does not rinse off', 'Pungent ammonia or sour odor'],
+      shelfLifeExtenderTip: 'If not cooking within 48 hours of purchase, portion and freeze immediately upon returning from the market.'
+    },
+    {
+      id: 'potatoes-onions',
+      name: 'Potatoes (Russet, Yukon Gold, Red)',
+      category: 'produce',
+      pantry: '3 to 5 Weeks (Cool, dark, ventilated 7-10°C / 45-50°F)',
+      fridge: 'NEVER (Cold converts starches into acrylamide-forming sugars)',
+      freezer: 'Must be blanched/cooked first (10-12 Months)',
+      optimalLocation: 'Pantry',
+      containerType: 'Cardboard box, paper bag, or open mesh basket with air circulation',
+      criticalRule: 'Never store potatoes next to onions. Onions release ethylene gas which accelerates potato sprouting, while potato moisture rots onions.',
+      spoilageSigns: ['Extensive green skin patches (toxic solanine)', 'Soft, squishy spots or black rot', 'Long multiple sprouts with shriveled skin'],
+      shelfLifeExtenderTip: 'Keep in a dark cupboard; light stimulates chlorophyll and toxic solanine production.'
+    },
+    {
+      id: 'ground-coffee',
+      name: 'Roasted Coffee (Whole Bean & Ground)',
+      category: 'pantry-grains',
+      pantry: '2 to 4 Weeks past roasting (Airtight in cool dark cupboard)',
+      fridge: 'NEVER (Coffee is a desiccant and absorbs fridge moisture & odors)',
+      freezer: '2 to 3 Months (Strictly in vacuum-sealed valve bags; thaw completely before opening)',
+      optimalLocation: 'Pantry',
+      containerType: 'Opaque, airtight canister with one-way degassing valve',
+      criticalRule: 'Keep away from the 4 coffee enemies: Oxygen, Light, Heat, and Moisture.',
+      spoilageSigns: ['Flat, woody, stale aroma', 'Loss of crema during extraction', 'Rancid oil sheen with sour taste'],
+      shelfLifeExtenderTip: 'Only grind the exact amount of beans needed immediately before brewing.'
+    }
+  ];
+
+  const catSelect = document.getElementById('food-category-select') as HTMLSelectElement;
+  const itemSelect = document.getElementById('food-item-select') as HTMLSelectElement;
+  const resultCard = document.getElementById('storage-result');
+
+  function populateItems() {
+    if (!itemSelect || !catSelect) return;
+    const selectedCat = catSelect.value;
+    const filtered = selectedCat === 'all' ? FOOD_ITEMS : FOOD_ITEMS.filter(f => f.category === selectedCat);
+
+    itemSelect.innerHTML = filtered.map(item => `
+      <option value="${item.id}">${item.name}</option>
+    `).join('');
+
+    renderStorageCard();
+  }
+
+  function renderStorageCard() {
+    if (!resultCard || !itemSelect) return;
+    const selectedId = itemSelect.value;
+    const item = FOOD_ITEMS.find(f => f.id === selectedId);
+
+    if (!item) return;
+
+    resultCard.innerHTML = `
+      <div class="storage-card-header">
+        <div class="storage-best-zone">Optimal Zone: <strong>${item.optimalLocation}</strong></div>
+        <h3 class="food-name-title">${item.name}</h3>
+      </div>
+
+      <div class="storage-duration-grid">
+        <div class="zone-box">
+          <span class="zone-icon">🧺</span>
+          <span class="zone-name">Pantry / Counter</span>
+          <span class="zone-duration">${item.pantry}</span>
+        </div>
+        <div class="zone-box highlight-zone">
+          <span class="zone-icon">❄️</span>
+          <span class="zone-name">Refrigerator</span>
+          <span class="zone-duration">${item.fridge}</span>
+        </div>
+        <div class="zone-box">
+          <span class="zone-icon">🧊</span>
+          <span class="zone-name">Freezer</span>
+          <span class="zone-duration">${item.freezer}</span>
+        </div>
+      </div>
+
+      <div class="rule-callout-box">
+        <div class="callout-icon">⚡</div>
+        <div class="callout-body">
+          <strong>Critical Storage Rule:</strong>
+          <p>${item.criticalRule}</p>
+        </div>
+      </div>
+
+      <div class="container-advice-box">
+        <strong>📦 Best Storage Vessel:</strong> ${item.containerType}
+      </div>
+
+      <div class="spoilage-section">
+        <h4 class="spoilage-title">🔍 Visual & Sensory Signs of Spoilage:</h4>
+        <ul class="spoilage-list">
+          ${item.spoilageSigns.map(s => `<li>${s}</li>`).join('')}
+        </ul>
+      </div>
+
+      <div class="pro-extender-box">
+        <strong>💡 Pro Freshness Extender:</strong> ${item.shelfLifeExtenderTip}
+      </div>
+    `;
+  }
+
+  catSelect?.addEventListener('change', populateItems);
+  itemSelect?.addEventListener('change', renderStorageCard);
+
+  populateItems();
+</script>
+
+<style>
+  .tool-widget-container {
+    background-color: #ffffff;
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-sm);
+    margin: 2rem 0;
+  }
+
+  .tool-controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--slate-200);
+  }
+
+  .tool-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .field-label {
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--slate-800);
+  }
+
+  .tool-select {
+    padding: 0.65rem 0.85rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--slate-900);
+    background-color: var(--slate-50);
+    border: 1px solid var(--slate-300);
+    border-radius: var(--radius-md);
+    outline: none;
+    cursor: pointer;
+  }
+
+  .tool-select:focus {
+    border-color: var(--accent-emerald);
+    background-color: #ffffff;
+  }
+
+  :global(.storage-card-header) {
+    margin-bottom: 1.25rem;
+  }
+
+  :global(.storage-best-zone) {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #065f46;
+    background-color: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.4rem;
+  }
+
+  :global(.food-name-title) {
+    font-size: 1.45rem;
+    color: var(--slate-900);
+    margin: 0;
+  }
+
+  :global(.storage-duration-grid) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  :global(.zone-box) {
+    background-color: var(--slate-50);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  :global(.zone-box.highlight-zone) {
+    background-color: #eff6ff;
+    border-color: #bfdbfe;
+  }
+
+  :global(.zone-icon) {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  :global(.zone-name) {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--slate-500);
+    margin-bottom: 0.25rem;
+  }
+
+  :global(.zone-duration) {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--slate-900);
+    line-height: 1.4;
+  }
+
+  :global(.rule-callout-box) {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background-color: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  :global(.callout-icon) {
+    font-size: 1.25rem;
+  }
+
+  :global(.callout-body strong) {
+    display: block;
+    color: #78350f;
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+  }
+
+  :global(.callout-body p) {
+    margin: 0;
+    font-size: 0.92rem;
+    color: #92400e;
+    line-height: 1.5;
+  }
+
+  :global(.container-advice-box) {
+    background-color: var(--slate-50);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1.15rem;
+    font-size: 0.92rem;
+    color: var(--slate-700);
+    margin-bottom: 1.25rem;
+  }
+
+  :global(.spoilage-section) {
+    background-color: #fff1f2;
+    border: 1px solid #fecdd3;
+    border-radius: var(--radius-md);
+    padding: 1.15rem 1.35rem;
+    margin-bottom: 1.25rem;
+  }
+
+  :global(.spoilage-title) {
+    font-size: 0.95rem;
+    color: #881337;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  :global(.spoilage-list) {
+    padding-left: 1.25rem;
+    margin: 0;
+  }
+
+  :global(.spoilage-list li) {
+    font-size: 0.9rem;
+    color: #9f1239;
+    margin-bottom: 0.35rem;
+  }
+
+  :global(.pro-extender-box) {
+    background-color: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1.15rem;
+    font-size: 0.9rem;
+    color: #065f46;
+  }
+</style>

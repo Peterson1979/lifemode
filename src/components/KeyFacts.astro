@@ -1,0 +1,130 @@
+---
+export interface KeyFact {
+  label: string;
+  value: string;
+  icon?: string;
+  context?: string;
+  variant?: 'default' | 'health' | 'wealth' | 'home' | 'life' | 'tech';
+}
+
+export interface Props {
+  facts: KeyFact[];
+  difficulty?: string;
+  timeNeeded?: string;
+  topic?: string;
+}
+
+const { facts = [], difficulty, timeNeeded, topic } = Astro.props;
+
+const allFacts: KeyFact[] = [...facts];
+
+if (difficulty && !allFacts.some(f => f.label.toLowerCase() === 'difficulty')) {
+  allFacts.unshift({ label: 'Difficulty', value: difficulty, icon: '⚡' });
+}
+
+if (timeNeeded && !allFacts.some(f => f.label.toLowerCase().includes('time'))) {
+  allFacts.splice(1, 0, { label: 'Time Needed', value: timeNeeded, icon: '⏱' });
+}
+---
+
+{allFacts.length > 0 && (
+  <div class="key-facts-wrapper">
+    <div class="key-facts-grid">
+      {allFacts.map((fact) => (
+        <div class={`key-fact-card ${fact.variant || topic || 'default'}`}>
+          <div class="fact-top-row">
+            <span class="fact-label">{fact.label}</span>
+            {fact.icon && <span class="fact-icon-badge" aria-hidden="true">{fact.icon}</span>}
+          </div>
+          <div class="fact-value">{fact.value}</div>
+          {fact.context && <div class="fact-context">{fact.context}</div>}
+        </div>
+      ))}
+    </div>
+  </div>
+)}
+
+<style>
+  .key-facts-wrapper {
+    margin: var(--space-6) 0 var(--space-8) 0;
+  }
+
+  .key-facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .key-fact-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4) var(--space-5);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  }
+
+  .key-fact-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+    border-color: var(--color-border-hover);
+  }
+
+  .key-fact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--fact-accent, var(--color-primary-accent));
+  }
+
+  .key-fact-card.health { --fact-accent: var(--topic-health); }
+  .key-fact-card.wealth { --fact-accent: var(--topic-wealth); }
+  .key-fact-card.home { --fact-accent: var(--topic-home); }
+  .key-fact-card.life { --fact-accent: var(--topic-life); }
+  .key-fact-card.tech { --fact-accent: var(--topic-tech-ai); }
+
+  .fact-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-1);
+    gap: var(--space-2);
+  }
+
+  .fact-label {
+    font-family: var(--font-sans);
+    font-size: 0.725rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--fact-accent, var(--color-primary-accent));
+  }
+
+  .fact-icon-badge {
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
+
+  .fact-value {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+
+  .fact-context {
+    font-size: 0.775rem;
+    color: var(--color-text-muted);
+    margin-top: var(--space-1);
+    line-height: 1.4;
+  }
+</style>

@@ -1,0 +1,152 @@
+---
+import type { PillarConfig } from '../config/site';
+
+export interface Props {
+  pillar: PillarConfig;
+  count?: number;
+}
+
+const { pillar, count } = Astro.props;
+---
+
+<a href={`/${pillar.slug}`} class="topic-hub-card" style={`--topic-color: ${pillar.color}; --topic-bg: ${pillar.bgLight};`}>
+  <div class="topic-card-top">
+    <div class="topic-icon-wrap">
+      <span class="topic-icon">{pillar.icon || '📌'}</span>
+    </div>
+    {count !== undefined && count > 0 && (
+      <span class="topic-count">{count} {count === 1 ? 'Resource' : 'Resources'}</span>
+    )}
+  </div>
+
+  <h3 class="topic-name">{pillar.name}</h3>
+  <p class="topic-desc">{pillar.description}</p>
+
+  {pillar.subtopics && pillar.subtopics.length > 0 && (
+    <div class="topic-subtopics-list">
+      {pillar.subtopics.slice(0, 3).map((sub) => (
+        <span class="topic-sub-chip">&bull; {sub.name}</span>
+      ))}
+    </div>
+  )}
+
+  <div class="topic-card-foot">
+    <span class="topic-explore-link">Explore {pillar.name} &rarr;</span>
+  </div>
+</a>
+
+<style>
+  .topic-hub-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .topic-hub-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: var(--topic-color, var(--color-primary-accent));
+  }
+
+  .topic-hub-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-border-hover);
+    box-shadow: var(--shadow-hover);
+    text-decoration: none;
+  }
+
+  .topic-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+  }
+
+  .topic-icon-wrap {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: var(--radius-md);
+    background-color: var(--topic-bg, var(--color-surface-subtle));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .topic-icon {
+    font-size: 1.45rem;
+    line-height: 1;
+  }
+
+  .topic-count {
+    font-family: var(--font-mono);
+    font-size: 0.725rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    background-color: var(--color-surface-subtle);
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-border);
+  }
+
+  .topic-name {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-2) 0;
+    line-height: 1.25;
+  }
+
+  .topic-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin: 0 0 var(--space-4) 0;
+    flex-grow: 1;
+  }
+
+  .topic-subtopics-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.6rem;
+    margin-bottom: var(--space-5);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  .topic-sub-chip {
+    font-size: 0.775rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .topic-card-foot {
+    margin-top: auto;
+  }
+
+  .topic-explore-link {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--topic-color, var(--color-primary-accent));
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: transform var(--transition-fast);
+  }
+
+  .topic-hub-card:hover .topic-explore-link {
+    transform: translateX(4px);
+  }
+</style>

@@ -129,6 +129,16 @@ export class FixtureEditorialResearchProvider implements IEditorialResearchProvi
             sourceType: 'official',
             reliability: 'high',
           },
+          {
+            title: `${title} - Authoritative Methodology Guide`,
+            url: `https://lifemode.life/editorial-standards/${pillar}/methodology`,
+            publisher: 'LifeMode Lifestyle Standards Institute',
+            publishedAt: '2026-01-15T00:00:00.000Z',
+            accessedAt: now,
+            claimSummary: `Structured domain specifications and comparative benchmarks for ${topic.canonicalTopic}.`,
+            sourceType: 'industry',
+            reliability: 'high',
+          },
         ];
     }
   }

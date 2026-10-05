@@ -777,7 +777,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
 
     const pkg = await fb.prepare(content, asset);
     assert.equal(pkg.preparedPayload.url, 'https://media.lifemode.life/social/top-1/img-abc.jpg');
-    assert.equal(pkg.mediaAsset.url, 'https://media.lifemode.life/social/top-1/img-abc.jpg');
+    assert.equal(pkg.mediaAsset!.url, 'https://media.lifemode.life/social/top-1/img-abc.jpg');
     assert.equal(fb.validate(pkg).valid, true);
   });
 
@@ -790,7 +790,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
 
     const pkg = await ig.prepare(content, asset);
     assert.equal(pkg.preparedPayload.image_url, 'https://media.lifemode.life/social/top-1/img-abc.jpg');
-    assert.equal(pkg.mediaAsset.url, 'https://media.lifemode.life/social/top-1/img-abc.jpg');
+    assert.equal(pkg.mediaAsset!.url, 'https://media.lifemode.life/social/top-1/img-abc.jpg');
     assert.equal(ig.validate(pkg).valid, true);
   });
 
@@ -803,7 +803,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
 
     const pkg = await pin.prepare(content, asset);
     assert.equal(pkg.preparedPayload.media_source.url, 'https://media.lifemode.life/social/top-1/img-abc.jpg');
-    assert.equal(pkg.mediaAsset.url, 'https://media.lifemode.life/social/top-1/img-abc.jpg');
+    assert.equal(pkg.mediaAsset!.url, 'https://media.lifemode.life/social/top-1/img-abc.jpg');
     assert.equal(pin.validate(pkg).valid, true);
   });
 

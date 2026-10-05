@@ -11,16 +11,16 @@ const currentYear = new Date().getUTCFullYear();
       <div class="footer-brand">
         <h3 class="footer-logo">LifeMode</h3>
         <p class="footer-tagline">
-          Practical guides, thoughtful tools, and clear ideas across technology, travel, personal finance, wellbeing, and everyday life.
+          Practical reference guides, interactive decision tools, evidence-based care protocols, and culinary inspiration for everyday living.
         </p>
         <div class="footer-edition-badge">
           <span>ISSN 2026-LM &bull; Published Globally</span>
         </div>
       </div>
 
-      <!-- Pillar Navigation -->
+      <!-- Category & Editorial Navigation -->
       <div class="footer-links-group">
-        <h4>Explore Topics</h4>
+        <h4>Knowledge Pillars</h4>
         <ul>
           {SITE_CONFIG.navLinks.map((link) => {
             const pillar = PILLARS[link.slug as PillarSlug];
@@ -55,7 +55,7 @@ const currentYear = new Date().getUTCFullYear();
         <span>&copy; {currentYear} {SITE_CONFIG.name}. All rights reserved.</span>
       </div>
       <div class="footer-bottom-meta">
-        <span>Ideas for living well now</span>
+        <span>{SITE_CONFIG.slogan}</span>
       </div>
     </div>
   </div>

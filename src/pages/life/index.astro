@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import PillarBadge from '../../components/PillarBadge.astro';
+import SubtopicCardGrid from '../../components/SubtopicCardGrid.astro';
+import TopicDataSection from '../../components/topic-data/TopicDataSection.astro';
+import { getCollection } from 'astro:content';
+import { PILLARS } from '../../config/site';
+import { generateBreadcrumbSchema } from '../../utils/seo';
+
+const pillar = PILLARS['life'];
+const rawArticles = await getCollection('life').catch(() => []);
+const articles = rawArticles
+  .filter((a: any) => !a.data.draft)
+  .sort(
+    (a: any, b: any) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+  );
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: pillar.name, url: `/${pillar.slug}` },
+]);
+---
+
+<BaseLayout
+  title={`${pillar.name} — Style, Daily Routines & Living Well | LifeMode`}
+  description={pillar.description}
+  jsonLd={breadcrumbSchema}
+>
+  <!-- Breadcrumb Navigation -->
+  <div class="container" style="padding-top: var(--space-6);">
+    <nav aria-label="Breadcrumbs" class="breadcrumb-nav">
+      <ol class="breadcrumb-list">
+        <li><a href="/">Home</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">&rsaquo;</li>
+        <li class="breadcrumb-current" aria-current="page">{pillar.name}</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Pillar Hero Section -->
+  <section class="hero-editorial" style="padding-top: var(--space-6); padding-bottom: var(--space-6);">
+    <div class="container">
+      <div style="margin-bottom: var(--space-3);">
+        <PillarBadge pillar={pillar.slug} size="md" asLink={false} />
+      </div>
+      <h1 class="hero-heading" style="margin-bottom: var(--space-3);">
+        {pillar.name} &amp; Contemporary Living
+      </h1>
+      <p class="hero-lead" style="max-width: 760px; margin-bottom: var(--space-6);">
+        {pillar.description}
+      </p>
+
+      <!-- Subtopic Navigation Cards Grid -->
+      <SubtopicCardGrid
+        subtopics={pillar.subtopics || []}
+        pillarSlug={pillar.slug}
+        pillarColor={pillar.color}
+      />
+    </div>
+  </section>
+
+  <!-- Editorial Stories Grid -->
+  <section class="section" style="padding-top: var(--space-8);">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">{pillar.name} Stories &amp; Style Intelligence</h2>
+          <p class="section-subtitle">
+            {articles.length} {articles.length === 1 ? 'article' : 'articles and features'}
+          </p>
+        </div>
+      </div>
+
+      {articles.length > 0 ? (
+        <div>
+          {articles.length >= 3 ? (
+            <div>
+              <!-- Lead Article Feature -->
+              <div style="margin-bottom: var(--space-10); padding-bottom: var(--space-10); border-bottom: 1px solid var(--color-border);">
+                <ArticleCard
+                  pillar={pillar.slug}
+                  slug={articles[0].id}
+                  title={articles[0].data.title}
+                  description={articles[0].data.description}
+                  pubDate={articles[0].data.pubDate}
+                  author={articles[0].data.author}
+                  image={articles[0].data.image}
+                  imageAlt={articles[0].data.imageAlt}
+                  readingTime={articles[0].data.readingTime}
+                  format={articles[0].data.format}
+                  tags={articles[0].data.tags}
+                  variant="lead"
+                  featured={true}
+                />
+              </div>
+
+              <!-- Remaining Articles Grid -->
+              <div class="grid-3">
+                {articles.slice(1).map((article: any) => (
+                  <ArticleCard
+                    pillar={pillar.slug}
+                    slug={article.id}
+                    title={article.data.title}
+                    description={article.data.description}
+                    pubDate={article.data.pubDate}
+                    author={article.data.author}
+                    image={article.data.image}
+                    imageAlt={article.data.imageAlt}
+                    readingTime={article.data.readingTime}
+                    format={article.data.format}
+                    tags={article.data.tags}
+                    variant="card"
+                  />
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div class="grid-3">
+              {articles.map((article: any) => (
+                <ArticleCard
+                  pillar={pillar.slug}
+                  slug={article.id}
+                  title={article.data.title}
+                  description={article.data.description}
+                  pubDate={article.data.pubDate}
+                  author={article.data.author}
+                  image={article.data.image}
+                  imageAlt={article.data.imageAlt}
+                  readingTime={article.data.readingTime}
+                  format={article.data.format}
+                  tags={article.data.tags}
+                  variant="card"
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      ) : (
+        <div class="empty-state-card" style="background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-12); text-align: center;">
+          <div class="empty-state-icon" style="margin-bottom: var(--space-4);">
+            <span style={`font-family: var(--font-display); font-size: 2.5rem; font-style: italic; color: ${pillar.color}; font-weight: 700;`}>LM</span>
+          </div>
+          <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; margin-bottom: var(--space-2); color: var(--color-text-primary);">
+            Style &amp; Lifestyle Features Coming Soon
+          </h3>
+          <p style="color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.6; max-width: 480px; margin-inline: auto; margin-bottom: var(--space-6);">
+            Curated style frameworks, daily routines, grooming guides, and travel dispatches are currently in editorial production.
+          </p>
+          <a href="/life-hacks" class="btn btn-outline" style="margin-right: 0.5rem;">View Video Life Hacks</a>
+          <a href="/" class="btn btn-outline">Return to homepage</a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Topic Intelligence -->
+  <TopicDataSection pillar="life" pillarName="Style & Living" />
+</BaseLayout>

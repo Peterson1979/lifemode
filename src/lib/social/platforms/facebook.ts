@@ -246,7 +246,7 @@ export class FacebookPlatformAdapter implements ISocialPlatformAdapter {
         body: JSON.stringify({
           access_token: activeToken,
           caption: pkg.caption,
-          url: pkg.mediaAsset.url,
+          url: pkg.mediaAsset?.url || '',
         }),
       });
 

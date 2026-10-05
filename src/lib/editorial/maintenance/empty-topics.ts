@@ -11,7 +11,7 @@ export interface EmptyTopicReport {
 /**
  * Curated, high-signal seed topics for pillars that currently lack published coverage.
  */
-export const SEED_TOPICS_FOR_EMPTY_PILLARS: Record<PillarSlug, EditorialTopic> = {
+export const SEED_TOPICS_FOR_EMPTY_PILLARS: Partial<Record<PillarSlug, EditorialTopic>> = {
   money: {
     id: 'lm-money-seed-01-high-yield-cash-buffer',
     canonicalTopic: 'The High-Yield Cash Buffer: Why a Liquid Reserve Beats Rigid Budgeting',
@@ -220,6 +220,34 @@ export const SEED_TOPICS_FOR_EMPTY_PILLARS: Record<PillarSlug, EditorialTopic> =
     opportunityType: 'ARTICLE',
     status: 'APPROVED',
   },
+  'life-hacks': {
+    id: 'lm-life-hacks-seed-01',
+    canonicalTopic: 'Quick Kitchen & Household Visual Hacks',
+    slug: 'quick-kitchen-household-visual-hacks',
+    pillar: 'life-hacks',
+    sourceSignals: [],
+    queryVariants: ['everyday life hacks video', 'quick household hacks'],
+    freshnessScore: 90,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    tags: ['life-hacks', 'video', 'shortcuts', 'household'],
+    targetAudience: 'Users seeking fast, actionable video demonstrations.',
+    primaryIntent: 'informational',
+    scoring: {
+      searchPotential: 90,
+      pinterestPotential: 90,
+      socialPotential: 90,
+      lifeModeRelevance: 90,
+      commercialPotential: 80,
+      freshness: 90,
+      competitionOpportunity: 80,
+      originalityPotential: 90,
+    },
+    totalScore: 88,
+    priorityTier: 'PRIORITY',
+    opportunityType: 'SOCIAL_ONLY',
+    status: 'APPROVED',
+  },
 };
 
 /**
@@ -230,15 +258,9 @@ export async function findEmptyTopics(options: {
 }): Promise<EmptyTopicReport> {
   const contentRoot = resolve(options.contentRoot || join(process.cwd(), 'src', 'content'));
   const emptyPillars: PillarSlug[] = [];
-  const pillarCounts: Record<PillarSlug, number> = {
-    style: 0,
-    travel: 0,
-    'tech-ai': 0,
-    money: 0,
-    wellbeing: 0,
-    entertainment: 0,
-    'food-drink': 0,
-  };
+  const pillarCounts: Record<PillarSlug, number> = Object.fromEntries(
+    VALID_PILLARS.map((p) => [p, 0])
+  ) as Record<PillarSlug, number>;
 
   for (const pillar of VALID_PILLARS) {
     const pillarDir = join(contentRoot, pillar);
@@ -261,7 +283,7 @@ export async function findEmptyTopics(options: {
 
   const plannedArticles = emptyPillars
     .map((pillar) => SEED_TOPICS_FOR_EMPTY_PILLARS[pillar])
-    .filter(Boolean);
+    .filter((t): t is EditorialTopic => Boolean(t));
 
   return {
     emptyPillars,

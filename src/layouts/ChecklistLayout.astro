@@ -1,0 +1,164 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import InteractiveChecklist from '../components/InteractiveChecklist.astro';
+import RelatedCluster from '../components/RelatedCluster.astro';
+import { CATEGORIES } from '../utils/categories';
+import { getCanonicalUrl } from '../utils/seo';
+
+export interface Props {
+  checklist: {
+    id: string;
+    data: {
+      title: string;
+      seoTitle?: string;
+      seoDescription?: string;
+      category: keyof typeof CATEGORIES;
+      summary: string;
+      estimatedTime?: string;
+      printSubtitle?: string;
+      sections: {
+        title: string;
+        items: { id: string; text: string; note?: string; frequency?: string }[];
+      }[];
+      relatedGuides?: string[];
+      relatedTools?: string[];
+    };
+  };
+}
+
+const { checklist } = Astro.props;
+const { data, id } = checklist;
+
+const categoryMeta = CATEGORIES[data.category];
+const slug = id.replace(/\.[^/.]+$/, '');
+const pagePath = `/checklists/${slug}`;
+const canonicalUrl = getCanonicalUrl(pagePath);
+
+const breadcrumbItems = [
+  { label: 'Home', url: '/' },
+  { label: 'Checklists & Printables', url: '/checklists/' },
+  { label: data.title, url: `/checklists/${slug}/` },
+];
+
+const checklistSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: data.title,
+  description: data.summary,
+  numberOfItems: data.sections.reduce((acc, s) => acc + s.items.length, 0),
+  itemListElement: data.sections.flatMap((s, sIdx) => 
+    s.items.map((it, itIdx) => ({
+      '@type': 'ListItem',
+      position: sIdx * 100 + itIdx + 1,
+      name: it.text,
+      description: it.note || '',
+    }))
+  ),
+};
+---
+
+<BaseLayout
+  title={data.seoTitle || `${data.title} — LifeMode Checklist`}
+  description={data.seoDescription || data.summary}
+  canonicalUrl={canonicalUrl}
+  jsonLd={checklistSchema}
+>
+  <div class="container-narrow checklist-page-wrapper">
+    <Breadcrumbs items={breadcrumbItems} />
+
+    <header class="checklist-header">
+      <div class="checklist-badges">
+        <span class="badge checklist-type-badge">📋 Interactive & Printable</span>
+        {categoryMeta && (
+          <a 
+            href={`/${categoryMeta.slug}/`} 
+            class="badge category-badge" 
+            style={`color: ${categoryMeta.badgeColor}; background-color: ${categoryMeta.lightBg}; border: 1px solid ${categoryMeta.borderColor};`}
+          >
+            <span>{categoryMeta.icon}</span> {categoryMeta.title}
+          </a>
+        )}
+      </div>
+
+      <h1 class="checklist-main-title">{data.title}</h1>
+      <p class="checklist-lead-summary">{data.summary}</p>
+    </header>
+
+    <!-- Interactive & Printable Checklist Component -->
+    <InteractiveChecklist
+      checklistId={slug}
+      title={data.title}
+      summary={data.summary}
+      sections={data.sections}
+      estimatedTime={data.estimatedTime}
+    />
+
+    <!-- Markdown Guidelines & Best Practices Body -->
+    <article class="prose checklist-article-body">
+      <slot />
+    </article>
+
+    <!-- Internal Linking -->
+    <RelatedCluster
+      currentCategory={data.category}
+      relatedGuides={data.relatedGuides}
+      relatedTools={data.relatedTools}
+    />
+  </div>
+</BaseLayout>
+
+<style>
+  .checklist-page-wrapper {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-20);
+  }
+
+  .checklist-badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .checklist-type-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    background-color: rgba(5, 150, 105, 0.1);
+    color: #059669;
+    border: 1px solid rgba(5, 150, 105, 0.2);
+  }
+
+  .category-badge {
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    transition: opacity var(--transition-fast);
+  }
+
+  .checklist-main-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .checklist-lead-summary {
+    font-size: 1.15rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-6);
+  }
+
+  .checklist-article-body {
+    margin: var(--space-10) 0;
+  }
+</style>

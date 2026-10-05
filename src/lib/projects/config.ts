@@ -8,7 +8,8 @@ export const OWNED_PROJECTS: OwnedProject[] = [
     description:
       'Nuanced personality mapping, relational dynamics, and cosmic archetypes explored through intelligent conversational frameworks.',
     url: 'https://play.google.com/store/apps/details?id=com.oberon.aizodiac',
-    relevantPillars: ['entertainment', 'wellbeing', 'style'],
+    logoUrl: '/assets/projects/aizodiac_logo.png',
+    relevantPillars: ['life', 'health', 'entertainment', 'style', 'wellbeing'],
     categories: ['Self-Discovery', 'Archetypes', 'Astrology', 'Personality'],
     ctaLabel: 'Discover AI Zodiac',
     ctaHeadline: 'Explore Personality Archetypes & Self-Discovery',
@@ -57,7 +58,8 @@ export const OWNED_PROJECTS: OwnedProject[] = [
     description:
       'AI-guided dream journaling, nocturnal pattern analysis, and mindful morning reflections designed for intentional wellbeing.',
     url: 'https://play.google.com/store/apps/details?id=com.oberon.dreamlyai',
-    relevantPillars: ['wellbeing', 'style'],
+    logoUrl: '/assets/projects/dreamly_ai_logo.png',
+    relevantPillars: ['health', 'life', 'wellbeing', 'style'],
     categories: ['Sleep', 'Dreams', 'Mindfulness', 'Wellbeing'],
     ctaLabel: 'Explore Dreamly AI',
     ctaHeadline: 'Reflect on Your Sleep & Dreams',
@@ -108,7 +110,8 @@ export const OWNED_PROJECTS: OwnedProject[] = [
     description:
       'GetAISet is a multilingual AI education and discovery platform helping learners, professionals, creators, marketers, and developers discover and understand useful AI courses, learning paths, tutorials, tools, comparisons, and practical AI resources.',
     url: 'https://www.getaiset.com/',
-    relevantPillars: ['tech-ai', 'money', 'style'],
+    logoUrl: '/assets/projects/getaiset_logo.png',
+    relevantPillars: ['tech-ai', 'wealth', 'money', 'style'],
     categories: ['AI Education', 'AI Tools', 'Learning Paths', 'Productivity'],
     ctaLabel: 'Visit GetAISet',
     ctaHeadline: 'Master AI Tools & Practical Workflows',

@@ -1,0 +1,248 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { CURATED_PRODUCTS, STOREFRONT_URL } from '../../lib/commerce/curated-picks';
+import { generateBreadcrumbSchema } from '../../utils/seo';
+
+const allProducts = Object.values(CURATED_PRODUCTS);
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Daily Ideas Store', url: '/daily-ideas' },
+]);
+---
+
+<BaseLayout
+  title="Daily Ideas Store — Curated Everyday Finds | LifeMode"
+  description="Curated home, kitchen, and living essentials vetted for utility, durability, and practical everyday value."
+  jsonLd={breadcrumbSchema}
+>
+  <!-- Breadcrumb Navigation -->
+  <div class="container" style="padding-top: var(--space-6);">
+    <nav aria-label="Breadcrumbs" class="breadcrumb-nav">
+      <ol class="breadcrumb-list">
+        <li><a href="/">Home</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">&rsaquo;</li>
+        <li class="breadcrumb-current" aria-current="page">Daily Ideas Store</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Store Hero Section -->
+  <section class="hero-editorial" style="padding-top: var(--space-6); padding-bottom: var(--space-6);">
+    <div class="container">
+      <div style="margin-bottom: var(--space-3); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-3);">
+        <span class="store-badge">🛍️ Curated Products</span>
+        <a
+          href={STOREFRONT_URL}
+          target="_blank"
+          rel="noopener noreferrer sponsored"
+          class="btn-store-cta"
+          style="padding: 0.35rem 0.75rem; font-size: 0.75rem;"
+        >
+          <span>Visit Amazon Storefront</span>
+          <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
+          </svg>
+        </a>
+      </div>
+      <h1 class="hero-heading" style="margin-bottom: var(--space-3);">
+        Daily Ideas Store
+      </h1>
+      <p class="hero-lead" style="max-width: 760px; margin-bottom: var(--space-6);">
+        Curated kitchen, home, and living essentials vetted for real-world utility, durability, and value. No sponsored clutter—only tools and items we genuinely recommend.
+      </p>
+    </div>
+  </section>
+
+  <!-- Product Catalog Grid -->
+  <section class="section" style="padding-top: var(--space-4);">
+    <div class="container">
+      <div class="store-grid">
+        {allProducts.map((product) => (
+          <article class="store-item-card">
+            <div class="item-header">
+              {product.badge && <span class="item-badge">{product.badge}</span>}
+              <span class="item-brand">{product.brand}</span>
+            </div>
+
+            <h2 class="item-title">{product.name}</h2>
+            <p class="item-description">{product.description}</p>
+
+            {product.editorialNote && (
+              <div class="item-note">
+                <span class="note-label">Why it's worth it:</span>
+                <p class="note-text">{product.editorialNote}</p>
+              </div>
+            )}
+
+            <div class="item-footer">
+              <span class="item-price">{product.priceRange}</span>
+              <a
+                href={product.affiliateUrl}
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+                class="btn-store-cta"
+                aria-label={`View ${product.name} on Amazon (opens in new tab)`}
+              >
+                <span>View on Amazon</span>
+                <svg class="external-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .store-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-primary-accent);
+    background-color: rgba(37, 99, 235, 0.08);
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+  }
+
+  .store-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .store-item-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  }
+
+  .store-item-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--color-border-hover);
+  }
+
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-3);
+    gap: 0.5rem;
+  }
+
+  .item-badge {
+    font-family: var(--font-mono);
+    font-size: 0.675rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #b45309;
+    background-color: #fef3c7;
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .item-brand {
+    font-family: var(--font-sans);
+    font-size: 0.775rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .item-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: var(--space-3);
+    color: var(--color-text-primary);
+  }
+
+  .item-description {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    margin-bottom: var(--space-4);
+  }
+
+  .item-note {
+    background-color: var(--color-surface-subtle);
+    border-left: 3px solid var(--color-primary-accent);
+    padding: var(--space-3) var(--space-4);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    margin-bottom: var(--space-5);
+  }
+
+  .note-label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.2rem;
+  }
+
+  .note-text {
+    font-size: 0.825rem;
+    color: var(--color-text-primary);
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .item-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  .item-price {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .btn-store-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.5rem 0.9rem;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: var(--color-primary-accent);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+
+  .btn-store-cta:hover {
+    background-color: var(--color-primary-accent-hover, #1d4ed8);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+  }
+</style>

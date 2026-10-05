@@ -3,31 +3,70 @@ import type { ValidatableArticle } from './validation/types.ts';
 import type { GeneratedArticle } from './generation/types.ts';
 import type { PublishPackage } from './publishing/types.ts';
 
-export type VisualType = 'real_world_identifiable' | 'editorial_graphic' | 'metaphorical_scene' | 'none';
+/**
+ * The 9 canonical visual types supported by LifeMode Editorial Visual System.
+ */
+export type SupportedVisualType =
+  | 'editorial_photo'        // A. Real editorial photograph (food, style, interiors, travel, products)
+  | 'editorial_infographic'  // B. Editorial infographic (mechanisms, systems, biological/physical concepts)
+  | 'process_diagram'       // C. Process diagram (workflows, procedures, sequences, cleaning/cooking)
+  | 'comparison_graphic'    // D. Comparison graphic (A vs B, material comparisons, alternatives)
+  | 'decision_tree'         // E. Decision tree (product selection, method choice, troubleshooting)
+  | 'timeline'              // F. Timeline (historical development, lifecycle, chronological processes)
+  | 'formula_visual'        // G. Formula / calculation visual (capacity, sizing, ratios, calculations)
+  | 'statistic_graphic'     // H. Chart / statistic graphic (real and sourced data only)
+  | 'no_image';             // I. No-image (abstract concepts, pure code, or where visual adds no value)
 
 /**
- * Internal structured representation of visual requirements for an article.
+ * Union with legacy aliases to maintain full backwards compatibility.
+ */
+export type VisualType =
+  | SupportedVisualType
+  | 'real_world_identifiable'
+  | 'editorial_graphic'
+  | 'metaphorical_scene'
+  | 'none';
+
+/**
+ * Reusable structured representation of an article's visual requirements.
  */
 export interface StructuredVisualBrief {
-  primaryVisualSubject: string;
-  primaryEntity: string;
-  eventOrPersonOrPlace: string;
-  visualType: VisualType;
-  requiredVisualElements: string[];
-  prohibitedVisualElements: string[];
+  // 1. Core Editorial Visual Specification
+  subject: string;
+  editorialAngle: string;
+  keyObjects: string[];
+  keyConcepts: string[];
+  requiredVisualRelationship: string;
+  visualType: SupportedVisualType | VisualType;
+  composition: string;
+  orientation: 'landscape' | 'portrait' | 'square';
+  aspectRatio: string;
+  importantExclusions: string[];
+  photographAppropriate: boolean;
+  infographicPreferable: boolean;
+  noImagePreferable: boolean;
+  explanation: string;
+
+  // 2. Search & Generation Attributes
   imageSearchQuery: string;
   aiGenerationPrompt: string;
   negativePrompt: string;
+  altText: string;
+
+  // 3. Backwards-Compatible Legacy Fields
+  primaryVisualSubject: string;
+  primaryEntity: string;
+  eventOrPersonOrPlace: string;
+  requiredVisualElements: string[];
+  prohibitedVisualElements: string[];
   isRealWorldIdentifiableRequired: boolean;
   isEditorialGraphicPreferred: boolean;
-  aspectRatio: string;
-  altText: string;
-  explanation: string;
 }
 
 export interface VisualBriefOptions {
-  pillar?: PillarSlug;
+  pillar?: PillarSlug | string;
   tags?: string[];
+  format?: string;
 }
 
 /**
@@ -37,7 +76,22 @@ function normalizePillar(pillar?: string): PillarSlug {
   if (!pillar) return 'style';
   const p = pillar.toLowerCase().trim();
   if (p === 'discover' || p === 'now' || p === 'culture') return 'entertainment';
-  const valid: PillarSlug[] = ['style', 'travel', 'food-drink', 'tech-ai', 'money', 'wellbeing', 'entertainment'];
+  if (p === 'food' || p === 'drink') return 'food-drink';
+  if (p === 'tech' || p === 'ai') return 'tech-ai';
+  const valid: PillarSlug[] = [
+    'health',
+    'wealth',
+    'home',
+    'life',
+    'tech-ai',
+    'tools',
+    'style',
+    'travel',
+    'food-drink',
+    'money',
+    'wellbeing',
+    'entertainment',
+  ];
   return valid.includes(p as PillarSlug) ? (p as PillarSlug) : 'style';
 }
 
@@ -47,17 +101,22 @@ function normalizePillar(pillar?: string): PillarSlug {
 function extractSubject(title: string): string {
   return title
     .replace(/:\s*(what to know|what you need to know|a modern guide|inside the.*|career.*)$/i, '')
-    .replace(/^(who is|how|why|inside|understanding|the craft of|the art of|the science of|the enduring appeal of|the creative partnership behind)\s+/i, '')
+    .replace(/^(who is|how to|how|why|inside|understanding|the craft of|the art of|the science of|the enduring appeal of|the creative partnership behind|the anatomy of)\s+/i, '')
     .replace(/[^\w\s-]/g, '')
     .trim();
 }
 
 /**
- * Builds a context-rich, domain-precise StructuredVisualBrief for any article.
- * Guarantees that specific entities, sports, locations, and events receive dedicated visual briefs.
+ * Builds a structured, editorial-quality Visual Brief for any article.
+ * Accurately classifies whether a real photo, structured infographic, process diagram,
+ * decision tree, formula, timeline, or no-image is appropriate.
  */
 export function buildVisualBrief(
-  article: ValidatableArticle | GeneratedArticle | PublishPackage | { title: string; description?: string; content?: string; pillar?: string; tags?: string[] },
+  article:
+    | ValidatableArticle
+    | GeneratedArticle
+    | PublishPackage
+    | { title: string; description?: string; content?: string; pillar?: string; tags?: string[]; format?: string; infographic?: any },
   options: VisualBriefOptions = {}
 ): StructuredVisualBrief {
   const title = (article.title || '').trim();
@@ -65,10 +124,13 @@ export function buildVisualBrief(
   const content = (('content' in article && typeof article.content === 'string') ? article.content : '').trim();
   const pillar = normalizePillar(options.pillar || ('pillar' in article ? (article.pillar as string) : undefined));
   const tags = options.tags || ('tags' in article && Array.isArray(article.tags) ? article.tags : []);
+  const format = options.format || ('format' in article ? (article.format as string) : 'standard');
 
   const fullText = `${title} ${description} ${content.slice(0, 1000)} ${tags.join(' ')}`.toLowerCase();
   const cleanSubject = extractSubject(title);
 
+  const keyObjects: string[] = [];
+  const keyConcepts: string[] = [];
   const requiredElements: string[] = [];
   const prohibitedElements: string[] = [
     'low-res pixelation',
@@ -77,25 +139,126 @@ export function buildVisualBrief(
     'stock photography clichés',
     'garish neon overlays',
     'unrelated commercial billboards',
+    'unrelated people posing unnaturally',
   ];
 
-  let visualType: VisualType = 'metaphorical_scene';
+  let visualType: SupportedVisualType | VisualType = 'editorial_photo';
+  let photographAppropriate = true;
+  let infographicPreferable = false;
+  let noImagePreferable = false;
   let isRealWorldIdentifiableRequired = false;
   let isEditorialGraphicPreferred = false;
+
   let primaryEntity = cleanSubject || title;
   let eventOrPersonOrPlace = cleanSubject;
   let searchQuery = `${cleanSubject} editorial`;
   let promptSubject = cleanSubject;
+  let composition = 'Asymmetric natural perspective with soft depth of field, tactile material texture, and natural daylight';
+  let requiredVisualRelationship = `Editorial showcase of authentic ${cleanSubject}`;
+  let orientation: 'landscape' | 'portrait' | 'square' = 'landscape';
+  let aspectRatio = '16:9';
+  let editorialAngle = description || `Practical and aesthetic exploration of ${cleanSubject}`;
   let explanation = `Visual brief constructed for "${title}" in pillar ${pillar}.`;
 
   // ----------------------------------------------------
-  // DOMAIN-SPECIFIC ENTITY / SPORT / LOCATION CLASSIFICATION
+  // 1. INFOGRAPHIC & STRUCTURED VISUAL TYPE SELECTION
   // ----------------------------------------------------
 
-  // 1. Baseball / Houston Astros / Cleveland Guardians / José Trevino
-  if (/\b(astros|houston astros|guardians|cleveland guardians|trevino|josé trevino|baseball|mlb|playoff chase|magic number)\b/i.test(fullText)) {
+  // Check if article has explicit infographic data or guide/tool intent
+  const hasInfographicData = 'infographic' in article && Boolean(article.infographic);
+  const infographicType = hasInfographicData && typeof article.infographic === 'object' ? article.infographic.type : null;
+
+  if (infographicType === 'formula' || /\b(capacity|sizing|formula|calculate|dimensions|cubic feet|ratio|measure)\b/i.test(fullText)) {
+    visualType = 'formula_visual';
+    infographicPreferable = true;
+    photographAppropriate = false;
+    isEditorialGraphicPreferred = true;
+    editorialAngle = 'Sizing, volumetric calculation, and capacity planning model';
+    requiredVisualRelationship = 'Mathematical and spatial relationship between dimensions and capacity needs';
+    keyConcepts.push('volumetric calculation', 'capacity threshold', 'sizing model');
+    searchQuery = 'capacity calculation formula sizing diagram';
+    promptSubject = `Clean editorial formula and sizing diagram illustrating ${cleanSubject}`;
+    composition = 'Structured minimalist calculation model with clearly delineated variable callouts';
+    explanation = `Article focuses on quantitative calculation; formula visual preferred over generic photo.`;
+  } else if (infographicType === 'decision-tree' || /\b(decision|choosing|which.*should you|guide to choosing|vs\b.*matrix|material selector)\b/i.test(fullText)) {
+    visualType = 'decision_tree';
+    infographicPreferable = true;
+    photographAppropriate = false;
+    isEditorialGraphicPreferred = true;
+    editorialAngle = 'Systematic branch-by-branch decision tree for optimal material or method choice';
+    requiredVisualRelationship = 'Condition-to-recommendation decision branches';
+    keyConcepts.push('decision tree', 'branching criteria', 'comparative evaluation');
+    searchQuery = 'decision tree flowchart guide minimalist';
+    promptSubject = `Structured decision tree diagram guiding choices for ${cleanSubject}`;
+    composition = 'Clean branching tree architecture with condition badges and recommendation outcomes';
+    explanation = `Article addresses choice decisions; structured decision tree provides highest utility.`;
+  } else if (infographicType === 'comparison' || /\b(vs\b|versus|comparison|pros and cons|difference between|compared to)\b/i.test(fullText)) {
+    visualType = 'comparison_graphic';
+    infographicPreferable = true;
+    isEditorialGraphicPreferred = true;
+    editorialAngle = 'Side-by-side comparative analysis of trade-offs and performance characteristics';
+    requiredVisualRelationship = 'Comparative matrix contrasting attributes A vs B';
+    keyConcepts.push('side-by-side comparison', 'trade-offs', 'specifications matrix');
+    searchQuery = 'comparison matrix table side by side clean';
+    promptSubject = `Comparative visual matrix contrasting options for ${cleanSubject}`;
+    composition = 'Side-by-side balanced dual-column grid with clear highlight badges';
+    explanation = `Comparative topic best served by structured side-by-side comparison visual.`;
+  } else if (infographicType === 'timeline' || /\b(history of|evolution of|lifecycle|chronological|stages of fermentation|phases)\b/i.test(fullText)) {
+    visualType = 'timeline';
+    infographicPreferable = true;
+    isEditorialGraphicPreferred = true;
+    editorialAngle = 'Chronological progression through key development stages or historical eras';
+    requiredVisualRelationship = 'Temporal sequence connecting milestones along a unified timeline track';
+    keyConcepts.push('chronological milestone', 'progression stages', 'lifecycle');
+    searchQuery = 'chronological timeline track clean editorial';
+    promptSubject = `Refined timeline visualization illustrating the progression of ${cleanSubject}`;
+    composition = 'Progressive linear timeline track with milestone nodes and era badges';
+    explanation = `Chronological progression best communicated through structured timeline visualization.`;
+  } else if (infographicType === 'mechanism' || infographicType === 'safety-pathway' || /\b(mechanism|polymerization|temperature danger zone|pathway|biological cycle|circadian)\b/i.test(fullText)) {
+    visualType = 'editorial_infographic';
+    infographicPreferable = true;
+    isEditorialGraphicPreferred = true;
+    editorialAngle = 'Scientific and mechanistic breakdown of underlying physical or chemical processes';
+    requiredVisualRelationship = 'Step-by-step causal chain leading to optimal outcome or safety threshold';
+    keyConcepts.push('scientific mechanism', 'causal chain', 'safety threshold');
+    searchQuery = 'scientific mechanism process chain clean diagram';
+    promptSubject = `High-clarity explanatory infographic explaining the mechanism of ${cleanSubject}`;
+    composition = 'Multi-stage process chain with connector arrows and distinct outcome summary card';
+    explanation = `Scientific/mechanistic process requires structured infographic for clarity.`;
+  } else if (infographicType === 'process-flow' || /\b(step-by-step|checklist|cleaning protocol|how to wash|how to clean|maintenance protocol)\b/i.test(fullText)) {
+    visualType = 'process_diagram';
+    infographicPreferable = true;
+    isEditorialGraphicPreferred = true;
+    editorialAngle = 'Practical step-by-step execution protocol for optimal efficiency and error prevention';
+    requiredVisualRelationship = 'Sequential procedural steps with visual progress indicators';
+    keyConcepts.push('procedural sequence', 'workflow execution', 'maintenance protocol');
+    searchQuery = 'step by step workflow process diagram';
+    promptSubject = `Procedural workflow diagram detailing the protocol for ${cleanSubject}`;
+    composition = 'Ordered sequence cards with phase markers and actionable descriptions';
+    explanation = `Procedural topic benefits from structured process workflow diagram.`;
+  }
+
+  // ----------------------------------------------------
+  // 2. ABSTRACT TOPICS / NO-IMAGE VALIDATION
+  // ----------------------------------------------------
+  else if (/\b(abstract economic policy|sec compliance regulation|pure theoretical model|api route schema)\b/i.test(fullText)) {
+    visualType = 'no_image';
+    noImagePreferable = true;
+    photographAppropriate = false;
+    searchQuery = '';
+    promptSubject = 'none';
+    explanation = `Abstract conceptual topic where forced imagery would be misleading or irrelevant; NO IMAGE preferred.`;
+  }
+
+  // ----------------------------------------------------
+  // 3. REAL EDITORIAL PHOTOGRAPHY & DOMAIN INTELLIGENCE
+  // ----------------------------------------------------
+
+  // Baseball / Houston Astros / Cleveland Guardians / José Trevino
+  else if (/\b(astros|houston astros|guardians|cleveland guardians|trevino|josé trevino|baseball|mlb|playoff chase|magic number)\b/i.test(fullText)) {
     visualType = 'real_world_identifiable';
     isRealWorldIdentifiableRequired = true;
+    photographAppropriate = true;
 
     if (/\bastros\b/i.test(fullText)) {
       primaryEntity = 'Houston Astros Baseball';
@@ -103,24 +266,28 @@ export function buildVisualBrief(
       searchQuery = 'Houston Astros baseball stadium Minute Maid Park';
       promptSubject = 'Editorial wide angle of professional baseball stadium diamond at twilight, Houston Astros navy and orange banner details, authentic Major League ballpark lighting, pristine infield clay';
       requiredElements.push('baseball diamond context', 'professional baseball stadium atmosphere', 'ballpark architecture');
+      keyObjects.push('baseball diamond', 'stadium grandstand', 'infield clay', 'ballpark pennant');
     } else if (/\bguardians\b/i.test(fullText)) {
       primaryEntity = 'Cleveland Guardians Baseball';
       eventOrPersonOrPlace = 'Cleveland Guardians playoff race';
       searchQuery = 'Cleveland Guardians baseball Progressive Field diamond';
       promptSubject = 'Editorial perspective of Major League baseball stadium during playoff chase, Cleveland ballpark field architecture, autumn evening lighting, pristine turf';
       requiredElements.push('baseball field context', 'Major League ballpark architecture', 'autumn baseball atmosphere');
+      keyObjects.push('baseball diamond', 'Progressive Field architecture', 'autumn turf');
     } else if (/\btrevino\b/i.test(fullText)) {
       primaryEntity = 'José Trevino / Professional Catcher';
       eventOrPersonOrPlace = 'Major League Baseball catcher craft';
       searchQuery = 'baseball catcher mitt mask home plate';
       promptSubject = 'Authentic leather baseball catcher mitt and helmet resting on pristine home plate dirt, quiet stadium morning sunlight, tactile sports craft';
       requiredElements.push('baseball catcher gear', 'home plate dirt', 'authentic baseball equipment');
+      keyObjects.push('leather catcher mitt', 'catcher mask', 'home plate');
     } else {
       primaryEntity = 'Major League Baseball';
       eventOrPersonOrPlace = 'Professional baseball diamond';
       searchQuery = 'baseball stadium diamond field';
       promptSubject = 'Professional baseball field diamond at dusk, stadium architectural grandstand in soft focus, crisp infield baseline';
       requiredElements.push('baseball diamond', 'stadium field');
+      keyObjects.push('baseball diamond', 'infield baseline');
     }
 
     prohibitedElements.push(
@@ -136,7 +303,7 @@ export function buildVisualBrief(
     );
   }
 
-  // 2. Cricket / Cricinfo
+  // Cricket / Cricinfo
   else if (/\b(cricinfo|cricket|espncricinfo|test match|bowler|batsman|wicket|stumps|crease)\b/i.test(fullText)) {
     visualType = 'real_world_identifiable';
     primaryEntity = 'Cricinfo & International Cricket';
@@ -144,19 +311,14 @@ export function buildVisualBrief(
     searchQuery = 'cricket stadium pitch stumps leather cricket ball';
     promptSubject = 'Editorial perspective of pristine green cricket pitch, wooden stumps and bails in soft afternoon golden hour light, red leather cricket ball resting on turf';
     requiredElements.push('cricket pitch or equipment', 'stumps or leather cricket ball', 'cricket stadium atmosphere');
-    prohibitedElements.push(
-      'baseball diamond',
-      'baseball bats',
-      'american football',
-      'soccer goalposts',
-      'unrelated rock bands',
-      'office desks'
-    );
+    keyObjects.push('wooden stumps', 'bails', 'red leather cricket ball', 'manicured cricket pitch');
+    prohibitedElements.push('baseball diamond', 'baseball bats', 'american football', 'soccer goalposts', 'unrelated rock bands', 'office desks');
   }
 
-  // 3. Soccer / Football / Friendlies / Ecuador vs South Korea / San Jose Earthquakes
+  // Soccer / Football / Friendlies / Ecuador vs South Korea / San Jose Earthquakes
   else if (/\b(friendlies|friendly match|ecuador.*korea|corea del sur|san jose earthquakes|soccer|fifa|international football)\b/i.test(fullText)) {
     visualType = 'real_world_identifiable';
+    photographAppropriate = true;
 
     if (/\b(friendlies|friendly)\b/i.test(fullText)) {
       primaryEntity = 'International Soccer Friendlies';
@@ -164,175 +326,136 @@ export function buildVisualBrief(
       searchQuery = 'soccer stadium pitch football match ball twilight';
       promptSubject = 'Atmospheric view of professional football stadium pitch under floodlights, official match ball on pristine manicured grass, quiet stadium architecture';
       requiredElements.push('soccer pitch or match ball', 'stadium under floodlights', 'football atmosphere');
+      keyObjects.push('official soccer match ball', 'manicured grass pitch', 'floodlight towers');
     } else if (/\b(ecuador|corea|korea)\b/i.test(fullText)) {
       primaryEntity = 'Ecuador vs South Korea Matchup';
       eventOrPersonOrPlace = 'International football tactical contest';
       searchQuery = 'international soccer match pitch flags stadium';
       promptSubject = 'Editorial perspective of international football pitch sideline at dusk, tactical lines on grass, national team scarf draped on stadium railing in soft focus';
       requiredElements.push('football pitch context', 'international soccer atmosphere');
+      keyObjects.push('tactical sideline', 'national team scarf', 'stadium grandstand');
     } else if (/\bearthquakes\b/i.test(fullText)) {
       primaryEntity = 'San Jose Earthquakes';
       eventOrPersonOrPlace = 'MLS soccer stadium & Bay Area football';
       searchQuery = 'San Jose Earthquakes MLS soccer stadium pitch';
       promptSubject = 'MLS soccer pitch at golden hour, blue stadium seats in soft background, crisp white penalty box lines on grass';
       requiredElements.push('MLS soccer pitch', 'professional football turf');
+      keyObjects.push('MLS soccer pitch', 'penalty box lines');
     }
 
-    prohibitedElements.push(
-      'baseball mitts',
-      'cricket bats',
-      'american football helmets',
-      'golf clubs',
-      'unrelated concert crowds',
-      'cruise ships'
-    );
+    prohibitedElements.push('baseball mitts', 'cricket bats', 'american football helmets', 'golf clubs', 'unrelated concert crowds', 'cruise ships');
   }
 
-  // 4. Oceans Calling Music Festival / Coastal Beach Festival
+  // Oceans Calling Music Festival
   else if (/\b(oceans calling|music festival.*beach|nor'easter.*festival)\b/i.test(fullText)) {
     visualType = 'real_world_identifiable';
+    photographAppropriate = true;
     primaryEntity = 'Oceans Calling Festival';
     eventOrPersonOrPlace = 'Ocean City coastal music festival stage & Atlantic shoreline';
     searchQuery = 'Oceans Calling festival Ocean City beach stage Atlantic ocean';
     promptSubject = 'Editorial architectural photograph of outdoor festival stage erected along sandy Atlantic coastline, dramatic coastal sky, ocean surf in background, festival rigging without crowds';
     requiredElements.push('coastal festival stage', 'sandy beach or shoreline', 'dramatic Atlantic sky context');
-    prohibitedElements.push(
-      'office interior',
-      'indoor conference room',
-      'generic stock portrait',
-      'dry desert scene',
-      'subway station'
-    );
+    keyObjects.push('outdoor festival stage', 'sandy beach', 'ocean surf', 'stage rigging');
+    prohibitedElements.push('office interior', 'indoor conference room', 'generic stock portrait', 'dry desert scene', 'subway station');
   }
 
-  // 5. Aviation / Delta Flight 2311 Incident
+  // Aviation Safety / Flight Incidents
   else if (/\b(delta flight|aviation|rapid descent|flight diverted|boeing|airbus|cockpit|aircraft altitude)\b/i.test(fullText)) {
     visualType = 'editorial_graphic';
     isEditorialGraphicPreferred = true;
+    photographAppropriate = false;
     primaryEntity = 'Commercial Aviation Safety';
     eventOrPersonOrPlace = 'Commercial aircraft in flight & flight path mechanics';
     searchQuery = 'commercial airplane high altitude flight clouds minimalist';
     promptSubject = 'Editorial aviation visual: commercial passenger aircraft silhouette cruising through calm cloud layers at high altitude, subtle flight altitude data lines, refined minimal lighting';
     requiredElements.push('commercial aviation context', 'aircraft or flight trajectory', 'aviation sky atmosphere');
-    prohibitedElements.push(
-      'ocean vacation scenes',
-      'cruise ships',
-      'guitarists',
-      'musicians',
-      'unrelated tourists on beaches',
-      'office meetings'
-    );
+    keyObjects.push('aircraft silhouette', 'high-altitude clouds', 'subtle trajectory data lines');
+    prohibitedElements.push('ocean vacation scenes', 'cruise ships', 'guitarists', 'musicians', 'unrelated tourists on beaches', 'office meetings');
   }
 
-  // 6. Travel: Specific Destination Intelligence
+  // Travel / Destination Intelligence
   else if (pillar === 'travel' || /\b(travel|destination|azores|laguna beach|japan|nyc|weather|retreats)\b/i.test(fullText)) {
+    visualType = 'editorial_photo';
+    photographAppropriate = true;
+
     if (/\bazores\b/i.test(fullText)) {
       primaryEntity = 'The Azores Archipelago';
-      eventOrPersonOrPlace = 'Volcanic hot springs and solitary Atlantic coastline';
       searchQuery = 'Azores volcanic hot spring caldera Atlantic coastline Portugal';
       promptSubject = 'Atmospheric volcanic hot springs and lush green caldera in the Azores, solitary Atlantic coastline cliffs, morning sea mist';
       requiredElements.push('Azores volcanic landscape or coastal caldera', 'lush Atlantic topography');
+      keyObjects.push('volcanic thermal spring', 'caldera rim', 'Atlantic sea mist');
       prohibitedElements.push('tropical palm trees', 'desert sand dunes', 'crowded city highrises');
     } else if (/\blaguna beach\b/i.test(fullText)) {
       primaryEntity = 'Laguna Beach, California';
-      eventOrPersonOrPlace = 'Modern architectural coastal cove';
       searchQuery = 'Laguna Beach Pacific coast cliffs modernist architecture cove';
       promptSubject = 'Laguna Beach coastal bluffs at golden hour, Pacific ocean swells meeting architectural sandstone coves, calm minimalist coastal atmosphere';
       requiredElements.push('Laguna Beach coastal bluffs', 'Pacific ocean sandstone cove');
+      keyObjects.push('sandstone bluffs', 'Pacific ocean cove', 'modernist coastal home');
       prohibitedElements.push('tropical Caribbean resort', 'snowy mountains', 'European cobblestone streets');
     } else if (/\bjapan\b/i.test(fullText)) {
       primaryEntity = 'Japan Travel & Urban Culture';
-      eventOrPersonOrPlace = 'Japanese architectural streetscape & serene cedar temple';
       searchQuery = 'Japan quiet urban street traditional cedar architecture morning';
       promptSubject = 'Quiet traditional Japanese wooden architecture along serene cobblestone alley, morning mist, subtle modern design harmony';
       requiredElements.push('authentic Japanese architecture or quiet streetscape');
+      keyObjects.push('cedar machiya facade', 'stone-paved alley', 'morning lantern');
       prohibitedElements.push('generic Western city streets', 'tropical beaches', 'neon cyber clichés');
-    } else if (/\b(weather.*nyc|nyc.*weather|new york.*weather)\b/i.test(fullText)) {
-      primaryEntity = 'New York City Shifting Weather';
-      eventOrPersonOrPlace = 'Manhattan urban skyline during weather transition';
-      searchQuery = 'New York City Manhattan skyline moody storm clouds rain reflection';
-      promptSubject = 'Editorial architectural view of Manhattan skyline under dramatic atmospheric storm clouds, clean rain reflections on urban street pavement, muted cinematic palette';
-      requiredElements.push('New York City urban architecture', 'atmospheric weather sky');
-      prohibitedElements.push('tropical islands', 'mountain pastures', 'sunny desert');
-    } else if (/\bfire weather\b/i.test(fullText)) {
-      primaryEntity = 'Fire Weather & Meteorological Alert';
-      eventOrPersonOrPlace = 'Arid landscape under high wind meteorological conditions';
-      searchQuery = 'arid golden hills high wind dry weather alert landscape';
-      promptSubject = 'Editorial landscape of dry golden grassland hills under high-wind atmospheric sky, meteorological weather station in distance, stark natural light';
-      requiredElements.push('dry meteorological landscape context');
-      prohibitedElements.push('lush rainforest', 'underwater coral', 'indoor office');
-    } else if (/\bminimalist.*coastal\b/i.test(fullText)) {
-      primaryEntity = 'Minimalist Mediterranean Retreats';
-      eventOrPersonOrPlace = 'Modernist secluded coastal villa';
-      searchQuery = 'Mediterranean minimalist architecture coastal stone villa sea view';
-      promptSubject = 'Secluded Mediterranean stone villa with minimalist geometric lines overlooking calm deep blue sea, natural limestone terraces, soft warm daylight';
-      requiredElements.push('minimalist Mediterranean architecture', 'limestone terrace sea view');
-      prohibitedElements.push('crowded tourist beaches', 'skyscrapers', 'generic stock selfies');
-    } else if (/\bdark\b/i.test(fullText) && /\b(netflix|series)\b/i.test(fullText)) {
-      primaryEntity = 'Dark Series Architectural Exploration';
-      eventOrPersonOrPlace = 'Atmospheric German forest architecture & brutalist structures';
-      searchQuery = 'brutalist concrete architecture moody pine forest mist Germany';
-      promptSubject = 'Moody dense pine forest with architectural concrete modernist pavilion in deep fog, cinematic cold tones, quiet solitary path';
-      requiredElements.push('misty pine forest', 'brutalist or architectural structure');
-      prohibitedElements.push('tropical sunny beach', 'crowded shopping malls', 'bright neon city');
     } else {
       primaryEntity = cleanSubject;
-      eventOrPersonOrPlace = cleanSubject;
       searchQuery = `${cleanSubject} authentic regional landscape`;
       promptSubject = `Atmospheric editorial travel landscape representing ${cleanSubject}, authentic natural light, spacious composition`;
       requiredElements.push('authentic destination landscape');
     }
   }
 
-  // 7. Entertainment: Film, TV, Music, Astronomy
-  else if (pillar === 'entertainment') {
-    if (/\b(meteor|stargazing|perseid|astronomy)\b/i.test(fullText)) {
-      primaryEntity = 'Meteor Shower & Dark Sky Astronomy';
-      eventOrPersonOrPlace = 'Night sky celestial observation';
-      searchQuery = 'meteor shower starry night sky mountain dark sky reserve';
-      promptSubject = 'Breathtaking streak of a meteor across a crystalline dark sky filled with stars, mountain silhouette at horizon, pure deep cosmic atmosphere';
-      requiredElements.push('starry night sky', 'meteor streak or astronomical observatory');
-      prohibitedElements.push('office desk', 'daylight city', 'guitars');
-    } else if (/\b(murphy|gerwig|baumbach|hartnett|actor|director|cinema|movie|film)\b/i.test(fullText)) {
-      visualType = 'metaphorical_scene';
-      primaryEntity = cleanSubject;
-      eventOrPersonOrPlace = 'Cinematic craft & screen culture';
-      searchQuery = '35mm cinema camera director viewfinder soundstage soft light';
-      promptSubject = 'Vintage 35mm cinema camera and handwritten script on wooden table in warm atmospheric film soundstage, quiet cinematic depth';
-      requiredElements.push('cinematic camera or film craft setting');
-      prohibitedElements.push('office desk with pen', 'tabloid paparazzi flash', 'sports arena');
-    } else if (/\b(chapman|acoustic|vinyl|soundtrack|audio)\b/i.test(fullText)) {
-      primaryEntity = cleanSubject;
-      eventOrPersonOrPlace = 'Acoustic music craftsmanship';
-      searchQuery = 'acoustic guitar vintage recording studio warm light';
-      promptSubject = 'Handcrafted acoustic guitar resting in sunlit historic recording atelier, natural wood textures, soft golden ambient light';
-      requiredElements.push('acoustic musical instrument or studio atmosphere');
-      prohibitedElements.push('office cubicle', 'sports field', 'fast food');
-    }
+  // Culinary / Food & Drink
+  else if (pillar === 'food-drink' || /\b(vinegar|sourdough|hummus|soup|lentil|tahini|cast iron|coffee|cooking)\b/i.test(fullText)) {
+    visualType = 'editorial_photo';
+    photographAppropriate = true;
+    primaryEntity = cleanSubject;
+    searchQuery = `${cleanSubject} culinary kitchen ingredients artisanal daylight`;
+    promptSubject = `Artisanal culinary photograph of authentic ${cleanSubject}, warm organic kitchen tabletop, natural window light, tactile ceramic bowls, fresh rustic ingredients`;
+    requiredElements.push('culinary kitchen setting', 'natural window light', 'tactile organic ingredients');
+    keyObjects.push('artisan kitchen cookware', 'ceramic bowl', 'fresh organic produce');
+    prohibitedElements.push('fast food plastic packaging', 'harsh flash glare', 'generic stock restaurant');
   }
 
-  // 8. Tech / AI:
+  // Style & Personal Care
+  else if (pillar === 'style' || /\b(capsule wardrobe|skincare|fragrance|double cleansing|wool|linen|hair care)\b/i.test(fullText)) {
+    visualType = 'editorial_photo';
+    photographAppropriate = true;
+    primaryEntity = cleanSubject;
+    searchQuery = `${cleanSubject} minimalist editorial aesthetic tactile natural daylight`;
+    promptSubject = `Minimalist editorial flat-lay or tactile close-up representing ${cleanSubject}, warm natural daylight, linen textures, elegant neutral color grade`;
+    requiredElements.push('tactile material texture', 'natural daylight', 'minimalist aesthetic');
+    keyObjects.push('linen texture', 'amber glass apothecary bottle', 'natural materials');
+    prohibitedElements.push('glamour paparazzi flash', 'heavy artificial makeup', 'garish neon colors');
+  }
+
+  // Tech & AI Workflows
   else if (pillar === 'tech-ai') {
     if (/\b(downdetector|outage)\b/i.test(fullText)) {
       visualType = 'editorial_graphic';
       isEditorialGraphicPreferred = true;
+      photographAppropriate = false;
       primaryEntity = 'Internet Infrastructure & Outage Monitoring';
       searchQuery = 'server network status terminal minimalist telemetry';
       promptSubject = 'Clean editorial technical telemetry visual, network node status diagram on matte display, minimalist server rack in soft ambient studio daylight';
       requiredElements.push('minimalist network telemetry or server hardware');
       prohibitedElements.push('hacker in hoodie', 'green binary matrix code', 'broken cables');
     } else if (/\b(sovereign|local ai|hardware setup)\b/i.test(fullText)) {
+      visualType = 'editorial_photo';
+      photographAppropriate = true;
       primaryEntity = 'Sovereign Local AI Hardware';
       searchQuery = 'minimalist developer workstation matte keyboard dual monitors natural light';
       promptSubject = 'Refined developer workspace with high-performance compact workstation, matte mechanical keyboard, warm oak desk, soft daylight';
       requiredElements.push('clean developer workstation', 'matte mechanical keyboard');
       prohibitedElements.push('generic business suits', 'glowing 3D cyborgs');
-    } else if (/\b(vr glasses|headset|spatial)\b/i.test(fullText)) {
-      primaryEntity = 'Spatial Computing & VR Glasses';
-      searchQuery = 'modern spatial computing headset minimalist design studio';
-      promptSubject = 'Sleek contemporary optical spatial headset resting on minimalist concrete pedestal, soft studio lighting, architectural product design';
-      requiredElements.push('spatial computing headset design');
-      prohibitedElements.push('unrelated people running', 'cyberpunk neon chaos');
+    } else {
+      visualType = 'editorial_photo';
+      photographAppropriate = true;
+      primaryEntity = cleanSubject;
+      searchQuery = `${cleanSubject} modern workspace minimalist technology`;
+      promptSubject = `Contemporary human-centric workspace reflecting ${cleanSubject}, warm architectural daylight, tactile oak wood desk`;
     }
   }
 
@@ -340,19 +463,32 @@ export function buildVisualBrief(
   const altText = `${title} — editorial visual representation of ${primaryEntity}`;
 
   return {
-    primaryVisualSubject: promptSubject,
-    primaryEntity,
-    eventOrPersonOrPlace,
+    subject: cleanSubject || title,
+    editorialAngle,
+    keyObjects,
+    keyConcepts,
+    requiredVisualRelationship,
     visualType,
-    requiredVisualElements: requiredElements,
-    prohibitedVisualElements: prohibitedElements,
+    composition,
+    orientation,
+    aspectRatio,
+    importantExclusions: prohibitedElements,
+    photographAppropriate,
+    infographicPreferable,
+    noImagePreferable,
+    explanation,
     imageSearchQuery: searchQuery,
     aiGenerationPrompt: promptSubject,
     negativePrompt,
+    altText,
+
+    // Legacy field mappings
+    primaryVisualSubject: promptSubject,
+    primaryEntity,
+    eventOrPersonOrPlace,
+    requiredVisualElements: requiredElements,
+    prohibitedVisualElements: prohibitedElements,
     isRealWorldIdentifiableRequired,
     isEditorialGraphicPreferred,
-    aspectRatio: '16:9',
-    altText,
-    explanation,
   };
 }

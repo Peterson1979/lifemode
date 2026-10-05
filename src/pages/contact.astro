@@ -1,24 +1,40 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCanonicalUrl } from '../utils/seo';
+
+const canonicalUrl = getCanonicalUrl('/contact');
 ---
 
 <BaseLayout
-  title="Contact — LifeMode"
-  description="Get in touch with LifeMode for editorial inquiries, partnerships, press requests, and general correspondence."
+  title="Contact LifeMode — Editorial Desk & Inquiries"
+  description="Contact the LifeMode editorial team for factual corrections, practical tool suggestions, recipe questions, or general inquiries."
+  canonicalUrl={canonicalUrl}
 >
-  <div class="page-shell container-prose">
+  <div class="page-shell container-prose" style="padding-top: var(--space-8); padding-bottom: var(--space-20);">
     <header style="margin-bottom: var(--space-8);">
-      <span class="hero-tag">Inquiries &amp; Correspondence</span>
-      <h1 class="page-title">Contact</h1>
-      <p class="page-lead">
-        We welcome editorial inquiries, partnerships, press requests, and general questions from readers and collaborators worldwide.
+      <span class="badge" style="background-color: rgba(37, 99, 235, 0.1); color: var(--color-primary-accent); border: 1px solid rgba(37, 99, 235, 0.2); font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: var(--radius-full); margin-bottom: var(--space-3); display: inline-block;">
+        Inquiries &amp; Correspondence
+      </span>
+      <h1 class="page-title" style="font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; color: var(--color-text-primary); margin-bottom: var(--space-3);">
+        Contact LifeMode
+      </h1>
+      <p class="page-lead" style="font-size: 1.15rem; color: var(--color-text-secondary); line-height: 1.6;">
+        We welcome questions, factual corrections, practical tool suggestions, and recipe correspondence from readers.
       </p>
     </header>
 
     <div class="prose">
-      <h2>General &amp; Editorial Inquiries</h2>
+      <h2>Editorial Desk</h2>
       <p>
-        For editorial feedback, story ideas, press inquiries, or partnership opportunities, please reach us directly by email:
+        For factual corrections, research verification, guide updates, or submitting everyday problem cases:
+      </p>
+      <p>
+        <strong>Email:</strong> <a href="mailto:editorial@lifemode.life">editorial@lifemode.life</a>
+      </p>
+
+      <h2>General &amp; Partnership Inquiries</h2>
+      <p>
+        For general feedback, press inquiries, or partnership discussions:
       </p>
       <p>
         <strong>Email:</strong> <a href="mailto:contact@lifemode.life">contact@lifemode.life</a>
@@ -27,12 +43,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2>Publisher Information</h2>
       <p>
         <strong>Publication:</strong> LifeMode<br />
-        <strong>Publisher:</strong> Oberhauser Péter Zoltán<br />
-        <strong>Contact:</strong> <a href="mailto:contact@lifemode.life">contact@lifemode.life</a>
+        <strong>Published &amp; Operated by:</strong> Oberhauser Péter Zoltán<br />
+        <strong>Canonical Site:</strong> <a href="https://lifemode.life">https://lifemode.life</a>
       </p>
 
       <blockquote>
-        Please note that LifeMode maintains strict editorial independence across all published articles, guides, and reviews.
+        Please note that LifeMode maintains strict editorial independence across all published articles, guides, tools, and reviews.
       </blockquote>
     </div>
   </div>

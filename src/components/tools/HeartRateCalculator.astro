@@ -1,0 +1,353 @@
+---
+---
+
+<div class="tool-widget-container" id="heart-rate-calculator-app">
+  <div class="tool-controls-grid">
+    <div class="tool-field">
+      <label for="hr-age" class="field-label">1. Your Age (Years)</label>
+      <input type="number" id="hr-age" class="tool-input" value="38" min="18" max="95" step="1" />
+    </div>
+
+    <div class="tool-field">
+      <label for="hr-resting" class="field-label">2. Morning Resting HR (BPM)</label>
+      <input type="number" id="hr-resting" class="tool-input" value="62" min="40" max="100" step="1" />
+    </div>
+
+    <div class="tool-field">
+      <label for="hr-formula" class="field-label">3. Calculation Method</label>
+      <select id="hr-formula" class="tool-select">
+        <option value="karvonen" selected>Karvonen Formula (Considers Resting HR - More Accurate)</option>
+        <option value="tanaka">Tanaka Formula (208 - 0.7 &times; Age)</option>
+      </select>
+    </div>
+
+    <div class="tool-field">
+      <label for="hr-weekly-goal" class="field-label">4. Weekly Goal</label>
+      <select id="hr-weekly-goal" class="tool-select">
+        <option value="150" selected>150 Min/Wk (AHA Cardiovascular Standard)</option>
+        <option value="180">180 Min/Wk (Longevity / Base Building)</option>
+        <option value="120">120 Min/Wk (Maintenance)</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="calculator-result-box" id="heart-rate-result-box">
+    <!-- Result dynamically rendered via client JS -->
+  </div>
+</div>
+
+<script>
+  function calculateZones() {
+    const ageEl = document.getElementById('hr-age') as HTMLInputElement;
+    const restEl = document.getElementById('hr-resting') as HTMLInputElement;
+    const formulaEl = document.getElementById('hr-formula') as HTMLSelectElement;
+    const goalEl = document.getElementById('hr-weekly-goal') as HTMLSelectElement;
+    const resultBox = document.getElementById('heart-rate-result-box');
+
+    if (!ageEl || !restEl || !formulaEl || !goalEl || !resultBox) return;
+
+    const age = parseInt(ageEl.value) || 38;
+    const restingHR = parseInt(restEl.value) || 62;
+    const formula = formulaEl.value;
+    const weeklyMin = parseInt(goalEl.value) || 150;
+
+    // Max HR
+    const maxHR = Math.round(208 - (0.7 * age));
+
+    let z2Min = 0;
+    let z2Max = 0;
+
+    if (formula === 'karvonen') {
+      const hrr = maxHR - restingHR;
+      z2Min = Math.round(restingHR + (hrr * 0.60));
+      z2Max = Math.round(restingHR + (hrr * 0.70));
+    } else {
+      z2Min = Math.round(maxHR * 0.60);
+      z2Max = Math.round(maxHR * 0.70);
+    }
+
+    const sessions3 = Math.round(weeklyMin / 3);
+    const sessions4 = Math.round(weeklyMin / 4);
+
+    resultBox.innerHTML = `
+      <div class="calc-header-summary">
+        <span class="calc-badge">Target Aerobic Zone</span>
+        <h3 class="calc-title">Your Zone 2 Training Heart Rate Band</h3>
+        <p class="calc-desc">Calculated for age ${age} (Max HR: ~${maxHR} BPM, Resting: ${restingHR} BPM).</p>
+      </div>
+
+      <div class="calc-stats-banner">
+        <div class="calc-stat-block highlight-block">
+          <span class="calc-stat-label">Zone 2 Heart Rate Target</span>
+          <div class="calc-stat-num-group">
+            <span class="calc-stat-val">${z2Min}–${z2Max}</span>
+            <span class="calc-stat-unit">BPM</span>
+          </div>
+          <span class="calc-subtext">Peak fat oxidation &amp; mitochondrial stimulus</span>
+        </div>
+
+        <div class="calc-stat-block">
+          <span class="calc-stat-label">Conversational Talk Test</span>
+          <div class="calc-stat-num-group">
+            <span class="calc-stat-val" style="font-size: 1.25rem;">2–3 Sentences</span>
+          </div>
+          <span class="calc-subtext">Comfortable speech without gasping for breath</span>
+        </div>
+
+        <div class="calc-stat-block">
+          <span class="calc-stat-label">Weekly Allocation</span>
+          <div class="calc-stat-num-group">
+            <span class="calc-stat-val">${weeklyMin}</span>
+            <span class="calc-stat-unit">Min/Week</span>
+          </div>
+          <span class="calc-subtext">3 &times; ${sessions3} min or 4 &times; ${sessions4} min</span>
+        </div>
+      </div>
+
+      <div class="calc-breakdown-section">
+        <h4 class="section-subhead">💓 Full 5-Zone Intensity Reference:</h4>
+        <div class="zones-spectrum-grid">
+          <div class="zone-spectrum-card">
+            <span class="zone-tag">Zone 1</span>
+            <span class="zone-range">&lt;${z2Min} BPM</span>
+            <span class="zone-name">Active Recovery</span>
+          </div>
+          <div class="zone-spectrum-card is-target">
+            <span class="zone-tag">Zone 2 (Target)</span>
+            <span class="zone-range">${z2Min}–${z2Max} BPM</span>
+            <span class="zone-name">Aerobic Base</span>
+          </div>
+          <div class="zone-spectrum-card">
+            <span class="zone-tag">Zone 3</span>
+            <span class="zone-range">${z2Max + 1}–${Math.round(maxHR * 0.80)} BPM</span>
+            <span class="zone-name">Tempo Pace</span>
+          </div>
+          <div class="zone-spectrum-card">
+            <span class="zone-tag">Zone 4</span>
+            <span class="zone-range">${Math.round(maxHR * 0.80) + 1}–${Math.round(maxHR * 0.90)} BPM</span>
+            <span class="zone-name">Threshold</span>
+          </div>
+          <div class="zone-spectrum-card">
+            <span class="zone-tag">Zone 5</span>
+            <span class="zone-range">${Math.round(maxHR * 0.90) + 1}–${maxHR} BPM</span>
+            <span class="zone-name">Max Sprint</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-insights-box">
+        <strong>💡 Workout Execution Tip:</strong> Maintain this ${z2Min}–${z2Max} BPM pace during incline treadmill walking, outdoor cycling, or easy jogging. If your heart rate drifts above ${z2Max} BPM or you cannot speak full sentences, slow down slightly to remain in the aerobic fat-burning zone.
+      </div>
+    `;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    calculateZones();
+    ['hr-age', 'hr-resting', 'hr-formula', 'hr-weekly-goal'].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('input', calculateZones);
+        el.addEventListener('change', calculateZones);
+      }
+    });
+  });
+</script>
+
+<style>
+  .tool-widget-container {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+    margin: var(--space-6) 0;
+  }
+
+  .tool-controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-5);
+    margin-bottom: var(--space-8);
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .tool-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .field-label {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .tool-select, .tool-input {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.95rem;
+    color: var(--color-text-primary);
+    background-color: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    outline: none;
+    transition: border-color var(--transition-fast);
+  }
+
+  .tool-select:focus, .tool-input:focus {
+    border-color: var(--color-primary-accent);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  }
+
+  .calculator-result-box {
+    background: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+  }
+
+  .calc-badge {
+    display: inline-block;
+    font-size: 0.725rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #0284c7;
+    background: rgba(2, 132, 199, 0.1);
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-2);
+  }
+
+  .calc-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 var(--space-1);
+    color: var(--color-text-primary);
+  }
+
+  .calc-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--space-6);
+  }
+
+  .calc-stats-banner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .calc-stat-block {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .highlight-block {
+    border-color: #0284c7;
+    background: rgba(2, 132, 199, 0.03);
+  }
+
+  .calc-stat-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-1);
+  }
+
+  .calc-stat-num-group {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    margin-bottom: var(--space-1);
+  }
+
+  .calc-stat-val {
+    font-family: var(--font-display);
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .calc-stat-unit {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .calc-subtext {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+  }
+
+  .section-subhead {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: var(--space-4) 0 var(--space-3);
+    color: var(--color-text-primary);
+  }
+
+  .zones-spectrum-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+  }
+
+  .zone-spectrum-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .zone-spectrum-card.is-target {
+    border-color: #0284c7;
+    background: rgba(2, 132, 199, 0.08);
+    font-weight: 700;
+  }
+
+  .zone-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+  }
+
+  .zone-range {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0.2rem 0;
+  }
+
+  .zone-name {
+    font-size: 0.725rem;
+    color: var(--color-text-secondary);
+  }
+
+  .calc-insights-box {
+    background: var(--color-surface);
+    border-left: 3px solid #0284c7;
+    padding: var(--space-4);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+</style>

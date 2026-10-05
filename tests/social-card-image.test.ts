@@ -388,7 +388,7 @@ test('LifeMode Social Card Image Generation & Layout Test Suite', async (t) => {
     const fbPkg = await fbAdapter.prepare(content, imageResult.asset, { destinationUrl: opp.destinationUrl });
     const fbValidation = fbAdapter.validate(fbPkg);
     assert.equal(fbValidation.valid, true);
-    assert.equal(fbPkg.mediaAsset.url, expectedPublicUrl);
+    assert.equal(fbPkg.mediaAsset!.url, expectedPublicUrl);
     assert.equal(fbPkg.preparedPayload.url, expectedPublicUrl);
     assert.ok(fbPkg.caption.includes('https://lifemode.life/food-drink/how-sourdough-fermentation-works'));
 
@@ -397,7 +397,7 @@ test('LifeMode Social Card Image Generation & Layout Test Suite', async (t) => {
     const igPkg = await igAdapter.prepare(content, imageResult.asset, { destinationUrl: opp.destinationUrl });
     const igValidation = igAdapter.validate(igPkg);
     assert.equal(igValidation.valid, true);
-    assert.equal(igPkg.mediaAsset.url, expectedPublicUrl);
+    assert.equal(igPkg.mediaAsset!.url, expectedPublicUrl);
     assert.equal(igPkg.preparedPayload.image_url, expectedPublicUrl);
   });
 

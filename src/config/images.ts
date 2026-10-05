@@ -56,6 +56,99 @@ export const GLOBAL_IMAGE_GUIDELINES = {
  * Pillar-specific visual styles and aesthetic guidelines.
  */
 export const PILLAR_IMAGE_STYLES: Record<PillarSlug, PillarImageStyle> = {
+  health: {
+    pillar: 'health',
+    theme: 'Longevity Science, Metabolic Vitality & Rest',
+    palette: ['Vital Emerald', 'Raw Amber', 'Botanical Sage', 'Morning Dew White'],
+    visualMotifs: [
+      'Morning sunlight over clean wellness spaces and natural daylight fitness routines',
+      'Modern biometric wearables, sleep tracking rings, and recovery devices in natural light',
+      'Pure hydration, botanical nutrition, and balanced wholesome meals',
+      'Mindful movement, restorative sauna sessions, and outdoor trail recovery',
+    ],
+    lighting: 'Luminous natural morning daylight with crisp, refreshing contrast',
+    cameraLens: '50mm or 85mm prime lens with natural depth of field and authentic skin tones',
+    mood: 'Vital, scientific, restorative, luminous, evidence-informed',
+    exampleScenes: [
+      'A runner resting on a sunlit mountain trail with an elegant fitness tracking watch',
+      'Morning sunlight through sheer curtains illuminating a mindful breathing and recovery setup',
+      'A clean kitchen counter with cold-pressed green juice, raw almonds, and fresh botanical herbs',
+    ],
+  },
+  wealth: {
+    pillar: 'wealth',
+    theme: 'Digital Independence, Remote Business & Creator Economy',
+    palette: ['Sky Slate', 'Rich Espresso', 'Parchment Cream', 'Modern Obsidian'],
+    visualMotifs: [
+      'Modern remote work desk setup with natural light, clean laptop, and paper notebook',
+      'Digital product creation, creative software interfaces, and structured business planning',
+      'Independent creators working in sunlit boutique cafes or home studios',
+      'Clear, minimalist workspace essentials with warm wood textures',
+    ],
+    lighting: 'Refined architectural daylight with clean structured highlights',
+    cameraLens: '35mm or 50mm f/2.0 prime lens with documentary realism',
+    mood: 'Strategic, independent, pragmatic, focused, contemporary',
+    exampleScenes: [
+      'A creator designing digital resources on a laptop in a sunlit Scandinavian-style studio',
+      'A clean walnut desk with a fountain pen, structured workflow diagram, and morning coffee',
+      'A remote professional working productively beside a garden-facing window',
+    ],
+  },
+  home: {
+    pillar: 'home',
+    theme: 'Culinary Craft, Kitchen Care & Household Systems',
+    palette: ['Terracotta Paprika', 'Olive Slate', 'Warm Ochre', 'Clean Linen'],
+    visualMotifs: [
+      'Authentic seasoned cast-iron pans, copper cookware, and natural cutting boards',
+      'Smart small-pantry organization jars, labelled containers, and clean storage systems',
+      'Seasonal home maintenance tools, linen laundry hampers, and organized living areas',
+      'Fresh rustic culinary preparation and mindful kitchen workflows',
+    ],
+    lighting: 'Warm natural window daylight with soft domestic shadows',
+    cameraLens: '50mm f/1.8 prime lens highlighting authentic textures and materials',
+    mood: 'Artisanal, functional, grounded, organized, warm',
+    exampleScenes: [
+      'A beautifully seasoned cast iron skillet on a clean wooden trivet with fresh garlic and thyme',
+      'A small pantry with neatly organized glass storage jars and bamboo shelf risers',
+      'A sunlit laundry folding area with organic cotton textiles and amber spray bottles',
+    ],
+  },
+  life: {
+    pillar: 'life',
+    theme: 'Curated Personal Style, Everyday Hacks & Mindful Travel',
+    palette: ['Crimson Rose', 'Terracotta Silk', 'Coast Azure', 'Warm Alabaster'],
+    visualMotifs: [
+      'Tactile linen tailoring, curated wardrobe capsules, and minimalist grooming tools',
+      'Hands-on everyday problem solving, smart household shortcuts, and spatial fixes',
+      'Boutique travel destinations, quiet coastal promenades, and slow journey scenes',
+      'Daily morning routines, structured desks, and intentional lifestyle moments',
+    ],
+    lighting: 'Soft diffused natural window light with gentle warm shadows',
+    cameraLens: '50mm or 85mm prime lens with beautiful filmic quality',
+    mood: 'Effortless, contemporary, cultured, inspiring, authentic',
+    exampleScenes: [
+      'A minimalist capsule wardrobe rail with neutral linen shirts, wool trousers, and leather boots',
+      'A traveler with a canvas weekender bag standing at a scenic Mediterranean coastal viewpoint',
+      'A neatly organized morning grooming tray with amber bottles and natural horn comb',
+    ],
+  },
+  tools: {
+    pillar: 'tools',
+    theme: 'Interactive Solvers, Decision Matrix & Reference Utilities',
+    palette: ['Modern Blue', 'Deep Slate', 'Crisp White', 'Graphite'],
+    visualMotifs: [
+      'Clean interactive decision interfaces, diagnostic matrices, and calculation tools',
+      'Comparative materials testing, fabric care charts, and sizing diagrams',
+      'Structured planning sheets, clipboards, and systematic checklists',
+    ],
+    lighting: 'Clean high-clarity daylight with balanced neutral tones',
+    cameraLens: '45mm or 50mm lens with crisp edge-to-edge geometric precision',
+    mood: 'Analytical, helpful, precise, clear, modern',
+    exampleScenes: [
+      'A designer reviewing a clean decision matrix on an iPad on an organized drafting table',
+      'A structured maintenance checklist and measurement tape on a clean wooden workspace',
+    ],
+  },
   style: {
     pillar: 'style',
     theme: 'Contemporary Fashion, Personal Style & Beauty Aesthetics',
@@ -191,6 +284,23 @@ export const PILLAR_IMAGE_STYLES: Record<PillarSlug, PillarImageStyle> = {
       'Hands assembling fresh seasonal ingredients on a sunlit kitchen island',
     ],
   },
+  'life-hacks': {
+    pillar: 'life-hacks' as any,
+    theme: 'Smart Visual Shortcuts & Clever Everyday Life Solutions',
+    palette: ['Electric Cyan', 'Crisp White', 'Deep Slate', 'Bright Amber', 'Fresh Mint'],
+    visualMotifs: [
+      'Dynamic visual demonstrations of everyday household problem-solving',
+      'Clever kitchen tools, organization shortcuts, and smart household fixes',
+      'Clear, practical hands-on demonstrations with clean aesthetic focus',
+    ],
+    lighting: 'Bright, clean studio daylight with high clarity and crisp contrast',
+    cameraLens: '35mm or 50mm f/2.0 prime lens with sharp focus on the action',
+    mood: 'Clever, vibrant, dynamic, visual, helpful',
+    exampleScenes: [
+      'A hands-on demonstration of a quick kitchen organization hack in a bright modern kitchen',
+      'A smart household cable management setup using simple everyday clips',
+    ],
+  },
 };
 
 export interface SafeEditorialFallback {
@@ -202,6 +312,41 @@ export interface SafeEditorialFallback {
 }
 
 export const DEFAULT_SAFE_EDITORIAL_FALLBACKS: Record<PillarSlug, SafeEditorialFallback> = {
+  health: {
+    url: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Peaceful sunlit morning room with natural botanical elements for longevity and vital rest',
+    source: 'Unsplash (Free)',
+    sourceUrl: 'https://unsplash.com',
+    license: 'LifeMode Safe Editorial Fallback',
+  },
+  wealth: {
+    url: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Modern architectural finance study with natural daylight for digital work and side hustles',
+    source: 'Unsplash (Free)',
+    sourceUrl: 'https://unsplash.com',
+    license: 'LifeMode Safe Editorial Fallback',
+  },
+  home: {
+    url: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Artisanal kitchen and organized living space with natural light',
+    source: 'Unsplash (Free)',
+    sourceUrl: 'https://unsplash.com',
+    license: 'LifeMode Safe Editorial Fallback',
+  },
+  life: {
+    url: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Curated contemporary wardrobe and personal style aesthetics',
+    source: 'Unsplash (Free)',
+    sourceUrl: 'https://unsplash.com',
+    license: 'LifeMode Safe Editorial Fallback',
+  },
+  tools: {
+    url: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Hands-on practical reference utilities, calculators, and decision tools',
+    source: 'Unsplash (Free)',
+    sourceUrl: 'https://unsplash.com',
+    license: 'LifeMode Safe Editorial Fallback',
+  },
   style: {
     url: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80',
     alt: 'Curated contemporary wardrobe and tactile fabrics',
@@ -219,6 +364,13 @@ export const DEFAULT_SAFE_EDITORIAL_FALLBACKS: Record<PillarSlug, SafeEditorialF
   'food-drink': {
     url: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80',
     alt: 'Artisanal kitchen with fresh sourdough and culinary ingredients',
+    source: 'Unsplash (Free)',
+    sourceUrl: 'https://unsplash.com',
+    license: 'LifeMode Safe Editorial Fallback',
+  },
+  'life-hacks': {
+    url: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Hands-on practical solutions and clever tools',
     source: 'Unsplash (Free)',
     sourceUrl: 'https://unsplash.com',
     license: 'LifeMode Safe Editorial Fallback',

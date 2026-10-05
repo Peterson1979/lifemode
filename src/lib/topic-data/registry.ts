@@ -45,12 +45,19 @@ export class TopicDataProviderRegistry {
       this.domainMapping.set(p.domain, p);
     }
 
-    // Explicit topic-to-provider mappings across all 7 LifeMode topics
+    // Explicit topic-to-provider mappings for all LifeMode pillars (core + legacy)
+    this.pillarMapping.set('health', [foodProvider, economicProvider]);
+    this.pillarMapping.set('wealth', [fxProvider, economicProvider]);
+    this.pillarMapping.set('home', [foodProvider]);
+    this.pillarMapping.set('life', [knowledgeProvider, weatherProvider, economicProvider]);
+    this.pillarMapping.set('tech-ai', [techProvider, newsProvider]);
+    this.pillarMapping.set('tools', [techProvider]);
+
+    // Backward compatibility mappings for legacy pillar slugs
     this.pillarMapping.set('money', [fxProvider, economicProvider]);
     this.pillarMapping.set('travel', [weatherProvider, earthquakeProvider, fxProvider]);
     this.pillarMapping.set('wellbeing', [foodProvider, economicProvider]);
     this.pillarMapping.set('food-drink', [foodProvider]);
-    this.pillarMapping.set('tech-ai', [techProvider, newsProvider]);
     this.pillarMapping.set('entertainment', [knowledgeProvider, newsProvider]);
     this.pillarMapping.set('style', [knowledgeProvider, economicProvider]);
   }

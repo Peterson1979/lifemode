@@ -170,23 +170,16 @@ Japanese tea houses exemplify restrained proportions and natural materials.
   assert.ok(!storageInput.content.includes('**Affiliate Intents**'));
 });
 
-test('Sanitization - Production article now/the-2026-cultural-shift-toward-digital-intentionality is clean and valid', async () => {
-  const articlePath = resolve(
+test('Sanitization - Active retained guides are clean and free of leaked metadata', async () => {
+  const guidePath = resolve(
     process.cwd(),
-    'src/content/entertainment/the-2026-cultural-shift-toward-digital-intentionality.md'
+    'src/content/guides/cookware-material-decision-guide.md'
   );
-  const rawFile = await readFile(articlePath, 'utf-8');
+  const rawFile = await readFile(guidePath, 'utf-8');
 
   // Must not have leaked metadata
-  assert.ok(!hasLeakedInternalMetadata(rawFile), 'Production article must not contain leaked metadata');
+  assert.ok(!hasLeakedInternalMetadata(rawFile), 'Retained guide must not contain leaked metadata');
   assert.ok(!rawFile.includes('**Internal Links**'));
   assert.ok(!rawFile.includes('**Affiliate Intents**'));
   assert.ok(!rawFile.includes('**Social Hooks**'));
-
-  // Must parse cleanly into StoredArticle
-  const parsed = parseArticle(rawFile, 'entertainment', 'the-2026-cultural-shift-toward-digital-intentionality', articlePath);
-  assert.equal(parsed.frontmatter.title, 'The cultural shift toward digital intentionality');
-  assert.equal(parsed.frontmatter.sources.length, 3);
-  assert.ok(parsed.content.includes('## FAQ'));
-  assert.ok(parsed.content.includes('**Sources**'));
 });

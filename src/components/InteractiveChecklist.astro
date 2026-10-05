@@ -1,0 +1,436 @@
+---
+export interface ChecklistItem {
+  id: string;
+  text: string;
+  note?: string;
+  frequency?: string;
+}
+
+export interface ChecklistSection {
+  title: string;
+  items: ChecklistItem[];
+}
+
+export interface Props {
+  checklistId: string;
+  title: string;
+  summary: string;
+  sections: ChecklistSection[];
+  estimatedTime?: string;
+}
+
+const { checklistId, title, summary, sections = [], estimatedTime } = Astro.props;
+
+let totalItemsCount = 0;
+sections.forEach(s => totalItemsCount += s.items.length);
+---
+
+<div class="interactive-checklist-wrapper" data-checklist-id={checklistId}>
+  <!-- Print Header (Visible only when printed) -->
+  <div class="print-header" style="display: none;">
+    <h1>LifeMode — {title}</h1>
+    <p>{summary}</p>
+    <p><em>Printed from lifemode.life/checklists/{checklistId}/</em></p>
+  </div>
+
+  <div class="checklist-top-controls no-print">
+    <div class="stats-col">
+      <div class="progress-label-row">
+        <span class="progress-title">Completion Progress</span>
+        <div class="progress-meta-tags">
+          {estimatedTime && <span class="est-time-badge">⏱ {estimatedTime}</span>}
+          <span class="progress-count"><span class="checked-count">0</span> / {totalItemsCount} Tasks</span>
+        </div>
+      </div>
+      <div class="checklist-progress-bar">
+        <div class="checklist-progress-fill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <div class="checklist-actions">
+      <button class="btn btn-secondary print-btn" aria-label="Print or save as PDF">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 6 2 18 2 18 9"/>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+          <rect x="6" y="14" width="12" height="8"/>
+        </svg>
+        Print Checklist
+      </button>
+      <button class="reset-btn" aria-label="Reset all checkboxes">Reset</button>
+    </div>
+  </div>
+
+  <!-- Checklist Sections -->
+  <div class="checklist-sections-group">
+    {sections.map((section, sIdx) => (
+      <div class="checklist-section-card">
+        <h3 class="section-title">
+          <span class="section-index">{sIdx + 1}</span>
+          {section.title}
+        </h3>
+        <div class="section-items-list">
+          {section.items.map((item) => (
+            <label class="checklist-item-row" for={`chk-${checklistId}-${item.id}`}>
+              <input 
+                type="checkbox" 
+                id={`chk-${checklistId}-${item.id}`} 
+                class="checklist-checkbox" 
+                data-item-id={item.id}
+              />
+              <div class="checklist-item-text">
+                <span class="item-title">{item.text}</span>
+                {item.note && <span class="item-note">{item.note}</span>}
+              </div>
+              {item.frequency && (
+                <span class="frequency-pill no-print">{item.frequency}</span>
+              )}
+            </label>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.interactive-checklist-wrapper').forEach(wrapper => {
+    const checklistId = wrapper.getAttribute('data-checklist-id');
+    if (!checklistId) return;
+
+    const storageKey = `lifemode_checklist_${checklistId}`;
+    const checkboxes = wrapper.querySelectorAll<HTMLInputElement>('.checklist-checkbox');
+    const fillBar = wrapper.querySelector<HTMLElement>('.checklist-progress-fill');
+    const checkedCountEl = wrapper.querySelector<HTMLElement>('.checked-count');
+    const printBtn = wrapper.querySelector<HTMLButtonElement>('.print-btn');
+    const resetBtn = wrapper.querySelector<HTMLButtonElement>('.reset-btn');
+
+    // Load saved state from localStorage
+    function loadSavedState() {
+      try {
+        const saved = localStorage.getItem(storageKey);
+        if (saved) {
+          const checkedIds: string[] = JSON.parse(saved);
+          checkboxes.forEach(cb => {
+            const itemId = cb.getAttribute('data-item-id');
+            if (itemId && checkedIds.includes(itemId)) {
+              cb.checked = true;
+              cb.closest('.checklist-item-row')?.classList.add('is-completed');
+            }
+          });
+        }
+      } catch (e) {
+        console.error('Failed to load checklist state:', e);
+      }
+      updateProgress();
+    }
+
+    // Save state to localStorage
+    function saveState() {
+      try {
+        const checkedIds: string[] = [];
+        checkboxes.forEach(cb => {
+          if (cb.checked) {
+            const itemId = cb.getAttribute('data-item-id');
+            if (itemId) checkedIds.push(itemId);
+          }
+        });
+        localStorage.setItem(storageKey, JSON.stringify(checkedIds));
+      } catch (e) {
+        console.error('Failed to save checklist state:', e);
+      }
+      updateProgress();
+    }
+
+    // Update progress bar and counter
+    function updateProgress() {
+      let checked = 0;
+      checkboxes.forEach(cb => {
+        if (cb.checked) checked++;
+      });
+      const total = checkboxes.length;
+      const pct = total > 0 ? Math.round((checked / total) * 100) : 0;
+
+      if (fillBar) fillBar.style.width = `${pct}%`;
+      if (checkedCountEl) checkedCountEl.textContent = checked.toString();
+    }
+
+    // Event listeners
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', () => {
+        if (cb.checked) {
+          cb.closest('.checklist-item-row')?.classList.add('is-completed');
+        } else {
+          cb.closest('.checklist-item-row')?.classList.remove('is-completed');
+        }
+        saveState();
+      });
+    });
+
+    printBtn?.addEventListener('click', () => {
+      window.print();
+    });
+
+    resetBtn?.addEventListener('click', () => {
+      if (confirm('Are you sure you want to uncheck all tasks in this checklist?')) {
+        checkboxes.forEach(cb => {
+          cb.checked = false;
+          cb.closest('.checklist-item-row')?.classList.remove('is-completed');
+        });
+        saveState();
+      }
+    });
+
+    // Initialize
+    loadSavedState();
+  });
+</script>
+
+<style>
+  .interactive-checklist-wrapper {
+    margin: var(--space-8) 0;
+  }
+
+  .checklist-top-controls {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5) var(--space-6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--space-8);
+  }
+
+  .stats-col {
+    flex-grow: 1;
+    max-width: 480px;
+  }
+
+  .progress-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+  }
+
+  .progress-title {
+    color: var(--color-text-secondary);
+  }
+
+  .progress-meta-tags {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .est-time-badge {
+    font-family: var(--font-mono);
+    font-size: 0.725rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    background: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    padding: 0.15rem 0.45rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .progress-count {
+    color: #059669;
+    font-family: var(--font-mono);
+  }
+
+  .checklist-progress-bar {
+    height: 10px;
+    background-color: var(--color-surface-subtle);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+  }
+
+  .checklist-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #059669 0%, #10b981 100%);
+    transition: width var(--transition-base);
+  }
+
+  .checklist-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .print-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.5rem 0.9rem;
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .print-btn:hover {
+    background-color: var(--color-surface-subtle);
+    border-color: var(--color-border-hover);
+  }
+
+  .reset-btn {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .reset-btn:hover {
+    color: #e11d48;
+    border-color: #e11d48;
+    background-color: rgba(225, 29, 72, 0.05);
+  }
+
+  .checklist-sections-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .checklist-section-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .section-index {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: var(--radius-full);
+    background-color: rgba(5, 150, 105, 0.1);
+    color: #059669;
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .section-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .checklist-item-row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .checklist-item-row:hover {
+    background-color: var(--color-surface-subtle);
+    border-color: var(--color-border);
+  }
+
+  .checklist-item-row.is-completed {
+    background-color: var(--color-surface-subtle);
+    opacity: 0.75;
+  }
+
+  .checklist-item-row.is-completed .item-title {
+    text-decoration: line-through;
+    color: var(--color-text-muted);
+  }
+
+  .checklist-checkbox {
+    margin-top: 0.25rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    accent-color: #059669;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .checklist-item-text {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .item-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  .item-note {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+  }
+
+  .frequency-pill {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    background-color: var(--color-surface-subtle);
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-border);
+    white-space: nowrap;
+    align-self: center;
+  }
+
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+    .print-header {
+      display: block !important;
+      margin-bottom: 2rem;
+    }
+    .checklist-section-card {
+      border: 1px solid #000;
+      box-shadow: none;
+      page-break-inside: avoid;
+      margin-bottom: 1.5rem;
+    }
+    .checklist-item-row {
+      border-bottom: 1px dashed #ccc;
+    }
+  }
+</style>

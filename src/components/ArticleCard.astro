@@ -1,73 +1,62 @@
 ---
 import { formatDate, toISODate } from '../utils/date';
 import PillarBadge from './PillarBadge.astro';
-import { PILLARS, type PillarSlug } from '../config/site';
+import type { PillarSlug } from '../config/site';
 
 export interface Props {
-  pillar: PillarSlug | string;
-  slug: string;
+  pillar?: PillarSlug | string;
+  slug?: string;
+  url?: string;
   title: string;
-  description: string;
-  pubDate: Date | string;
+  description?: string;
+  pubDate?: Date | string;
   author?: string;
   image?: string;
   imageAlt?: string;
   readingTime?: string;
   format?: string;
+  contentType?: string;
   tags?: string[];
   variant?: 'lead' | 'card' | 'compact' | 'horizontal';
   featured?: boolean;
 }
 
 const {
-  pillar,
-  slug,
+  pillar = 'home',
+  slug = '',
+  url,
   title,
   description,
   pubDate,
-  author = 'LifeMode',
+  author,
   image,
   imageAlt,
   readingTime,
   format = 'standard',
+  contentType,
   variant = 'card',
   featured = false,
 } = Astro.props;
 
-const articleUrl = `/${pillar}/${slug}`;
-const formattedDate = formatDate(pubDate);
-const isoDate = toISODate(pubDate);
+const articleUrl = url || (slug ? `/${pillar}/${slug}` : '#');
+const formattedDate = pubDate ? formatDate(pubDate) : null;
+const isoDate = pubDate ? toISODate(pubDate) : null;
 
-const pillarConfig = PILLARS[pillar as PillarSlug] || {
-  name: pillar,
-  slug: pillar,
-  color: 'var(--color-primary-accent)',
-  bgLight: 'rgba(37, 99, 235, 0.08)',
-};
-
-const displayReadingTime = readingTime || `${Math.max(3, Math.ceil((description?.length || 100) / 45))} min read`;
+const displayReadingTime = readingTime || (description ? `${Math.max(3, Math.ceil(description.length / 45))} min read` : undefined);
 const showFormat = format && format !== 'standard';
 ---
 
 <article class={`story-preview story-${variant} ${featured ? 'story-featured' : ''}`}>
-  <!-- Media / Image Container -->
-  {variant !== 'compact' && (
+  <!-- Media / Image Container (rendered only when an image actually exists) -->
+  {variant !== 'compact' && image && (
     <a href={articleUrl} class="story-media" aria-label={title} tabindex="-1">
-      {image ? (
-        <img
-          src={image}
-          alt={imageAlt || title}
-          loading={variant === 'lead' ? 'eager' : 'lazy'}
-          class="story-img"
-        />
-      ) : (
-        <div class="story-fallback" style={`--fallback-color: ${pillarConfig.color};`}>
-          <div class="fallback-inner">
-            <span class="fallback-monogram">LM</span>
-            <span class="fallback-pillar">{pillarConfig.name}</span>
-          </div>
-        </div>
-      )}
+      <img
+        src={image}
+        alt={imageAlt || title}
+        loading={variant === 'lead' ? 'eager' : 'lazy'}
+        decoding="async"
+        class="story-img"
+      />
     </a>
   )}
 
@@ -75,7 +64,10 @@ const showFormat = format && format !== 'standard';
   <div class="story-content">
     <div class="story-kicker-row">
       <PillarBadge pillar={pillar} size={variant === 'lead' ? 'sm' : 'xs'} />
-      {showFormat && (
+      {contentType && (
+        <span class="story-format-tag">{contentType === 'decision' ? '⚖️ Decision' : '📖 Reference'}</span>
+      )}
+      {showFormat && !contentType && (
         <span class="story-format-tag">{format.replace('-', ' ')}</span>
       )}
     </div>
@@ -89,15 +81,21 @@ const showFormat = format && format !== 'standard';
     )}
 
     <div class="story-meta">
-      <time datetime={isoDate} class="meta-date">{formattedDate}</time>
-      <span class="meta-sep">&bull;</span>
-      <span class="meta-read-time">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="10"></circle>
-          <polyline points="12 6 12 12 16 14"></polyline>
-        </svg>
-        {displayReadingTime}
-      </span>
+      {formattedDate && (
+        <>
+          <time datetime={isoDate} class="meta-date">{formattedDate}</time>
+          <span class="meta-sep">&bull;</span>
+        </>
+      )}
+      {displayReadingTime && (
+        <span class="meta-read-time">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          {displayReadingTime}
+        </span>
+      )}
       {author && variant === 'lead' && (
         <>
           <span class="meta-sep">&bull;</span>

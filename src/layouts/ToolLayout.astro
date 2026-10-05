@@ -1,0 +1,193 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedCluster from '../components/RelatedCluster.astro';
+import { CATEGORIES } from '../utils/categories';
+import { getCanonicalUrl } from '../utils/seo';
+import StainSolverTool from '../components/tools/StainSolverTool.astro';
+import FoodStorageTool from '../components/tools/FoodStorageTool.astro';
+import HomeMaintenancePlanner from '../components/tools/HomeMaintenancePlanner.astro';
+import CookwareMaterialSelector from '../components/tools/CookwareMaterialSelector.astro';
+import ProteinCalculator from '../components/tools/ProteinCalculator.astro';
+import StoragePlanner from '../components/tools/StoragePlanner.astro';
+import HeartRateCalculator from '../components/tools/HeartRateCalculator.astro';
+import FabricCareAdvisor from '../components/tools/FabricCareAdvisor.astro';
+
+export interface Props {
+  tool: {
+    id: string;
+    data: {
+      title: string;
+      seoTitle?: string;
+      seoDescription?: string;
+      category: keyof typeof CATEGORIES;
+      toolType:
+        | 'stain-solver'
+        | 'food-storage'
+        | 'maintenance-planner'
+        | 'cookware-selector'
+        | 'protein-calculator'
+        | 'storage-planner'
+        | 'heart-rate-calculator'
+        | 'fabric-care-advisor';
+      summary: string;
+      badge?: string;
+      instructions?: string;
+      relatedGuides?: string[];
+      relatedChecklists?: string[];
+    };
+  };
+}
+
+const { tool } = Astro.props;
+const { data, id } = tool;
+
+const categoryMeta = CATEGORIES[data.category];
+const slug = id.replace(/\.[^/.]+$/, '');
+const pagePath = `/tools/${slug}`;
+const canonicalUrl = getCanonicalUrl(pagePath);
+
+const breadcrumbItems = [
+  { label: 'Home', url: '/' },
+  { label: 'Interactive Tools', url: '/tools/' },
+  { label: data.title, url: `/tools/${slug}/` },
+];
+
+const toolSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: data.title,
+  applicationCategory: 'UtilityApplication',
+  operatingSystem: 'All',
+  description: data.summary,
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+};
+---
+
+<BaseLayout
+  title={data.seoTitle || `${data.title} — LifeMode Interactive Tool`}
+  description={data.seoDescription || data.summary}
+  canonicalUrl={canonicalUrl}
+  jsonLd={toolSchema}
+>
+  <div class="container-narrow tool-page-wrapper">
+    <Breadcrumbs items={breadcrumbItems} />
+
+    <header class="tool-header">
+      <div class="tool-badges">
+        <span class="badge tool-type-badge">🛠️ Free Interactive Utility</span>
+        {categoryMeta && (
+          <a 
+            href={`/${categoryMeta.slug}/`} 
+            class="badge category-badge" 
+            style={`color: ${categoryMeta.badgeColor}; background-color: ${categoryMeta.lightBg}; border: 1px solid ${categoryMeta.borderColor};`}
+          >
+            <span>{categoryMeta.icon}</span> {categoryMeta.title}
+          </a>
+        )}
+      </div>
+
+      <h1 class="tool-main-title">{data.title}</h1>
+      <p class="tool-lead-summary">{data.summary}</p>
+      
+      {data.instructions && (
+        <div class="tool-instructions-box">
+          <strong>💡 How to use this tool:</strong> {data.instructions}
+        </div>
+      )}
+    </header>
+
+    <!-- Dynamic Tool Component -->
+    <div class="tool-component-container">
+      {data.toolType === 'stain-solver' && <StainSolverTool />}
+      {data.toolType === 'food-storage' && <FoodStorageTool />}
+      {data.toolType === 'maintenance-planner' && <HomeMaintenancePlanner />}
+      {data.toolType === 'cookware-selector' && <CookwareMaterialSelector />}
+      {data.toolType === 'protein-calculator' && <ProteinCalculator />}
+      {data.toolType === 'storage-planner' && <StoragePlanner />}
+      {data.toolType === 'heart-rate-calculator' && <HeartRateCalculator />}
+      {data.toolType === 'fabric-care-advisor' && <FabricCareAdvisor />}
+    </div>
+
+    <!-- Supplementary Markdown Content -->
+    <article class="prose tool-article-body">
+      <slot />
+    </article>
+
+    <!-- Internal Linking to Related Guides and Checklists -->
+    <RelatedCluster
+      currentCategory={data.category}
+      relatedGuides={data.relatedGuides}
+      relatedChecklists={data.relatedChecklists}
+    />
+  </div>
+</BaseLayout>
+
+<style>
+  .tool-page-wrapper {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-20);
+  }
+
+  .tool-badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .tool-type-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--color-primary-accent);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+  }
+
+  .category-badge {
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    transition: opacity var(--transition-fast);
+  }
+
+  .tool-main-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .tool-lead-summary {
+    font-size: 1.15rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-6);
+  }
+
+  .tool-instructions-box {
+    background-color: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-4) var(--space-5);
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-8);
+  }
+
+  .tool-article-body {
+    margin: var(--space-10) 0;
+  }
+</style>

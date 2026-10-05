@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from 'astro:content';
+import ChecklistLayout from '../../layouts/ChecklistLayout.astro';
+
+export async function getStaticPaths() {
+  const checklists = await getCollection('checklists');
+  return checklists.map((checklist) => {
+    const slug = checklist.id.replace(/\.[^/.]+$/, '');
+    return {
+      params: { slug },
+      props: { checklist },
+    };
+  });
+}
+
+const { checklist } = Astro.props;
+const { Content } = await render(checklist);
+---
+
+<ChecklistLayout checklist={checklist}>
+  <Content />
+</ChecklistLayout>

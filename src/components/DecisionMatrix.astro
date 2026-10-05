@@ -1,0 +1,204 @@
+---
+export interface DecisionCriterion {
+  criterion: string;
+  importance: string;
+  advice: string;
+}
+
+export interface ComparisonTable {
+  headers: string[];
+  rows: string[][];
+}
+
+export interface Props {
+  criteria?: DecisionCriterion[];
+  comparisonTable?: ComparisonTable;
+}
+
+const { criteria = [], comparisonTable } = Astro.props;
+---
+
+<div class="decision-matrix-wrapper">
+  {criteria.length > 0 && (
+    <section class="criteria-section" aria-labelledby="decision-criteria-heading">
+      <div class="section-title-row">
+        <span class="section-kicker-badge">Evaluation Protocol</span>
+        <h2 id="decision-criteria-heading" class="criteria-heading">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="12" y1="3" x2="12" y2="21"></line>
+            <path d="M5 6h14M5 18h14M8 6v12M16 6v12"></path>
+          </svg>
+          Key Decision Criteria
+        </h2>
+      </div>
+      <p class="criteria-lead">
+        Evaluate your real-world options against these critical performance and durability factors:
+      </p>
+      <div class="criteria-grid">
+        {criteria.map((item) => (
+          <div class="criterion-card">
+            <div class="criterion-top">
+              <span class="criterion-title">{item.criterion}</span>
+              <span class="importance-badge">{item.importance}</span>
+            </div>
+            <p class="criterion-advice">{item.advice}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {comparisonTable && comparisonTable.headers.length > 0 && (
+    <section class="comparison-section" aria-labelledby="side-by-side-heading">
+      <div class="section-title-row">
+        <span class="section-kicker-badge">Direct Matrix</span>
+        <h2 id="side-by-side-heading" class="comparison-heading">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="9" y1="21" x2="9" y2="9"></line>
+          </svg>
+          Side-by-Side Comparison
+        </h2>
+      </div>
+      <div class="table-responsive editorial-table-wrap">
+        <table class="editorial-table">
+          <thead>
+            <tr>
+              {comparisonTable.headers.map((header) => (
+                <th scope="col">{header}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {comparisonTable.rows.map((row) => (
+              <tr>
+                {row.map((cell, cellIdx) => (
+                  cellIdx === 0 ? (
+                    <th scope="row" class="row-header-cell">{cell}</th>
+                  ) : (
+                    <td>{cell}</td>
+                  )
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  )}
+</div>
+
+<style>
+  .decision-matrix-wrapper {
+    margin: var(--space-8) 0;
+  }
+
+  .section-title-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    margin-bottom: var(--space-2);
+  }
+
+  .section-kicker-badge {
+    font-family: var(--font-sans);
+    font-size: 0.725rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary-accent);
+  }
+
+  .criteria-heading, .comparison-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  .criteria-heading svg, .comparison-heading svg {
+    color: var(--color-primary-accent);
+    flex-shrink: 0;
+  }
+
+  .criteria-lead {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-5);
+    line-height: 1.55;
+  }
+
+  .criteria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+
+  .criterion-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  }
+
+  .criterion-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+    border-color: var(--color-border-hover);
+  }
+
+  .criterion-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .criterion-title {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-text-primary);
+    line-height: 1.3;
+  }
+
+  .importance-badge {
+    font-family: var(--font-mono);
+    font-size: 0.675rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background-color: var(--semantic-info-light);
+    color: var(--semantic-info-text);
+    border: 1px solid var(--semantic-info-border);
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .criterion-advice {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .row-header-cell {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    background-color: var(--color-surface);
+  }
+</style>

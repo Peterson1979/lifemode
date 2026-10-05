@@ -508,9 +508,9 @@ test('4. Image provider failure fallback: Primary fails, fallback succeeds -> UR
 
     const discoveryAdapter = new MockTopicDiscoveryAdapter([
       {
-        topic: 'The Quiet Luxury of Slow Architecture',
-        pillar: 'life',
-        score: 90,
+        topic: 'Nordic Sauna Culture and Architecture',
+        pillar: 'travel',
+        score: 95,
         searchVolume: 'high',
       },
     ]);

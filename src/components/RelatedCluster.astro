@@ -1,0 +1,207 @@
+---
+import { getCollection } from 'astro:content';
+import { CATEGORIES } from '../utils/categories';
+
+export interface Props {
+  currentCategory: string;
+  relatedGuides?: string[];
+  relatedTools?: string[];
+  relatedChecklists?: string[];
+  relatedEntries?: any[];
+}
+
+const { currentCategory, relatedGuides = [], relatedTools = [], relatedChecklists = [], relatedEntries = [] } = Astro.props;
+
+const allGuides = await getCollection('guides').catch(() => []);
+const allTools = await getCollection('tools').catch(() => []);
+const allChecklists = await getCollection('checklists').catch(() => []);
+
+const matchedGuides = allGuides.filter(g => relatedGuides.includes(g.id.replace(/\.[^/.]+$/, '')));
+const matchedTools = allTools.filter(t => relatedTools.includes(t.id.replace(/\.[^/.]+$/, '')));
+const matchedChecklists = allChecklists.filter(c => relatedChecklists.includes(c.id.replace(/\.[^/.]+$/, '')));
+
+const categoryMeta = CATEGORIES[currentCategory];
+const hasContent = matchedTools.length > 0 || matchedChecklists.length > 0 || matchedGuides.length > 0 || relatedEntries.length > 0;
+---
+
+{hasContent && (
+  <div class="related-cluster-container no-print" aria-labelledby="cluster-resources-heading">
+    <div class="cluster-header">
+      <span class="cluster-badge">Connected Knowledge</span>
+      <h3 id="cluster-resources-heading" class="cluster-title">Related Practical Resources</h3>
+      <p class="cluster-sub">Explore companion tools, checklists, and reference guides in {categoryMeta ? categoryMeta.title : 'this field'}:</p>
+    </div>
+
+    <div class="cluster-grid">
+      {matchedTools.map((t) => (
+        <a href={`/tools/${t.id.replace(/\.[^/.]+$/, '')}/`} class="cluster-card tool-card">
+          <div class="card-icon-badge">🛠️ Interactive Tool</div>
+          <h4 class="card-item-title">{t.data.title}</h4>
+          <p class="card-item-desc">{t.data.summary}</p>
+          <span class="card-action">Use Tool &rarr;</span>
+        </a>
+      ))}
+
+      {matchedChecklists.map((c) => (
+        <a href={`/checklists/${c.id.replace(/\.[^/.]+$/, '')}/`} class="cluster-card check-card">
+          <div class="card-icon-badge">📋 Checklist &amp; Printable</div>
+          <h4 class="card-item-title">{c.data.title}</h4>
+          <p class="card-item-desc">{c.data.summary}</p>
+          <span class="card-action">View Checklist &rarr;</span>
+        </a>
+      ))}
+
+      {matchedGuides.map((g) => (
+        <a href={`/${g.data.category}/${g.id.replace(/\.[^/.]+$/, '')}/`} class="cluster-card guide-card-small">
+          <div class="card-icon-badge">📖 {g.data.contentType === 'decision' ? 'Decision Guide' : 'Reference Guide'}</div>
+          <h4 class="card-item-title">{g.data.title}</h4>
+          <p class="card-item-desc">{g.data.quickSummary}</p>
+          <span class="card-action">Read Guide &rarr;</span>
+        </a>
+      ))}
+
+      {relatedEntries.map((e) => (
+        <a href={`/${e.collection || currentCategory}/${e.id.replace(/\.[^/.]+$/, '')}`} class="cluster-card guide-card-small">
+          <div class="card-icon-badge">📄 Practical Guide</div>
+          <h4 class="card-item-title">{e.data.title}</h4>
+          <p class="card-item-desc">{e.data.description || e.data.quickSummary}</p>
+          <span class="card-action">Read Guide &rarr;</span>
+        </a>
+      ))}
+    </div>
+
+    {categoryMeta && (
+      <div class="cluster-footer">
+        <a href={`/${categoryMeta.slug}/`} class="category-hub-link">
+          Browse all <strong>{categoryMeta.title}</strong> reference guides &amp; tools &rarr;
+        </a>
+      </div>
+    )}
+  </div>
+)}
+
+  {categoryMeta && (
+    <div class="cluster-footer">
+      <a href={`/${categoryMeta.slug}/`} class="category-hub-link">
+        Browse all <strong>{categoryMeta.title}</strong> reference guides & tools &rarr;
+      </a>
+    </div>
+  )}
+</div>
+
+<style>
+  .related-cluster-container {
+    background: linear-gradient(180deg, #ffffff 0%, var(--slate-50) 100%);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin: 3rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .cluster-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .cluster-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-blue);
+    background-color: var(--accent-blue-light);
+    border: 1px solid var(--accent-blue-border);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+
+  .cluster-title {
+    font-size: 1.35rem;
+    color: var(--slate-900);
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .cluster-sub {
+    font-size: 0.95rem;
+    color: var(--slate-600);
+    margin: 0;
+  }
+
+  .cluster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cluster-card {
+    background-color: #ffffff;
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+  }
+
+  .cluster-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--slate-300);
+    text-decoration: none;
+  }
+
+  .card-icon-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--slate-500);
+    margin-bottom: 0.5rem;
+  }
+
+  .card-item-title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--slate-900);
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+  }
+
+  .card-item-desc {
+    font-size: 0.85rem;
+    color: var(--slate-600);
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-action {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+  }
+
+  .cluster-footer {
+    border-top: 1px solid var(--slate-200);
+    padding-top: 1.25rem;
+    text-align: center;
+  }
+
+  .category-hub-link {
+    font-size: 0.95rem;
+    color: var(--slate-700);
+    font-weight: 500;
+  }
+
+  .category-hub-link:hover {
+    color: var(--accent-blue);
+  }
+</style>

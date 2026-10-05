@@ -7,6 +7,7 @@ export interface EcosystemProject {
   tagline: string;
   description: string;
   url: string;
+  logoUrl?: string;
   relevantPillars: PillarSlug[];
   categories: string[];
   ctaText: string;
@@ -22,6 +23,7 @@ export const ECOSYSTEM_PROJECTS: EcosystemProject[] = OWNED_PROJECTS.map((projec
   tagline: project.tagline,
   description: project.description,
   url: project.url,
+  logoUrl: project.logoUrl,
   relevantPillars: project.relevantPillars,
   categories: project.categories,
   ctaText: project.ctaLabel,

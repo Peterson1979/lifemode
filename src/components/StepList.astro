@@ -1,0 +1,276 @@
+---
+export interface Step {
+  stepNumber: number;
+  title: string;
+  description: string;
+  tip?: string;
+  warning?: string;
+}
+
+export interface Props {
+  steps: Step[];
+  materialsNeeded?: string[];
+  toolsNeeded?: string[];
+}
+
+const { steps = [], materialsNeeded = [], toolsNeeded = [] } = Astro.props;
+---
+
+<div class="steps-container">
+  {(materialsNeeded.length > 0 || toolsNeeded.length > 0) && (
+    <div class="requirements-box">
+      {materialsNeeded.length > 0 && (
+        <div class="req-group">
+          <div class="req-header">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="req-title">Materials & Supplies</span>
+          </div>
+          <ul class="req-list">
+            {materialsNeeded.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {toolsNeeded.length > 0 && (
+        <div class="req-group">
+          <div class="req-header">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
+            <span class="req-title">Tools & Equipment</span>
+          </div>
+          <ul class="req-list">
+            {toolsNeeded.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  )}
+
+  <div class="step-items-list">
+    {steps.map((step, idx) => {
+      const formattedNum = String(step.stepNumber || idx + 1).padStart(2, '0');
+      return (
+        <div class="step-item-card" id={`step-${step.stepNumber || idx + 1}`}>
+          <div class="step-num-col">
+            <span class="step-num-badge">{formattedNum}</span>
+            {idx < steps.length - 1 && <div class="step-line-spine" aria-hidden="true"></div>}
+          </div>
+          <div class="step-body-col">
+            <h3 class="step-heading">{step.title}</h3>
+            <p class="step-description">{step.description}</p>
+            {step.tip && (
+              <div class="step-callout tip">
+                <span class="callout-pill">Pro Tip</span>
+                <p>{step.tip}</p>
+              </div>
+            )}
+            {step.warning && (
+              <div class="step-callout warning">
+                <span class="callout-pill">Caution</span>
+                <p>{step.warning}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</div>
+
+<style>
+  .steps-container {
+    margin: var(--space-8) 0;
+  }
+
+  .requirements-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-6);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    margin-bottom: var(--space-8);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .req-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .req-header {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--color-primary-accent);
+  }
+
+  .req-title {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-primary);
+  }
+
+  .req-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .req-list li {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+  }
+
+  .req-list li::before {
+    content: '•';
+    color: var(--color-primary-accent);
+    font-weight: bold;
+  }
+
+  .step-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .step-item-card {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: var(--space-4);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .step-item-card:hover {
+    border-color: var(--color-border-hover);
+    box-shadow: var(--shadow-card);
+  }
+
+  .step-num-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .step-num-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, var(--color-primary) 0%, #1e293b 100%);
+    color: #ffffff;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 800;
+    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.15);
+    flex-shrink: 0;
+  }
+
+  .step-line-spine {
+    width: 2px;
+    flex-grow: 1;
+    background-color: var(--color-border);
+    margin-top: var(--space-2);
+  }
+
+  .step-body-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .step-heading {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .step-description {
+    font-size: 0.925rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .step-callout {
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+    margin-top: var(--space-2);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .step-callout.tip {
+    background-color: var(--topic-tools-light);
+    border-left: 3px solid var(--topic-tools);
+  }
+
+  .step-callout.warning {
+    background-color: var(--semantic-warning-light);
+    border-left: 3px solid var(--semantic-warning);
+  }
+
+  .callout-pill {
+    font-family: var(--font-mono);
+    font-size: 0.675rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    align-self: flex-start;
+  }
+
+  .tip .callout-pill { color: var(--topic-tools-text); }
+  .warning .callout-pill { color: var(--semantic-warning-text); }
+
+  .step-callout p {
+    font-size: 0.85rem;
+    color: var(--color-text-primary);
+    margin: 0;
+    line-height: 1.45;
+  }
+
+  @media (max-width: 640px) {
+    .step-item-card {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+    .step-num-col {
+      flex-direction: row;
+    }
+    .step-line-spine {
+      display: none;
+    }
+  }
+</style>

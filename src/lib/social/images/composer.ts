@@ -10,6 +10,36 @@ export interface PillarVisualTheme {
 }
 
 export const PILLAR_VISUAL_THEMES: Record<PillarSlug, PillarVisualTheme> = {
+  health: {
+    displayName: 'HEALTH',
+    accentColor: '#059669', // Vital Emerald
+    accentBg: 'rgba(5, 150, 105, 0.2)',
+  },
+  wealth: {
+    displayName: 'WEALTH',
+    accentColor: '#0284C7', // Sky Blue
+    accentBg: 'rgba(2, 132, 199, 0.2)',
+  },
+  home: {
+    displayName: 'HOME',
+    accentColor: '#EA580C', // Terracotta Paprika
+    accentBg: 'rgba(234, 88, 12, 0.2)',
+  },
+  life: {
+    displayName: 'LIFE',
+    accentColor: '#E11D48', // Vibrant Rose
+    accentBg: 'rgba(225, 29, 72, 0.2)',
+  },
+  'tech-ai': {
+    displayName: 'TECH & AI',
+    accentColor: '#A78BFA', // Violet
+    accentBg: 'rgba(167, 139, 250, 0.2)',
+  },
+  tools: {
+    displayName: 'TOOLS',
+    accentColor: '#2563EB', // Modern Blue
+    accentBg: 'rgba(37, 99, 235, 0.2)',
+  },
   style: {
     displayName: 'STYLE',
     accentColor: '#E11D48', // Vibrant Rose
@@ -24,11 +54,6 @@ export const PILLAR_VISUAL_THEMES: Record<PillarSlug, PillarVisualTheme> = {
     displayName: 'FOOD & DRINK',
     accentColor: '#EA580C', // Terracotta Ochre
     accentBg: 'rgba(234, 88, 12, 0.2)',
-  },
-  'tech-ai': {
-    displayName: 'TECH & AI',
-    accentColor: '#A78BFA', // Violet
-    accentBg: 'rgba(167, 139, 250, 0.2)',
   },
   money: {
     displayName: 'MONEY',
@@ -45,16 +70,27 @@ export const PILLAR_VISUAL_THEMES: Record<PillarSlug, PillarVisualTheme> = {
     accentColor: '#C026D3', // Rich Fuchsia
     accentBg: 'rgba(192, 38, 211, 0.2)',
   },
+  'life-hacks': {
+    displayName: 'LIFE HACKS',
+    accentColor: '#06B6D4', // Vibrant Cyan
+    accentBg: 'rgba(6, 182, 212, 0.2)',
+  },
 };
 
 export const PILLAR_BACKGROUND_FILES: Record<PillarSlug, string> = {
+  health: 'public/social/backgrounds/wellbeing.jpg',
+  wealth: 'public/social/backgrounds/money.jpg',
+  home: 'public/social/backgrounds/food-drink.jpg',
+  life: 'public/social/backgrounds/style.jpg',
+  'tech-ai': 'public/social/backgrounds/tech-ai.jpg',
+  tools: 'public/social/backgrounds/tech-ai.jpg',
   style: 'public/social/backgrounds/style.jpg',
   travel: 'public/social/backgrounds/travel.jpg',
   'food-drink': 'public/social/backgrounds/food-drink.jpg',
-  'tech-ai': 'public/social/backgrounds/tech-ai.jpg',
   money: 'public/social/backgrounds/money.jpg',
   wellbeing: 'public/social/backgrounds/wellbeing.jpg',
   entertainment: 'public/social/backgrounds/entertainment.jpg',
+  'life-hacks': 'public/social/backgrounds/tech-ai.jpg',
 };
 
 /**

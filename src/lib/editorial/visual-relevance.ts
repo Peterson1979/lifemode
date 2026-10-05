@@ -25,6 +25,8 @@ export type VisualRelevanceFlag =
   | 'unrelated_visual_theme'
   | 'misleading_imagery'
   | 'generic_fallback'
+  | 'generic_stock_cliche'
+  | 'unverified_external_url'
   | 'prohibited_element_detected'
   | 'invalid_image_buffer'
   | 'blank_placeholder_image';
@@ -477,6 +479,14 @@ export async function validateVisualRelevance(
     flags.push('wrong_location');
   }
 
+  // F. Home / Health / Wealth vs Concert / Stage / Dark Music
+  const isArticleHomeOrHealthOrWealth = /\b(home maintenance|hvac|foundation|stain|laundry|rice|cast iron|refrigerator|cookware|sourdough|olive oil|sleep|longevity|budget|portfolio)\b/i.test(articleTitle);
+  if (isArticleHomeOrHealthOrWealth) {
+    if (analysis.visualSceneClass === 'dark_stage_music' || /\b(guitar|guitarist|singer|rock band|concert stage|dark_stage)\b/i.test(combinedVisualText)) {
+      flags.push('wrong_subject', 'unrelated_visual_theme');
+    }
+  }
+
   const isArticleLaguna = /\blaguna beach\b/i.test(articleTitle);
   if (isArticleLaguna && /\b(azores|portugal|manhattan|snow|tokyo)\b/i.test(combinedVisualText)) {
     flags.push('wrong_location');
@@ -487,13 +497,56 @@ export async function validateVisualRelevance(
     flags.push('wrong_location');
   }
 
-  // 7. Determine Detected Subject & Result
+  // 7. Generic Stock Clichés & Artificial Poses
+  const STOCK_CLICHE_PATTERNS = [
+    /\b(handshake.*suit|business.*handshake|shaking hands)\b/i,
+    /\b(holding lightbulb|glowing lightbulb idea)\b/i,
+    /\b(thumbs up|giving thumbs up)\b/i,
+    /\b(smiling corporate business team|corporate group smiling at camera)\b/i,
+    /\b(generic stock model|posing artificially)\b/i,
+    /\b(cheesy corporate|happy office workers high five)\b/i,
+  ];
+  for (const pattern of STOCK_CLICHE_PATTERNS) {
+    if (pattern.test(combinedVisualText)) {
+      flags.push('generic_stock_cliche', 'generic_fallback');
+    }
+  }
+
+  // 8. External Source URL Domain Integrity
+  if (candidate.url && (candidate.url.startsWith('http://') || candidate.url.startsWith('https://'))) {
+    try {
+      const parsedUrl = new URL(candidate.url);
+      const host = parsedUrl.hostname.toLowerCase();
+      const TRUSTED_DOMAINS = [
+        'images.unsplash.com',
+        'upload.wikimedia.org',
+        'commons.wikimedia.org',
+        'openverse.org',
+        'pexels.com',
+        'images.pexels.com',
+        'live.staticflickr.com',
+        'r2.cloudflarestorage.com',
+        'lifemode.life',
+        'localhost',
+      ];
+      const isTrusted = TRUSTED_DOMAINS.some((d) => host === d || host.endsWith(`.${d}`));
+      if (!isTrusted) {
+        flags.push('unverified_external_url');
+      }
+    } catch {
+      flags.push('unverified_external_url');
+    }
+  }
+
+  // 9. Determine Detected Subject & Result
   let detectedSubject = analysis.detectedSubject || 'subject-aligned editorial visual';
   if (flags.includes('blank_placeholder_image')) detectedSubject = 'blank placeholder canvas';
   else if (flags.includes('invalid_image_buffer')) detectedSubject = 'corrupt or invalid image buffer';
   else if (flags.includes('wrong_sport')) detectedSubject = 'mismatched sport context';
   else if (flags.includes('wrong_location')) detectedSubject = 'mismatched geographic location';
   else if (flags.includes('wrong_subject')) detectedSubject = 'unrelated thematic subject';
+  else if (flags.includes('generic_stock_cliche')) detectedSubject = 'generic stock photo cliché';
+  else if (flags.includes('unverified_external_url')) detectedSubject = 'unverified external image source domain';
   else if (flags.includes('prohibited_element_detected')) detectedSubject = 'contains prohibited visual elements';
 
   const hasCriticalFlag = flags.length > 0;
@@ -569,9 +622,47 @@ export function validateVisualRelevanceSync(
     flags.push('wrong_subject', 'unrelated_visual_theme', 'misleading_imagery');
   }
 
+  const isArticleHomeOrHealthOrWealth = /\b(home maintenance|hvac|foundation|stain|laundry|rice|cast iron|refrigerator|cookware|sourdough|olive oil|sleep|longevity|budget|portfolio)\b/i.test(articleTitle);
+  if (isArticleHomeOrHealthOrWealth && /\b(guitar|guitarist|singer|rock band|concert stage|stadium pitch)\b/i.test(candidateText)) {
+    flags.push('wrong_subject', 'unrelated_visual_theme');
+  }
+
+  // Generic stock cliché checks
+  if (/\b(handshake.*suit|holding lightbulb|thumbs up|smiling corporate business team)\b/i.test(candidateText)) {
+    flags.push('generic_stock_cliche', 'generic_fallback');
+  }
+
+  // External source URL validation
+  if (candidate.url && (candidate.url.startsWith('http://') || candidate.url.startsWith('https://'))) {
+    try {
+      const parsedUrl = new URL(candidate.url);
+      const host = parsedUrl.hostname.toLowerCase();
+      const TRUSTED_DOMAINS = [
+        'images.unsplash.com',
+        'upload.wikimedia.org',
+        'commons.wikimedia.org',
+        'openverse.org',
+        'pexels.com',
+        'images.pexels.com',
+        'live.staticflickr.com',
+        'r2.cloudflarestorage.com',
+        'lifemode.life',
+        'localhost',
+      ];
+      const isTrusted = TRUSTED_DOMAINS.some((d) => host === d || host.endsWith(`.${d}`));
+      if (!isTrusted) {
+        flags.push('unverified_external_url');
+      }
+    } catch {
+      flags.push('unverified_external_url');
+    }
+  }
+
   let detectedSubject = 'subject-aligned editorial visual';
   if (flags.includes('wrong_sport')) detectedSubject = 'mismatched sport context';
   else if (flags.includes('wrong_subject')) detectedSubject = 'unrelated thematic subject';
+  else if (flags.includes('generic_stock_cliche')) detectedSubject = 'generic stock photo cliché';
+  else if (flags.includes('unverified_external_url')) detectedSubject = 'unverified external image source domain';
   else if (flags.includes('prohibited_element_detected')) detectedSubject = 'contains prohibited visual elements';
 
   const hasCriticalFlag = flags.length > 0;
@@ -584,5 +675,62 @@ export function validateVisualRelevanceSync(
     detected_subject: detectedSubject,
     expected_subject: expectedSubject,
     flags,
+  };
+}
+
+export interface VisualFallbackResolution {
+  action: 'USE_ASSET' | 'USE_INFOGRAPHIC' | 'USE_EDITORIAL_GRAPHIC' | 'NO_IMAGE';
+  visualType: string;
+  candidate?: VisualRelevanceCandidate;
+  reason: string;
+}
+
+/**
+ * Executes the visual fallback hierarchy:
+ * 1. USE_ASSET (relevant existing visual)
+ * 2. USE_INFOGRAPHIC (relevant editorial infographic/diagram)
+ * 3. USE_EDITORIAL_GRAPHIC (clean minimal editorial graphic)
+ * 4. NO_IMAGE (clean typography fallback)
+ */
+export function resolveVisualFallback(
+  article: ValidatableArticle | { title: string; infographic?: any; format?: string; pillar?: string },
+  visualBrief: StructuredVisualBrief,
+  qaResult: VisualRelevanceResult,
+  candidate?: VisualRelevanceCandidate
+): VisualFallbackResolution {
+  // 1. If candidate passed QA and is verified
+  if (qaResult.relevant && candidate && (candidate.url || candidate.imageBuffer || candidate.imagePath)) {
+    return {
+      action: 'USE_ASSET',
+      visualType: (visualBrief.visualType as string) || 'editorial_photo',
+      candidate,
+      reason: 'Asset passed semantic relevance QA and verified domain checks.',
+    };
+  }
+
+  // 2. If article contains or prefers an infographic or process diagram
+  const hasInfographic = 'infographic' in article && Boolean(article.infographic);
+  if (hasInfographic || visualBrief.infographicPreferable) {
+    return {
+      action: 'USE_INFOGRAPHIC',
+      visualType: (visualBrief.visualType as string) || 'editorial_infographic',
+      reason: 'Infographic / diagram preferred over unverified or missing photography.',
+    };
+  }
+
+  // 3. If editorial graphic preferred
+  if (visualBrief.isEditorialGraphicPreferred) {
+    return {
+      action: 'USE_EDITORIAL_GRAPHIC',
+      visualType: 'editorial_graphic',
+      reason: 'Structured editorial graphic fallback utilized.',
+    };
+  }
+
+  // 4. Default clean fallback: NO IMAGE
+  return {
+    action: 'NO_IMAGE',
+    visualType: 'no_image',
+    reason: 'No suitable verified asset found; NO IMAGE preferred over generic/irrelevant visual.',
   };
 }

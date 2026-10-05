@@ -216,7 +216,7 @@ export class InstagramPlatformAdapter implements ISocialPlatformAdapter {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           access_token: accessToken,
-          image_url: pkg.mediaAsset.url,
+          image_url: pkg.mediaAsset?.url || '',
           caption: pkg.caption,
         }),
       });

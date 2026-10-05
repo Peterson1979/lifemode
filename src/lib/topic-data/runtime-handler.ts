@@ -21,21 +21,44 @@ export interface TopicDataApiResponse {
  * Works seamlessly across Cloudflare Pages Functions, Astro endpoints, and Node tests.
  */
 export async function handleTopicDataApiRequest(
-  request: Request,
+  requestOrUrl: Request | URL | string,
   env: Record<string, string | undefined> = {},
   service: TopicDataService = globalTopicDataService
 ): Promise<Response> {
-  const url = new URL(request.url);
+  const url =
+    requestOrUrl instanceof URL
+      ? requestOrUrl
+      : typeof requestOrUrl === 'string'
+        ? new URL(requestOrUrl, 'http://localhost')
+        : new URL(requestOrUrl.url, 'http://localhost');
   const pillarParam = (url.searchParams.get('pillar') || '').toLowerCase();
   const currentOnlyParam = url.searchParams.get('currentOnly') === 'true';
 
-  if (!pillarParam || !PILLAR_SLUGS.includes(pillarParam as PillarSlug)) {
+  if (!pillarParam) {
+    return new Response(
+      JSON.stringify({
+        success: true,
+        timestamp: new Date().toISOString(),
+        availablePillars: PILLAR_SLUGS,
+        blocks: [],
+      }),
+      {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': 'public, max-age=3600',
+        },
+      }
+    );
+  }
+
+  if (!PILLAR_SLUGS.includes(pillarParam as PillarSlug)) {
     return new Response(
       JSON.stringify({
         success: false,
         timestamp: new Date().toISOString(),
         blocks: [],
-        error: `Invalid or missing pillar parameter. Valid pillars: ${PILLAR_SLUGS.join(', ')}`,
+        error: `Invalid or missing pillar parameter "${pillarParam}". Valid pillars: ${PILLAR_SLUGS.join(', ')}`,
       } satisfies TopicDataApiResponse),
       {
         status: 400,

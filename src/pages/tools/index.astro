@@ -1,0 +1,183 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { CATEGORIES } from '../../utils/categories';
+import { getCanonicalUrl, generateBreadcrumbSchema } from '../../utils/seo';
+
+const tools = await getCollection('tools');
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Interactive Tools', url: '/tools/' },
+];
+
+const canonicalUrl = getCanonicalUrl('/tools');
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Interactive Tools', url: '/tools' },
+]);
+---
+
+<BaseLayout
+  title="Interactive Household Tools & Decision Calculators — LifeMode"
+  description="Free, privacy-preserving browser utilities: laundry stain solver, food shelf-life finder, seasonal home maintenance planner, and cookware decision matcher."
+  canonicalUrl={canonicalUrl}
+  jsonLd={breadcrumbSchema}
+>
+  <div class="container tools-directory-wrapper">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <header class="directory-header">
+      <span class="badge directory-badge">Browser-Based Utilities</span>
+      <h1 class="directory-title">Interactive Household Decision Tools</h1>
+      <p class="directory-subtitle">
+        Actionable calculators, stain diagnosis assistants, and custom schedule planners built for zero friction and maximum practical utility.
+      </p>
+    </header>
+
+    <div class="tools-grid">
+      {tools.map((tool) => {
+        const cat = CATEGORIES[tool.data.category];
+        const slug = tool.id.replace(/\.[^/.]+$/, '');
+        return (
+          <div class="tool-directory-card">
+            <div class="card-meta">
+              <span class="badge tool-pill">🛠️ Interactive Utility</span>
+              {cat && (
+                <span class="cat-pill" style={`color: ${cat.badgeColor}; background-color: ${cat.lightBg};`}>
+                  {cat.icon} {cat.title}
+                </span>
+              )}
+            </div>
+            <h2 class="card-title">
+              <a href={`/tools/${slug}/`}>{tool.data.title}</a>
+            </h2>
+            <p class="card-summary">{tool.data.summary}</p>
+            <div class="card-footer">
+              <a href={`/tools/${slug}/`} class="btn btn-outline" style="font-size: 0.85rem; color: var(--color-primary-accent);">Launch Tool &rarr;</a>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tools-directory-wrapper {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-20);
+  }
+
+  .directory-header {
+    margin-bottom: var(--space-10);
+  }
+
+  .directory-badge {
+    display: inline-block;
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--color-primary-accent);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-3);
+  }
+
+  .directory-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .directory-subtitle {
+    font-size: 1.15rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 780px;
+    margin: 0;
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .tool-directory-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+  }
+
+  .tool-directory-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card);
+    border-color: var(--color-border-hover);
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-3);
+  }
+
+  .tool-pill {
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--color-primary-accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-full);
+  }
+
+  .cat-pill {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-full);
+  }
+
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: var(--space-2);
+  }
+
+  .card-title a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+  }
+
+  .card-title a:hover {
+    color: var(--color-primary-accent);
+    text-decoration: underline;
+  }
+
+  .card-summary {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-6);
+    flex-grow: 1;
+  }
+
+  .card-footer {
+    border-top: 1px solid var(--color-border-subtle);
+    padding-top: var(--space-4);
+    margin-top: auto;
+  }
+</style>

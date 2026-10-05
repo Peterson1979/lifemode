@@ -77,12 +77,23 @@ export function selectEditorialCandidates(
   const enrichedCandidates: Array<EditorialTopic & { effectiveScore: number }> = [];
 
   for (const topic of candidates) {
-    // Inactive / removed pillar check (e.g. 'life' is removed)
-    if (!VALID_PILLARS.includes(topic.pillar as PillarSlug) || (topic.pillar as string) === 'life') {
+    // Inactive / removed pillar check
+    if (!VALID_PILLARS.includes(topic.pillar as PillarSlug)) {
       rejected.push({
         ...topic,
         status: 'REJECTED',
         rejectionReason: `Pillar "${topic.pillar}" is inactive or removed`,
+        updatedAt: new Date().toISOString(),
+      });
+      continue;
+    }
+
+    // Video-only pillar guard: Life Hacks contains videos only, no written articles
+    if (topic.pillar === 'life-hacks') {
+      rejected.push({
+        ...topic,
+        status: 'REJECTED',
+        rejectionReason: 'Life Hacks is a video-only pillar. Written text articles are not permitted.',
         updatedAt: new Date().toISOString(),
       });
       continue;

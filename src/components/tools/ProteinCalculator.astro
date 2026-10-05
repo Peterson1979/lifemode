@@ -1,0 +1,365 @@
+---
+---
+
+<div class="tool-widget-container" id="protein-calculator-app">
+  <div class="tool-controls-grid">
+    <div class="tool-field">
+      <label for="calc-unit" class="field-label">1. Weight Unit</label>
+      <select id="calc-unit" class="tool-select">
+        <option value="lbs">Pounds (lbs)</option>
+        <option value="kg">Kilograms (kg)</option>
+      </select>
+    </div>
+
+    <div class="tool-field">
+      <label for="calc-weight" class="field-label">2. Body Weight</label>
+      <input type="number" id="calc-weight" class="tool-input" value="165" min="70" max="400" step="1" />
+    </div>
+
+    <div class="tool-field">
+      <label for="calc-goal" class="field-label">3. Primary Health Goal</label>
+      <select id="calc-goal" class="tool-select">
+        <option value="longevity">Healthy Aging &amp; Longevity (1.2–1.4 g/kg)</option>
+        <option value="strength">Strength &amp; Muscle Maintenance (1.4–1.6 g/kg)</option>
+        <option value="fatloss">Fat Loss &amp; Satiety (1.6–2.0 g/kg)</option>
+        <option value="athletic">High-Performance Training (1.8–2.2 g/kg)</option>
+      </select>
+    </div>
+
+    <div class="tool-field">
+      <label for="calc-meals" class="field-label">4. Meals Per Day</label>
+      <select id="calc-meals" class="tool-select">
+        <option value="3" selected>3 Main Meals</option>
+        <option value="4">3 Meals + 1 Protein Snack</option>
+        <option value="2">2 Main Meals (Intermittent Fasting)</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="calculator-result-box" id="protein-result-box">
+    <!-- Result dynamically rendered via client JS -->
+  </div>
+</div>
+
+<script>
+  function calculateProtein() {
+    const unitEl = document.getElementById('calc-unit') as HTMLSelectElement;
+    const weightEl = document.getElementById('calc-weight') as HTMLInputElement;
+    const goalEl = document.getElementById('calc-goal') as HTMLSelectElement;
+    const mealsEl = document.getElementById('calc-meals') as HTMLSelectElement;
+    const resultBox = document.getElementById('protein-result-box');
+
+    if (!unitEl || !weightEl || !goalEl || !mealsEl || !resultBox) return;
+
+    let weight = parseFloat(weightEl.value) || 165;
+    const unit = unitEl.value;
+    const goal = goalEl.value;
+    const meals = parseInt(mealsEl.value) || 3;
+
+    // Convert to kg
+    const weightKg = unit === 'lbs' ? weight * 0.453592 : weight;
+
+    let factorMin = 1.2;
+    let factorMax = 1.4;
+    let goalTitle = 'Healthy Aging & Longevity';
+
+    if (goal === 'strength') {
+      factorMin = 1.4;
+      factorMax = 1.6;
+      goalTitle = 'Strength & Muscle Tone';
+    } else if (goal === 'fatloss') {
+      factorMin = 1.6;
+      factorMax = 2.0;
+      goalTitle = 'Fat Loss & High Satiety';
+    } else if (goal === 'athletic') {
+      factorMin = 1.8;
+      factorMax = 2.2;
+      goalTitle = 'High-Performance Athletic Conditioning';
+    }
+
+    const minTotal = Math.round(weightKg * factorMin);
+    const maxTotal = Math.round(weightKg * factorMax);
+    const avgTotal = Math.round((minTotal + maxTotal) / 2);
+
+    const perMealMin = Math.round(minTotal / meals);
+    const perMealMax = Math.round(maxTotal / meals);
+    const perMealAvg = Math.round(avgTotal / meals);
+
+    // Food equivalents for perMealAvg
+    const chickenOz = (perMealAvg / 7.5).toFixed(1); // ~7.5g per oz cooked
+    const eggsCount = Math.ceil(perMealAvg / 6); // ~6g per egg
+    const greekYogurtCups = (perMealAvg / 22).toFixed(1); // ~22g per cup
+    const tofuGrams = Math.round((perMealAvg / 20) * 250); // ~20g per 250g
+
+    resultBox.innerHTML = `
+      <div class="calc-header-summary">
+        <span class="calc-badge">Target Profile: ${goalTitle}</span>
+        <h3 class="calc-title">Personalized Protein Distribution Target</h3>
+        <p class="calc-desc">Based on ${Math.round(weight)} ${unit} body weight across ${meals} eating occasions per day.</p>
+      </div>
+
+      <div class="calc-stats-banner">
+        <div class="calc-stat-block">
+          <span class="calc-stat-label">Daily Target Band</span>
+          <div class="calc-stat-num-group">
+            <span class="calc-stat-val">${minTotal}–${maxTotal}</span>
+            <span class="calc-stat-unit">Grams/Day</span>
+          </div>
+          <span class="calc-subtext">~${(minTotal / (unit === 'lbs' ? weight : weight * 2.20462)).toFixed(2)}–${(maxTotal / (unit === 'lbs' ? weight : weight * 2.20462)).toFixed(2)} g/lb</span>
+        </div>
+
+        <div class="calc-stat-block highlight-block">
+          <span class="calc-stat-label">Per-Meal Target Anchor</span>
+          <div class="calc-stat-num-group">
+            <span class="calc-stat-val">${perMealMin}–${perMealMax}</span>
+            <span class="calc-stat-unit">Grams/Meal</span>
+          </div>
+          <span class="calc-subtext">Optimal for ~2.5–3g leucine trigger</span>
+        </div>
+      </div>
+
+      <div class="calc-breakdown-section">
+        <h4 class="section-subhead">🍽️ What ${perMealAvg}g of Protein Looks Like in Real Food:</h4>
+        <div class="food-equivalents-grid">
+          <div class="food-card">
+            <span class="food-icon">🍗</span>
+            <span class="food-name">Chicken / Turkey</span>
+            <span class="food-portion">${chickenOz} oz cooked</span>
+            <span class="food-note">~${perMealAvg}g protein</span>
+          </div>
+          <div class="food-card">
+            <span class="food-icon">🍳</span>
+            <span class="food-name">Large Eggs</span>
+            <span class="food-portion">${eggsCount} whole eggs</span>
+            <span class="food-note">or 3 eggs + whites</span>
+          </div>
+          <div class="food-card">
+            <span class="food-icon">🥣</span>
+            <span class="food-name">Greek Yogurt</span>
+            <span class="food-portion">${greekYogurtCups} cups (plain 0%)</span>
+            <span class="food-note">+ berries or nuts</span>
+          </div>
+          <div class="food-card">
+            <span class="food-icon">🌱</span>
+            <span class="food-name">Firm Tofu</span>
+            <span class="food-portion">${tofuGrams}g (${(tofuGrams / 28.35).toFixed(0)} oz)</span>
+            <span class="food-note">or 1 cup tempeh</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-insights-box">
+        <strong>💡 Evidence-Based Recommendation:</strong> Spreading your ${minTotal}–${maxTotal}g daily target evenly (roughly ${perMealAvg}g per meal) stimulates muscle protein synthesis consistently throughout the day and sustains satiety without mid-day blood sugar slumps.
+      </div>
+    `;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    calculateProtein();
+    ['calc-unit', 'calc-weight', 'calc-goal', 'calc-meals'].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('input', calculateProtein);
+        el.addEventListener('change', calculateProtein);
+      }
+    });
+  });
+</script>
+
+<style>
+  .tool-widget-container {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+    margin: var(--space-6) 0;
+  }
+
+  .tool-controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-5);
+    margin-bottom: var(--space-8);
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .tool-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .field-label {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .tool-select, .tool-input {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.95rem;
+    color: var(--color-text-primary);
+    background-color: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    outline: none;
+    transition: border-color var(--transition-fast);
+  }
+
+  .tool-select:focus, .tool-input:focus {
+    border-color: var(--color-primary-accent);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  }
+
+  .calculator-result-box {
+    background: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+  }
+
+  .calc-badge {
+    display: inline-block;
+    font-size: 0.725rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #059669;
+    background: rgba(5, 150, 105, 0.1);
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-2);
+  }
+
+  .calc-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 var(--space-1);
+    color: var(--color-text-primary);
+  }
+
+  .calc-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--space-6);
+  }
+
+  .calc-stats-banner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .calc-stat-block {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .highlight-block {
+    border-color: #059669;
+    background: rgba(5, 150, 105, 0.03);
+  }
+
+  .calc-stat-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-1);
+  }
+
+  .calc-stat-num-group {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    margin-bottom: var(--space-1);
+  }
+
+  .calc-stat-val {
+    font-family: var(--font-display);
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .calc-stat-unit {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .calc-subtext {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+  }
+
+  .section-subhead {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: var(--space-4) 0 var(--space-3);
+    color: var(--color-text-primary);
+  }
+
+  .food-equivalents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+  }
+
+  .food-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .food-icon {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-1);
+  }
+
+  .food-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .food-portion {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-primary-accent);
+    margin-top: 0.15rem;
+  }
+
+  .food-note {
+    font-size: 0.725rem;
+    color: var(--color-text-muted);
+  }
+
+  .calc-insights-box {
+    background: var(--color-surface);
+    border-left: 3px solid #059669;
+    padding: var(--space-4);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+</style>

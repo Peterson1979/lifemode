@@ -137,6 +137,14 @@ export function validateEditorialArticle(
   ];
 
   // ----------------------------------------------------
+  // 0. VIDEO-ONLY PILLAR GUARD (Life Hacks)
+  // ----------------------------------------------------
+  if (context.pillar === 'life-hacks') {
+    errors.push('Life Hacks is a video-only pillar. Written text articles cannot be validated or published for this pillar.');
+    checks.structure = false;
+  }
+
+  // ----------------------------------------------------
   // 1. STRUCTURE CHECKS
   // ----------------------------------------------------
   if (!title) {

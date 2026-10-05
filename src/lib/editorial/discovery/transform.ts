@@ -14,11 +14,11 @@ export function transformSignalToCandidate(signal: DiscoverySignal): EditorialTo
   const slug = norm.canonicalSlug;
 
   // Determine pillar
-  let pillar: PillarSlug = 'style';
+  let pillar: PillarSlug = 'life';
   if (signal.category && PILLAR_SLUGS.includes(signal.category as PillarSlug)) {
     pillar = signal.category as PillarSlug;
   } else {
-    pillar = inferPillarFromKeywords(cleanTitle);
+    pillar = inferPillarFromKeywords(cleanTitle, 'life');
   }
 
   const topicId = generateTopicId(pillar, slug);

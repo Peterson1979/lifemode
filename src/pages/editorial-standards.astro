@@ -1,77 +1,67 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { PILLARS, PILLAR_SLUGS } from '../config/site';
+import { getCanonicalUrl } from '../utils/seo';
 
-const canonicalUrl = 'https://lifemode.life/editorial-standards';
+const canonicalUrl = getCanonicalUrl('/editorial-standards');
 ---
 
 <BaseLayout
-  title="Editorial Standards — LifeMode"
-  description="LifeMode editorial guidelines, sourcing standards, factual review process, affiliate transparency, and AI policy."
+  title="Editorial Standards & Verification Policy — LifeMode"
+  description="LifeMode editorial guidelines, verification protocols, sourcing standards, factual review process, and affiliate transparency."
   canonicalUrl={canonicalUrl}
 >
-  <div class="page-shell container-prose">
+  <div class="page-shell container-prose" style="padding-top: var(--space-8); padding-bottom: var(--space-20);">
     <header style="margin-bottom: var(--space-8);">
-      <span class="hero-tag">Journalism &amp; Ethics</span>
-      <h1 class="page-title">Editorial Standards</h1>
-      <p class="page-lead">
-        Our editorial principles for publishing useful, accurate, and reader-focused lifestyle journalism.
+      <span class="badge" style="background-color: rgba(37, 99, 235, 0.1); color: var(--color-primary-accent); border: 1px solid rgba(37, 99, 235, 0.2); font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: var(--radius-full); margin-bottom: var(--space-3); display: inline-block;">
+        Journalism &amp; Ethics
+      </span>
+      <h1 class="page-title" style="font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; color: var(--color-text-primary); margin-bottom: var(--space-3);">
+        Editorial Standards &amp; Fact-Checking Policy
+      </h1>
+      <p class="page-lead" style="font-size: 1.15rem; color: var(--color-text-secondary); line-height: 1.6;">
+        How LifeMode researches, verifies, structures, and maintains practical guidance, recipes, and decision tools.
       </p>
     </header>
 
     <div class="prose">
-      <h2>1. Reader-Focused Mission</h2>
+      <h2>1. Purpose &amp; Editorial Mission</h2>
       <p>
-        LifeMode is dedicated to publishing original, high-signal, and practical editorial content. Our goal is to help readers live well with clarity, intentionality, and actionable insights across modern living.
+        <strong>LifeMode</strong> exists to provide real, actionable, and scientifically sound solutions to daily household challenges and culinary pursuits. We believe every piece of published content must be genuinely useful to a human reader—even if search engines disappeared tomorrow.
       </p>
 
-      <h2>2. Core Coverage Areas</h2>
+      <h2>2. Core Sourcing &amp; Research Protocol</h2>
       <p>
-        Our editorial coverage spans our core subjects:
+        We do not rely on unverified blog posts or recycled internet folklore. Every guide and recipe is anchored in verified primary references:
       </p>
       <ul>
-        {PILLAR_SLUGS.map((slug) => {
-          const pillar = PILLARS[slug];
-          return (
-            <li>
-              <strong><a href={`/${pillar.slug}`}>{pillar.name}</a>:</strong> {pillar.description}
-            </li>
-          );
-        })}
+        <li><strong>University Agricultural Extension Services:</strong> USDA, FDA, state cooperative extension offices, and food safety research centers.</li>
+        <li><strong>Material Science &amp; Textile Standards:</strong> ASTM international testing protocols, textile care standards, and manufacturer maintenance specifications.</li>
+        <li><strong>Culinary Foundations &amp; Kitchen Science:</strong> Food chemistry, fermentation science, and professional culinary technique.</li>
+        <li><strong>Peer-Reviewed Research:</strong> Environmental health, building science, and indoor air quality standards.</li>
       </ul>
 
-      <h2>3. Sourcing &amp; Factual Review</h2>
+      <h2>3. The Fact-Checking Process</h2>
       <p>
-        We hold our content to high standards of accuracy, substance, and utility:
+        Before any guide is published:
       </p>
-      <ul>
-        <li><strong>Factual Verification:</strong> Key factual claims, technical concepts, data points, and health or finance topics are reviewed for accuracy before publication.</li>
-        <li><strong>Attribution:</strong> We reference reputable primary sources, official documentation, subject-matter experts, and authoritative publications where appropriate.</li>
-        <li><strong>Corrections:</strong> If a factual inaccuracy is identified, we promptly review and correct the article to maintain reader trust.</li>
-      </ul>
+      <ol>
+        <li><strong>Technical Verification:</strong> Step-by-step procedures are verified against chemical and material safety rules (e.g., pH compatibility for surfaces, thermal shock prevention for cookware).</li>
+        <li><strong>Risk &amp; Hazard Screening:</strong> Explicit safety warnings and common mistakes are highlighted to protect user property and personal safety.</li>
+        <li><strong>Review &amp; Maintenance:</strong> Content is periodically audited to reflect newer safety standards and improved methodologies.</li>
+      </ol>
 
       <h2>4. Editorial Independence &amp; Commercial Transparency</h2>
       <p>
-        Editorial integrity and reader trust are paramount:
-      </p>
-      <ul>
-        <li><strong>Editorial Independence:</strong> Coverage decisions and editorial recommendations are made independently of commercial or advertising relationships.</li>
-        <li><strong>Affiliate Transparency:</strong> When an article includes links to recommended products or services that earn an affiliate commission, we clearly disclose this relationship to the reader. Affiliate partnerships never influence our honest evaluations or standards.</li>
-      </ul>
-
-      <h2>5. AI-Assisted Workflows &amp; Human Editorial Oversight</h2>
-      <p>
-        LifeMode embraces modern technology responsibly. Advanced AI tools may be utilized to assist with background research, topic synthesis, and drafting efficiency. However, all published stories remain subject to human editorial oversight, curation, and quality verification to ensure every piece meets our standards of tone, depth, and utility.
+        LifeMode maintains strict editorial independence. If affiliate links or sponsor relationships are present, they are clearly disclosed. Recommendations are formulated entirely on functional merit, durability, safety, and practical efficacy.
       </p>
 
-      <h2>6. Feedback &amp; Editorial Inquiries</h2>
+      <h2>5. Corrections &amp; Reader Inquiries</h2>
       <p>
-        We welcome questions, suggestions, corrections, and editorial pitches from our readers:
+        If you spot a factual error, outdated specification, or safety concern in any of our guides or tools, please notify our editorial desk immediately:
       </p>
       <p>
-        <strong>Publication:</strong> LifeMode<br />
-        <strong>Publisher:</strong> Oberhauser Péter Zoltán<br />
-        <strong>Editorial Desk:</strong> <a href="mailto:contact@lifemode.life">contact@lifemode.life</a>
+        <strong>Editorial Desk:</strong> <a href="mailto:editorial@lifemode.life">editorial@lifemode.life</a><br />
+        <strong>General Inquiries:</strong> <a href="mailto:contact@lifemode.life">contact@lifemode.life</a>
       </p>
     </div>
   </div>

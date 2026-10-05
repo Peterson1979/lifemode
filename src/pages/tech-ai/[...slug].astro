@@ -1,0 +1,34 @@
+---
+import { getCollection, render } from 'astro:content';
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import { PILLARS } from '../../config/site';
+
+export async function getStaticPaths() {
+  const pillarConfig = PILLARS['tech-ai'];
+  const rawEntries = await getCollection('tech-ai').catch(() => []);
+
+  return rawEntries.map((entry) => {
+    const relatedEntries = rawEntries
+      .filter((e: any) => e.id !== entry.id && !e.data.draft)
+      .slice(0, 3);
+
+    return {
+      params: { slug: entry.id },
+      props: { entry, pillar: pillarConfig, relatedEntries },
+    };
+  });
+}
+
+export interface Props {
+  pillar: any;
+  entry: any;
+  relatedEntries: any[];
+}
+
+const { entry, pillar, relatedEntries } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<GuideLayout entry={entry} pillar={pillar} relatedEntries={relatedEntries}>
+  <Content />
+</GuideLayout>
