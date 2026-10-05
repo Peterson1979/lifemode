@@ -47,6 +47,7 @@ export function briefToGenerationRequest(
     topicId: brief.topicId,
     titleAngle: options.overrideTitleAngle || brief.titleAngle,
     pillar: brief.pillar,
+    targetProject: brief.targetProject,
     format: brief.format,
     audience: options.overrideAudience || brief.audience,
     primaryIntent: brief.primaryIntent,

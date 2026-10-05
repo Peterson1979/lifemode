@@ -90,6 +90,7 @@ export interface DiscoveryPipelineReport {
     id: string;
     canonicalTopic: string;
     pillar: PillarSlug;
+    targetProject?: string;
     totalScore: number;
     pinterestScore?: number;
     priorityTier: string;

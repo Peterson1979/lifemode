@@ -2,19 +2,23 @@ import type { EditorialTopic, PillarSlug } from './types.ts';
 import { VALID_PILLARS } from './types.ts';
 import type { FeedbackSignalSummary } from './performance/types.ts';
 import { evaluateTopicPerformanceFeedback } from './performance/feedback.ts';
+import { isAiCadenceDay } from './cadence.ts';
 
 export interface SelectionOptions {
   minScoreThreshold?: number; // default 80
   maxTopicsPerPillar?: number; // default max topics per pillar in one batch
-  totalLimit?: number; // batch total limit
+  totalLimit?: number; // batch total limit (default 3 for daily editorial)
   existingPillarDistribution?: Partial<Record<PillarSlug, number>>;
   existingPillarRecency?: Partial<Record<PillarSlug, number>>; // days since last publication in pillar
   enablePillarBalancing?: boolean; // default true
   requireVisualPotential?: boolean;
   feedbackSignals?: FeedbackSignalSummary;
   enablePerformanceFeedback?: boolean; // default true if feedbackSignals provided
-  guaranteedPillar?: PillarSlug | null; // e.g. 'style' (backward compatibility)
-  guaranteedPillars?: PillarSlug[]; // e.g. ['style', 'entertainment'] for daily generation
+  guaranteedPillar?: PillarSlug | null; // backward compatibility
+  guaranteedPillars?: PillarSlug[]; // explicit guaranteed pillars override
+  targetDate?: string | Date; // Target UTC date for cadence evaluation
+  isAiDay?: boolean; // Explicit override for AI Day status
+  requireAiCandidate?: boolean; // If true, forces AI day behavior
 }
 
 /**
@@ -39,13 +43,14 @@ export function calculatePillarStarvationBoost(
 /**
  * Deterministically filters, ranks, and selects approved editorial topics from scored candidates.
  *
- * Implements lightweight, practical pillar balancing:
- * - When guaranteedPillars is specified (e.g. ['style', 'entertainment']), guarantees exactly 1 slot for each
- *   and allocates remaining slots across other rotating active topics.
- * - Prevents high-volume single-source topics from flooding a single pillar in one batch.
- * - Filters out removed/inactive pillars (such as 'life').
- * - Strict quality rule: Never approves or forces an inferior candidate (< 80) merely to balance pillars.
- * - Performance Feedback: Integrates bounded historical performance modifiers (+/- 10) without bypassing minimum quality or safety gates.
+ * Implements LifeMode V2 Editorial Strategy:
+ * - Up to 3 articles per daily editorial run (or configured totalLimit).
+ * - Selection driven primarily by current/trending signals and editorial value (no fixed daily pillar rotation).
+ * - Deterministic AI cadence: on AI Days (every 3rd UTC day), selects exactly 1 qualified GetAISet mainstream AI candidate + 2 dynamic LifeMode articles.
+ * - On Normal Days: selects 3 strongest dynamic LifeMode candidates.
+ * - Topic diversity: prevents duplicate/colliding topics and restricts same-pillar flooding (max 1 per pillar when totalLimit <= 3).
+ * - Filters out removed/inactive pillars (such as 'life') and video-only pillars ('life-hacks').
+ * - Strict quality rule: Never approves or forces an inferior candidate (< 80).
  */
 export function selectEditorialCandidates(
   candidates: EditorialTopic[],
@@ -63,6 +68,11 @@ export function selectEditorialCandidates(
   const applyFeedback = options.enablePerformanceFeedback ?? Boolean(feedbackSignals);
   const rawGuaranteed = options.guaranteedPillars || (options.guaranteedPillar ? [options.guaranteedPillar] : []);
   const guaranteedPillars = Array.from(new Set(rawGuaranteed.filter(Boolean))) as PillarSlug[];
+
+  // Determine AI Day status: explicit option or calculated from targetDate UTC cadence
+  const isAiDay = options.isAiDay !== undefined
+    ? options.isAiDay
+    : (options.requireAiCandidate ?? (options.targetDate !== undefined ? isAiCadenceDay(options.targetDate) : false));
 
   const pillarCounts: Partial<Record<PillarSlug, number>> = {};
   for (const pillar of VALID_PILLARS) {
@@ -115,7 +125,6 @@ export function selectEditorialCandidates(
   }
 
   // 2. Separate candidates into rejected, sub-threshold, and qualified
-  // Safety rule: Raw score < 60 or REJECT priority tier is NEVER approved by feedback
   const qualified: Array<EditorialTopic & { effectiveScore: number }> = [];
 
   for (const topic of enrichedCandidates) {
@@ -174,24 +183,72 @@ export function selectEditorialCandidates(
   const maxPerPillar = options.maxTopicsPerPillar ?? defaultMaxPerPillar;
   const strictDiversity = maxPerPillar === 1 || (options.totalLimit !== undefined && options.totalLimit <= 3);
 
-  // 4. Guaranteed Pillars Allocation (e.g. exactly 1 for 'style', 1 for 'entertainment')
+  const approvedIds = new Set<string>();
+  const approvedSlugs = new Set<string>();
+
+  // Helper to approve a topic
+  const approveTopic = (topic: EditorialTopic & { effectiveScore: number }) => {
+    pillarCounts[topic.pillar] = (pillarCounts[topic.pillar] || 0) + 1;
+    approvedIds.add(topic.id);
+    approvedSlugs.add(topic.slug);
+    approved.push({
+      ...topic,
+      status: 'APPROVED',
+      updatedAt: new Date().toISOString(),
+    });
+  };
+
+  // Helper to check topic similarity / collision with already approved topics
+  const isDuplicateOrColliding = (topic: EditorialTopic) => {
+    if (approvedIds.has(topic.id) || approvedSlugs.has(topic.slug)) return true;
+    const cleanTopic = topic.canonicalTopic.toLowerCase().trim();
+    return approved.some((a) => a.canonicalTopic.toLowerCase().trim() === cleanTopic);
+  };
+
+  // 4. AI DAY SELECTION: If it is an AI Cadence Day, allocate exactly 1 slot for GetAISet mainstream AI topic
+  let candidatesForGeneralPool: Array<EditorialTopic & { effectiveScore: number }> = sortedQualified;
+
+  if (isAiDay && (!options.totalLimit || options.totalLimit >= 1)) {
+    const getAiSetCandidates = sortedQualified.filter(
+      (t) => t.targetProject === 'get-ai-set' || (t.pillar === 'tech-ai' && t.tags?.includes('get-ai-set'))
+    );
+
+    if (getAiSetCandidates.length > 0) {
+      const topGetAiSet = getAiSetCandidates[0];
+      approveTopic(topGetAiSet);
+
+      // Defer other GetAISet candidates for future AI days
+      for (let i = 1; i < getAiSetCandidates.length; i++) {
+        deferred.push({
+          ...getAiSetCandidates[i],
+          status: 'DEFERRED',
+          deferReason: 'AI Day single GetAISet article quota (1) met',
+          updatedAt: new Date().toISOString(),
+        });
+      }
+
+      // Filter out all GetAISet candidates from the general pool for remaining slots
+      candidatesForGeneralPool = sortedQualified.filter(
+        (t) => t.id !== topGetAiSet.id && t.targetProject !== 'get-ai-set' && !t.tags?.includes('get-ai-set')
+      );
+    }
+  }
+
+  // 5. Explicit Guaranteed Pillars Allocation (e.g. if caller explicitly provided guaranteedPillars)
   const candidatesToProcess: Array<EditorialTopic & { effectiveScore: number }> = [];
 
-  if (guaranteedPillars.length > 0 && options.totalLimit && options.totalLimit >= 1) {
+  if (guaranteedPillars.length > 0 && options.totalLimit && approved.length < options.totalLimit) {
     let guaranteedSlotsFilled = 0;
 
     for (const gp of guaranteedPillars) {
       if (options.totalLimit && approved.length >= options.totalLimit) break;
 
-      const guaranteedCandidates = sortedQualified.filter((t) => t.pillar === gp);
+      const guaranteedCandidates = candidatesForGeneralPool.filter(
+        (t) => t.pillar === gp && !isDuplicateOrColliding(t)
+      );
       if (guaranteedCandidates.length > 0) {
         const topGuaranteed = guaranteedCandidates[0];
-        pillarCounts[gp] = 1;
-        approved.push({
-          ...topGuaranteed,
-          status: 'APPROVED',
-          updatedAt: new Date().toISOString(),
-        });
+        approveTopic(topGuaranteed);
         guaranteedSlotsFilled++;
 
         // Defer remaining candidates of this guaranteed pillar
@@ -207,20 +264,26 @@ export function selectEditorialCandidates(
     }
 
     // Remaining slots to be filled by non-guaranteed candidates
-    const nonGuaranteedCandidates = sortedQualified.filter((t) => !guaranteedPillars.includes(t.pillar));
+    const nonGuaranteedCandidates = candidatesForGeneralPool.filter(
+      (t) => !guaranteedPillars.includes(t.pillar) && !approvedIds.has(t.id)
+    );
     if (guaranteedSlotsFilled > 0) {
       candidatesToProcess.push(...nonGuaranteedCandidates);
     } else {
-      candidatesToProcess.push(...sortedQualified);
+      candidatesToProcess.push(...candidatesForGeneralPool.filter((t) => !approvedIds.has(t.id)));
     }
   } else {
-    candidatesToProcess.push(...sortedQualified);
+    candidatesToProcess.push(...candidatesForGeneralPool.filter((t) => !approvedIds.has(t.id)));
   }
 
-  // Pass 1: Select up to maxPerPillar per pillar for remaining slots
-  const remainingAfterPass1: EditorialTopic[] = [];
+  // 6. Pass 1: Select up to maxPerPillar per pillar for remaining slots (enforcing diversity)
+  const remainingAfterPass1: Array<EditorialTopic & { effectiveScore: number }> = [];
 
   for (const topic of candidatesToProcess) {
+    if (approvedIds.has(topic.id) || isDuplicateOrColliding(topic)) {
+      continue;
+    }
+
     if (options.totalLimit && approved.length >= options.totalLimit) {
       deferred.push({
         ...topic,
@@ -237,17 +300,16 @@ export function selectEditorialCandidates(
       continue;
     }
 
-    pillarCounts[topic.pillar] = currentCount + 1;
-    approved.push({
-      ...topic,
-      status: 'APPROVED',
-      updatedAt: new Date().toISOString(),
-    });
+    approveTopic(topic);
   }
 
-  // Pass 2: If totalLimit not yet reached and strict diversity is NOT required, fill capacity with remaining
+  // 7. Pass 2: If totalLimit not yet reached and strict diversity is NOT required, fill capacity with remaining
   if (options.totalLimit && approved.length < options.totalLimit && !strictDiversity) {
     for (const topic of remainingAfterPass1) {
+      if (approvedIds.has(topic.id) || isDuplicateOrColliding(topic)) {
+        continue;
+      }
+
       if (approved.length >= options.totalLimit) {
         deferred.push({
           ...topic,
@@ -258,21 +320,18 @@ export function selectEditorialCandidates(
         continue;
       }
 
-      pillarCounts[topic.pillar] = (pillarCounts[topic.pillar] || 0) + 1;
-      approved.push({
-        ...topic,
-        status: 'APPROVED',
-        updatedAt: new Date().toISOString(),
-      });
+      approveTopic(topic);
     }
   } else {
     for (const topic of remainingAfterPass1) {
-      deferred.push({
-        ...topic,
-        status: 'DEFERRED',
-        deferReason: `Pillar ${topic.pillar} quota reached (${pillarCounts[topic.pillar] || 0}/${maxPerPillar}) and topic diversity enforced`,
-        updatedAt: new Date().toISOString(),
-      });
+      if (!approvedIds.has(topic.id)) {
+        deferred.push({
+          ...topic,
+          status: 'DEFERRED',
+          deferReason: `Pillar ${topic.pillar} quota reached (${pillarCounts[topic.pillar] || 0}/${maxPerPillar}) and topic diversity enforced`,
+          updatedAt: new Date().toISOString(),
+        });
+      }
     }
   }
 

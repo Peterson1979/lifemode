@@ -15,6 +15,7 @@ import { GoogleSearchConsoleDiscoveryAdapter } from './adapters/google-search-co
 import { BingWebmasterDiscoveryAdapter } from './adapters/bing-webmaster.ts';
 import { YouTubeTrendsDiscoveryAdapter } from './adapters/youtube-trends.ts';
 import { InternalAnalyticsDiscoveryAdapter } from './adapters/internal-analytics.ts';
+import { GetAISetDiscoveryAdapter } from './adapters/get-ai-set.ts';
 import { transformSignalToCandidate, applyCrossSourceCorroboration } from './transform.ts';
 import { checkTopicDuplicate, checkSourceUrlDuplicate } from '../deduplication.ts';
 import { loadCandidates, saveCandidates, mergeCandidateTopic, loadAllHistoricalTopics } from './storage.ts';
@@ -56,6 +57,7 @@ export function getDefaultDiscoveryAdapters(): IDiscoveryAdapter[] {
     new RedditSocialDiscoveryAdapter(),
     new RSSFeedsDiscoveryAdapter(),
     new SeasonalCalendarDiscoveryAdapter(),
+    new GetAISetDiscoveryAdapter(),
     new PinterestTrendsDiscoveryAdapter(),
     new GoogleSearchConsoleDiscoveryAdapter(),
     new BingWebmasterDiscoveryAdapter(),
@@ -238,6 +240,7 @@ export async function runDiscoveryPipeline(
       id: c.id,
       canonicalTopic: c.canonicalTopic,
       pillar: c.pillar,
+      targetProject: c.targetProject,
       totalScore: c.totalScore,
       pinterestScore: c.scoring.pinterestPotential,
       priorityTier: c.priorityTier,

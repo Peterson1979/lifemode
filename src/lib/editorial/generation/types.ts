@@ -9,6 +9,7 @@ export interface GenerationRequest {
   topicId: string;
   titleAngle: string;
   pillar: PillarSlug;
+  targetProject?: string;
   format: ArticleFormat;
   audience: string;
   primaryIntent: SearchIntent;

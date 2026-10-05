@@ -16,6 +16,20 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
   // TECH & AI
   // =========================================================================
   {
+    id: 'get-ai-set',
+    name: 'GetAISet Curated AI Learning & Tools',
+    role: 'both',
+    sourceType: 'official',
+    reliability: 'high',
+    pillars: ['tech-ai'],
+    domains: ['getaiset.com', 'www.getaiset.com'],
+    url: 'https://www.getaiset.com',
+    feedUrl: 'https://www.getaiset.com/rss.xml',
+    topics: ['ai-learning', 'ai-tools', 'productivity', 'everyday-ai', 'beginner-ai', 'practical-ai', 'prompts'],
+    description: 'Curated mainstream AI education, practical AI workflows, and accessible tool guides for non-technical users.',
+    enabled: true,
+  },
+  {
     id: 'github-docs',
     name: 'GitHub Docs & Open Source',
     role: 'research',

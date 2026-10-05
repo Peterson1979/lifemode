@@ -60,6 +60,17 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
       '- Start your response immediately with "{" and end with "}".',
     ];
 
+    if (request.targetProject === 'get-ai-set') {
+      systemPromptParts.push(
+        '',
+        '### MAINSTREAM AI & GETAISET REVISION GUIDELINES:',
+        '- Target Audience: Ensure writing is accessible to ordinary mainstream users, NOT technical developers or data scientists.',
+        '- Plain-Language: Ensure complex AI concepts are clearly explained in plain language.',
+        '- Utility: Prioritize practical everyday usefulness over technical depth.',
+        '- Factuality: Strictly remove any exaggerated claims, invented features, or promotional tone.'
+      );
+    }
+
     if (isHighRisk) {
       systemPromptParts.push(
         '',
@@ -303,6 +314,21 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
     );
   }
 
+  if (request.targetProject === 'get-ai-set') {
+    systemPromptParts.push(
+      '',
+      '### MAINSTREAM AI & GETAISET EDITORIAL GUIDELINES (MANDATORY ENFORCEMENT):',
+      '- Target Audience: Written specifically for ordinary mainstream users, non-technical professionals, and curious learners, NOT developers, data scientists, or technical engineers.',
+      '- Plain-Language Explanation: Explain technical concepts in clear, intuitive, plain language whenever necessary. Avoid obscure technical jargon, pseudo-programming formulas, and algorithmic minutiae.',
+      '- Practical Usefulness Over Technical Depth: Practical everyday usefulness, real-world utility, and clarity are more important than architectural or engineering depth.',
+      '- Reader-Centric Framing: Focus directly on what the AI tool, capability, or development means for the reader\'s daily life, work, learning, personal productivity, or household organization.',
+      '- Zero Exaggerated AI Claims: Strictly avoid hype, hyperbolic claims, or promising unrealistic capabilities. Never present speculative future AI milestones as current realities.',
+      '- No Invented Features: Do not invent software capabilities, non-existent tools, unverified benchmarks, fake pricing tiers, or unannounced release dates.',
+      '- Objective Comparisons: Keep tool comparisons objective, balanced, and strictly evidence-grounded without unsupported claims of superiority.',
+      '- Editorial Integrity & Non-Promotional Tone: This is independent editorial lifestyle journalism, NOT an advertisement or promotional piece for GetAISet. Maintain an authentic, objective, helpful editorial voice. Natural internal/contextual references or CTA linking to GetAISet learning resources are permitted where genuinely relevant, but the article must stand on its own as valuable editorial content.'
+    );
+  }
+
   if (request.pillar === 'style') {
     systemPromptParts.push(
       '',
@@ -424,6 +450,17 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
 
   if (request.seoMetadata?.freshnessSensitivity) {
     userPromptParts.push(`- Freshness Sensitivity: ${request.seoMetadata.freshnessSensitivity}`);
+  }
+
+  if (request.targetProject === 'get-ai-set') {
+    userPromptParts.push(
+      '',
+      `### Mainstream AI Editorial Requirements (GetAISet Focus):`,
+      '- Audience: Written for ordinary curious users, non-technical professionals, and learners.',
+      '- Language: Explain technical AI concepts and tools in clear, intuitive, plain language without developer jargon.',
+      '- Practicality: Focus on real-world utility, concrete everyday workflows, and personal/work productivity.',
+      '- Integrity: Strictly zero promotional tone, no exaggerated AI claims, and no invented features.'
+    );
   }
 
   userPromptParts.push(

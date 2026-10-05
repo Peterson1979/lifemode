@@ -21,6 +21,7 @@ export interface PublishPackage {
   excerpt: string;
   content: string; // Full Markdown content
   pillar: PillarSlug;
+  targetProject?: string;
   format: ArticleFormat;
   audience: string;
   primaryIntent: SearchIntent;
@@ -68,6 +69,7 @@ export interface PublishPackage {
 export interface PublishingContext {
   topicId: string;
   pillar: PillarSlug;
+  targetProject?: string;
   format: ArticleFormat;
   audience: string;
   primaryIntent: SearchIntent;

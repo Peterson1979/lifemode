@@ -81,6 +81,10 @@ export function deriveArticleFormat(topic: EditorialTopic, requestedFormat?: Art
 export function deriveArticleAngle(topic: EditorialTopic, format: ArticleFormat, customAngle?: string): string {
   if (customAngle) return customAngle;
 
+  if (topic.targetProject === 'get-ai-set') {
+    return 'Accessible, plain-language exploration of practical AI workflows, everyday productivity, and useful tools for non-technical users.';
+  }
+
   const pillarAngles: Record<string, string> = {
     'tech-ai': 'Pragmatic technical analysis emphasizing real-world workflows, architecture, and verifiable capabilities.',
     money: 'Disciplined, evidence-grounded strategic guidance prioritizing sustainable financial clarity and risk mitigation.',
@@ -117,6 +121,10 @@ export function deriveReaderProblem(topic: EditorialTopic, primaryIntent: Search
   if (customProblem) return customProblem;
 
   const cleanTopic = topic.canonicalTopic.trim();
+
+  if (topic.targetProject === 'get-ai-set') {
+    return `The reader wants to understand how to practically use ${cleanTopic} in their daily life or work without getting overwhelmed by technical jargon, developer concepts, or marketing hype.`;
+  }
 
   if (isPersonTopic(topic)) {
     return `The reader needs accurate, verified biographical context, career milestones, and objective understanding regarding ${cleanTopic} grounded in authoritative reporting without speculation or gossip.`;
@@ -309,6 +317,15 @@ export function deriveDoNotClaimConstraints(
 
   if (topic.pillar === 'wellbeing' || /\b(health|diet|supplement|therapy|medical|fitness|cure|treatment)\b/.test(lowerTopic)) {
     constraints.push('Do not imply medical certainty, diagnose conditions, prescribe treatments, or present lifestyle interventions as medical cures.');
+  }
+
+  if (topic.targetProject === 'get-ai-set') {
+    constraints.push(
+      'Do not write for developers, data scientists, or technical engineers; keep explanations strictly accessible to everyday mainstream users.',
+      'Do not invent features, tools, capabilities, benchmarks, or pricing not supported by verified evidence.',
+      'Do not make exaggerated AI claims, promise unrealistic capabilities, or adopt a breathless hype tone.',
+      'Do not make unsupported tool superiority claims or write in a promotional/advertorial voice.'
+    );
   }
 
   if (topic.pillar === 'tech-ai' || /\b(ai|llm|model|software|agent)\b/.test(lowerTopic)) {
@@ -580,7 +597,10 @@ export function synthesizeEditorialBrief(
   const seoMetadata = deriveSeoMetadata(topic, titleAngle);
   const sourceUrls = Array.from(new Set((effectiveEvidence || []).map((e) => e.url).filter(Boolean)));
 
-  const audience = options.audience || topic.targetAudience || 'Curious, thoughtful readers looking for practical ideas.';
+  const defaultAudience = topic.targetProject === 'get-ai-set'
+    ? 'Everyday curious users, non-technical professionals, and learners looking for accessible, practical AI guidance without technical jargon.'
+    : 'Curious, thoughtful readers looking for practical ideas.';
+  const audience = options.audience || topic.targetAudience || defaultAudience;
 
   // Default outline structure
   const isPerson = isPersonTopic(topic);
@@ -678,6 +698,7 @@ export function synthesizeEditorialBrief(
     workingTitle,
     slug: topic.slug,
     pillar: topic.pillar,
+    targetProject: topic.targetProject,
     format,
     primaryIntent,
     secondaryIntent: options.secondaryIntent || topic.secondaryIntent,

@@ -13,6 +13,7 @@ import { loadAutomationConfig } from './config.ts';
 import { runDiscoveryPipeline } from '../discovery/runner.ts';
 import { loadCandidates, saveCandidates, mergeCandidateTopic } from '../discovery/storage.ts';
 import { selectEditorialCandidates } from '../selection.ts';
+import { getEditorialDailyPlan } from '../cadence.ts';
 import { slugify } from '../normalization.ts';
 import { buildContentBrief } from '../brief.ts';
 import { buildFactSheet } from '../fact-sheet.ts';
@@ -358,6 +359,7 @@ export async function runEditorialAutomation(
       canonicalTopic: c.canonicalTopic,
       slug: slugify(c.canonicalTopic),
       pillar: c.pillar,
+      targetProject: c.targetProject || (c.id.startsWith('getaiset') ? 'get-ai-set' : undefined),
       sourceSignals: [],
       queryVariants: [c.canonicalTopic],
       scoring: {
@@ -507,7 +509,9 @@ export async function runEditorialAutomation(
     existingPillarDistribution,
     existingPillarRecency,
     enablePillarBalancing: true,
-    guaranteedPillars: request.guaranteedPillars || ['food-drink'],
+    guaranteedPillars: request.guaranteedPillars,
+    targetDate: request.targetDate,
+    isAiDay: request.isAiDay,
     feedbackSignals,
   });
 
@@ -858,6 +862,7 @@ export async function runEditorialAutomation(
         context: {
           topicId: topic.id,
           pillar: topic.pillar,
+          targetProject: topic.targetProject || brief.targetProject,
           format: brief.format,
           audience: brief.audience,
           primaryIntent: brief.primaryIntent,
@@ -1132,9 +1137,13 @@ export async function runDailyEditorialAutomation(
   const defaultDailyLimit = envDailyLimit ? parseInt(envDailyLimit, 10) : 3;
   const dailyArticleLimit = options.dailyArticleLimit ?? options.maxOpportunities ?? defaultDailyLimit;
 
+  const plan = getEditorialDailyPlan(options.targetDate, dailyArticleLimit);
+
   return runEditorialAutomation({
     ...options,
-    dailyArticleLimit,
-    maxOpportunities: dailyArticleLimit,
+    targetDate: plan.targetDate,
+    isAiDay: options.isAiDay ?? plan.isAiDay,
+    dailyArticleLimit: plan.totalArticlesTarget,
+    maxOpportunities: plan.totalArticlesTarget,
   });
 }

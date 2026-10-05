@@ -131,6 +131,8 @@ export interface AutomationRequest {
   accelerationEnabled?: boolean; // default: false
   accelerationMaxOpportunities?: number; // default: 5
   guaranteedPillars?: PillarSlug[]; // e.g. ['food-drink']
+  targetDate?: string | Date; // Target UTC editorial date for cadence evaluation
+  isAiDay?: boolean; // Explicit override for AI Day status
   
   // Custom provider injections
   discoveryAdapters?: IDiscoveryAdapter[];

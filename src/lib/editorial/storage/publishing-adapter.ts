@@ -42,6 +42,7 @@ export function publishPackageToStoredArticleInput(
       imageAlt: pkg.imageMetadata?.alt,
       imagePrompt: pkg.imageMetadata?.prompt,
       imageSource: pkg.imageMetadata?.source,
+      targetProject: pkg.targetProject,
       version: pkg.publicationMetadata?.version || 1,
       lifecycleStatus: 'STORED', // Confirmed stored on filesystem (not claiming external publication)
     },

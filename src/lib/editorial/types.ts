@@ -159,6 +159,7 @@ export interface EditorialTopic {
   evidence?: import('./research/types.ts').EvidenceItem[];
   performanceFeedback?: import('./performance/types.ts').TopicPerformanceFeedback;
   tags: string[];
+  targetProject?: string;
   publishedAt?: string;
   articleTitle?: string;
   articleDescription?: string;
@@ -218,6 +219,7 @@ export interface ContentBrief {
   workingTitle?: string;
   slug: string;
   pillar: PillarSlug;
+  targetProject?: string;
   format: ArticleFormat;
   primaryIntent: SearchIntent;
   secondaryIntent?: string;

@@ -69,6 +69,7 @@ export function buildPublishPackage(
     excerpt: article.excerpt,
     content: cleanContent,
     pillar: context.pillar,
+    targetProject: context.targetProject,
     format: context.format,
     audience: context.audience,
     primaryIntent: context.primaryIntent,
