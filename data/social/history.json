@@ -689,5 +689,57 @@
     "overallStatus": "PARTIAL",
     "createdAt": "2026-10-04T16:58:40.009Z",
     "updatedAt": "2026-10-04T16:58:40.010Z"
+  },
+  {
+    "runId": "srun-1791206240144-wur7k",
+    "topicId": "wealth-ecommerce-selective-skus",
+    "pillar": "wealth",
+    "canonicalTopic": "The Selective SKU Strategy: How to Build a Low-Risk, Zero-Inventory E-Commerce Brand",
+    "contentHash": "087d75a30a60cf029a77dbe5ce32b95987a2237342e3ba0cce4dcbe6cabc78d6",
+    "assetHash": "8f00a7362b8a5e98fad58040d64a541aaae1e907cf93d525db6f28fe1e179247",
+    "idempotencyKey": "lm-soc-wealth-ecommerce-selective-skus-087d75a3",
+    "targetPlatforms": [
+      "pinterest",
+      "instagram",
+      "facebook",
+      "threads"
+    ],
+    "platformResults": {
+      "pinterest": {
+        "platform": "pinterest",
+        "status": "FAILED",
+        "error": "Pinterest publish failed: Pinterest API HTTP 429: {\"code\":9,\"message\":\"Sorry! We blocked this link because it may lead to spam.\",\"details\":{\"source_field\":null}}",
+        "publishedAt": "2026-10-05T13:17:24.628Z",
+        "idempotencyKey": "lm-soc-wealth-ecommerce-selective-skus-pinterest-94e790092610"
+      },
+      "instagram": {
+        "platform": "instagram",
+        "status": "PUBLISHED",
+        "postId": "18115167194089092",
+        "postUrl": "https://instagram.com/p/18115167194089092",
+        "publishedAt": "2026-10-05T13:17:25.813Z",
+        "idempotencyKey": "lm-soc-wealth-ecommerce-selective-skus-instagram-008a157d8c87"
+      },
+      "facebook": {
+        "platform": "facebook",
+        "status": "PUBLISHED",
+        "postId": "122324471636197726",
+        "postUrl": "https://facebook.com/122324471636197726",
+        "publishedAt": "2026-10-05T13:17:33.718Z",
+        "idempotencyKey": "lm-soc-wealth-ecommerce-selective-skus-facebook-0742dd780ab1"
+      },
+      "threads": {
+        "platform": "threads",
+        "status": "PUBLISHED",
+        "postId": "18079784387709002",
+        "postUrl": "https://www.threads.net/@lifemodehq/post/18079784387709002",
+        "publishedAt": "2026-10-05T13:17:37.800Z",
+        "idempotencyKey": "lm-soc-wealth-ecommerce-selective-skus-threads-9253357f6bc4"
+      }
+    },
+    "reviewScore": 90,
+    "overallStatus": "PARTIAL",
+    "createdAt": "2026-10-05T13:17:47.673Z",
+    "updatedAt": "2026-10-05T13:17:47.673Z"
   }
 ]
