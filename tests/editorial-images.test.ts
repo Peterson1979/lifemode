@@ -468,7 +468,7 @@ test('12. End-to-end publishing pipeline with image generation persistence (Work
     },
     context: {
       topicId: 'topic-wellbeing-solitude',
-      pillar: 'wellbeing',
+      pillar: 'health',
       format: 'guide',
       audience: 'Intentional readers',
       primaryIntent: 'informational',
@@ -552,7 +552,7 @@ test('13. End-to-end publishing pipeline with BFL fallback on Workers AI failure
     },
     context: {
       topicId: 'topic-wellbeing-solitude',
-      pillar: 'wellbeing',
+      pillar: 'health',
       format: 'guide',
       audience: 'Intentional readers',
       primaryIntent: 'informational',
@@ -636,7 +636,7 @@ test('14. End-to-end publishing pipeline blocks publication when image generatio
     },
     context: {
       topicId: 'topic-wellbeing-solitude',
-      pillar: 'wellbeing',
+      pillar: 'health',
       format: 'guide',
       audience: 'Intentional readers',
       primaryIntent: 'informational',
@@ -721,7 +721,7 @@ test('15. End-to-end publishing pipeline allows publication when allowNoImageFal
     },
     context: {
       topicId: 'topic-wellbeing-solitude',
-      pillar: 'wellbeing',
+      pillar: 'health',
       format: 'guide',
       audience: 'Intentional readers',
       primaryIntent: 'informational',

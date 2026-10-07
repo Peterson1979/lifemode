@@ -184,10 +184,10 @@ test('Normalization & Slugification', () => {
     slugify('AI Tools for Modern Investors (2026 Edition)'),
     'ai-tools-for-modern-investors-2026-edition'
   );
-  assert.equal(inferPillarFromKeywords('Best Kyoto Slow Travel Itinerary'), 'travel');
+  assert.equal(inferPillarFromKeywords('Best Kyoto Slow Travel Itinerary'), 'life');
   assert.equal(inferPillarFromKeywords('Private AI LLM Workflows'), 'tech-ai');
-  assert.equal(inferPillarFromKeywords('Personal Budget Strategy'), 'money');
-  assert.match(generateTopicId('travel', 'kyoto-guide'), /^lm-travel-\d{8}-kyoto-guide/);
+  assert.equal(inferPillarFromKeywords('Personal Budget Strategy'), 'wealth');
+  assert.match(generateTopicId('life', 'kyoto-guide'), /^lm-life-\d{8}-kyoto-guide/);
 });
 
 test('Deduplication & Similarity', () => {
@@ -331,9 +331,9 @@ test('Editorial Memory Recording', () => {
   assert.equal(initialMemory.successfulTopics.length, 0);
 
   const updatedMemory = recordTopicPerformance(initialMemory, {
-    topicId: 'lm-travel-kyoto',
+    topicId: 'lm-life-kyoto',
     canonicalTopic: 'Kyoto Slow Travel',
-    pillar: 'travel',
+    pillar: 'life',
     performanceScore: 92,
     format: 'guide',
     pinterestTheme: 'Minimalist Japan',

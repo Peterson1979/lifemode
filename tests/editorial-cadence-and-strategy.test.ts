@@ -254,11 +254,11 @@ test('4. Candidate Selection on AI Day: Selects 1 GetAISet candidate + 2 dynamic
   assert.equal(getAiSetApproved.length, 1, 'Exactly one GetAISet AI article approved on AI day');
   assert.equal(getAiSetApproved[0].id, 'getaiset-tools-01', 'Top scoring GetAISet article selected');
 
-  // Remaining 2 articles must be non-GetAISet dynamic LifeMode articles
+  // Remaining 2 articles must be non-GetAISet dynamic LifeMode articles (normalized to active pillars)
   const dynamicApproved = result.approved.filter((t) => t.targetProject !== 'get-ai-set');
   assert.equal(dynamicApproved.length, 2, 'Exactly 2 dynamic LifeMode articles approved');
-  assert.equal(dynamicApproved[0].pillar, 'style');
-  assert.equal(dynamicApproved[1].pillar, 'food-drink');
+  assert.equal(dynamicApproved[0].pillar, 'life'); // style normalized to life
+  assert.equal(dynamicApproved[1].pillar, 'home'); // food-drink normalized to home
 
   // The second AI candidate must be deferred
   const deferredAi = result.deferred.filter((t) => t.targetProject === 'get-ai-set');
@@ -383,14 +383,14 @@ test('5. Candidate Selection on Normal Day: Selects 3 strongest dynamic articles
   });
 
   assert.equal(result.approved.length, 3, 'Exactly 3 articles approved');
-  // Selected strictly by quality/opportunity ranking: style (92) -> tech (90) -> money (88)
-  assert.equal(result.approved[0].pillar, 'style');
+  // Selected strictly by quality/opportunity ranking: style->life (92) -> tech-ai (90) -> money->wealth (88)
+  assert.equal(result.approved[0].pillar, 'life');
   assert.equal(result.approved[1].pillar, 'tech-ai');
-  assert.equal(result.approved[2].pillar, 'money');
+  assert.equal(result.approved[2].pillar, 'wealth');
 
-  // food-drink (83) deferred due to lower score without forced rotation
+  // food-drink->home (83) deferred due to lower score without forced rotation
   assert.equal(result.deferred.length, 1);
-  assert.equal(result.deferred[0].pillar, 'food-drink');
+  assert.equal(result.deferred[0].pillar, 'home');
 });
 
 test('6. Content Brief & Prompt Enforcement for GetAISet articles: Plain language, non-technical audience, zero hype', () => {

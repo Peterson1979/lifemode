@@ -1,8 +1,9 @@
 import type { IDiscoveryAdapter, DiscoveryAdapterOptions, GoogleTrendsPayload } from '../contracts.ts';
 import type { DiscoveryResult, DiscoverySignal } from '../types.ts';
-import type { PillarSlug } from '../../types.ts';
+import type { PillarSlug, ActivePillarSlug } from '../../types.ts';
 import { loadDiscoveryConfig } from '../config.ts';
 import { parseXmlFeed } from '../parsers/xml-feed-parser.ts';
+import { isMeaningfulEditorialTopic, normalizePillar } from '../../normalization.ts';
 
 export interface GoogleTrendsAdapterOptions extends DiscoveryAdapterOptions {
   fetchFn?: typeof fetch;
@@ -11,48 +12,49 @@ export interface GoogleTrendsAdapterOptions extends DiscoveryAdapterOptions {
 }
 
 /**
- * Classifies a trending search query into a LifeMode editorial pillar based on keywords.
+ * Classifies a trending search query into one of the 6 active LifeMode editorial pillars.
+ * Returns null if the topic does not have a genuine LifeMode editorial home (e.g. gossip, sports, crime, news filler).
  */
-export function classifyTrendingQueryPillar(query: string, description?: string): PillarSlug {
+export function classifyTrendingQueryPillar(query: string, description?: string): ActivePillarSlug | null {
+  const qualityCheck = isMeaningfulEditorialTopic(query);
+  if (!qualityCheck.isValid) {
+    return null;
+  }
+
   const text = `${query} ${description || ''}`.toLowerCase();
 
-  // Tech & AI
-  if (/\b(ai|artificial intelligence|robot|software|apple|google|nvidia|gpu|chip|llm|model|tech|gadget|app|algorithm|cyber|hacker|startup|vr|metaverse|quantum)\b/i.test(text)) {
+  // Tech & AI (AI software, prompt systems, consumer tech innovation, local LLMs)
+  if (/\b(ai|artificial intelligence|claude|chatgpt|openai|gemini|nvidia|gpu|gpus|chip|chips|llm|llms|machine learning|prompt|prompts|software|app|apps|gadget|gadgets|hardware|cyber|robot|automation|tech workflow|smart home)\b/i.test(text)) {
     return 'tech-ai';
   }
 
-  // Travel
-  if (/\b(travel|flight|airline|hotel|resort|vacation|destination|island|tourist|tourism|tokyo|kyoto|paris|italy|japan|beach|cruise|rail|train|passport)\b/i.test(text)) {
-    return 'travel';
+  // Health (Longevity, metabolic health, sleep, recovery, fitness, nutrition science, biohacking)
+  if (/\b(health|sleep|diet|nutrition|workout|fitness|longevity|metabolic|glucose|blood sugar|protein|circadian|recovery|sauna|cold plunge|vitality|biohack|fasting|cardio|zone 2|muscle|hydration)\b/i.test(text)) {
+    return 'health';
   }
 
-  // Money & Wealth
-  if (/\b(stock|stocks|market|crypto|bitcoin|inflation|fed|rates|interest|housing|mortgage|wealth|invest|dividend|treasury|economy|nasdaq|dow|dollar|bank|yield)\b/i.test(text)) {
-    return 'money';
+  // Wealth (Online income, side hustles, digital work, freelancing, personal finance, investing, money)
+  if (/\b(side hustle|online income|freelancing|digital product|creator economy|remote work|ecommerce|selling online|passive income|personal finance|investing|invest|budget|saving|portfolio|treasury|yield|yields|rates|interest rates|cash flow|dividends|bonds)\b/i.test(text)) {
+    return 'wealth';
   }
 
-  // Wellbeing & Longevity
-  if (/\b(health|sleep|diet|nutrition|workout|fitness|mental health|longevity|therapy|brain|cardio|fasting|mindfulness|wellness|medicine|clinical|dopamine)\b/i.test(text)) {
-    return 'wellbeing';
+  // Home (Kitchen care, cooking, food storage, stain solving, cleaning, home maintenance, organization)
+  if (/\b(kitchen|cooking|cookware|food storage|cast iron|stain|cleaning|laundry|maintenance|storage|organization|declutter|pantry|closet|appliance|sourdough|fermentation|recipe|recipes|baking|culinary|meal prep|fabric care)\b/i.test(text)) {
+    return 'home';
   }
 
-  // Food & Drink (Culinary, Ingredients, Gastronomy, Fermentation, Drinks)
-  if (/\b(food|drink|drinks|recipe|recipes|cooking|cook|ingredient|ingredients|kitchen|cuisine|sourdough|fermentation|coffee|tea|wine|olive oil|tahini|vinegar|lentil|lentils|baking|culinary|chef|dining|meal|dish)\b/i.test(text)) {
-    return 'food-drink';
+  // Life (Style, grooming, skincare, beauty, daily routines, travel, intentional living, aesthetics)
+  if (/\b(style|fashion|wardrobe|capsule wardrobe|outfit|outfits|beauty|skincare|serum|sunscreen|haircare|grooming|fragrance|perfume|travel|destination|destinations|itinerary|itineraries|slow travel|hotel|hotels|flight|flights|journey|journeys|coastal|routine|morning routine|productivity|habit|habits)\b/i.test(text)) {
+    return 'life';
   }
 
-  // Style & Beauty (Fashion, Personal Style, Skincare, Hair, Fragrance & Aesthetics)
-  if (/\b(style|fashion|outfit|wardrobe|clothing|garment|linen|tailoring|beauty|skincare|makeup|cosmetics|serum|hair|haircare|fragrance|perfume|cologne|accessories|jewelry|footwear|shoes|boots|dermatology)\b/i.test(text)) {
-    return 'style';
+  // Tools (Interactive calculators, decision trees, cheat sheets, finders)
+  if (/\b(calculator|finder|solver|cheat sheet|checklist|planner|selector|quiz|formula)\b/i.test(text)) {
+    return 'tools';
   }
 
-  // Entertainment / Pop Culture / Film / Music / Celebrity
-  if (/\b(entertainment|celebrity|actor|actress|hollywood|cinema|film|movie|television|tv|music|album|concert|award|awards|emmy|oscar|grammy|pop culture|interviews|showbiz|artist)\b/i.test(text)) {
-    return 'entertainment';
-  }
-
-  // Default to Entertainment for timely general pop culture / entertainment trends
-  return 'entertainment';
+  // Do not default to arbitrary categories; reject unaligned trends
+  return null;
 }
 
 /**
@@ -152,6 +154,7 @@ export class GoogleTrendsDiscoveryAdapter implements IDiscoveryAdapter {
         if (!item.title || item.title.trim().length < 3) continue;
 
         const pillar = classifyTrendingQueryPillar(item.title, item.description);
+        if (!pillar) continue;
 
         if (options?.categoryFilter && options.categoryFilter.length > 0) {
           if (!options.categoryFilter.includes(pillar)) continue;
@@ -188,8 +191,7 @@ export class GoogleTrendsDiscoveryAdapter implements IDiscoveryAdapter {
             searchVolume: searchVol,
             relativeInterest: relInterest,
             isBreakout: searchVol >= 100000,
-            visualPotentialScore:
-              pillar === 'entertainment' || pillar === 'travel' || pillar === 'style' ? 90 : 75,
+            visualPotentialScore: (pillar === 'life' || pillar === 'home') ? 85 : 75,
           },
           geography: geo,
           language: 'en',

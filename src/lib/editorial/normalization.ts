@@ -1,8 +1,53 @@
-import { PILLAR_SLUGS, type PillarSlug } from '../../config/site.ts';
+import {
+  ACTIVE_EDITORIAL_PILLARS,
+  type ActivePillarSlug,
+  PILLAR_SLUGS,
+  type PillarSlug,
+} from '../../config/site.ts';
 
 const LOWERCASE_WORDS = new Set([
   'a', 'an', 'the', 'and', 'but', 'or', 'for', 'nor', 'on', 'at', 'to', 'from', 'by', 'with', 'in', 'of', 'into', 'over'
 ]);
+
+/**
+ * Deterministic legacy-to-active pillar normalization map.
+ */
+export const LEGACY_PILLAR_MAP: Record<string, ActivePillarSlug> = {
+  health: 'health',
+  wealth: 'wealth',
+  home: 'home',
+  life: 'life',
+  'tech-ai': 'tech-ai',
+  tools: 'tools',
+  wellbeing: 'health',
+  money: 'wealth',
+  'food-drink': 'home',
+  'food-kitchen': 'home',
+  'cleaning-laundry': 'home',
+  'home-maintenance': 'home',
+  'storage-organization': 'home',
+  'everyday-how-to': 'home',
+  style: 'life',
+  travel: 'life',
+  entertainment: 'life',
+  culture: 'life',
+};
+
+/**
+ * Normalizes any category or pillar string to one of the 6 active LifeMode editorial pillars.
+ * Returns null if the category represents an excluded legacy area (e.g. entertainment, life-hacks).
+ */
+export function normalizePillar(input?: string): ActivePillarSlug | null {
+  if (!input) return null;
+  const lower = input.toLowerCase().trim();
+  if (ACTIVE_EDITORIAL_PILLARS.includes(lower as ActivePillarSlug)) {
+    return lower as ActivePillarSlug;
+  }
+  if (LEGACY_PILLAR_MAP[lower]) {
+    return LEGACY_PILLAR_MAP[lower];
+  }
+  return null;
+}
 
 /**
  * Converts a string into clean, publication-ready Editorial Title Case.
@@ -47,6 +92,48 @@ const SYNONYM_MAP: Array<{ pattern: RegExp; replacement: string }> = [
   { pattern: /\b(?:desk\s+setup|workspace\s+setup)\b/gi, replacement: 'desk setup' },
   { pattern: /\b(?:morning\s+routine|morning\s+habits|morning\s+rituals)\b/gi, replacement: 'morning routines' },
 ];
+
+/**
+ * Patterns representing gossip, crime, disaster, sports results, and generic news to exclude.
+ */
+const EXCLUDED_TOPIC_PATTERNS: RegExp[] = [
+  /\b(?:dating|divorce|cheating|affair|spotted with|boyfriend|girlfriend|fiance|engaged|red carpet|wardrobe malfunction)\b/i,
+  /\b(?:arrested|charged with|shooting|killed|murder|homicide|robbery|car crash|plane crash|explosion)\b/i,
+  /\b(?:vs\b|versus|game score|final score|game recap|halftime|touchdown|pitcher|box score|quarterback injured)\b/i,
+  /\b(?:episode \d+|season \d+ finale|box office opening|trailer reaction|tv recap|spoilers)\b/i,
+  /\b(?:meme|viral video|drama on twitter|tiktok trend)\b/i,
+];
+
+/**
+ * Checks whether a topic query represents meaningful, high-signal LifeMode editorial intent.
+ */
+export function isMeaningfulEditorialTopic(raw: string): { isValid: boolean; reason?: string } {
+  if (!raw || typeof raw !== 'string') {
+    return { isValid: false, reason: 'Empty or non-string topic query.' };
+  }
+
+  const cleaned = cleanTopicString(raw);
+  const words = cleaned.split(/\s+/).filter((w) => w.length > 0);
+
+  // Reject single-word filler topics (e.g. "Fitness", "Money", "Travel", "Tech")
+  if (words.length < 2) {
+    return { isValid: false, reason: 'Single-word query lacks editorial intent and depth.' };
+  }
+
+  // Reject 2-word generic filler unless it contains substantial keyword semantics
+  if (words.length === 2 && words.every((w) => w.length < 4)) {
+    return { isValid: false, reason: 'Short 2-word query lacks substance.' };
+  }
+
+  // Check against excluded gossip/news/crime/sports patterns
+  for (const pattern of EXCLUDED_TOPIC_PATTERNS) {
+    if (pattern.test(cleaned)) {
+      return { isValid: false, reason: 'Query matches excluded entertainment/gossip/crime/sports pattern.' };
+    }
+  }
+
+  return { isValid: true };
+}
 
 /**
  * Cleans and normalizes a raw search query or topic title.
@@ -112,45 +199,60 @@ export function slugify(text: string): string {
 }
 
 /**
- * Keyword-based heuristic to infer the most appropriate LifeMode pillar if unspecified.
+ * Keyword-based heuristic to infer the most appropriate active LifeMode pillar.
  */
-const PILLAR_KEYWORDS: Record<PillarSlug, string[]> = {
-  health: ['health', 'longevity', 'metabolic', 'glucose', 'blood sugar', 'protein', 'nutrition', 'aging', 'biological age', 'sleep', 'recovery', 'fitness', 'workout', 'wearable', 'wellness tech', 'vitality', 'circadian'],
-  wealth: ['wealth', 'money', 'side hustle', 'online income', 'freelancing', 'digital products', 'creator economy', 'remote work', 'ecommerce', 'online business', 'selling online', 'passive income', 'consulting'],
-  home: ['home', 'kitchen', 'food', 'cooking', 'cleaning', 'laundry', 'stain', 'maintenance', 'storage', 'organization', 'pantry', 'closet', 'appliance', 'cookware', 'cast iron', 'decluttering'],
-  life: ['life', 'style', 'fashion', 'beauty', 'skincare', 'grooming', 'wardrobe', 'capsule', 'productivity', 'routine', 'travel', 'experience', 'destination', 'daily life'],
-  'tech-ai': ['tech', 'ai', 'artificial intelligence', 'gadget', 'software', 'prompt', 'automation', 'tool', 'app', 'hardware', 'llm', 'computing', 'digital', 'workflow', 'ai side hustle'],
-  tools: ['tool', 'calculator', 'finder', 'solver', 'cheat sheet', 'checklist', 'interactive', 'planner', 'selector'],
-  style: [
-    'style', 'fashion', 'outfit', 'wardrobe', 'clothing', 'garment', 'linen', 'tailoring', 'capsule',
-    'beauty', 'skincare', 'makeup', 'cosmetics', 'serum', 'moisturizer', 'cleanser', 'sunscreen',
-    'hair', 'haircare', 'haircut', 'shampoo', 'scalp', 'fragrance', 'perfume', 'cologne', 'scent',
-    'accessories', 'jewelry', 'footwear', 'shoes', 'boots', 'dermatology', 'grooming', 'trend',
+const ACTIVE_PILLAR_KEYWORDS: Record<ActivePillarSlug, string[]> = {
+  health: [
+    'health', 'longevity', 'metabolic', 'glucose', 'blood sugar', 'protein', 'nutrition',
+    'aging', 'biological age', 'sleep', 'recovery', 'fitness', 'workout', 'wearable',
+    'wellness tech', 'vitality', 'circadian', 'wellbeing', 'sauna', 'cold plunge',
+    'biohacking', 'hydration', 'strength', 'zone 2', 'cardio', 'muscle'
   ],
-  travel: ['travel', 'trip', 'destination', 'hotel', 'flight', 'itinerary', 'vacation', 'resort', 'city', 'explore', 'island', 'coastal', 'stay', 'kyoto', 'azores', 'europe'],
-  money: ['money', 'finance', 'invest', 'wealth', 'budget', 'saving', 'portfolio', 'income', 'crypto', 'stock', 'tax', 'yield', 'treasury', 'cash', 'asset'],
-  wellbeing: ['wellbeing', 'health', 'fitness', 'nutrition', 'workout', 'diet', 'sleep', 'mindfulness', 'longevity', 'mental', 'vitality', 'circadian', 'recovery', 'sauna', 'light'],
-  entertainment: [
-    'entertainment', 'celebrity', 'celebrities', 'actor', 'actress', 'star', 'interview', 'profile',
-    'film', 'movie', 'movies', 'cinema', 'television', 'tv', 'series', 'netflix', 'streaming',
-    'music', 'album', 'singer', 'concert', 'musician', 'band', 'awards', 'oscars', 'emmys', 'grammys',
-    'pop-culture', 'lifestyle', 'marriage', 'relationship', 'premiere', 'box-office', 'hollywood',
+  wealth: [
+    'wealth', 'money', 'side hustle', 'online income', 'freelancing', 'digital products',
+    'creator economy', 'remote work', 'ecommerce', 'online business', 'selling online',
+    'passive income', 'consulting', 'investing', 'invest', 'budget', 'saving', 'portfolio',
+    'treasury', 'yield', 'cash flow', 'personal finance', 'dividends', 'micro-agency'
   ],
-  'food-drink': ['food', 'drink', 'recipe', 'cooking', 'ingredient', 'kitchen', 'cuisine', 'sourdough', 'fermentation', 'meal', 'baking', 'culinary', 'dish', 'beverage', 'tea', 'coffee'],
-  'life-hacks': ['hack', 'life hack', 'shortcut', 'quick fix', 'clever trick', 'household hack', 'diy fix', 'smart tip'],
+  home: [
+    'home', 'kitchen', 'food', 'cooking', 'cleaning', 'laundry', 'stain', 'maintenance',
+    'storage', 'organization', 'pantry', 'closet', 'appliance', 'cookware', 'cast iron',
+    'decluttering', 'sourdough', 'fermentation', 'recipes', 'recipe', 'baking', 'culinary',
+    'dish', 'meal prep', 'pantry shelf', 'fabric care', 'seasonal upkeep', 'hvac', 'small-space'
+  ],
+  life: [
+    'life', 'style', 'fashion', 'beauty', 'skincare', 'grooming', 'wardrobe', 'capsule',
+    'productivity', 'routine', 'morning routine', 'travel', 'experience', 'destination',
+    'daily life', 'itinerary', 'slow travel', 'minimalist', 'aesthetics', 'fragrance',
+    'outfit', 'skincare routine', 'sunscreen', 'haircare', 'intentional living', 'habit stacking'
+  ],
+  'tech-ai': [
+    'tech', 'ai', 'artificial intelligence', 'gadget', 'software', 'prompt', 'prompt engineering',
+    'automation', 'tool', 'tools', 'app', 'apps', 'hardware', 'llm', 'computing', 'digital',
+    'workflow', 'chatgpt', 'claude', 'local llm', 'ollama', 'ai side hustle', 'ai learning',
+    'get-ai-set', 'transcription', 'ai note-taking', 'vision ai', 'upskilling'
+  ],
+  tools: [
+    'calculator', 'finder', 'solver', 'cheat sheet', 'checklist', 'interactive',
+    'planner', 'selector', 'decision tree', 'comparison matrix', 'intake calculator',
+    'storage planner', 'material selector', 'care advisor'
+  ],
 };
 
 /**
- * Infers the closest matching pillar from query keywords using weighted scoring.
+ * Infers the closest matching active LifeMode pillar from query keywords.
  */
-export function inferPillarFromKeywords(text: string, defaultPillar: PillarSlug = 'life'): PillarSlug {
+export function inferPillarFromKeywords(
+  text: string,
+  defaultPillar: ActivePillarSlug = 'life'
+): ActivePillarSlug {
   const lower = text.toLowerCase();
 
   let bestPillar = defaultPillar;
   let highestScore = 0;
 
-  for (const pillar of PILLAR_SLUGS) {
-    const keywords = PILLAR_KEYWORDS[pillar];
+  for (const pillar of ACTIVE_EDITORIAL_PILLARS) {
+    const keywords = ACTIVE_PILLAR_KEYWORDS[pillar];
     let score = 0;
     for (const kw of keywords) {
       if (lower.includes(kw)) {
@@ -168,9 +270,10 @@ export function inferPillarFromKeywords(text: string, defaultPillar: PillarSlug 
 }
 
 /**
- * Generates a unique topic ID.
+ * Generates a unique topic ID using the active pillar.
  */
 export function generateTopicId(pillar: PillarSlug, slug: string): string {
+  const normPillar = normalizePillar(pillar) || 'life';
   const dateStr = new Date().toISOString().slice(0, 10).replace(/-/g, '');
-  return `lm-${pillar}-${dateStr}-${slug.slice(0, 30)}`;
+  return `lm-${normPillar}-${dateStr}-${slug.slice(0, 30)}`;
 }

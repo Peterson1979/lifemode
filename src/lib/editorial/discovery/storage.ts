@@ -24,11 +24,141 @@ async function loadTopicsFromFile(filePath: string): Promise<EditorialTopic[]> {
   }
 }
 
+import { normalizePillar, isMeaningfulEditorialTopic } from '../normalization.ts';
+
+export interface CandidateLifecycleOptions {
+  now?: Date;
+  maxPoolSize?: number; // default 150
+  trendingTtlDays?: number; // default 7
+  seasonalTtlDays?: number; // default 14
+  publishedSlugs?: Set<string>;
+  skipPruning?: boolean;
+}
+
 /**
- * Loads all candidate topics from storage.
+ * Prunes expired, legacy, rejected, or low-quality candidates, decays freshness for older items,
+ * and bounds the active pool to the top-scoring candidates.
  */
-export async function loadCandidates(filePath: string = DEFAULT_CANDIDATES_PATH): Promise<EditorialTopic[]> {
-  return loadTopicsFromFile(filePath);
+export function pruneAndMigrateCandidates(
+  candidates: EditorialTopic[],
+  options: CandidateLifecycleOptions = {}
+): EditorialTopic[] {
+  if (options.skipPruning) {
+    return candidates;
+  }
+
+  const now = options.now ?? new Date();
+  const maxPoolSize = options.maxPoolSize ?? 150;
+  const trendingTtlDays = options.trendingTtlDays ?? 7;
+  const seasonalTtlDays = options.seasonalTtlDays ?? 14;
+  const publishedSlugs = options.publishedSlugs ?? new Set<string>();
+
+  const validMap = new Map<string, EditorialTopic>();
+
+  for (const candidate of candidates) {
+    // 2. Normalize legacy pillar to active 6 pillars; reject unmapped/invalid
+    const activePillar = normalizePillar(candidate.pillar);
+    if (!activePillar) {
+      continue;
+    }
+
+    // 3. Reject low-intent / filler / gossip / non-editorial queries
+    const topicText = candidate.canonicalTopic || '';
+    const meaningCheck = isMeaningfulEditorialTopic(topicText);
+    if (!meaningCheck.isValid) {
+      continue;
+    }
+
+    // 4. Lifetime / Staleness check (7 days trending, 14 days seasonal)
+    const timestampStr = candidate.createdAt || candidate.updatedAt;
+    const itemDate = timestampStr ? new Date(timestampStr) : now;
+    const effectiveDate = !isNaN(itemDate.getTime()) ? itemDate : now;
+    const ageMs = now.getTime() - effectiveDate.getTime();
+    const ageDays = Math.max(0, ageMs / (1000 * 60 * 60 * 24));
+
+    const isSeasonal = candidate.opportunityType === 'SEASONAL_ARTICLE' || candidate.tags?.includes('seasonal');
+    const allowedLifetimeDays = isSeasonal ? seasonalTtlDays : trendingTtlDays;
+
+    if (ageDays > allowedLifetimeDays) {
+      continue;
+    }
+
+    // 5. Freshness decay: older candidates gradually lose freshness advantage
+    const decayFactor = Math.max(0.1, 1 - ageDays / allowedLifetimeDays);
+    const baseFreshness = candidate.freshnessScore ?? 75;
+    const decayedFreshness = Math.round(baseFreshness * decayFactor);
+
+    let updatedTotalScore = candidate.totalScore;
+    if (candidate.scoring) {
+      const scoring = { ...candidate.scoring, freshness: decayedFreshness };
+      updatedTotalScore = Math.round(
+        scoring.searchPotential * 0.20 +
+        scoring.pinterestPotential * 0.15 +
+        scoring.socialPotential * 0.15 +
+        scoring.lifeModeRelevance * 0.15 +
+        scoring.commercialPotential * 0.10 +
+        scoring.freshness * 0.10 +
+        scoring.competitionOpportunity * 0.05 +
+        scoring.originalityPotential * 0.10
+      );
+    } else {
+      updatedTotalScore = Math.round(candidate.totalScore * (0.85 + 0.15 * decayFactor));
+    }
+
+    const isRejected = candidate.status === 'REJECTED' || candidate.priorityTier === 'REJECT' || candidate.opportunityType === 'REJECT';
+    const isPublished = candidate.status === 'PUBLISHED' || publishedSlugs.has(candidate.slug);
+
+    const updatedCandidate: EditorialTopic = {
+      ...candidate,
+      pillar: activePillar,
+      status: isPublished ? 'PUBLISHED' : (isRejected ? 'REJECTED' : candidate.status),
+      priorityTier: isRejected ? 'REJECT' : candidate.priorityTier,
+      opportunityType: isRejected ? 'REJECT' : candidate.opportunityType,
+      freshnessScore: decayedFreshness,
+      totalScore: isRejected ? 0 : updatedTotalScore,
+      createdAt: candidate.createdAt || effectiveDate.toISOString(),
+      updatedAt: candidate.updatedAt || now.toISOString(),
+    };
+
+    // 6. Deduplication by slug
+    const dedupeKey = candidate.slug;
+    if (validMap.has(dedupeKey)) {
+      const existing = validMap.get(dedupeKey)!;
+      if (updatedCandidate.totalScore > existing.totalScore) {
+        validMap.set(dedupeKey, {
+          ...updatedCandidate,
+          sourceSignals: [...existing.sourceSignals, ...updatedCandidate.sourceSignals],
+        });
+      }
+    } else {
+      validMap.set(dedupeKey, updatedCandidate);
+    }
+  }
+
+  // 7. Sort by totalScore desc, freshnessScore desc, and recency desc
+  const sorted = Array.from(validMap.values()).sort((a, b) => {
+    if (b.totalScore !== a.totalScore) {
+      return b.totalScore - a.totalScore;
+    }
+    if (b.freshnessScore !== a.freshnessScore) {
+      return b.freshnessScore - a.freshnessScore;
+    }
+    return new Date(b.createdAt || b.updatedAt).getTime() - new Date(a.createdAt || a.updatedAt).getTime();
+  });
+
+  // 8. Bound active pool to target maximum (default 150)
+  return sorted.slice(0, maxPoolSize);
+}
+
+/**
+ * Loads all candidate topics from storage and applies migration, pruning, and decay.
+ */
+export async function loadCandidates(
+  filePath: string = DEFAULT_CANDIDATES_PATH,
+  options?: CandidateLifecycleOptions
+): Promise<EditorialTopic[]> {
+  const rawTopics = await loadTopicsFromFile(filePath);
+  return pruneAndMigrateCandidates(rawTopics, options);
 }
 
 /**

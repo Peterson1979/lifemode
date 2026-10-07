@@ -210,7 +210,7 @@ test('1. Successful article + image generation: Generates article, creates maste
     const discoveryAdapter = new MockTopicDiscoveryAdapter([
       {
         topic: 'Nordic Sauna Culture and Architecture',
-        pillar: 'travel',
+        pillar: 'life',
         score: 95,
         searchVolume: 'high',
       },
@@ -257,7 +257,7 @@ test('1. Successful article + image generation: Generates article, creates maste
     assert.ok(result.articles && result.articles.length === 1);
     const article = result.articles[0];
     assert.equal(article.success, true);
-    assert.equal(article.pillar, 'travel');
+    assert.equal(article.pillar, 'life');
     assert.equal(article.imageGenerated, true);
     assert.equal(article.imageUrl, 'https://assets.lifemode.life/editorial/travel/nordic-sauna.png');
     assert.equal(article.imageProvider, 'cloudflare-workers-ai');
@@ -270,7 +270,7 @@ test('1. Successful article + image generation: Generates article, creates maste
     const storedArticles = await repository.list();
     assert.equal(storedArticles.length, 1);
     const stored = storedArticles[0];
-    assert.equal(stored.pillar, 'travel');
+    assert.equal(stored.pillar, 'life');
     assert.equal(stored.frontmatter.image, 'https://assets.lifemode.life/editorial/travel/nordic-sauna.png');
   } finally {
     await cleanup();

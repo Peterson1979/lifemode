@@ -23,14 +23,13 @@ export function parseGroqRetryDuration(
   headerValue?: string | null,
   fallbackMs = 5_000
 ): number {
+  let parsedMs = fallbackMs;
   if (headerValue) {
     const sec = parseFloat(headerValue);
     if (!isNaN(sec) && sec > 0) {
-      return Math.ceil(sec * 1000);
+      parsedMs = Math.ceil(sec * 1000);
     }
-  }
-
-  if (message) {
+  } else if (message) {
     // Match "try again in 1m15s", "try again in 1m15.2s", "try again in 2m", "try again in 17.145s"
     const minSecMatch = message.match(/try again in (?:([0-9.]+)\s*m(?:in(?:ute)?s?)?)?\s*(?:([0-9.]+)\s*s(?:ec(?:ond)?s?)?)?/i);
     if (minSecMatch && (minSecMatch[1] || minSecMatch[2])) {
@@ -38,23 +37,23 @@ export function parseGroqRetryDuration(
       const seconds = minSecMatch[2] ? parseFloat(minSecMatch[2]) : 0;
       const totalMs = Math.ceil((minutes * 60 + seconds) * 1000);
       if (totalMs > 0) {
-        return totalMs;
+        parsedMs = totalMs;
       }
-    }
-
-    // Match generic patterns like "in 1m15s", "in 2m", "in 17.145s"
-    const genericMatch = message.match(/(?:in|after)\s+(?:([0-9.]+)\s*m(?:in(?:ute)?s?)?)?\s*(?:([0-9.]+)\s*s(?:ec(?:ond)?s?)?)?/i);
-    if (genericMatch && (genericMatch[1] || genericMatch[2])) {
-      const minutes = genericMatch[1] ? parseFloat(genericMatch[1]) : 0;
-      const seconds = genericMatch[2] ? parseFloat(genericMatch[2]) : 0;
-      const totalMs = Math.ceil((minutes * 60 + seconds) * 1000);
-      if (totalMs > 0) {
-        return totalMs;
+    } else {
+      // Match generic patterns like "in 1m15s", "in 2m", "in 17.145s"
+      const genericMatch = message.match(/(?:in|after)\s+(?:([0-9.]+)\s*m(?:in(?:ute)?s?)?)?\s*(?:([0-9.]+)\s*s(?:ec(?:ond)?s?)?)?/i);
+      if (genericMatch && (genericMatch[1] || genericMatch[2])) {
+        const minutes = genericMatch[1] ? parseFloat(genericMatch[1]) : 0;
+        const seconds = genericMatch[2] ? parseFloat(genericMatch[2]) : 0;
+        const totalMs = Math.ceil((minutes * 60 + seconds) * 1000);
+        if (totalMs > 0) {
+          parsedMs = totalMs;
+        }
       }
     }
   }
 
-  return fallbackMs;
+  return parsedMs;
 }
 
 /**
@@ -71,7 +70,7 @@ export class GroqProvider implements IAIProvider {
   constructor(options: GroqProviderOptions = {}) {
     const config = loadAIConfig().groq;
     this.apiKey = options.apiKey !== undefined ? options.apiKey : config.apiKey;
-    this.defaultModel = options.defaultModel || config.model || 'openai/gpt-oss-20b';
+    this.defaultModel = options.defaultModel || config.model || 'llama-3.3-70b-versatile';
     this.fetchFn = options.fetchFn || globalThis.fetch.bind(globalThis);
     this.omitResponseFormat = Boolean(options.omitResponseFormat);
   }

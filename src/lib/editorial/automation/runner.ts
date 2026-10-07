@@ -503,15 +503,19 @@ export async function runEditorialAutomation(
     }
   }
 
+  const effectivePlan = getEditorialDailyPlan(request.targetDate, config.maxOpportunities);
+  const effectiveTargetDate = request.targetDate ?? effectivePlan.targetDate;
+  const effectiveIsAiDay = request.isAiDay !== undefined ? request.isAiDay : effectivePlan.isAiDay;
+
   const { approved } = selectEditorialCandidates(unPublishedCandidates, {
     minScoreThreshold: config.minScoreThreshold,
-    totalLimit: config.maxOpportunities,
+    totalLimit: effectivePlan.totalArticlesTarget,
     existingPillarDistribution,
     existingPillarRecency,
     enablePillarBalancing: true,
     guaranteedPillars: request.guaranteedPillars,
-    targetDate: request.targetDate,
-    isAiDay: request.isAiDay,
+    targetDate: effectiveTargetDate,
+    isAiDay: effectiveIsAiDay,
     feedbackSignals,
   });
 

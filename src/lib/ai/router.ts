@@ -17,6 +17,8 @@ import { estimateRequestResponseTokens, estimateRequestTokens } from './token-es
 import { extractAndParseJson } from './json-extractor.ts';
 
 
+const MAX_RATE_LIMIT_WAIT_MS = 10_000;
+
 export interface AIRouterOptions {
   config?: AIConfig;
   providers?: Map<AIProviderId, IAIProvider>;
@@ -179,8 +181,7 @@ export class AIRouter {
           rateLimitCheck.reason === 'TPM_EXCEEDED' &&
           canEverFit &&
           !hasFallback &&
-          rateLimitCheck.retryAfterMs > 0 &&
-          rateLimitCheck.retryAfterMs <= 75_000
+          rateLimitCheck.retryAfterMs > 0
         ) {
           const waitMs = rateLimitCheck.retryAfterMs;
           if (this.logRateLimits) {
@@ -203,7 +204,7 @@ export class AIRouter {
             message: `Rate limit reached for provider "${providerId}" (${rateLimitCheck.reason}). Retry after ${rateLimitCheck.retryAfterMs}ms.`,
             provider: providerId,
             retryable: true,
-            retryAfterMs: rateLimitCheck.retryAfterMs,
+            retryAfterMs: Math.min(rateLimitCheck.retryAfterMs, MAX_RATE_LIMIT_WAIT_MS),
           };
           lastError = error;
           attempts.push({
@@ -364,17 +365,20 @@ export class AIRouter {
           rawError: err,
         };
 
+        if (error.code === 'MALFORMED_OUTPUT') {
+          error.retryable = false;
+        }
+
         const hasFallback = hasAlternativeConfiguredProvider(i);
 
-        // If provider returned HTTP 429 and no fallback exists, wait and retry once if bounded
-        if (error.code === 'RATE_LIMIT' && error.retryAfterMs && error.retryAfterMs <= 75_000 && !hasFallback) {
-          if (providerTpmLimit > 0) {
-            this.rateLimiter.recordTokens(providerId, providerTpmLimit);
-          }
+        // If provider returned HTTP 429 and no fallback exists, wait and retry once if bounded (<= 10s)
+        // DO NOT artificially consume tokens or poison TPM bucket!
+        if (error.code === 'RATE_LIMIT' && error.retryAfterMs && error.retryAfterMs <= MAX_RATE_LIMIT_WAIT_MS && !hasFallback) {
+          const waitMs = Math.min(error.retryAfterMs, MAX_RATE_LIMIT_WAIT_MS);
           if (this.logRateLimits) {
-            console.log(`[AI Router] Provider "${providerId}" returned HTTP 429. Waiting ${Math.ceil(error.retryAfterMs / 1000)}s before retry...`);
+            console.log(`[AI Router] Provider "${providerId}" returned HTTP 429. Waiting ${Math.ceil(waitMs / 1000)}s before retry...`);
           }
-          await this.sleepFn(error.retryAfterMs);
+          await this.sleepFn(waitMs);
 
           // Retry generation once after wait
           try {
@@ -383,9 +387,8 @@ export class AIRouter {
             const retryDuration = Math.max(1, Date.now() - retryStart);
 
             if (request.responseFormat === 'json' || request.validateJson) {
-              extractAndParseJson(retryResponse.text);
+              extractAndParseJson(retryResponse.text, { allowRepair: true });
             }
-
 
             let inputTokens = retryResponse.inputTokens;
             let outputTokens = retryResponse.outputTokens;
@@ -449,7 +452,7 @@ export class AIRouter {
               code: 'PROVIDER_ERROR',
               message: retryErr.message || 'Error on retry after rate limit wait',
               provider: providerId,
-              retryable: true,
+              retryable: false,
               rawError: retryErr,
             };
           }

@@ -236,6 +236,16 @@ export async function runEditorialWatchdog(
     dailyArticleLimit: report.dailyLimit,
   });
 
+  // 4. Re-read and refresh publication status after recovery/scheduled execution completes
+  const refreshedReport = await checkDailyRunStatus({
+    contentRepository: options.contentRepository,
+    contentRoot: options.contentRoot,
+    targetDate,
+    dailyLimit: options.dailyArticleLimit ?? config.dailyArticleLimit ?? 3,
+    lockPath: options.lockPath || config.lockPath,
+    staleTimeoutMs: options.staleLockTimeoutMs,
+  });
+
   const durationMs = Math.max(1, Date.now() - startTime);
 
   let watchdogStatus: WatchdogResult['status'] = 'SUCCESS';
@@ -252,9 +262,9 @@ export async function runEditorialWatchdog(
     targetDate,
     action: 'EXECUTED_RECOVERY',
     status: watchdogStatus,
-    reason: `Watchdog triggered recovery execution for ${targetDate} (Processed: ${scheduledResult.processedCount}, Published: ${scheduledResult.publishedCount}, Remaining Quota: ${Math.max(0, report.dailyLimit - (report.publishedTodayCount + scheduledResult.publishedCount))}).`,
+    reason: `Watchdog triggered recovery execution for ${targetDate} (Processed: ${scheduledResult.processedCount}, Published: ${scheduledResult.publishedCount}, Published Today: ${refreshedReport.publishedTodayCount}/${refreshedReport.dailyLimit}, Remaining Quota: ${refreshedReport.remainingQuota}).`,
     durationMs,
-    report,
+    report: refreshedReport,
     scheduledResult,
   };
 }

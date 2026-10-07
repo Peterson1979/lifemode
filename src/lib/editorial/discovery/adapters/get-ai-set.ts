@@ -1,5 +1,6 @@
 import type { IDiscoveryAdapter, DiscoveryAdapterOptions } from '../contracts.ts';
 import type { DiscoveryResult, DiscoverySignal } from '../types.ts';
+import { parseXmlFeed } from '../parsers/xml-feed-parser.ts';
 
 /**
  * Curated, verified GetAISet topic seed catalog.
@@ -127,26 +128,133 @@ export const GET_AI_SET_MAINSTREAM_TOPICS: GetAISetSeedTopic[] = [
   },
 ];
 
+export interface GetAISetAdapterOptions extends DiscoveryAdapterOptions {
+  fetchFn?: typeof fetch;
+  liveFeedUrls?: string[];
+}
+
 /**
  * GetAISet Discovery Adapter.
  *
- * Ingests curated, mainstream AI learning & tool candidates for the LifeMode editorial pipeline.
- * Tags each candidate with targetProject: 'get-ai-set' and ensures positioning is non-technical
- * and tailored for mainstream curious readers.
+ * Ingests live or curated mainstream AI learning & tool candidates for the LifeMode editorial pipeline.
+ * Preferred order:
+ * 1. Live GetAISet RSS feed (e.g. /rss.xml or /feed.xml) if reachable and valid.
+ * 2. Curated verified seed topics when live feeds are unavailable.
+ *
+ * Ensures all resulting candidates have pillar: 'tech-ai', targetProject: 'get-ai-set', and isMainstreamAi: true.
  */
 export class GetAISetDiscoveryAdapter implements IDiscoveryAdapter {
   readonly sourceType = 'RSS_FEEDS' as const;
   readonly name = 'GetAISet Curated AI Learning & Tools';
 
-  async fetchSignals(options?: DiscoveryAdapterOptions): Promise<DiscoveryResult> {
-    const limit = options?.limit ?? GET_AI_SET_MAINSTREAM_TOPICS.length;
-    const now = new Date().toISOString();
+  private fetchFn: typeof fetch;
+  private liveFeedUrls: string[];
 
-    const signals: DiscoverySignal[] = GET_AI_SET_MAINSTREAM_TOPICS.slice(0, limit).map((topic) => ({
+  constructor(customFetch?: typeof fetch, customFeedUrls?: string[]) {
+    this.fetchFn = customFetch || globalThis.fetch.bind(globalThis);
+    this.liveFeedUrls = customFeedUrls || [
+      'https://www.getaiset.com/rss.xml',
+      'https://www.getaiset.com/feed.xml',
+    ];
+  }
+
+  async fetchSignals(options?: GetAISetAdapterOptions): Promise<DiscoveryResult> {
+    const fetchImpl = options?.fetchFn || this.fetchFn;
+    const feedUrls = options?.liveFeedUrls || this.liveFeedUrls;
+    const limit = options?.limit ?? 10;
+    const now = new Date();
+    const nowIso = now.toISOString();
+
+    // 1. Attempt live RSS feed probe
+    for (const feedUrl of feedUrls) {
+      try {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 4000);
+
+        const response = await fetchImpl(feedUrl, {
+          headers: {
+            'User-Agent': 'LifeMode-Editorial-Bot/1.0 (+https://lifemode.life; editorial@lifemode.life)',
+            Accept: 'application/rss+xml, application/atom+xml, application/xml, text/xml;q=0.9, */*;q=0.8',
+          },
+          signal: controller.signal,
+        });
+        clearTimeout(timer);
+
+        if (response.ok) {
+          const xmlText = await response.text();
+          const parsed = parseXmlFeed(xmlText);
+
+          if (parsed.items.length > 0) {
+            const liveSignals: DiscoverySignal[] = parsed.items.slice(0, limit).map((item, idx) => {
+              let pubIso = nowIso;
+              if (item.pubDate) {
+                const parsedDate = new Date(item.pubDate);
+                if (!isNaN(parsedDate.getTime())) {
+                  pubIso = parsedDate.toISOString();
+                }
+              }
+
+              const combinedTags = Array.from(
+                new Set(['tech-ai', 'ai-tools', 'get-ai-set', 'everyday-ai', ...item.categories])
+              );
+
+              return {
+                source: 'RSS_FEEDS',
+                sourceId: `getaiset-live-${idx + 1}-${encodeURIComponent(item.title.slice(0, 25)).replace(/[^a-zA-Z0-9_-]/g, '')}`,
+                rawQuery: item.title,
+                timestamp: pubIso,
+                metrics: {
+                  growthRate: 88,
+                  searchVolume: 25000,
+                  relativeInterest: 92,
+                  isBreakout: false,
+                  visualPotentialScore: 84,
+                },
+                geography: 'GLOBAL',
+                language: 'en',
+                category: 'tech-ai',
+                sourceUrl: item.link || 'https://www.getaiset.com/',
+                publisherName: parsed.title || 'GetAISet Live Feed',
+                publishedAt: pubIso,
+                contentSnippet: item.description,
+                metadata: {
+                  targetProject: 'get-ai-set',
+                  isMainstreamAi: true,
+                  isLiveSource: true,
+                  curatedTags: combinedTags,
+                  rssPayload: {
+                    feedTitle: parsed.title || 'GetAISet Live Feed',
+                    feedUrl,
+                    itemTitle: item.title,
+                    itemLink: item.link || 'https://www.getaiset.com/',
+                    publishedDate: pubIso,
+                    contentSnippet: item.description,
+                    categories: combinedTags,
+                  },
+                },
+              };
+            });
+
+            return {
+              provider: this.name,
+              sourceType: this.sourceType,
+              status: 'AVAILABLE',
+              signals: liveSignals,
+              fetchedAt: nowIso,
+            };
+          }
+        }
+      } catch {
+        // Continue to next feed URL or seed fallback
+      }
+    }
+
+    // 2. Fallback to curated mainstream AI seeds when live feed is unavailable
+    const fallbackSignals: DiscoverySignal[] = GET_AI_SET_MAINSTREAM_TOPICS.slice(0, limit).map((topic) => ({
       source: 'RSS_FEEDS',
       sourceId: topic.id,
       rawQuery: topic.rawQuery,
-      timestamp: now,
+      timestamp: nowIso,
       metrics: {
         growthRate: topic.growthRate,
         searchVolume: topic.searchVolume,
@@ -163,13 +271,14 @@ export class GetAISetDiscoveryAdapter implements IDiscoveryAdapter {
       metadata: {
         targetProject: 'get-ai-set',
         isMainstreamAi: true,
+        isCuratedFallback: true,
         curatedTags: topic.curatedTags,
         rssPayload: {
           feedTitle: topic.publisherName || 'GetAISet Learning',
           feedUrl: 'https://www.getaiset.com/',
           itemTitle: topic.rawQuery,
           itemLink: topic.sourceUrl || 'https://www.getaiset.com/',
-          publishedDate: now,
+          publishedDate: nowIso,
           contentSnippet: topic.contentSnippet,
           categories: ['AI Education', 'AI Tools', 'Learning Paths'],
         },
@@ -180,8 +289,9 @@ export class GetAISetDiscoveryAdapter implements IDiscoveryAdapter {
       provider: this.name,
       sourceType: this.sourceType,
       status: 'AVAILABLE',
-      signals,
-      fetchedAt: now,
+      signals: fallbackSignals,
+      fetchedAt: nowIso,
     };
   }
 }
+

@@ -1,9 +1,9 @@
 import type { DiscoverySignal } from './types.ts';
 import type { EditorialTopic, PillarSlug, TopicScoringDimensions, SourceSignal } from '../types.ts';
-import { normalizeTopicQuery, inferPillarFromKeywords, generateTopicId } from '../normalization.ts';
+import { normalizeTopicQuery, inferPillarFromKeywords, generateTopicId, normalizePillar } from '../normalization.ts';
 import { scoreTopicEntity } from '../scoring.ts';
 import { calculatePinterestScore } from '../pinterest-scoring.ts';
-import { PILLAR_SLUGS } from '../../../config/site.ts';
+import { ACTIVE_EDITORIAL_PILLARS } from '../../../config/site.ts';
 
 /**
  * Transforms a raw Discovery Signal into a scored, normalized LifeMode EditorialTopic candidate.
@@ -13,10 +13,11 @@ export function transformSignalToCandidate(signal: DiscoverySignal): EditorialTo
   const cleanTitle = norm.canonicalTopic;
   const slug = norm.canonicalSlug;
 
-  // Determine pillar
+  // Determine active pillar
   let pillar: PillarSlug = 'life';
-  if (signal.category && PILLAR_SLUGS.includes(signal.category as PillarSlug)) {
-    pillar = signal.category as PillarSlug;
+  const normalizedCategory = normalizePillar(signal.category);
+  if (normalizedCategory) {
+    pillar = normalizedCategory;
   } else {
     pillar = inferPillarFromKeywords(cleanTitle, 'life');
   }
@@ -28,7 +29,7 @@ export function transformSignalToCandidate(signal: DiscoverySignal): EditorialTo
   const relativeInterest = signal.metrics?.relativeInterest ?? 75;
   const growthRate = signal.metrics?.growthRate ?? 50;
   const visualScore = signal.metrics?.visualPotentialScore ?? (
-    signal.source === 'PINTEREST_TRENDS' ? 90 : (pillar === 'entertainment' || pillar === 'travel' || pillar === 'style' ? 85 : 70)
+    signal.source === 'PINTEREST_TRENDS' ? 90 : (pillar === 'life' || pillar === 'home' ? 85 : 70)
   );
 
   let searchPotential = Math.min(100, Math.round(relativeInterest * 0.6 + Math.min(40, searchVol / 1000)));
@@ -166,7 +167,7 @@ export function applyCrossSourceCorroboration(
     id: existingTopic.id,
     canonicalTopic: existingTopic.canonicalTopic,
     slug: existingTopic.slug,
-    pillar: existingTopic.pillar,
+    pillar: (normalizePillar(existingTopic.pillar) || existingTopic.pillar) as PillarSlug,
     targetProject: existingTopic.targetProject || (newSignal.metadata?.targetProject as string | undefined),
     sourceSignals: mergedSignals,
     queryVariants: Array.from(new Set([...existingTopic.queryVariants, newSignal.rawQuery.toLowerCase()])),

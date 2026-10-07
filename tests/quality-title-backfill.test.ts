@@ -391,7 +391,7 @@ test('Image Backfill: runImageBackfill generates images and updates article repo
   });
 
   await repository.create({
-    pillar: 'style',
+    pillar: 'life',
     slug: 'lighting-setup',
     content: '## Lighting Setup\n\nPractical layered lighting tips.',
     frontmatter: {
@@ -450,7 +450,7 @@ test('Image Backfill: runImageBackfill generates images and updates article repo
   assert.strictEqual(updatedArticle1.frontmatter.featured, true);
   assert.strictEqual(updatedArticle1.content, '## Keyboard Guide\n\nA deep dive into switch mechanisms.');
 
-  const updatedArticle2 = await repository.get('style', 'lighting-setup');
+  const updatedArticle2 = await repository.get('life', 'lighting-setup');
   assert.ok(updatedArticle2);
   assert.ok(updatedArticle2.frontmatter.image);
 
@@ -464,7 +464,7 @@ test('Image Backfill: Skips generation when daily limit is exhausted by new arti
   const repository = new FilesystemContentRepository({ contentRoot });
 
   await repository.create({
-    pillar: 'money',
+    pillar: 'wealth',
     slug: 'emergency-fund',
     content: '## Emergency Fund\n\nHigh yield savings setup.',
     frontmatter: {
@@ -517,7 +517,7 @@ test('Image Backfill: Skips generation when daily limit is exhausted by new arti
   assert.strictEqual(mockStorage.uploadCalls.length, 0);
 
   // Article remains untouched without image
-  const article = await repository.get('money', 'emergency-fund');
+  const article = await repository.get('wealth', 'emergency-fund');
   assert.strictEqual(article?.frontmatter.image, undefined);
 
   // Cleanup temp dir
@@ -546,7 +546,7 @@ test('Maintenance: auditAndMigrateTitles discovers formulaic titles and migrates
 
   // Create article with formulaic title
   await repo.create({
-    pillar: 'wellbeing',
+    pillar: 'health',
     slug: 'morning-sunlight-and-adenosine-clearing-a-simple-protocol-fo',
     content: '## Morning Protocol\n\nDirect light clears adenosine receptors...',
     frontmatter: {
@@ -562,14 +562,14 @@ test('Maintenance: auditAndMigrateTitles discovers formulaic titles and migrates
   assert.strictEqual(dryReport.formulaicCount, 1);
   assert.strictEqual(dryReport.correctedCount, 0);
 
-  const untouched = await repo.get('wellbeing', 'morning-sunlight-and-adenosine-clearing-a-simple-protocol-fo');
+  const untouched = await repo.get('health', 'morning-sunlight-and-adenosine-clearing-a-simple-protocol-fo');
   assert.ok(untouched?.frontmatter.title.includes('A Modern Guide'));
 
   // Live run should apply the curated title
   const liveReport = await auditAndMigrateTitles({ contentRoot, dryRun: false });
   assert.strictEqual(liveReport.correctedCount, 1);
 
-  const migrated = await repo.get('wellbeing', 'morning-sunlight-and-adenosine-clearing-a-simple-protocol-fo');
+  const migrated = await repo.get('health', 'morning-sunlight-and-adenosine-clearing-a-simple-protocol-fo');
   assert.strictEqual(
     migrated?.frontmatter.title,
     'Morning sunlight and adenosine: a simple protocol for morning clarity'
@@ -584,32 +584,32 @@ test('Maintenance: findEmptyTopics correctly identifies empty topics without art
   const contentRoot = path.join(tempDir, 'content');
   const repo = new FilesystemContentRepository({ contentRoot });
 
-  // Add articles for wellbeing and life only
+  // Add articles for health and life only
   await repo.create({
-    pillar: 'wellbeing',
+    pillar: 'health',
     slug: 'sleep-hygiene',
     content: 'Body',
     frontmatter: { title: 'Sleep Hygiene Basics', description: 'Good sleep advice for modern people.' },
   });
   await repo.create({
-    pillar: 'style',
+    pillar: 'life',
     slug: 'desk-organization',
     content: 'Body',
     frontmatter: { title: 'Organizing a Small Desk', description: 'Practical tips for clean desk spaces.' },
   });
 
   const report = await findEmptyTopics({ contentRoot });
-  assert.ok(report.emptyPillars.includes('money'));
-  assert.ok(report.emptyPillars.includes('travel'));
+  assert.ok(report.emptyPillars.includes('wealth'));
+  assert.ok(report.emptyPillars.includes('home'));
   assert.ok(report.emptyPillars.includes('tech-ai'));
-  assert.ok(report.emptyPillars.includes('entertainment'));
-  assert.ok(!report.emptyPillars.includes('wellbeing'));
-  assert.ok(!report.emptyPillars.includes('style'));
+  assert.ok(report.emptyPillars.includes('tools'));
+  assert.ok(!report.emptyPillars.includes('health'));
+  assert.ok(!report.emptyPillars.includes('life'));
 
-  // Money planned topic is high-yield cash buffer
-  const moneyPlan = report.plannedArticles.find((p) => p.pillar === 'money');
-  assert.ok(moneyPlan);
-  assert.strictEqual(moneyPlan?.slug, 'high-yield-cash-buffer-emergency-savings');
+  // Wealth planned topic is high-yield cash buffer
+  const wealthPlan = report.plannedArticles.find((p) => p.pillar === 'wealth');
+  assert.ok(wealthPlan);
+  assert.strictEqual(wealthPlan?.slug, 'high-yield-cash-buffer-emergency-savings');
 
   await fs.rm(tempDir, { recursive: true, force: true });
 });

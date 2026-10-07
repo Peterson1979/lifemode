@@ -3,6 +3,7 @@ import { VALID_PILLARS } from './types.ts';
 import type { FeedbackSignalSummary } from './performance/types.ts';
 import { evaluateTopicPerformanceFeedback } from './performance/feedback.ts';
 import { isAiCadenceDay } from './cadence.ts';
+import { normalizePillar, isMeaningfulEditorialTopic } from './normalization.ts';
 
 export interface SelectionOptions {
   minScoreThreshold?: number; // default 80
@@ -86,28 +87,47 @@ export function selectEditorialCandidates(
   // 1. Evaluate performance feedback and anti-starvation boosts on candidates
   const enrichedCandidates: Array<EditorialTopic & { effectiveScore: number }> = [];
 
-  for (const topic of candidates) {
-    // Inactive / removed pillar check
-    if (!VALID_PILLARS.includes(topic.pillar as PillarSlug)) {
-      rejected.push({
-        ...topic,
-        status: 'REJECTED',
-        rejectionReason: `Pillar "${topic.pillar}" is inactive or removed`,
-        updatedAt: new Date().toISOString(),
-      });
-      continue;
-    }
-
+  for (const rawTopic of candidates) {
     // Video-only pillar guard: Life Hacks contains videos only, no written articles
-    if (topic.pillar === 'life-hacks') {
+    if (rawTopic.pillar === 'life-hacks') {
       rejected.push({
-        ...topic,
+        ...rawTopic,
         status: 'REJECTED',
         rejectionReason: 'Life Hacks is a video-only pillar. Written text articles are not permitted.',
         updatedAt: new Date().toISOString(),
       });
       continue;
     }
+
+    // Normalization check
+    const normalized = normalizePillar(rawTopic.pillar);
+    if (!normalized || !(VALID_PILLARS as readonly string[]).includes(normalized)) {
+      rejected.push({
+        ...rawTopic,
+        status: 'REJECTED',
+        rejectionReason: `Pillar "${rawTopic.pillar}" is inactive or removed`,
+        updatedAt: new Date().toISOString(),
+      });
+      continue;
+    }
+
+    // Meaningful editorial topic quality filter
+    const topicText = rawTopic.canonicalTopic || '';
+    const meaningCheck = isMeaningfulEditorialTopic(topicText);
+    if (!meaningCheck.isValid) {
+      rejected.push({
+        ...rawTopic,
+        status: 'REJECTED',
+        rejectionReason: meaningCheck.reason || 'Topic lacks editorial intent or contains excluded content pattern.',
+        updatedAt: new Date().toISOString(),
+      });
+      continue;
+    }
+
+    const topic: EditorialTopic = {
+      ...rawTopic,
+      pillar: normalized,
+    };
 
     let performanceFeedback = topic.performanceFeedback;
     if (feedbackSignals && applyFeedback) {

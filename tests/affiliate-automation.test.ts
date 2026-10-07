@@ -23,7 +23,7 @@ const mockCommercialBookTopic: EditorialTopic = {
   id: 'topic-living-books-001',
   canonicalTopic: 'Best Architecture and Design Books for Thoughtful Homes',
   slug: 'best-architecture-and-design-books-for-thoughtful-homes',
-  pillar: 'entertainment',
+  pillar: 'life',
   sourceSignals: [],
   queryVariants: ['best design books 2026', 'architecture monographs home', 'thoughtful living books'],
   scoring: {
@@ -44,14 +44,14 @@ const mockCommercialBookTopic: EditorialTopic = {
   createdAt: '2026-09-13T10:00:00.000Z',
   updatedAt: '2026-09-13T10:00:00.000Z',
   primaryIntent: 'commercial',
-  tags: ['entertainment', 'books', 'architecture', 'design', 'home'],
+  tags: ['life', 'books', 'architecture', 'design', 'home'],
 };
 
 const mockTransactionalCoffeeTopic: EditorialTopic = {
   id: 'topic-living-coffee-001',
   canonicalTopic: 'Specialty Coffee Grinders and Precision Brewing Gear',
   slug: 'specialty-coffee-grinders-and-precision-brewing-gear',
-  pillar: 'food-drink',
+  pillar: 'home',
   sourceSignals: [],
   queryVariants: ['best coffee grinder', 'espresso grinder comparison', 'pour over kettle'],
   scoring: {
@@ -72,14 +72,14 @@ const mockTransactionalCoffeeTopic: EditorialTopic = {
   createdAt: '2026-09-13T10:00:00.000Z',
   updatedAt: '2026-09-13T10:00:00.000Z',
   primaryIntent: 'transactional',
-  tags: ['food-drink', 'coffee', 'gear', 'kitchen'],
+  tags: ['home', 'coffee', 'gear', 'kitchen'],
 };
 
 const mockInformationalTopic: EditorialTopic = {
   id: 'topic-wellbeing-info-001',
   canonicalTopic: 'Understanding Cortisol Awakening Response and Natural Light',
   slug: 'understanding-cortisol-awakening-response-and-natural-light',
-  pillar: 'wellbeing',
+  pillar: 'health',
   sourceSignals: [],
   queryVariants: ['cortisol awakening response', 'morning light biology'],
   scoring: {
@@ -100,14 +100,14 @@ const mockInformationalTopic: EditorialTopic = {
   createdAt: '2026-09-13T10:00:00.000Z',
   updatedAt: '2026-09-13T10:00:00.000Z',
   primaryIntent: 'informational',
-  tags: ['wellbeing', 'science', 'sleep', 'circadian'],
+  tags: ['health', 'science', 'sleep', 'circadian'],
 };
 
 const mockHighRiskMedicalTopic: EditorialTopic = {
   id: 'topic-wellbeing-risk-001',
   canonicalTopic: 'Clinical Peptide Protocols for Rapid Joint Healing',
   slug: 'clinical-peptide-protocols-for-rapid-joint-healing',
-  pillar: 'wellbeing',
+  pillar: 'health',
   sourceSignals: [],
   queryVariants: ['peptide therapy joints', 'bpc 157 medical treatment'],
   scoring: {
@@ -128,7 +128,7 @@ const mockHighRiskMedicalTopic: EditorialTopic = {
   createdAt: '2026-09-13T10:00:00.000Z',
   updatedAt: '2026-09-13T10:00:00.000Z',
   primaryIntent: 'commercial',
-  tags: ['wellbeing', 'peptides', 'medical', 'joints'],
+  tags: ['health', 'peptides', 'medical', 'joints'],
 };
 
 test('1. Central affiliate catalog passes schema validation and integrity checks', () => {
@@ -142,9 +142,9 @@ test('1. Central affiliate catalog passes schema validation and integrity checks
   // Validate rejection of broken catalog items
   const brokenCatalog: any[] = [
     { id: '', name: 'Broken', category: '', applicablePillars: ['invalid-pillar'], applicableIntents: [] },
-    { id: 'dup-1', name: 'Valid 1', category: 'books', applicablePillars: ['culture'], applicableIntents: ['transactional'], enabled: true },
-    { id: 'dup-1', name: 'Duplicate 1', category: 'books', applicablePillars: ['culture'], applicableIntents: ['transactional'], enabled: true },
-    { id: 'bad-url', name: 'Bad URL', category: 'books', applicablePillars: ['culture'], applicableIntents: ['transactional'], approvedDestinationUrl: 'not-a-url', enabled: true },
+    { id: 'dup-1', name: 'Valid 1', category: 'books', applicablePillars: ['life'], applicableIntents: ['transactional'], enabled: true },
+    { id: 'dup-1', name: 'Duplicate 1', category: 'books', applicablePillars: ['life'], applicableIntents: ['transactional'], enabled: true },
+    { id: 'bad-url', name: 'Bad URL', category: 'books', applicablePillars: ['life'], applicableIntents: ['transactional'], approvedDestinationUrl: 'not-a-url', enabled: true },
   ];
 
   const brokenReport = validateAffiliateCatalog(brokenCatalog);
@@ -242,7 +242,7 @@ test('8. Unresolved destination URLs cannot become links and never generate fake
       id: 'aff-unresolved-lighting',
       name: 'Artisan Architectural Desk Lamps',
       category: 'workspace',
-      applicablePillars: ['entertainment'],
+      applicablePillars: ['life'],
       applicableIntents: ['commercial-investigation'],
       keywords: ['architecture', 'design', 'home'],
       enabled: true,

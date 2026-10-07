@@ -301,7 +301,7 @@ export function validateEditorialArticle(
     }
   }
 
-  if (context.pillar && !VALID_PILLARS.includes(context.pillar)) {
+  if (context.pillar && !(VALID_PILLARS as readonly string[]).includes(context.pillar)) {
     errors.push(`Invalid editorial pillar specified: "${context.pillar}".`);
     checks.seo = false;
   }

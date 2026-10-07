@@ -9,13 +9,23 @@ import { parseArticle, serializeArticle } from '../storage/serializer.ts';
  * Mapped deterministically by pillar and slug to ensure exact editorial alignment.
  */
 export const EXISTING_TITLE_REPLACEMENTS: Record<string, string> = {
-  // Wellbeing
+  // Health / Wellbeing
+  'health/morning-sunlight-and-adenosine-clearing-a-simple-protocol-fo':
+    'Morning sunlight and adenosine: a simple protocol for morning clarity',
+  'health/army-fitness-test-modern-guide':
+    'What the Army Combat Fitness Test teaches us about functional strength',
   'wellbeing/morning-sunlight-and-adenosine-clearing-a-simple-protocol-fo':
     'Morning sunlight and adenosine: a simple protocol for morning clarity',
   'wellbeing/army-fitness-test-modern-guide':
     'What the Army Combat Fitness Test teaches us about functional strength',
 
-  // Travel
+  // Life / Travel
+  'life/the-quietest-islands-in-the-azores-volcanic-hot-springs-and':
+    'The quietest islands in the Azores: hot springs, volcanic trails, and solitary coastlines',
+  'life/minimalist-coastal-retreats-architecture-and-secluded-stays':
+    'Minimalist coastal retreats: secluded architecture across the Mediterranean',
+  'life/laguna-beach-modern-guide':
+    'Laguna Beach: a modern blueprint for intentional coastal travel',
   'travel/the-quietest-islands-in-the-azores-volcanic-hot-springs-and':
     'The quietest islands in the Azores: hot springs, volcanic trails, and solitary coastlines',
   'travel/minimalist-coastal-retreats-architecture-and-secluded-stays':
@@ -55,7 +65,9 @@ export const EXISTING_TITLE_REPLACEMENTS: Record<string, string> = {
   'life/the-contemplative-workspace-acoustic-comfort-natural-wood-an':
     'Designing a contemplative workspace with acoustic warmth and natural wood',
 
-  // Discover
+  // Discover / Home
+  'home/japanese-minka-renovation-blending-historic-timber-with-mode':
+    'Inside a Japanese minka renovation that blends historic timber with modern minimalism',
   'discover/japanese-minka-renovation-blending-historic-timber-with-mode':
     'Inside a Japanese minka renovation that blends historic timber with modern minimalism',
   'discover/curated-monograph-curation-timeless-design-and-photography-v':

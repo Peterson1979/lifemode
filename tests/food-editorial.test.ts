@@ -287,14 +287,14 @@ const FIXTURE_PNG_BASE64 =
   'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==';
 const VALID_PNG_BUFFER = Buffer.from(FIXTURE_PNG_BASE64, 'base64');
 
-test('Daily Editorial Generation: food-drink is a first-class pillar in candidate selection & brief generation', () => {
-  assert.ok(VALID_PILLARS.includes('food-drink'), 'food-drink must be a recognized valid pillar');
+test('Daily Editorial Generation: food-drink topics normalize to active home pillar in candidate selection & brief generation', () => {
+  assert.ok(VALID_PILLARS.includes('home'), 'home must be a recognized valid active pillar');
 
   const foodTopic1: EditorialTopic = {
     id: 'lm-food-drink-20260918-extra-virgin-olive-oil',
     canonicalTopic: 'Understanding Extra Virgin Olive Oil Harvests',
     slug: 'understanding-extra-virgin-olive-oil-harvests',
-    pillar: 'food-drink',
+    pillar: 'home',
     sourceSignals: [],
     queryVariants: ['extra virgin olive oil', 'cold pressed olive oil quality'],
     scoring: {
@@ -314,14 +314,14 @@ test('Daily Editorial Generation: food-drink is a first-class pillar in candidat
     freshnessScore: 85,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
-    tags: ['food-drink', 'ingredients', 'cooking'],
+    tags: ['home', 'food-kitchen', 'ingredients', 'cooking'],
   };
 
   const foodTopic2: EditorialTopic = {
     id: 'lm-food-drink-20260918-sourdough-microbiology',
     canonicalTopic: 'How Sourdough Fermentation Works',
     slug: 'how-sourdough-fermentation-works',
-    pillar: 'food-drink',
+    pillar: 'home',
     sourceSignals: [],
     queryVariants: ['sourdough fermentation science', 'wild yeast microbiology'],
     scoring: {
@@ -341,24 +341,24 @@ test('Daily Editorial Generation: food-drink is a first-class pillar in candidat
     freshnessScore: 80,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
-    tags: ['food-drink', 'cooking', 'food-culture'],
+    tags: ['home', 'food-kitchen', 'cooking', 'food-culture'],
   };
 
-  // 1. Candidate Selection: Food & Drink candidates are accepted and balanced
-  const selection = selectEditorialCandidates([foodTopic1, foodTopic2], { minScoreThreshold: 80, totalLimit: 6 });
+  // 1. Candidate Selection: Food & Kitchen candidates are accepted under Home pillar
+  const selection = selectEditorialCandidates([foodTopic1, foodTopic2], { minScoreThreshold: 80, totalLimit: 6, maxTopicsPerPillar: 2 });
   assert.equal(selection.approved.length, 2);
-  assert.equal(selection.approved[0].pillar, 'food-drink');
-  assert.equal(selection.approved[1].pillar, 'food-drink');
+  assert.equal(selection.approved[0].pillar, 'home');
+  assert.equal(selection.approved[1].pillar, 'home');
 
-  // 2. Content Brief Builder: Generates specialized Food & Drink angles and structure
+  // 2. Content Brief Builder: Generates specialized Home angles and structure
   const brief1 = buildContentBrief(foodTopic1);
-  assert.equal(brief1.pillar, 'food-drink');
+  assert.equal(brief1.pillar, 'home');
   assert.ok(brief1.titleAngle.includes('Understanding Extra Virgin Olive Oil Harvests'));
   assert.ok(brief1.outlineSections.length >= 3);
   assert.equal(brief1.searchTargets.primaryKeyword, 'understanding extra virgin olive oil harvests');
 
   const brief2 = buildContentBrief(foodTopic2);
-  assert.equal(brief2.pillar, 'food-drink');
+  assert.equal(brief2.pillar, 'home');
   assert.ok(brief2.titleAngle.includes('How Sourdough Fermentation Works'));
 });
 
@@ -541,7 +541,7 @@ test('Image Assignment & Fallback Regression: Prevents duplicate/unrelated image
     },
     context: {
       topicId: 'lm-food-olive-oil',
-      pillar: 'food-drink',
+      pillar: 'home',
       format: 'guide',
       audience: 'Culinary enthusiasts',
       primaryIntent: 'informational',

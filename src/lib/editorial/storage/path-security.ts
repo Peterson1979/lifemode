@@ -11,7 +11,7 @@ export function validatePillar(pillar: string): PillarSlug {
   }
 
   const normalized = pillar.trim().toLowerCase();
-  if (!VALID_PILLARS.includes(normalized as PillarSlug)) {
+  if (!(VALID_PILLARS as readonly string[]).includes(normalized)) {
     throw new Error(`Unsupported pillar "${pillar}". Must be one of: ${VALID_PILLARS.join(', ')}`);
   }
 

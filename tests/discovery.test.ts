@@ -287,7 +287,7 @@ test('Live Google Trends Adapter - Ingests RSS and classifies keyword pillars', 
 
   const item1 = result.signals.find((s) => s.rawQuery.includes('Kyoto'));
   assert.ok(item1);
-  assert.equal(item1?.category, 'travel');
+  assert.equal(item1?.category, 'life');
   assert.equal(item1?.metrics?.searchVolume, 100000);
 
   const item2 = result.signals.find((s) => s.rawQuery.includes('Nvidia'));
@@ -298,12 +298,11 @@ test('Live Google Trends Adapter - Ingests RSS and classifies keyword pillars', 
 
 test('Keyword Pillar Classifier - Correctly categorizes trend titles', () => {
   assert.equal(classifyTrendingQueryPillar('Apple M5 Chip Breakthrough in Local LLM Inference'), 'tech-ai');
-  assert.equal(classifyTrendingQueryPillar('Secluded Coastal Hotels and Train Journeys in Japan'), 'travel');
-  assert.equal(classifyTrendingQueryPillar('Federal Reserve Interest Rates and Treasury Yields'), 'money');
-  assert.equal(classifyTrendingQueryPillar('Circadian Rhythm Light Protocols and Deep Sleep Longevity'), 'wellbeing');
-  assert.equal(classifyTrendingQueryPillar('Academy Awards Highlights and Film Festival Interviews'), 'entertainment');
-  assert.equal(classifyTrendingQueryPillar('Minimalist Wardrobe Capsule and Barrier Repair Skincare Routine'), 'style');
-  assert.equal(classifyTrendingQueryPillar('Celebrity Spotlight and Cinema News'), 'entertainment');
+  assert.equal(classifyTrendingQueryPillar('Secluded Coastal Hotels and Train Journeys in Japan'), 'life');
+  assert.equal(classifyTrendingQueryPillar('Federal Reserve Interest Rates and Treasury Yields'), 'wealth');
+  assert.equal(classifyTrendingQueryPillar('Circadian Rhythm Light Protocols and Deep Sleep Longevity'), 'health');
+  assert.equal(classifyTrendingQueryPillar('Minimalist Wardrobe Capsule and Barrier Repair Skincare Routine'), 'life');
+  assert.equal(classifyTrendingQueryPillar('Celebrity Spotlight and Cinema News'), null);
 });
 
 test('Discovery Adapters - Seasonal Calendar generates timely signals for all pillars', async () => {

@@ -180,20 +180,20 @@ test('Path Security and Slug Validation', async (t) => {
   const contentRoot = 'c:/Users/opeti/LifeMode/lifemode/src/content';
 
   await t.test('accepts valid pillars and sanitizes valid slugs', () => {
-    const res = resolveSafeArticlePath(contentRoot, 'travel', 'sustainable-train-travel-in-japan');
-    assert.strictEqual(res.pillar, 'travel');
+    const res = resolveSafeArticlePath(contentRoot, 'life', 'sustainable-train-travel-in-japan');
+    assert.strictEqual(res.pillar, 'life');
     assert.strictEqual(res.slug, 'sustainable-train-travel-in-japan');
-    assert.ok(res.safePath.endsWith(path.join('travel', 'sustainable-train-travel-in-japan.md')));
+    assert.ok(res.safePath.endsWith(path.join('life', 'sustainable-train-travel-in-japan.md')));
   });
 
   await t.test('rejects relative traversal in slug', () => {
-    assert.throws(() => resolveSafeArticlePath(contentRoot, 'style', '../../secret'), /Invalid slug/);
-    assert.throws(() => resolveSafeArticlePath(contentRoot, 'style', '..\\..\\secret'), /Invalid slug/);
-    assert.throws(() => resolveSafeArticlePath(contentRoot, 'style', '../escape'), /Invalid slug/);
+    assert.throws(() => resolveSafeArticlePath(contentRoot, 'life', '../../secret'), /Invalid slug/);
+    assert.throws(() => resolveSafeArticlePath(contentRoot, 'life', '..\\..\\secret'), /Invalid slug/);
+    assert.throws(() => resolveSafeArticlePath(contentRoot, 'life', '../escape'), /Invalid slug/);
   });
 
   await t.test('rejects encoded traversal sequences', () => {
-    assert.throws(() => resolveSafeArticlePath(contentRoot, 'style', '%2e%2e%2fpasswd'), /Invalid slug/);
+    assert.throws(() => resolveSafeArticlePath(contentRoot, 'life', '%2e%2e%2fpasswd'), /Invalid slug/);
   });
 
   await t.test('rejects invalid pillar names', () => {
@@ -262,18 +262,18 @@ test('FilesystemContentRepository CRUD and Idempotency', async (t) => {
     });
 
     await t.test('get: returns null for non-existent article', async () => {
-      const missing = await repo.get('style', 'non-existent-article');
+      const missing = await repo.get('life', 'non-existent-article');
       assert.strictEqual(missing, null);
     });
 
     await t.test('exists: returns false for missing article', async () => {
-      const exists = await repo.exists('money', 'no-such-slug');
+      const exists = await repo.exists('wealth', 'no-such-slug');
       assert.strictEqual(exists, false);
     });
 
     await t.test('update: fails if article does not exist', async () => {
       const updateMissingResult = await repo.update({
-        pillar: 'travel',
+        pillar: 'life',
         slug: 'unrecorded-article',
         content: 'New content',
         frontmatter: {
@@ -329,7 +329,7 @@ test('FilesystemContentRepository CRUD and Idempotency', async (t) => {
     await t.test('list: lists stored articles filtered by pillar and all pillars', async () => {
       // Add another article in a different pillar
       await repo.create({
-        pillar: 'money',
+        pillar: 'wealth',
         slug: 'passive-index-fund-allocation',
         content: 'Index funds guide...',
         frontmatter: {
@@ -346,25 +346,25 @@ test('FilesystemContentRepository CRUD and Idempotency', async (t) => {
       assert.strictEqual(techArticles.length, 1);
       assert.strictEqual(techArticles[0].slug, 'local-ai-hardware-guide');
 
-      const moneyArticles = await repo.list('money');
-      assert.strictEqual(moneyArticles.length, 1);
-      assert.strictEqual(moneyArticles[0].slug, 'passive-index-fund-allocation');
+      const wealthArticles = await repo.list('wealth');
+      assert.strictEqual(wealthArticles.length, 1);
+      assert.strictEqual(wealthArticles[0].slug, 'passive-index-fund-allocation');
 
       const allArticles = await repo.list();
       assert.strictEqual(allArticles.length, 2);
-      // Sorted by pubDate desc: money article (2026-09-10) should come first
+      // Sorted by pubDate desc: wealth article (2026-09-10) should come first
       assert.strictEqual(allArticles[0].slug, 'passive-index-fund-allocation');
       assert.strictEqual(allArticles[1].slug, 'local-ai-hardware-guide');
     });
 
     await t.test('remove: removes article safely', async () => {
-      const removeResult = await repo.remove('money', 'passive-index-fund-allocation');
+      const removeResult = await repo.remove('wealth', 'passive-index-fund-allocation');
       assert.strictEqual(removeResult.status, 'REMOVED');
 
-      const exists = await repo.exists('money', 'passive-index-fund-allocation');
+      const exists = await repo.exists('wealth', 'passive-index-fund-allocation');
       assert.strictEqual(exists, false);
 
-      const getResult = await repo.get('money', 'passive-index-fund-allocation');
+      const getResult = await repo.get('wealth', 'passive-index-fund-allocation');
       assert.strictEqual(getResult, null);
     });
   } finally {

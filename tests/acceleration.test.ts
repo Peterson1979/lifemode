@@ -36,21 +36,21 @@ function createDummyTopic(id: string, pillar: PillarSlug, score: number): Editor
 
 test('Pillar Balancing - Distributes selections across pillars when scores are competitive', () => {
   const candidates: EditorialTopic[] = [
-    createDummyTopic('style-1', 'style', 88),
-    createDummyTopic('style-2', 'style', 87),
-    createDummyTopic('style-3', 'style', 86),
-    createDummyTopic('style-4', 'style', 85),
-    createDummyTopic('travel-1', 'travel', 87),
+    createDummyTopic('life-1', 'life', 88),
+    createDummyTopic('life-2', 'life', 87),
+    createDummyTopic('life-3', 'life', 86),
+    createDummyTopic('life-4', 'life', 85),
+    createDummyTopic('wealth-1', 'wealth', 87),
     createDummyTopic('tech-1', 'tech-ai', 86),
-    createDummyTopic('wellbeing-1', 'wellbeing', 85),
+    createDummyTopic('health-1', 'health', 85),
   ];
 
-  // If style is heavily represented in existing articles (e.g. 5 articles already published in style)
+  // If life is heavily represented in existing articles (e.g. 5 articles already published in life)
   const existingDist: Partial<Record<PillarSlug, number>> = {
-    style: 5,
-    travel: 0,
+    life: 5,
+    wealth: 0,
     'tech-ai': 0,
-    wellbeing: 0,
+    health: 0,
   };
 
   const { approved } = selectEditorialCandidates(candidates, {
@@ -62,11 +62,11 @@ test('Pillar Balancing - Distributes selections across pillars when scores are c
 
   assert.equal(approved.length, 4);
 
-  // Verifies that underrepresented pillars (travel, tech, wellbeing) are selected alongside style
+  // Verifies that underrepresented pillars (wealth, tech, health) are selected alongside life
   const approvedPillars = approved.map((a) => a.pillar);
-  assert.ok(approvedPillars.includes('travel'));
+  assert.ok(approvedPillars.includes('wealth'));
   assert.ok(approvedPillars.includes('tech-ai'));
-  assert.ok(approvedPillars.includes('wellbeing'));
+  assert.ok(approvedPillars.includes('health'));
 });
 
 test('Pillar Balancing - Never approves a weak topic (< 80) merely to balance pillars', () => {

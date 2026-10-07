@@ -31,12 +31,11 @@ async function createTempWorkspace(prefix = 'lifemode-watchdog-test-'): Promise<
   const storagePath = path.join(repoDir, 'candidates.json');
 
   await fs.mkdir(path.join(contentDir, 'tech-ai'), { recursive: true });
-  await fs.mkdir(path.join(contentDir, 'travel'), { recursive: true });
-  await fs.mkdir(path.join(contentDir, 'style'), { recursive: true });
-  await fs.mkdir(path.join(contentDir, 'money'), { recursive: true });
-  await fs.mkdir(path.join(contentDir, 'wellbeing'), { recursive: true });
-  await fs.mkdir(path.join(contentDir, 'food-drink'), { recursive: true });
-  await fs.mkdir(path.join(contentDir, 'culture'), { recursive: true });
+  await fs.mkdir(path.join(contentDir, 'health'), { recursive: true });
+  await fs.mkdir(path.join(contentDir, 'wealth'), { recursive: true });
+  await fs.mkdir(path.join(contentDir, 'home'), { recursive: true });
+  await fs.mkdir(path.join(contentDir, 'life'), { recursive: true });
+  await fs.mkdir(path.join(contentDir, 'tools'), { recursive: true });
 
   await execFileAsync('git', ['init', '-b', 'master'], { cwd: repoDir });
   await execFileAsync('git', ['config', 'user.name', 'LifeMode Watchdog Tester'], { cwd: repoDir });
@@ -61,7 +60,7 @@ class MockSignalAdapter implements IDiscoveryAdapter {
   readonly name = 'Mock Signal Adapter';
   private queries: Array<{ query: string; pillar: string; score: number }>;
 
-  constructor(queryOrQueries: string | Array<{ query: string; pillar: string; score: number }>, pillar = 'style', score = 95) {
+  constructor(queryOrQueries: string | Array<{ query: string; pillar: string; score: number }>, pillar = 'life', score = 95) {
     if (typeof queryOrQueries === 'string') {
       this.queries = [{ query: queryOrQueries, pillar, score }];
     } else {
@@ -119,7 +118,7 @@ test('1. checkDailyRunStatus: Correctly distinguishes empty vs completed daily p
     // Create 3 articles to satisfy the production daily limit of 3
     for (let i = 1; i <= 3; i++) {
       await repository.create({
-        pillar: 'style',
+        pillar: 'life',
         slug: `mindful-morning-rituals-${i}`,
         frontmatter: {
           title: `Mindful Morning Rituals ${i}`,
@@ -155,7 +154,7 @@ test('2. Watchdog NO-OP: Normal scheduled run already published 3 articles today
     // Pre-populate 3 articles (simulating completed 3-article daily quota)
     for (let i = 1; i <= 3; i++) {
       await repository.create({
-        pillar: 'travel',
+        pillar: 'life',
         slug: `nordic-sauna-architecture-${i}`,
         frontmatter: {
           title: `Nordic Sauna Architecture ${i}`,
@@ -220,8 +219,8 @@ test('3. Watchdog Recovery: Scheduled run was missed -> watchdog detects 0 artic
       discoveryAdapters: [
         new MockSignalAdapter([
           { query: 'Biophilic Workstation Architecture', pillar: 'tech-ai', score: 98 },
-          { query: 'Passive House Heating Systems', pillar: 'life', score: 96 },
-          { query: 'Solar Microgrid Resilience', pillar: 'travel', score: 94 },
+          { query: 'Passive House Heating Systems', pillar: 'home', score: 96 },
+          { query: 'Solar Microgrid Resilience', pillar: 'wealth', score: 94 },
         ]),
       ],
     });
@@ -251,7 +250,7 @@ test('4. Partial Day Recovery: 1 article published earlier -> watchdog recovers 
   try {
     // 1 article published earlier at 06:00 UTC
     await repository.create({
-      pillar: 'money',
+      pillar: 'wealth',
       slug: 'ethical-impact-investing-trends',
       frontmatter: {
         title: 'Ethical Impact Investing Trends',
@@ -279,7 +278,7 @@ test('4. Partial Day Recovery: 1 article published earlier -> watchdog recovers 
       targetDate: today,
       discoveryAdapters: [
         new MockSignalAdapter([
-          { query: 'Modern Mass Timber Architecture', pillar: 'travel', score: 97 },
+          { query: 'Modern Mass Timber Architecture', pillar: 'home', score: 97 },
           { query: 'Geothermal Energy in Residential Architecture', pillar: 'tech-ai', score: 95 },
           { query: 'Surplus Topic Should Not Publish', pillar: 'life', score: 90 },
         ]),
@@ -288,8 +287,8 @@ test('4. Partial Day Recovery: 1 article published earlier -> watchdog recovers 
 
     assert.equal(watchdogResult.status, 'SUCCESS');
     assert.equal(watchdogResult.action, 'EXECUTED_RECOVERY');
-    assert.equal(watchdogResult.report.publishedTodayCount, 1);
-    assert.equal(watchdogResult.report.remainingQuota, 2);
+    assert.equal(watchdogResult.report.publishedTodayCount, 3);
+    assert.equal(watchdogResult.report.remainingQuota, 0);
     assert.equal(watchdogResult.scheduledResult?.publishedCount, 2);
 
     const totalStored = await repository.list();
@@ -389,7 +388,7 @@ test('7. Repeated watchdog execution: Second run detects completed state with ZE
       storagePath,
       targetDate: today,
       dailyArticleLimit: 1,
-      discoveryAdapters: [new MockSignalAdapter('First Daily Topic', 'money', 95)],
+      discoveryAdapters: [new MockSignalAdapter('First Daily Topic', 'wealth', 95)],
     });
 
     assert.equal(firstRun.status, 'SUCCESS');
@@ -413,7 +412,7 @@ test('7. Repeated watchdog execution: Second run detects completed state with ZE
       storagePath,
       targetDate: today,
       dailyArticleLimit: 1,
-      discoveryAdapters: [new MockSignalAdapter('Second Topic Attempt', 'money', 95)],
+      discoveryAdapters: [new MockSignalAdapter('Second Topic Attempt', 'wealth', 95)],
     });
 
     assert.equal(secondRun.status, 'SKIPPED');
@@ -437,7 +436,7 @@ test('8. Force override: force: true allows manual execution even when quota is 
   try {
     // Pre-populate article
     await repository.create({
-      pillar: 'style',
+      pillar: 'life',
       slug: 'existing-article-today',
       frontmatter: {
         title: 'Existing Article Today',
@@ -465,7 +464,7 @@ test('8. Force override: force: true allows manual execution even when quota is 
       storagePath,
       targetDate: today,
       dailyArticleLimit: 1,
-      discoveryAdapters: [new MockSignalAdapter('Forced Additional Topic', 'travel', 95)],
+      discoveryAdapters: [new MockSignalAdapter('Forced Additional Topic', 'health', 95)],
     });
 
     assert.equal(forcedRun.status, 'SUCCESS');

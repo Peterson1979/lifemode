@@ -1,7 +1,8 @@
-import type { PillarSlug, EditorialTopic, ContentBrief } from '../types.ts';
+import type { PillarSlug, ActivePillarSlug, EditorialTopic, ContentBrief } from '../types.ts';
 import type { EvidenceItem, EvidenceSourceType, EvidenceReliability } from '../research/types.ts';
 import type { EditorialSourceDefinition, CuratedTopicEvidenceSpec, SourceRole } from './types.ts';
 import type { ConfiguredRSSFeed } from '../discovery/config.ts';
+import { normalizePillar } from '../normalization.ts';
 
 /**
  * Curated LifeMode Source Registry V1.
@@ -172,7 +173,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'government',
     reliability: 'high',
-    pillars: ['money'],
+    pillars: ['wealth'],
     domains: ['treasurydirect.gov', 'treasury.gov'],
     url: 'https://treasurydirect.gov',
     topics: ['treasury-bills', 'bonds', 'interest-rates', 'yield', 'cash-management', 'savings-bonds'],
@@ -185,7 +186,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'government',
     reliability: 'high',
-    pillars: ['money'],
+    pillars: ['wealth'],
     domains: ['federalreserve.gov'],
     url: 'https://www.federalreserve.gov',
     topics: ['interest-rates', 'monetary-policy', 'macroeconomics', 'banking', 'inflation'],
@@ -198,7 +199,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'government',
     reliability: 'high',
-    pillars: ['money'],
+    pillars: ['wealth'],
     domains: ['sec.gov'],
     url: 'https://www.sec.gov',
     topics: ['investor-education', 'etf-regulations', 'disclosure', 'securities-law'],
@@ -211,7 +212,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'government',
     reliability: 'high',
-    pillars: ['money'],
+    pillars: ['wealth'],
     domains: ['consumerfinance.gov'],
     url: 'https://www.consumerfinance.gov',
     topics: ['consumer-rights', 'banking-rules', 'credit-cards', 'mortgages', 'personal-finance'],
@@ -224,7 +225,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'government',
     reliability: 'high',
-    pillars: ['money'],
+    pillars: ['wealth'],
     domains: ['bls.gov'],
     url: 'https://www.bls.gov',
     topics: ['cpi', 'inflation', 'employment', 'wages', 'cost-of-living'],
@@ -237,7 +238,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['money'],
+    pillars: ['wealth'],
     domains: ['investor.vanguard.com', 'vanguard.com'],
     url: 'https://investor.vanguard.com',
     topics: ['index-funds', 'asset-allocation', 'cash-management', 'retirement', 'diversification'],
@@ -250,7 +251,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['money'],
+    pillars: ['wealth'],
     domains: ['bloomberg.com'],
     url: 'https://www.bloomberg.com',
     topics: ['markets', 'fixed-income', 'commodities', 'economics'],
@@ -263,7 +264,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['money'],
+    pillars: ['wealth'],
     domains: ['reuters.com'],
     url: 'https://www.reuters.com',
     topics: ['markets', 'global-economy', 'central-banks', 'policy'],
@@ -276,7 +277,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['money'],
+    pillars: ['wealth'],
     domains: ['wsj.com'],
     url: 'https://www.wsj.com',
     topics: ['personal-finance', 'investing', 'markets', 'economy'],
@@ -289,7 +290,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['money'],
+    pillars: ['wealth'],
     domains: ['ft.com'],
     url: 'https://www.ft.com',
     topics: ['macroeconomics', 'global-markets', 'currencies', 'wealth'],
@@ -302,7 +303,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'both',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['money'],
+    pillars: ['wealth'],
     domains: ['cnbc.com'],
     url: 'https://www.cnbc.com/personal-finance/',
     feedUrl: 'https://search.cnbc.com/rs/search/view.html?partnerId=2000&keywords=personal%20finance&sort=date&output=rss',
@@ -316,7 +317,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['money'],
+    pillars: ['wealth'],
     domains: ['reddit.com/r/personalfinance'],
     topics: ['budgeting', 'saving', 'credit', 'investing-questions'],
     description: 'Everyday household money questions and community trend signals.',
@@ -333,7 +334,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'academic',
     reliability: 'high',
-    pillars: ['wellbeing'],
+    pillars: ['health'],
     domains: ['ncbi.nlm.nih.gov', 'nih.gov', 'pubmed.ncbi.nlm.nih.gov'],
     url: 'https://ncbi.nlm.nih.gov',
     topics: ['sleep-science', 'circadian-rhythm', 'clinical-trials', 'longevity', 'nutrition', 'neuroscience'],
@@ -346,7 +347,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'official',
     reliability: 'high',
-    pillars: ['wellbeing'],
+    pillars: ['health'],
     domains: ['who.int'],
     url: 'https://www.who.int',
     topics: ['global-health', 'epidemiology', 'mental-health', 'lifestyle-guidelines'],
@@ -359,7 +360,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'government',
     reliability: 'high',
-    pillars: ['wellbeing'],
+    pillars: ['health'],
     domains: ['cdc.gov'],
     url: 'https://www.cdc.gov',
     topics: ['preventative-care', 'sleep-health', 'physical-activity', 'environmental-health'],
@@ -372,7 +373,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'official',
     reliability: 'high',
-    pillars: ['wellbeing'],
+    pillars: ['health'],
     domains: ['sleepfoundation.org'],
     url: 'https://sleepfoundation.org',
     topics: ['circadian-rhythm', 'sleep-hygiene', 'light-therapy', 'recovery', 'insomnia'],
@@ -385,7 +386,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'academic',
     reliability: 'high',
-    pillars: ['wellbeing'],
+    pillars: ['health'],
     domains: ['nature.com'],
     url: 'https://www.nature.com',
     topics: ['longevity', 'neuroscience', 'molecular-biology', 'biomedicine'],
@@ -398,7 +399,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'both',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['wellbeing'],
+    pillars: ['health'],
     domains: ['psychologytoday.com'],
     url: 'https://www.psychologytoday.com',
     feedUrl: 'https://www.psychologytoday.com/us/blog-feed.rss',
@@ -412,7 +413,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'both',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['wellbeing'],
+    pillars: ['health'],
     domains: ['medicalnewstoday.com'],
     url: 'https://www.medicalnewstoday.com',
     feedUrl: 'https://rss.medicalnewstoday.com/featurednews.xml',
@@ -426,7 +427,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['wellbeing'],
+    pillars: ['health'],
     domains: ['reddit.com/r/longevity'],
     topics: ['longevity', 'biotech', 'anti-aging'],
     description: 'Community discussion of healthspan research and emerging studies.',
@@ -443,7 +444,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'official',
     reliability: 'high',
-    pillars: ['travel'],
+    pillars: ['life'],
     domains: ['kyoto.travel'],
     url: 'https://kyoto.travel',
     topics: ['kyoto', 'japan', 'tea-ceremony', 'temples', 'gardens', 'cultural-etiquette', 'sukiya'],
@@ -456,7 +457,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'government',
     reliability: 'high',
-    pillars: ['travel'],
+    pillars: ['life'],
     domains: ['nps.gov'],
     url: 'https://www.nps.gov',
     topics: ['national-parks', 'trails', 'conservation', 'wilderness', 'park-regulations'],
@@ -469,7 +470,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'official',
     reliability: 'high',
-    pillars: ['travel'],
+    pillars: ['life'],
     domains: ['unesco.org', 'whc.unesco.org'],
     url: 'https://whc.unesco.org',
     topics: ['world-heritage', 'cultural-preservation', 'historic-sites', 'architecture'],
@@ -482,7 +483,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'academic',
     reliability: 'high',
-    pillars: ['travel'],
+    pillars: ['life'],
     domains: ['tobunken.go.jp'],
     url: 'https://www.tobunken.go.jp/english/',
     topics: ['traditional-architecture', 'sukiya', 'japanese-craftsmanship', 'heritage-restoration'],
@@ -495,7 +496,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['travel'],
+    pillars: ['life'],
     domains: ['japan-guide.com'],
     url: 'https://www.japan-guide.com',
     topics: ['japan-travel', 'transportation', 'shinkansen', 'regional-guides'],
@@ -508,7 +509,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'both',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['travel'],
+    pillars: ['life'],
     domains: ['cntraveler.com'],
     url: 'https://www.cntraveler.com',
     feedUrl: 'https://www.cntraveler.com/feed/rss',
@@ -522,7 +523,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'both',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['travel'],
+    pillars: ['life'],
     domains: ['bbc.com', 'bbc.co.uk'],
     url: 'https://www.bbc.com/travel',
     feedUrl: 'https://feeds.bbci.co.uk/news/world/rss.xml',
@@ -536,7 +537,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['travel'],
+    pillars: ['life'],
     domains: ['reddit.com/r/solotravel'],
     topics: ['solo-travel', 'itineraries', 'destinations'],
     description: 'Emerging traveler discussion and destination trend signals.',
@@ -553,7 +554,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'official',
     reliability: 'high',
-    pillars: ['style', 'wellbeing'],
+    pillars: ['life', 'health'],
     domains: ['aad.org'],
     url: 'https://www.aad.org/public/everyday-care',
     topics: ['skincare', 'dermatology', 'sunscreen', 'hair-health', 'skin-barrier', 'cosmetic-ingredients'],
@@ -566,7 +567,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'academic',
     reliability: 'high',
-    pillars: ['style'],
+    pillars: ['life'],
     domains: ['cir-safety.org'],
     url: 'https://www.cir-safety.org',
     topics: ['cosmetics', 'ingredients', 'formulation', 'safety', 'retinoids', 'serums', 'peptides'],
@@ -579,7 +580,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'academic',
     reliability: 'high',
-    pillars: ['style'],
+    pillars: ['life'],
     domains: ['fitnyc.edu'],
     url: 'https://www.fitnyc.edu/museum',
     topics: ['fashion-history', 'textiles', 'tailoring', 'garment-craft', 'sustainable-materials'],
@@ -592,7 +593,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'both',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['style'],
+    pillars: ['life'],
     domains: ['vogue.com'],
     url: 'https://www.vogue.com',
     feedUrl: 'https://www.vogue.com/feed/rss',
@@ -606,7 +607,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'both',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['style'],
+    pillars: ['life'],
     domains: ['allure.com'],
     url: 'https://www.allure.com',
     feedUrl: 'https://www.allure.com/feed/rss',
@@ -620,7 +621,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'both',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['style'],
+    pillars: ['life'],
     domains: ['byrdie.com'],
     url: 'https://www.byrdie.com',
     feedUrl: 'https://www.byrdie.com/rss',
@@ -634,7 +635,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'academic',
     reliability: 'high',
-    pillars: ['tech-ai', 'entertainment'],
+    pillars: ['tech-ai', 'life'],
     domains: ['pewresearch.org'],
     url: 'https://www.pewresearch.org',
     topics: ['social-trends', 'digital-habits', 'demographics', 'technology-adoption', 'screen-time'],
@@ -660,7 +661,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'both',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['style'],
+    pillars: ['home', 'life'],
     domains: ['dezeen.com'],
     url: 'https://www.dezeen.com',
     feedUrl: 'https://www.dezeen.com/feed/',
@@ -674,7 +675,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'both',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['style'],
+    pillars: ['home', 'life'],
     domains: ['design-milk.com'],
     url: 'https://design-milk.com',
     feedUrl: 'https://design-milk.com/feed/',
@@ -702,7 +703,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['entertainment', 'style', 'travel'],
+    pillars: ['life'],
     domains: ['theguardian.com'],
     url: 'https://www.theguardian.com',
     topics: ['entertainment', 'culture', 'lifestyle', 'environment', 'society'],
@@ -715,7 +716,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['entertainment', 'style', 'travel'],
+    pillars: ['life'],
     domains: ['nytimes.com'],
     url: 'https://www.nytimes.com',
     topics: ['entertainment', 'culture', 'trends', 'lifestyle', 'travel', 'books'],
@@ -728,13 +729,13 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'both',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['entertainment'],
+    pillars: ['life'],
     domains: ['variety.com'],
     url: 'https://variety.com',
     feedUrl: 'https://variety.com/feed/',
     topics: ['film', 'television', 'music', 'celebrity', 'awards', 'festivals', 'interviews'],
     description: 'Authoritative entertainment journalism, film reviews, industry reporting, and celebrity profiles.',
-    enabled: true,
+    enabled: false,
   },
   {
     id: 'hollywood-reporter',
@@ -742,13 +743,13 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'both',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['entertainment'],
+    pillars: ['life'],
     domains: ['hollywoodreporter.com'],
     url: 'https://www.hollywoodreporter.com',
     feedUrl: 'https://www.hollywoodreporter.com/feed/',
     topics: ['movies', 'tv', 'celebrity', 'entertainment-culture', 'awards'],
     description: 'In-depth entertainment reporting, film and television analysis, and industry features.',
-    enabled: true,
+    enabled: false,
   },
   {
     id: 'rolling-stone-culture',
@@ -756,13 +757,13 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'both',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['entertainment'],
+    pillars: ['life'],
     domains: ['rollingstone.com'],
     url: 'https://www.rollingstone.com',
     feedUrl: 'https://www.rollingstone.com/feed/',
     topics: ['music', 'pop-culture', 'film', 'artists', 'interviews'],
     description: 'Music journalism, entertainment profiles, and contemporary pop culture commentary.',
-    enabled: true,
+    enabled: false,
   },
 
   // =========================================================================
@@ -774,7 +775,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'government',
     reliability: 'high',
-    pillars: ['food-drink'],
+    pillars: ['home'],
     domains: ['fao.org'],
     url: 'https://www.fao.org',
     topics: ['legumes', 'pulses', 'grains', 'agriculture', 'sustainability', 'food-standards'],
@@ -787,7 +788,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'official',
     reliability: 'high',
-    pillars: ['food-drink'],
+    pillars: ['home'],
     domains: ['internationaloliveoil.org'],
     url: 'https://www.internationaloliveoil.org',
     topics: ['olive-oil', 'evoo', 'polyphenols', 'sensory-analysis', 'standards'],
@@ -800,7 +801,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'academic',
     reliability: 'high',
-    pillars: ['food-drink'],
+    pillars: ['home'],
     domains: ['ciachef.edu'],
     url: 'https://www.ciachef.edu',
     topics: ['cooking-technique', 'kitchen-tools', 'culinary-science', 'baking', 'fermentation', 'emulsions'],
@@ -813,7 +814,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'research',
     sourceType: 'official',
     reliability: 'high',
-    pillars: ['food-drink', 'travel'],
+    pillars: ['home', 'life'],
     domains: ['slowfood.com'],
     url: 'https://www.slowfood.com',
     topics: ['food-culture', 'heritage-grains', 'neighborhood-markets', 'artisanal-producers', 'biodiversity'],
@@ -826,7 +827,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'both',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['food-drink'],
+    pillars: ['home'],
     domains: ['seriouseats.com'],
     url: 'https://www.seriouseats.com',
     feedUrl: 'https://www.seriouseats.com/rss/all',
@@ -840,7 +841,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'both',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['food-drink'],
+    pillars: ['home'],
     domains: ['eater.com'],
     url: 'https://www.eater.com',
     feedUrl: 'https://www.eater.com/rss/index.xml',
@@ -854,7 +855,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'both',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['food-drink'],
+    pillars: ['home'],
     domains: ['food52.com'],
     url: 'https://food52.com',
     feedUrl: 'https://food52.com/blog.rss',
@@ -868,7 +869,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'both',
     sourceType: 'reputable_media',
     reliability: 'high',
-    pillars: ['food-drink'],
+    pillars: ['home'],
     domains: ['epicurious.com'],
     url: 'https://www.epicurious.com',
     feedUrl: 'https://www.epicurious.com/feed/rss',
@@ -882,7 +883,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['food-drink'],
+    pillars: ['home'],
     domains: ['reddit.com/r/cooking'],
     topics: ['cooking', 'techniques', 'ingredients', 'recipes', 'kitchen-gear'],
     description: 'Home cook community discussions, technique queries, and emerging ingredient interest.',
@@ -895,7 +896,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['food-drink'],
+    pillars: ['home'],
     domains: ['reddit.com/r/sourdough'],
     topics: ['sourdough', 'fermentation', 'baking', 'wild-yeast', 'crumb-structure'],
     description: 'Artisan bread baking community troubleshooting, fermentation protocols, and crumb analysis.',
@@ -912,7 +913,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['tech-ai', 'money', 'wellbeing', 'travel', 'style', 'entertainment', 'food-drink'],
+    pillars: ['tech-ai', 'wealth', 'health', 'home', 'life', 'tools'],
     domains: ['trends.google.com'],
     url: 'https://trends.google.com',
     description: 'Real-time search interest spikes and keyword breakout signals.',
@@ -925,7 +926,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['style', 'entertainment', 'travel', 'wellbeing', 'food-drink'],
+    pillars: ['life', 'health', 'home'],
     domains: ['pinterest.com'],
     url: 'https://pinterest.com',
     description: 'Emerging visual aesthetics, personal style boards, and beauty curations.',
@@ -938,7 +939,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['tech-ai', 'style', 'entertainment', 'wellbeing', 'travel', 'food-drink'],
+    pillars: ['tech-ai', 'life', 'health', 'home'],
     domains: ['youtube.com'],
     url: 'https://www.youtube.com',
     description: 'Video culture discussions, tutorial surges, and hardware reviews.',
@@ -951,7 +952,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['style'],
+    pillars: ['life'],
     domains: ['reddit.com/r/SkincareAddiction'],
     topics: ['skincare', 'sunscreen', 'routines', 'barrier-repair', 'active-ingredients'],
     description: 'Community skincare routine discussions, ingredient experiences, and barrier health queries.',
@@ -964,7 +965,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['style'],
+    pillars: ['life'],
     domains: ['reddit.com/r/malefashionadvice'],
     topics: ['personal-style', 'capsule-wardrobe', 'tailoring', 'footwear', 'wardrobe-basics'],
     description: 'Emerging personal style queries, wardrobe curation, and fit discussions.',
@@ -977,7 +978,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['style'],
+    pillars: ['life'],
     domains: ['reddit.com/r/femalefashionadvice'],
     topics: ['capsule-wardrobe', 'sustainable-style', 'accessories', 'outfit-formulas'],
     description: 'Contemporary fashion discussions, outfit formulas, and intentional wardrobe building.',
@@ -990,7 +991,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['style'],
+    pillars: ['life'],
     domains: ['reddit.com/r/fragrance'],
     topics: ['fragrance', 'perfume', 'scent-notes', 'olfactory-craft', 'daily-wear'],
     description: 'Olfactory discussions, fragrance notes, and seasonal scent reviews.',
@@ -1003,11 +1004,11 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['entertainment'],
+    pillars: ['life'],
     domains: ['reddit.com/r/entertainment'],
     topics: ['celebrity', 'entertainment', 'industry-news', 'awards', 'profiles'],
     description: 'Mainstream entertainment news, celebrity profiles, and industry discussions.',
-    enabled: true,
+    enabled: false,
     isDiscoveryOnly: true,
   },
   {
@@ -1016,11 +1017,11 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['entertainment'],
+    pillars: ['life'],
     domains: ['reddit.com/r/movies'],
     topics: ['film', 'cinema', 'directors', 'actors', 'screenwriting'],
     description: 'Cinema discussions, film reviews, and filmmaker spotlights.',
-    enabled: true,
+    enabled: false,
     isDiscoveryOnly: true,
   },
   {
@@ -1029,11 +1030,11 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['entertainment'],
+    pillars: ['life'],
     domains: ['reddit.com/r/television'],
     topics: ['tv', 'series', 'streaming', 'acting', 'producers'],
     description: 'Television series discussions, streaming developments, and cast retrospectives.',
-    enabled: true,
+    enabled: false,
     isDiscoveryOnly: true,
   },
   {
@@ -1042,11 +1043,11 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
     role: 'discovery',
     sourceType: 'industry',
     reliability: 'medium',
-    pillars: ['entertainment'],
+    pillars: ['life'],
     domains: ['reddit.com/r/popculturechat'],
     topics: ['pop-culture', 'celebrities', 'relationships', 'red-carpet', 'media'],
     description: 'Contemporary pop culture, celebrity lifestyle, and cultural moments.',
-    enabled: true,
+    enabled: false,
     isDiscoveryOnly: true,
   },
 ];
@@ -1057,7 +1058,7 @@ export const SOURCE_REGISTRY: EditorialSourceDefinition[] = [
 export const CURATED_TOPIC_EVIDENCE: CuratedTopicEvidenceSpec[] = [
   // 1. Kyoto / Architecture / Tea Houses
   {
-    pillar: 'travel',
+    pillar: 'life',
     keywords: ['kyoto', 'tea', 'sukiya', 'chashitsu', 'garden'],
     evidence: [
       {
@@ -1111,7 +1112,7 @@ export const CURATED_TOPIC_EVIDENCE: CuratedTopicEvidenceSpec[] = [
   },
   // 3. Money / Treasury / Cash & Liquidity
   {
-    pillar: 'money',
+    pillar: 'wealth',
     keywords: ['treasury', 'cash', 'rates', 'yield', 'bills', 'liquidity'],
     evidence: [
       {
@@ -1138,7 +1139,7 @@ export const CURATED_TOPIC_EVIDENCE: CuratedTopicEvidenceSpec[] = [
   },
   // 4. Wellbeing / Circadian Protocols & Sleep
   {
-    pillar: 'wellbeing',
+    pillar: 'health',
     keywords: ['circadian', 'sleep', 'morning', 'light', 'adenosine'],
     evidence: [
       {
@@ -1165,7 +1166,7 @@ export const CURATED_TOPIC_EVIDENCE: CuratedTopicEvidenceSpec[] = [
   },
   // 5. Entertainment / Cinema, Film & Cultural Retrospectives
   {
-    pillar: 'entertainment',
+    pillar: 'life',
     keywords: ['film', 'cinema', 'director', 'television', 'acting', 'celebrity', 'pop culture', 'music'],
     evidence: [
       {
@@ -1192,7 +1193,7 @@ export const CURATED_TOPIC_EVIDENCE: CuratedTopicEvidenceSpec[] = [
   },
   // 6. Food & Drink / Sourdough & Fermentation
   {
-    pillar: 'food-drink',
+    pillar: 'home',
     keywords: ['sourdough', 'fermentation', 'starter', 'bread', 'yeast'],
     evidence: [
       {
@@ -1219,7 +1220,7 @@ export const CURATED_TOPIC_EVIDENCE: CuratedTopicEvidenceSpec[] = [
   },
   // 7. Food & Drink / Extra Virgin Olive Oil & Polyphenols
   {
-    pillar: 'food-drink',
+    pillar: 'home',
     keywords: ['olive', 'oil', 'evoo', 'polyphenol', 'oleocanthal'],
     evidence: [
       {
@@ -1246,7 +1247,7 @@ export const CURATED_TOPIC_EVIDENCE: CuratedTopicEvidenceSpec[] = [
   },
   // 8. Food & Drink / Legumes & Pulses
   {
-    pillar: 'food-drink',
+    pillar: 'home',
     keywords: ['lentil', 'legume', 'chickpea', 'pulse', 'bean'],
     evidence: [
       {
@@ -1288,9 +1289,11 @@ export function getSourceById(id: string): EditorialSourceDefinition | undefined
  * Retrieves all enabled sources for a specific pillar and optional role filter.
  */
 export function getSourcesByPillar(pillar: PillarSlug, role?: SourceRole): EditorialSourceDefinition[] {
+  const normPillar = normalizePillar(pillar) || pillar;
   return SOURCE_REGISTRY.filter((s) => {
     if (!s.enabled) return false;
-    if (!s.pillars.includes(pillar)) return false;
+    const normPillars = s.pillars.map((p) => normalizePillar(p) || p);
+    if (!normPillars.includes(normPillar)) return false;
     if (role && s.role !== role && s.role !== 'both') return false;
     return true;
   });
@@ -1388,9 +1391,11 @@ export function classifySourceFromRegistry(
 export function getCuratedEvidenceForTopic(topic: EditorialTopic, _brief?: ContentBrief): EvidenceItem[] {
   const canonical = topic.canonicalTopic.toLowerCase();
   const now = new Date().toISOString();
+  const normTopicPillar = normalizePillar(topic.pillar) || topic.pillar;
 
   for (const spec of CURATED_TOPIC_EVIDENCE) {
-    if (spec.pillar === topic.pillar) {
+    const specPillar = normalizePillar(spec.pillar) || spec.pillar;
+    if (specPillar === normTopicPillar) {
       const isMatch = spec.keywords.some((kw) => canonical.includes(kw));
       if (isMatch) {
         return spec.evidence.map((item) => ({
@@ -1408,13 +1413,16 @@ export function getCuratedEvidenceForTopic(topic: EditorialTopic, _brief?: Conte
  * Exports configured discovery RSS feeds sourced directly from the registry.
  */
 export function getDiscoveryFeedsFromRegistry(): ConfiguredRSSFeed[] {
-  return SOURCE_REGISTRY.filter((s) => s.enabled && (s.role === 'discovery' || s.role === 'both') && s.feedUrl && !s.isDiscoveryOnly).map(
-    (s) => ({
-      id: s.id,
-      name: s.name,
-      url: s.feedUrl!,
-      pillar: s.pillars[0],
-      categories: s.topics || [],
-    })
+  return SOURCE_REGISTRY.filter((s) => s.enabled && (s.role === 'discovery' || s.role === 'both') && s.feedUrl && !s.isDiscoveryOnly && !s.pillars.includes('entertainment')).map(
+    (s) => {
+      const normPillar = normalizePillar(s.pillars[0]) || 'life';
+      return {
+        id: s.id,
+        name: s.name,
+        url: s.feedUrl!,
+        pillar: normPillar,
+        categories: s.topics || [],
+      };
+    }
   );
 }

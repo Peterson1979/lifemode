@@ -17,6 +17,17 @@ export interface PillarConfig {
   subtopics?: SubtopicConfig[];
 }
 
+export const ACTIVE_EDITORIAL_PILLARS = [
+  'health',
+  'wealth',
+  'home',
+  'life',
+  'tech-ai',
+  'tools',
+] as const;
+
+export type ActivePillarSlug = (typeof ACTIVE_EDITORIAL_PILLARS)[number];
+
 export const PILLAR_SLUGS = [
   'health',
   'wealth',
@@ -24,7 +35,7 @@ export const PILLAR_SLUGS = [
   'life',
   'tech-ai',
   'tools',
-  // Backward compatibility entries for existing routes, collections and topic data providers
+  // Backward compatibility entries for existing routes, collections and legacy topic data
   'food-drink',
   'life-hacks',
   'style',

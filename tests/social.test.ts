@@ -1232,7 +1232,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
 
     const todayStr = new Date().toISOString().split('T')[0];
     await contentRepo.create({
-      pillar: 'travel',
+      pillar: 'health',
       slug: 'serene-nordic-sauna-architecture',
       content: 'Exploring minimalist woodcraft and thermal bathing rituals in Norway.',
       frontmatter: {
@@ -1240,7 +1240,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
         description: 'Exploring minimalist woodcraft and thermal bathing rituals in Norway.',
         pubDate: todayStr,
         author: 'LifeMode',
-        tags: ['travel', 'architecture', 'nordic'],
+        tags: ['health', 'architecture', 'nordic'],
         featured: false,
         draft: false,
         format: 'standard',
@@ -1266,7 +1266,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
 
     assert.equal(result.selectedCount, 1);
     assert.equal(result.succeededCount, 1);
-    assert.equal(result.manifestEntries[0].pillar, 'travel');
+    assert.equal(result.manifestEntries[0].pillar, 'health');
     assert.equal(result.manifestEntries[0].canonicalTopic, 'Serene Nordic Sauna Architecture');
 
     const fbResult = result.manifestEntries[0].platformResults.facebook;
@@ -1398,7 +1398,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     // Seed 3 published articles for today to meet quota (3/3)
     for (let i = 1; i <= 3; i++) {
       await contentRepo.create({
-        pillar: 'style',
+        pillar: 'life',
         slug: `daily-published-article-${i}`,
         content: `Body for article ${i}`,
         frontmatter: {

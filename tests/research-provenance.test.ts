@@ -122,27 +122,28 @@ test('2. Candidate transform and cross-source corroboration retain provenance in
 test('3. Candidate serialization and restoration preserves all provenance fields across filesystem persistence', async () => {
   const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lifemode-provenance-test-'));
   const filePath = path.join(tmpDir, 'candidates.json');
+  const nowIso = new Date().toISOString();
 
   try {
     const topic: EditorialTopic = {
       id: 'lm-culture-provenance-01',
       canonicalTopic: 'Mindful Japanese Tea Pavilions: Sukiya Architecture Today',
       slug: 'mindful-japanese-tea-pavilions-sukiya-architecture-today',
-      pillar: 'entertainment',
+      pillar: 'home',
       sourceSignals: [
         {
           source: 'RSS_FEEDS',
           query: 'Mindful Japanese Tea Pavilions',
-          recordedAt: '2026-02-10T09:00:00.000Z',
+          recordedAt: nowIso,
           sourceUrl: 'https://www.dezeen.com/2026/02/10/japanese-tea-pavilions-architecture/',
           publisherName: 'Dezeen Architecture',
-          publishedAt: '2026-02-10T09:00:00.000Z',
+          publishedAt: nowIso,
           contentSnippet: 'An exploration of minimalist Sukiya-style timber proportions.',
         },
         {
           source: 'REDDIT_SOCIAL',
           query: 'Japanese tea house discussions',
-          recordedAt: '2026-02-10T10:00:00.000Z',
+          recordedAt: nowIso,
         },
       ],
       queryVariants: ['sukiya architecture', 'tea pavilion design'],
@@ -161,8 +162,8 @@ test('3. Candidate serialization and restoration preserves all provenance fields
       opportunityType: 'ARTICLE',
       status: 'BRIEF_READY',
       freshnessScore: 95,
-      createdAt: '2026-02-10T09:00:00.000Z',
-      updatedAt: '2026-02-10T09:00:00.000Z',
+      createdAt: nowIso,
+      updatedAt: nowIso,
       tags: ['architecture', 'tea house', 'japan'],
     };
 
@@ -177,7 +178,7 @@ test('3. Candidate serialization and restoration preserves all provenance fields
     assert.ok(rssRestored);
     assert.equal(rssRestored?.sourceUrl, 'https://www.dezeen.com/2026/02/10/japanese-tea-pavilions-architecture/');
     assert.equal(rssRestored?.publisherName, 'Dezeen Architecture');
-    assert.equal(rssRestored?.publishedAt, '2026-02-10T09:00:00.000Z');
+    assert.equal(rssRestored?.publishedAt, nowIso);
     assert.equal(rssRestored?.contentSnippet, 'An exploration of minimalist Sukiya-style timber proportions.');
   } finally {
     await fs.rm(tmpDir, { recursive: true, force: true });

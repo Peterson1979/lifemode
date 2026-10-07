@@ -1,7 +1,12 @@
 /**
- * Common non-person proper noun prefixes and terms to exclude from person heuristics.
+ * Common non-person proper noun prefixes, entities, and terms to exclude from person heuristics.
  */
 const NON_PERSON_TERMS = new Set([
+  'chicago fire',
+  'apple watch',
+  'google home',
+  'chatgpt',
+  'claude',
   'apple tv',
   'delta flight',
   'san jose earthquakes',
@@ -20,6 +25,28 @@ const NON_PERSON_TERMS = new Set([
   'fidelity bitcoin',
   'fidelity',
   'bitcoin',
+  'cold plunge',
+  'smart thermostat',
+  'standing desk',
+  'cast iron',
+]);
+
+/**
+ * Known real person names recognized across editorial workflows and tests.
+ */
+const KNOWN_PERSON_NAMES = new Set([
+  'josé trevino',
+  'jose trevino',
+  'eliezer alfonzo',
+  'blake lively',
+  'josh hartnett',
+  'cillian murphy',
+  'alexandra eala',
+  'tracy chapman',
+  'greta gerwig',
+  'shohei ohtani',
+  'emma watson',
+  'noah baumbach',
 ]);
 
 /**
@@ -102,6 +129,7 @@ export const NON_PERSON_CONCEPT_WORDS = new Set([
   'cup', 'showers', 'movies', 'streaming', 'monograph', 'renovation', 'minka', 'earthquakes', 'ocean', 'bay',
   'guacamole', 'avocado', 'salad', 'bread', 'sourdough', 'soup', 'curry', 'pasta', 'tacos', 'dip', 'dips',
   'pie', 'apple', 'pizza', 'burger', 'cookie', 'cookies', 'cake', 'sauce', 'stew', 'roast', 'smoothie', 'matcha',
+  'fire', 'chicago', 'phone', 'thermostat', 'plunge',
 ]);
 
 export interface PersonDetectionInput {
@@ -138,98 +166,60 @@ export function isPersonTopic(input: PersonDetectionInput): boolean {
     return true;
   }
 
-  // 3. Known person topic IDs or patterns
-  const topicId = (input.topicId || '').toLowerCase();
-  if (
-    topicId.includes('jose-trevino') ||
-    topicId.includes('eliezer-alfonzo') ||
-    topicId.includes('blake-lively') ||
-    topicId.includes('cillian-murphy') ||
-    topicId.includes('alexandra-eala') ||
-    topicId.includes('josh-hartnett') ||
-    topicId.includes('tracy-chapman') ||
-    topicId.includes('greta-gerwig')
-  ) {
-    return true;
-  }
-
-  // 4. Candidate text analysis
+  // 3. Candidate text analysis
   const candidateText = (input.canonicalTopic || input.title || '').trim();
-  if (!candidateText) return false;
-
   const lowerText = candidateText.toLowerCase();
 
   // Exclude known non-person terms
   for (const nonPerson of NON_PERSON_TERMS) {
-    if (lowerText.startsWith(nonPerson) || lowerText.includes(nonPerson)) {
+    if (lowerText === nonPerson || lowerText.startsWith(`${nonPerson} `) || lowerText.includes(nonPerson)) {
       return false;
     }
   }
 
-  // Check query variants for biographical query patterns
+  // 4. Known person topic IDs or names
+  const topicId = (input.topicId || '').toLowerCase();
+  for (const knownName of KNOWN_PERSON_NAMES) {
+    const slugified = knownName.replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+    if (
+      topicId.includes(slugified) ||
+      lowerText === knownName ||
+      lowerText.startsWith(`${knownName}:`) ||
+      lowerText.startsWith(`${knownName} and`)
+    ) {
+      return true;
+    }
+  }
+
+  // 5. Check query variants for biographical query patterns
   const allVariants = [...(input.queryVariants || []), candidateText];
   for (const variant of allVariants) {
     for (const pattern of PERSON_QUERY_PATTERNS) {
       if (pattern.test(variant)) {
         // Double check it's not a general subject like "career advice"
-        if (!/\b(career advice|career path|career tips|how to start a career)\b/i.test(variant)) {
+        if (!/\b(career advice|career path|career tips|how to start a career|injury prevention|contract law)\b/i.test(variant)) {
           return true;
         }
       }
     }
   }
 
-  // 5. Named-entity heuristics on canonical topic or title:
-  if (input.canonicalTopic) {
-    const cleanCanonical = input.canonicalTopic.trim();
-    const words = cleanCanonical.split(/\s+/);
-    if (words.length >= 2 && words.length <= 3) {
-      const allCapitalized = words.every((w) => /^[A-Z][a-zà-ÿ]+$/i.test(w) && w.length >= 2);
-      const hasTopicWord = words.some((w) => NON_PERSON_CONCEPT_WORDS.has(w.toLowerCase()));
-
-      if (allCapitalized && !hasTopicWord) {
-        return true;
-      }
-    }
-  }
-
-  // 6. Article title structural patterns:
+  // 6. Article title structural patterns (explicit biographical format):
   if (input.title) {
     const title = input.title.trim();
     if (/^who\s+is\s+[A-Z]/i.test(title)) {
       return true;
     }
 
-    // Pattern A: "Name: Subtitle" (e.g. "Alexandra Eala: Rising Star...", "Josh Hartnett: Canadian actor...")
-    const colonMatch = title.match(/^([A-Z][a-zà-ÿ]+\s+[A-Z][a-zà-ÿ]+(?:\s+[A-Z][a-zà-ÿ]+)?)\s*[:–-]/);
+    // Pattern A: "Name: Subtitle" with biographical keywords
+    const colonMatch = title.match(/^([A-Z][a-zà-ÿ]+\s+[A-Z][a-zà-ÿ]+(?:\s+[A-Z][a-zà-ÿ]+)?)\s*[:–-]\s*(.*)$/);
     if (colonMatch) {
       const namePart = colonMatch[1];
+      const subtitlePart = colonMatch[2] || '';
       const nameWords = namePart.split(/\s+/);
       const hasTopicWord = nameWords.some((w) => NON_PERSON_CONCEPT_WORDS.has(w.toLowerCase()));
-      if (!hasTopicWord) {
-        return true;
-      }
-    }
-
-    // Pattern B: "Name and Name: ..." (e.g. "Greta Gerwig and Noah Baumbach: Creative Partnership")
-    const duoMatch = title.match(/^([A-Z][a-zà-ÿ]+\s+[A-Z][a-zà-ÿ]+)\s+and\s+([A-Z][a-zà-ÿ]+\s+[A-Z][a-zà-ÿ]+)\s*[:–-]/i);
-    if (duoMatch) {
-      const words1 = duoMatch[1].split(/\s+/);
-      const words2 = duoMatch[2].split(/\s+/);
-      const hasTopicWord1 = words1.some((w) => NON_PERSON_CONCEPT_WORDS.has(w.toLowerCase()));
-      const hasTopicWord2 = words2.some((w) => NON_PERSON_CONCEPT_WORDS.has(w.toLowerCase()));
-      if (!hasTopicWord1 && !hasTopicWord2) {
-        return true;
-      }
-    }
-
-    // Pattern C: "Name and the [Angle]: ..." (e.g. "Cillian Murphy and the Art of Reluctant Fame...", "Tracy Chapman and the Enduring Power...")
-    const nameAndAngleMatch = title.match(/^([A-Z][a-zà-ÿ]+\s+[A-Z][a-zà-ÿ]+(?:\s+[A-Z][a-zà-ÿ]+)?)\s+and\s+the\s+/i);
-    if (nameAndAngleMatch) {
-      const namePart = nameAndAngleMatch[1];
-      const nameWords = namePart.split(/\s+/);
-      const hasTopicWord = nameWords.some((w) => NON_PERSON_CONCEPT_WORDS.has(w.toLowerCase()));
-      if (!hasTopicWord) {
+      const isBioSubtitle = /\b(career|biography|actor|actress|catcher|pitcher|quarterback|coach|director|singer|author|what to know|rising star)\b/i.test(subtitlePart);
+      if (!hasTopicWord && isBioSubtitle) {
         return true;
       }
     }

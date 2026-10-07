@@ -375,7 +375,7 @@ test('11. High-risk article requirements are strictly enforced', () => {
 
   const highRiskContext: EditorialValidationContext = {
     ...validContext,
-    pillar: 'wellbeing',
+    pillar: 'health',
     riskLevel: 'high',
   };
 

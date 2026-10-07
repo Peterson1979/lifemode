@@ -9,6 +9,7 @@ import type {
 } from './types.ts';
 import { GitCli } from '../git-publisher/git-cli.ts';
 import { loadGitPublisherConfig } from '../git-publisher/config.ts';
+import { getEditorialDailyPlan } from '../cadence.ts';
 
 /**
  * Executes a production-safe Scheduled Editorial Automation run.
@@ -182,6 +183,9 @@ export async function runScheduledEditorialAutomation(
       }
     }
 
+    // Resolve deterministic UTC cadence editorial daily plan
+    const dailyPlan = getEditorialDailyPlan(options.targetDate, config.maxOpportunities);
+
     // 4. Execute standard editorial automation pipeline
     const automationResult = await runEditorialAutomation({
       ...options,
@@ -189,9 +193,11 @@ export async function runScheduledEditorialAutomation(
       dryRun: config.dryRun,
       allowCommit: config.allowCommit,
       allowUnrelatedChanges: options.allowUnrelatedChanges ?? true,
-      maxOpportunities: config.maxOpportunities,
+      maxOpportunities: dailyPlan.totalArticlesTarget,
       minScoreThreshold: config.minScoreThreshold,
       providerMode: config.providerMode,
+      targetDate: options.targetDate ?? dailyPlan.targetDate,
+      isAiDay: options.isAiDay !== undefined ? options.isAiDay : dailyPlan.isAiDay,
       storagePath: options.storagePath,
       contentRoot: options.contentRoot,
       gitRepoRoot: options.gitRepoRoot,

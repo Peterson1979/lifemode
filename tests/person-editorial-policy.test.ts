@@ -32,10 +32,10 @@ import type { GeneratedArticle } from '../src/lib/editorial/generation/types.ts'
 // ---------------------------------------------------------------------------
 function createMockPersonTopic(overrides: Partial<EditorialTopic> = {}): EditorialTopic {
   return {
-    id: 'lm-entertainment-20260916-jose-trevino',
+    id: 'lm-life-20260916-jose-trevino',
     canonicalTopic: 'José Trevino',
     slug: 'jose-trevino',
-    pillar: 'entertainment',
+    pillar: 'life',
     sourceSignals: [],
     queryVariants: ['jose trevino career', 'who is jose trevino', 'jose trevino stats'],
     scoring: {
@@ -55,17 +55,17 @@ function createMockPersonTopic(overrides: Partial<EditorialTopic> = {}): Editori
     freshnessScore: 90,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
-    tags: ['entertainment', 'person', 'baseball', 'mlb'],
+    tags: ['life', 'person', 'baseball', 'mlb'],
     ...overrides,
   };
 }
 
 function createMockNonPersonTopic(overrides: Partial<EditorialTopic> = {}): EditorialTopic {
   return {
-    id: 'lm-travel-20260916-the-azores',
+    id: 'lm-life-20260916-the-azores',
     canonicalTopic: 'The Azores Solitary Coastlines',
     slug: 'the-azores-solitary-coastlines',
-    pillar: 'travel',
+    pillar: 'life',
     sourceSignals: [],
     queryVariants: ['the azores travel guide', 'quietest islands in the azores'],
     scoring: {
@@ -85,7 +85,7 @@ function createMockNonPersonTopic(overrides: Partial<EditorialTopic> = {}): Edit
     freshnessScore: 75,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
-    tags: ['travel', 'coast', 'islands'],
+    tags: ['life', 'coast', 'islands'],
     ...overrides,
   };
 }
@@ -137,8 +137,8 @@ Beyond his defensive accomplishments on the diamond, Trevino has maintained deep
   const result = validateEditorialArticle(
     personArticle,
     {
-      topicId: 'lm-entertainment-20260916-jose-trevino',
-      pillar: 'entertainment',
+      topicId: 'lm-life-20260916-jose-trevino',
+      pillar: 'life',
       isPerson: true,
     }
   );
@@ -266,8 +266,8 @@ function createMockDimensions(baseScore = 90): Record<import('../src/lib/editori
       },
     },
     context: {
-      topicId: 'lm-entertainment-20260916-jose-trevino',
-      pillar: 'entertainment',
+      topicId: 'lm-life-20260916-jose-trevino',
+      pillar: 'life',
       format: 'deep-dive',
       audience: 'general',
       primaryIntent: 'informational',

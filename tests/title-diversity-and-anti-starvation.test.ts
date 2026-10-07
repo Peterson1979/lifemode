@@ -54,11 +54,11 @@ test('2. Title Pattern Detection: Flags formulaic patterns and excessive repetit
 });
 
 test('3. Anti-Starvation Boost: Accurately calculates dynamic boost based on elapsed days', () => {
-  assert.equal(calculatePillarStarvationBoost('style', undefined), 0);
-  assert.equal(calculatePillarStarvationBoost('style', { style: 1 }), 0);
-  assert.equal(calculatePillarStarvationBoost('style', { style: 3.5 }), 3);
-  assert.equal(calculatePillarStarvationBoost('style', { style: 5.5 }), 6);
-  assert.equal(calculatePillarStarvationBoost('style', { style: 8.0 }), 10);
+  assert.equal(calculatePillarStarvationBoost('life', undefined), 0);
+  assert.equal(calculatePillarStarvationBoost('life', { life: 1 }), 0);
+  assert.equal(calculatePillarStarvationBoost('life', { life: 3.5 }), 3);
+  assert.equal(calculatePillarStarvationBoost('life', { life: 5.5 }), 6);
+  assert.equal(calculatePillarStarvationBoost('life', { life: 8.0 }), 10);
 });
 
 test('4. Candidate Selection: Prevents starvation of underserved pillars while preserving minimum quality bar', () => {
@@ -92,45 +92,45 @@ test('4. Candidate Selection: Prevents starvation of underserved pillars while p
   // Tech candidate with raw score 90 (recent publish = 0.5 days ago)
   const techCandidate = baseTopic('topic-tech', 'tech-ai', 90, 'Autonomous Vehicle Standards');
 
-  // Entertainment candidate with raw score 84 (starved = 8 days ago)
-  const entertainmentCandidate = baseTopic('topic-entertainment', 'entertainment', 84, 'Minimalist Cinema Pavilion');
+  // Wealth candidate with raw score 84 (starved = 8 days ago)
+  const wealthCandidate = baseTopic('topic-wealth', 'wealth', 84, 'Digital Micro Business Management');
 
   // Low quality candidate with raw score 72 (starved = 10 days ago) - MUST NOT BE APPROVED
-  const lowQualityStarved = baseTopic('topic-wellbeing', 'wellbeing', 72, 'Unverified Daily Routine');
+  const lowQualityStarved = baseTopic('topic-health', 'health', 72, 'Unverified Daily Routine Guide');
 
   const existingPillarRecency = {
     'tech-ai': 0.5,
-    entertainment: 8.0, // Starved -> +10 boost -> effectiveScore = 94
-    wellbeing: 10.0, // Starved, but raw score 72 < 80 threshold
+    wealth: 8.0, // Starved -> +10 boost -> effectiveScore = 94
+    health: 10.0, // Starved, but raw score 72 < 80 threshold
   };
 
-  const selection = selectEditorialCandidates([techCandidate, entertainmentCandidate, lowQualityStarved], {
+  const selection = selectEditorialCandidates([techCandidate, wealthCandidate, lowQualityStarved], {
     minScoreThreshold: 80,
     totalLimit: 1, // Batch only selects 1 opportunity
     existingPillarRecency,
     enablePillarBalancing: true,
   });
 
-  // Starved Entertainment candidate (84 + 10 = 94 effective) wins over Tech candidate (90)
+  // Starved Wealth candidate (84 + 10 = 94 effective) wins over Tech candidate (90)
   assert.equal(selection.approved.length, 1);
-  assert.equal(selection.approved[0].pillar, 'entertainment', 'Starved Entertainment candidate should win candidate selection');
-  assert.equal(selection.approved[0].id, 'topic-entertainment');
+  assert.equal(selection.approved[0].pillar, 'wealth', 'Starved Wealth candidate should win candidate selection');
+  assert.equal(selection.approved[0].id, 'topic-wealth');
 
   // Low quality candidate must be deferred even if starved
-  const wellbeingDeferred = selection.deferred.find((d) => d.id === 'topic-wellbeing');
-  assert.ok(wellbeingDeferred, 'Raw score < 80 must be deferred despite starvation');
+  const healthDeferred = selection.deferred.find((d) => d.id === 'topic-health');
+  assert.ok(healthDeferred, 'Raw score < 80 must be deferred despite starvation');
 });
 
-test('5. Food & Drink Integration: Active RSS feeds exist in SOURCE_REGISTRY and getDiscoveryFeedsFromRegistry', () => {
+test('5. Food & Kitchen Integration: Active Home RSS feeds exist in SOURCE_REGISTRY and getDiscoveryFeedsFromRegistry', () => {
   const discoveryFeeds = getDiscoveryFeedsFromRegistry();
-  const foodFeeds = discoveryFeeds.filter((f) => f.pillar === 'food-drink');
+  const homeFeeds = discoveryFeeds.filter((f) => f.pillar === 'home');
 
-  assert.ok(foodFeeds.length >= 3, `Expected at least 3 active Food & Drink discovery feeds, got ${foodFeeds.length}`);
-  const feedNames = foodFeeds.map((f) => f.name);
+  assert.ok(homeFeeds.length >= 3, `Expected at least 3 active Home discovery feeds, got ${homeFeeds.length}`);
+  const feedNames = homeFeeds.map((f) => f.name);
   assert.ok(feedNames.some((n) => n.includes('Serious Eats')), 'Should include Serious Eats feed');
   assert.ok(feedNames.some((n) => n.includes('Eater')), 'Should include Eater feed');
   assert.ok(feedNames.some((n) => n.includes('Food52')), 'Should include Food52 feed');
 
-  const foodSourcesInRegistry = SOURCE_REGISTRY.filter((s) => s.pillars.includes('food-drink'));
-  assert.ok(foodSourcesInRegistry.length >= 6, 'SOURCE_REGISTRY should contain both research and discovery sources for food-drink');
+  const homeSourcesInRegistry = SOURCE_REGISTRY.filter((s) => s.pillars.includes('home'));
+  assert.ok(homeSourcesInRegistry.length >= 6, 'SOURCE_REGISTRY should contain both research and discovery sources for home');
 });

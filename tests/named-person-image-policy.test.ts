@@ -429,8 +429,8 @@ test('13. Existing provenance and license requirements remain strictly enforced'
   const valResult = validateEditorialArticle(
     articleWithValidProvenance,
     {
-      topicId: 'lm-entertainment-cillian-murphy',
-      pillar: 'entertainment',
+      topicId: 'lm-life-cillian-murphy',
+      pillar: 'life',
       isPerson: true,
       imageMetadata: {
         url: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80',

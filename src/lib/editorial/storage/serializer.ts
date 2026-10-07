@@ -155,7 +155,7 @@ export function parseArticle(
     throw new Error('Raw article content must be a string.');
   }
 
-  if (!VALID_PILLARS.includes(pillar)) {
+  if (!(VALID_PILLARS as readonly string[]).includes(pillar)) {
     throw new Error(`Unsupported pillar "${pillar}".`);
   }
 

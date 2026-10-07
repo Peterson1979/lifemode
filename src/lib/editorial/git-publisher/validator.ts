@@ -32,7 +32,7 @@ export function validateAstroArticle(
   }
 
   // 1. Pillar validation
-  if (!article.pillar || !VALID_PILLARS.includes(article.pillar as PillarSlug)) {
+  if (!article.pillar || !(VALID_PILLARS as readonly string[]).includes(article.pillar)) {
     errors.push(`Invalid or unsupported pillar "${article.pillar}". Must be one of: ${VALID_PILLARS.join(', ')}`);
   }
 
