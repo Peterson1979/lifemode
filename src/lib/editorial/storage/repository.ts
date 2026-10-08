@@ -324,6 +324,7 @@ export class FilesystemContentRepository implements IContentRepository {
   async list(pillar?: PillarSlug): Promise<StoredArticle[]> {
     const pillarsToScan: PillarSlug[] = pillar ? [validatePillar(pillar)] : [...VALID_PILLARS];
     const articles: StoredArticle[] = [];
+    const seenPaths = new Set<string>();
 
     for (const p of pillarsToScan) {
       const pillarDir = resolveSafeArticlePath(this.contentRoot, p, 'index').safePath.replace(/index\.md$/, '');
@@ -338,7 +339,8 @@ export class FilesystemContentRepository implements IContentRepository {
           const slug = file.replace(/\.(md|mdx)$/, '');
           try {
             const article = await this.get(p, slug);
-            if (article) {
+            if (article && !seenPaths.has(article.filePath)) {
+              seenPaths.add(article.filePath);
               articles.push(article);
             }
           } catch {

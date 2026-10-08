@@ -186,6 +186,67 @@ export const articleSchema = z.object({
   lifecycleStatus: z
     .enum(['DRAFT', 'REVIEWED', 'APPROVED', 'STORED', 'PUBLISHED', 'ARCHIVED'])
     .default('STORED'),
+
+  // EverydayGuide Structured Knowledge & Decision Fields
+  quickSummary: z.string().optional(),
+  contentType: z.enum(['reference', 'decision', 'protocol', 'explainer']).default('reference'),
+  difficulty: z.enum(['Easy', 'Moderate', 'Advanced']).optional(),
+  timeNeeded: z.string().optional(),
+  keyFacts: z
+    .array(
+      z.object({
+        label: z.string(),
+        value: z.string(),
+        icon: z.string().optional(),
+      })
+    )
+    .optional(),
+  materialsNeeded: z.array(z.string()).optional(),
+  toolsNeeded: z.array(z.string()).optional(),
+  steps: z
+    .array(
+      z.object({
+        stepNumber: z.union([z.number(), z.string()]),
+        title: z.string(),
+        description: z.string(),
+        tip: z.string().optional(),
+        warning: z.string().optional(),
+      })
+    )
+    .optional(),
+  commonMistakes: z
+    .array(
+      z.object({
+        mistake: z.string(),
+        whyItMatters: z.string(),
+        howToFix: z.string(),
+      })
+    )
+    .optional(),
+  proTips: z.array(z.string()).optional(),
+  decisionCriteria: z
+    .array(
+      z.object({
+        criterion: z.string(),
+        importance: z.string(),
+        advice: z.string(),
+      })
+    )
+    .optional(),
+  comparisonTable: z
+    .object({
+      headers: z.array(z.string()),
+      rows: z.array(z.array(z.string())),
+    })
+    .optional(),
+  faqs: z
+    .array(
+      z.object({
+        question: z.string(),
+        answer: z.string(),
+      })
+    )
+    .optional(),
 });
 
 export type ArticleFrontmatter = z.infer<typeof articleSchema>;

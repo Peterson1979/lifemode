@@ -13,7 +13,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 
 <BaseLayout
   title="Daily Ideas Store — Curated Everyday Finds | LifeMode"
-  description="Curated home, kitchen, and living essentials vetted for utility, durability, and practical everyday value."
+  description="Curated home, kitchen, storage, style, and living essentials vetted for utility, durability, and practical everyday value."
   jsonLd={breadcrumbSchema}
 >
   <!-- Breadcrumb Navigation -->
@@ -51,7 +51,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         Daily Ideas Store
       </h1>
       <p class="hero-lead" style="max-width: 760px; margin-bottom: var(--space-6);">
-        Curated kitchen, home, and living essentials vetted for real-world utility, durability, and value. No sponsored clutter—only tools and items we genuinely recommend.
+        Curated home, kitchen, storage, style, and living essentials vetted for real-world utility, durability, and value. No sponsored clutter—only items we genuinely recommend.
       </p>
     </div>
   </section>
@@ -61,11 +61,23 @@ const breadcrumbSchema = generateBreadcrumbSchema([
     <div class="container">
       <div class="store-grid">
         {allProducts.map((product) => (
-          <article class="store-item-card">
+          <article class="store-item-card" id={`product-${product.id}`}>
             <div class="item-header">
               {product.badge && <span class="item-badge">{product.badge}</span>}
-              <span class="item-brand">{product.brand}</span>
+              {product.brand && <span class="item-brand">{product.brand}</span>}
             </div>
+
+            {product.imageUrl && (
+              <div class="item-image-wrapper">
+                <img
+                  src={product.imageUrl}
+                  alt={product.name}
+                  class="item-image"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            )}
 
             <h2 class="item-title">{product.name}</h2>
             <p class="item-description">{product.description}</p>
@@ -78,7 +90,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
             )}
 
             <div class="item-footer">
-              <span class="item-price">{product.priceRange}</span>
+              <span class="item-price">{product.priceRange || 'Curated Find'}</span>
               <a
                 href={product.affiliateUrl}
                 target="_blank"
@@ -165,6 +177,27 @@ const breadcrumbSchema = generateBreadcrumbSchema([
     font-size: 0.775rem;
     font-weight: 600;
     color: var(--color-text-muted);
+  }
+
+  .item-image-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background-color: var(--color-surface-subtle);
+    margin-bottom: var(--space-4);
+    border: 1px solid var(--color-border-subtle);
+  }
+
+  .item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-base);
+  }
+
+  .store-item-card:hover .item-image {
+    transform: scale(1.03);
   }
 
   .item-title {

@@ -243,8 +243,8 @@ test('Selection Gatekeeping', () => {
 
   const candidates: EditorialTopic[] = [
     sampleCandidate('t1', 95, 'tech-ai'), // Approved
-    sampleCandidate('t2', 85, 'travel'),  // Approved
-    sampleCandidate('t3', 70, 'money'),   // Deferred (< 80)
+    sampleCandidate('t2', 85, 'home'),    // Approved
+    sampleCandidate('t3', 70, 'wealth'),  // Deferred (< 80)
     sampleCandidate('t4', 45, 'life'),    // Rejected (< 60)
   ];
 

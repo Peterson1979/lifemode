@@ -33,23 +33,43 @@ import { getDiscoveryFeedsFromRegistry } from '../sources/registry.ts';
 export const DEFAULT_CURATED_RSS_FEEDS: ConfiguredRSSFeed[] = getDiscoveryFeedsFromRegistry();
 
 export const DEFAULT_CURATED_SUBREDDITS: ConfiguredRedditCommunity[] = [
-  { subreddit: 'malefashionadvice', pillar: 'life', sort: 'top', timeframe: 'day', minScore: 25 },
-  { subreddit: 'femalefashionadvice', pillar: 'life', sort: 'top', timeframe: 'day', minScore: 25 },
-  { subreddit: 'SkincareAddiction', pillar: 'life', sort: 'top', timeframe: 'day', minScore: 30 },
-  { subreddit: 'fragrance', pillar: 'life', sort: 'top', timeframe: 'day', minScore: 20 },
-  { subreddit: 'solotravel', pillar: 'life', sort: 'top', timeframe: 'day', minScore: 30 },
-  { subreddit: 'LocalLLaMA', pillar: 'tech-ai', sort: 'top', timeframe: 'day', minScore: 35 },
-  { subreddit: 'technology', pillar: 'tech-ai', sort: 'top', timeframe: 'day', minScore: 50 },
-  { subreddit: 'ChatGPT', pillar: 'tech-ai', sort: 'top', timeframe: 'day', minScore: 40 },
+  // Home (cleaning, food safety, maintenance, cooking, organization)
+  { subreddit: 'CleaningTips', pillar: 'home', sort: 'top', timeframe: 'day', minScore: 30 },
+  { subreddit: 'HomeImprovement', pillar: 'home', sort: 'top', timeframe: 'day', minScore: 35 },
+  { subreddit: 'Cooking', pillar: 'home', sort: 'top', timeframe: 'day', minScore: 40 },
+  { subreddit: 'declutter', pillar: 'home', sort: 'top', timeframe: 'day', minScore: 25 },
+  { subreddit: 'castiron', pillar: 'home', sort: 'top', timeframe: 'day', minScore: 30 },
+  { subreddit: 'ApplianceRepair', pillar: 'home', sort: 'top', timeframe: 'day', minScore: 20 },
+
+  // Health (evidence-based nutrition, sleep, metabolic fitness, longevity)
+  { subreddit: 'nutrition', pillar: 'health', sort: 'top', timeframe: 'day', minScore: 35 },
+  { subreddit: 'Fitness', pillar: 'health', sort: 'top', timeframe: 'day', minScore: 40 },
+  { subreddit: 'Biohackers', pillar: 'health', sort: 'top', timeframe: 'day', minScore: 25 },
+  { subreddit: 'sleep', pillar: 'health', sort: 'top', timeframe: 'day', minScore: 25 },
+  { subreddit: 'EatCheapAndHealthy', pillar: 'health', sort: 'top', timeframe: 'day', minScore: 30 },
+
+  // Wealth (personal finance, cash management, investing, tax strategy)
   { subreddit: 'personalfinance', pillar: 'wealth', sort: 'top', timeframe: 'day', minScore: 40 },
   { subreddit: 'FinancialPlanning', pillar: 'wealth', sort: 'top', timeframe: 'day', minScore: 25 },
-  { subreddit: 'SideHustle', pillar: 'wealth', sort: 'top', timeframe: 'day', minScore: 30 },
-  { subreddit: 'longevity', pillar: 'health', sort: 'top', timeframe: 'day', minScore: 20 },
-  { subreddit: 'Biohackers', pillar: 'health', sort: 'top', timeframe: 'day', minScore: 25 },
-  { subreddit: 'Cooking', pillar: 'home', sort: 'top', timeframe: 'day', minScore: 40 },
-  { subreddit: 'Sourdough', pillar: 'home', sort: 'top', timeframe: 'day', minScore: 25 },
-  { subreddit: 'declutter', pillar: 'home', sort: 'top', timeframe: 'day', minScore: 25 },
-  { subreddit: 'HomeImprovement', pillar: 'home', sort: 'top', timeframe: 'day', minScore: 35 },
+  { subreddit: 'Bogleheads', pillar: 'wealth', sort: 'top', timeframe: 'day', minScore: 30 },
+  { subreddit: 'tax', pillar: 'wealth', sort: 'top', timeframe: 'day', minScore: 20 },
+
+  // Life (productivity, desk ergonomics, daily systems, intentional routines)
+  { subreddit: 'productivity', pillar: 'life', sort: 'top', timeframe: 'day', minScore: 30 },
+  { subreddit: 'organization', pillar: 'life', sort: 'top', timeframe: 'day', minScore: 25 },
+  { subreddit: 'everydaycarry', pillar: 'life', sort: 'top', timeframe: 'day', minScore: 25 },
+  { subreddit: 'simpleliving', pillar: 'life', sort: 'top', timeframe: 'day', minScore: 30 },
+
+  // Tech & AI (practical AI workflows, prompting, local LLMs, everyday software tools)
+  { subreddit: 'ChatGPT', pillar: 'tech-ai', sort: 'top', timeframe: 'day', minScore: 40 },
+  { subreddit: 'LocalLLaMA', pillar: 'tech-ai', sort: 'top', timeframe: 'day', minScore: 35 },
+  { subreddit: 'PromptEngineering', pillar: 'tech-ai', sort: 'top', timeframe: 'day', minScore: 25 },
+  { subreddit: 'software', pillar: 'tech-ai', sort: 'top', timeframe: 'day', minScore: 25 },
+
+  // Tools (durable tools, calculators, gear comparison, practical decision finders)
+  { subreddit: 'BuyItForLife', pillar: 'tools', sort: 'top', timeframe: 'day', minScore: 40 },
+  { subreddit: 'tools', pillar: 'tools', sort: 'top', timeframe: 'day', minScore: 30 },
+  { subreddit: 'GoodValue', pillar: 'tools', sort: 'top', timeframe: 'day', minScore: 20 },
 ];
 
 export interface GlobalDiscoveryConfig {

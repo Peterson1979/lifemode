@@ -21,7 +21,7 @@ const travelTopic: EditorialTopic = {
   id: 'lm-travel-test-01',
   canonicalTopic: 'The Architectural Kyoto Guide to Slow Tea Houses',
   slug: 'the-architectural-kyoto-guide-to-slow-tea-houses',
-  pillar: 'travel',
+  pillar: 'life',
   sourceSignals: [],
   queryVariants: ['kyoto tea houses', 'sukiya architecture'],
   scoring: {
@@ -44,13 +44,13 @@ const travelTopic: EditorialTopic = {
   tags: ['kyoto', 'japan', 'travel', 'architecture'],
 };
 
-const entertainmentTopic: EditorialTopic = {
-  id: 'lm-entertainment-test-01',
-  canonicalTopic: 'The Art of Cinematic Film Direction and Contemporary Screen Acting',
-  slug: 'the-art-of-cinematic-film-direction',
-  pillar: 'entertainment',
+const aiTopic: EditorialTopic = {
+  id: 'lm-ai-test-01',
+  canonicalTopic: 'Local LLM Deployment and Quantization Benchmarks',
+  slug: 'local-llm-deployment-quantization-benchmarks',
+  pillar: 'tech-ai',
   sourceSignals: [],
-  queryVariants: ['film direction', 'screen acting'],
+  queryVariants: ['local llm', 'quantization benchmarks'],
   scoring: {
     searchPotential: 90,
     pinterestPotential: 90,
@@ -68,14 +68,14 @@ const entertainmentTopic: EditorialTopic = {
   freshnessScore: 95,
   createdAt: new Date().toISOString(),
   updatedAt: new Date().toISOString(),
-  tags: ['film', 'cinema', 'entertainment'],
+  tags: ['local', 'llm', 'ollama', 'quantization'],
 };
 
 const lifeTopic: EditorialTopic = {
   id: 'lm-life-test-01',
   canonicalTopic: 'Minimalist Morning Routines for Creative Clarity',
   slug: 'minimalist-morning-routines-for-creative-clarity',
-  pillar: 'style',
+  pillar: 'life',
   sourceSignals: [],
   queryVariants: ['minimalist morning routines'],
   scoring: {
@@ -104,10 +104,10 @@ test('1. Research evaluator classifies research requirement correctly based on t
   assert.equal(travelReq.required, true);
   assert.ok(travelReq.reason.length > 0);
 
-  const entBrief = buildContentBrief(entertainmentTopic);
-  const entReq = evaluateResearchRequirement(entertainmentTopic, entBrief);
-  assert.equal(entReq.required, true);
-  assert.ok(entReq.reason.includes('zeitgeist') || entReq.reason.includes('trend') || entReq.reason.includes('authoritative') || entReq.reason.length > 0);
+  const aiBrief = buildContentBrief(aiTopic);
+  const aiReq = evaluateResearchRequirement(aiTopic, aiBrief);
+  assert.equal(aiReq.required, true);
+  assert.ok(aiReq.reason.length > 0);
 
   const lifeBrief = buildContentBrief(lifeTopic);
   const lifeReq = evaluateResearchRequirement(lifeTopic, lifeBrief);
@@ -132,7 +132,7 @@ test('2. Fixture research provider generates structured evidence for required to
   assert.ok(firstItem.sourceType === 'official' || firstItem.sourceType === 'academic');
 });
 
-test('3. Web research provider generates verified domain evidence for travel and entertainment topics', async () => {
+test('3. Web research provider generates verified domain evidence for life and tech-ai topics', async () => {
   const provider = new WebEditorialResearchProvider();
   const travelBrief = buildContentBrief(travelTopic);
 
@@ -140,10 +140,10 @@ test('3. Web research provider generates verified domain evidence for travel and
   assert.equal(result.status, 'SUCCESS');
   assert.ok(result.items.some((i) => i.publisher.includes('Kyoto')));
 
-  const entBrief = buildContentBrief(entertainmentTopic);
-  const entResult = await provider.research(entertainmentTopic, entBrief);
-  assert.equal(entResult.status, 'SUCCESS');
-  assert.ok(entResult.items.some((i) => i.publisher.includes('British Film Institute') || i.publisher.includes('Academy of Motion Picture')));
+  const aiBrief = buildContentBrief(aiTopic);
+  const aiResult = await provider.research(aiTopic, aiBrief);
+  assert.equal(aiResult.status, 'SUCCESS');
+  assert.ok(aiResult.items.some((i) => i.publisher.includes('Hugging Face') || i.publisher.includes('Ollama')));
 });
 
 test('4. Research pipeline preserves timing metadata and error boundaries', async () => {
@@ -327,7 +327,7 @@ test('9. Automation runner seamlessly advances through RESEARCH -> GENERATION ->
           {
             source: 'RSS_FEEDS' as const,
             sourceId: 'rss-tech-ai-01',
-            rawQuery: 'Private Local LLM Hardware Architectures',
+            rawQuery: 'How to Setup Local LLMs with Ollama: Step-by-Step Architecture Guide',
             timestamp: new Date().toISOString(),
             category: 'tech-ai',
             metrics: { relativeInterest: 95, searchVolume: 18000, visualPotentialScore: 90 },

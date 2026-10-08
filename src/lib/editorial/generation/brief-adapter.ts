@@ -38,10 +38,24 @@ export function briefToGenerationRequest(
       (brief as any).sourceSignals || []
     );
 
-  const contentType =
-    brief.contentType ||
-    factSheet.contentType ||
-    determineContentType(fallbackTopic);
+  const guideMode: import('../types.ts').EditorialGuideMode =
+    brief.guideMode ||
+    (brief.contentType === 'decision' ? 'decision' : 'reference');
+
+  let contentType: 'NEWS' | 'EXPLAINER' | 'EVERGREEN_GUIDE' | import('../types.ts').EditorialGuideMode = 'EVERGREEN_GUIDE';
+  if (brief.contentType === 'NEWS' || factSheet.contentType === 'NEWS') {
+    contentType = 'NEWS';
+  } else if (brief.contentType === 'EXPLAINER' || factSheet.contentType === 'EXPLAINER') {
+    contentType = 'EXPLAINER';
+  } else if (brief.contentType === 'decision') {
+    contentType = 'decision';
+  } else if (brief.contentType === 'reference') {
+    contentType = 'reference';
+  } else if (brief.contentType === 'EVERGREEN_GUIDE') {
+    contentType = guideMode;
+  } else {
+    contentType = factSheet.contentType || determineContentType(fallbackTopic);
+  }
 
   return {
     topicId: brief.topicId,
@@ -88,6 +102,7 @@ export function briefToGenerationRequest(
     estimatedWordCount: brief.estimatedWordCount,
     outlineSections: brief.outlineSections,
     factSheet,
+    guideMode,
     contentType,
   };
 }

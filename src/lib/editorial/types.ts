@@ -216,6 +216,11 @@ export interface BriefAffiliateOpportunities {
 }
 
 /**
+ * EverydayGuide sub-mode for EVERGREEN_GUIDE content.
+ */
+export type EditorialGuideMode = 'reference' | 'decision';
+
+/**
  * Content Brief structure produced from an approved topic and research evidence.
  * Serves as the authoritative handoff between Research and Generation (Editorial Brief V2).
  */
@@ -273,7 +278,8 @@ export interface ContentBrief {
     keyPoints: string[];
   }>;
   factSheet?: import('./fact-sheet.ts').StructuredFactSheet;
-  contentType?: import('./fact-sheet.ts').EditorialContentType;
+  guideMode?: EditorialGuideMode;
+  contentType?: 'reference' | 'decision' | import('./fact-sheet.ts').EditorialContentType;
   createdAt: string;
 }
 

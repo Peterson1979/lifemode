@@ -1,12 +1,22 @@
 /**
  * LifeMode Editorial Cadence & Scheduling Helper.
  *
- * Implements a deterministic, calendar-based cadence for AI-focused editorial content:
- * - An AI article (GetAISet-derived mainstream AI tools/learning) is scheduled every THIRD day.
- * - Non-AI days select 3 dynamic trending LifeMode articles with no forced pillar rotation.
- * - The cadence is purely derived from the UTC calendar date, ensuring that workflow retries,
- *   watchdog catch-up windows, and workflow_dispatch executions on the same UTC date resolve
- *   to the exact same cadence decision.
+ * Implements a deterministic, calendar-based weekly cadence:
+ * - Every day has a total editorial article target of 3 articles.
+ *
+ * - 3 GetAISet days per week (Tuesday, Thursday, Saturday UTC):
+ *   - 1 GetAISet article per day (AI learning / practical AI tools for everyday non-technical users)
+ *   - 2 regular LifeMode articles per day across the active pillars
+ *   - Total: 3 articles/day (1 GetAISet + 2 regular LifeMode)
+ *
+ * - 4 Regular LifeMode editorial days per week (Sunday, Monday, Wednesday, Friday UTC):
+ *   - 3 regular articles per day across the active pillars
+ *   - Total: 3 articles/day (3 regular LifeMode)
+ *
+ * - Overall Weekly Total: 21 articles/week (3 GetAISet + 18 regular LifeMode).
+ *
+ * - Life Hacks Cadence (separate): 3 video opportunities/week (Tuesday, Thursday, Saturday UTC).
+ * - Tools Cadence (separate): 1 tool opportunity/week (Sunday UTC).
  */
 
 // Fixed UTC anchor date: 2026-01-01 (Day 0 of 2026)
@@ -63,23 +73,36 @@ export function getElapsedUtcDays(dateInput?: string | Date): number {
 }
 
 /**
- * Evaluates whether a given date is a scheduled AI Publishing Day (every 3rd day).
+ * Evaluates whether a given date is a scheduled GetAISet Publishing Day.
  *
- * Deterministic formula:
- * (elapsedDays % 3) === 0 -> AI Day
- *
- * Example cadence:
- * - 2026-10-03 -> Non-AI Day
- * - 2026-10-04 -> Non-AI Day
- * - 2026-10-05 -> AI Day (GetAISet + 2 dynamic)
- * - 2026-10-06 -> Non-AI Day
- * - 2026-10-07 -> Non-AI Day
- * - 2026-10-08 -> AI Day (GetAISet + 2 dynamic)
+ * Deterministic weekly schedule (3 days / week):
+ * - Tuesday (2), Thursday (4), Saturday (6) -> GetAISet Day (1 AI article + 2 regular articles = 3 total)
+ * - Sunday (0), Monday (1), Wednesday (3), Friday (5) -> Regular LifeMode Editorial Day (3 regular articles)
  */
 export function isAiCadenceDay(dateInput?: string | Date): boolean {
-  const elapsedDays = getElapsedUtcDays(dateInput);
-  // Support both positive and negative modulo safely
-  return ((elapsedDays % 3) + 3) % 3 === 0;
+  const ms = parseUtcDateMidnight(dateInput);
+  const dayOfWeek = new Date(ms).getUTCDay();
+  return dayOfWeek === 2 || dayOfWeek === 4 || dayOfWeek === 6;
+}
+
+/**
+ * Evaluates whether a given date is a scheduled Life Hacks Publishing Day.
+ * Target: 3 videos per week (Tuesday, Thursday, Saturday UTC).
+ */
+export function isLifeHacksCadenceDay(dateInput?: string | Date): boolean {
+  const ms = parseUtcDateMidnight(dateInput);
+  const dayOfWeek = new Date(ms).getUTCDay();
+  return dayOfWeek === 2 || dayOfWeek === 4 || dayOfWeek === 6;
+}
+
+/**
+ * Evaluates whether a given date is a scheduled Tools Publishing Day.
+ * Target: 1 tool item per week (Sunday UTC).
+ */
+export function isToolsCadenceDay(dateInput?: string | Date): boolean {
+  const ms = parseUtcDateMidnight(dateInput);
+  const dayOfWeek = new Date(ms).getUTCDay();
+  return dayOfWeek === 0;
 }
 
 export interface EditorialDailyPlan {
@@ -96,17 +119,23 @@ export interface EditorialDailyPlan {
  */
 export function getEditorialDailyPlan(
   dateInput?: string | Date,
-  totalArticlesTarget = 3
+  customTotalTarget?: number
 ): EditorialDailyPlan {
   const targetDate = formatUtcDateString(dateInput);
   const isAiDay = isAiCadenceDay(dateInput);
+
+  // Every day has a total target of 3 articles:
+  // - AI Day: 1 GetAISet + 2 regular LifeMode articles = 3 total articles
+  // - Non-AI Day: 3 regular LifeMode articles = 3 total articles
+  const baseTarget = 3;
+  const totalArticlesTarget = customTotalTarget !== undefined ? customTotalTarget : baseTarget;
 
   const aiArticlesTarget = isAiDay ? Math.min(1, totalArticlesTarget) : 0;
   const dynamicArticlesTarget = Math.max(0, totalArticlesTarget - aiArticlesTarget);
 
   const description = isAiDay
-    ? `AI Cadence Day: 1 GetAISet mainstream AI article + ${dynamicArticlesTarget} dynamic trending LifeMode articles`
-    : `Standard Editorial Day: ${dynamicArticlesTarget} dynamic trending LifeMode articles`;
+    ? `GetAISet Editorial Day: 1 mainstream practical AI learning / tool article + ${dynamicArticlesTarget} dynamic trending LifeMode articles across the active pillars`
+    : `Standard LifeMode Editorial Day: ${dynamicArticlesTarget} dynamic trending LifeMode articles across the active pillars`;
 
   return {
     targetDate,

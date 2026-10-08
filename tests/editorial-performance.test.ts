@@ -325,25 +325,25 @@ test('8. Selection Engine Integration: Performance feedback influences candidate
       measuredAt: '2026-09-10T12:00:00Z',
     },
     {
-      articleSlug: 'travel/flop-1',
+      articleSlug: 'life/flop-1',
       topicId: 'tr1',
-      pillar: 'travel',
+      pillar: 'life',
       publicationDate: '2026-09-01',
       metrics: { views: 10, clicks: 0, engagement: 20 },
       measuredAt: '2026-09-10T12:00:00Z',
     },
     {
-      articleSlug: 'travel/flop-2',
+      articleSlug: 'life/flop-2',
       topicId: 'tr2',
-      pillar: 'travel',
+      pillar: 'life',
       publicationDate: '2026-09-02',
       metrics: { views: 15, clicks: 0, engagement: 22 },
       measuredAt: '2026-09-10T12:00:00Z',
     },
     {
-      articleSlug: 'travel/flop-3',
+      articleSlug: 'life/flop-3',
       topicId: 'tr3',
-      pillar: 'travel',
+      pillar: 'life',
       publicationDate: '2026-09-03',
       metrics: { views: 8, clicks: 0, engagement: 18 },
       measuredAt: '2026-09-10T12:00:00Z',
@@ -354,8 +354,8 @@ test('8. Selection Engine Integration: Performance feedback influences candidate
 
   // Candidate A (tech-ai, raw score 84) -> boosts to ~88 with feedback
   const candA = createDummyTopic('cand-a', 'AI Prompt Engineering System', 'tech-ai', 84);
-  // Candidate B (travel, raw score 86) -> dampens to ~82 with feedback
-  const candB = createDummyTopic('cand-b', 'Crowded Resort Guide', 'travel', 86);
+  // Candidate B (life, raw score 86) -> dampens to ~82 with feedback
+  const candB = createDummyTopic('cand-b', 'How to Organize Home Storage Systems', 'life', 86);
 
   // Without feedback, candB (86) outranks candA (84)
   const selectionWithoutFeedback = selectEditorialCandidates([candA, candB], {

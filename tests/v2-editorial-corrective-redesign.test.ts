@@ -50,18 +50,25 @@ test('1. Authoritative Taxonomy: Only 6 active editorial pillars exist in contra
   assert.deepEqual(Array.from(ACTIVE_EDITORIAL_PILLARS), expectedPillars);
   assert.deepEqual(Array.from(VALID_PILLARS), expectedPillars);
 
-  // Legacy mappings
+  // Legacy mappings for practical everyday guide categories
   assert.equal(normalizePillar('wellbeing'), 'health');
   assert.equal(normalizePillar('money'), 'wealth');
   assert.equal(normalizePillar('food-drink'), 'home');
   assert.equal(normalizePillar('food-kitchen'), 'home');
-  assert.equal(normalizePillar('style'), 'life');
-  assert.equal(normalizePillar('travel'), 'life');
-  assert.equal(normalizePillar('entertainment'), 'life');
+  assert.equal(normalizePillar('cleaning-laundry'), 'home');
+  assert.equal(normalizePillar('home-maintenance'), 'home');
+  assert.equal(normalizePillar('storage-organization'), 'home');
+  assert.equal(normalizePillar('everyday-how-to'), 'life');
   assert.equal(normalizePillar('health'), 'health');
   assert.equal(normalizePillar('tech-ai'), 'tech-ai');
+  assert.equal(normalizePillar('tools'), 'tools');
 
-  // Hard exclusions
+  // Hard exclusions (entertainment, style, travel, culture, gaming, celebrity, video-only)
+  assert.equal(normalizePillar('style'), null);
+  assert.equal(normalizePillar('travel'), null);
+  assert.equal(normalizePillar('entertainment'), null);
+  assert.equal(normalizePillar('culture'), null);
+  assert.equal(normalizePillar('gaming'), null);
   assert.equal(normalizePillar('life-hacks'), null);
   assert.equal(normalizePillar('celebrity-gossip'), null);
   assert.equal(normalizePillar('random-news'), null);
@@ -247,28 +254,33 @@ test('3. Candidate Lifecycle: Prunes stale candidates, decays freshness, and bou
 // 3. Cadence & Selection Tests (AI Day vs Normal Day)
 // ---------------------------------------------------------------------------
 
-test('4. Deterministic UTC Cadence: Every 3rd UTC day is an AI Day', () => {
-  // Day 0 (2026-01-01) -> AI Day
-  assert.equal(isAiCadenceDay('2026-01-01'), true);
-  assert.equal(isAiCadenceDay('2026-01-02'), false);
-  assert.equal(isAiCadenceDay('2026-01-03'), false);
-  assert.equal(isAiCadenceDay('2026-01-04'), true);
+test('4. Deterministic UTC Cadence: 3 GetAISet days (Tue/Thu/Sat) and 4 Regular LifeMode days', () => {
+  // Weekly structure:
+  // Sun (0): Regular Day
+  // Mon (1): Regular Day
+  // Tue (2): GetAISet Day
+  // Wed (3): Regular Day
+  // Thu (4): GetAISet Day
+  // Fri (5): Regular Day
+  // Sat (6): GetAISet Day
 
-  // October 2026 cadence (Oct 1 is day 273 % 3 === 0 -> AI Day)
-  assert.equal(isAiCadenceDay('2026-10-04'), true);
-  assert.equal(isAiCadenceDay('2026-10-05'), false);
-  assert.equal(isAiCadenceDay('2026-10-06'), false);
-  assert.equal(isAiCadenceDay('2026-10-07'), true);
-  assert.equal(isAiCadenceDay('2026-10-08'), false);
-  assert.equal(isAiCadenceDay('2026-10-10'), true);
+  // October 2026 cadence
+  assert.equal(isAiCadenceDay('2026-10-04'), false, 'Sunday is Regular Day');
+  assert.equal(isAiCadenceDay('2026-10-05'), false, 'Monday is Regular Day');
+  assert.equal(isAiCadenceDay('2026-10-06'), true, 'Tuesday is AI Day');
+  assert.equal(isAiCadenceDay('2026-10-07'), false, 'Wednesday is Regular Day');
+  assert.equal(isAiCadenceDay('2026-10-08'), true, 'Thursday is AI Day');
+  assert.equal(isAiCadenceDay('2026-10-09'), false, 'Friday is Regular Day');
+  assert.equal(isAiCadenceDay('2026-10-10'), true, 'Saturday is AI Day');
 
   // Repeat calls on the same UTC date yield identical plan
-  const plan1 = getEditorialDailyPlan('2026-10-07', 3);
-  const plan2 = getEditorialDailyPlan(new Date('2026-10-07T22:30:00Z'), 3);
+  const plan1 = getEditorialDailyPlan('2026-10-06');
+  const plan2 = getEditorialDailyPlan(new Date('2026-10-06T22:30:00Z'));
   assert.equal(plan1.isAiDay, true);
   assert.equal(plan2.isAiDay, true);
   assert.equal(plan1.aiArticlesTarget, 1);
   assert.equal(plan1.dynamicArticlesTarget, 2);
+  assert.equal(plan1.totalArticlesTarget, 3);
 });
 
 test('5. Candidate Selection: AI Day selects 1 GetAISet + 2 dynamic LifeMode articles', () => {
@@ -380,9 +392,9 @@ test('5. Candidate Selection: AI Day selects 1 GetAISet + 2 dynamic LifeMode art
     },
   ];
 
-  // AI Day Selection (e.g. 2026-10-07)
+  // AI Day Selection (2026-10-06 Tuesday is AI Day)
   const aiDaySelection = selectEditorialCandidates(candidates, {
-    targetDate: '2026-10-07',
+    targetDate: '2026-10-06',
     totalLimit: 3,
   });
 
@@ -391,9 +403,9 @@ test('5. Candidate Selection: AI Day selects 1 GetAISet + 2 dynamic LifeMode art
   assert.ok(getAiSetApproved, 'AI Day must select 1 GetAISet candidate');
   assert.equal(getAiSetApproved?.pillar, 'tech-ai');
 
-  // Normal Day Selection (e.g. 2026-10-08)
+  // Normal Day Selection (2026-10-07 Wednesday is Normal Day)
   const normalDaySelection = selectEditorialCandidates(candidates, {
-    targetDate: '2026-10-08',
+    targetDate: '2026-10-07',
     totalLimit: 3,
   });
 

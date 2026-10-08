@@ -105,6 +105,9 @@ export interface PublishingContext {
     target: number;
     max: number;
   };
+  guideMode?: import('../types.ts').EditorialGuideMode;
+  contentType?: 'NEWS' | 'EXPLAINER' | 'EVERGREEN_GUIDE' | import('../types.ts').EditorialGuideMode;
+  factSheet?: import('../fact-sheet.ts').StructuredFactSheet;
   isAlreadyPublished?: boolean;
   isPerson?: boolean;
 }

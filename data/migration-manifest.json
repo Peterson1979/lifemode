@@ -1243,25 +1243,6 @@
       "notes": []
     },
     {
-      "filePath": "src/content/food-drink/late-summer-harvest-preserving-heirloom-produce-and-wild-ferments.md",
-      "pillar": "food-drink",
-      "slug": "late-summer-harvest-preserving-heirloom-produce-and-wild-ferments",
-      "topicId": "lm-food-drink-20260919-late-summer-harvest-preserving",
-      "currentTitle": "Late summer harvest: preserving heirloom produce and wild ferments",
-      "contentType": "EVERGREEN_GUIDE",
-      "migrationStatus": "MIGRATED",
-      "sourceStatus": "VALID_SOURCES",
-      "rewriteStatus": "ORIGINAL_COMPLIANT",
-      "editorialQAStatus": "PASSED",
-      "editorialScore": 100,
-      "imageStatus": "ACCEPTED_IMAGE",
-      "imageFlags": [],
-      "imageUrl": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-food-drink-20260919-late-summer-harve/cd1c4423f609346f.jpg",
-      "visualSubject": "Late summer harvest preserving heirloom produce and wild ferments",
-      "finalStatus": "MIGRATED",
-      "notes": []
-    },
-    {
       "filePath": "src/content/food-drink/rustic-potato-leek-soup.md",
       "pillar": "food-drink",
       "slug": "rustic-potato-leek-soup",

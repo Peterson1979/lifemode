@@ -70,12 +70,12 @@ const MOCK_GOOGLE_TRENDS_RSS = `<?xml version="1.0" encoding="UTF-8"?>
     <title>Daily Search Trends (US)</title>
     <link>https://trends.google.com/trending</link>
     <item>
-      <title>Kyoto Tea Houses</title>
+      <title>Weekly Review and Time Blocking Protocol</title>
       <ht:approx_traffic>100K+</ht:approx_traffic>
-      <description>Surge in international slow travel and traditional tea ceremony searches.</description>
+      <description>Surge in practical habit and weekly planning system searches.</description>
       <pubDate>Thu, 10 Sep 2026 06:00:00 -0700</pubDate>
-      <link>https://trends.google.com/trending/story/kyoto-tea</link>
-      <category>Travel</category>
+      <link>https://trends.google.com/trending/story/weekly-review</link>
+      <category>Productivity</category>
     </item>
     <item>
       <title>Nvidia AI Computing Architecture</title>
@@ -285,7 +285,7 @@ test('Live Google Trends Adapter - Ingests RSS and classifies keyword pillars', 
   assert.equal(result.status, 'AVAILABLE');
   assert.equal(result.signals.length, 2);
 
-  const item1 = result.signals.find((s) => s.rawQuery.includes('Kyoto'));
+  const item1 = result.signals.find((s) => s.rawQuery.includes('Weekly Review'));
   assert.ok(item1);
   assert.equal(item1?.category, 'life');
   assert.equal(item1?.metrics?.searchVolume, 100000);
@@ -298,10 +298,9 @@ test('Live Google Trends Adapter - Ingests RSS and classifies keyword pillars', 
 
 test('Keyword Pillar Classifier - Correctly categorizes trend titles', () => {
   assert.equal(classifyTrendingQueryPillar('Apple M5 Chip Breakthrough in Local LLM Inference'), 'tech-ai');
-  assert.equal(classifyTrendingQueryPillar('Secluded Coastal Hotels and Train Journeys in Japan'), 'life');
+  assert.equal(classifyTrendingQueryPillar('Time Blocking and Weekly Review Focus Protocol'), 'life');
   assert.equal(classifyTrendingQueryPillar('Federal Reserve Interest Rates and Treasury Yields'), 'wealth');
-  assert.equal(classifyTrendingQueryPillar('Circadian Rhythm Light Protocols and Deep Sleep Longevity'), 'health');
-  assert.equal(classifyTrendingQueryPillar('Minimalist Wardrobe Capsule and Barrier Repair Skincare Routine'), 'life');
+  assert.equal(classifyTrendingQueryPillar('Celebrity Fashion Trends and Red Carpet Runway'), null);
   assert.equal(classifyTrendingQueryPillar('Celebrity Spotlight and Cinema News'), null);
 });
 

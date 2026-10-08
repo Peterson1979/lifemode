@@ -329,45 +329,81 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
     );
   }
 
-  if (request.pillar === 'style') {
+  if (request.pillar === 'health') {
     systemPromptParts.push(
       '',
-      '### STYLE & BEAUTY EDITORIAL POLICY:',
-      '- Scope: Covers fashion, personal style, clothing and outfit trends, accessories, beauty, skincare, makeup, hair and hair trends, beauty routines, fragrance, beauty trends, style and beauty culture, relevant celebrity style/beauty when genuinely relevant, and contemporary style/beauty trends.',
-      '- Positioning & Reader Voice: Written for ordinary readers. Keep the content useful, interesting, globally relevant, accessible, and contemporary rather than sounding like an exclusive fashion-industry trade publication.',
-      '- Non-Promotional Standard: Strictly editorial rather than promotional. No advertising disguised as editorial, no forced product recommendations, no repetitive commercial brand pitching. Focus on practical principles, textile craftsmanship, ingredient functions, aesthetic fit, and sustainable daily habits.',
-      '- Jargon & Trend Moderation: Avoid industry jargon unless genuinely useful. Avoid turning every article into a formulaic trend report.',
-      '- Distinction from Entertainment: Style = fashion + beauty + style culture. Do NOT turn every Style article into celebrity content; only reference celebrity style/beauty when genuinely relevant.'
+      '### HEALTH & WELLNESS EDITORIAL POLICY (EVERYDAYGUIDE STANDARD):',
+      '- Scope: Evidence-based wellness protocols, circadian alignment, sleep hygiene, nutrition science, physical recovery, and preventative longevity.',
+      '- Practical Intent: Focus on actionable routines, measurable parameters (lux levels, hours, timing, temperatures), and sustainable daily habits.',
+      '- Strict Safety: Never make definitive medical diagnoses or promise cure-alls. Rely on verified consensus and include professional healthcare advisory caveats where appropriate.'
+    );
+  } else if (request.pillar === 'wealth') {
+    systemPromptParts.push(
+      '',
+      '### WEALTH & PERSONAL FINANCE EDITORIAL POLICY (EVERYDAYGUIDE STANDARD):',
+      '- Scope: Practical household cash management, interest-rate mechanics, tax-advantaged accounts, index investing frameworks, budgeting systems, and cost-per-year economics.',
+      '- Practical Intent: Provide step-by-step financial workflows, objective comparison criteria, and clear math/rules.',
+      '- Strict Safety: Never promise guaranteed financial returns or promote speculative schemes. Ground all interest and regulatory figures in official government/regulatory sources.'
+    );
+  } else if (request.pillar === 'home') {
+    systemPromptParts.push(
+      '',
+      '### HOME & LIVING EDITORIAL POLICY (EVERYDAYGUIDE STANDARD):',
+      '- Scope: Household maintenance protocols, cleaning and stain removal, kitchen food safety, appliance care, seasonal home prep, and storage organization.',
+      '- Practical Intent: Step-by-step procedures with exact materials, failure-prevention warnings, temperatures, and cleaning agents to use or avoid.',
+      '- Quality Bar: Must read like an authoritative reference protocol, not a generic lifestyle essay.'
+    );
+  } else if (request.pillar === 'life') {
+    systemPromptParts.push(
+      '',
+      '### LIFE & EVERYDAY HOW-TO EDITORIAL POLICY (EVERYDAYGUIDE STANDARD):',
+      '- Scope: Daily routines, productivity systems, work/life habits, time intentionality, travel logistics, and everyday problem solving.',
+      '- Practical Intent: Provide concrete execution steps, decision frameworks, and tangible takeaways.',
+      '- Zero Generic Musings: Strictly avoid vague lifestyle philosophy, abstract modern-living essays, celebrity gossip, or pop-culture commentary.'
+    );
+  } else if (request.pillar === 'tech-ai') {
+    systemPromptParts.push(
+      '',
+      '### TECH & AI EDITORIAL POLICY (EVERYDAYGUIDE STANDARD):',
+      '- Scope: Mainstream AI tools, everyday camera/vision workflows, local LLM setup, privacy controls, document analysis, and personal productivity tools.',
+      '- Practical Intent: Clear, jargon-free step-by-step instructions for ordinary users.',
+      '- Utility Over Industry Commentary: Focus on how the reader can set up and use the tool today. Avoid technical AI-industry gossip, corporate announcements, or speculative benchmarks.'
+    );
+  } else if (request.pillar === 'tools') {
+    systemPromptParts.push(
+      '',
+      '### TOOLS & GEAR EDITORIAL POLICY (EVERYDAYGUIDE STANDARD):',
+      '- Scope: Objective equipment comparisons, material durability, decision guides, and selection matrices across household, kitchen, digital, and productivity tools.',
+      '- Practical Intent: Clear comparison dimensions, tradeoffs, cost-per-use lifespan analysis, and common buying mistakes.'
     );
   }
 
-  if (request.pillar === 'entertainment') {
-    systemPromptParts.push(
-      '',
-      '### ENTERTAINMENT EDITORIAL POLICY & SPECTRUM FRAMEWORK (MANDATORY PERMANENT STANDARD):',
-      '- Strategic Mandate: Entertainment is a broad, mainstream lifestyle-magazine editorial pillar. It must permanently rotate across the complete entertainment spectrum rather than narrowing into only film-craft essays or superficial celebrity news.',
-      '- Permanent 9-Segment Entertainment Framework (Continuously Rotated):',
-      '  1. Celebrity & Public Figures: In-depth actor/musician/creator profiles, career turning points, artistic reinventions, personal/professional stories, and substantive interviews.',
-      '  2. Celebrity Relationships & Family: Nuanced, fact-grounded coverage of high-interest relationships, marriages, parenthood, and creative partnerships. Never speculation, unsupported rumors, or intrusive gossip.',
-      '  3. Film: Significant films, cinematic directors, actor performances, filmmaking movements, behind-the-scenes production stories, and screen culture.',
-      '  4. Television & Streaming: Prestige miniseries, groundbreaking series, changing viewer habits, showrunners, actors, and streaming culture.',
-      '  5. Music: Musicians, bands, landmark albums, musical movements, live concert performance, music history, and acoustic/listening culture.',
-      '  6. Awards & Major Events: Major film/TV/music ceremonies (Oscars, Grammys, Emmys, festivals, premieres), historical context, and broader cultural significance.',
-      '  7. Celebrity Lifestyle: Thoughtful, non-promotional explorations of creative workspaces, daily routines, artistic disciplines, architecture, travel, and personal passions.',
-      '  8. Pop Culture & Fandom: Changing ideas of fame, fandom sociology, viral entertainment phenomena, nostalgia, and how contemporary audiences consume entertainment.',
-      '  9. Entertainment History & Cultural Context: Film/music/theatre history, physical preservation, animation craft, stage vs. screen acting, and evolving media formats.',
-      '- Positioning & Reader Voice: Intelligent, culturally curious, measured, and engaging lifestyle-magazine editorial. Avoid low-quality gossip, sensationalism, clickbait, and promotional PR copy.',
-      '- Absolute Factual Integrity: For real contemporary people and events, ground all details strictly in reliable, verifiable facts. Never invent relationships, quotes, projects, release dates, or biographical claims.',
-      '- Permanent Distinction from Style:',
-      '  * Style = Fashion, personal style, beauty, skincare, makeup, hair, fragrance, aesthetic culture, and wardrobe curation.',
-      '  * Entertainment = Celebrity, film, television, music, performers, awards, events, relationships/family, pop culture, and entertainment history/craft.',
-      '  * Celebrity fashion/beauty belongs in Style only when the true subject is fashion or beauty. A broader celebrity profile, career retrospective, or relationship story belongs strictly in Entertainment.'
-    );
+  // Resolve primary editorial content type (NEWS | EXPLAINER | EVERGREEN_GUIDE)
+  let editorialContentType: 'NEWS' | 'EXPLAINER' | 'EVERGREEN_GUIDE' = 'EVERGREEN_GUIDE';
+  if (request.contentType === 'NEWS' || request.factSheet?.contentType === 'NEWS') {
+    editorialContentType = 'NEWS';
+  } else if (request.contentType === 'EXPLAINER' || request.factSheet?.contentType === 'EXPLAINER') {
+    editorialContentType = 'EXPLAINER';
+  } else {
+    editorialContentType = 'EVERGREEN_GUIDE';
   }
 
-  // Content Type Guidance
-  const effectiveContentType = request.contentType || request.factSheet?.contentType || 'EVERGREEN_GUIDE';
-  if (effectiveContentType === 'NEWS') {
+  // Resolve guide mode for EVERGREEN_GUIDE (reference | decision)
+  let guideMode: 'reference' | 'decision' = 'reference';
+  if (request.guideMode === 'decision' || request.contentType === 'decision') {
+    guideMode = 'decision';
+  } else if (request.guideMode === 'reference' || request.contentType === 'reference') {
+    guideMode = 'reference';
+  } else if (editorialContentType === 'EVERGREEN_GUIDE') {
+    const titleText = `${request.titleAngle} ${request.searchTargets?.primaryKeyword || ''}`.toLowerCase();
+    const isDecision =
+      /\b(which|vs|versus|comparison|compared|choose|selector|matrix|criteria|tradeoff)\b/i.test(titleText) ||
+      request.primaryIntent === 'commercial' ||
+      request.format === 'curation';
+    guideMode = isDecision ? 'decision' : 'reference';
+  }
+
+  if (editorialContentType === 'NEWS') {
     systemPromptParts.push(
       '',
       '### NEWS / CURRENT EVENT EDITORIAL STRUCTURE:',
@@ -379,17 +415,37 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
       '  5. What happens next (only what is supported by verified reporting; do not guess).',
       '- Preserve strict factual grounding in the verified fact sheet. Never invent scores, outcomes, dates, quotes, or claims.'
     );
-  } else if (effectiveContentType === 'EXPLAINER') {
+  } else if (editorialContentType === 'EXPLAINER') {
     systemPromptParts.push(
       '',
       '### EXPLAINER EDITORIAL STRUCTURE:',
-      '- Structure the article to explain the underlying subject, mechanism, system, or issue clearly with accessible clarity and contextual depth.'
+      '- Structure the article to explain the underlying subject, mechanism, system, or issue clearly with accessible clarity and contextual depth.',
+      '- Explain how and why something works, the underlying principles/science, and practical implications.',
+      '- Do not allow the article to become a generic list of tips.'
+    );
+  } else if (guideMode === 'decision') {
+    systemPromptParts.push(
+      '',
+      '### EVERGREEN / GUIDE EDITORIAL STRUCTURE:',
+      'Mode: DECISION FRAMEWORK',
+      '- Produce a durable, deeply useful article grounded in practical insight that genuinely helps the reader make an informed choice between relevant alternatives.',
+      '- Establish clear decision criteria and analyze meaningful trade-offs between options.',
+      '- Break down practical differences between alternatives with objective, evidence-grounded nuance.',
+      '- Provide scenario-based use-case recommendations (who should choose what and why).',
+      '- Highlight common selection mistakes and buyer missteps to help readers avoid poor decisions.',
+      '- Use a comparison table or structured side-by-side breakdown when genuinely useful. Do NOT fabricate specifications, measurements, prices, or performance claims. Do NOT force a table where the topic does not support one.',
+      '- Do not allow a generic informational article to pass as a decision guide.'
     );
   } else {
     systemPromptParts.push(
       '',
       '### EVERGREEN / GUIDE EDITORIAL STRUCTURE:',
-      '- Produce a durable, deeply useful article grounded in practical insight rather than pretending the content is breaking news.'
+      'Mode: REFERENCE PROTOCOL',
+      '- Produce a durable, deeply useful article grounded in practical insight as an authoritative practical reference.',
+      '- Provide actionable guidance including quick summary & key parameters, required tools/materials/prep, an actionable execution sequence, operating conditions/thresholds, failure prevention, common mistakes, and troubleshooting.',
+      '- Use numbered steps when the subject is genuinely procedural; do NOT force rigid step numbering onto inherently non-procedural subjects.',
+      '- Cover maintenance, storage, or optimization where relevant.',
+      '- Do not allow a generic essay that merely discusses a topic to pass as a reference guide.'
     );
   }
 
@@ -421,6 +477,13 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
   const coreWordsTarget = Math.round(targetWords * 0.7);
   const wordsPerSection = Math.round(coreWordsTarget / Math.max(1, numOutlineSections));
 
+  const contentModeLabel =
+    editorialContentType === 'NEWS'
+      ? 'NEWS'
+      : editorialContentType === 'EXPLAINER'
+      ? 'EXPLAINER'
+      : `EVERGREEN_GUIDE (${guideMode})`;
+
   // User instructions detailing the specific topic parameters
   const userPromptParts: string[] = [
     `Generate a complete, publishable editorial article package for the following topic:`,
@@ -430,7 +493,7 @@ export function buildGenerationPrompt(request: GenerationRequest): GenerationPro
     `- Topic ID: ${request.topicId}`,
     `- Pillar: ${request.pillar}`,
     `- Editorial Format: ${request.format}`,
-    `- Content Mode: ${effectiveContentType}`,
+    `- Content Mode: ${contentModeLabel}`,
     `- Target Audience: ${request.audience}`,
     `- Primary Intent: ${request.primaryIntent}${request.secondaryIntent ? ` (Secondary: ${request.secondaryIntent})` : ''}`,
     `- Primary Keyword: "${request.searchTargets.primaryKeyword}"`,

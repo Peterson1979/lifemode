@@ -143,7 +143,7 @@ test('Controlled E2E Dry-Run: Valid article traverses all 8 pipeline stages to p
           {
             source: 'RSS_FEEDS',
             sourceId: 'rss-nature-architecture-01',
-            rawQuery: 'Biophilic Architectural Design for Modern Workspaces',
+            rawQuery: 'How to Build a Biophilic Workspace: Step-by-Step Layout and Plant Guide',
             timestamp: new Date().toISOString(),
             category: 'tech-ai',
             sourceUrl: 'https://nature.org/sustainable-architecture',

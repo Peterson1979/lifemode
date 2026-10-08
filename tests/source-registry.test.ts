@@ -21,7 +21,7 @@ const mockTravelTopic: EditorialTopic = {
   id: 'lm-travel-test-01',
   canonicalTopic: 'Mindful Kyoto Tea House Architecture & Sukiya Pavilions',
   slug: 'mindful-kyoto-tea-house-architecture-sukiya-pavilions',
-  pillar: 'travel',
+  pillar: 'life',
   sourceSignals: [],
   queryVariants: ['kyoto tea house', 'sukiya architecture', 'chashitsu'],
   scoring: {
@@ -41,14 +41,14 @@ const mockTravelTopic: EditorialTopic = {
   freshnessScore: 95,
   createdAt: '2026-02-10T09:00:00.000Z',
   updatedAt: '2026-02-10T09:00:00.000Z',
-  tags: ['travel', 'architecture', 'japan', 'kyoto'],
+  tags: ['life', 'architecture', 'japan', 'kyoto'],
 };
 
 const mockMoneyTopic: EditorialTopic = {
   id: 'lm-money-test-01',
   canonicalTopic: 'Treasury Bills and Cash Liquidity Strategies for 2026',
   slug: 'treasury-bills-and-cash-liquidity-strategies-for-2026',
-  pillar: 'money',
+  pillar: 'wealth',
   sourceSignals: [],
   queryVariants: ['treasury bills', 'cash management', 'yield curve'],
   scoring: {
@@ -68,7 +68,7 @@ const mockMoneyTopic: EditorialTopic = {
   freshnessScore: 95,
   createdAt: '2026-02-10T09:00:00.000Z',
   updatedAt: '2026-02-10T09:00:00.000Z',
-  tags: ['money', 'treasury', 'investing'],
+  tags: ['wealth', 'treasury', 'investing'],
 };
 
 const mockTechTopic: EditorialTopic = {
@@ -102,7 +102,7 @@ const mockWellbeingTopic: EditorialTopic = {
   id: 'lm-wellbeing-test-01',
   canonicalTopic: 'Circadian Light Protocols and Slow-Wave Sleep Architecture',
   slug: 'circadian-light-protocols-and-slow-wave-sleep-architecture',
-  pillar: 'wellbeing',
+  pillar: 'health',
   sourceSignals: [],
   queryVariants: ['circadian rhythm', 'sleep architecture', 'morning light'],
   scoring: {
@@ -122,7 +122,7 @@ const mockWellbeingTopic: EditorialTopic = {
   freshnessScore: 90,
   createdAt: '2026-02-10T09:00:00.000Z',
   updatedAt: '2026-02-10T09:00:00.000Z',
-  tags: ['wellbeing', 'sleep', 'longevity'],
+  tags: ['health', 'sleep', 'longevity'],
 };
 
 test('1. Source Registry V1 structure adheres to schema with valid metadata and unique IDs', () => {
@@ -157,21 +157,21 @@ test('2. Source retrieval by pillar returns correctly partitioned sources', () =
   assert.ok(techSources.some((s) => s.id === 'github-docs'));
   assert.ok(techSources.some((s) => s.id === 'mit-tech-review'));
 
-  const moneySources = getSourcesByPillar('money');
+  const moneySources = getSourcesByPillar('wealth');
   assert.ok(moneySources.some((s) => s.id === 'treasurydirect'));
   assert.ok(moneySources.some((s) => s.id === 'federal-reserve'));
   assert.ok(moneySources.some((s) => s.id === 'sec'));
   assert.ok(moneySources.some((s) => s.id === 'vanguard-research'));
 
-  const wellbeingSources = getSourcesByPillar('wellbeing');
+  const wellbeingSources = getSourcesByPillar('health');
   assert.ok(wellbeingSources.some((s) => s.id === 'nih-ncbi'));
   assert.ok(wellbeingSources.some((s) => s.id === 'who'));
   assert.ok(wellbeingSources.some((s) => s.id === 'sleep-foundation'));
 
-  const travelSources = getSourcesByPillar('travel');
-  assert.ok(travelSources.some((s) => s.id === 'kyoto-tourism'));
-  assert.ok(travelSources.some((s) => s.id === 'nps'));
-  assert.ok(travelSources.some((s) => s.id === 'unesco'));
+  const lifeSources = getSourcesByPillar('life');
+  assert.ok(lifeSources.some((s) => s.id === 'kyoto-tourism'));
+  assert.ok(lifeSources.some((s) => s.id === 'nps'));
+  assert.ok(lifeSources.some((s) => s.id === 'unesco'));
 });
 
 test('3. Topic matching ranks relevant authority sources higher based on candidate keywords', () => {

@@ -1,9 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { CATEGORIES } from '../utils/categories';
 import { getCanonicalUrl } from '../utils/seo';
 
-const categories = Object.values(CATEGORIES);
 const canonicalUrl = getCanonicalUrl('/about');
 ---
 
@@ -38,18 +36,28 @@ const canonicalUrl = getCanonicalUrl('/about');
 
       <ul>
         <li>
-          <strong><a href="/food-drink">Food &amp; Drink</a>:</strong> Thoughtful culinary recipes, fermentation science, cooking techniques, and mindful kitchen essentials.
-        </li>
-        {categories.map((cat) => (
-          <li>
-            <strong><a href={`/${cat.slug}`}>{cat.title}</a>:</strong> {cat.description}
-          </li>
-        ))}
-        <li>
-          <strong><a href="/tools">Interactive Tools</a>:</strong> Privacy-preserving browser calculators, stain diagnosis assistants, and schedule planners.
+          <strong><a href="/health">Health</a>:</strong> Trend-driven longevity science, metabolic health, sleep &amp; recovery protocols, and evidence-based wellness.
         </li>
         <li>
-          <strong><a href="/checklists">Printable Checklists</a>:</strong> High-utility cheat sheets and maintenance routines optimized for browser tracking and printing.
+          <strong><a href="/wealth">Wealth</a>:</strong> Practical guides to online side hustles, digital products, freelancing, and personal cashflow systems.
+        </li>
+        <li>
+          <strong><a href="/home">Home</a>:</strong> Everyday household systems, food &amp; kitchen care, stain chemistry, cleaning protocols, and spatial organization.
+        </li>
+        <li>
+          <strong><a href="/life">Life</a>:</strong> Capsule style, habit stacking, daily routines, focus architecture, and mindful travel journeys.
+        </li>
+        <li>
+          <strong><a href="/tech-ai">Tech &amp; AI</a>:</strong> Plain-language AI workflows, practical everyday tools, prompt engineering, and digital automation for ordinary users.
+        </li>
+        <li>
+          <strong><a href="/tools">Interactive Tools</a>:</strong> Privacy-preserving browser calculators, stain diagnosis assistants, decision matrices, and printable checklists.
+        </li>
+        <li>
+          <strong><a href="/life-hacks">Life Hacks</a>:</strong> Curated video-first visual problem solving, household shortcuts, and smart hacks.
+        </li>
+        <li>
+          <strong><a href="/daily-ideas">Daily Ideas Store</a>:</strong> Curated everyday essentials vetted for real-world utility, durability, and practical value.
         </li>
       </ul>
 

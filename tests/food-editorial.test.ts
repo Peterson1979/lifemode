@@ -193,7 +193,6 @@ test('All Food & Drink articles have valid local images and verified provenance 
 
   const contentDir = path.resolve(process.cwd(), 'src/content/food-drink');
   const dynamicArticles = [
-    'late-summer-harvest-preserving-heirloom-produce-and-wild-ferments.md',
     'slow-autumn-hearth-hearty-legume-broths-earthenware-root-vegetables.md',
     'the-art-of-dunkin-free-coffee-heritage-roasting-everyday-cooking.md',
   ];

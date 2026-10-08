@@ -52,10 +52,10 @@ const breadcrumbItems = [
 // Product picks for contextual commerce layer
 const rawPicks = (data as any).dailyIdeasPicks;
 const curatedProductIds = rawPicks || (
-  id.includes('cookware') ? ['lodge-10-cast-iron', 'tramontina-tri-ply-12', 'chainmail-scrubber'] :
-  id.includes('cast-iron') ? ['lodge-10-cast-iron', 'chainmail-scrubber'] :
-  id.includes('herbs') ? ['oxo-herb-keeper'] :
-  id.includes('fabrics') || id.includes('washing-machine') ? ['wool-dryer-balls'] :
+  id.includes('towels') || id.includes('bathroom') ? ['madamelique-turkish-towels', 'mulwr-travertine-bathroom-tray'] :
+  id.includes('lighting') || id.includes('lamp') ? ['nintiue-dimmable-arc-floor-lamp', 'frideko-home-smart-rgb-floor-lamp', 'northern-galaxy-aurora-projector'] :
+  id.includes('storage') || id.includes('organization') ? ['lifewit-clothes-storage-bins', 'lifewit-60l-underbed-storage-bags', 'wlive-4-drawer-dresser-nightstand'] :
+  id.includes('rug') || id.includes('blanket') ? ['lagraty-chunky-knit-blanket', 'kozyfly-cotton-braided-area-rug', 'the-beer-valley-yellow-chindi-rug'] :
   undefined
 );
 

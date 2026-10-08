@@ -184,7 +184,10 @@ export async function runScheduledEditorialAutomation(
     }
 
     // Resolve deterministic UTC cadence editorial daily plan
-    const dailyPlan = getEditorialDailyPlan(options.targetDate, config.maxOpportunities);
+    const customLimit = config.accelerationEnabled
+      ? config.accelerationMaxOpportunities
+      : (options.maxOpportunities ?? options.dailyLimit ?? options.dailyArticleLimit);
+    const dailyPlan = getEditorialDailyPlan(options.targetDate, customLimit);
 
     // 4. Execute standard editorial automation pipeline
     const automationResult = await runEditorialAutomation({

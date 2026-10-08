@@ -50,7 +50,11 @@ const validSampleArticle: GeneratedArticle = {
     '',
     '## 2. Practical Framework & Daily Protocols',
     'Implementing intentional design begins with small, repeatable workflows that compound over time.',
-    'By focusing on essential priorities, modern knowledge workers preserve cognitive bandwidth for deep, meaningful work.'
+    'By focusing on essential priorities, modern knowledge workers preserve cognitive bandwidth for deep, meaningful work.',
+    '',
+    '## 3. Operational Parameters & Troubleshooting',
+    'Maintain a primary monitor distance of 20 to 30 inches and screen illumination below 60% ambient brightness to prevent eye fatigue.',
+    'Common troubleshooting fixes for digital clutter include scheduled 15-minute weekly audits.'
   ].join('\n'),
   faq: [
     { question: 'What is mindful tech architecture?', answer: 'It is the deliberate configuration of computing tools to minimize cognitive friction.' }
@@ -267,9 +271,12 @@ test('8. Approved affiliate URL with proper disclosure passes validation', () =>
       'We tested the [Verified Automation Hub](https://store.google.com/product/nest_hub) for local connectivity and reliable device management.',
       'Navigating modern smart home ecosystems requires cultivating a calm, deliberate relationship with our tools and physical spaces.',
       '',
-      '## 2. Practical Configuration',
+      '## 2. Practical Configuration & Daily Protocols',
       'Configure the device on your local network following energy-conscious protocols to maximize efficiency.',
-      'By focusing on essential priorities, modern knowledge workers preserve cognitive bandwidth for deep, meaningful work.'
+      'By focusing on essential priorities, modern knowledge workers preserve cognitive bandwidth for deep, meaningful work.',
+      '',
+      '## 3. Operational Parameters & Troubleshooting',
+      'Set automated dimming schedules for 22:00 hours with standard 5 GHz network isolation to prevent latency.'
     ].join('\n'),
   };
 
@@ -406,8 +413,11 @@ test('11. High-risk article requirements are strictly enforced', () => {
       'Maintaining physical wellbeing requires steady, incremental habits supported by verified physiological research and proper rest.',
       'Rather than pursuing extreme interventions, sustainable progress comes from consistent hydration, balanced nutrition, and appropriate recovery cycles.',
       '',
-      '## 2. Practical Framework',
-      'Follow evidence-backed routines and listen to your body signals when structuring daily wellness routines.'
+      '## 2. Practical Framework & Daily Protocols',
+      'Follow evidence-backed routines and listen to your body signals when structuring daily wellness routines.',
+      '',
+      '## 3. Key Parameters & Troubleshooting',
+      'Aim for 150 minutes of weekly Zone 2 cardiovascular effort with baseline rest periods of 48 hours between strenuous sessions.'
     ].join('\n'),
     sources: [{ name: 'Mayo Clinic', url: 'https://mayoclinic.org/wellness' }],
   };

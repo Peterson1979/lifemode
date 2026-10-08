@@ -6,9 +6,27 @@ import { calculatePinterestScore } from '../pinterest-scoring.ts';
 import { ACTIVE_EDITORIAL_PILLARS } from '../../../config/site.ts';
 
 /**
+ * Evaluates whether a query/snippet expresses EverydayGuide practical intent (Reference / Protocol / Decision / Comparison).
+ */
+export function evaluatePracticalIntent(text: string): {
+  isProtocolOrAction: boolean;
+  isDecisionOrComparison: boolean;
+  isPracticalIntent: boolean;
+} {
+  const lower = text.toLowerCase();
+  const isProtocolOrAction = /\b(how to|how-to|guide to|protocol|steps|routine|clean|cleaning|store|storage|maintain|maintenance|prep|prepare|fix|repair|organize|declutter|setup|install|calculate|troubleshoot|recipe|cook|bake|descaling)\b/i.test(lower);
+  const isDecisionOrComparison = /\b(which|vs|versus|comparison|compared|choose|choosing|selector|matrix|criteria|tradeoffs|difference between|pros and cons|best for)\b/i.test(lower);
+  return {
+    isProtocolOrAction,
+    isDecisionOrComparison,
+    isPracticalIntent: isProtocolOrAction || isDecisionOrComparison,
+  };
+}
+
+/**
  * Transforms a raw Discovery Signal into a scored, normalized LifeMode EditorialTopic candidate.
  */
-export function transformSignalToCandidate(signal: DiscoverySignal): EditorialTopic {
+export function transformSignalToCandidate(signal: DiscoverySignal, rankOffset = 0): EditorialTopic {
   const norm = normalizeTopicQuery(signal.rawQuery);
   const cleanTitle = norm.canonicalTopic;
   const slug = norm.canonicalSlug;
@@ -32,14 +50,21 @@ export function transformSignalToCandidate(signal: DiscoverySignal): EditorialTo
     signal.source === 'PINTEREST_TRENDS' ? 90 : (pillar === 'life' || pillar === 'home' ? 85 : 70)
   );
 
+  // Evaluate EverydayGuide practical intent (Reference / Protocol / Decision / Comparison)
+  const queryLower = cleanTitle.toLowerCase();
+  const snippetLower = (signal.contentSnippet || '').toLowerCase();
+  const combinedText = `${queryLower} ${snippetLower}`;
+
+  const { isProtocolOrAction, isDecisionOrComparison, isPracticalIntent } = evaluatePracticalIntent(combinedText);
+
   let searchPotential = Math.min(100, Math.round(relativeInterest * 0.6 + Math.min(40, searchVol / 1000)));
   let pinterestPotential = Math.min(100, Math.round(visualScore * 0.6 + Math.min(40, growthRate * 0.4)));
   let socialPotential = Math.min(100, Math.round(growthRate * 0.7 + relativeInterest * 0.3));
-  let lifeModeRelevance = 90;
-  let commercialPotential = searchPotential > 80 ? 75 : 60;
+  let lifeModeRelevance = isPracticalIntent ? 94 : 80;
+  let commercialPotential = isDecisionOrComparison ? 80 : (searchPotential > 80 ? 70 : 55);
   let freshness = signal.metrics?.isBreakout ? 95 : 85;
   let competitionOpportunity = 70;
-  let originalityPotential = 85;
+  let originalityPotential = isPracticalIntent ? 90 : 75;
 
   // Source-specific adjustments
   if (signal.source === 'PINTEREST_TRENDS') {
@@ -51,9 +76,17 @@ export function transformSignalToCandidate(signal: DiscoverySignal): EditorialTo
     socialPotential = Math.max(socialPotential, 85);
   } else if (signal.source === 'SEASONAL_CALENDAR') {
     freshness = Math.max(freshness, 90);
-    lifeModeRelevance = Math.max(lifeModeRelevance, 92);
+    lifeModeRelevance = Math.max(lifeModeRelevance, 94);
   } else if (signal.source === 'RSS_FEEDS') {
     originalityPotential = Math.max(originalityPotential, 88);
+  }
+
+  // Practical problem-solving bonus
+  if (isPracticalIntent) {
+    searchPotential = Math.min(100, searchPotential + 5);
+    lifeModeRelevance = Math.max(lifeModeRelevance, 95);
+    originalityPotential = Math.max(originalityPotential, 90);
+    competitionOpportunity = Math.max(competitionOpportunity, 78);
   }
 
   const dimensions: TopicScoringDimensions = {
@@ -83,7 +116,7 @@ export function transformSignalToCandidate(signal: DiscoverySignal): EditorialTo
 
   const tags = Array.isArray(signal.metadata?.curatedTags)
     ? (signal.metadata?.curatedTags as string[])
-    : [pillar, 'curation'];
+    : [pillar, isDecisionOrComparison ? 'decision' : 'guide'];
 
   const candidateBase = {
     id: topicId,
@@ -96,8 +129,8 @@ export function transformSignalToCandidate(signal: DiscoverySignal): EditorialTo
     freshnessScore: freshness,
     createdAt: signal.timestamp || new Date().toISOString(),
     tags,
-    targetAudience: 'Modern curious readers seeking high-signal editorial lifestyle perspectives.',
-    primaryIntent: (searchPotential > 80 ? 'informational' : 'inspirational') as any,
+    targetAudience: 'Everyday readers and households seeking actionable, verified reference guidance.',
+    primaryIntent: (isDecisionOrComparison ? 'commercial' : 'informational') as any,
   };
 
   const scoredTopic = scoreTopicEntity(candidateBase, dimensions);

@@ -71,16 +71,16 @@ test('Pillar Balancing - Distributes selections across pillars when scores are c
 
 test('Pillar Balancing - Never approves a weak topic (< 80) merely to balance pillars', () => {
   const candidates: EditorialTopic[] = [
-    createDummyTopic('style-1', 'style', 92),
-    createDummyTopic('style-2', 'style', 90),
-    createDummyTopic('weak-money-1', 'money', 65), // Sub-threshold
-    createDummyTopic('weak-entertainment-1', 'entertainment', 55), // Rejected
+    createDummyTopic('home-1', 'home', 92),
+    createDummyTopic('home-2', 'home', 90),
+    createDummyTopic('weak-wealth-1', 'wealth', 65), // Sub-threshold
+    createDummyTopic('weak-tools-1', 'tools', 55), // Rejected
   ];
 
   const { approved, rejected, deferred } = selectEditorialCandidates(candidates, {
     minScoreThreshold: 80,
     totalLimit: 4,
-    existingPillarDistribution: { style: 3, money: 0, entertainment: 0 },
+    existingPillarDistribution: { home: 3, wealth: 0, tools: 0 },
     enablePillarBalancing: true,
   });
 

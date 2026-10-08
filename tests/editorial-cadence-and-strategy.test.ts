@@ -3,6 +3,8 @@ import assert from 'node:assert/strict';
 
 import {
   isAiCadenceDay,
+  isLifeHacksCadenceDay,
+  isToolsCadenceDay,
   getEditorialDailyPlan,
 } from '../src/lib/editorial/cadence.ts';
 
@@ -20,42 +22,57 @@ import { publishPackageToStoredArticleInput } from '../src/lib/editorial/storage
 import type { EditorialTopic } from '../src/lib/editorial/types.ts';
 import type { PublishingRequest } from '../src/lib/editorial/publishing/types.ts';
 
-test('1. Deterministic UTC Cadence: Evaluates every-third-day AI schedule reliably', () => {
-  // Fixed reference anchor is 2026-01-01 (Day 0 -> (0 % 3) === 0 -> AI Day)
-  assert.equal(isAiCadenceDay('2026-01-01'), true, '2026-01-01 is Day 0 (AI Day)');
-  assert.equal(isAiCadenceDay('2026-01-02'), false, '2026-01-02 is Day 1 (Normal Day)');
-  assert.equal(isAiCadenceDay('2026-01-03'), false, '2026-01-03 is Day 2 (Normal Day)');
-  assert.equal(isAiCadenceDay('2026-01-04'), true, '2026-01-04 is Day 3 (AI Day)');
-  assert.equal(isAiCadenceDay('2026-01-05'), false, '2026-01-05 is Day 4 (Normal Day)');
-  assert.equal(isAiCadenceDay('2026-01-06'), false, '2026-01-06 is Day 5 (Normal Day)');
-  assert.equal(isAiCadenceDay('2026-01-07'), true, '2026-01-07 is Day 6 (AI Day)');
+test('1. Deterministic Weekly Cadence: Evaluates 3-day GetAISet, 3-day Life Hacks, and 1-day Tools schedule reliably', () => {
+  // Weekly structure:
+  // Sun (0): Regular Day (3 regular articles), Tools Day (1 tool)
+  // Mon (1): Regular Day (3 regular articles)
+  // Tue (2): GetAISet Day (1 AI article), Life Hacks Day (1 video)
+  // Wed (3): Regular Day (3 regular articles)
+  // Thu (4): GetAISet Day (1 AI article), Life Hacks Day (1 video)
+  // Fri (5): Regular Day (3 regular articles)
+  // Sat (6): GetAISet Day (1 AI article), Life Hacks Day (1 video)
 
-  // Known target dates in October 2026:
-  // 2026-10-03 (Day 275 -> 275 % 3 = 2 -> Normal)
-  // 2026-10-04 (Day 276 -> 276 % 3 = 0 -> AI Day)
-  // 2026-10-05 (Day 277 -> 277 % 3 = 1 -> Normal)
-  // 2026-10-06 (Day 278 -> 278 % 3 = 2 -> Normal)
-  // 2026-10-07 (Day 279 -> 279 % 3 = 0 -> AI Day)
-  assert.equal(isAiCadenceDay('2026-10-03'), false);
-  assert.equal(isAiCadenceDay('2026-10-04'), true);
-  assert.equal(isAiCadenceDay('2026-10-05'), false);
-  assert.equal(isAiCadenceDay('2026-10-06'), false);
-  assert.equal(isAiCadenceDay('2026-10-07'), true);
-  assert.equal(isAiCadenceDay('2026-10-08'), false);
-  assert.equal(isAiCadenceDay('2026-10-09'), false);
-  assert.equal(isAiCadenceDay('2026-10-10'), true);
+  // October 2026 test dates:
+  // 2026-10-04 (Sunday, day 0)
+  assert.equal(isAiCadenceDay('2026-10-04'), false, 'Sunday is Regular LifeMode day');
+  assert.equal(isToolsCadenceDay('2026-10-04'), true, 'Sunday is Tools day');
+  assert.equal(isLifeHacksCadenceDay('2026-10-04'), false);
+
+  // 2026-10-05 (Monday, day 1)
+  assert.equal(isAiCadenceDay('2026-10-05'), false, 'Monday is Regular LifeMode day');
+  assert.equal(isToolsCadenceDay('2026-10-05'), false);
+  assert.equal(isLifeHacksCadenceDay('2026-10-05'), false);
+
+  // 2026-10-06 (Tuesday, day 2)
+  assert.equal(isAiCadenceDay('2026-10-06'), true, 'Tuesday is GetAISet AI day');
+  assert.equal(isLifeHacksCadenceDay('2026-10-06'), true, 'Tuesday is Life Hacks day');
+  assert.equal(isToolsCadenceDay('2026-10-06'), false);
+
+  // 2026-10-07 (Wednesday, day 3)
+  assert.equal(isAiCadenceDay('2026-10-07'), false, 'Wednesday is Regular LifeMode day');
+
+  // 2026-10-08 (Thursday, day 4)
+  assert.equal(isAiCadenceDay('2026-10-08'), true, 'Thursday is GetAISet AI day');
+  assert.equal(isLifeHacksCadenceDay('2026-10-08'), true, 'Thursday is Life Hacks day');
+
+  // 2026-10-09 (Friday, day 5)
+  assert.equal(isAiCadenceDay('2026-10-09'), false, 'Friday is Regular LifeMode day');
+
+  // 2026-10-10 (Saturday, day 6)
+  assert.equal(isAiCadenceDay('2026-10-10'), true, 'Saturday is GetAISet AI day');
+  assert.equal(isLifeHacksCadenceDay('2026-10-10'), true, 'Saturday is Life Hacks day');
 });
 
 test('2. Watchdog & Retry Determinism: Same UTC date produces identical plan across retries and times', () => {
-  const timeA = '2026-10-04T02:15:00.000Z';
-  const timeB = '2026-10-04T12:00:00.000Z';
-  const timeC = '2026-10-04T23:59:59.999Z';
-  const dateOnly = '2026-10-04';
+  const timeA = '2026-10-06T02:15:00.000Z';
+  const timeB = '2026-10-06T12:00:00.000Z';
+  const timeC = '2026-10-06T23:59:59.999Z';
+  const dateOnly = '2026-10-06';
 
-  const planA = getEditorialDailyPlan(timeA, 3);
-  const planB = getEditorialDailyPlan(timeB, 3);
-  const planC = getEditorialDailyPlan(timeC, 3);
-  const planD = getEditorialDailyPlan(dateOnly, 3);
+  const planA = getEditorialDailyPlan(timeA);
+  const planB = getEditorialDailyPlan(timeB);
+  const planC = getEditorialDailyPlan(timeC);
+  const planD = getEditorialDailyPlan(dateOnly);
 
   assert.equal(planA.isAiDay, true);
   assert.equal(planB.isAiDay, true);
@@ -65,14 +82,14 @@ test('2. Watchdog & Retry Determinism: Same UTC date produces identical plan acr
   assert.equal(planA.aiArticlesTarget, 1);
   assert.equal(planA.dynamicArticlesTarget, 2);
   assert.equal(planA.totalArticlesTarget, 3);
-  assert.equal(planA.targetDate, '2026-10-04');
+  assert.equal(planA.targetDate, '2026-10-06');
 
   assert.deepEqual(planA, planB);
   assert.deepEqual(planB, planC);
   assert.deepEqual(planC, planD);
 
-  // Normal day plan
-  const normalPlan = getEditorialDailyPlan('2026-10-05', 3);
+  // Normal day plan (e.g. 2026-10-05 Monday)
+  const normalPlan = getEditorialDailyPlan('2026-10-05');
   assert.equal(normalPlan.isAiDay, false);
   assert.equal(normalPlan.aiArticlesTarget, 0);
   assert.equal(normalPlan.dynamicArticlesTarget, 3);
@@ -158,13 +175,13 @@ test('4. Candidate Selection on AI Day: Selects 1 GetAISet candidate + 2 dynamic
     tags: ['tech-ai', 'get-ai-set'],
   };
 
-  const styleTopic: EditorialTopic = {
-    id: 'style-01',
-    canonicalTopic: 'The Modern Minimalist Capsule Wardrobe for Autumn',
-    slug: 'modern-minimalist-capsule-wardrobe-autumn',
-    pillar: 'style',
+  const lifeTopic: EditorialTopic = {
+    id: 'life-01',
+    canonicalTopic: 'Weekly Planning and Time Blocking Protocol for Deep Focus',
+    slug: 'weekly-planning-time-blocking-protocol',
+    pillar: 'life',
     sourceSignals: [],
-    queryVariants: ['capsule wardrobe autumn'],
+    queryVariants: ['weekly planning system'],
     scoring: {
       searchPotential: 90,
       pinterestPotential: 92,
@@ -182,7 +199,7 @@ test('4. Candidate Selection on AI Day: Selects 1 GetAISet candidate + 2 dynamic
     freshnessScore: 88,
     createdAt: '2026-10-04T00:00:00Z',
     updatedAt: '2026-10-04T00:00:00Z',
-    tags: ['style', 'wardrobe'],
+    tags: ['life', 'productivity'],
   };
 
   const foodTopic: EditorialTopic = {
@@ -239,32 +256,32 @@ test('4. Candidate Selection on AI Day: Selects 1 GetAISet candidate + 2 dynamic
     tags: ['entertainment', 'film'],
   };
 
-  const candidatePool = [aiTopic1, aiTopic2, styleTopic, foodTopic, entertainmentTopic];
+  const candidatePool = [aiTopic1, aiTopic2, lifeTopic, foodTopic, entertainmentTopic];
 
-  // Selection on AI Day (e.g. 2026-10-04 or isAiDay: true) with totalLimit: 3
-  const result = selectEditorialCandidates(candidatePool, {
-    targetDate: '2026-10-04',
-    totalLimit: 3,
+  // Selection on AI Day (2026-10-06 is Tuesday, an AI Day) with standard AI day totalLimit: 1
+  const resultAiDay = selectEditorialCandidates(candidatePool, {
+    targetDate: '2026-10-06',
+    totalLimit: 1,
   });
 
-  assert.equal(result.approved.length, 3, 'Exactly 3 articles approved');
+  assert.equal(resultAiDay.approved.length, 1, 'Exactly 1 article approved on dedicated AI day');
+  assert.equal(resultAiDay.approved[0].targetProject, 'get-ai-set', 'Selected article is GetAISet');
+  assert.equal(resultAiDay.approved[0].id, 'getaiset-tools-01', 'Top scoring GetAISet article selected');
 
-  // Must contain exactly one GetAISet article
-  const getAiSetApproved = result.approved.filter((t) => t.targetProject === 'get-ai-set');
-  assert.equal(getAiSetApproved.length, 1, 'Exactly one GetAISet AI article approved on AI day');
-  assert.equal(getAiSetApproved[0].id, 'getaiset-tools-01', 'Top scoring GetAISet article selected');
-
-  // Remaining 2 articles must be non-GetAISet dynamic LifeMode articles (normalized to active pillars)
-  const dynamicApproved = result.approved.filter((t) => t.targetProject !== 'get-ai-set');
-  assert.equal(dynamicApproved.length, 2, 'Exactly 2 dynamic LifeMode articles approved');
-  assert.equal(dynamicApproved[0].pillar, 'life'); // style normalized to life
-  assert.equal(dynamicApproved[1].pillar, 'home'); // food-drink normalized to home
-
-  // The second AI candidate must be deferred
-  const deferredAi = result.deferred.filter((t) => t.targetProject === 'get-ai-set');
+  // Second AI candidate deferred
+  const deferredAi = resultAiDay.deferred.filter((t) => t.targetProject === 'get-ai-set');
   assert.equal(deferredAi.length, 1);
   assert.equal(deferredAi[0].id, 'getaiset-tools-02');
   assert.ok(deferredAi[0].deferReason?.includes('GetAISet article quota'));
+
+  // If custom totalLimit: 3 is explicitly provided on AI Day:
+  const resultCustom = selectEditorialCandidates(candidatePool, {
+    targetDate: '2026-10-06',
+    totalLimit: 3,
+  });
+  assert.equal(resultCustom.approved.length, 3);
+  assert.equal(resultCustom.approved.filter((t) => t.targetProject === 'get-ai-set').length, 1);
+  assert.equal(resultCustom.approved.filter((t) => t.targetProject !== 'get-ai-set').length, 2);
 });
 
 test('5. Candidate Selection on Normal Day: Selects 3 strongest dynamic articles with no forced pillar rotation', () => {
@@ -295,13 +312,13 @@ test('5. Candidate Selection on Normal Day: Selects 3 strongest dynamic articles
     tags: ['tech-ai'],
   };
 
-  const styleTopic: EditorialTopic = {
-    id: 'style-01',
-    canonicalTopic: 'The Modern Minimalist Capsule Wardrobe for Autumn',
-    slug: 'modern-minimalist-capsule-wardrobe-autumn',
-    pillar: 'style',
+  const lifeTopic: EditorialTopic = {
+    id: 'life-01',
+    canonicalTopic: 'Desk Ergonomics and Screen Setup for Daily Focus',
+    slug: 'desk-ergonomics-screen-setup-daily-focus',
+    pillar: 'life',
     sourceSignals: [],
-    queryVariants: ['capsule wardrobe'],
+    queryVariants: ['desk setup ergonomics'],
     scoring: {
       searchPotential: 91,
       pinterestPotential: 94,
@@ -319,7 +336,7 @@ test('5. Candidate Selection on Normal Day: Selects 3 strongest dynamic articles
     freshnessScore: 88,
     createdAt: '2026-10-05T00:00:00Z',
     updatedAt: '2026-10-05T00:00:00Z',
-    tags: ['style'],
+    tags: ['life'],
   };
 
   const moneyTopic: EditorialTopic = {
@@ -377,7 +394,7 @@ test('5. Candidate Selection on Normal Day: Selects 3 strongest dynamic articles
   };
 
   // Normal day selection (2026-10-05 is a Normal Day)
-  const result = selectEditorialCandidates([techTopic, styleTopic, moneyTopic, foodTopic], {
+  const result = selectEditorialCandidates([techTopic, lifeTopic, moneyTopic, foodTopic], {
     targetDate: '2026-10-05',
     totalLimit: 3,
   });

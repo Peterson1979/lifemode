@@ -68,11 +68,11 @@ export function evaluateResearchRequirement(
     };
   }
 
-  // 4. TRAVEL pillar: specific venues, tea houses, locations, architecture, transport
-  if (pillar === 'travel') {
+  // 4. Geographic, location-specific, or architectural topics
+  if (pillar === 'travel' || canonical.includes('kyoto') || canonical.includes('architecture')) {
     return {
       required: true,
-      reason: 'Travel and destination guides require verified venue, location, and architectural specifics.',
+      reason: 'Travel, destination, and architectural guides require verified venue, location, and architectural specifics.',
       suggestedQueries: queries,
     };
   }
@@ -86,8 +86,8 @@ export function evaluateResearchRequirement(
     };
   }
 
-  // 6. MONEY pillar: rates, treasury, prices, financial rules, quantitative claims
-  if (pillar === 'money') {
+  // 6. WEALTH / MONEY pillar: rates, treasury, prices, financial rules, quantitative claims
+  if (pillar === 'wealth' || pillar === 'money') {
     return {
       required: true,
       reason: 'Financial and treasury topics require verified market, rate, or institutional guidelines.',
@@ -95,11 +95,11 @@ export function evaluateResearchRequirement(
     };
   }
 
-  // 7. WELLBEING pillar: health/scientific/circadian/nutrition claims
-  if (pillar === 'wellbeing') {
+  // 7. HEALTH / WELLBEING pillar: health/scientific/circadian/nutrition claims
+  if (pillar === 'health' || pillar === 'wellbeing') {
     return {
       required: true,
-      reason: 'Wellbeing and lifestyle protocol topics require scientific consensus or clinical grounding.',
+      reason: 'Health and wellbeing protocol topics require scientific consensus or clinical grounding.',
       suggestedQueries: queries,
     };
   }

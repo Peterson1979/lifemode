@@ -2,8 +2,6 @@ import type { AutomationConfig, ScheduledAutomationConfig } from './types.ts';
 
 const DEFAULT_CONFIG: AutomationConfig = {
   enabled: false,
-  maxOpportunities: 3,
-  dailyArticleLimit: 3,
   dryRun: true,
   minScoreThreshold: 80,
   providerMode: 'fixture',
@@ -44,11 +42,11 @@ export function loadAutomationConfig(overrides: Partial<AutomationConfig> = {}):
   const envMaxOppRaw = envDailyLimitRaw ?? process.env.LIFEMODE_AUTOMATION_MAX_OPPORTUNITIES ?? process.env.EDITORIAL_AUTOMATION_MAX_OPPORTUNITIES;
   const baseMaxOpp = envMaxOppRaw
     ? parseInt(envMaxOppRaw, 10)
-    : (accelerationEnabled ? accelerationMaxOpportunities : DEFAULT_CONFIG.maxOpportunities);
+    : (accelerationEnabled ? accelerationMaxOpportunities : undefined);
 
   const effectiveMaxOpp = overrides.maxOpportunities ?? overrides.dailyArticleLimit ?? baseMaxOpp;
-  const resolvedMaxOpp = Math.max(1, isNaN(effectiveMaxOpp) ? DEFAULT_CONFIG.maxOpportunities : effectiveMaxOpp);
-  const resolvedDailyLimit = overrides.dailyArticleLimit ?? (envDailyLimitRaw ? parseInt(envDailyLimitRaw, 10) : DEFAULT_CONFIG.dailyArticleLimit);
+  const resolvedMaxOpp = effectiveMaxOpp !== undefined ? Math.max(1, effectiveMaxOpp) : undefined;
+  const resolvedDailyLimit = overrides.dailyArticleLimit ?? (envDailyLimitRaw ? parseInt(envDailyLimitRaw, 10) : undefined);
 
   const envDryRunRaw = process.env.LIFEMODE_AUTOMATION_DRY_RUN ?? process.env.EDITORIAL_AUTOMATION_DRY_RUN;
   const envDryRun = envDryRunRaw !== undefined

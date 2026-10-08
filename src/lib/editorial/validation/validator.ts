@@ -12,6 +12,7 @@ import { isPersonTopic, PERSON_MIN_REQUIRED_SOURCES } from '../person-policy.ts'
 import { validateImageSemanticRelevance } from '../image-prompt.ts';
 import { buildVisualBrief } from '../visual-brief.ts';
 import { validateVisualRelevanceSync } from '../visual-relevance.ts';
+import { normalizePillar, isMeaningfulEditorialTopic } from '../normalization.ts';
 
 const PLACEHOLDER_PATTERNS: RegExp[] = [
   /\{\{[^}]+\}\}/,
@@ -95,6 +96,181 @@ export function extractMarkdownLinks(text: string): Array<{ text: string; url: s
     });
   }
   return links;
+}
+
+/**
+ * Result of evaluating Content Formation for an article against its editorial mode.
+ */
+export interface ContentFormationResult {
+  valid: boolean;
+  mode: 'NEWS' | 'EXPLAINER' | 'EVERGREEN_REFERENCE' | 'EVERGREEN_DECISION';
+  errors: string[];
+  warnings: string[];
+}
+
+/**
+ * Deterministically evaluates whether the article structure and content genuinely align
+ * with the intended EverydayGuide mode (Reference Protocol vs Decision Framework vs Explainer vs News).
+ */
+export function evaluateContentFormation(
+  article: ValidatableArticle,
+  context: EditorialValidationContext = {}
+): ContentFormationResult {
+  const title = (article.title || '').trim();
+  const content = (article.content || '').trim();
+  if (!content) {
+    return { valid: false, mode: 'EVERGREEN_REFERENCE', errors: ['Content is empty.'], warnings: [] };
+  }
+
+  const lowerContent = content.toLowerCase();
+  const h2Matches = (content.match(/^##\s+(.+)$/gm) || []).map((h) => h.replace(/^##\s+/, '').trim());
+  const h3Matches = (content.match(/^###\s+(.+)$/gm) || []).map((h) => h.replace(/^###\s+/, '').trim());
+  const allHeadings = [...h2Matches, ...h3Matches].join(' ').toLowerCase();
+
+  // If person topic, biographical structure is checked by person policy
+  const isPerson = isPersonTopic({
+    canonicalTopic: context.topicId,
+    title,
+    tags: context.tags,
+    isPerson: context.isPerson,
+  });
+
+  if (isPerson) {
+    return { valid: true, mode: 'EVERGREEN_REFERENCE', errors: [], warnings: [] };
+  }
+
+  // Determine effective content type
+  let effectiveContentType: 'NEWS' | 'EXPLAINER' | 'EVERGREEN_GUIDE' = 'EVERGREEN_GUIDE';
+  if (context.contentType === 'NEWS' || context.factSheet?.contentType === 'NEWS' || context.format === 'dispatch') {
+    effectiveContentType = 'NEWS';
+  } else if (context.contentType === 'EXPLAINER' || context.factSheet?.contentType === 'EXPLAINER') {
+    effectiveContentType = 'EXPLAINER';
+  } else if (context.contentType === 'EVERGREEN_GUIDE' || context.factSheet?.contentType === 'EVERGREEN_GUIDE') {
+    effectiveContentType = 'EVERGREEN_GUIDE';
+  } else if (context.contentType === 'reference' || context.contentType === 'decision' || context.guideMode) {
+    effectiveContentType = 'EVERGREEN_GUIDE';
+  } else if (context.format === 'guide' || context.format === 'curation') {
+    effectiveContentType = 'EVERGREEN_GUIDE';
+  } else if (context.format === 'deep-dive') {
+    effectiveContentType = 'EXPLAINER';
+  } else {
+    const isExplicitGuide = /\b(how to|step[- ]by[- ]step|which|vs|versus|guide to|comparison|tutorial)\b/i.test(title);
+    if (!isExplicitGuide && (context.format === 'standard' || !context.format)) {
+      return { valid: true, mode: 'EVERGREEN_REFERENCE', errors: [], warnings: [] };
+    }
+  }
+
+  // Determine effective guide mode
+  let effectiveGuideMode: 'reference' | 'decision' = 'reference';
+  if (context.guideMode === 'decision' || context.contentType === 'decision') {
+    effectiveGuideMode = 'decision';
+  } else if (context.guideMode === 'reference' || context.contentType === 'reference') {
+    effectiveGuideMode = 'reference';
+  } else if (effectiveContentType === 'EVERGREEN_GUIDE') {
+    const topicText = `${context.topicId || ''} ${title} ${(context.tags || []).join(' ')}`.toLowerCase();
+    const isDecision =
+      /\b(which|vs|versus|comparison|compared|choose|selector|matrix|criteria|tradeoff|best|alternatives|roundup)\b/i.test(topicText) ||
+      context.primaryIntent === 'commercial' ||
+      context.primaryIntent === 'transactional' ||
+      context.format === 'curation';
+    effectiveGuideMode = isDecision ? 'decision' : 'reference';
+  }
+
+  const errors: string[] = [];
+  const warnings: string[] = [];
+
+  if (effectiveContentType === 'NEWS') {
+    return { valid: true, mode: 'NEWS', errors, warnings };
+  }
+
+  if (effectiveContentType === 'EXPLAINER') {
+    const hasExplainerHeadings = /\b(how .+ works?|why|mechanism|science|architecture|anatomy|principles?|underlying|systems?|physics|chemistry|biology|process|foundations?|breakdown|origin|dynamics|context)\b/i.test(allHeadings);
+    const causalMatches = lowerContent.match(/\b(because|as a result|due to|the reason|functions by|operates by|triggers|causes|leads to|results in|mechanism behind|underlying system|this occurs when|is governed by|in response to|explains why|how this works|how it works)\b/gi) || [];
+
+    const hasSufficientExplanatoryDepth = hasExplainerHeadings || causalMatches.length >= 2;
+    if (!hasSufficientExplanatoryDepth) {
+      errors.push('Article lacks explanatory and causal substance required for Explainer content (must explain how or why the underlying mechanism, system, or process functions rather than presenting a generic list of tips).');
+    }
+
+    return {
+      valid: errors.length === 0,
+      mode: 'EXPLAINER',
+      errors,
+      warnings,
+    };
+  }
+
+  // EVERGREEN_GUIDE - DECISION
+  if (effectiveGuideMode === 'decision') {
+    let decisionSignals = 0;
+
+    // 1. Criteria / Tradeoffs
+    const hasCriteriaHeadings = /\b(decision criteria|key tradeoffs?|trade-offs?|what matters most|buying factors?|evaluation criteria|how to choose|key considerations?|priorities|what to look for|selection criteria)\b/i.test(allHeadings);
+    const hasCriteriaBody = /\b(decision criteria|evaluation factors?|key tradeoffs?|trade-offs?|when choosing|factors to consider|primary considerations?|crucial factors?|trade-off between|tradeoff between|key evaluation factors?)\b/i.test(lowerContent);
+    if (hasCriteriaHeadings || hasCriteriaBody) decisionSignals++;
+
+    // 2. Comparison / Differentiation / Alternatives
+    const hasComparisonHeadings = /\b(comparison|matrix|breakdown|versus|vs\.?|differences?|alternatives?|options?|how (?:the options|they) differ|side-by-side|head-to-head)\b/i.test(allHeadings);
+    const hasTable = /\|.+\|\n\|[-:\s|]+\|\n\|.+\|/.test(content);
+    const hasComparativeBody = /\b(compared (?:to|with)|in contrast|whereas|on the other hand|while [a-z0-9\s-]+ excels at|differs from|alternative to|higher [a-z]+ than|more durable than|lighter than|faster than|better for [a-z]+ than|side-by-side|options? (?:a|b|1|2)|both worlds)\b/i.test(lowerContent);
+    if (hasComparisonHeadings || hasTable || hasComparativeBody) decisionSignals++;
+
+    // 3. Use-Case / Scenario Recommendations
+    const hasRecommendationHeadings = /\b(recommendations?|use-case|which (?:option|one|material|model|type) is right|who should (?:choose|buy)|which option fits|verdict|best for [a-z]+|scenarios?|choosing the right|our pick|decision guide)\b/i.test(allHeadings);
+    const hasRecommendationBody = /\b(choose [a-z\s-]+ if|best for (?:beginners|daily|heavy|budget|small|large|most people|anyone who)|recommended for|ideal for|if you (?:need|want|prioritize|cook|value|have)|who should buy|who should choose|the right choice for|match the [a-z]+ to your|match [a-z]+ to your)\b/i.test(lowerContent);
+    if (hasRecommendationHeadings || hasRecommendationBody) decisionSignals++;
+
+    // 4. Selection Mistakes
+    const hasMistakes = /\b(selection mistakes?|buying mistakes?|buyer missteps?|common selection mistakes?|overpaying|what to avoid when choosing|pitfalls? to avoid|buying mistake)\b/i.test(allHeadings) ||
+      /\b(common selection mistakes?|buyer missteps?|pitfall to avoid|buying mistake)\b/i.test(lowerContent);
+    if (hasMistakes) decisionSignals++;
+
+    if (decisionSignals < 2) {
+      errors.push('Article lacks comparative decision support required for Decision content (missing decision criteria, meaningful comparison between alternatives, trade-offs, or scenario-based recommendations).');
+    }
+
+    return {
+      valid: errors.length === 0,
+      mode: 'EVERGREEN_DECISION',
+      errors,
+      warnings,
+    };
+  }
+
+  // EVERGREEN_GUIDE - REFERENCE
+  let referenceSignals = 0;
+
+  // 1. Action Sequence / Procedure / Instructions
+  const hasStepHeadings = /\b(step[- ]by[- ]step|steps?\b|execution protocol|procedure|instructions?|how to|process|workflow|daily protocols?|implementation|action plan|directions|checklist)\b/i.test(allHeadings);
+  const hasNumberedSteps = /^\s*(?:\d+[\.\)]|[-*]\s+(?:Step\s+\d+|Phase\s+\d+|Stage\s+\d+|First,?|Next,?|Then,?|Finally,?))\s+.+/m.test(content) || /^###?\s+(?:step|phase|stage|part)\s+\d+/im.test(content);
+  const imperativeMatches = lowerContent.match(/\b(apply|clean|remove|wipe|rinse|heat|bake|boil|simmer|mix|stir|whisk|dissolve|pour|soak|scrub|sanitize|store|freeze|refrigerate|chill|reheat|inspect|measure|weigh|cut|slice|chop|tighten|loosen|install|assemble|disassemble|mount|calibrate|lubricate|flush|descale|replace|drain|insert|connect|disconnect|fasten|seal)\b/gi) || [];
+  if (hasStepHeadings || hasNumberedSteps || imperativeMatches.length >= 3) referenceSignals++;
+
+  // 2. Tools / Materials / Preparation / Prerequisites
+  const hasToolsHeadings = /\b(tools?|materials?|ingredients?|equipment|supplies|what (?:you(?:'ll)? need|to prepare)|preparation|prerequisites?|items needed|essentials?)\b/i.test(allHeadings);
+  const hasToolsBody = /\b(what you(?:'ll)? need|tools required|materials required|ingredients:|equipment needed|supplies:|gather the following|before beginning,?\s+(?:prepare|ensure|gather|assemble)|prep time|required tools|required equipment|safety gear|protective equipment)\b/i.test(lowerContent);
+  if (hasToolsHeadings || hasToolsBody) referenceSignals++;
+
+  // 3. Parameters / Operational Thresholds / Measurements
+  const hasParamHeadings = /\b(parameters?|operational conditions?|specifications?|thresholds?|rules?|guidelines?|metrics?|limits?|temperatures?|timing|durations?|benchmarks?|overview|key parameters?|summary & parameters)\b/i.test(allHeadings);
+  const hasParamNumbers = /\b\d+(?:\.\d+)?\s*(?:°[cf]|degrees?(?:\s+[cf])?|minutes?|mins?|hours?|hrs?|seconds?|secs?|days?|%|inches|inch|in\b|cm\b|mm\b|oz\b|ounces|cups?|tbsp|tsp|grams?|g\b|kg\b|lbs?|pounds|psi\b|ppm\b|rpm\b|volts?|amps?|liters?|litres?|ml\b|quarts?|gallons?)\b/i.test(content);
+  if (hasParamHeadings || hasParamNumbers) referenceSignals++;
+
+  // 4. Mistakes / Troubleshooting / Failure Prevention / Maintenance
+  const hasTroubleshootingHeadings = /\b(troubleshooting|troubleshoot|mistakes?|errors?|problems?|what to avoid|pitfalls?|failure prevention|fixes|maintenance|storage|prevention|precautions?|common issues|diagnostics?)\b/i.test(allHeadings);
+  const hasTroubleshootingBody = /\b(common mistakes?|troubleshooting|troubleshoot|failure prevention|if you notice|if .+ fails|to prevent|avoid (?:using|doing|over-|under-|letting)|never use|never do|never leave|common errors?|frequent missteps?|how to fix|diagnostic|maintenance schedule|prevent damage|prevent degradation|spoilage|safety hazard)\b/i.test(lowerContent);
+  if (hasTroubleshootingHeadings || hasTroubleshootingBody) referenceSignals++;
+
+  if (referenceSignals < 2) {
+    errors.push('Article lacks actionable practical guidance required for Reference content (missing procedure, operational parameters, required tools/materials, or troubleshooting/failure prevention).');
+  }
+
+  return {
+    valid: errors.length === 0,
+    mode: 'EVERGREEN_REFERENCE',
+    errors,
+    warnings,
+  };
 }
 
 /**
@@ -241,6 +417,15 @@ export function validateEditorialArticle(
         checks.evidence = false;
       }
     }
+
+    // Content Formation QA: verify structural integrity according to editorial mode
+    const formationResult = evaluateContentFormation(article, context);
+    if (!formationResult.valid) {
+      for (const err of formationResult.errors) {
+        errors.push(err);
+      }
+      checks.structure = false;
+    }
   }
 
   const isPerson = isPersonTopic({
@@ -263,9 +448,16 @@ export function validateEditorialArticle(
 
     for (const pattern of FORMULAIC_TITLE_PATTERNS) {
       if (pattern.test(title)) {
-        warnings.push(`Article title matches formulaic template pattern: "${pattern.toString()}".`);
+        errors.push(`Article title matches banned formulaic template pattern: "${pattern.toString()}".`);
+        checks.seo = false;
         break;
       }
+    }
+
+    const titleSemanticCheck = isMeaningfulEditorialTopic(title);
+    if (!titleSemanticCheck.isValid) {
+      errors.push(`Article title failed semantic editorial validation: ${titleSemanticCheck.reason}`);
+      checks.seo = false;
     }
 
     if (isPerson && /^[A-Z][a-zà-ÿ]+(?:\s+[A-Z][a-zà-ÿ]+)+:\s*(?:what to know|what you should know)$/i.test(title)) {
@@ -277,6 +469,14 @@ export function validateEditorialArticle(
       if (repCheck.isRepetitive) {
         warnings.push(repCheck.reason || 'Article title matches a repetitive structural pattern used across recent articles.');
       }
+    }
+  }
+
+  if (context.topicId) {
+    const topicSemanticCheck = isMeaningfulEditorialTopic(context.topicId);
+    if (!topicSemanticCheck.isValid) {
+      errors.push(`Topic ID "${context.topicId}" failed semantic editorial validation: ${topicSemanticCheck.reason}`);
+      checks.seo = false;
     }
   }
 
@@ -301,9 +501,12 @@ export function validateEditorialArticle(
     }
   }
 
-  if (context.pillar && !(VALID_PILLARS as readonly string[]).includes(context.pillar)) {
-    errors.push(`Invalid editorial pillar specified: "${context.pillar}".`);
-    checks.seo = false;
+  if (context.pillar) {
+    const normalized = normalizePillar(context.pillar);
+    if (!normalized || !(VALID_PILLARS as readonly string[]).includes(normalized)) {
+      errors.push(`Invalid or excluded editorial pillar specified: "${context.pillar}".`);
+      checks.seo = false;
+    }
   }
 
   // AI persona / conversational artifacts

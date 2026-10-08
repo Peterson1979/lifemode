@@ -125,6 +125,7 @@ export interface AutomationRequest {
   dryRun?: boolean; // default: true
   allowCommit?: boolean; // default: false
   maxOpportunities?: number; // default: 3
+  dailyLimit?: number; // explicit daily publication limit override
   dailyArticleLimit?: number; // alias for maxOpportunities (default: 3)
   minScoreThreshold?: number; // default: 80
   providerMode?: 'fixture' | 'router'; // default: 'fixture'
@@ -201,7 +202,8 @@ export interface AutomationResult {
  */
 export interface AutomationConfig {
   enabled: boolean;
-  maxOpportunities: number;
+  maxOpportunities?: number;
+  dailyLimit?: number;
   dailyArticleLimit?: number;
   dryRun: boolean;
   minScoreThreshold: number;

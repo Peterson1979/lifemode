@@ -58,24 +58,43 @@ export function determineContentType(
   const topicText = `${topic.canonicalTopic} ${(topic.queryVariants || []).join(' ')}`.toLowerCase();
   const freshness = topic.scoring?.freshness ?? topic.freshnessScore ?? 50;
 
-  // 1. Explicit format signals
-  if (topic.tags?.includes('guide') || topic.tags?.includes('recipe')) {
+  // 1. Explicit procedural how-to / reference guide signals
+  const isProceduralGuide =
+    topic.tags?.includes('guide') ||
+    topic.tags?.includes('recipe') ||
+    topic.opportunityType === 'SEASONAL_ARTICLE' ||
+    /\b(how to|step[- ]by[- ]step|how-to|guide to|protocol|protocols|checklist|checklists|routine|routines|ritual|rituals|habit|habits|framework|frameworks|method|methods|practice|practices|setup|setups|blueprint|system|systems|maintenance|cleaning|storage|preparation|recipe|recipes|care for|ways to|tips for|rules for|how do you)\b/i.test(topicText);
+
+  if (isProceduralGuide && !topic.tags?.includes('news')) {
     return 'EVERGREEN_GUIDE';
   }
 
-  // 2. News / Current Event signals
-  const isTimelyKeyword = /\b(breaking|vs\.?|versus|rapid descent|diverted|incident|matchup|live updates?|trade rumor|press release)\b/i.test(topicText);
-  if (freshness >= 85 || isTimelyKeyword) {
+  // 2. Sports matchup / Timely news signals
+  const isMatchupNews = /\b(playoff|championship|tournament|game \d+|score|chase|pennant|series|vs\.? .* (?:updates?|highlights?|live))\b/i.test(topicText);
+  const isTimelyKeyword = /\b(breaking|rapid descent|diverted|incident|matchup|playoff|championship|live updates?|trade rumor|press release|scores?|recap|press briefing|ntsb report|crash|investigation|resignation|arrest|outage)\b/i.test(topicText);
+
+  if (isTimelyKeyword || (topic.tags?.includes('news') && freshness >= 80) || ((isMatchupNews || topic.tags?.includes('sports')) && freshness >= 80)) {
     return 'NEWS';
   }
 
-  // 3. Explainer signals
-  const isExplainerKeyword = /\b(what is|why|how (does|it works?|to understand|to cook|to make)|explained|explainer|architecture of|the science of|the anatomy of|mechanism|deep dive|understanding)\b/i.test(topicText);
+  // 3. Comparison / Decision signals for guides (which, vs/versus, best, alternatives)
+  const isComparison = /\b(which|vs\.?|versus|comparison|compared|choose|selector|matrix|criteria|tradeoff|best|alternatives|roundup)\b/i.test(topicText);
+  if (isComparison && !topic.tags?.includes('news')) {
+    return 'EVERGREEN_GUIDE';
+  }
+
+  // 4. Explainer signals
+  const isExplainerKeyword = /\b(what is|why|how (does|it works?|to understand)|explained|explainer|architecture of|the science of|the anatomy of|mechanism|deep dive|understanding)\b/i.test(topicText);
   if (isExplainerKeyword) {
     return 'EXPLAINER';
   }
 
-  // 4. Evergreen / Guide default for lifestyle, craft, recipes, durable concepts
+  // 5. Very high freshness non-guide topic
+  if (freshness >= 90 && !isProceduralGuide && !isComparison) {
+    return 'NEWS';
+  }
+
+  // 6. Evergreen / Guide default for lifestyle, craft, recipes, durable concepts
   return 'EVERGREEN_GUIDE';
 }
 

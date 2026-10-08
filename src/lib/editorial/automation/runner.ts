@@ -503,7 +503,10 @@ export async function runEditorialAutomation(
     }
   }
 
-  const effectivePlan = getEditorialDailyPlan(request.targetDate, config.maxOpportunities);
+  const customLimit = request.accelerationEnabled
+    ? request.accelerationMaxOpportunities
+    : (request.maxOpportunities ?? request.dailyLimit ?? request.dailyArticleLimit);
+  const effectivePlan = getEditorialDailyPlan(request.targetDate, customLimit);
   const effectiveTargetDate = request.targetDate ?? effectivePlan.targetDate;
   const effectiveIsAiDay = request.isAiDay !== undefined ? request.isAiDay : effectivePlan.isAiDay;
 
@@ -876,6 +879,13 @@ export async function runEditorialAutomation(
           affiliateCategories: brief.affiliateOpportunities.productCategories,
           tags: topic.tags,
           estimatedWordCount: brief.estimatedWordCount,
+          guideMode: brief.guideMode,
+          contentType: brief.contentType,
+          factSheet: brief.factSheet,
+          sourceUrls: brief.sourceUrls,
+          evidence: brief.evidence,
+          searchTargets: brief.searchTargets,
+          seoMetadata: brief.seoMetadata,
         },
         options: {
           dryRun: config.dryRun,
@@ -1138,10 +1148,11 @@ export async function runDailyEditorialAutomation(
   options: AutomationRequest = {}
 ): Promise<AutomationResult> {
   const envDailyLimit = process.env.LIFEMODE_DAILY_ARTICLE_LIMIT ?? process.env.DAILY_ARTICLE_LIMIT;
-  const defaultDailyLimit = envDailyLimit ? parseInt(envDailyLimit, 10) : 3;
-  const dailyArticleLimit = options.dailyArticleLimit ?? options.maxOpportunities ?? defaultDailyLimit;
+  const customLimit = options.accelerationEnabled
+    ? options.accelerationMaxOpportunities
+    : (options.dailyLimit ?? options.dailyArticleLimit ?? (envDailyLimit ? parseInt(envDailyLimit, 10) : options.maxOpportunities));
 
-  const plan = getEditorialDailyPlan(options.targetDate, dailyArticleLimit);
+  const plan = getEditorialDailyPlan(options.targetDate, customLimit);
 
   return runEditorialAutomation({
     ...options,

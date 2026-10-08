@@ -86,17 +86,16 @@ export function deriveArticleAngle(topic: EditorialTopic, format: ArticleFormat,
   }
 
   const pillarAngles: Record<string, string> = {
-    'tech-ai': 'Pragmatic technical analysis emphasizing real-world workflows, architecture, and verifiable capabilities.',
-    money: 'Disciplined, evidence-grounded strategic guidance prioritizing sustainable financial clarity and risk mitigation.',
-    style: 'Refined, practical perspective covering fashion, personal style, wardrobe curation, skincare, beauty rituals, and aesthetics.',
-    entertainment: 'Engaging, intelligent lifestyle-magazine-style editorial perspective exploring celebrity stories, profiles, cinema, television, music, and pop culture.',
-    wellbeing: 'Balanced, science-aware wellness guidance grounded in sustainable daily habits and professional caution.',
-    travel: 'Curated, design-conscious experiential exploration prioritizing architectural detail and authentic atmosphere.',
-    now: 'Insightful contemporary cultural observation dissecting emerging behavioral shifts and modern zeitgeist.',
-    'food-drink': 'Sensory-rich, technique-aware culinary perspective emphasizing ingredient integrity, seasonal cooking, and cultural context.',
+    'tech-ai': 'Accessible, plain-language exploration of practical AI workflows, everyday productivity, and useful tools for non-technical users.',
+    wealth: 'Disciplined personal financial frameworks, strategic cash management calculations, and allocation decision trees.',
+    money: 'Disciplined personal financial frameworks, strategic cash management calculations, and allocation decision trees.',
+    health: 'Evidence-based physiological protocols, nutritional science, and biomarker tracking.',
+    home: 'Authoritative step-by-step household protocols, food safety limits, appliance care schedules, and stain chemistry.',
+    life: 'Actionable daily routines, desk ergonomics, digital decluttering frameworks, and personal organization systems.',
+    tools: 'Interactive calculators, comparison matrices, printable checklists, and decision finders.',
   };
 
-  const baseAngle = pillarAngles[topic.pillar] || 'Contemporary, human-first editorial analysis with high-signal takeaways.';
+  const baseAngle = pillarAngles[topic.pillar] || 'Evidence-grounded practical reference guidance with clear, actionable takeaways.';
 
   switch (format) {
     case 'guide':
@@ -454,111 +453,72 @@ export function deriveEditorialTitleAngle(
   }
   const entropy = Math.abs(hash);
 
-  // Pillar & format-aware dynamic headline angle catalog
+  // Pillar & format-aware EverydayGuide headline angle catalog
   switch (pillar) {
     case 'tech-ai': {
       const angles = [
-        `How ${cleanTopic} Operates Under the Surface`,
-        `The Architecture Behind ${cleanTopic}`,
-        `Inside ${cleanTopic}: Technical Breakthroughs and Real Workflows`,
-        `Why ${cleanTopic} Matters for the Next Wave of Computing`,
-        `What Changed in ${cleanTopic}—and What Remains`,
-        `A Pragmatic Engineering Look at ${cleanTopic}`,
-        `Understanding ${cleanTopic}: Models, Hardware, and Performance`,
-        `The Emerging Shift in ${cleanTopic}`,
-        `Beyond the Benchmark: Real-World Testing of ${cleanTopic}`,
+        `How to Use ${cleanTopic}: Practical Everyday Guide`,
+        `How ${cleanTopic} Works: Practical Workflows and Setup`,
+        `The Practical Guide to ${cleanTopic} for Everyday Tasks`,
+        `How to Set Up ${cleanTopic}: Step-by-Step Instructions`,
+        `${cleanTopic}: Plain-Language Guide and Useful Tips`,
+        `How to Protect Your Privacy While Using ${cleanTopic}`,
       ];
       return angles[entropy % angles.length];
     }
-    case 'entertainment': {
+    case 'health': {
       const angles = [
-        `Inside ${cleanTopic}: Story, Spotlight, and Cultural Impact`,
-        `Why ${cleanTopic} Is Captivating Audiences`,
-        `The Story Behind ${cleanTopic}: Careers, Craft, and Milestones`,
-        `How ${cleanTopic} Defined a Moment in Entertainment`,
-        `A Closer Look at ${cleanTopic}: Performance, Vision, and Evolution`,
-        `What ${cleanTopic} Reveals About Modern Pop Culture`,
-        `The Enduring Appeal of ${cleanTopic}`,
-        `Behind the Scenes of ${cleanTopic}: Creative Risks and Cultural Resonance`,
-        `Why ${cleanTopic} Still Resonates with Fans and Critics`,
-        `The Evolution of ${cleanTopic}: From Breakthrough to Enduring Legacy`,
-        `The Creative Partnership Behind ${cleanTopic}`,
-        `How ${cleanTopic} Reshaped Modern Viewing Habits`,
-        `Inside the Private Discipline and Routine of ${cleanTopic}`,
-        `The Cultural Phenomenon of ${cleanTopic}`,
+        `How to Optimize ${cleanTopic}: The Evidence-Based Protocol`,
+        `Understanding ${cleanTopic}: Mechanisms, Biomarkers, and Daily Protocol`,
+        `How Much ${cleanTopic} Do You Need? The Practical Guide`,
+        `${cleanTopic}: Timing, Dosage, and Daily Optimization Protocol`,
+        `The Science of ${cleanTopic}: Practical Habits for Long-Term Vitality`,
       ];
       return angles[entropy % angles.length];
     }
-    case 'wellbeing': {
+    case 'wealth': {
       const angles = [
-        `The Physiology of ${cleanTopic}: Mechanisms and Daily Impact`,
+        `How to Manage ${cleanTopic}: A Step-by-Step Financial Framework`,
+        `${cleanTopic}: Allocation Matrix and Decision Guide`,
+        `How ${cleanTopic} Affects Cash Reserves and Liquidity`,
         `A Practical Protocol for ${cleanTopic}`,
-        `Understanding ${cleanTopic}: Evidence-Based Health and Vitality`,
-        `How ${cleanTopic} Influences Long-Term Wellbeing`,
-        `The Science Behind ${cleanTopic}: Habits, Sleep, and Recovery`,
-        `Why ${cleanTopic} Matters for Sustainable Health`,
-        `Navigating ${cleanTopic}: Principles and Common Pitfalls`,
+        `Understanding ${cleanTopic}: Core Mechanics and Strategy`,
       ];
       return angles[entropy % angles.length];
     }
-    case 'travel': {
+    case 'home': {
       const angles = [
-        `A Thoughtful Traveler’s Perspective on ${cleanTopic}`,
-        `The Quiet Appeal of ${cleanTopic}: Stays, Trails, and Solitude`,
-        `Inside ${cleanTopic}: Architecture, Culture, and Slow Exploration`,
-        `Navigating ${cleanTopic}: An Intentional Journey Blueprint`,
-        `${cleanTopic}: Solitary Landscapes, Local Craft, and Heritage`,
-        `The Timeless Geography of ${cleanTopic}`,
-        `Why ${cleanTopic} Rewards Slow, Deliberate Travel`,
+        `How to Clean and Maintain ${cleanTopic}: Step-by-Step Protocol`,
+        `How to Store ${cleanTopic} Safely: The Complete Protocol`,
+        `Which ${cleanTopic} Is Right for You? Comparison and Decision Guide`,
+        `How to Repair and Maintain ${cleanTopic}: Prevention and Fixes`,
+        `${cleanTopic}: Safe Handling and Maintenance Protocol`,
       ];
       return angles[entropy % angles.length];
     }
-    case 'food-drink': {
+    case 'life': {
       const angles = [
-        `The Craft of ${cleanTopic}: Technique, Flavor, and Culinary Science`,
-        `Why ${cleanTopic} Anchors Modern Culinary Culture`,
-        `The Fundamentals of ${cleanTopic}: A Minimalist Kitchen Guide`,
-        `Building Flavor with ${cleanTopic}: Essential Methods and Balance`,
-        `The Art of ${cleanTopic}: Heritage, Fermentation, and Daily Cooking`,
-        `How ${cleanTopic} Transforms Everyday Cooking`,
-        `Understanding ${cleanTopic}: Ingredient Sourcing and Kitchen Chemistry`,
+        `How to Build a Frictionless ${cleanTopic}: Step-by-Step Setup`,
+        `How to Organize and Maintain ${cleanTopic}: Everyday Guide`,
+        `${cleanTopic}: Ergonomics, Systems, and Daily Habits`,
+        `How to Optimize ${cleanTopic} for Everyday Clarity`,
       ];
       return angles[entropy % angles.length];
     }
-    case 'money': {
+    case 'tools': {
       const angles = [
-        `A Practical Framework for ${cleanTopic}`,
-        `How ${cleanTopic} Impacts Cash Reserves and Liquidity`,
-        `Understanding ${cleanTopic}: Strategies for Financial Autonomy`,
-        `Why ${cleanTopic} Deserves a Closer Strategic Look`,
-        `${cleanTopic}: Core Mechanics, Real Risks, and Allocation Strategy`,
-        `The Long-Term Economics of ${cleanTopic}`,
-        `What Really Happens When You Implement ${cleanTopic}`,
-      ];
-      return angles[entropy % angles.length];
-    }
-    case 'style': {
-      const angles = [
-        `The Modern Approach to ${cleanTopic}`,
-        `How ${cleanTopic} Is Shaping Contemporary Style and Beauty`,
-        `The Essentials of ${cleanTopic}: A Thoughtful Guide`,
-        `Building an Intentional Wardrobe: The Role of ${cleanTopic}`,
-        `Inside ${cleanTopic}: Routines, Formulas, and Everyday Application`,
-        `The Craft of ${cleanTopic}: Texture, Formulation, and Personal Expression`,
-        `A Practical Guide to ${cleanTopic} for Modern Living`,
-        `Why ${cleanTopic} Is Redefining Modern Daily Aesthetics`,
+        `${cleanTopic}: Interactive Calculator and Sizing Guide`,
+        `${cleanTopic} Decision Matrix: Which Option Is Right for You?`,
+        `${cleanTopic} Cheat Sheet and Reference Matrix`,
+        `${cleanTopic}: Seasonal Inspection and Care Planner`,
       ];
       return angles[entropy % angles.length];
     }
     default: {
       const angles = [
-        `A Thoughtful Guide to ${cleanTopic}`,
-        `The Principles of ${cleanTopic}: Practical Perspectives`,
-        `How ${cleanTopic} Elevates Modern Daily Living`,
-        `The Art of ${cleanTopic}: Restraint, Craft, and Purpose`,
-        `A Contemporary Perspective on ${cleanTopic}`,
-        `The Foundations of ${cleanTopic}: Essential Insights`,
-        `Why Modern Living Begins with ${cleanTopic}`,
+        `How to Master ${cleanTopic}: Step-by-Step Practical Protocol`,
+        `Which ${cleanTopic} Is Right for You? Decision Guide`,
+        `${cleanTopic}: Practical Reference and Step-by-Step Guide`,
       ];
       return angles[entropy % angles.length];
     }
@@ -576,7 +536,7 @@ export function synthesizeEditorialBrief(
   const pillarConfig = PILLARS[topic.pillar] || { name: topic.pillar };
   const format = deriveArticleFormat(topic, options.format);
   const primaryIntent = options.primaryIntent || topic.primaryIntent || 'informational';
-  const riskLevel = options.riskLevel || (topic.pillar === 'money' || topic.pillar === 'wellbeing' ? 'medium' : 'low');
+  const riskLevel = options.riskLevel || (topic.pillar === 'wealth' || topic.pillar === 'health' ? 'medium' : 'low');
 
   const estimatedWordCount = FORMAT_WORD_COUNT_MAP[format] || FORMAT_WORD_COUNT_MAP.standard;
 
@@ -599,58 +559,148 @@ export function synthesizeEditorialBrief(
 
   const defaultAudience = topic.targetProject === 'get-ai-set'
     ? 'Everyday curious users, non-technical professionals, and learners looking for accessible, practical AI guidance without technical jargon.'
-    : 'Curious, thoughtful readers looking for practical ideas.';
+    : 'Everyday readers seeking actionable, verified reference and decision guidance.';
   const audience = options.audience || topic.targetAudience || defaultAudience;
 
-  // Default outline structure
+  // Determine EverydayGuide content type & mode
+  const factSheet = buildFactSheet(topic, effectiveEvidence, topic.sourceSignals);
+  const editorialContentType = factSheet.contentType || determineContentType(topic);
+
+  const isDecision =
+    /\b(which|vs|versus|comparison|compared|choose|selector|matrix|criteria|tradeoff)\b/i.test(topic.canonicalTopic) ||
+    primaryIntent === 'commercial' ||
+    format === 'curation';
+  const effectiveGuideMode: 'reference' | 'decision' = isDecision ? 'decision' : 'reference';
+
+  const effectiveContentType = editorialContentType === 'EVERGREEN_GUIDE'
+    ? effectiveGuideMode
+    : editorialContentType;
+
+  // Outline structure according to editorial mode
   const isPerson = isPersonTopic(topic);
-  const outlineSections = isPerson
-    ? [
-        {
-          heading: 'Background & Career Context',
-          keyPoints: [
-            `Verified biographical background and career milestones for ${topic.canonicalTopic}.`,
-            'Key context and recent developments supported by primary sources.',
-          ],
-        },
-        {
-          heading: 'Notable Achievements & Impact',
-          keyPoints: [
-            'Documented career contributions, verified records, and professional focus.',
-            'Distinctive approaches and verified domain impact.',
-          ],
-        },
-        {
-          heading: 'Verified Context & Practical Takeaways',
-          keyPoints: [
-            'Factual summary of current status and confirmed future initiatives.',
-            'Objective takeaways grounded strictly in verified reporting.',
-          ],
-        },
-      ]
-    : [
-        {
-          heading: 'Background & Core Context',
-          keyPoints: [
-            `Understand the essentials of ${topic.canonicalTopic}.`,
-            'Highlight why this matters for modern readers.',
-          ],
-        },
-        {
-          heading: 'Practical Applications & Key Takeaways',
-          keyPoints: [
-            'Break down practical insights and real-world methods.',
-            'Provide concrete, high-signal takeaways.',
-          ],
-        },
-        {
-          heading: 'Actionable Advice & Next Steps',
-          keyPoints: [
-            'Specific recommendations, routines, or tools.',
-            'Practical steps for everyday integration.',
-          ],
-        },
-      ];
+  let outlineSections: Array<{ heading: string; keyPoints: string[] }>;
+
+  if (isPerson) {
+    outlineSections = [
+      {
+        heading: 'Background & Career Context',
+        keyPoints: [
+          `Verified biographical background and career milestones for ${topic.canonicalTopic}.`,
+          'Key context and recent developments supported by primary sources.',
+        ],
+      },
+      {
+        heading: 'Notable Achievements & Impact',
+        keyPoints: [
+          'Documented career contributions, verified records, and professional focus.',
+          'Distinctive approaches and verified domain impact.',
+        ],
+      },
+      {
+        heading: 'Verified Context & Practical Takeaways',
+        keyPoints: [
+          'Factual summary of current status and confirmed future initiatives.',
+          'Objective takeaways grounded strictly in verified reporting.',
+        ],
+      },
+    ];
+  } else if (editorialContentType === 'NEWS') {
+    outlineSections = [
+      {
+        heading: 'What Happened & Confirmed Details',
+        keyPoints: [
+          `Verified account of the primary event for ${topic.canonicalTopic}.`,
+          'Confirmed figures, dates, and organizations involved.',
+        ],
+      },
+      {
+        heading: 'Background & Precedent Context',
+        keyPoints: [
+          'How this situation developed and relevant historical context.',
+          'Official investigations or institutional responses.',
+        ],
+      },
+      {
+        heading: 'Broader Implications & What to Watch',
+        keyPoints: [
+          'Significance for readers, industry standards, or broader policies.',
+          'Confirmed next milestones supported strictly by verified reporting.',
+        ],
+      },
+    ];
+  } else if (editorialContentType === 'EXPLAINER') {
+    outlineSections = [
+      {
+        heading: 'Core Mechanism & Underlying Principles',
+        keyPoints: [
+          `How ${topic.canonicalTopic} functions at a fundamental level.`,
+          'The science, architecture, or causal systems at work.',
+        ],
+      },
+      {
+        heading: 'System Dynamics & Key Variables',
+        keyPoints: [
+          'Step-by-step breakdown of interactions and operational principles.',
+          'Why this matters and how different conditions affect outcomes.',
+        ],
+      },
+      {
+        heading: 'Practical Implications & Real-World Context',
+        keyPoints: [
+          'Everyday relevance, applications, and contextual takeaways.',
+          'Common misconceptions clarified through objective explanation.',
+        ],
+      },
+    ];
+  } else if (effectiveGuideMode === 'decision') {
+    outlineSections = [
+      {
+        heading: 'Core Decision Criteria & Key Tradeoffs',
+        keyPoints: [
+          `Primary evaluation criteria for choosing between ${topic.canonicalTopic} options.`,
+          'Crucial factors: durability, maintenance requirements, and practical constraints.',
+        ],
+      },
+      {
+        heading: 'Comparison Matrix & Practical Breakdown',
+        keyPoints: [
+          'Detailed side-by-side comparison across key performance metrics.',
+          'Pros, cons, and realistic usable lifespans for each alternative.',
+        ],
+      },
+      {
+        heading: 'Common Selection Mistakes & Use-Case Recommendations',
+        keyPoints: [
+          'Frequent buyer missteps, why they matter, and how to avoid them.',
+          'Direct scenario-based recommendations matching specific user needs.',
+        ],
+      },
+    ];
+  } else {
+    outlineSections = [
+      {
+        heading: 'Quick Summary & Key Parameters',
+        keyPoints: [
+          `Essential rules, baseline metrics, and safety thresholds for ${topic.canonicalTopic}.`,
+          'Required tools, materials, and prep time.',
+        ],
+      },
+      {
+        heading: 'Step-by-Step Execution Protocol',
+        keyPoints: [
+          'Numbered sequence of clear, actionable instructions from preparation to completion.',
+          'Crucial execution tips and specific failure-prevention warnings.',
+        ],
+      },
+      {
+        heading: 'Common Mistakes & Troubleshooting',
+        keyPoints: [
+          'Frequent errors, the underlying science or reason they fail, and immediate fixes.',
+          'Pro tips for long-term maintenance, storage, or optimization.',
+        ],
+      },
+    ];
+  }
 
   const requiredSources: Array<{
     name: string;
@@ -738,8 +788,9 @@ export function synthesizeEditorialBrief(
     riskLevel,
     estimatedWordCount,
     outlineSections,
-    factSheet: buildFactSheet(topic, effectiveEvidence, topic.sourceSignals),
-    contentType: determineContentType(topic),
+    factSheet,
+    guideMode: effectiveGuideMode,
+    contentType: effectiveContentType,
     createdAt: new Date().toISOString(),
   };
 }

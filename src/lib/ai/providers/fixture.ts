@@ -74,8 +74,8 @@ export class AIRouterFixtureProvider implements IAIProvider {
 
     // Default valid JSON article payload for content generation tasks
     const defaultJsonArticle = JSON.stringify({
-      title: 'Intentional Living in 2026: A Modern Guide',
-      slug: 'intentional-living-in-2026-a-modern-guide',
+      title: 'Intentional Living in 2026: Practical Daily Protocol',
+      slug: 'intentional-living-in-2026-practical-daily-protocol',
       description: 'An editorial exploration of modern intentional lifestyle design and mindful technology for curious readers.',
       excerpt: 'Discover the foundational shifts defining contemporary lifestyle design.',
       content: [

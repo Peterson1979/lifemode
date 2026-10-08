@@ -71,8 +71,12 @@ export function resolveSafeArticlePath(
   const pillar = validatePillar(rawPillar);
   const slug = sanitizeSlug(rawSlug);
 
+  // Map 'tools' pillar to 'home' content collection directory to avoid colliding
+  // with the specialized interactive tools content collection (src/content/tools/)
+  const contentDir = pillar === 'tools' ? 'home' : pillar;
+
   const resolvedRoot = resolve(normalize(contentRoot));
-  const expectedPillarDir = resolve(resolvedRoot, pillar);
+  const expectedPillarDir = resolve(resolvedRoot, contentDir);
   const safePath = resolve(expectedPillarDir, `${slug}.md`);
 
   // Path confinement verification

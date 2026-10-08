@@ -35,7 +35,7 @@ export function countWords(text: string): number {
 }
 
 export const FORMULAIC_TITLE_PATTERNS: RegExp[] = [
-  /:\s*a\s+(modern|complete|comprehensive|definitive|ultimate)\s+guide\s+to/i,
+  /:\s*(?:a|the)\s+(?:modern|complete|comprehensive|definitive|ultimate)\s+guide\b/i,
   /\ba\s+modern\s+guide\s+to\b/i,
   /\bthe\s+ultimate\s+guide\s+to\b/i,
   /\bcomprehensive\s+guide:\b/i,
@@ -45,7 +45,11 @@ export const FORMULAIC_TITLE_PATTERNS: RegExp[] = [
   /:\s*(what to know|what you should know|what you need to know|what to know right now)$/i,
   /\bwhy\s+.+\s+are\s+essential\s+in\s+20\d\d\b/i,
   /\bmastering\s+.+:\s*a\s+(complete|definitive|modern)\s+guide\b/i,
-  /:\s*a\s+definitive\s+guide\b/i,
+  /\b(?:the\s+art\s+of|the\s+poetry\s+of)\s+[^:]+:\s*restraint/i,
+  /\brestraint,?\s*craft,?\s*(?:and|&)\s*purpose\b/i,
+  /\belevates?\s+(?:(?:modern|contemporary|daily)\s+)+living\b/i,
+  /\ba\s+contemporary\s+perspective\b/i,
+  /\bfor\s+(modern|contemporary)\s+(daily\s+)?living\b/i,
   /\btrends,?\s+signals\s+&\s+zeitgeist\b/i,
   /\bdestinations\s+&\s+global\s+journeys\b/i,
   /\bliving,?\s+habits\s+&\s+daily\s+rituals\b/i,

@@ -1,6 +1,6 @@
-import type { PillarSlug, ArticleFormat, SearchIntent, RiskLevel } from '../types.ts';
+import type { PillarSlug, ArticleFormat, SearchIntent, RiskLevel, EditorialGuideMode } from '../types.ts';
 
-export type { PillarSlug, ArticleFormat, SearchIntent, RiskLevel };
+export type { PillarSlug, ArticleFormat, SearchIntent, RiskLevel, EditorialGuideMode };
 
 /**
  * Standard structured request payload provided to an AI Generation Provider.
@@ -77,7 +77,8 @@ export interface GenerationRequest {
   tags?: string[];
   isPerson?: boolean;
   factSheet?: import('../fact-sheet.ts').StructuredFactSheet;
-  contentType?: import('../fact-sheet.ts').EditorialContentType;
+  guideMode?: import('../types.ts').EditorialGuideMode;
+  contentType?: import('../fact-sheet.ts').EditorialContentType | 'reference' | 'decision';
   revisionContext?: GenerationRevisionContext;
 }
 

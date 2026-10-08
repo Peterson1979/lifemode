@@ -1685,34 +1685,6 @@
       ],
       "updatedAt": "2026-10-02T19:53:30.543Z"
     },
-    "src/content/food-drink/late-summer-harvest-preserving-heirloom-produce-and-wild-ferments.md": {
-      "filePath": "src/content/food-drink/late-summer-harvest-preserving-heirloom-produce-and-wild-ferments.md",
-      "pillar": "food-drink",
-      "slug": "late-summer-harvest-preserving-heirloom-produce-and-wild-ferments",
-      "topicId": "lm-food-drink-20260919-late-summer-harvest-preserving",
-      "title": "Preserving heirloom summer bounty and wild ferments for everyday cooking",
-      "contentType": "EVERGREEN_GUIDE",
-      "originalContentHash": "077e9a9d93752e8a411c5849abcdecc619da8b219c4eef11c424a6296002d035",
-      "finalContentHash": "5572b1815c70363c92085c3134d35ab749ffb4401f1582e3b371556b1773ef2f",
-      "originalBodyHash": "0ce7a2ddb7158c7e7e204ab8f7e56b078b9b60e60bb5e14f638dad8a666c807b",
-      "finalBodyHash": "240c5a9f94da90b0a544bc3a10a4f5e1d55c49ab8a4e0366ec397d7b28570118",
-      "bodyChanged": true,
-      "sourceUrls": [
-        "https://www.lifemode.com/standards"
-      ],
-      "sourceEvidenceCount": 1,
-      "generationExecuted": true,
-      "editorialQA": "PASS",
-      "editorialScore": 95,
-      "imageStatus": "RETAINED",
-      "imageQA": "PASS",
-      "imageUrl": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/editorial/lm-food-drink-20260919-late-summer-harve/cd1c4423f609346f.jpg",
-      "finalStatus": "COMPLETED",
-      "notes": [
-        "Genuinely rewritten via Groq LLM (openai/gpt-oss-120b). No fixture fallback used."
-      ],
-      "updatedAt": "2026-10-02T09:21:16.593Z"
-    },
     "src/content/food-drink/rustic-potato-leek-soup.md": {
       "filePath": "src/content/food-drink/rustic-potato-leek-soup.md",
       "pillar": "food-drink",

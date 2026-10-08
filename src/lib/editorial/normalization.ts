@@ -11,6 +11,8 @@ const LOWERCASE_WORDS = new Set([
 
 /**
  * Deterministic legacy-to-active pillar normalization map.
+ * Strictly maps valid practical sub-categories to the 6 active LifeMode editorial pillars.
+ * Excluded areas (entertainment, style, travel, culture, gaming, sports, celebrity) return null.
  */
 export const LEGACY_PILLAR_MAP: Record<string, ActivePillarSlug> = {
   health: 'health',
@@ -20,22 +22,20 @@ export const LEGACY_PILLAR_MAP: Record<string, ActivePillarSlug> = {
   'tech-ai': 'tech-ai',
   tools: 'tools',
   wellbeing: 'health',
+  longevity: 'health',
   money: 'wealth',
+  'personal-finance': 'wealth',
   'food-drink': 'home',
   'food-kitchen': 'home',
   'cleaning-laundry': 'home',
   'home-maintenance': 'home',
   'storage-organization': 'home',
-  'everyday-how-to': 'home',
-  style: 'life',
-  travel: 'life',
-  entertainment: 'life',
-  culture: 'life',
+  'everyday-how-to': 'life',
 };
 
 /**
  * Normalizes any category or pillar string to one of the 6 active LifeMode editorial pillars.
- * Returns null if the category represents an excluded legacy area (e.g. entertainment, life-hacks).
+ * Returns null if the category represents an excluded legacy area (e.g. entertainment, style, travel, gaming).
  */
 export function normalizePillar(input?: string): ActivePillarSlug | null {
   if (!input) return null;
@@ -94,14 +94,25 @@ const SYNONYM_MAP: Array<{ pattern: RegExp; replacement: string }> = [
 ];
 
 /**
- * Patterns representing gossip, crime, disaster, sports results, and generic news to exclude.
+ * Patterns representing entertainment, gaming, gossip, crime, disaster, sports, coupon spam, and generic filler to exclude.
  */
 const EXCLUDED_TOPIC_PATTERNS: RegExp[] = [
-  /\b(?:dating|divorce|cheating|affair|spotted with|boyfriend|girlfriend|fiance|engaged|red carpet|wardrobe malfunction)\b/i,
-  /\b(?:arrested|charged with|shooting|killed|murder|homicide|robbery|car crash|plane crash|explosion)\b/i,
-  /\b(?:vs\b|versus|game score|final score|game recap|halftime|touchdown|pitcher|box score|quarterback injured)\b/i,
-  /\b(?:episode \d+|season \d+ finale|box office opening|trailer reaction|tv recap|spoilers)\b/i,
-  /\b(?:meme|viral video|drama on twitter|tiktok trend)\b/i,
+  // Entertainment, Movies, Television, Awards, Streaming
+  /\b(?:movie|movies|film|films|cinema|blockbuster|blockbusters|box office|trailer|soundtrack|oscars?|grammys?|emmys?|music awards?|awards? nominees?|cannes|sundance|actress|actor|director|hollywood|celebrity|celebrities|red carpet|sequel|premiere|screening|theatre|theater|streaming show|tv show|season \d+|episode \d+|spoilers|recap|binge-watch|screen storytelling)\b/i,
+  // Video Games, Gaming Servers, MMOs, Esports
+  /\b(?:gaming|gameplay|video game|esports|playstation|xbox|nintendo|steam|twitch|streamer|patch notes|server maintenance|scheduled maintenance|server downtime|raid reset|patch update|mmo|rpg|fps|aion|warcraft|fortnite|minecraft|genshin|roblox|gta|league of legends|zelda|pokemon|elden ring|final fantasy)\b/i,
+  // Gossip, Dating, Romance, Scandal
+  /\b(?:dating|divorce|cheating|affair|spotted with|boyfriend|girlfriend|fiance|engaged|wardrobe malfunction|net worth|paparazzi|rumor|rumors|gossip|drama on twitter|tiktok drama|viral clip|influencer drama)\b/i,
+  // Crime, Disasters, Accidents, Tragedies
+  /\b(?:arrested|charged with|shooting|killed|murder|homicide|robbery|car crash|plane crash|explosion|death row|inmate|spy|stashed gold|scandal|trial|court verdict)\b/i,
+  // Sports & Scores (without banning comparison 'vs')
+  /\b(?:game score|final score|game recap|halftime|touchdown|pitcher|box score|quarterback|nba|nfl|mlb|nhl|fifa|world cup|super bowl|playoffs|transfer fee|championship match|premier league|football match)\b/i,
+  // Commercial Promo, Coupon Codes, Prime Day Deals Spam
+  /\b(?:coupon|promo code|discount code|prime day deals|clearance sale|black friday sale|cyber monday deal|affiliate code|cashback)\b/i,
+  // Generic Travel Listicles & Tourism Inspiration
+  /\b(?:tourist destination|tourist attractions|travel destinations|destinations in|resort vacation|hotel booking|flight deals|weekend getaway)\b/i,
+  // Abstract philosophical musings lacking practical task & generic trend buzz
+  /\b(?:art of living|elevating daily living|contemplative modern|poetry of|philosophical reflection|meditations on modern life|philosophy of|modern living aesthetics|everyone is talking about|vibe shift|reimagining everything|trend is transforming|transforming modern homes|why this .*? trend|what is .*? and why everyone)\b/i,
 ];
 
 /**
@@ -113,7 +124,7 @@ export function isMeaningfulEditorialTopic(raw: string): { isValid: boolean; rea
   }
 
   const cleaned = cleanTopicString(raw);
-  const words = cleaned.split(/\s+/).filter((w) => w.length > 0);
+  const words = cleaned.replace(/[-–—/]+/g, ' ').split(/\s+/).filter((w) => w.length > 0);
 
   // Reject single-word filler topics (e.g. "Fitness", "Money", "Travel", "Tech")
   if (words.length < 2) {
@@ -125,10 +136,10 @@ export function isMeaningfulEditorialTopic(raw: string): { isValid: boolean; rea
     return { isValid: false, reason: 'Short 2-word query lacks substance.' };
   }
 
-  // Check against excluded gossip/news/crime/sports patterns
+  // Check against excluded entertainment/gaming/gossip/news/crime/sports patterns
   for (const pattern of EXCLUDED_TOPIC_PATTERNS) {
-    if (pattern.test(cleaned)) {
-      return { isValid: false, reason: 'Query matches excluded entertainment/gossip/crime/sports pattern.' };
+    if (pattern.test(cleaned) || pattern.test(raw)) {
+      return { isValid: false, reason: 'Query matches excluded entertainment/gaming/gossip/crime/sports pattern.' };
     }
   }
 
@@ -200,42 +211,44 @@ export function slugify(text: string): string {
 
 /**
  * Keyword-based heuristic to infer the most appropriate active LifeMode pillar.
+ * Refined around EverydayGuide practical problem-solving domains.
  */
 const ACTIVE_PILLAR_KEYWORDS: Record<ActivePillarSlug, string[]> = {
   health: [
     'health', 'longevity', 'metabolic', 'glucose', 'blood sugar', 'protein', 'nutrition',
-    'aging', 'biological age', 'sleep', 'recovery', 'fitness', 'workout', 'wearable',
-    'wellness tech', 'vitality', 'circadian', 'wellbeing', 'sauna', 'cold plunge',
-    'biohacking', 'hydration', 'strength', 'zone 2', 'cardio', 'muscle'
+    'sleep', 'recovery', 'fitness', 'workout', 'circadian', 'sauna', 'cold plunge',
+    'biohacking', 'hydration', 'strength', 'zone 2', 'cardio', 'muscle', 'electrolytes',
+    'supplements', 'heart rate', 'vo2 max', 'macronutrients', 'dietary'
   ],
   wealth: [
-    'wealth', 'money', 'side hustle', 'online income', 'freelancing', 'digital products',
-    'creator economy', 'remote work', 'ecommerce', 'online business', 'selling online',
-    'passive income', 'consulting', 'investing', 'invest', 'budget', 'saving', 'portfolio',
-    'treasury', 'yield', 'cash flow', 'personal finance', 'dividends', 'micro-agency'
+    'wealth', 'personal finance', 'investing', 'invest', 'budget', 'saving', 'portfolio',
+    'treasury', 'yield', 'cash flow', 'dividends', 'emergency fund', 'high-yield savings',
+    'hysa', 'treasury bills', 't-bills', 'index funds', 'roth ira', '401k', 'tax strategy',
+    'tax deductions', 'side hustle', 'cash management', 'freelancing rates'
   ],
   home: [
-    'home', 'kitchen', 'food', 'cooking', 'cleaning', 'laundry', 'stain', 'maintenance',
-    'storage', 'organization', 'pantry', 'closet', 'appliance', 'cookware', 'cast iron',
-    'decluttering', 'sourdough', 'fermentation', 'recipes', 'recipe', 'baking', 'culinary',
-    'dish', 'meal prep', 'pantry shelf', 'fabric care', 'seasonal upkeep', 'hvac', 'small-space'
+    'home', 'kitchen', 'cooking', 'cleaning', 'laundry', 'stain removal', 'home maintenance',
+    'appliance', 'cookware', 'cast iron', 'decluttering', 'sourdough', 'fermentation',
+    'food storage', 'cooked rice', 'food safety', 'pantry organization', 'hvac filter',
+    'dryer vent', 'pipe insulation', 'winterize', 'fabric care', 'baking protocol',
+    'dish care', 'countertop care'
   ],
   life: [
-    'life', 'style', 'fashion', 'beauty', 'skincare', 'grooming', 'wardrobe', 'capsule',
-    'productivity', 'routine', 'morning routine', 'travel', 'experience', 'destination',
-    'daily life', 'itinerary', 'slow travel', 'minimalist', 'aesthetics', 'fragrance',
-    'outfit', 'skincare routine', 'sunscreen', 'haircare', 'intentional living', 'habit stacking'
+    'life', 'routine', 'morning routine', 'evening routine', 'productivity', 'desk ergonomics',
+    'workspace setup', 'digital decluttering', 'time blocking', 'habit stacking', 'clothing care',
+    'shoe care', 'seasonal wardrobe storage', 'intentional systems', 'daily protocols',
+    'organization system'
   ],
   'tech-ai': [
-    'tech', 'ai', 'artificial intelligence', 'gadget', 'software', 'prompt', 'prompt engineering',
-    'automation', 'tool', 'tools', 'app', 'apps', 'hardware', 'llm', 'computing', 'digital',
-    'workflow', 'chatgpt', 'claude', 'local llm', 'ollama', 'ai side hustle', 'ai learning',
-    'get-ai-set', 'transcription', 'ai note-taking', 'vision ai', 'upskilling'
+    'tech', 'ai', 'artificial intelligence', 'prompt', 'prompting', 'automation', 'tool',
+    'tools', 'app', 'apps', 'software', 'local llm', 'ollama', 'ai workflow', 'chatgpt',
+    'claude', 'vision ai', 'camera ai', 'transcription', 'audio transcription', 'voice to text',
+    'get-ai-set', 'smart home', 'document search', 'privacy settings'
   ],
   tools: [
-    'calculator', 'finder', 'solver', 'cheat sheet', 'checklist', 'interactive',
-    'planner', 'selector', 'decision tree', 'comparison matrix', 'intake calculator',
-    'storage planner', 'material selector', 'care advisor'
+    'calculator', 'finder', 'solver', 'cheat sheet', 'checklist', 'planner', 'selector',
+    'decision matrix', 'comparison table', 'formula', 'intake calculator', 'sizing guide',
+    'stain solver', 'food calculator', 'care advisor'
   ],
 };
 

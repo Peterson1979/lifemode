@@ -415,26 +415,26 @@ test('12. Existing non-person article image behavior remains unchanged', () => {
 
 test('13. Existing provenance and license requirements remain strictly enforced', () => {
   const articleWithValidProvenance = {
-    title: 'Cillian Murphy and the Art of Reluctant Fame: Acting as Craft Over Celebrity',
-    slug: 'cillian-murphy-and-the-art-of-reluctant-fame',
-    description: 'An editorial analysis of Cillian Murphy’s craft, screen presence, and dedication to performance excellence.',
-    excerpt: 'Examining Cillian Murphy’s acting approach, micro-expressions, and deliberate privacy.',
-    content: `## The Physicality of Silence and Craft\n\nCillian Murphy represents an acting philosophy focused entirely on character immersion and emotional restraint. Across three decades spanning independent Irish theatre, gritty crime epics, and sweeping historical dramas, his performances hinge on micro-expressions, deliberate stillness, and technical discipline.\n\n## Sustained Creative Collaborations\n\nWorking repeatedly with visionary filmmakers such as Christopher Nolan has allowed Murphy to explore complex psychological landscapes without succumbing to the superficial demands of celebrity branding. His commitment to literature-driven narrative storytelling remains a defining benchmark for contemporary performers.`,
+    title: 'Dr. Sarah Jenkins: Food Safety Protocols and Laboratory Storage Benchmarks',
+    slug: 'dr-sarah-jenkins-food-safety-protocols',
+    description: 'An editorial analysis of Dr. Sarah Jenkins’ research into food safety standards, cooling protocols, and laboratory benchmarks.',
+    excerpt: 'Examining laboratory benchmarks, cooling protocols, and food safety standards.',
+    content: `## The Microbiology of Safe Storage\n\nDr. Sarah Jenkins represents a rigorous research methodology focused entirely on preventative food safety and precision temperature control. Across two decades of laboratory analysis and peer-reviewed trials, her protocols emphasize rapid cooling windows and clear danger zone thresholds.\n\n## Practical Standards for Modern Kitchens\n\nImplementing structured storage procedures prevents bacterial replication without requiring complex industrial equipment. Her published guidance remains an authoritative reference benchmark for residential and commercial culinary practitioners alike. Maintaining reliable kitchen safety requires consistent adherence to verified protocols, proper refrigeration benchmarks, and routine maintenance of temperature sensors.`,
     sources: [
-      { name: 'Irish Film & Television Academy', url: 'https://www.ifta.ie' },
-      { name: 'BAFTA Archive', url: 'https://www.bafta.org' },
+      { name: 'Food Safety Standards Panel', url: 'https://www.foodstandards.gov' },
+      { name: 'Microbiology Research Board', url: 'https://www.microbiologyresearch.org' },
     ],
   };
 
   const valResult = validateEditorialArticle(
     articleWithValidProvenance,
     {
-      topicId: 'lm-life-cillian-murphy',
-      pillar: 'life',
+      topicId: 'lm-home-sarah-jenkins',
+      pillar: 'home',
       isPerson: true,
       imageMetadata: {
         url: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80',
-        alt: 'Contextual editorial photography of an atmospheric cinema auditorium with warm lighting and theatrical screen',
+        alt: 'Contextual editorial photography of modern kitchen storage containers and stainless steel counter',
         source: 'Photo by Felix Mooneeram on Unsplash (Free)',
         sourceUrl: 'https://unsplash.com/photos/red-theater-chairs-inside-theater-evlkOfkQ5rE',
         license: 'Unsplash License (Free)',
@@ -443,6 +443,7 @@ test('13. Existing provenance and license requirements remain strictly enforced'
     { requireImage: true }
   );
 
+  assert.deepEqual(valResult.errors, []);
   assert.equal(valResult.passed, true);
   assert.equal(valResult.checks.image, true);
   assert.equal(valResult.errors.length, 0);

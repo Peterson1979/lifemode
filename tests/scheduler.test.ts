@@ -222,20 +222,20 @@ test('5. Successful + rejected candidates produces PARTIAL_SUCCESS', async () =>
           {
             source: 'FIXTURE',
             sourceId: 'mock-1',
-            rawQuery: 'First Good Topic For Review Pass',
+            rawQuery: 'How to Build a Mindful Morning Routine: Step-by-Step Focus Guide',
             timestamp: new Date().toISOString(),
             metrics: { growthRate: 95, searchVolume: 20000, relativeInterest: 95, isBreakout: true, visualPotentialScore: 90 },
             category: 'life',
-            metadata: { isFixture: true, suggestedPillar: 'life', curatedTags: ['lifestyle'] },
+            metadata: { isFixture: true, suggestedPillar: 'life', curatedTags: ['lifestyle', 'guide'] },
           },
           {
             source: 'FIXTURE',
             sourceId: 'mock-2',
-            rawQuery: 'Second Topic Destined For Rejection',
+            rawQuery: 'How to Manage Household Cash Reserves: Step-by-Step Liquidity Guide',
             timestamp: new Date().toISOString(),
             metrics: { growthRate: 90, searchVolume: 15000, relativeInterest: 90, isBreakout: true, visualPotentialScore: 85 },
             category: 'wealth',
-            metadata: { isFixture: true, suggestedPillar: 'wealth', curatedTags: ['wealth'] },
+            metadata: { isFixture: true, suggestedPillar: 'wealth', curatedTags: ['wealth', 'guide'] },
           },
         ],
         fetchedAt: new Date().toISOString(),
@@ -297,7 +297,7 @@ test('6. No publishable candidate produces SUCCESS_NO_PUBLICATION without failur
       contentRoot: contentDir,
       lockPath,
       storagePath,
-      discoveryAdapters: [new MockDiscoveryAdapter('Topic Failing AI Review', 95)],
+      discoveryAdapters: [new MockDiscoveryAdapter('Step-by-Step Guide to Morning Routines', 95)],
       reviewProvider: rejectingReviewProvider,
     });
 

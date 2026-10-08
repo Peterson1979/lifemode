@@ -97,6 +97,8 @@ export interface EditorialValidationContext {
   isPerson?: boolean;
   recentTitles?: string[];
   factSheet?: import('../fact-sheet.ts').StructuredFactSheet;
+  guideMode?: import('../types.ts').EditorialGuideMode;
+  contentType?: import('../fact-sheet.ts').EditorialContentType | 'reference' | 'decision';
   visualBrief?: import('../visual-brief.ts').StructuredVisualBrief;
 }
 

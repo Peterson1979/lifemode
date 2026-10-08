@@ -23,33 +23,38 @@ export function classifyTrendingQueryPillar(query: string, description?: string)
 
   const text = `${query} ${description || ''}`.toLowerCase();
 
-  // Tech & AI (AI software, prompt systems, consumer tech innovation, local LLMs)
-  if (/\b(ai|artificial intelligence|claude|chatgpt|openai|gemini|nvidia|gpu|gpus|chip|chips|llm|llms|machine learning|prompt|prompts|software|app|apps|gadget|gadgets|hardware|cyber|robot|automation|tech workflow|smart home)\b/i.test(text)) {
+  // Explicitly reject gaming, movie, server maintenance, celebrity keywords in description
+  if (/\b(aion|gameplay|video game|esports|playstation|xbox|nintendo|steam|patch notes|server maintenance|mmo|rpg|fps|warcraft|fortnite|minecraft|box office|movie premiere|red carpet|celebrity|hollywood)\b/i.test(text)) {
+    return null;
+  }
+
+  // Tech & AI (Practical AI tools, prompt systems, camera AI, note-taking, local LLMs, everyday software)
+  if (/\b(ai|artificial intelligence|claude|chatgpt|openai|gemini|llm|llms|prompt|prompts|local llm|ollama|ai vision|camera ai|transcription|voice to text|ai tool|ai workflow|smart home)\b/i.test(text)) {
     return 'tech-ai';
   }
 
-  // Health (Longevity, metabolic health, sleep, recovery, fitness, nutrition science, biohacking)
-  if (/\b(health|sleep|diet|nutrition|workout|fitness|longevity|metabolic|glucose|blood sugar|protein|circadian|recovery|sauna|cold plunge|vitality|biohack|fasting|cardio|zone 2|muscle|hydration)\b/i.test(text)) {
+  // Health (Evidence-based longevity, metabolic health, sleep, recovery, fitness, nutrition, biohacking)
+  if (/\b(health|sleep|diet|nutrition|workout|fitness|longevity|metabolic|glucose|blood sugar|protein|circadian|recovery|sauna|cold plunge|vitality|biohack|fasting|cardio|zone 2|muscle|hydration|electrolytes)\b/i.test(text)) {
     return 'health';
   }
 
-  // Wealth (Online income, side hustles, digital work, freelancing, personal finance, investing, money)
-  if (/\b(side hustle|online income|freelancing|digital product|creator economy|remote work|ecommerce|selling online|passive income|personal finance|investing|invest|budget|saving|portfolio|treasury|yield|yields|rates|interest rates|cash flow|dividends|bonds)\b/i.test(text)) {
+  // Wealth (Personal finance, high-yield savings, treasury bills, investing, budgeting, tax strategy)
+  if (/\b(personal finance|investing|invest|budget|saving|portfolio|treasury|yield|yields|interest rates|cash flow|dividends|emergency fund|hysa|treasury bills|t-bills|index funds|roth ira|401k|tax strategy|side hustle)\b/i.test(text)) {
     return 'wealth';
   }
 
-  // Home (Kitchen care, cooking, food storage, stain solving, cleaning, home maintenance, organization)
-  if (/\b(kitchen|cooking|cookware|food storage|cast iron|stain|cleaning|laundry|maintenance|storage|organization|declutter|pantry|closet|appliance|sourdough|fermentation|recipe|recipes|baking|culinary|meal prep|fabric care)\b/i.test(text)) {
+  // Home (Kitchen care, food safety, stain removal, cleaning, appliance upkeep, home maintenance, organization)
+  if (/\b(kitchen|cooking|cookware|cast iron|food storage|cooked rice|food safety|stain|clean|cleaning|laundry|appliance|refrigerator|fridge|freezer|dishwasher|condenser|descale|descaling|declutter|pantry|closet|hvac|gutter|winterize|pipe insulation|dryer vent|baking|fermentation|fabric care)\b/i.test(text)) {
     return 'home';
   }
 
-  // Life (Style, grooming, skincare, beauty, daily routines, travel, intentional living, aesthetics)
-  if (/\b(style|fashion|wardrobe|capsule wardrobe|outfit|outfits|beauty|skincare|serum|sunscreen|haircare|grooming|fragrance|perfume|travel|destination|destinations|itinerary|itineraries|slow travel|hotel|hotels|flight|flights|journey|journeys|coastal|routine|morning routine|productivity|habit|habits)\b/i.test(text)) {
+  // Life (Productivity, desk ergonomics, morning routines, digital decluttering, daily systems, clothing care)
+  if (/\b(routine|morning routine|evening routine|productivity|desk ergonomics|workspace setup|digital declutter|habit|habits|time blocking|wardrobe storage|clothing care|shoe care|everyday system|intentional living)\b/i.test(text)) {
     return 'life';
   }
 
-  // Tools (Interactive calculators, decision trees, cheat sheets, finders)
-  if (/\b(calculator|finder|solver|cheat sheet|checklist|planner|selector|quiz|formula)\b/i.test(text)) {
+  // Tools (Interactive calculators, decision matrices, cheat sheets, checklists, finders, solvers)
+  if (/\b(calculator|finder|solver|cheat sheet|checklist|planner|selector|decision matrix|comparison matrix|formula|sizing guide)\b/i.test(text)) {
     return 'tools';
   }
 

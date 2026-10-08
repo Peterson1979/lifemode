@@ -412,6 +412,11 @@ export function validateGeneratedArticle(
           affiliateGuidance: request.affiliateGuidance,
           affiliateCategories: request.affiliateCategories,
           estimatedWordCount: request.estimatedWordCount,
+          factSheet: request.factSheet,
+          guideMode: request.guideMode,
+          contentType: request.contentType,
+          tags: request.tags,
+          isPerson: request.isPerson,
         }
       : {},
     {
@@ -425,9 +430,13 @@ export function validateGeneratedArticle(
 
   for (const err of editorialValidation.errors) {
     if (!issues.some((i) => i.message === err)) {
+      const isFormation =
+        err.includes('lacks actionable practical guidance') ||
+        err.includes('lacks comparative decision support') ||
+        err.includes('lacks explanatory and causal substance');
       issues.push({
-        field: 'editorial',
-        rule: 'EDITORIAL_VALIDATION_ERROR',
+        field: isFormation ? 'content' : 'editorial',
+        rule: isFormation ? 'CONTENT_FORMATION_MISMATCH' : 'EDITORIAL_VALIDATION_ERROR',
         message: err,
         severity: 'error',
       });

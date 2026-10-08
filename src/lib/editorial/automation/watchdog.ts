@@ -4,6 +4,7 @@ import { FilesystemContentRepository } from '../storage/repository.ts';
 import { runScheduledEditorialAutomation } from './scheduler.ts';
 import { acquireLock } from './lock.ts';
 import { loadScheduledAutomationConfig } from './config.ts';
+import { getEditorialDailyPlan } from '../cadence.ts';
 import type {
   ScheduledAutomationOptions,
   ScheduledAutomationResult,
@@ -73,13 +74,15 @@ export async function checkDailyRunStatus(
     contentRoot?: string;
     targetDate?: string;
     dailyLimit?: number;
+    dailyArticleLimit?: number;
     lockPath?: string;
     staleTimeoutMs?: number;
   } = {}
 ): Promise<DailyRunStatusReport> {
   const targetDate = options.targetDate || getUtcDateString();
   const config = loadScheduledAutomationConfig();
-  const dailyLimit = options.dailyLimit ?? config.dailyArticleLimit ?? 3;
+  const dailyPlan = getEditorialDailyPlan(targetDate);
+  const dailyLimit = options.dailyLimit ?? options.dailyArticleLimit ?? dailyPlan.totalArticlesTarget;
 
   let defaultContentRoot: string;
   if (options.contentRoot) {
@@ -188,11 +191,14 @@ export async function runEditorialWatchdog(
   const targetDate = options.targetDate || getUtcDateString();
   const config = loadScheduledAutomationConfig(options);
 
+  const dailyPlan = getEditorialDailyPlan(targetDate);
+  const dailyLimit = options.dailyLimit ?? options.dailyArticleLimit ?? dailyPlan.totalArticlesTarget;
+
   const report = await checkDailyRunStatus({
     contentRepository: options.contentRepository,
     contentRoot: options.contentRoot,
     targetDate,
-    dailyLimit: options.dailyArticleLimit ?? config.dailyArticleLimit ?? 3,
+    dailyLimit,
     lockPath: options.lockPath || config.lockPath,
     staleTimeoutMs: options.staleLockTimeoutMs,
   });
@@ -241,7 +247,7 @@ export async function runEditorialWatchdog(
     contentRepository: options.contentRepository,
     contentRoot: options.contentRoot,
     targetDate,
-    dailyLimit: options.dailyArticleLimit ?? config.dailyArticleLimit ?? 3,
+    dailyLimit,
     lockPath: options.lockPath || config.lockPath,
     staleTimeoutMs: options.staleLockTimeoutMs,
   });

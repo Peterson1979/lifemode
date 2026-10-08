@@ -106,6 +106,7 @@ test('1. checkDailyRunStatus: Correctly distinguishes empty vs completed daily p
     const reportEmpty = await checkDailyRunStatus({
       contentRepository: repository,
       targetDate: today,
+      dailyArticleLimit: 3,
     });
 
     assert.equal(reportEmpty.status, 'NEEDS_EXECUTION');
@@ -132,6 +133,7 @@ test('1. checkDailyRunStatus: Correctly distinguishes empty vs completed daily p
     const reportFilled = await checkDailyRunStatus({
       contentRepository: repository,
       targetDate: today,
+      dailyArticleLimit: 3,
     });
 
     assert.equal(reportFilled.status, 'COMPLETED');
@@ -179,6 +181,7 @@ test('2. Watchdog NO-OP: Normal scheduled run already published 3 articles today
       lockPath,
       storagePath,
       targetDate: today,
+      dailyArticleLimit: 3,
       discoveryAdapters: [new MockSignalAdapter('Another Topic That Should Not Run')],
     });
 
@@ -216,6 +219,7 @@ test('3. Watchdog Recovery: Scheduled run was missed -> watchdog detects 0 artic
       lockPath,
       storagePath,
       targetDate: today,
+      dailyArticleLimit: 3,
       discoveryAdapters: [
         new MockSignalAdapter([
           { query: 'Biophilic Workstation Architecture', pillar: 'tech-ai', score: 98 },
@@ -276,6 +280,7 @@ test('4. Partial Day Recovery: 1 article published earlier -> watchdog recovers 
       lockPath,
       storagePath,
       targetDate: today,
+      dailyArticleLimit: 3,
       discoveryAdapters: [
         new MockSignalAdapter([
           { query: 'Modern Mass Timber Architecture', pillar: 'home', score: 97 },
