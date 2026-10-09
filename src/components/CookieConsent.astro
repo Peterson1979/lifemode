@@ -168,19 +168,9 @@ const { gaMeasurementId = SITE_CONFIG.gaMeasurementId } = Astro.props;
     const STORAGE_KEY = 'lifemode_consent_v2';
     const GA_ID = gaMeasurementId || 'G-V06H9EB5QK';
 
-    // UI Elements
-    const banner = document.getElementById('cookie-banner');
-    const modalBackdrop = document.getElementById('cookie-modal-backdrop');
-    const btnAcceptAll = document.getElementById('cookie-btn-accept-all');
-    const btnRejectAll = document.getElementById('cookie-btn-reject-all');
-    const btnManagePrefs = document.getElementById('cookie-btn-manage-prefs');
-    const btnCloseModal = document.getElementById('cookie-modal-close');
-    const btnSavePrefs = document.getElementById('cookie-btn-save-prefs');
-    const btnModalAcceptAll = document.getElementById('cookie-btn-modal-accept-all');
-    const btnModalRejectAll = document.getElementById('cookie-btn-modal-reject-all');
-
-    const toggleAnalytics = document.getElementById('pref-analytics');
-    const toggleMarketing = document.getElementById('pref-marketing');
+    function getElement(id) {
+      return document.getElementById(id);
+    }
 
     // Safe Consent Reader
     function getSavedConsent() {
@@ -316,6 +306,8 @@ const { gaMeasurementId = SITE_CONFIG.gaMeasurementId } = Astro.props;
       }
 
       // Hide Banner and Modal
+      const banner = getElement('cookie-banner');
+      const modalBackdrop = getElement('cookie-modal-backdrop');
       if (banner) banner.hidden = true;
       if (modalBackdrop) modalBackdrop.hidden = true;
       document.body.style.overflow = '';
@@ -327,6 +319,11 @@ const { gaMeasurementId = SITE_CONFIG.gaMeasurementId } = Astro.props;
     }
 
     function openModal() {
+      const banner = getElement('cookie-banner');
+      const modalBackdrop = getElement('cookie-modal-backdrop');
+      const toggleAnalytics = getElement('pref-analytics');
+      const toggleMarketing = getElement('pref-marketing');
+
       const current = getSavedConsent();
       if (toggleAnalytics) toggleAnalytics.checked = current ? current.analytics : false;
       if (toggleMarketing) toggleMarketing.checked = current ? current.marketing : false;
@@ -341,6 +338,9 @@ const { gaMeasurementId = SITE_CONFIG.gaMeasurementId } = Astro.props;
     }
 
     function closeModal() {
+      const banner = getElement('cookie-banner');
+      const modalBackdrop = getElement('cookie-modal-backdrop');
+
       if (modalBackdrop) {
         modalBackdrop.hidden = true;
         document.body.style.overflow = '';
@@ -351,82 +351,101 @@ const { gaMeasurementId = SITE_CONFIG.gaMeasurementId } = Astro.props;
       }
     }
 
-    // Bind Action Handlers
-    btnAcceptAll?.addEventListener('click', function () {
-      applyConsent(true, true);
-    });
+    // Global Event Delegation for all consent buttons & triggers
+    document.addEventListener('click', function (e) {
+      const target = e.target;
+      if (!target || typeof target.closest !== 'function') return;
 
-    btnRejectAll?.addEventListener('click', function () {
-      applyConsent(false, false);
-    });
+      // Accept All (Banner or Modal)
+      if (target.closest('#cookie-btn-accept-all, #cookie-btn-modal-accept-all')) {
+        e.preventDefault();
+        applyConsent(true, true);
+        return;
+      }
 
-    btnModalAcceptAll?.addEventListener('click', function () {
-      applyConsent(true, true);
-    });
+      // Reject All / Non-Essential (Banner or Modal)
+      if (target.closest('#cookie-btn-reject-all, #cookie-btn-modal-reject-all')) {
+        e.preventDefault();
+        applyConsent(false, false);
+        return;
+      }
 
-    btnModalRejectAll?.addEventListener('click', function () {
-      applyConsent(false, false);
-    });
+      // Manage Preferences (Banner)
+      if (target.closest('#cookie-btn-manage-prefs')) {
+        e.preventDefault();
+        openModal();
+        return;
+      }
 
-    btnSavePrefs?.addEventListener('click', function () {
-      applyConsent(
-        toggleAnalytics ? toggleAnalytics.checked : false,
-        toggleMarketing ? toggleMarketing.checked : false
-      );
-    });
+      // Close Preferences (Modal 'X' button)
+      if (target.closest('#cookie-modal-close')) {
+        e.preventDefault();
+        closeModal();
+        return;
+      }
 
-    btnManagePrefs?.addEventListener('click', openModal);
-    btnCloseModal?.addEventListener('click', closeModal);
+      // Save Preferences (Modal primary button)
+      if (target.closest('#cookie-btn-save-prefs')) {
+        e.preventDefault();
+        const toggleAnalytics = getElement('pref-analytics');
+        const toggleMarketing = getElement('pref-marketing');
+        applyConsent(
+          toggleAnalytics ? toggleAnalytics.checked : false,
+          toggleMarketing ? toggleMarketing.checked : false
+        );
+        return;
+      }
 
-    modalBackdrop?.addEventListener('click', function (e) {
-      if (e.target === modalBackdrop && getSavedConsent()) {
+      // Open Settings triggers from Footer, Policy pages, etc.
+      if (target.closest('#open-cookie-settings, [data-open-cookie-settings], #page-open-cookie-settings')) {
+        e.preventDefault();
+        openModal();
+        return;
+      }
+
+      // Backdrop click outside modal card
+      const modalBackdrop = getElement('cookie-modal-backdrop');
+      if (target === modalBackdrop) {
         closeModal();
       }
     });
 
     window.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && modalBackdrop && !modalBackdrop.hidden) {
-        if (getSavedConsent()) {
+      if (e.key === 'Escape') {
+        const modalBackdrop = getElement('cookie-modal-backdrop');
+        if (modalBackdrop && !modalBackdrop.hidden) {
           closeModal();
         }
       }
     });
 
-    // Global listener for reopen triggers (e.g. from footer or policy pages)
-    document.addEventListener('click', function (e) {
-      const target = e.target;
-      if (
-        target &&
-        typeof target.closest === 'function' &&
-        target.closest('#open-cookie-settings, [data-open-cookie-settings], #page-open-cookie-settings')
-      ) {
-        e.preventDefault();
-        openModal();
-      }
-    });
-
     // Initial check on page load
-    const saved = getSavedConsent();
-    if (!saved) {
-      if (banner) {
-        // Subtle reveal delay to prevent layout jump
-        setTimeout(function () {
+    function initBanner() {
+      const saved = getSavedConsent();
+      const banner = getElement('cookie-banner');
+      if (!saved) {
+        if (banner) {
           banner.hidden = false;
-        }, 150);
-      }
-    } else {
-      if (saved.analytics) {
-        // Apply stored signals and load GA4
-        if (typeof window.gtag === 'function') {
-          window.gtag('consent', 'update', {
-            analytics_storage: 'granted',
-            ad_storage: saved.marketing ? 'granted' : 'denied',
-            ad_user_data: saved.marketing ? 'granted' : 'denied',
-            ad_personalization: saved.marketing ? 'granted' : 'denied',
-          });
         }
-        loadGoogleAnalytics();
+      } else {
+        if (saved.analytics) {
+          if (typeof window.gtag === 'function') {
+            window.gtag('consent', 'update', {
+              analytics_storage: 'granted',
+              ad_storage: saved.marketing ? 'granted' : 'denied',
+              ad_user_data: saved.marketing ? 'granted' : 'denied',
+              ad_personalization: saved.marketing ? 'granted' : 'denied',
+            });
+          }
+          loadGoogleAnalytics();
+        }
       }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initBanner);
+    } else {
+      initBanner();
     }
   })();
 </script>
@@ -435,6 +454,13 @@ const { gaMeasurementId = SITE_CONFIG.gaMeasurementId } = Astro.props;
   .cookie-consent-layer {
     position: relative;
     z-index: 9999;
+  }
+
+  /* Crucial: Ensure hidden elements are completely removed from rendering & hit-testing */
+  .cookie-consent-layer [hidden],
+  .cookie-banner-card[hidden],
+  .cookie-modal-backdrop[hidden] {
+    display: none !important;
   }
 
   /* 1. Floating Banner */

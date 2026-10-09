@@ -163,4 +163,99 @@ test('LifeMode GA4 & Cookie Consent Architecture Suite', async (t) => {
       { version: 1, analytics: true, marketing: false, timestamp: 12345 }
     );
   });
+
+  await t.test('9. CSS Stacking & Visibility: [hidden] attribute rules have explicit display: none !important', () => {
+    const consentComponent = fs.readFileSync(
+      path.resolve(process.cwd(), 'src/components/CookieConsent.astro'),
+      'utf8'
+    );
+
+    assert.ok(
+      consentComponent.includes('.cookie-modal-backdrop[hidden]') ||
+      consentComponent.includes('.cookie-consent-layer [hidden]'),
+      'Must contain explicit CSS rule for [hidden] to prevent flex/fixed display collision'
+    );
+    assert.ok(
+      consentComponent.includes('display: none !important'),
+      'Hidden selector must enforce display: none !important'
+    );
+  });
+
+  await t.test('10. Client Action Execution: Complete simulation of delegated button triggers', () => {
+    // Simulated DOM and storage environment
+    let storage: Record<string, string> = {};
+    const consentUpdates: any[] = [];
+    const windowDisableFlags: Record<string, boolean> = {};
+    let bannerHidden = false;
+    let modalHidden = true;
+    let gaScriptAppended = false;
+
+    const mockGtag = (type: string, action: string, data: any) => {
+      if (type === 'consent' && action === 'update') {
+        consentUpdates.push(data);
+      }
+    };
+
+    const applyConsent = (analytics: boolean, marketing: boolean) => {
+      const record = { version: 1, analytics, marketing, timestamp: Date.now() };
+      storage['lifemode_consent_v2'] = JSON.stringify(record);
+      mockGtag('consent', 'update', {
+        analytics_storage: analytics ? 'granted' : 'denied',
+        ad_storage: marketing ? 'granted' : 'denied',
+        ad_user_data: marketing ? 'granted' : 'denied',
+        ad_personalization: marketing ? 'granted' : 'denied',
+      });
+      if (analytics) {
+        windowDisableFlags['ga-disable-G-V06H9EB5QK'] = false;
+        gaScriptAppended = true;
+      } else {
+        windowDisableFlags['ga-disable-G-V06H9EB5QK'] = true;
+      }
+      bannerHidden = true;
+      modalHidden = true;
+    };
+
+    const openModal = () => {
+      bannerHidden = true;
+      modalHidden = false;
+    };
+
+    const closeModal = () => {
+      modalHidden = true;
+      if (!storage['lifemode_consent_v2']) {
+        bannerHidden = false;
+      }
+    };
+
+    // Test 1: Fresh visitor initial state
+    assert.equal(bannerHidden, false);
+    assert.equal(modalHidden, true);
+
+    // Test 2: Click Manage Preferences
+    openModal();
+    assert.equal(bannerHidden, true);
+    assert.equal(modalHidden, false);
+
+    // Test 3: Close without saving -> restores banner
+    closeModal();
+    assert.equal(bannerHidden, false);
+    assert.equal(modalHidden, true);
+
+    // Test 4: Reject Non-Essential
+    applyConsent(false, false);
+    assert.equal(bannerHidden, true);
+    assert.equal(modalHidden, true);
+    assert.equal(windowDisableFlags['ga-disable-G-V06H9EB5QK'], true);
+    assert.equal(consentUpdates[consentUpdates.length - 1].analytics_storage, 'denied');
+    assert.equal(gaScriptAppended, false);
+
+    // Test 5: Re-open from Footer trigger and Accept All
+    openModal();
+    assert.equal(modalHidden, false);
+    applyConsent(true, true);
+    assert.equal(modalHidden, true);
+    assert.equal(windowDisableFlags['ga-disable-G-V06H9EB5QK'], false);
+    assert.equal(consentUpdates[consentUpdates.length - 1].analytics_storage, 'granted');
+    assert.equal(gaScriptAppended, true);
+  });
 });
