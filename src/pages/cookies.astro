@@ -1,0 +1,201 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCanonicalUrl } from '../utils/seo';
+
+const lastUpdated = 'October 9, 2026';
+const canonicalUrl = getCanonicalUrl('/cookies');
+---
+
+<BaseLayout
+  title="Cookie & Browser Storage Policy — LifeMode"
+  description="Comprehensive disclosure of cookies, local browser storage, Google Analytics 4, and Google Consent Mode v2 privacy settings."
+  canonicalUrl={canonicalUrl}
+>
+  <div class="page-shell container-prose" style="padding-top: var(--space-12); padding-bottom: var(--space-16);">
+    <header style="margin-bottom: var(--space-10); border-bottom: 1px solid var(--color-border); padding-bottom: var(--space-8);">
+      <span class="hero-tag">Privacy &amp; Technical Disclosure</span>
+      <h1 class="page-title" style="font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 3.5rem); font-weight: 600; line-height: 1.15; margin-top: var(--space-3); margin-bottom: var(--space-4); letter-spacing: -0.02em;">
+        Cookie &amp; Browser Storage Policy
+      </h1>
+      <p class="page-lead" style="font-family: var(--font-sans); font-size: 1.15rem; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: var(--space-4);">
+        LifeMode is designed with data-minimization and reader transparency at its core. This policy details how we use browser cookies, local storage technologies, and how you can inspect, modify, or withdraw your consent at any time.
+      </p>
+      <div style="font-family: var(--font-sans); font-size: 0.8125rem; color: var(--color-text-muted); display: flex; align-items: center; gap: var(--space-2);">
+        <span>Effective Date:</span>
+        <strong style="color: var(--color-text-primary); font-weight: 600;">{lastUpdated}</strong>
+      </div>
+    </header>
+
+    <article class="prose" style="font-family: var(--font-sans); line-height: 1.85; font-size: 1.0625rem; color: #332f2b;">
+      <section id="storage-overview">
+        <h2>1. Understanding Cookies vs. Local Browser Storage</h2>
+        <p>
+          To ensure clarity, we distinguish between traditional HTTP cookies and client-side browser storage:
+        </p>
+        <ul>
+          <li>
+            <strong>HTTP Cookies:</strong> Small key-value strings stored in your browser that are transmitted in HTTP request headers to web servers or authorized service providers.
+          </li>
+          <li>
+            <strong>Browser Local Storage (`localStorage`):</strong> A client-side data store within your browser that persists locally on your device. LocalStorage data is not transmitted automatically in network request headers during browsing.
+          </li>
+        </ul>
+      </section>
+
+      <section id="consent-architecture">
+        <h2>2. Privacy-First Consent Architecture (Consent Mode v2)</h2>
+        <p>
+          LifeMode implements <strong>Google Consent Mode v2</strong> with a strict <strong>Basic Consent</strong> configuration:
+        </p>
+        <ul>
+          <li>
+            <strong>Default Denied State:</strong> When you first arrive at LifeMode, all optional analytics and advertising signals (<code>analytics_storage</code>, <code>ad_storage</code>, <code>ad_user_data</code>, and <code>ad_personalization</code>) default strictly to <code>denied</code> before any scripts run.
+          </li>
+          <li>
+            <strong>Zero Tracking Without Explicit Consent:</strong> Google Analytics tags are <strong>not loaded</strong> and zero analytics pings or cookies are generated until you explicitly select <strong>Accept All</strong> or enable <strong>Analytics &amp; Measurement</strong> in your preferences.
+          </li>
+          <li>
+            <strong>Zero Third-Party Advertising Tags:</strong> LifeMode does not currently deploy behavioral advertising networks, tracking pixels, or third-party ad tags.
+          </li>
+          <li>
+            <strong>CMP Clarification:</strong> LifeMode provides a custom lightweight Consent Mode v2 interface to manage reader choices. It is not an IAB TCF registered or Google-certified CMP.
+          </li>
+        </ul>
+      </section>
+
+      <section id="essential-storage">
+        <h2>3. Essential &amp; Functional Browser Storage (Always Active)</h2>
+        <p>
+          These storage items are strictly necessary for the technical operation of the website and interactive editorial utilities. They do not track individual personal identity and cannot be switched off:
+        </p>
+        <div class="table-container" style="overflow-x: auto; margin: var(--space-6) 0;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--color-border); background-color: var(--color-surface-subtle);">
+                <th style="padding: 10px 14px;">Key / Identifier</th>
+                <th style="padding: 10px 14px;">Type</th>
+                <th style="padding: 10px 14px;">Provider</th>
+                <th style="padding: 10px 14px;">Purpose</th>
+                <th style="padding: 10px 14px;">Retention</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--color-border);">
+                <td style="padding: 10px 14px;"><code>lifemode_consent_v2</code></td>
+                <td style="padding: 10px 14px;">LocalStorage</td>
+                <td style="padding: 10px 14px;">LifeMode (1st-party)</td>
+                <td style="padding: 10px 14px;">Stores your cookie and analytics consent preferences to prevent re-prompting on every page visit.</td>
+                <td style="padding: 10px 14px;">Persistent (until cleared)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-border);">
+                <td style="padding: 10px 14px;"><code>lifemode-checklist-*</code></td>
+                <td style="padding: 10px 14px;">LocalStorage</td>
+                <td style="padding: 10px 14px;">LifeMode (1st-party)</td>
+                <td style="padding: 10px 14px;">Saves completed task checkboxes in interactive printable checklists directly on your device.</td>
+                <td style="padding: 10px 14px;">Persistent (until cleared)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-border);">
+                <td style="padding: 10px 14px;"><code>__cf_bm</code></td>
+                <td style="padding: 10px 14px;">HTTP Cookie</td>
+                <td style="padding: 10px 14px;">Cloudflare (CDN)</td>
+                <td style="padding: 10px 14px;">Placed only when Cloudflare edge security or bot mitigation rules are actively triggered to identify automated bot traffic.</td>
+                <td style="padding: 10px 14px;">Up to 30 minutes (when present)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="analytics-cookies">
+        <h2>4. Analytics &amp; Performance Cookies (Strictly Opt-In)</h2>
+        <p>
+          When you explicitly grant permission for Analytics, Google Analytics 4 (Measurement ID: <code>G-V06H9EB5QK</code>) is initialized to help us understand aggregate traffic volume, popular reference guides, and reader navigation patterns. Google Analytics processes IP addresses at intake to derive coarse geographic location (such as country or region), but does not log or store individual raw IP addresses in standard reports.
+        </p>
+        <div class="table-container" style="overflow-x: auto; margin: var(--space-6) 0;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--color-border); background-color: var(--color-surface-subtle);">
+                <th style="padding: 10px 14px;">Cookie Name</th>
+                <th style="padding: 10px 14px;">Type</th>
+                <th style="padding: 10px 14px;">Provider</th>
+                <th style="padding: 10px 14px;">Purpose</th>
+                <th style="padding: 10px 14px;">Retention</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--color-border);">
+                <td style="padding: 10px 14px;"><code>_ga</code></td>
+                <td style="padding: 10px 14px;">HTTP Cookie</td>
+                <td style="padding: 10px 14px;">Google Analytics (GA4)</td>
+                <td style="padding: 10px 14px;">Calculates visitor, session, and campaign data for aggregated publication analytics.</td>
+                <td style="padding: 10px 14px;">Up to 2 years (or property retention limit)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-border);">
+                <td style="padding: 10px 14px;"><code>_ga_*</code></td>
+                <td style="padding: 10px 14px;">HTTP Cookie</td>
+                <td style="padding: 10px 14px;">Google Analytics (GA4)</td>
+                <td style="padding: 10px 14px;">Used to maintain and persist session state for the specific GA4 measurement property.</td>
+                <td style="padding: 10px 14px;">Up to 2 years</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="marketing-policy">
+        <h2>5. Marketing &amp; Behavioral Advertising Disclosure</h2>
+        <p>
+          LifeMode does <strong>not</strong> deploy advertising tracking cookies, retargeting pixels, or behavioral ad scripts. While our consent interface provides a granular Marketing toggle for standard Google Consent Mode v2 signal management, granting marketing consent will not trigger any advertising integrations.
+        </p>
+      </section>
+
+      <section id="manage-preferences">
+        <h2>6. How to Manage or Withdraw Your Consent</h2>
+        <p>
+          You retain full control over your privacy choices. You can change your preferences or withdraw consent at any time:
+        </p>
+        <div style="background-color: var(--color-surface-subtle); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-6); margin: var(--space-6) 0;">
+          <h3 style="margin-top: 0; margin-bottom: var(--space-2);">Manage On-Site Preferences</h3>
+          <p style="margin-bottom: var(--space-4); color: var(--color-text-secondary); font-size: 0.95rem;">
+            Click the button below (or use the &ldquo;Cookie Settings&rdquo; link in the website footer) to open your preferences dialog:
+          </p>
+          <button
+            type="button"
+            id="page-open-cookie-settings"
+            data-open-cookie-settings
+            style="background-color: var(--color-primary-accent, #0284c7); color: #ffffff; border: none; padding: 0.75rem 1.4rem; font-family: var(--font-sans); font-size: 0.95rem; font-weight: 600; border-radius: var(--radius-md, 8px); cursor: pointer; transition: transform 0.15s ease;"
+          >
+            Open Cookie Settings
+          </button>
+        </div>
+
+        <p style="font-size: 0.925rem; color: var(--color-text-secondary);">
+          <em>Note:</em> Withdrawing analytics consent takes effect immediately for future browsing, disables tracking pings via browser opt-out controls, and removes existing analytics cookies. Consent withdrawal applies to ongoing and future data collection and cannot retroactively delete previously transmitted anonymized metrics.
+        </p>
+
+        <h3>Managing Cookies in Your Web Browser</h3>
+        <p>
+          You can also configure your web browser to block cookies or alert you when cookies are placed:
+        </p>
+        <ul>
+          <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Google Chrome Cookie Management</a></li>
+          <li><a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac" target="_blank" rel="noopener noreferrer">Apple Safari Cookie Management</a></li>
+          <li><a href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop" target="_blank" rel="noopener noreferrer">Mozilla Firefox Privacy Settings</a></li>
+          <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer">Microsoft Edge Cookie Management</a></li>
+        </ul>
+      </section>
+
+      <section id="contact-cookies">
+        <h2>7. Contact &amp; Questions</h2>
+        <p>
+          If you have questions regarding our cookie practices, technical storage, or data protection standards, please contact our privacy desk:
+        </p>
+        <p>
+          <strong>Privacy Desk:</strong> <a href="mailto:privacy@lifemode.life">privacy@lifemode.life</a><br />
+          <strong>Editorial Desk:</strong> <a href="mailto:contact@lifemode.life">contact@lifemode.life</a><br />
+          <strong>Full Privacy Policy:</strong> <a href="/privacy">https://lifemode.life/privacy</a>
+        </p>
+      </section>
+    </article>
+  </div>
+</BaseLayout>

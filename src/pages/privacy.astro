@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const lastUpdated = 'September 18, 2026';
+const lastUpdated = 'October 9, 2026';
 const canonicalUrl = 'https://lifemode.life/privacy';
 ---
 
@@ -65,14 +65,29 @@ const canonicalUrl = 'https://lifemode.life/privacy';
       </section>
 
       <section id="cookies">
-        <h2>4. Cookies &amp; Analytics</h2>
+        <h2>4. Cookies, Browser Storage &amp; Analytics</h2>
         <p>
-          LifeMode operates as a fast, static-first web publication:
+          LifeMode operates as a fast, privacy-conscious digital publication engineered with <strong>Google Consent Mode v2</strong>:
         </p>
         <ul>
-          <li>We do <strong>not</strong> deploy intrusive cross-site tracking cookies, invasive third-party behavioral advertising scripts, or keystroke loggers.</li>
-          <li>Essential technical cookies and routing tokens may be utilized by our CDN provider (Cloudflare) strictly where necessary to manage trusted web traffic and protect edge infrastructure.</li>
-          <li>You can manage or disable cookies at any time through your browser settings without impacting your ability to read articles on LifeMode.</li>
+          <li>
+            <strong>Default Denied State (Basic Consent Mode):</strong> By default, all optional analytics and advertising consent signals default strictly to <code>denied</code> before any scripts run. No Google Analytics scripts are loaded and zero analytics pings or cookies are generated unless and until you explicitly grant consent.
+          </li>
+          <li>
+            <strong>Google Analytics 4 (Opt-In Only):</strong> When you explicitly grant analytics permission, Google Analytics 4 (Measurement ID: <code>G-V06H9EB5QK</code>) is initialized to measure aggregate audience metrics, popular guides, and navigation journeys. Google Analytics derives coarse geographic location from IP addresses at intake but does not log or store individual raw IP addresses in reports. GA4 sets pseudonymous session cookies (<code>_ga</code> and <code>_ga_*</code>).
+          </li>
+          <li>
+            <strong>Essential Browser Storage (LocalStorage):</strong> We use local device storage for functional features such as saving your completed checklist items (<code>lifemode-checklist-*</code>) and remembering your privacy choices (<code>lifemode_consent_v2</code>). LocalStorage data is stored locally on your device and is not sent to our servers in HTTP request headers.
+          </li>
+          <li>
+            <strong>No Third-Party Behavioral Advertising:</strong> We do not deploy invasive cross-site tracking cookies, behavioral ad scripts, or keystroke loggers. Marketing consent toggles manage standard Consent Mode signals and do not load advertising scripts.
+          </li>
+          <li>
+            <strong>Consent Management &amp; Withdrawal:</strong> You can inspect, modify, or withdraw your cookie and analytics consent at any time using the <strong>Cookie Settings</strong> button located in our website footer, or by reviewing our dedicated <a href="/cookies">Cookie &amp; Browser Storage Policy</a>. Withdrawing analytics consent takes effect immediately for future browsing, disables tracking pings via browser opt-out controls, and clears analytics cookies. Revocation cannot retroactively recall already transmitted aggregate metrics.
+          </li>
+          <li>
+            <strong>CMP Clarification:</strong> LifeMode provides a custom lightweight Consent Mode v2 interface to manage reader choices. It is not an IAB TCF registered or Google-certified CMP.
+          </li>
         </ul>
       </section>
 

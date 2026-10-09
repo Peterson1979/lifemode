@@ -264,6 +264,10 @@ export const SITE_CONFIG = {
     (typeof import.meta !== 'undefined' && (import.meta as any).env?.PUBLIC_SITE_URL) ||
     ((globalThis as any).process?.env?.PUBLIC_SITE_URL as string) ||
     'https://lifemode.life',
+  gaMeasurementId:
+    (typeof import.meta !== 'undefined' && (import.meta as any).env?.PUBLIC_GA_MEASUREMENT_ID) ||
+    ((globalThis as any).process?.env?.PUBLIC_GA_MEASUREMENT_ID as string) ||
+    'G-V06H9EB5QK',
   defaultOgImage: '/og-default.svg',
   locale: 'en_US',
   twitterHandle: '@LifeModeMag',
@@ -288,6 +292,7 @@ export const SITE_CONFIG = {
     { name: 'Daily Ideas Store', href: '/daily-ideas' },
     { name: 'Contact', href: '/contact' },
     { name: 'Privacy Policy', href: '/privacy' },
+    { name: 'Cookie Policy', href: '/cookies' },
     { name: 'Terms of Service', href: '/terms' },
   ],
 };

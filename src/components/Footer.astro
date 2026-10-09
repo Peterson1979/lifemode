@@ -45,6 +45,11 @@ const currentYear = new Date().getUTCFullYear();
               <a href={link.href}>{link.name}</a>
             </li>
           ))}
+          <li>
+            <button type="button" class="footer-settings-btn" id="open-cookie-settings" data-open-cookie-settings>
+              Cookie Settings
+            </button>
+          </li>
         </ul>
       </div>
     </div>
@@ -110,17 +115,25 @@ const currentYear = new Date().getUTCFullYear();
     gap: 0.55rem;
   }
 
-  .footer-links-group a {
+  .footer-links-group a,
+  .footer-settings-btn {
+    font-family: inherit;
     font-size: 0.875rem;
     font-weight: 500;
     color: #94a3b8;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
     transition: color var(--transition-fast), transform var(--transition-fast);
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    text-align: left;
   }
 
-  .footer-links-group a:hover {
+  .footer-links-group a:hover,
+  .footer-settings-btn:hover {
     color: #ffffff;
     transform: translateX(2px);
   }
