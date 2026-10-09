@@ -18,15 +18,18 @@ const validReviewRequest: ReviewRequest = {
   description: 'An editorial guide exploring modern minimalist software setups, calm productivity, and local intelligence.',
   excerpt: 'How intentional developers and creators design calm workflows in an era of digital overload.',
   content: [
-    'In contemporary lifestyle design, intentionality represents a foundational shift toward clarity and sustainable daily focus.',
+    'Modern knowledge work requires establishing resilient boundaries and deliberate software configurations that protect focus and minimize cognitive friction during complex projects.',
     '',
-    '## 1. The Modern Shift: Signal Over Noise',
-    'Navigating digital overload requires cultivating a calm, deliberate relationship with our tools and physical spaces.',
-    'Rather than reacting to every new impulse, we establish clear boundaries and structured daily rhythms.',
+    '## 1. Concrete Architecture: Signal Over Noise',
+    'Navigating high-volume technical tasks requires cultivating a deliberate relationship with local developer tools, terminal environments, and hardware setups. Rather than adopting every newly released utility, teams benefit from establishing isolated workspaces with minimal background notifications.',
     '',
-    '## 2. Practical Framework & Daily Protocols',
-    'Implementing intentional design begins with small, repeatable workflows that compound over time.',
-    'By focusing on essential priorities, modern knowledge workers preserve cognitive bandwidth for deep, meaningful work.'
+    '## 2. Step-by-Step Implementation & Daily Protocols',
+    '1. Standardize core development configurations and automate repetitive build steps across active projects.',
+    '2. Document baseline parameters and eliminate unnecessary cloud dependencies to maintain consistent throughput.',
+    '3. Isolate workspace notification streams to dedicated 30-minute review intervals.',
+    '',
+    '## 3. Common Failure Modes & Prevention',
+    'A common pitfall is over-optimizing tooling configurations instead of delivering working code. Ensure all custom automation scripts are tested against standard baseline benchmarks before deployment.'
   ].join('\n'),
   pillar: 'tech-ai',
   format: 'guide',
@@ -374,11 +377,11 @@ test('24. Prompt builder formats prompt correctly without conversational noise',
 });
 
 test('25. Quality review gate passes when article matches or exceeds target minimum word count', () => {
-  const dummyContent = Array(1200).fill('editorial').join(' ');
+  const dummyContent = Array(200).fill('Modern intentional technology architecture requires establishing resilient boundaries and deliberate software configurations that protect focus and minimize cognitive friction during complex projects.').join(' ');
   const req: ReviewRequest = {
     ...validReviewRequest,
     estimatedWordCount: { min: 1000, target: 1400, max: 2000 },
-    content: `## 1. Section One\n\n${dummyContent}\n\n## 2. Section Two\n\nMore body text.`,
+    content: `## 1. Step-by-Step Implementation & Daily Protocols\n\n1. Standardize core development configurations and automate repetitive build steps across active projects.\n2. Document baseline parameters and eliminate unnecessary cloud dependencies.\n\n${dummyContent}\n\n## 2. Equipment and Required Tools\n\n- Primary development machine and terminal multiplexer.\n\n## 3. Common Failure Modes & Prevention\n\nAvoid misconfiguration by validating all scripts.`,
   };
 
   const gateResult = evaluateReviewGates(req);

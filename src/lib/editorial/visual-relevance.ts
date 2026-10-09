@@ -382,16 +382,49 @@ export async function validateVisualRelevance(
 
   // 4. Combine detected visual elements with prompt and metadata text
   const detectedElements = (analysis.detectedVisualElements || []).map((e) => e.toLowerCase());
-  const combinedVisualText = `${candidate.url || ''} ${candidate.prompt || ''} ${candidate.alt || ''} ${candidate.source || ''} ${detectedElements.join(' ')} ${analysis.detectedSubject || ''}`.toLowerCase();
+  const cleanedPrompt = (candidate.prompt || '')
+    .toLowerCase()
+    .replace(/\b(strictly text-free|text-free|no text|no letters|no words|no typography|no watermarks|no labels|no numbers|no captions)\b/g, '');
+  const combinedVisualText = `${candidate.url || ''} ${cleanedPrompt} ${candidate.alt || ''} ${candidate.source || ''} ${detectedElements.join(' ')} ${analysis.detectedSubject || ''}`.toLowerCase();
 
   // 5. Check Prohibited Visual Elements against actual image analysis + metadata
+  const textConstraintTerms = new Set([
+    'text',
+    'typography',
+    'letters',
+    'words',
+    'writing',
+    'captions',
+    'labels',
+    'headings',
+    'titles',
+    'numbers',
+    'watermarks',
+    'logos',
+    'diagram labels',
+    'flowchart text',
+    'infographic text',
+    'mock ui text',
+  ]);
+
   for (const prohibited of visualBrief.prohibitedVisualElements) {
     const pLow = prohibited.toLowerCase().trim();
     if (pLow.length > 3) {
-      const appearsInText = combinedVisualText.includes(pLow);
-      const appearsInElements = detectedElements.some((e) => e.includes(pLow) || pLow.includes(e));
-      if (appearsInText || appearsInElements) {
-        flags.push('prohibited_element_detected');
+      if (textConstraintTerms.has(pLow)) {
+        // For text-free generation constraints, check if vision analyzer explicitly detected them in image elements
+        const detectedInImage = detectedElements.some(
+          (e) => e === pLow || e.includes(`detected_${pLow}`) || e === 'embedded_text' || e === 'watermark'
+        );
+        if (detectedInImage) {
+          flags.push('prohibited_element_detected');
+        }
+      } else {
+        const regex = new RegExp(`\\b${pLow.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+        const appearsInText = regex.test(combinedVisualText);
+        const appearsInElements = detectedElements.some((e) => regex.test(e));
+        if (appearsInText || appearsInElements) {
+          flags.push('prohibited_element_detected');
+        }
       }
     }
   }
@@ -576,7 +609,10 @@ export function validateVisualRelevanceSync(
 ): VisualRelevanceResult {
   const flags: VisualRelevanceFlag[] = [];
   const articleTitle = (article.title || '').toLowerCase();
-  const candidateText = `${candidate.url || ''} ${candidate.prompt || ''} ${candidate.alt || ''} ${candidate.source || ''}`.toLowerCase();
+  const cleanedSyncPrompt = (candidate.prompt || '')
+    .toLowerCase()
+    .replace(/\b(strictly text-free|text-free|no text|no letters|no words|no typography|no watermarks|no labels|no numbers|no captions)\b/g, '');
+  const candidateText = `${candidate.url || ''} ${cleanedSyncPrompt} ${candidate.alt || ''} ${candidate.source || ''}`.toLowerCase();
   const expectedSubject = visualBrief.primaryEntity || visualBrief.primaryVisualSubject;
 
   if (!candidate.url && !candidate.prompt) {
@@ -590,10 +626,32 @@ export function validateVisualRelevanceSync(
     };
   }
 
+  const textConstraintTerms = new Set([
+    'text',
+    'typography',
+    'letters',
+    'words',
+    'writing',
+    'captions',
+    'labels',
+    'headings',
+    'titles',
+    'numbers',
+    'watermarks',
+    'logos',
+    'diagram labels',
+    'flowchart text',
+    'infographic text',
+    'mock ui text',
+  ]);
+
   for (const prohibited of visualBrief.prohibitedVisualElements) {
     const pLow = prohibited.toLowerCase().trim();
-    if (pLow.length > 3 && candidateText.includes(pLow)) {
-      flags.push('prohibited_element_detected');
+    if (pLow.length > 3 && !textConstraintTerms.has(pLow)) {
+      const regex = new RegExp(`\\b${pLow.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+      if (regex.test(candidateText)) {
+        flags.push('prohibited_element_detected');
+      }
     }
   }
 

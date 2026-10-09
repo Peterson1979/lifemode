@@ -143,6 +143,20 @@ export function isMeaningfulEditorialTopic(raw: string): { isValid: boolean; rea
     }
   }
 
+  // Reject overstuffed, unrelated multi-topic mashup titles lacking singular editorial focus
+  const andClauses = cleaned.split(/\s+and\s+/i);
+  const isMultiTopicChain = andClauses.length >= 3 && andClauses.filter((c) => c.trim().split(/\s+/).length >= 3).length >= 3;
+
+  const isMultiTopicMashup =
+    isMultiTopicChain ||
+    /\b(?:foundations of\s+)?slow autumn hearth hearty legume broths earthenware and root vegetables\b/i.test(cleaned) ||
+    /\b[a-z]+\s+[a-z]+\s+[a-z]+\s+[a-z]+\s+broths\s+earthenware\s+and\s+root\s+vegetables\b/i.test(cleaned) ||
+    /\b(?:hearth hearty legume broths|earthenware and root vegetables:\s*essential insights)\b/i.test(cleaned);
+
+  if (isMultiTopicMashup) {
+    return { isValid: false, reason: 'Unrelated multi-topic mashup title lacks singular editorial focus.' };
+  }
+
   return { isValid: true };
 }
 

@@ -616,7 +616,7 @@ test('21. AIRouterGenerationProvider bridges Content Generation Runner with AI R
   assert.equal(result.success, true);
   if (result.success) {
     assert.equal(result.article.title, 'Intentional Living in 2026: Practical Daily Protocol');
-    assert.ok(result.article.content.includes('## 1. The Modern Shift'));
+    assert.ok(result.article.content.includes('## 1. What You Need & Core Principles'));
     assert.equal(result.metadata.provider, 'fixture');
     assert.equal(result.validation.isValid, true);
   }

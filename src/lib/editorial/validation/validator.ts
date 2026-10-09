@@ -5,7 +5,14 @@ import type {
   EditorialValidationResult,
   ValidatableArticle,
 } from './types.ts';
-import { countWords, FORMULAIC_TITLE_PATTERNS, GENERIC_EXCERPT_PATTERNS, detectRepetitiveTitlePattern } from '../quality.ts';
+import {
+  countWords,
+  FORMULAIC_TITLE_PATTERNS,
+  GENERIC_EXCERPT_PATTERNS,
+  detectRepetitiveTitlePattern,
+  detectGenericContentFiller,
+  validateTopicContentSpecificity,
+} from '../quality.ts';
 import { hasLeakedInternalMetadata } from '../sanitization.ts';
 import { VALID_PILLARS } from '../types.ts';
 import { isPersonTopic, PERSON_MIN_REQUIRED_SOURCES } from '../person-policy.ts';
@@ -416,6 +423,20 @@ export function validateEditorialArticle(
         errors.push(context.factSheet.insufficiencyReason || 'Topic source material is insufficient to ground the article without fabrication.');
         checks.evidence = false;
       }
+    }
+
+    // Generic reusable AI filler check
+    const genericFillerCheck = detectGenericContentFiller(content);
+    if (genericFillerCheck.hasFiller) {
+      errors.push(`Article content contains generic reusable AI filler / boilerplate templates: ${genericFillerCheck.matches.slice(0, 3).join(', ')}`);
+      checks.structure = false;
+    }
+
+    // Topic-content specificity and semantic substance check
+    const topicSpecificityCheck = validateTopicContentSpecificity(title, content, context.topicId);
+    if (!topicSpecificityCheck.isSpecific && topicSpecificityCheck.reason) {
+      errors.push(topicSpecificityCheck.reason);
+      checks.structure = false;
     }
 
     // Content Formation QA: verify structural integrity according to editorial mode

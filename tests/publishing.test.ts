@@ -41,15 +41,20 @@ const sampleArticle: GeneratedArticle = {
   description: 'An editorial guide exploring modern minimal computing setups, energy-efficient chips, and local AI workspaces.',
   excerpt: 'Designing a calm, intentional workstation for modern creators and knowledge workers.',
   content: [
-    'In contemporary lifestyle design, intentionality represents a foundational shift toward clarity and sustainable daily focus.',
+    'In contemporary lifestyle design, intentional technology architecture represents a foundational shift toward clarity, calm, and sustainable daily computing.',
     '',
-    '## 1. The Modern Shift: Signal Over Noise',
-    'Navigating digital overload requires cultivating a calm, deliberate relationship with our tools and physical spaces.',
-    'Rather than reacting to every new impulse, we establish clear boundaries and structured daily rhythms.',
+    '## 1. What You Need: Core Hardware Architecture',
+    'Navigating digital overload requires cultivating a calm, deliberate relationship with our computing hardware and physical desk spaces.',
+    'Rather than reacting to every new device release, we select repairable components, passive cooling architectures, and high-efficiency processors that operate silently under load.',
     '',
-    '## 2. Practical Framework & Daily Protocols',
-    'Implementing intentional design begins with small, repeatable workflows that compound over time.',
-    'By focusing on essential priorities, modern knowledge workers preserve cognitive bandwidth for deep, meaningful work.'
+    '## 2. Step-by-Step Practical Configuration Protocol',
+    '1. Audit peripheral power draws and standardize USB-C cable management across your workstation.',
+    '2. Configure local model runtime environments to execute offline tasks without network dependency.',
+    '3. Establish thermal baseline thresholds and ensure hardware components operate between 35°C and 55°C under continuous load.',
+    '',
+    '## 3. Common Pitfalls & Maintenance',
+    'Avoid overpaying for unneeded performance overhead that generates excess acoustic noise and thermal heat.',
+    'Conduct a monthly dust inspection and maintain clean ventilation channels to preserve long-term component durability.'
   ].join('\n'),
   faq: [
     { question: 'What is mindful hardware?', answer: 'Focusing on energy efficiency, repairability, and quiet performance.' }
@@ -424,10 +429,10 @@ test('22. Publishing Gate blocks article substantially below target minimum word
 });
 
 test('23. Publishing Gate allows article meeting target minimum word count', () => {
-  const dummyContent = Array(1200).fill('editorial').join(' ');
+  const dummyContent = Array(1200).fill('hardware architecture').join(' ');
   const sizedArticle: GeneratedArticle = {
     ...sampleArticle,
-    content: `## 1. Intro\n\n${dummyContent}\n\n## 2. Conclusion\n\nMore details.`,
+    content: `## 1. What You Need: Core Hardware Architecture\n\nPrepare computing hardware.\n\n## 2. Step-by-Step Configuration Protocol\n\n1. Configure components at 25°C.\n2. Measure baseline throughput.\n\n## 3. Common Pitfalls & Maintenance\n\nAvoid thermal overheating.\n\n${dummyContent}`,
   };
 
   const sizedRequest: PublishingRequest = {

@@ -131,7 +131,7 @@ export class AIRouterGenerationProvider implements IGenerationProvider {
       requestId: request.topicId,
       responseFormat: 'json',
       validateJson: true,
-      maxOutputTokens: 1600,
+      maxOutputTokens: 2500,
     };
 
     let routerError: Error | null = null;

@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 
 import {
   isAiCadenceDay,
+  isGuidesCadenceDay,
   isLifeHacksCadenceDay,
   isToolsCadenceDay,
   getEditorialDailyPlan,
@@ -21,46 +22,59 @@ import { buildPublishPackage } from '../src/lib/editorial/publishing/builder.ts'
 import { publishPackageToStoredArticleInput } from '../src/lib/editorial/storage/publishing-adapter.ts';
 import type { EditorialTopic } from '../src/lib/editorial/types.ts';
 import type { PublishingRequest } from '../src/lib/editorial/publishing/types.ts';
+import {
+  listExistingGuides,
+  processGuideOpportunity,
+} from '../src/lib/editorial/guides/service.ts';
 
-test('1. Deterministic Weekly Cadence: Evaluates 3-day GetAISet, 3-day Life Hacks, and 1-day Tools schedule reliably', () => {
+test('1. Deterministic Weekly Cadence: Evaluates 3-day GetAISet, 3-day Guides, 3-day Life Hacks, and 1-day Tools schedule reliably', () => {
   // Weekly structure:
   // Sun (0): Regular Day (3 regular articles), Tools Day (1 tool)
-  // Mon (1): Regular Day (3 regular articles)
-  // Tue (2): GetAISet Day (1 AI article), Life Hacks Day (1 video)
-  // Wed (3): Regular Day (3 regular articles)
-  // Thu (4): GetAISet Day (1 AI article), Life Hacks Day (1 video)
-  // Fri (5): Regular Day (3 regular articles)
-  // Sat (6): GetAISet Day (1 AI article), Life Hacks Day (1 video)
+  // Mon (1): Regular Day (3 regular articles), Guides Day (1 guide opportunity)
+  // Tue (2): GetAISet Day (1 AI article + 2 regular), Life Hacks Day (1 video)
+  // Wed (3): Regular Day (3 regular articles), Guides Day (1 guide opportunity)
+  // Thu (4): GetAISet Day (1 AI article + 2 regular), Life Hacks Day (1 video)
+  // Fri (5): Regular Day (3 regular articles), Guides Day (1 guide opportunity)
+  // Sat (6): GetAISet Day (1 AI article + 2 regular), Life Hacks Day (1 video)
 
   // October 2026 test dates:
   // 2026-10-04 (Sunday, day 0)
   assert.equal(isAiCadenceDay('2026-10-04'), false, 'Sunday is Regular LifeMode day');
   assert.equal(isToolsCadenceDay('2026-10-04'), true, 'Sunday is Tools day');
+  assert.equal(isGuidesCadenceDay('2026-10-04'), false);
   assert.equal(isLifeHacksCadenceDay('2026-10-04'), false);
 
   // 2026-10-05 (Monday, day 1)
   assert.equal(isAiCadenceDay('2026-10-05'), false, 'Monday is Regular LifeMode day');
+  assert.equal(isGuidesCadenceDay('2026-10-05'), true, 'Monday is Guides day');
   assert.equal(isToolsCadenceDay('2026-10-05'), false);
   assert.equal(isLifeHacksCadenceDay('2026-10-05'), false);
 
   // 2026-10-06 (Tuesday, day 2)
   assert.equal(isAiCadenceDay('2026-10-06'), true, 'Tuesday is GetAISet AI day');
   assert.equal(isLifeHacksCadenceDay('2026-10-06'), true, 'Tuesday is Life Hacks day');
+  assert.equal(isGuidesCadenceDay('2026-10-06'), false);
   assert.equal(isToolsCadenceDay('2026-10-06'), false);
 
   // 2026-10-07 (Wednesday, day 3)
   assert.equal(isAiCadenceDay('2026-10-07'), false, 'Wednesday is Regular LifeMode day');
+  assert.equal(isGuidesCadenceDay('2026-10-07'), true, 'Wednesday is Guides day');
+  assert.equal(isLifeHacksCadenceDay('2026-10-07'), false);
 
   // 2026-10-08 (Thursday, day 4)
   assert.equal(isAiCadenceDay('2026-10-08'), true, 'Thursday is GetAISet AI day');
   assert.equal(isLifeHacksCadenceDay('2026-10-08'), true, 'Thursday is Life Hacks day');
+  assert.equal(isGuidesCadenceDay('2026-10-08'), false);
 
   // 2026-10-09 (Friday, day 5)
   assert.equal(isAiCadenceDay('2026-10-09'), false, 'Friday is Regular LifeMode day');
+  assert.equal(isGuidesCadenceDay('2026-10-09'), true, 'Friday is Guides day');
+  assert.equal(isLifeHacksCadenceDay('2026-10-09'), false);
 
   // 2026-10-10 (Saturday, day 6)
   assert.equal(isAiCadenceDay('2026-10-10'), true, 'Saturday is GetAISet AI day');
   assert.equal(isLifeHacksCadenceDay('2026-10-10'), true, 'Saturday is Life Hacks day');
+  assert.equal(isGuidesCadenceDay('2026-10-10'), false);
 });
 
 test('2. Watchdog & Retry Determinism: Same UTC date produces identical plan across retries and times', () => {
@@ -516,4 +530,92 @@ test('7. Publishing & Frontmatter Integration: Preserves targetProject: get-ai-s
   assert.equal(storedArticleInput.frontmatter.targetProject, 'get-ai-set');
   assert.equal(storedArticleInput.pillar, 'tech-ai');
   assert.equal(storedArticleInput.slug, 'how-to-use-ai-vision-smartphone-everyday-tasks');
+});
+
+test('8. Featured Guides Management Service: Lists existing guides and parses schema compliance', async () => {
+  const existingGuides = await listExistingGuides();
+  assert.ok(existingGuides.length >= 13, `Must find at least 13 guides in src/content/guides (found ${existingGuides.length})`);
+
+  for (const g of existingGuides) {
+    assert.ok(g.slug.length > 0);
+    assert.ok(g.frontmatter.title.length > 0);
+    assert.ok(
+      ['food-kitchen', 'cleaning-laundry', 'home-maintenance', 'storage-organization', 'everyday-how-to'].includes(
+        g.frontmatter.category
+      ),
+      `Category "${g.frontmatter.category}" must be a valid Guide category`
+    );
+    assert.ok(g.frontmatter.quickSummary.length > 0);
+    assert.ok(g.frontmatter.publishedDate.length >= 10);
+    assert.ok(g.frontmatter.updatedDate.length >= 10);
+  }
+});
+
+test('9. Guide Opportunity Execution: Creates or updates guides on Mon/Wed/Fri with duplicate prevention', async () => {
+  // Test execution on a Guide Day (2026-10-05 is Monday) in dryRun mode
+  const guideResultDryRun = await processGuideOpportunity({
+    targetDate: '2026-10-05',
+    dryRun: true,
+  });
+
+  assert.equal(guideResultDryRun.isCadenceDay, true);
+  assert.equal(guideResultDryRun.dryRun, true);
+  assert.ok(guideResultDryRun.status === 'CREATED' || guideResultDryRun.status === 'UPDATED');
+  assert.ok(guideResultDryRun.slug && guideResultDryRun.slug.length > 0);
+  assert.ok(
+    ['food-kitchen', 'cleaning-laundry', 'home-maintenance', 'storage-organization', 'everyday-how-to'].includes(
+      guideResultDryRun.category!
+    )
+  );
+
+  // Test execution on a Non-Guide Day (2026-10-04 is Sunday)
+  const nonGuideDayResult = await processGuideOpportunity({
+    targetDate: '2026-10-04',
+    dryRun: true,
+  });
+
+  assert.equal(nonGuideDayResult.isCadenceDay, false);
+  assert.equal(nonGuideDayResult.status, 'SKIPPED');
+});
+
+test('10. Total Weekly Production Schedule Summary: Articles, GetAISet, Tools, Life Hacks, and Guides', () => {
+  const days = [
+    { date: '2026-10-04', dayName: 'Sunday', expAi: false, expGuide: false, expTools: true, expHacks: false },
+    { date: '2026-10-05', dayName: 'Monday', expAi: false, expGuide: true, expTools: false, expHacks: false },
+    { date: '2026-10-06', dayName: 'Tuesday', expAi: true, expGuide: false, expTools: false, expHacks: true },
+    { date: '2026-10-07', dayName: 'Wednesday', expAi: false, expGuide: true, expTools: false, expHacks: false },
+    { date: '2026-10-08', dayName: 'Thursday', expAi: true, expGuide: false, expTools: false, expHacks: true },
+    { date: '2026-10-09', dayName: 'Friday', expAi: false, expGuide: true, expTools: false, expHacks: false },
+    { date: '2026-10-10', dayName: 'Saturday', expAi: true, expGuide: false, expTools: false, expHacks: true },
+  ];
+
+  let totalArticles = 0;
+  let totalAiArticles = 0;
+  let totalDynamicArticles = 0;
+  let totalGuides = 0;
+  let totalTools = 0;
+  let totalHacks = 0;
+
+  for (const d of days) {
+    const plan = getEditorialDailyPlan(d.date);
+    assert.equal(plan.isAiDay, d.expAi, `${d.dayName} AI status`);
+    assert.equal(plan.isGuidesDay, d.expGuide, `${d.dayName} Guides status`);
+    assert.equal(plan.isToolsDay, d.expTools, `${d.dayName} Tools status`);
+    assert.equal(plan.isLifeHacksDay, d.expHacks, `${d.dayName} Life Hacks status`);
+
+    totalArticles += plan.totalArticlesTarget;
+    totalAiArticles += plan.aiArticlesTarget;
+    totalDynamicArticles += plan.dynamicArticlesTarget;
+    totalGuides += plan.guidesTarget;
+    totalTools += plan.toolsTarget;
+    totalHacks += plan.lifeHacksTarget;
+  }
+
+  // Exact weekly target verification:
+  assert.equal(totalArticles, 21, 'Exactly 21 articles/week');
+  assert.equal(totalAiArticles, 3, 'Exactly 3 GetAISet articles/week (Tue, Thu, Sat)');
+  assert.equal(totalDynamicArticles, 18, 'Exactly 18 dynamic LifeMode articles/week');
+  assert.equal(totalGuides, 3, 'Exactly 3 Guide opportunities/week (Mon, Wed, Fri)');
+  assert.equal(totalTools, 1, 'Exactly 1 Tools item/week (Sun)');
+  assert.equal(totalHacks, 3, 'Exactly 3 Life Hacks video opportunities/week (Tue, Thu, Sat)');
 });

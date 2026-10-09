@@ -97,7 +97,7 @@ test('Initial Content Acceleration - Configures higher opportunity capacity safe
   // Default config without acceleration
   const normalConfig = loadAutomationConfig({});
   assert.equal(normalConfig.accelerationEnabled, false);
-  assert.equal(normalConfig.maxOpportunities, 3);
+  assert.equal(normalConfig.maxOpportunities, undefined);
 
   // Accelerated config via override or environment
   const acceleratedConfig = loadAutomationConfig({

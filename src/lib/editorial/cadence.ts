@@ -86,6 +86,16 @@ export function isAiCadenceDay(dateInput?: string | Date): boolean {
 }
 
 /**
+ * Evaluates whether a given date is a scheduled Guides Opportunity Day.
+ * Target: 3 guide creation or substantial-update opportunities per week (Monday, Wednesday, Friday UTC).
+ */
+export function isGuidesCadenceDay(dateInput?: string | Date): boolean {
+  const ms = parseUtcDateMidnight(dateInput);
+  const dayOfWeek = new Date(ms).getUTCDay();
+  return dayOfWeek === 1 || dayOfWeek === 3 || dayOfWeek === 5;
+}
+
+/**
  * Evaluates whether a given date is a scheduled Life Hacks Publishing Day.
  * Target: 3 videos per week (Tuesday, Thursday, Saturday UTC).
  */
@@ -108,9 +118,15 @@ export function isToolsCadenceDay(dateInput?: string | Date): boolean {
 export interface EditorialDailyPlan {
   targetDate: string;
   isAiDay: boolean;
+  isGuidesDay: boolean;
+  isToolsDay: boolean;
+  isLifeHacksDay: boolean;
   totalArticlesTarget: number;
   aiArticlesTarget: number;
   dynamicArticlesTarget: number;
+  guidesTarget: number;
+  toolsTarget: number;
+  lifeHacksTarget: number;
   description: string;
 }
 
@@ -123,6 +139,9 @@ export function getEditorialDailyPlan(
 ): EditorialDailyPlan {
   const targetDate = formatUtcDateString(dateInput);
   const isAiDay = isAiCadenceDay(dateInput);
+  const isGuidesDay = isGuidesCadenceDay(dateInput);
+  const isToolsDay = isToolsCadenceDay(dateInput);
+  const isLifeHacksDay = isLifeHacksCadenceDay(dateInput);
 
   // Every day has a total target of 3 articles:
   // - AI Day: 1 GetAISet + 2 regular LifeMode articles = 3 total articles
@@ -132,6 +151,9 @@ export function getEditorialDailyPlan(
 
   const aiArticlesTarget = isAiDay ? Math.min(1, totalArticlesTarget) : 0;
   const dynamicArticlesTarget = Math.max(0, totalArticlesTarget - aiArticlesTarget);
+  const guidesTarget = isGuidesDay ? 1 : 0;
+  const toolsTarget = isToolsDay ? 1 : 0;
+  const lifeHacksTarget = isLifeHacksDay ? 1 : 0;
 
   const description = isAiDay
     ? `GetAISet Editorial Day: 1 mainstream practical AI learning / tool article + ${dynamicArticlesTarget} dynamic trending LifeMode articles across the active pillars`
@@ -140,9 +162,15 @@ export function getEditorialDailyPlan(
   return {
     targetDate,
     isAiDay,
+    isGuidesDay,
+    isToolsDay,
+    isLifeHacksDay,
     totalArticlesTarget,
     aiArticlesTarget,
     dynamicArticlesTarget,
+    guidesTarget,
+    toolsTarget,
+    lifeHacksTarget,
     description,
   };
 }

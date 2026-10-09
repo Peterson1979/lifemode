@@ -133,8 +133,23 @@ export function buildVisualBrief(
   const keyConcepts: string[] = [];
   const requiredElements: string[] = [];
   const prohibitedElements: string[] = [
-    'low-res pixelation',
+    'text',
+    'typography',
+    'letters',
+    'words',
+    'writing',
+    'captions',
+    'labels',
+    'headings',
+    'titles',
+    'numbers',
     'watermarks',
+    'logos',
+    'diagram labels',
+    'flowchart text',
+    'infographic text',
+    'mock UI text',
+    'low-res pixelation',
     'blurry faces',
     'stock photography clichés',
     'garish neon overlays',
@@ -152,7 +167,7 @@ export function buildVisualBrief(
   let primaryEntity = cleanSubject || title;
   let eventOrPersonOrPlace = cleanSubject;
   let searchQuery = `${cleanSubject} editorial`;
-  let promptSubject = cleanSubject;
+  let promptSubject = `Contemporary editorial lifestyle photography representing ${cleanSubject}, tactile textures, natural daylight, strictly text-free`;
   let composition = 'Asymmetric natural perspective with soft depth of field, tactile material texture, and natural daylight';
   let requiredVisualRelationship = `Editorial showcase of authentic ${cleanSubject}`;
   let orientation: 'landscape' | 'portrait' | 'square' = 'landscape';
@@ -176,10 +191,10 @@ export function buildVisualBrief(
     editorialAngle = 'Sizing, volumetric calculation, and capacity planning model';
     requiredVisualRelationship = 'Mathematical and spatial relationship between dimensions and capacity needs';
     keyConcepts.push('volumetric calculation', 'capacity threshold', 'sizing model');
-    searchQuery = 'capacity calculation formula sizing diagram';
-    promptSubject = `Clean editorial formula and sizing diagram illustrating ${cleanSubject}`;
-    composition = 'Structured minimalist calculation model with clearly delineated variable callouts';
-    explanation = `Article focuses on quantitative calculation; formula visual preferred over generic photo.`;
+    searchQuery = 'clean architectural workspace notebook ruler daylight';
+    promptSubject = `Clean minimalist architectural workspace with measuring ruler, graphite pencil, and textured paper notebook, natural daylight, strictly text-free`;
+    composition = 'Structured minimalist perspective with clean negative space and tactile drafting tools';
+    explanation = `Article focuses on quantitative calculation; photographic workspace visual preferred, text diagrams rendered in HTML.`;
   } else if (infographicType === 'decision-tree' || /\b(decision|choosing|which.*should you|guide to choosing|vs\b.*matrix|material selector)\b/i.test(fullText)) {
     visualType = 'decision_tree';
     infographicPreferable = true;
@@ -188,54 +203,58 @@ export function buildVisualBrief(
     editorialAngle = 'Systematic branch-by-branch decision tree for optimal material or method choice';
     requiredVisualRelationship = 'Condition-to-recommendation decision branches';
     keyConcepts.push('decision tree', 'branching criteria', 'comparative evaluation');
-    searchQuery = 'decision tree flowchart guide minimalist';
-    promptSubject = `Structured decision tree diagram guiding choices for ${cleanSubject}`;
-    composition = 'Clean branching tree architecture with condition badges and recommendation outcomes';
-    explanation = `Article addresses choice decisions; structured decision tree provides highest utility.`;
+    searchQuery = 'tactile material samples studio table natural daylight';
+    promptSubject = `Tactile side-by-side material samples resting on a sunlit studio table, clean textures and natural stone, strictly text-free`;
+    composition = 'Clean comparative arrangement of physical materials in soft natural window light';
+    explanation = `Article addresses choice decisions; structured decision tree rendered in HTML, photo showcases physical materials.`;
   } else if (infographicType === 'comparison' || /\b(vs\b|versus|comparison|pros and cons|difference between|compared to)\b/i.test(fullText)) {
     visualType = 'comparison_graphic';
     infographicPreferable = true;
-    isEditorialGraphicPreferred = true;
+    photographAppropriate = true;
+    isEditorialGraphicPreferred = false;
     editorialAngle = 'Side-by-side comparative analysis of trade-offs and performance characteristics';
     requiredVisualRelationship = 'Comparative matrix contrasting attributes A vs B';
     keyConcepts.push('side-by-side comparison', 'trade-offs', 'specifications matrix');
-    searchQuery = 'comparison matrix table side by side clean';
-    promptSubject = `Comparative visual matrix contrasting options for ${cleanSubject}`;
-    composition = 'Side-by-side balanced dual-column grid with clear highlight badges';
-    explanation = `Comparative topic best served by structured side-by-side comparison visual.`;
+    searchQuery = 'curated material textures artisan studio daylight';
+    promptSubject = `Side-by-side curated material textures and artisan design objects, soft natural daylight, strictly text-free`;
+    composition = 'Side-by-side balanced dual composition with authentic tactile textures';
+    explanation = `Comparative topic best served by tactile dual-material photography; data tables rendered in HTML.`;
   } else if (infographicType === 'timeline' || /\b(history of|evolution of|lifecycle|chronological|stages of fermentation|phases)\b/i.test(fullText)) {
     visualType = 'timeline';
     infographicPreferable = true;
-    isEditorialGraphicPreferred = true;
+    photographAppropriate = true;
+    isEditorialGraphicPreferred = false;
     editorialAngle = 'Chronological progression through key development stages or historical eras';
     requiredVisualRelationship = 'Temporal sequence connecting milestones along a unified timeline track';
     keyConcepts.push('chronological milestone', 'progression stages', 'lifecycle');
-    searchQuery = 'chronological timeline track clean editorial';
-    promptSubject = `Refined timeline visualization illustrating the progression of ${cleanSubject}`;
-    composition = 'Progressive linear timeline track with milestone nodes and era badges';
-    explanation = `Chronological progression best communicated through structured timeline visualization.`;
+    searchQuery = 'vintage and modern craft tools wooden table natural light';
+    promptSubject = `Atmospheric vintage and modern craft tools arranged in chronological harmony on a wooden table, soft window light, strictly text-free`;
+    composition = 'Progressive linear arrangement of physical artifacts with generous negative space';
+    explanation = `Chronological progression best communicated through structured HTML timeline and authentic artifact photography.`;
   } else if (infographicType === 'mechanism' || infographicType === 'safety-pathway' || /\b(mechanism|polymerization|temperature danger zone|pathway|biological cycle|circadian)\b/i.test(fullText)) {
     visualType = 'editorial_infographic';
     infographicPreferable = true;
-    isEditorialGraphicPreferred = true;
+    photographAppropriate = true;
+    isEditorialGraphicPreferred = false;
     editorialAngle = 'Scientific and mechanistic breakdown of underlying physical or chemical processes';
     requiredVisualRelationship = 'Step-by-step causal chain leading to optimal outcome or safety threshold';
     keyConcepts.push('scientific mechanism', 'causal chain', 'safety threshold');
-    searchQuery = 'scientific mechanism process chain clean diagram';
-    promptSubject = `High-clarity explanatory infographic explaining the mechanism of ${cleanSubject}`;
-    composition = 'Multi-stage process chain with connector arrows and distinct outcome summary card';
-    explanation = `Scientific/mechanistic process requires structured infographic for clarity.`;
-  } else if (infographicType === 'process-flow' || /\b(step-by-step|checklist|cleaning protocol|how to wash|how to clean|maintenance protocol)\b/i.test(fullText)) {
+    searchQuery = 'morning sunlight bedroom window water glass linen';
+    promptSubject = `Luminous morning sunlight streaming through an open window onto a bedside carafe of water and crisp linen sheets, serene dawn atmosphere, strictly text-free`;
+    composition = 'Atmospheric natural lighting capturing circadian morning ambience with natural depth of field';
+    explanation = `Scientific/mechanistic process visual uses atmospheric environmental photography; diagrams rendered in HTML.`;
+  } else if (infographicType === 'process-flow' || /\b(step-by-step|checklist|cleaning protocol|how to wash|how to clean|maintenance protocol|weatherization)\b/i.test(fullText)) {
     visualType = 'process_diagram';
     infographicPreferable = true;
-    isEditorialGraphicPreferred = true;
+    photographAppropriate = true;
+    isEditorialGraphicPreferred = false;
     editorialAngle = 'Practical step-by-step execution protocol for optimal efficiency and error prevention';
     requiredVisualRelationship = 'Sequential procedural steps with visual progress indicators';
     keyConcepts.push('procedural sequence', 'workflow execution', 'maintenance protocol');
-    searchQuery = 'step by step workflow process diagram';
-    promptSubject = `Procedural workflow diagram detailing the protocol for ${cleanSubject}`;
-    composition = 'Ordered sequence cards with phase markers and actionable descriptions';
-    explanation = `Procedural topic benefits from structured process workflow diagram.`;
+    searchQuery = 'artisan tools workbench natural daylight maintenance';
+    promptSubject = `Tactile collection of home maintenance tools, draft-proofing foam tape, and brass pipe fittings on a rustic workbench, natural daylight, strictly text-free`;
+    composition = 'Artisanal flat-lay of physical tools and materials on weathered timber surface';
+    explanation = `Procedural topic benefits from tactile real-world tool photography; step lists rendered in HTML.`;
   }
 
   // ----------------------------------------------------

@@ -366,7 +366,7 @@ export function generateEditorialImagePrompt(
       `Context & Category: ${pillarStyle.theme}.`,
       `Atmosphere: ${pillarStyle.mood} mood, ${pillarStyle.lighting}.`,
       `Composition: Shot on ${pillarStyle.cameraLens}, 35mm film grain texture, natural depth of field, authentic candid framing, generous negative space.`,
-      `Aesthetic: Contemporary documentary lifestyle photography, warm neutral palette, tactile textures, completely realistic, no artificial digital artifacts. Do not depict or impersonate any specific real person.`,
+      `Aesthetic: Contemporary documentary lifestyle photography, warm neutral palette, tactile textures, completely realistic, no artificial digital artifacts, strictly human-free (no people, no faces, no bodies, no hands, no arms, no body parts, no silhouettes, no human reflections), strictly text-free with no letters or typography. Do not depict or impersonate any specific real person.`,
     ];
 
     const fullPrompt = promptParts.join(' ');
@@ -395,7 +395,7 @@ export function generateEditorialImagePrompt(
     `Key Elements: ${brief.relevantObjects.slice(0, 3).join(', ')}.`,
     `Lighting: ${pillarStyle.lighting}.`,
     `Camera & Composition: Shot on ${pillarStyle.cameraLens}, natural 35mm film grain texture, natural depth of field, authentic candid framing, generous negative space, warm organic color grading.`,
-    `Aesthetic: Contemporary documentary lifestyle photography, warm neutral palette, tactile organic textures, completely realistic, no artificial CGI or video game graphics.`,
+    `Aesthetic: Contemporary documentary lifestyle photography, warm neutral palette, tactile organic textures, completely realistic, strictly human-free (no people, no faces, no bodies, no hands, no arms, no body parts, no silhouettes, no human reflections), strictly text-free with no words, labels, letters, or mock typography, no artificial CGI or video game graphics.`,
   ];
 
   const fullPrompt = promptParts.join(' ');
@@ -449,6 +449,7 @@ export interface ImageValidationOptions {
  * 3. Identity Integrity (does not falsely claim an unverified image or contextual scene depicts a person)
  * 4. Contextual Fallback Integrity (contextual fallbacks for named persons must be strictly person-free)
  * 5. Metadata Integrity (accurate alt text and description)
+ * 6. Text-Free Raster Image Policy (never contains generated text, fake labels, or raster infographics)
  */
 export function validateImageSemanticRelevance(
   title: string,
@@ -473,6 +474,18 @@ export function validateImageSemanticRelevance(
   const sourceUrlLower = (imageMetadata.sourceUrl || '').toLowerCase();
   const sourceLower = (imageMetadata.source || '').toLowerCase();
   const imageSignals = `${altLower} ${promptLower} ${urlLower} ${sourceUrlLower} ${sourceLower}`;
+
+  // Prohibit raster images generated from diagram/infographic prompts containing text
+  const hasProhibitedTextPrompt = /\b(infographic|diagram|flowchart|formula and sizing|procedural workflow|with text|with labels|with captions|typography|schema diagram|blueprint)\b/i.test(promptLower);
+  if (hasProhibitedTextPrompt && imageMetadata.source === 'cloudflare-workers-ai') {
+    return {
+      valid: false,
+      score: 25,
+      reason: `Image generation prompt requested text, diagrams, or infographics ("${imageMetadata.prompt}"). AI-generated raster images must be strictly text-free photography. Infographics must be rendered via HTML/CSS/SVG.`,
+      suggestedFocus: ['clean editorial photography', 'tactile real-world objects', 'natural environmental setting'],
+      priorityLevel: 'INVALID',
+    };
+  }
 
   // -------------------------------------------------------------------
   // A. NAMED PERSON IMAGE POLICY & INTEGRITY VALIDATION

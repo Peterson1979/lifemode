@@ -601,11 +601,13 @@ export function detectPersonInImage(
     { pattern: /\b(batter|batters|pitcher|pitchers|catcher|catchers)\b(?!['’]?s?\s+(?:equipment|gear|mitt|glove|mask|chest|shin|helmet|bench|guard|box|of\s+\w+))/i, description: 'baseball player' },
     { pattern: /\b(actor|actors|actress|actresses|musician|musicians|guitarist|guitarists|singer|singers|vocalist|vocalists|pianist|drummer|performer|performers|dancer|dancers|chef|chefs|scientist|scientists|doctor|doctors|author|authors|writer|writers|speaker|speakers|worker|workers)\b(?!['’]?s?\s+(?:desk|writing\s+desk|table|studio|equipment|gear|notes|manuscript|tools|instruments|kitchen|laboratory|lab|viewfinder|chair|seat))/i, description: 'performing or working individual' },
     { pattern: /\b(director|directors)\b(?!['’]?s?\s+(?:viewfinder|chair|cut|notes|vision|table|desk))/i, description: 'director' },
-    { pattern: /\b(silhouette|silhouettes|human figure|human figures|human silhouette|shadow of a person)\b/i, description: 'human silhouette / figure' },
+    { pattern: /\b(silhouette|silhouettes|human figure|human figures|human silhouette|shadow of a person|silhouette of a person)\b/i, description: 'human silhouette / figure' },
     { pattern: /\b(crowd|crowds|audience|spectators|attendees|passersby|pedestrian|pedestrians)\b/i, description: 'crowd or group of people' },
+    { pattern: /\b(human reflection|person reflection|reflection of a person|people on screen|person on screen|photo of a person|portrait on wall)\b/i, description: 'human reflection or secondary depiction' },
+    { pattern: /\b(?<!-)(hands?|fingers?|arms?|wrists?|palms?|legs?|feet|foot|toes?|torso|shoulders?)(?!-(?:on|crafted|made|held|picked))\b(?!['’]?s?\s+(?:towel|trivet|sewn|stitched|plan|strap|guard|level|length))/i, description: 'human body parts (hands, arms, legs)' },
 
     // Poses / human actions
-    { pattern: /\b(sitting behind a desk|sitting at desk|sitting at|sitting on|standing on|standing in|walking on|walking in|running on|jumping|holding a|holding racket|holding racquet|holding ball|holding microphone|holding guitar|holding book|holding pen|swinging racket|serving ball|wearing|dressed in|looking at camera|posing)\b/i, description: 'person performing an action / pose' },
+    { pattern: /\b(sitting behind a desk|sitting at desk|sitting at|sitting on|standing on|standing in|walking on|walking in|running on|jumping|holding a|holding racket|holding racquet|holding ball|holding microphone|holding guitar|holding book|holding pen|holding cup|holding phone|swinging racket|serving ball|wearing|dressed in|looking at camera|posing)\b/i, description: 'person performing an action / pose' },
 
     // Known person / model photographic asset patterns
     { pattern: /\b(woman-in-black-crew-neck|woman-sitting-behind-desk|3tll_97hnjo|aiony haust)\b/i, description: 'known person stock asset' },

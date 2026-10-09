@@ -250,6 +250,8 @@ export interface ScheduledAutomationConfig extends AutomationConfig {
   socialOptions?: Partial<SocialAutomationConfig>;
 }
 
+import type { GuideOpportunityResult } from '../guides/service.ts';
+
 /**
  * Structured machine-readable result of a scheduled editorial automation run.
  */
@@ -277,6 +279,7 @@ export interface ScheduledAutomationResult {
   articles?: DailyArticleExecutionResult[];
   automationResult?: AutomationResult;
   socialResult?: SocialAutomationResult;
+  guideResult?: GuideOpportunityResult;
   jsonResult: {
     runId: string;
     startedAt: string;
@@ -301,6 +304,7 @@ export interface ScheduledAutomationResult {
     fatalError?: string;
     articles?: DailyArticleExecutionResult[];
     social?: SocialAutomationResult;
+    guide?: GuideOpportunityResult;
   };
 }
 

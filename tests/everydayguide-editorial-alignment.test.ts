@@ -738,33 +738,308 @@ Use the touch buttons to change heat.`,
 });
 
 // ---------------------------------------------------------------------------
-// 15. Zero DECISION_GUIDE in Production Code
+// 16. Explicit Editorial Quality Regression Suite (October 8 Failure Modes)
 // ---------------------------------------------------------------------------
-test('15. Architectural Integrity: No production code in src/lib/editorial uses DECISION_GUIDE', () => {
-  const editorialDir = path.resolve('src/lib/editorial');
-  
-  function scanDirectory(dir: string): string[] {
-    const files = fs.readdirSync(dir);
-    let results: string[] = [];
-    for (const f of files) {
-      const fullPath = path.join(dir, f);
-      const stat = fs.statSync(fullPath);
-      if (stat.isDirectory()) {
-        results = results.concat(scanDirectory(fullPath));
-      } else if (f.endsWith('.ts') || f.endsWith('.js')) {
-        results.push(fullPath);
-      }
-    }
-    return results;
-  }
+test('16.1. Generic AI Filler Article fails validation (banned templates & empty clichés)', () => {
+  const fillerArticle = {
+    title: 'Exploring the Dynamics of High-Leverage Aspirations for Modern Professionals',
+    slug: 'exploring-the-dynamics-of-high-leverage-aspirations',
+    description: 'A look into how modern professionals preserve cognitive bandwidth and unlock potential.',
+    excerpt: 'Exploring key dynamics and structured routines.',
+    content: `## Exploring the Dynamics of Everyday Habits
+In today's fast-paced world, navigating high-leverage aspirations requires intentional focus. Exploring the dynamics of our daily workflow unlocks significant potential.
 
-  const allEditorialFiles = scanDirectory(editorialDir);
-  for (const file of allEditorialFiles) {
-    const content = fs.readFileSync(file, 'utf-8');
-    assert.equal(
-      content.includes('DECISION_GUIDE'),
-      false,
-      `File ${file} contains obsolete type DECISION_GUIDE`
+## Implementing This Priority in Daily Life
+By establishing structured routines, individuals can preserve cognitive bandwidth for deep work. To maximize the impact of this approach, consistency is essential.
+
+## Cultivating Sustainable Focus
+Embracing this paradigm creates lasting harmony and elevates your productivity trajectory.`,
+    sources: [{ name: 'LifeMode Standards', url: 'https://lifemode.life' }],
+  };
+
+  const report = validateEditorialArticle(fillerArticle, {
+    topicId: 'lm-life-high-leverage-aspirations',
+    pillar: 'life',
+    format: 'guide',
+  });
+
+  assert.equal(report.passed, false);
+  assert.ok(
+    report.errors.some((e) =>
+      e.includes('generic reusable AI filler') ||
+      e.includes('preserve cognitive bandwidth') ||
+      e.includes('high-leverage aspirations') ||
+      e.includes('exploring the dynamics')
+    )
+  );
+});
+
+test('16.2. Structurally complete but topic-empty article fails validation (topic coherence gate)', () => {
+  const topicEmptyArticle = {
+    title: 'How to Fix Squeaky Hardwood Floors in Older Homes',
+    slug: 'how-to-fix-squeaky-hardwood-floors',
+    description: 'A comprehensive step-by-step practical guide to maintaining wooden elements.',
+    excerpt: 'Step-by-step instructions for household upkeep.',
+    content: `## 1. What You Need & Preparation
+Before beginning, gather your primary tools and clean cloths. Ensure the area is well lit and free of obstructions.
+
+## 2. Step-by-Step Execution Protocol
+1. Standardize your preparation and clear the work area thoroughly.
+2. Apply the primary solution evenly and allow it to settle for 15 minutes.
+3. Inspect the contact points and verify stability across standard operational intervals.
+
+## 3. Key Parameters & Operating Rules
+- Operating Temperature: Maintain room temperature between 18°C and 22°C.
+- Inspection Interval: Repeat check every 30 days.
+
+## 4. Common Failure Prevention
+Avoid using harsh abrasive cleaners that degrade protective seals. If instability persists, consult a qualified specialist.`,
+    sources: [{ name: 'Home Repair Guide', url: 'https://homerepair.org' }],
+  };
+
+  const report = validateEditorialArticle(topicEmptyArticle, {
+    topicId: 'lm-home-fix-squeaky-hardwood-floors',
+    pillar: 'home',
+    format: 'guide',
+    guideMode: 'reference',
+  });
+
+  assert.equal(report.passed, false);
+  assert.ok(
+    report.errors.some((e) =>
+      e.includes('topic-specific material') ||
+      e.includes('topic coherence') ||
+      e.includes('squeaky') ||
+      e.includes('hardwood') ||
+      e.includes('floors')
+    )
+  );
+});
+
+test('16.3. Unrelated multi-topic mashed title fails normalization and discovery qualification', () => {
+  const multiTopicTitles = [
+    'How to Fix Coffee Grinder Burrs and Winterize Lawn Mower Carburetor and Train for 5K',
+    'Cast Iron Skillet Seasoning and Top 10 Python Libraries and Tokyo Metro Pass Guide',
+    'Best Induction Cooktops and Roth IRA Contribution Limits and Sourdough Starter Schedule',
+  ];
+
+  for (const title of multiTopicTitles) {
+    const check = isMeaningfulEditorialTopic(title);
+    assert.equal(check.isValid, false, `Expected multi-topic title "${title}" to be rejected`);
+    assert.ok(
+      check.reason?.toLowerCase().includes('multi-topic') ||
+      check.reason?.toLowerCase().includes('multiple unrelated') ||
+      check.reason?.toLowerCase().includes('distinct')
     );
   }
+});
+
+test('16.4. Genuine topic-specific article passes substantive quality validation', () => {
+  const genuineArticle = {
+    title: 'How to Fix Squeaky Hardwood Floors in Older Homes',
+    slug: 'how-to-fix-squeaky-hardwood-floors',
+    description: 'Stop subfloor squeaks, loose joists, and rubbing floorboards with powdered graphite, shims, and counter-snap screws.',
+    excerpt: 'Step-by-step instructions to diagnose and silence floorboard squeaks.',
+    content: `## 1. What You Need: Tools and Fasteners
+To eliminate squeaks in older hardwood floors, prepare:
+- Powdered graphite lubricant or baby powder
+- Hardwood carpenter shims and wood glue
+- Counter-snap break-off floor screws and pilot drill bit
+- High-density rubber mallet and clean shop rags
+
+## 2. Step-by-Step Subfloor Squeak Repair
+1. Locate friction points by walking slowly across the floor while a helper marks loud squeaking boards from below in the basement or crawlspace.
+2. For top-down repairs on carpeted or finished hardwood, drill a 2mm pilot hole directly through the squeaking seam into the underlying subfloor joist.
+3. Drive a score-headed snap screw into the floorboard until the head snaps flush 3mm below the wood surface.
+4. If accessing from below, coat a thin hardwood shim with wood glue and tap gently between the floor joist and subfloor until snug without lifting the board.
+5. Fill top pilot holes with color-matched wood putty and buff clean.
+
+## 3. Operating Rules & Tolerance
+- Shim Insertion Depth: Never force shims beyond light resistance; over-driving shims creates new humps and secondary squeaks.
+- Fastener Spacing: Space counter-snap screws at 15cm intervals along the joist line.
+
+## 4. Common Mistakes & Failure Prevention
+Never drive standard wood screws with tapered bugle heads from the surface without countersinking, as they split hardwood planks. If rubbing occurs along tongue-and-groove joints rather than joist movement, puff dry powdered graphite into the seam instead of driving mechanical fasteners.`,
+    sources: [{ name: 'Fine Homebuilding Standards', url: 'https://finehomebuilding.com' }],
+  };
+
+  const report = validateEditorialArticle(genuineArticle, {
+    topicId: 'lm-home-fix-squeaky-hardwood-floors',
+    pillar: 'home',
+    format: 'guide',
+    guideMode: 'reference',
+  });
+
+  assert.equal(report.passed, true);
+  assert.equal(report.errors.length, 0);
+});
+
+test('16.5. Valid Decision Guide passes comparative decision validation', () => {
+  const decisionArticle = {
+    title: 'Induction vs Gas Cooktops: Which Cooking Surface Fits Your Kitchen',
+    slug: 'induction-vs-gas-cooktops',
+    description: 'Comparing induction and gas ranges across boiling speed, temperature precision, ventilation needs, and electrical installation costs.',
+    excerpt: 'Detailed comparison of induction and gas cooking surfaces.',
+    content: `## Key Decision Criteria: What Matters Most
+When choosing between an induction cooktop and a traditional gas range, evaluate these primary buying factors:
+- **Heating Speed and Efficiency**: Induction transfers over 85% of electromagnetic energy directly to cookware, boiling water twice as fast as gas.
+- **Indoor Air Quality**: Gas combustion releases nitrogen dioxide and fine particulates requiring high-CFM range hoods; induction produces zero combustion byproducts.
+- **Cookware Compatibility**: Induction requires ferromagnetic pans (cast iron or magnetic stainless steel), whereas gas works with all materials including copper and round-bottom woks.
+- **Electrical Service Requirements**: Switching to induction requires a dedicated 240V 40A or 50A breaker.
+
+## Side-by-Side Options Comparison
+| Feature | Induction Cooktop | Gas Range |
+| :--- | :--- | :--- |
+| Energy Efficiency | 85–90% direct transfer | 35–40% thermal transfer |
+| Boiling Speed (1L water) | ~2.5 minutes | ~6 minutes |
+| Surface Cleaning | Flat smooth glass wipe-down | Removable cast iron grates and burner caps |
+| Cookware Flexibility | Magnetic base required | Any conductive or refractory vessel |
+
+In contrast to gas burners, induction cooktops deliver instantaneous temperature adjustments and remain cool outside pan contact. While gas excels at open-flame charring and wok tossing, induction provides safer cleanup and superior low-simmer control.
+
+## Which Option Fits Which Situation
+- **Choose Induction if** you prioritize rapid boiling, easy daily cleaning, child safety, and clean indoor air.
+- **Choose Gas if** you cook frequently with round-bottom woks, unlined copper pans, or experience frequent power outages.
+
+## Common Buying Mistakes to Avoid
+A frequent buyer mistake is purchasing a 36-inch induction cooktop without verifying your home's main electrical panel capacity. Ensure you budget for electrician installation if upgrading from a 120V gas hookup.`,
+    sources: [{ name: 'Consumer Reports Kitchen Guide', url: 'https://consumerreports.org' }],
+  };
+
+  const report = validateEditorialArticle(decisionArticle, {
+    topicId: 'lm-home-induction-vs-gas-cooktops',
+    pillar: 'home',
+    format: 'curation',
+    guideMode: 'decision',
+  });
+
+  assert.equal(report.passed, true);
+  assert.equal(report.errors.length, 0);
+});
+
+test('16.6. Valid Reference Guide passes procedural and parameter validation', () => {
+  const referenceArticle = {
+    title: 'How to Descale an Espresso Machine: Step-by-Step Protocol',
+    slug: 'how-to-descale-espresso-machine',
+    description: 'A step-by-step maintenance protocol to remove limescale deposits, restore boiler pressure, and protect internal copper lines.',
+    excerpt: 'Step-by-step descaling protocol for single and dual boiler espresso machines.',
+    content: `## What You Need & Required Equipment
+- 50g citric acid powder or specialized organic descaling solution
+- 1.5 liters of clean, warm filtered water
+- 1 catch pitcher (minimum 1000ml capacity)
+- Microfiber cloths and blind filter basket
+
+## Step-by-Step Descaling Protocol
+1. Dissolve 50g citric acid in 1 liter of warm water until crystals are completely clear, then pour into the water reservoir.
+2. Power on the machine and draw 250ml of descaling solution through the group head and 250ml through the steam wand.
+3. Turn off the machine and allow the acidic solution to soak internal boiler walls for 20 minutes to break down calcium deposits.
+4. Turn on the machine and flush the remaining solution completely through the hot water dispenser.
+5. Rinse the reservoir thoroughly, refill with fresh filtered water, and run 2 full reservoirs of clean water to eliminate residual acid taste.
+
+## Key Operating Rules & Times
+- Soak Time: Exactly 20 minutes; soaking longer than 45 minutes can pit unplated brass fittings.
+- Flush Volume: Minimum 2 liters of pure water flush after descaling.
+- Cadence: Perform descaling every 60 to 90 days depending on local water hardness.
+
+## Common Mistakes & Failure Prevention
+Never use undiluted white vinegar on commercial espresso machines; acetic acid corrodes internal silicone gaskets and leaves persistent odor. If pressure remains low after descaling, remove and clean the group head dispersion screen with a brass brush.`,
+    sources: [{ name: 'Specialty Coffee Association Equipment Protocol', url: 'https://sca.coffee' }],
+  };
+
+  const report = validateEditorialArticle(referenceArticle, {
+    topicId: 'lm-home-descale-espresso-machine',
+    pillar: 'home',
+    format: 'guide',
+    guideMode: 'reference',
+  });
+
+  assert.equal(report.passed, true);
+  assert.equal(report.errors.length, 0);
+});
+
+test('16.7. Valid NEWS article with verified facts and source grounding passes validation', () => {
+  const newsArticle = {
+    title: 'Hugging Face Releases Open-Source Local Model Evaluation Framework',
+    slug: 'hugging-face-open-source-local-eval-framework',
+    description: 'Hugging Face announces a unified benchmarking suite measuring RAM footprint, quantization latency, and context efficiency on consumer hardware.',
+    excerpt: 'Hugging Face publishes standardized local AI benchmarks for consumer hardware.',
+    content: `## Confirmed Facts & Key Developments
+Hugging Face announced the release of an open-source evaluation suite designed to test local LLM performance across consumer hardware configurations.
+
+- **Standardized Benchmarks**: The framework measures latency, token generation speed, and VRAM utilization across 4-bit, 8-bit, and FP16 quantization formats.
+- **Hardware Coverage**: Initial tests include Apple Silicon M-series chips, Nvidia RTX 40-series cards, and AMD ROCm setups.
+- **Open Leaderboard**: Verified community submissions are aggregated in an open-access repository.
+
+## Operational Context & Industry Implications
+As private AI deployment expands among independent developers, having standardized reproducibility benchmarks prevents misleading claims regarding quantization degradation. Rather than relying on synthetic scores, engineers can verify real-world memory pressure before choosing edge models.
+
+## Practical Recommendations for Developers
+Knowledge workers running private models locally should review benchmark results against their specific hardware memory bandwidth. Verify local quantization compatibility before deploying larger 20B parameter architectures.`,
+    sources: [
+      { name: 'Hugging Face Research', url: 'https://huggingface.co/blog/eval-framework-2026' },
+      { name: 'Open Source AI Guild', url: 'https://openaiguild.org/benchmarks' },
+    ],
+  };
+
+  const report = validateEditorialArticle(newsArticle, {
+    topicId: 'lm-tech-ai-hugging-face-eval-framework',
+    pillar: 'tech-ai',
+    format: 'deep-dive',
+    contentType: 'NEWS',
+    factSheet: {
+      primaryTopic: 'Hugging Face Open Source Evaluation Framework',
+      primaryEntity: 'Hugging Face',
+      people: [],
+      confirmedFacts: [
+        {
+          claim: 'Hugging Face released an open evaluation framework for local LLMs.',
+          publisher: 'Hugging Face Research',
+          sourceUrl: 'https://huggingface.co/blog/eval-framework-2026',
+        },
+      ],
+      importantNumbers: ['4-bit', '8-bit', '20B'],
+      dates: ['October 2026'],
+      organizations: ['Hugging Face'],
+      locations: [],
+      sourceClaims: [],
+      uncertainOrUnconfirmed: [],
+      articleAngle: 'Open benchmarking suite for consumer AI hardware.',
+      contentType: 'NEWS',
+      sourceUrls: ['https://huggingface.co/blog/eval-framework-2026'],
+      isSufficient: true,
+    },
+  });
+
+  assert.equal(report.passed, true);
+  assert.equal(report.errors.length, 0);
+});
+
+test('16.8. Valid EXPLAINER article with causal mechanisms passes validation', () => {
+  const explainerArticle = {
+    title: 'The Science of sourdough Fermentation: How Wild Yeasts and Lactobacilli Create Flavor',
+    slug: 'science-of-sourdough-fermentation',
+    description: 'An in-depth chemical and biological breakdown of symbiotic yeast and lactic acid bacteria cultures in bread dough.',
+    excerpt: 'The biological and chemical mechanisms behind sourdough fermentation.',
+    content: `## How the Symbiotic Microbial Ecosystem Operates
+Sourdough fermentation functions through a biological symbiosis between wild yeasts (primarily *Kazachstania exigua*) and lactic acid bacteria (*Lactobacillus sanfranciscensis*). When flour and water mix, endogenous enzymes break down cereal starches into maltose and glucose.
+
+## The Chemistry Behind Acidity and Gas Production
+Because wild yeasts in sourdough do not metabolize maltose, they do not compete with *Lactobacillus* for the primary sugar source. Instead, the bacteria consume maltose and produce lactic and acetic acids. As a result of this acid production, dough pH drops between 3.8 and 4.2. This acidity causes gluten proteins to tighten while inhibiting spoilage microorganisms.
+
+Simultaneously, the yeast cells ferment glucose into carbon dioxide and ethanol. The mechanism behind bread rise occurs when carbon dioxide gas becomes trapped within the viscoelastic gluten matrix, creating micro-alveoli that expand during baking.
+
+## Why This Mechanism Matters for Bakers
+Recognizing how temperature alters the ratio of lactic acid (mild, creamy flavor) to acetic acid (sharp, tangy flavor) allows bakers to control taste profiles by manipulating fermentation temperatures between 20°C and 28°C.`,
+    sources: [{ name: 'Microbiology Research Institute', url: 'https://microbiologyjournal.org/sourdough' }],
+  };
+
+  const report = validateEditorialArticle(explainerArticle, {
+    topicId: 'lm-home-science-sourdough-fermentation',
+    pillar: 'home',
+    format: 'deep-dive',
+    contentType: 'EXPLAINER',
+  });
+
+  assert.equal(report.passed, true);
+  assert.equal(report.errors.length, 0);
 });

@@ -416,23 +416,27 @@ test('11. BFLImageProvider submits job, polls get_result, and downloads image', 
 
 test('12. End-to-end publishing pipeline with image generation persistence (Workers AI success)', async () => {
   const fullContent = [
-    'In contemporary lifestyle design, intentionality represents a foundational shift toward clarity and sustainable daily focus.',
+    'Establishing daily solitude and intentional rest protocols restores mental clarity and reduces cognitive fatigue.',
     '',
-    '## 1. The Modern Shift: Signal Over Noise',
-    'Navigating digital overload requires cultivating a calm, deliberate relationship with our tools and physical spaces.',
-    'Rather than reacting to every new impulse, we establish clear boundaries and structured daily rhythms.',
+    '## 1. What You Need & Prerequisites',
+    'Prepare a dedicated quiet space, an analog timer, and a notebook for daily reflections.',
     '',
-    '## 2. Practical Framework & Daily Protocols',
-    'Implementing intentional design begins with small, repeatable workflows that compound over time.',
-    'By focusing on essential priorities, modern knowledge workers preserve cognitive bandwidth for deep, meaningful work.',
+    '## 2. Step-by-Step Solitude Protocol',
+    '1. Set aside 20 minutes in the early morning before connecting to digital communications.',
+    '2. Practice diaphragmatic breathing exercises for 5 minutes to stabilize baseline heart rate.',
+    '3. Engage in focused single-task contemplation or journaling without screen access.',
+    '4. Document key priorities and transition smoothly into daily work routines.',
+    '',
+    '## 3. Common Failure Modes & Prevention',
+    'Avoid checking mobile devices during the solitude interval. Use a physical alarm clock instead of a smartphone.',
   ].join('\n');
 
   const pubRequest: PublishingRequest = {
     article: {
-      title: 'The Art of Mindful Solitude',
-      slug: 'the-art-of-mindful-solitude',
-      description: 'How quiet contemplation fosters mental clarity and daily balance.',
-      excerpt: 'Exploring quiet contemplation and rest in modern life.',
+      title: 'Mindful Solitude and Rest: Practical Daily Protocol',
+      slug: 'mindful-solitude-and-rest-practical-protocol',
+      description: 'How quiet contemplation fosters mental clarity, emotional balance, and daily focus.',
+      excerpt: 'Practical step-by-step protocol for mindful solitude and rest.',
       content: fullContent,
       sources: [{ name: 'LifeMode Editorial Standards', url: 'https://lifemode.life' }],
       internalLinks: ['/wellbeing'],
@@ -500,23 +504,27 @@ test('12. End-to-end publishing pipeline with image generation persistence (Work
 
 test('13. End-to-end publishing pipeline with BFL fallback on Workers AI failure', async () => {
   const fullContent = [
-    'In contemporary lifestyle design, intentionality represents a foundational shift toward clarity and sustainable daily focus.',
+    'Establishing daily solitude and intentional rest protocols restores mental clarity and reduces cognitive fatigue.',
     '',
-    '## 1. The Modern Shift: Signal Over Noise',
-    'Navigating digital overload requires cultivating a calm, deliberate relationship with our tools and physical spaces.',
-    'Rather than reacting to every new impulse, we establish clear boundaries and structured daily rhythms.',
+    '## 1. What You Need & Prerequisites',
+    'Prepare a dedicated quiet space, an analog timer, and a notebook for daily reflections.',
     '',
-    '## 2. Practical Framework & Daily Protocols',
-    'Implementing intentional design begins with small, repeatable workflows that compound over time.',
-    'By focusing on essential priorities, modern knowledge workers preserve cognitive bandwidth for deep, meaningful work.',
+    '## 2. Step-by-Step Solitude Protocol',
+    '1. Set aside 20 minutes in the early morning before connecting to digital communications.',
+    '2. Practice diaphragmatic breathing exercises for 5 minutes to stabilize baseline heart rate.',
+    '3. Engage in focused single-task contemplation or journaling without screen access.',
+    '4. Document key priorities and transition smoothly into daily work routines.',
+    '',
+    '## 3. Common Failure Modes & Prevention',
+    'Avoid checking mobile devices during the solitude interval. Use a physical alarm clock instead of a smartphone.',
   ].join('\n');
 
   const pubRequest: PublishingRequest = {
     article: {
-      title: 'The Art of Mindful Solitude',
-      slug: 'the-art-of-mindful-solitude',
-      description: 'How quiet contemplation fosters mental clarity and daily balance.',
-      excerpt: 'Exploring quiet contemplation and rest in modern life.',
+      title: 'Mindful Solitude and Rest: Practical Daily Protocol',
+      slug: 'mindful-solitude-and-rest-practical-protocol',
+      description: 'How quiet contemplation fosters mental clarity, emotional balance, and daily focus.',
+      excerpt: 'Practical step-by-step protocol for mindful solitude and rest.',
       content: fullContent,
       sources: [{ name: 'LifeMode Editorial Standards', url: 'https://lifemode.life' }],
       internalLinks: ['/wellbeing'],
@@ -584,23 +592,27 @@ test('13. End-to-end publishing pipeline with BFL fallback on Workers AI failure
 
 test('14. End-to-end publishing pipeline blocks publication when image generation fails and fallback is disabled', async () => {
   const fullContent = [
-    'In contemporary lifestyle design, intentionality represents a foundational shift toward clarity and sustainable daily focus.',
+    'Establishing daily solitude and intentional rest protocols restores mental clarity and reduces cognitive fatigue.',
     '',
-    '## 1. The Modern Shift: Signal Over Noise',
-    'Navigating digital overload requires cultivating a calm, deliberate relationship with our tools and physical spaces.',
-    'Rather than reacting to every new impulse, we establish clear boundaries and structured daily rhythms.',
+    '## 1. What You Need & Prerequisites',
+    'Prepare a dedicated quiet space, an analog timer, and a notebook for daily reflections.',
     '',
-    '## 2. Practical Framework & Daily Protocols',
-    'Implementing intentional design begins with small, repeatable workflows that compound over time.',
-    'By focusing on essential priorities, modern knowledge workers preserve cognitive bandwidth for deep, meaningful work.',
+    '## 2. Step-by-Step Solitude Protocol',
+    '1. Set aside 20 minutes in the early morning before connecting to digital communications.',
+    '2. Practice diaphragmatic breathing exercises for 5 minutes to stabilize baseline heart rate.',
+    '3. Engage in focused single-task contemplation or journaling without screen access.',
+    '4. Document key priorities and transition smoothly into daily work routines.',
+    '',
+    '## 3. Common Failure Modes & Prevention',
+    'Avoid checking mobile devices during the solitude interval. Use a physical alarm clock instead of a smartphone.',
   ].join('\n');
 
   const pubRequest: PublishingRequest = {
     article: {
-      title: 'The Art of Mindful Solitude',
-      slug: 'the-art-of-mindful-solitude',
-      description: 'How quiet contemplation fosters mental clarity and daily balance.',
-      excerpt: 'Exploring quiet contemplation and rest in modern life.',
+      title: 'Mindful Solitude and Rest: Practical Daily Protocol',
+      slug: 'mindful-solitude-and-rest-practical-protocol',
+      description: 'How quiet contemplation fosters mental clarity, emotional balance, and daily focus.',
+      excerpt: 'Practical step-by-step protocol for mindful solitude and rest.',
       content: fullContent,
       sources: [{ name: 'LifeMode Editorial Standards', url: 'https://lifemode.life' }],
       internalLinks: ['/wellbeing'],
@@ -669,23 +681,27 @@ test('14. End-to-end publishing pipeline blocks publication when image generatio
 
 test('15. End-to-end publishing pipeline allows publication when allowNoImageFallback is explicitly true', async () => {
   const fullContent = [
-    'In contemporary lifestyle design, intentionality represents a foundational shift toward clarity and sustainable daily focus.',
+    'Establishing daily solitude and intentional rest protocols restores mental clarity and reduces cognitive fatigue.',
     '',
-    '## 1. The Modern Shift: Signal Over Noise',
-    'Navigating digital overload requires cultivating a calm, deliberate relationship with our tools and physical spaces.',
-    'Rather than reacting to every new impulse, we establish clear boundaries and structured daily rhythms.',
+    '## 1. What You Need & Prerequisites',
+    'Prepare a dedicated quiet space, an analog timer, and a notebook for daily reflections.',
     '',
-    '## 2. Practical Framework & Daily Protocols',
-    'Implementing intentional design begins with small, repeatable workflows that compound over time.',
-    'By focusing on essential priorities, modern knowledge workers preserve cognitive bandwidth for deep, meaningful work.',
+    '## 2. Step-by-Step Solitude Protocol',
+    '1. Set aside 20 minutes in the early morning before connecting to digital communications.',
+    '2. Practice diaphragmatic breathing exercises for 5 minutes to stabilize baseline heart rate.',
+    '3. Engage in focused single-task contemplation or journaling without screen access.',
+    '4. Document key priorities and transition smoothly into daily work routines.',
+    '',
+    '## 3. Common Failure Modes & Prevention',
+    'Avoid checking mobile devices during the solitude interval. Use a physical alarm clock instead of a smartphone.',
   ].join('\n');
 
   const pubRequest: PublishingRequest = {
     article: {
-      title: 'The Art of Mindful Solitude',
-      slug: 'the-art-of-mindful-solitude',
-      description: 'How quiet contemplation fosters mental clarity and daily balance.',
-      excerpt: 'Exploring quiet contemplation and rest in modern life.',
+      title: 'Mindful Solitude and Rest: Practical Daily Protocol',
+      slug: 'mindful-solitude-and-rest-practical-protocol',
+      description: 'How quiet contemplation fosters mental clarity, emotional balance, and daily focus.',
+      excerpt: 'Practical step-by-step protocol for mindful solitude and rest.',
       content: fullContent,
       sources: [{ name: 'LifeMode Editorial Standards', url: 'https://lifemode.life' }],
       internalLinks: ['/wellbeing'],

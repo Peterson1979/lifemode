@@ -5,7 +5,7 @@ seoDescription: "Step-by-step guide to cleaning, drying, and maintaining a cast 
 category: "food-kitchen"
 contentType: "reference"
 publishedDate: "2026-01-15"
-updatedDate: "2026-03-10"
+updatedDate: "2026-10-09"
 readTime: "5 min read"
 author:
   name: "Dr. Marcus Vance"
@@ -94,32 +94,6 @@ relatedTools:
   - "cookware-material-finder"
 relatedChecklists:
   - "kitchen-deep-clean-checklist"
-infographic:
-  type: "mechanism"
-  kicker: "Culinary Chemistry"
-  title: "Cast Iron Polymerization & Cross-Linking Chain"
-  description: "How unsaturated fatty acids thermally cross-link into a resilient, insoluble polymer barrier."
-  steps:
-    - badge: "1. Substrate"
-      title: "Liquid Triglycerides + Iron"
-      description: "A thin film of unsaturated fatty acids fills the microscopic cast iron surface pores."
-      icon: "🍳"
-      variant: "neutral"
-    - badge: "2. Catalysis"
-      title: "High Heat (230°C+ / 450°F+)"
-      description: "Thermal energy past the oil smoke point triggers free-radical oxidation and carbon cross-linking."
-      icon: "🔥"
-      variant: "highlight"
-    - badge: "3. Patina"
-      title: "Cross-Linked Polymer"
-      description: "Transforms into an insoluble, slick, plastic-like matrix chemically bonded to the iron crystal lattice."
-      icon: "🛡️"
-      variant: "safe"
-  outcome:
-    icon: "🧼"
-    badge: "Chemistry Reality"
-    title: "Why Mild Dish Soap Does Not Harm Seasoning"
-    description: "Because cured seasoning is a chemically cross-linked covalent polymer (not free surface grease), mild modern surfactants cannot dissolve or strip the patina."
 ---
 
 ## The Science of Cast Iron Seasoning
@@ -132,5 +106,3 @@ When unsaturated cooking oils (such as canola, flaxseed, or grapeseed oil) are h
 The liquid fatty acids transform into a hard, durable, plastic-like carbon matrix chemically bonded to the microscopic pores of the iron.
 
 Because this polymer layer is insoluble in water and unaffected by mild amphiphilic surfactants, modern dish soap will not strip it. Only harsh abrasives (like sandpaper), lye (oven cleaners), and prolonged soaking in water can degrade a cured seasoning patina.
-
-

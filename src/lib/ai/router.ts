@@ -17,7 +17,7 @@ import { estimateRequestResponseTokens, estimateRequestTokens } from './token-es
 import { extractAndParseJson } from './json-extractor.ts';
 
 
-const MAX_RATE_LIMIT_WAIT_MS = 10_000;
+const MAX_RATE_LIMIT_WAIT_MS = 30_000;
 
 export interface AIRouterOptions {
   config?: AIConfig;

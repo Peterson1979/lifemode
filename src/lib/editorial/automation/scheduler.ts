@@ -10,6 +10,7 @@ import type {
 import { GitCli } from '../git-publisher/git-cli.ts';
 import { loadGitPublisherConfig } from '../git-publisher/config.ts';
 import { getEditorialDailyPlan } from '../cadence.ts';
+import { processGuideOpportunity, type GuideOpportunityResult } from '../guides/service.ts';
 
 /**
  * Executes a production-safe Scheduled Editorial Automation run.
@@ -54,7 +55,8 @@ export async function runScheduledEditorialAutomation(
     summary: string,
     fatalError?: string,
     automationResult?: any,
-    socialResult?: any
+    socialResult?: any,
+    guideResult?: GuideOpportunityResult
   ): ScheduledAutomationResult => {
     const completedAt = new Date().toISOString();
     const durationMs = Math.max(1, Date.now() - startTime);
@@ -83,6 +85,7 @@ export async function runScheduledEditorialAutomation(
       articles: automationResult?.articles,
       automationResult,
       socialResult,
+      guideResult,
       jsonResult: {
         runId,
         startedAt,
@@ -95,6 +98,7 @@ export async function runScheduledEditorialAutomation(
         fatalError,
         articles: automationResult?.articles,
         social: socialResult,
+        guide: guideResult,
       },
     };
   };
@@ -242,7 +246,45 @@ export async function runScheduledEditorialAutomation(
 
     let pushedToRemote = false;
 
-    // 5. Post-publication candidate state commit & remote Git push
+    // 5. Execute Guide Opportunity on Guide Cadence Days (Mon, Wed, Fri)
+    let guideResult: GuideOpportunityResult | undefined;
+    if (dailyPlan.isGuidesDay && config.enabled) {
+      try {
+        guideResult = await processGuideOpportunity({
+          targetDate: options.targetDate ?? dailyPlan.targetDate,
+          dryRun: config.dryRun,
+        });
+
+        if (
+          guideResult &&
+          (guideResult.status === 'CREATED' || guideResult.status === 'UPDATED') &&
+          config.allowCommit &&
+          !config.dryRun
+        ) {
+          const isRepo = await gitCli.isGitRepo(repoRoot);
+          if (isRepo && guideResult.filePath) {
+            const relGuidePath = gitCli.normalizeGitPath(path.relative(repoRoot, guideResult.filePath));
+            const statusBefore = await gitCli.getRepoStatus(repoRoot, relGuidePath);
+            if (statusBefore.modifiedFiles.includes(relGuidePath) || statusBefore.untrackedFiles.includes(relGuidePath)) {
+              await gitCli.stageSingleFile(repoRoot, relGuidePath);
+              await gitCli.createCommit(
+                repoRoot,
+                `feat: ${guideResult.action === 'CREATE' ? 'create' : 'update'} featured guide ${guideResult.slug}`,
+                options.commitAuthor || {
+                  name: 'LifeMode Editorial Automation',
+                  email: 'automation@lifemode.local',
+                }
+              );
+            }
+          }
+        }
+      } catch (gErr: any) {
+        // Non-fatal guide processing notice
+        automationResult.summary += `\n[Notice] Guide opportunity execution: ${gErr?.message || 'Incomplete'}`;
+      }
+    }
+
+    // 6. Post-publication candidate state commit & remote Git push
     if (counts.succeeded > 0 && config.allowCommit && !config.dryRun) {
       try {
         const isRepo = await gitCli.isGitRepo(repoRoot);
@@ -276,7 +318,7 @@ export async function runScheduledEditorialAutomation(
       }
     }
 
-    // 6. Determine top-level ScheduledStatus
+    // 7. Determine top-level ScheduledStatus
     let scheduledStatus: ScheduledStatus;
     if (automationResult.status === 'FAILED') {
       scheduledStatus = 'FAILED';
@@ -294,9 +336,10 @@ export async function runScheduledEditorialAutomation(
       `Scheduled Editorial Run: [${scheduledStatus}]`,
       `Duration: ${Math.max(1, Date.now() - startTime)}ms`,
       `Processed: ${counts.processed} (Succeeded: ${counts.succeeded}, Rejected: ${counts.rejected}, Published: ${counts.published})`,
+      guideResult ? `Guides Cadence: [${guideResult.status}] ${guideResult.action || 'NONE'} ${guideResult.slug || ''}` : '',
       `Push to Remote: ${pushedToRemote ? 'COMPLETED' : 'SKIPPED'}`,
       `\nPipeline Details:\n${automationResult.summary}`,
-    ];
+    ].filter(Boolean);
 
     const summaryText = summaryParts.join('\n');
 
@@ -306,7 +349,9 @@ export async function runScheduledEditorialAutomation(
       pushedToRemote,
       summaryText,
       automationResult.error?.message,
-      automationResult
+      automationResult,
+      options.socialOptions as any,
+      guideResult
     );
   } finally {
     // 8. Ensure execution lock is always released

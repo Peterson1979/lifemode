@@ -76,6 +76,95 @@ export const GENERIC_EXCERPT_PATTERNS: RegExp[] = [
   /what you need to know/i,
 ];
 
+export const GENERIC_CONTENT_FILLER_PATTERNS: RegExp[] = [
+  /\bexploring the dynamics of\b/i,
+  /\bimplementing this priority\b/i,
+  /\bby establishing structured routines\b/i,
+  /\bto maximize the impact of this approach\b/i,
+  /\bpreserve cognitive bandwidth\b/i,
+  /\bprotect cognitive bandwidth\b/i,
+  /\bhigh-leverage aspirations\b/i,
+  /\bhigh-leverage micro-decisions\b/i,
+  /\bhigh-leverage adjustments\b/i,
+  /\bin an era characterized by relentless digital stimuli\b/i,
+  /\bcultivates an enduring state of flow\b/i,
+  /\bcreating an environment that minimizes friction\b/i,
+  /\bsmall,?\s*repeatable workflows that compound\b/i,
+  /\bestablishing an enduring relationship with\b/i,
+  /\bcontributes to a cohesive,?\s*calm,?\s*and high-performing environment\b/i,
+  /\beliminating friction points before introducing\b/i,
+  /\btrue mastery lies in reduction rather than accumulation\b/i,
+  /\bdeliberate cognitive effort becomes second nature\b/i,
+  /\bfreeing your attention for creative and high-leverage\b/i,
+  /\bnavigating contemporary challenges with confidence,?\s*balance,?\s*and timeless grace\b/i,
+  /\blet each mindful decision reinforce your broader lifestyle vision\b/i,
+  /\belevates contemporary daily living\b/i,
+  /\bembracing everyday care\b/i,
+  /\bcontemporary expression of .+ is substantially enriched\b/i,
+  /\bdistinguishing between high-signal investments and speculative novelties\b/i,
+  /\btranslating conceptual enthusiasm for .+ into tangible lifestyle improvements\b/i,
+];
+
+/**
+ * Detects generic reusable AI filler in article text.
+ */
+export function detectGenericContentFiller(text: string): { hasFiller: boolean; matches: string[] } {
+  if (!text) return { hasFiller: false, matches: [] };
+  const matches: string[] = [];
+  for (const pattern of GENERIC_CONTENT_FILLER_PATTERNS) {
+    if (pattern.test(text)) {
+      matches.push(pattern.toString());
+    }
+  }
+  return { hasFiller: matches.length > 0, matches };
+}
+
+const TOPIC_STOP_WORDS = new Set([
+  'how', 'to', 'what', 'why', 'when', 'where', 'which', 'who', 'the', 'a', 'an', 'and', 'or', 'in', 'on', 'at', 'for', 'of', 'with', 'by', 'from', 'into', 'vs', 'versus', 'guide', 'modern', 'practical', 'essential', 'insights', 'everyday', 'daily', 'best', 'top', 'step', 'protocol', 'framework', 'tips', 'review', 'analysis', 'overview', 'complete', 'definitive', 'ultimate', 'your', 'you', 'our', 'is', 'are', 'can', 'will', 'should', 'about', 'life', 'lifemode', '2024', '2025', '2026', '2027', 'step-by-step', 'stepbystep'
+]);
+
+/**
+ * Extracts substantive entity keywords from a title or topic ID.
+ */
+export function extractSubstantiveTopicTerms(title: string, topicId?: string): string[] {
+  const combined = `${title || ''} ${(topicId || '').replace(/^lm-[a-z0-9-]+-/, '').replace(/-/g, ' ')}`.toLowerCase();
+  const words = combined.replace(/[^\w\s]/g, ' ').split(/\s+/).filter((w) => w.length >= 3 && !TOPIC_STOP_WORDS.has(w));
+  return Array.from(new Set(words));
+}
+
+/**
+ * Evaluates whether the content actually contains topic-specific subject matter
+ * rather than being a generic, topic-empty essay.
+ */
+export function validateTopicContentSpecificity(
+  title: string,
+  content: string,
+  topicId?: string
+): { isSpecific: boolean; matchedTerms: string[]; reason?: string } {
+  if (!content) {
+    return { isSpecific: false, matchedTerms: [], reason: 'Content is empty.' };
+  }
+
+  const substantiveTerms = extractSubstantiveTopicTerms(title, topicId);
+  if (substantiveTerms.length === 0) {
+    return { isSpecific: true, matchedTerms: [] };
+  }
+
+  const lowerContent = content.toLowerCase();
+  const matchedTerms = substantiveTerms.filter((term) => lowerContent.includes(term));
+
+  // If there are at least 2 substantive terms in the title/topic and none match in content
+  if (substantiveTerms.length >= 2 && matchedTerms.length === 0) {
+    return {
+      isSpecific: false,
+      matchedTerms: [],
+      reason: `Article content lacks substantive topic-specific material and fails topic coherence (none of the expected topic keywords [${substantiveTerms.slice(0, 5).join(', ')}] appear in the content body).`,
+    };
+  }
+
+  return { isSpecific: true, matchedTerms };
+}
+
 export interface RepetitivePatternResult {
   isRepetitive: boolean;
   pattern?: string;

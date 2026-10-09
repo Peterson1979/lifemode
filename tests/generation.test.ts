@@ -287,15 +287,17 @@ test('13. Brief adapter converts ContentBrief to GenerationRequest seamlessly', 
 test('14. Normal article within brief target range passes generation validation', () => {
   const req: GenerationRequest = {
     ...validRequest,
+    affiliateIntent: false,
+    format: 'standard',
     estimatedWordCount: { min: 1000, target: 1400, max: 2000 },
   };
-  const dummyContent = Array(1200).fill('word').join(' ');
+  const dummyContent = Array(1200).fill('local llm models').join(' ');
   const article: Partial<GeneratedArticle> = {
-    title: 'Intentional Living in the Modern Age',
-    slug: 'intentional-living-in-the-modern-age',
-    description: 'An editorial guide to mindful everyday routines and calm environments.',
-    excerpt: 'Mindful everyday routines for modern living.',
-    content: `## 1. Core Principles\n\n${dummyContent}\n\n## 2. Practical Framework\n\nMore detailed text here.`,
+    title: 'The Intentional Guide to Local LLMs in 2026',
+    slug: 'the-intentional-guide-to-local-llms-in-2026',
+    description: 'An editorial guide to running private local LLM setups for modern creators.',
+    excerpt: 'Mindful private AI setups for modern work.',
+    content: `## What You Need & Prerequisites\nPrepare hardware and install terminal tools for local llm models.\n\n## Step-by-Step Protocol\n1. Download local llm models.\n2. Configure parameters at 25°C temperature.\n3. Run baseline benchmarks.\n\n## Common Mistakes & Troubleshooting\nAvoid invalid model quantization.\n\n${dummyContent}`,
   };
 
   const report = validateGeneratedArticle(article, req);
@@ -308,16 +310,18 @@ test('14. Normal article within brief target range passes generation validation'
 test('15. Article slightly below target but within 80% tolerance passes with warning', () => {
   const req: GenerationRequest = {
     ...validRequest,
+    affiliateIntent: false,
+    format: 'standard',
     estimatedWordCount: { min: 1000, target: 1400, max: 2000 },
   };
   // 850 words is >= 800 (80% of 1000), but < 1000
-  const dummyContent = Array(850).fill('editorial').join(' ');
+  const dummyContent = Array(830).fill('localllm').join(' ');
   const article: Partial<GeneratedArticle> = {
-    title: 'Intentional Living in the Modern Age',
-    slug: 'intentional-living-in-the-modern-age',
-    description: 'An editorial guide to mindful everyday routines and calm environments.',
-    excerpt: 'Mindful everyday routines for modern living.',
-    content: `## 1. Section One\n\n${dummyContent}\n\n## 2. Section Two\n\nPractical application notes.`,
+    title: 'The Intentional Guide to Local LLMs in 2026',
+    slug: 'the-intentional-guide-to-local-llms-in-2026',
+    description: 'An editorial guide to running private local LLM setups for modern creators.',
+    excerpt: 'Mindful private AI setups for modern work.',
+    content: `## What You Need & Prerequisites\nPrepare hardware for local llm setup.\n\n## Step-by-Step Protocol\n1. Download local llm models.\n2. Verify 15 minutes inference test.\n\n## Troubleshooting\nAvoid memory leaks.\n\n${dummyContent}`,
   };
 
   const report = validateGeneratedArticle(article, req);
@@ -352,16 +356,18 @@ test('16. Severely undersized article below 80% boundary fails generation valida
 test('17. Missing/invalid target metadata falls back safely to default minimum threshold', () => {
   const reqWithoutTarget: GenerationRequest = {
     ...validRequest,
+    affiliateIntent: false,
+    format: 'standard',
     estimatedWordCount: undefined,
   };
   // 120 words exceeds default 80 words
-  const dummyContent = Array(120).fill('content').join(' ');
+  const dummyContent = Array(120).fill('local llm content').join(' ');
   const article: Partial<GeneratedArticle> = {
-    title: 'Intentional Living Guide',
-    slug: 'intentional-living-guide',
-    description: 'A comprehensive editorial guide to modern lifestyle architecture.',
-    excerpt: 'Editorial guide excerpt.',
-    content: `## 1. Overview\n\n${dummyContent}\n\n## 2. Details\n\nMore text.`,
+    title: 'The Intentional Guide to Local LLMs in 2026',
+    slug: 'the-intentional-guide-to-local-llms-in-2026',
+    description: 'A comprehensive editorial guide to modern local model setups.',
+    excerpt: 'Editorial guide excerpt for local llm.',
+    content: `## What You Need & Prerequisites\nPrepare local llm content.\n\n## Step-by-Step Protocol\n1. Setup local llms.\n2. Configure parameters.\n\n## Troubleshooting\nAvoid errors.\n\n${dummyContent}`,
   };
 
   const report = validateGeneratedArticle(article, reqWithoutTarget);
@@ -469,7 +475,13 @@ Investing in an intentional typing experience supports daily wellbeing and susta
 
   const commercialRequest: GenerationRequest = {
     ...validRequest,
+    format: 'standard',
     titleAngle: 'Top Productivity Keyboards for Intentional Focus',
+    searchTargets: {
+      primaryKeyword: 'keyboards',
+      secondaryKeywords: ['productivity keyboards', 'ergonomic mechanical keyboard'],
+      targetSearchVolumeTier: 'high',
+    },
     affiliateIntent: true,
     commercialIntentType: 'commercial-investigation',
     affiliateGuidance: {

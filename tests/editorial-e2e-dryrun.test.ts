@@ -598,10 +598,10 @@ test('Controlled E2E Isolated Run: Mock image provider generates and persists im
           {
             source: 'RSS_FEEDS',
             sourceId: 'rss-img-mock-01',
-            rawQuery: 'Nordic Spa Architecture and Geothermal Design',
+            rawQuery: 'How to Build a Biophilic Workspace: Step-by-Step Layout and Lighting Guide',
             timestamp: new Date().toISOString(),
-            category: 'travel',
-            sourceUrl: 'https://example.com/nordic-spa',
+            category: 'home',
+            sourceUrl: 'https://lifemode.life/workspace-guide',
             metrics: { relativeInterest: 96, searchVolume: 14000, visualPotentialScore: 98 },
           },
         ],
