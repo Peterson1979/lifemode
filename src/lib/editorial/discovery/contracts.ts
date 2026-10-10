@@ -122,3 +122,33 @@ export interface InternalAnalyticsPayload {
   socialShares: number;
   searchImpressions: number;
 }
+
+/**
+ * Stack Exchange Question signal contract payload.
+ */
+export interface StackExchangePayload {
+  site: string;
+  questionId: number;
+  title: string;
+  link: string;
+  score: number;
+  viewCount: number;
+  answerCount: number;
+  tags: string[];
+  creationDate: number;
+}
+
+/**
+ * Public Q&A signal contract payload (e.g. Quora / Answers.com).
+ * Future discovery source contract. Requires a compliant, authorized API or commercial data license.
+ * Web scraping without explicit commercial authorization is strictly prohibited and not implemented.
+ */
+export interface PublicQAPayload {
+  sourceName: string;
+  question: string;
+  url: string;
+  answerCount?: number;
+  followersOrViews?: number;
+  category?: string;
+}
+

@@ -129,11 +129,11 @@ export const PILLARS: Record<string, PillarConfig> = {
     color: '#7c3aed', // Digital Violet
     bgLight: 'rgba(124, 58, 237, 0.08)',
     subtopics: [
-      { name: 'AI Tools & Utilities', icon: '🤖', description: 'Curated AI application suites, model comparisons & browser assistants', slug: 'ai-tools' },
-      { name: 'AI Workflows & Automation', icon: '⚡', description: 'Connecting LLMs, webhooks, document parsers & automated notification engines', slug: 'ai-workflows' },
-      { name: 'Prompt Engineering', icon: '🎯', description: 'Structured JSON schemas, system role definitions & deterministic LLM prompting', slug: 'prompt-engineering' },
-      { name: 'AI Side Hustles', icon: '💡', description: 'Niche research agents, automated summaries & programmatic content pipelines', slug: 'ai-side-hustles' },
-      { name: 'AI Learning & Upskilling', icon: '📚', description: 'Structured course paths, model architectures & practical intelligence skills', slug: 'ai-learning' },
+      { name: 'AI Tools & Models', icon: '🤖', description: 'Curated AI applications, model comparisons, prompt systems & browser assistants', slug: 'ai-tools' },
+      { name: 'Practical AI & Automation', icon: '⚡', description: 'Connecting LLMs, webhooks, local models & practical intelligence workflows', slug: 'ai-workflows' },
+      { name: 'Everyday Software & Apps', icon: '💻', description: 'Practical productivity software, browser extensions & desktop utilities', slug: 'everyday-software' },
+      { name: 'Modern Tech & Hardware', icon: '📱', description: 'Smart devices, workspace tech, peripherals & everyday electronics', slug: 'modern-tech-hardware' },
+      { name: 'Digital Privacy & Security', icon: '🔒', description: 'Data ownership, password management, backup protocols & browser privacy', slug: 'privacy-security' },
     ],
   },
   tools: {

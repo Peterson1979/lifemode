@@ -10,6 +10,7 @@ import {
   GoogleTrendsDiscoveryAdapter,
   classifyTrendingQueryPillar,
 } from '../src/lib/editorial/discovery/adapters/google-trends.ts';
+import { StackExchangeDiscoveryAdapter } from '../src/lib/editorial/discovery/adapters/stack-exchange.ts';
 import { SeasonalCalendarDiscoveryAdapter } from '../src/lib/editorial/discovery/adapters/seasonal-calendar.ts';
 import { GoogleSearchConsoleDiscoveryAdapter } from '../src/lib/editorial/discovery/adapters/google-search-console.ts';
 import { BingWebmasterDiscoveryAdapter } from '../src/lib/editorial/discovery/adapters/bing-webmaster.ts';
@@ -269,6 +270,64 @@ test('Live Reddit Social Adapter - Handles 429 rate limit gracefully', async () 
   assert.equal(result.status, 'PROVIDER_UNAVAILABLE');
   assert.equal(result.signals.length, 0);
   assert.ok(result.error?.includes('429 Rate Limit'));
+});
+
+test('Live Reddit Social Adapter - Defaults to disabled (NOT_CONFIGURED) without commercial authorization', async () => {
+  const adapter = new RedditSocialDiscoveryAdapter();
+  const result = await adapter.fetchSignals();
+
+  assert.equal(result.status, 'NOT_CONFIGURED');
+  assert.equal(result.signals.length, 0);
+  assert.ok(result.error?.includes('disabled'));
+});
+
+test('Stack Exchange Adapter - Ingests public questions with tag decoding and pillar mapping', async () => {
+  const mockStackExchangeJson = {
+    items: [
+      {
+        question_id: 88201,
+        title: 'How to safely clean burned oil off &quot;cast iron&quot; cookware?',
+        link: 'https://cooking.stackexchange.com/questions/88201/clean-cast-iron',
+        score: 42,
+        view_count: 5120,
+        answer_count: 5,
+        tags: ['cast-iron', 'cleaning', 'cookware'],
+        creation_date: 1789000000,
+      },
+      {
+        question_id: 88202,
+        title: 'Low quality question',
+        link: 'https://cooking.stackexchange.com/questions/88202/low',
+        score: -2, // Below zero threshold
+        view_count: 10,
+        answer_count: 0,
+        tags: ['cooking'],
+        creation_date: 1789000000,
+      },
+    ],
+  };
+
+  const mockFetch: typeof fetch = async () => {
+    return new Response(JSON.stringify(mockStackExchangeJson), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  };
+
+  const adapter = new StackExchangeDiscoveryAdapter(mockFetch);
+  const result = await adapter.fetchSignals({
+    sites: [{ site: 'cooking', pillar: 'home' }],
+  });
+
+  assert.equal(result.status, 'AVAILABLE');
+  assert.equal(result.signals.length, 1);
+  const signal = result.signals[0];
+  assert.equal(signal.source, 'STACK_EXCHANGE');
+  assert.equal(signal.category, 'home');
+  assert.equal(signal.rawQuery, 'How to safely clean burned oil off "cast iron" cookware?');
+  assert.equal(signal.sourceUrl, 'https://cooking.stackexchange.com/questions/88201/clean-cast-iron');
+  assert.equal(signal.metadata?.score, 42);
+  assert.equal(signal.metadata?.site, 'cooking');
 });
 
 test('Live Google Trends Adapter - Ingests RSS and classifies keyword pillars', async () => {

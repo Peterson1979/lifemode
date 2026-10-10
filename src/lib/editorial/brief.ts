@@ -38,36 +38,53 @@ export interface BriefGenerationOptions {
  * Word count guidelines by editorial format.
  */
 export const FORMAT_WORD_COUNT_MAP: Record<ArticleFormat, { min: number; target: number; max: number }> = {
-  standard: { min: 800, target: 1200, max: 1600 },
-  guide: { min: 1400, target: 2000, max: 2800 },
-  listicle: { min: 900, target: 1300, max: 1800 },
-  'deep-dive': { min: 1800, target: 2500, max: 3500 },
-  dispatch: { min: 500, target: 750, max: 1000 },
-  curation: { min: 700, target: 1100, max: 1500 },
+  'direct-answer': { min: 250, target: 450, max: 700 },
+  'practical-guide': { min: 350, target: 550, max: 800 },
+  'comparison-table': { min: 300, target: 500, max: 750 },
+  explainer: { min: 350, target: 550, max: 800 },
+  'trending-question': { min: 250, target: 450, max: 700 },
+  'visual-guide': { min: 300, target: 500, max: 750 },
+  standard: { min: 300, target: 500, max: 750 },
+  guide: { min: 350, target: 550, max: 800 },
+  listicle: { min: 300, target: 500, max: 750 },
+  'deep-dive': { min: 500, target: 750, max: 1100 },
+  dispatch: { min: 250, target: 400, max: 600 },
+  curation: { min: 300, target: 500, max: 750 },
+  recipe: { min: 300, target: 500, max: 750 },
 };
 
 /**
  * Deterministically derives the recommended article format from topic signals and query phrasing.
+ * Prioritizes high-demand real-world question and practical formats.
  */
 export function deriveArticleFormat(topic: EditorialTopic, requestedFormat?: ArticleFormat): ArticleFormat {
   if (requestedFormat) return requestedFormat;
 
   const text = `${topic.canonicalTopic} ${(topic.queryVariants || []).join(' ')}`.toLowerCase();
 
+  // 1. Guides / Actionable Tutorials
   if (/\b(how to|step by step|tutorial|how-to|guide to)\b/.test(text)) {
     return 'guide';
   }
+  // 2. Curations / Comparative Roundups
   if (/\b(best|top\s*\d+|ranked|comparison|versus|vs\.?|alternatives|roundup)\b/.test(text)) {
     return 'curation';
   }
+  // 3. Deep Dives / Explanations
   if (/\b(what is|why|deep dive|explained|explainer|architecture|breakdown|mechanism)\b/.test(text)) {
     return 'deep-dive';
   }
+  // 4. Listicles / Principles
   if (/\b(tips|rules|habits|lessons|strategies|ways to|principles|checklist)\b/.test(text)) {
     return 'listicle';
   }
+  // 5. Dispatches / Breaking
   if (/\b(dispatch|breaking|now|update|first look)\b/.test(text)) {
     return 'dispatch';
+  }
+  // 6. Direct Answer Question Formats
+  if (/\b(can i|can you|should i|should you|does |is it safe|is it ok|is it safe to|when to|when should|will |do |are )\b/.test(text)) {
+    return 'direct-answer';
   }
   if (topic.opportunityType === 'SEASONAL_ARTICLE') {
     return 'guide';
@@ -499,7 +516,7 @@ export function deriveEditorialTitleAngle(
     case 'life': {
       const angles = [
         `How to Build a Frictionless ${cleanTopic}: Step-by-Step Setup`,
-        `How to Organize and Maintain ${cleanTopic}: Everyday Guide`,
+        `How to Organize ${cleanTopic}: Practical Guide`,
         `${cleanTopic}: Ergonomics, Systems, and Daily Habits`,
         `How to Optimize ${cleanTopic} for Everyday Clarity`,
       ];

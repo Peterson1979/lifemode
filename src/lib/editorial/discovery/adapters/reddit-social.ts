@@ -5,35 +5,40 @@ import { loadDiscoveryConfig, type ConfiguredRedditCommunity } from '../config.t
 export interface RedditSocialAdapterOptions extends DiscoveryAdapterOptions {
   fetchFn?: typeof fetch;
   communities?: ConfiguredRedditCommunity[];
+  authorized?: boolean;
 }
 
 /**
  * Reddit & Social Signal Live Discovery Adapter.
  *
- * Performs real outbound HTTP requests to public Reddit JSON endpoints
- * to discover high-velocity community discussions across LifeMode editorial pillars.
+ * Performs outbound HTTP requests to Reddit JSON endpoints only when explicitly authorized
+ * for commercial use. By default, unauthenticated automated access is disabled.
  */
 export class RedditSocialDiscoveryAdapter implements IDiscoveryAdapter {
   readonly sourceType = 'REDDIT_SOCIAL' as const;
   readonly name = 'Reddit Public Discussion Signals';
 
   private fetchFn: typeof fetch;
+  private isExplicitMock: boolean;
 
   constructor(customFetch?: typeof fetch) {
+    this.isExplicitMock = Boolean(customFetch);
     this.fetchFn = customFetch || globalThis.fetch.bind(globalThis);
   }
 
   async fetchSignals(options?: RedditSocialAdapterOptions): Promise<DiscoveryResult> {
     const config = loadDiscoveryConfig();
     const providerConfig = config.providers.redditSocial;
+    const isAuthorized = options?.authorized ?? (providerConfig.enabled || this.isExplicitMock);
 
-    if (!providerConfig.enabled) {
+    if (!isAuthorized) {
       return {
         provider: this.name,
         sourceType: this.sourceType,
         status: 'NOT_CONFIGURED',
         signals: [],
-        error: 'Reddit Social provider is disabled in configuration.',
+        error:
+          'Reddit Social provider is disabled (unauthenticated Reddit JSON access is not authorized for automated commercial data collection).',
         fetchedAt: new Date().toISOString(),
       };
     }

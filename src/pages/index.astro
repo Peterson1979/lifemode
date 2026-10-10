@@ -133,39 +133,41 @@ const websiteSchema = generateWebsiteSchema();
     </div>
   </section>
 
-  <!-- 3. FEATURED GUIDES -->
-  <section class="section section-alt guides-showcase-section">
-    <div class="container">
-      <div class="section-header">
-        <div>
-          <span class="section-kicker">Guides</span>
-          <h2 class="section-title">Featured Guides</h2>
-          <p class="section-desc">Step-by-step instructions, care protocols, and decision frameworks.</p>
+  <!-- 3. FEATURED GUIDES (Rendered when guides are present) -->
+  {featuredGuides.length > 0 && (
+    <section class="section section-alt guides-showcase-section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">Guides</span>
+            <h2 class="section-title">Featured Guides</h2>
+            <p class="section-desc">Step-by-step instructions, care protocols, and decision frameworks.</p>
+          </div>
+          <a href="/guides/" class="section-link">All guides ({allGuides.length}) &rarr;</a>
         </div>
-        <a href="/guides/" class="section-link">All guides ({allGuides.length}) &rarr;</a>
-      </div>
 
-      <div class="guides-grid">
-        {featuredGuides.map((guide) => {
-          const slug = guide.id.replace(/\.[^/.]+$/, '');
-          const guideUrl = `/${guide.data.category}/${slug}/`;
-          return (
-            <ArticleCard
-              pillar="home"
-              url={guideUrl}
-              title={guide.data.title}
-              description={guide.data.quickSummary || guide.data.seoDescription}
-              pubDate={guide.data.publishedDate}
-              author={guide.data.author?.name || 'LifeMode Editorial'}
-              readingTime={guide.data.readTime || '4 min read'}
-              contentType={guide.data.contentType}
-              variant="card"
-            />
-          );
-        })}
+        <div class="guides-grid">
+          {featuredGuides.map((guide) => {
+            const slug = guide.id.replace(/\.[^/.]+$/, '');
+            const guideUrl = `/${guide.data.category}/${slug}/`;
+            return (
+              <ArticleCard
+                pillar="home"
+                url={guideUrl}
+                title={guide.data.title}
+                description={guide.data.quickSummary || guide.data.seoDescription}
+                pubDate={guide.data.publishedDate}
+                author={guide.data.author?.name || 'LifeMode Editorial'}
+                readingTime={guide.data.readTime || '4 min read'}
+                contentType={guide.data.contentType}
+                variant="card"
+              />
+            );
+          })}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  )}
 
   <!-- 4. INTERACTIVE TOOLS -->
   <section class="section tools-showcase-section">

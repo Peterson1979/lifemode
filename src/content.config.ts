@@ -10,6 +10,12 @@ export const ArticleFormatEnum = z.enum([
   'dispatch',
   'curation',
   'recipe',
+  'direct-answer',
+  'practical-guide',
+  'comparison-table',
+  'explainer',
+  'trending-question',
+  'visual-guide',
 ]);
 
 export const SearchIntentEnum = z.enum([
@@ -139,6 +145,44 @@ export const articleSchema = z.object({
   secondaryIntent: z.string().optional(),
   affiliateIntent: z.boolean().default(false),
   riskLevel: RiskLevelEnum.default('low'),
+
+  // SEO & Real-World Question Directives
+  targetQuestion: z.string().optional(),
+  directAnswer: z.string().optional(),
+  primaryKeyword: z.string().optional(),
+  secondaryKeywords: z.array(z.string()).default([]),
+  canonicalUrl: z.string().optional(),
+  noIndex: z.boolean().default(false),
+
+  // Monetization & Sponsored Content Readiness
+  affiliateProducts: z
+    .array(
+      z.object({
+        name: z.string(),
+        url: z.string(),
+        merchant: z.string().optional(),
+        badge: z.string().optional(),
+        price: z.string().optional(),
+        researchedHighlights: z.array(z.string()).optional(),
+      })
+    )
+    .optional(),
+  affiliateDisclosure: z.string().optional(),
+  isSponsored: z.boolean().default(false),
+  sponsorName: z.string().optional(),
+  sponsoredDisclosure: z.string().optional(),
+
+  // Author & Editorial Attribution Readiness
+  isGuestAuthor: z.boolean().default(false),
+  authorBio: z.string().optional(),
+  editorialReviewer: z
+    .object({
+      name: z.string(),
+      role: z.string(),
+      credentials: z.string().optional(),
+    })
+    .optional(),
+
   sources: z
     .array(
       z.object({

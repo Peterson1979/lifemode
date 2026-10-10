@@ -18,7 +18,14 @@ export type ArticleFormat =
   | 'listicle'
   | 'deep-dive'
   | 'dispatch'
-  | 'curation';
+  | 'curation'
+  | 'recipe'
+  | 'direct-answer'
+  | 'practical-guide'
+  | 'comparison-table'
+  | 'explainer'
+  | 'trending-question'
+  | 'visual-guide';
 
 /**
  * Primary user search / content intent.
@@ -82,6 +89,8 @@ export type SignalSourceType =
   | 'GOOGLE_SEARCH_CONSOLE'
   | 'BING_WEBMASTER'
   | 'REDDIT_SOCIAL'
+  | 'STACK_EXCHANGE'
+  | 'PUBLIC_QA'
   | 'RSS_FEEDS'
   | 'NEWS_API'
   | 'YOUTUBE_TRENDS'
@@ -335,8 +344,8 @@ export interface EditorialMemory {
     reason?: string;
     recordedAt: string;
   }>;
-  successfulFormats: Record<ArticleFormat, number>;
-  underperformingFormats: Record<ArticleFormat, number>;
+  successfulFormats: Partial<Record<ArticleFormat, number>>;
+  underperformingFormats: Partial<Record<ArticleFormat, number>>;
   highPerformingPinterestThemes: string[];
   affiliateWinners: string[];
   contentGaps: Array<{

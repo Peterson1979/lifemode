@@ -27,6 +27,7 @@ export * from './discovery/adapters/google-search-console.ts';
 export * from './discovery/adapters/bing-webmaster.ts';
 export * from './discovery/adapters/youtube-trends.ts';
 export * from './discovery/adapters/internal-analytics.ts';
+export * from './discovery/adapters/stack-exchange.ts';
 export * from './sources/index.ts';
 export * from './research/index.ts';
 export * from './affiliate/index.ts';

@@ -10,6 +10,7 @@ import {
   runScheduledEditorialAutomation,
   acquireLock,
   FixtureReviewProvider,
+  RedditSocialDiscoveryAdapter,
   type IDiscoveryAdapter,
   type DiscoveryResult,
   type IAIReviewProvider,
@@ -494,3 +495,79 @@ test('12. No duplicate publication when the same topic is encountered twice', as
     await cleanup();
   }
 });
+
+test('13. Scheduler remains resilient when Reddit is disabled or a provider fails, without bypassing quality gates', async () => {
+  const wsA = await createTempWorkspace();
+  const wsB = await createTempWorkspace();
+
+  try {
+    // Adapter 1: Reddit adapter with default unauthenticated config -> returns NOT_CONFIGURED
+    const redditAdapter = new RedditSocialDiscoveryAdapter();
+
+    // Adapter 2: Failing adapter that throws an unhandled network error 503
+    const crashingAdapter: IDiscoveryAdapter = {
+      sourceType: 'FIXTURE',
+      name: 'Crashing Network Provider',
+      async fetchSignals() {
+        throw new Error('503 Service Unavailable: Remote endpoint failed');
+      },
+    };
+
+    // Case A: When AI review quality gate rejects the content, publication is prevented
+    const workingAdapterA = new MockDiscoveryAdapter('Questionable Wellness Trend Claims', 92, 'health');
+    const failingReviewProvider: IAIReviewProvider = new FixtureReviewProvider({
+      outcome: 'REJECT',
+    });
+
+    const resultRejected = await runScheduledEditorialAutomation({
+      enabled: true,
+      dryRun: true,
+      gitRepoRoot: wsA.repoDir,
+      contentRoot: wsA.contentDir,
+      lockPath: wsA.lockPath,
+      storagePath: wsA.storagePath,
+      discoveryAdapters: [redditAdapter, crashingAdapter, workingAdapterA],
+      reviewProvider: failingReviewProvider,
+    });
+
+    // Pipeline ran without crashing despite disabled Reddit and failing provider
+    assert.equal(resultRejected.status, 'SUCCESS_NO_PUBLICATION');
+    assert.equal(resultRejected.publishedCount, 0);
+    assert.equal(resultRejected.rejectedCount, 1);
+    assert.equal(resultRejected.succeededCount, 0);
+    assert.ok(resultRejected.automationResult);
+    assert.equal(resultRejected.automationResult.opportunities.length, 1);
+    const rejectedOpp = resultRejected.automationResult.opportunities[0];
+    assert.equal(rejectedOpp.status, 'REJECTED');
+
+    // Case B: When AI review quality gate PASSES, article publishes cleanly
+    const workingAdapterB = new MockDiscoveryAdapter('Sustainable Desk Organization Systems', 92, 'life');
+    const passingReviewProvider: IAIReviewProvider = new FixtureReviewProvider({
+      outcome: 'PASS',
+    });
+
+    const resultPassed = await runScheduledEditorialAutomation({
+      enabled: true,
+      dryRun: false,
+      allowCommit: true,
+      allowPush: false,
+      allowNoImageFallback: true,
+      gitRepoRoot: wsB.repoDir,
+      contentRoot: wsB.contentDir,
+      lockPath: wsB.lockPath,
+      storagePath: wsB.storagePath,
+      discoveryAdapters: [redditAdapter, crashingAdapter, workingAdapterB],
+      reviewProvider: passingReviewProvider,
+    });
+
+    assert.equal(resultPassed.status, 'SUCCESS');
+    assert.equal(resultPassed.publishedCount, 1);
+    assert.ok(resultPassed.automationResult);
+    const passedOpp = resultPassed.automationResult.opportunities[0];
+    assert.equal(passedOpp.status, 'COMPLETED');
+    assert.equal(passedOpp.stageResults.REVIEW.status, 'SUCCESS');
+  } finally {
+    await Promise.all([wsA.cleanup(), wsB.cleanup()]);
+  }
+});
+

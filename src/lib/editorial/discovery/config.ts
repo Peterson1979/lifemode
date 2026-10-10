@@ -88,6 +88,7 @@ export interface GlobalDiscoveryConfig {
     pinterest: ProviderConfig;
     googleTrends: ProviderConfig;
     redditSocial: ProviderConfig;
+    stackExchange?: ProviderConfig;
     rssFeeds: ProviderConfig;
     seasonalCalendar: ProviderConfig;
     googleSearchConsole: ProviderConfig;
@@ -138,14 +139,22 @@ export function loadDiscoveryConfig(): GlobalDiscoveryConfig {
         maxSignals: 50,
         apiKey: googleTrendsKey,
       },
-      redditSocial: {
-        enabled: true,
-        name: 'Reddit Public Discussion Signals',
-        sourceType: 'REDDIT_SOCIAL',
-        geography: 'GLOBAL',
-        language: 'en',
-        maxSignals: 50,
-      },
+    redditSocial: {
+      enabled: getEnvVar('REDDIT_COMMERCIAL_AUTHORIZED') === 'true',
+      name: 'Reddit Public Discussion Signals',
+      sourceType: 'REDDIT_SOCIAL',
+      geography: 'GLOBAL',
+      language: 'en',
+      maxSignals: 50,
+    },
+    stackExchange: {
+      enabled: true,
+      name: 'Stack Exchange Public Questions',
+      sourceType: 'STACK_EXCHANGE',
+      geography: 'GLOBAL',
+      language: 'en',
+      maxSignals: 50,
+    },
       rssFeeds: {
         enabled: true,
         name: 'Curated RSS & Publication Feeds',

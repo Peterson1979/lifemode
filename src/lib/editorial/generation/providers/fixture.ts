@@ -31,7 +31,6 @@ export class FixtureGenerationProvider implements IGenerationProvider {
     const contentSections: string[] = [];
 
     // Determine generation mode
-    const isFactSheetNews = fs && fs.confirmedFacts.length > 0;
     const isDecision =
       request.guideMode === 'decision' ||
       request.contentType === 'decision' ||
@@ -41,8 +40,11 @@ export class FixtureGenerationProvider implements IGenerationProvider {
       request.contentType === 'EXPLAINER' ||
       request.format === 'deep-dive' ||
       /\b(how .+ works?|science of|physics of|mechanism|anatomy of|why)\b/i.test(title);
+    const isFactSheetNews =
+      (request.contentType === 'NEWS' || fs?.contentType === 'NEWS') ||
+      (Boolean(fs && fs.confirmedFacts.length > 0) && !isDecision && !isExplainer);
 
-    if (isFactSheetNews) {
+    if (isFactSheetNews && fs) {
       // 1. News / Fact Sheet Grounded Mode
       const openingFact = fs.confirmedFacts[0]?.claim || `Recent reporting regarding ${primaryEntity} highlights verified milestones and notable shifts.`;
       contentSections.push(

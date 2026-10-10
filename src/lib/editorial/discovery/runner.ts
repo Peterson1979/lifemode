@@ -16,9 +16,11 @@ import { BingWebmasterDiscoveryAdapter } from './adapters/bing-webmaster.ts';
 import { YouTubeTrendsDiscoveryAdapter } from './adapters/youtube-trends.ts';
 import { InternalAnalyticsDiscoveryAdapter } from './adapters/internal-analytics.ts';
 import { GetAISetDiscoveryAdapter } from './adapters/get-ai-set.ts';
+import { StackExchangeDiscoveryAdapter } from './adapters/stack-exchange.ts';
 import { transformSignalToCandidate, applyCrossSourceCorroboration } from './transform.ts';
 import { checkTopicDuplicate, checkSourceUrlDuplicate } from '../deduplication.ts';
 import { loadCandidates, saveCandidates, mergeCandidateTopic, loadAllHistoricalTopics } from './storage.ts';
+import { loadDiscoveryConfig } from './config.ts';
 
 export interface PipelineRunnerOptions {
   storagePath?: string;
@@ -41,6 +43,8 @@ export function classifyProviderOrigin(result: DiscoveryResult): SignalOriginCla
   if (
     result.sourceType === 'RSS_FEEDS' ||
     result.sourceType === 'REDDIT_SOCIAL' ||
+    result.sourceType === 'STACK_EXCHANGE' ||
+    result.sourceType === 'PUBLIC_QA' ||
     result.sourceType === 'GOOGLE_TRENDS'
   ) {
     return 'REAL_EXTERNAL';
@@ -52,9 +56,18 @@ export function classifyProviderOrigin(result: DiscoveryResult): SignalOriginCla
  * Default Discovery V2 adapters suite for live operation.
  */
 export function getDefaultDiscoveryAdapters(): IDiscoveryAdapter[] {
-  return [
+  const config = loadDiscoveryConfig();
+  const adapters: IDiscoveryAdapter[] = [
     new GoogleTrendsDiscoveryAdapter(),
-    new RedditSocialDiscoveryAdapter(),
+    new StackExchangeDiscoveryAdapter(),
+  ];
+
+  // Reddit is disabled by default unless explicitly authorized for commercial use
+  if (config.providers.redditSocial?.enabled) {
+    adapters.push(new RedditSocialDiscoveryAdapter());
+  }
+
+  adapters.push(
     new RSSFeedsDiscoveryAdapter(),
     new SeasonalCalendarDiscoveryAdapter(),
     new GetAISetDiscoveryAdapter(),
@@ -63,7 +76,9 @@ export function getDefaultDiscoveryAdapters(): IDiscoveryAdapter[] {
     new BingWebmasterDiscoveryAdapter(),
     new YouTubeTrendsDiscoveryAdapter(),
     new InternalAnalyticsDiscoveryAdapter(),
-  ];
+  );
+
+  return adapters;
 }
 
 /**

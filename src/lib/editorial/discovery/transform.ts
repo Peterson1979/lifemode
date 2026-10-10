@@ -79,6 +79,10 @@ export function transformSignalToCandidate(signal: DiscoverySignal, rankOffset =
     lifeModeRelevance = Math.max(lifeModeRelevance, 94);
   } else if (signal.source === 'RSS_FEEDS') {
     originalityPotential = Math.max(originalityPotential, 88);
+  } else if (signal.source === 'STACK_EXCHANGE' || signal.source === 'PUBLIC_QA') {
+    searchPotential = Math.max(searchPotential, 88);
+    lifeModeRelevance = Math.max(lifeModeRelevance, 94);
+    originalityPotential = Math.max(originalityPotential, 90);
   }
 
   // Practical problem-solving bonus

@@ -170,15 +170,15 @@ Japanese tea houses exemplify restrained proportions and natural materials.
   assert.ok(!storageInput.content.includes('**Affiliate Intents**'));
 });
 
-test('Sanitization - Active retained guides are clean and free of leaked metadata', async () => {
-  const guidePath = resolve(
+test('Sanitization - Active preserved content is clean and free of leaked metadata', async () => {
+  const toolPath = resolve(
     process.cwd(),
-    'src/content/guides/cookware-material-decision-guide.md'
+    'src/content/tools/cookware-material-finder.md'
   );
-  const rawFile = await readFile(guidePath, 'utf-8');
+  const rawFile = await readFile(toolPath, 'utf-8');
 
   // Must not have leaked metadata
-  assert.ok(!hasLeakedInternalMetadata(rawFile), 'Retained guide must not contain leaked metadata');
+  assert.ok(!hasLeakedInternalMetadata(rawFile), 'Preserved content must not contain leaked metadata');
   assert.ok(!rawFile.includes('**Internal Links**'));
   assert.ok(!rawFile.includes('**Affiliate Intents**'));
   assert.ok(!rawFile.includes('**Social Hooks**'));
