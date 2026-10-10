@@ -318,17 +318,21 @@ export function serializeGuideMarkdown(frontmatter: GuideFrontmatter, content: s
     }
   }
 
-  if (frontmatter.comparisonTable) {
+  if (frontmatter.comparisonTable && Array.isArray(frontmatter.comparisonTable.headers)) {
     yamlLines.push('comparisonTable:');
     yamlLines.push('  headers:');
     for (const h of frontmatter.comparisonTable.headers) {
       yamlLines.push(`    - "${escapeDoubleQuotes(h)}"`);
     }
     yamlLines.push('  rows:');
-    for (const row of frontmatter.comparisonTable.rows) {
-      yamlLines.push('    -');
-      for (const cell of row) {
-        yamlLines.push(`      - "${escapeDoubleQuotes(cell)}"`);
+    if (Array.isArray(frontmatter.comparisonTable.rows)) {
+      for (const row of frontmatter.comparisonTable.rows) {
+        yamlLines.push('    -');
+        if (Array.isArray(row)) {
+          for (const cell of row) {
+            yamlLines.push(`      - "${escapeDoubleQuotes(cell)}"`);
+          }
+        }
       }
     }
   }
@@ -427,184 +431,7 @@ export async function listExistingGuides(guidesDir?: string): Promise<GuideEntry
  * - storage-organization
  * - everyday-how-to
  */
-export const CURATED_GUIDE_OPPORTUNITIES: Array<{
-  slug: string;
-  category: GuideFrontmatter['category'];
-  title: string;
-  contentType: 'reference' | 'decision';
-  quickSummary: string;
-  difficulty: 'Easy' | 'Moderate' | 'Advanced';
-  timeNeeded: string;
-  keyFacts: Array<{ label: string; value: string; icon?: string }>;
-  steps: Array<{ stepNumber: number; title: string; description: string; tip?: string; warning?: string }>;
-  commonMistakes: Array<{ mistake: string; whyItMatters: string; howToFix: string }>;
-  sources: Array<{ title: string; publisher: string; url?: string }>;
-  bodyContent: string;
-}> = [
-  {
-    slug: 'how-to-descale-coffee-maker-safely',
-    category: 'food-kitchen',
-    title: 'How to Descale a Coffee Maker and Espresso Machine (Chemistry-Backed Protocol)',
-    contentType: 'reference',
-    quickSummary: 'Descale coffee equipment every 60-90 days using a 1:2 citric acid or distilled white vinegar solution. Flush with three full cycles of clean water to eliminate calcium carbonate scale without damaging internal boiler gaskets or pump seals.',
-    difficulty: 'Easy',
-    timeNeeded: '30 minutes',
-    keyFacts: [
-      { label: 'Descaling Frequency', value: 'Every 2-3 Months', icon: '⏱️' },
-      { label: 'Recommended Acid', value: 'Citric Acid (50% Less Odor)', icon: '🍋' },
-      { label: 'Rinse Flushes', value: '3 Full Water Cycles', icon: '💧' },
-    ],
-    steps: [
-      {
-        stepNumber: 1,
-        title: 'Empty Basin and Filter Basket',
-        description: 'Remove water filter cartridges, spent coffee grounds, and empty the reservoir completely.',
-        tip: 'Always remove charcoal water filters before descaling, as activated carbon absorbs acid and gets ruined.',
-      },
-      {
-        stepNumber: 2,
-        title: 'Prepare Citric Acid or Vinegar Solution',
-        description: 'Dissolve 2 tablespoons of food-grade citric acid powder in 4 cups of warm water (or mix 1 part distilled white vinegar to 2 parts water) and fill the water reservoir.',
-      },
-      {
-        stepNumber: 3,
-        title: 'Run Half-Cycle and Pause',
-        description: 'Start a brew cycle. When half the reservoir has brewed into the carafe, pause the machine and allow the warm acid solution to sit in the internal boiler pipes for 20 minutes to dissolve mineral calcification.',
-      },
-      {
-        stepNumber: 4,
-        title: 'Complete Cycle and Flush 3 Times',
-        description: 'Resume and complete the cycle. Discard the solution, rinse the reservoir, and run 3 full cycles of clean, fresh tap water to purge all residual acid.',
-        warning: 'Failing to flush at least 3 times leaves acidic residue that alters coffee flavor and corrodes brass boiler components.',
-      },
-    ],
-    commonMistakes: [
-      {
-        mistake: 'Using baking soda instead of acid',
-        whyItMatters: 'Calcium carbonate scale is alkaline; baking soda is also alkaline and cannot dissolve mineral scale.',
-        howToFix: 'Always use mild organic acids (citric acid or acetic acid vinegar) to break down mineral salts.',
-      },
-      {
-        mistake: 'Leaving charcoal filters in the reservoir during cleaning',
-        whyItMatters: 'Activated carbon absorbs the descaler and re-releases sour vinegar flavors into future coffee batches.',
-        howToFix: 'Remove the water filter cartridge before starting and replace after final water rinse.',
-      },
-    ],
-    sources: [
-      { title: 'Water Hardness and Mineral Deposition in Small Appliances', publisher: 'Water Quality Association', url: 'https://www.wqa.org' },
-      { title: 'Specialty Coffee Association Water Standards', publisher: 'SCA Standards Committee', url: 'https://sca.coffee' },
-    ],
-    bodyContent: '## Understanding Mineral Scale in Coffee Brewers\n\nTap water contains dissolved calcium and magnesium ions ($Ca^{2+}, Mg^{2+}$). Under repetitive heating inside copper or thermoblock boilers, these ions precipitate out as insoluble calcium carbonate ($CaCO_3$) scale.\n\nOver time, mineral scale restricts water flow, drops brewing temperature below optimal extraction levels (92°C–96°C), and increases electrical pump strain.',
-  },
-  {
-    slug: 'how-to-sanitize-kitchen-cutting-boards',
-    category: 'food-kitchen',
-    title: 'How to Sanitize Wooden and Plastic Cutting Boards (Food Safety Protocol)',
-    contentType: 'reference',
-    quickSummary: 'Wash boards immediately after use with hot soapy water. Sanitize wooden boards with 3% hydrogen peroxide or undiluted white vinegar; sanitize plastic boards with a dilute chlorine bleach solution (1 tbsp per gallon). Oil wooden boards monthly with pure food-grade mineral oil.',
-    difficulty: 'Easy',
-    timeNeeded: '10 minutes',
-    keyFacts: [
-      { label: 'Wooden Board Care', value: 'Hand Wash Only + Mineral Oil', icon: '🪵' },
-      { label: 'Plastic Board Care', value: 'Dishwasher Safe (Hot Wash)', icon: '🧼' },
-      { label: 'Sanitizer Spray', value: '3% Hydrogen Peroxide', icon: '🛡️' },
-    ],
-    steps: [
-      {
-        stepNumber: 1,
-        title: 'Wash Off Surface Residue Immediately',
-        description: 'Scrub board surfaces under hot running water with mild dish soap and a stiff nylon brush.',
-        warning: 'Never submerge wooden boards in standing water or run them through a dishwasher—heat and moisture expand cellulose fibers and cause warping and splits.',
-      },
-      {
-        stepNumber: 2,
-        title: 'Apply Food-Safe Sanitizing Mist',
-        description: 'Spray surfaces with 3% food-grade hydrogen peroxide or distilled white vinegar. Allow to sit for 5 minutes before wiping clean.',
-      },
-      {
-        stepNumber: 3,
-        title: 'Air Dry in Vertical Orientation',
-        description: 'Stand boards upright on an edge or drying rack to allow equal air circulation on both sides.',
-        tip: 'Drying flat on a counter traps moisture underneath, causing uneven wood drying and bowing.',
-      },
-      {
-        stepNumber: 4,
-        title: 'Condition Wood with Food-Grade Mineral Oil',
-        description: 'Apply 1 tablespoon of USP mineral oil monthly, buffing into the grain with a lint-free cloth.',
-      },
-    ],
-    commonMistakes: [
-      {
-        mistake: 'Using vegetable, canola, or olive oil to season wooden boards',
-        whyItMatters: 'Culinary cooking oils contain unsaturated fats that undergo rancid oxidation, producing foul odors and sticky bacterial surfaces.',
-        howToFix: 'Use only pure USP food-grade mineral oil or fractionated coconut oil that never spoils.',
-      },
-      {
-        mistake: 'Keeping deeply grooved plastic boards',
-        whyItMatters: 'Deep knife gouges in plastic harbor bacterial colonies that survive standard hand washing.',
-        howToFix: 'Sand down plastic boards or replace when knife grooves exceed 1mm in depth.',
-      },
-    ],
-    sources: [
-      { title: 'Cutting Board Safety and Bacterial Survival Studies', publisher: 'UC Davis Food Safety Institute', url: 'https://foodsafety.ucdavis.edu' },
-      { title: 'USDA Kitchen Sanitization Guidelines', publisher: 'USDA Food Safety & Inspection Service', url: 'https://www.fsis.usda.gov' },
-    ],
-    bodyContent: '## Wood vs. Plastic Cutting Board Microbiology\n\nResearch demonstrates that hardwood cutting boards (maple, walnut, cherry) possess natural capillary action that pulls bacteria into the interior wood grain, where lack of moisture causes bacterial cells to dehydrate and perish within hours.\n\nIn contrast, non-porous plastic boards are easier to sanitize with high-temperature dishwashers but require replacement once knife scoring creates deep crevices.',
-  },
-  {
-    slug: 'how-to-fix-running-toilet-flapper',
-    category: 'home-maintenance',
-    title: 'How to Fix a Running Toilet (The DIY Diagnostic & Repair Protocol)',
-    contentType: 'reference',
-    quickSummary: 'Diagnose a running toilet by checking the flapper seal, refill tube position, and water fill level. Replacing a worn rubber flapper or adjusting the float valve takes under 15 minutes and prevents hundreds of gallons in wasted household water.',
-    difficulty: 'Easy',
-    timeNeeded: '15 minutes',
-    keyFacts: [
-      { label: 'Most Common Cause', value: 'Degraded Rubber Flapper (80%)', icon: '🔧' },
-      { label: 'Water Savings', value: 'Up to 200 Gal/Day', icon: '💧' },
-      { label: 'Tools Required', value: 'Zero Tools (Hand Adjustment)', icon: '🛠️' },
-    ],
-    steps: [
-      {
-        stepNumber: 1,
-        title: 'Remove Tank Lid and Perform Food Coloring Test',
-        description: 'Add 5 drops of food coloring to the toilet tank. Wait 15 minutes without flushing; if colored water appears in the bowl, the flapper is leaking.',
-      },
-      {
-        stepNumber: 2,
-        title: 'Inspect Chain Slack and Flush Lever',
-        description: 'Ensure the flapper lift chain has approximately 1/2 inch of slack when closed. If too tight, the flapper cannot seat fully; if too loose, it snags.',
-      },
-      {
-        stepNumber: 3,
-        title: 'Shut Off Water and Replace Flapper Valve',
-        description: 'Turn off the angle stop valve behind the toilet. Flush to drain tank, unhook the old rubber flapper from the overflow tube hinges, and snap on a new universal silicone flapper.',
-      },
-      {
-        stepNumber: 4,
-        title: 'Adjust Float to 1 Inch Below Overflow Tube',
-        description: 'Turn on water and adjust the fill valve screw so water stops filling exactly 1 inch below the top of the overflow pipe.',
-      },
-    ],
-    commonMistakes: [
-      {
-        mistake: 'Leaving in-tank chlorine bleach pucks in the toilet tank',
-        whyItMatters: 'Concentrated chlorine oxidizes and dissolves silicone flapper seals and rubber gaskets within months.',
-        howToFix: 'Never use in-tank drop-in bleach tablets; clean the bowl directly with liquid cleaner.',
-      },
-      {
-        mistake: 'Pushing the refill tube deep into the overflow pipe',
-        whyItMatters: 'A deeply inserted refill tube creates a siphon that constantly drains and refills the tank.',
-        howToFix: 'Clip the refill tube above the overflow tube lip so the water stream drops freely into the pipe.',
-      },
-    ],
-    sources: [
-      { title: 'Household Water Efficiency & Fixture Leak Detection', publisher: 'EPA WaterSense', url: 'https://www.epa.gov/watersense' },
-      { title: 'Plumbing System Maintenance Manual', publisher: 'Plumbing-Heating-Cooling Contractors Association', url: 'https://www.phccweb.org' },
-    ],
-    bodyContent: '## Anatomy of a Gravity-Fed Toilet Tank\n\nGravity-fed toilet tanks rely on three simple mechanical components: the **fill valve** that admits water, the **float** that senses tank level, and the **flapper valve** that seals water until the flush lever is triggered.\n\nWhen mineral deposits or chemical oxidizers degrade the flapper seal, water seeps continuously into the bowl, wasting up to 6,000 gallons per month.',
-  },
-];
+export const CURATED_GUIDE_OPPORTUNITIES: Array<any> = [];
 
 /**
  * Executes a Guide Creation or Substantial-Update Opportunity.
