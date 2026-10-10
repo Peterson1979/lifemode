@@ -312,7 +312,7 @@ export async function runEditorialAutomation(
   try {
     discoveryReport = await runDiscoveryPipeline(request.discoveryAdapters, {
       storagePath: request.storagePath,
-      saveToDisk: true,
+      saveToDisk: !config.dryRun,
       minScoreThreshold: config.minScoreThreshold,
     });
   } catch (err: any) {
@@ -608,21 +608,23 @@ export async function runEditorialAutomation(
         };
         rejectedCount++;
 
-        // Persist rejection to candidate storage
-        try {
-          const rejectedTopic: EditorialTopic = {
-            ...topic,
-            status: 'REJECTED',
-            researchRequired: true,
-            researchStatus: evidenceResult.status,
-            rejectionReason: `Research required but evidence unavailable: ${evidenceResult.error || 'No verifiable sources found'}`,
-            updatedAt: new Date().toISOString(),
-          };
-          const currentCandidates = await loadCandidates(request.storagePath);
-          const { updatedList } = mergeCandidateTopic(rejectedTopic, currentCandidates);
-          await saveCandidates(updatedList, request.storagePath);
-        } catch {
-          // Best-effort storage persistence
+        // Persist rejection to candidate storage if not dry-run
+        if (!config.dryRun) {
+          try {
+            const rejectedTopic: EditorialTopic = {
+              ...topic,
+              status: 'REJECTED',
+              researchRequired: true,
+              researchStatus: evidenceResult.status,
+              rejectionReason: `Research required but evidence unavailable: ${evidenceResult.error || 'No verifiable sources found'}`,
+              updatedAt: new Date().toISOString(),
+            };
+            const currentCandidates = await loadCandidates(request.storagePath);
+            const { updatedList } = mergeCandidateTopic(rejectedTopic, currentCandidates);
+            await saveCandidates(updatedList, request.storagePath);
+          } catch {
+            // Best-effort storage persistence
+          }
         }
 
         opportunityResults.push(oppResult);
@@ -830,21 +832,23 @@ export async function runEditorialAutomation(
         oppResult.status = 'REJECTED';
         rejectedCount++;
 
-        // Persist rejection lifecycle state to candidate storage to prevent repeated revision attempts
-        try {
-          const rejectedTopic: EditorialTopic = {
-            ...topic,
-            status: 'REJECTED',
-            revisionCyclesCount: (topic.revisionCyclesCount ?? 0) + 1,
-            revisionAttempted: true,
-            rejectionReason: `AI Review decision was ${currentReview.decision} (score: ${currentReview.overallScore})${revisionPerformed ? ' after 1 quality revision' : ''}`,
-            updatedAt: new Date().toISOString(),
-          };
-          const currentCandidates = await loadCandidates(request.storagePath);
-          const { updatedList } = mergeCandidateTopic(rejectedTopic, currentCandidates);
-          await saveCandidates(updatedList, request.storagePath);
-        } catch {
-          // Best-effort storage persistence
+        // Persist rejection lifecycle state to candidate storage to prevent repeated revision attempts if not dry-run
+        if (!config.dryRun) {
+          try {
+            const rejectedTopic: EditorialTopic = {
+              ...topic,
+              status: 'REJECTED',
+              revisionCyclesCount: (topic.revisionCyclesCount ?? 0) + 1,
+              revisionAttempted: true,
+              rejectionReason: `AI Review decision was ${currentReview.decision} (score: ${currentReview.overallScore})${revisionPerformed ? ' after 1 quality revision' : ''}`,
+              updatedAt: new Date().toISOString(),
+            };
+            const currentCandidates = await loadCandidates(request.storagePath);
+            const { updatedList } = mergeCandidateTopic(rejectedTopic, currentCandidates);
+            await saveCandidates(updatedList, request.storagePath);
+          } catch {
+            // Best-effort storage persistence
+          }
         }
 
         opportunityResults.push(oppResult);
