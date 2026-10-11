@@ -19,6 +19,13 @@ const VALID_FORMATS: ArticleFormat[] = [
   'deep-dive',
   'dispatch',
   'curation',
+  'recipe',
+  'direct-answer',
+  'practical-guide',
+  'comparison-table',
+  'explainer',
+  'trending-question',
+  'visual-guide',
 ];
 
 const VALID_INTENTS: SearchIntent[] = [
@@ -77,6 +84,10 @@ export function serializeArticle(input: {
 
   // Content Engine / Storage fields
   lines.push(`format: ${JSON.stringify(frontmatter.format || 'standard')}`);
+
+  if (frontmatter.subtopic) {
+    lines.push(`subtopic: ${JSON.stringify(frontmatter.subtopic)}`);
+  }
 
   if (frontmatter.topicId) {
     lines.push(`topicId: ${JSON.stringify(frontmatter.topicId)}`);
@@ -222,6 +233,7 @@ export function parseArticle(
     featured: Boolean(parsedData.featured),
     draft: Boolean(parsedData.draft),
     format,
+    subtopic: parsedData.subtopic,
     topicId: parsedData.topicId,
     audience: parsedData.audience,
     primaryIntent,

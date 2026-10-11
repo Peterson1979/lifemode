@@ -74,4 +74,5 @@ export * from './image-prompt.ts';
 export * from './automation/index.ts';
 export * from './maintenance/index.ts';
 export * from './performance/index.ts';
+export * from './coverage.ts';
 

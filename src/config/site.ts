@@ -68,11 +68,11 @@ export const PILLARS: Record<string, PillarConfig> = {
     color: '#059669', // Vital Emerald
     bgLight: 'rgba(5, 150, 105, 0.08)',
     subtopics: [
-      { name: 'Longevity & Aging', icon: '🧬', description: 'Biomarkers, cellular longevity, NAD+ protocols & healthy lifespan science', slug: 'longevity-aging' },
-      { name: 'Metabolic Health', icon: '⚡', description: 'Glucose balance, insulin sensitivity & metabolic energy optimization', slug: 'metabolic-health' },
-      { name: 'Weight & Fitness', icon: '🏃', description: 'Zone 2 cardiovascular conditioning, hypertrophy & metabolic strength', slug: 'weight-fitness' },
-      { name: 'Sleep & Recovery', icon: '🌙', description: 'Circadian rhythm synchronization, sleep tracking & restoration protocols', slug: 'sleep-recovery' },
-      { name: 'Wellness Tech', icon: '🔬', description: 'Continuous glucose monitors, sleep wearables & biohacking devices', slug: 'wellness-tech' },
+      { name: 'Longevity & Aging', icon: '🧬', description: 'Biomarkers, cellular longevity, NAD+ protocols & healthy lifespan science', slug: 'longevity-aging', href: '/health/biological-age-biomarkers' },
+      { name: 'Metabolic Health', icon: '⚡', description: 'Glucose balance, insulin sensitivity & metabolic energy optimization', slug: 'metabolic-health', href: '/health/cgm-glycemic-variability-guide' },
+      { name: 'Weight & Fitness', icon: '🏃', description: 'Zone 2 cardiovascular conditioning, hypertrophy & metabolic strength', slug: 'weight-fitness', href: '/health/zone-2-aerobic-mitochondrial-training' },
+      { name: 'Sleep & Recovery', icon: '🌙', description: 'Circadian rhythm synchronization, sleep tracking & restoration protocols', slug: 'sleep-recovery', href: '/health/circadian-sleep-architecture-protocol' },
+      { name: 'Wellness Tech', icon: '🔬', description: 'Continuous glucose monitors, sleep wearables & biohacking devices', slug: 'wellness-tech', href: '/health/wearable-hrv-autonomic-recovery-tracking' },
     ],
   },
   wealth: {
@@ -84,11 +84,11 @@ export const PILLARS: Record<string, PillarConfig> = {
     color: '#0284c7', // Sky / Cerulean
     bgLight: 'rgba(2, 132, 199, 0.08)',
     subtopics: [
-      { name: 'Online Side Hustles', icon: '💼', description: 'High-margin online ventures, micro-agencies & digital cashflow models', slug: 'online-side-hustles' },
-      { name: 'Digital Products', icon: '📦', description: 'Notion systems, spreadsheet workflows, instructional guides & zero-inventory assets', slug: 'digital-products' },
-      { name: 'Freelancing & Remote', icon: '🌐', description: 'Productized consulting, niche remote skills, client discovery & retainers', slug: 'freelancing-remote' },
-      { name: 'Creator Economy', icon: '🎙️', description: 'Newsletter operations, audience ownership & micro-sponsorship economics', slug: 'creator-economy' },
-      { name: 'E-commerce & Online Selling', icon: '🛒', description: 'Niche physical merchandise, print-on-demand & multi-channel store ops', slug: 'ecommerce-selling' },
+      { name: 'Online Side Hustles', icon: '💼', description: 'High-margin online ventures, micro-agencies & digital cashflow models', slug: 'online-side-hustles', href: '/wealth/productized-micro-consulting-retainers' },
+      { name: 'Digital Products', icon: '📦', description: 'Notion systems, spreadsheet workflows, instructional guides & zero-inventory assets', slug: 'digital-products', href: '/wealth/high-utility-digital-products-systems' },
+      { name: 'Freelancing & Remote', icon: '🌐', description: 'Productized consulting, niche remote skills, client discovery & retainers', slug: 'freelancing-remote', href: '/wealth/remote-independent-operator-positioning' },
+      { name: 'Creator Economy', icon: '🎙️', description: 'Newsletter operations, audience ownership & micro-sponsorship economics', slug: 'creator-economy', href: '/wealth/newsletter-unit-economics-audience-ownership' },
+      { name: 'E-commerce & Online Selling', icon: '🛒', description: 'Niche physical merchandise, print-on-demand & multi-channel store ops', slug: 'ecommerce-selling', href: '/wealth/niche-ecommerce-operations-logistics-margins' },
     ],
   },
   home: {
@@ -100,10 +100,10 @@ export const PILLARS: Record<string, PillarConfig> = {
     color: '#ea580c', // Terracotta Paprika
     bgLight: 'rgba(234, 88, 12, 0.08)',
     subtopics: [
-      { name: 'Food & Kitchen', icon: '🍳', description: 'Cookware care, food storage science, pantry preservation & culinary craft', slug: 'food-kitchen', href: '/food-kitchen' },
-      { name: 'Cleaning & Laundry', icon: '✨', description: 'Stain solver chemistry, fabric care protocols & appliance sanitization', slug: 'cleaning-laundry', href: '/cleaning-laundry' },
-      { name: 'Home Maintenance', icon: '🏡', description: 'Seasonal upkeep checklists, HVAC schedules & preventive homeowner protection', slug: 'home-maintenance', href: '/home-maintenance' },
-      { name: 'Storage & Organization', icon: '📦', description: 'Small-space systems, modular closet frameworks & spatial decluttering', slug: 'storage-organization', href: '/storage-organization' },
+      { name: 'Food & Kitchen', icon: '🍳', description: 'Cookware care, food storage science, pantry preservation & culinary craft', slug: 'food-kitchen', href: '/home/cast-iron-carbon-steel-seasoning-metallurgy' },
+      { name: 'Cleaning & Laundry', icon: '✨', description: 'Stain solver chemistry, fabric care protocols & appliance sanitization', slug: 'cleaning-laundry', href: '/home/enzyme-detergent-chemistry-stain-removal' },
+      { name: 'Home Maintenance', icon: '🏡', description: 'Seasonal upkeep checklists, HVAC schedules & preventive homeowner protection', slug: 'home-maintenance', href: '/home/preventative-home-envelope-moisture-audit' },
+      { name: 'Storage & Organization', icon: '📦', description: 'Small-space systems, modular closet frameworks & spatial decluttering', slug: 'storage-organization', href: '/home/vertical-storage-architecture-small-spaces' },
     ],
   },
   life: {
@@ -115,9 +115,9 @@ export const PILLARS: Record<string, PillarConfig> = {
     color: '#e11d48', // Vibrant Crimson Rose
     bgLight: 'rgba(225, 29, 72, 0.08)',
     subtopics: [
-      { name: 'Style & Beauty', icon: '👔', description: 'Capsule wardrobes, tailoring preservation, grooming tools & minimal silhouettes', slug: 'style-beauty' },
-      { name: 'Productivity & Daily Life', icon: '⏱️', description: 'Habit stacking, morning focus architecture & low-distraction environments', slug: 'productivity-daily' },
-      { name: 'Travel & Experiences', icon: '✈️', description: 'Local market cultures, regional culinary heritage & mindful field journeys', slug: 'travel-experiences' },
+      { name: 'Style & Beauty', icon: '👔', description: 'Capsule wardrobes, tailoring preservation, grooming tools & minimal silhouettes', slug: 'style-beauty', href: '/life/permanent-capsule-wardrobe-architecture' },
+      { name: 'Productivity & Daily Life', icon: '⏱️', description: 'Habit stacking, morning focus architecture & low-distraction environments', slug: 'productivity-daily', href: '/life/focus-architecture-low-friction-routines' },
+      { name: 'Travel & Experiences', icon: '✈️', description: 'Local market cultures, regional culinary heritage & mindful field journeys', slug: 'travel-experiences', href: '/life/mindful-field-journey-regional-transit' },
     ],
   },
   'tech-ai': {
@@ -129,11 +129,11 @@ export const PILLARS: Record<string, PillarConfig> = {
     color: '#7c3aed', // Digital Violet
     bgLight: 'rgba(124, 58, 237, 0.08)',
     subtopics: [
-      { name: 'AI Tools & Models', icon: '🤖', description: 'Curated AI applications, model comparisons, prompt systems & browser assistants', slug: 'ai-tools' },
-      { name: 'Practical AI & Automation', icon: '⚡', description: 'Connecting LLMs, webhooks, local models & practical intelligence workflows', slug: 'ai-workflows' },
-      { name: 'Everyday Software & Apps', icon: '💻', description: 'Practical productivity software, browser extensions & desktop utilities', slug: 'everyday-software' },
-      { name: 'Modern Tech & Hardware', icon: '📱', description: 'Smart devices, workspace tech, peripherals & everyday electronics', slug: 'modern-tech-hardware' },
-      { name: 'Digital Privacy & Security', icon: '🔒', description: 'Data ownership, password management, backup protocols & browser privacy', slug: 'privacy-security' },
+      { name: 'AI Tools & Models', icon: '🤖', description: 'Curated AI applications, model comparisons, prompt systems & browser assistants', slug: 'ai-tools', href: '/tech-ai/knowledge-worker-ai-stack-comparison' },
+      { name: 'Practical AI & Automation', icon: '⚡', description: 'Connecting LLMs, webhooks, local models & practical intelligence workflows', slug: 'ai-workflows', href: '/tech-ai/automating-repetitive-knowledge-workflows' },
+      { name: 'Everyday Software & Apps', icon: '💻', description: 'Practical productivity software, browser extensions & desktop utilities', slug: 'everyday-software', href: '/tech-ai/local-first-software-data-ownership-markdown' },
+      { name: 'Modern Tech & Hardware', icon: '📱', description: 'Smart devices, workspace tech, peripherals & everyday electronics', slug: 'modern-tech-hardware', href: '/tech-ai/ergonomic-workspace-hardware-visual-comfort' },
+      { name: 'Digital Privacy & Security', icon: '🔒', description: 'Data ownership, password management, backup protocols & browser privacy', slug: 'privacy-security', href: '/tech-ai/personal-threat-modeling-hardware-keys-backups' },
     ],
   },
   tools: {

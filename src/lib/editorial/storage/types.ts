@@ -27,6 +27,7 @@ export interface StoredArticleFrontmatter {
   featured: boolean;
   draft: boolean;
   format: ArticleFormat;
+  subtopic?: string;
   topicId?: string;
   audience?: string;
   primaryIntent: SearchIntent;

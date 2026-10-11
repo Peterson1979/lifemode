@@ -174,6 +174,7 @@ export interface EditorialTopic {
   evidence?: import('./research/types.ts').EvidenceItem[];
   performanceFeedback?: import('./performance/types.ts').TopicPerformanceFeedback;
   tags: string[];
+  subtopic?: string;
   targetProject?: string;
   publishedAt?: string;
   articleTitle?: string;

@@ -5,7 +5,6 @@ import ArticleCard from '../components/ArticleCard.astro';
 import ToolCard from '../components/ToolCard.astro';
 import ChecklistCard from '../components/ChecklistCard.astro';
 import DailyIdeasPicks from '../components/DailyIdeasPicks.astro';
-import PromotionalAppsSection from '../components/PromotionalAppsSection.astro';
 import TrustBanner from '../components/TrustBanner.astro';
 import TopicDataSection from '../components/topic-data/TopicDataSection.astro';
 import { getCollection } from 'astro:content';
@@ -252,10 +251,7 @@ const websiteSchema = generateWebsiteSchema();
     </section>
   )}
 
-  <!-- 8. CANONICAL APPS & TOOLS SECTION -->
-  <PromotionalAppsSection />
-
-  <!-- 9. EDITORIAL STANDARDS & TRUST BANNER -->
+  <!-- 8. EDITORIAL STANDARDS & TRUST BANNER -->
   <TrustBanner />
 
   <!-- 10. LIVING INTELLIGENCE PULSE -->

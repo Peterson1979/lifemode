@@ -13,6 +13,7 @@ import { loadAutomationConfig } from './config.ts';
 import { runDiscoveryPipeline } from '../discovery/runner.ts';
 import { loadCandidates, saveCandidates, mergeCandidateTopic } from '../discovery/storage.ts';
 import { selectEditorialCandidates } from '../selection.ts';
+import { calculateSubtopicCoverage } from '../coverage.ts';
 import { getEditorialDailyPlan } from '../cadence.ts';
 import { slugify } from '../normalization.ts';
 import { buildContentBrief } from '../brief.ts';
@@ -510,12 +511,16 @@ export async function runEditorialAutomation(
   const effectiveTargetDate = request.targetDate ?? effectivePlan.targetDate;
   const effectiveIsAiDay = request.isAiDay !== undefined ? request.isAiDay : effectivePlan.isAiDay;
 
+  const existingSubtopicCoverage = calculateSubtopicCoverage(existingArticles);
+
   const { approved } = selectEditorialCandidates(unPublishedCandidates, {
     minScoreThreshold: config.minScoreThreshold,
     totalLimit: effectivePlan.totalArticlesTarget,
     existingPillarDistribution,
     existingPillarRecency,
+    existingSubtopicCoverage,
     enablePillarBalancing: true,
+    enableSubtopicBalancing: true,
     guaranteedPillars: request.guaranteedPillars,
     targetDate: effectiveTargetDate,
     isAiDay: effectiveIsAiDay,

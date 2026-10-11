@@ -4,6 +4,7 @@ import type { FeedbackSignalSummary } from './performance/types.ts';
 import { evaluateTopicPerformanceFeedback } from './performance/feedback.ts';
 import { isAiCadenceDay } from './cadence.ts';
 import { normalizePillar, isMeaningfulEditorialTopic } from './normalization.ts';
+import { resolveTopicSubtopic, calculateSubtopicStarvationBoost } from './coverage.ts';
 
 export interface SelectionOptions {
   minScoreThreshold?: number; // default 80
@@ -11,7 +12,9 @@ export interface SelectionOptions {
   totalLimit?: number; // batch total limit (default 3 for daily editorial)
   existingPillarDistribution?: Partial<Record<PillarSlug, number>>;
   existingPillarRecency?: Partial<Record<PillarSlug, number>>; // days since last publication in pillar
+  existingSubtopicCoverage?: Record<string, number>; // published article count per subtopic
   enablePillarBalancing?: boolean; // default true
+  enableSubtopicBalancing?: boolean; // default true
   requireVisualPotential?: boolean;
   feedbackSignals?: FeedbackSignalSummary;
   enablePerformanceFeedback?: boolean; // default true if feedbackSignals provided
@@ -63,6 +66,8 @@ export function selectEditorialCandidates(
 } {
   const minScore = options.minScoreThreshold ?? 80;
   const enableBalancing = options.enablePillarBalancing ?? true;
+  const enableSubtopicBalancing = options.enableSubtopicBalancing ?? true;
+  const existingSubtopicCoverage = options.existingSubtopicCoverage || {};
   const existingDist = options.existingPillarDistribution || {};
   const existingRecency = options.existingPillarRecency;
   const feedbackSignals = options.feedbackSignals;
@@ -124,9 +129,17 @@ export function selectEditorialCandidates(
       continue;
     }
 
+    const resolvedSubtopic = rawTopic.subtopic || resolveTopicSubtopic({
+      pillar: normalized,
+      canonicalTopic: topicText,
+      tags: rawTopic.tags,
+      slug: rawTopic.slug,
+    });
+
     const topic: EditorialTopic = {
       ...rawTopic,
       pillar: normalized,
+      subtopic: resolvedSubtopic,
     };
 
     let performanceFeedback = topic.performanceFeedback;
@@ -135,7 +148,10 @@ export function selectEditorialCandidates(
     }
     const adjustment = performanceFeedback?.scoreAdjustment || 0;
     const starvationBoost = enableBalancing ? calculatePillarStarvationBoost(topic.pillar, existingRecency) : 0;
-    const effectiveScore = Math.max(0, Math.min(100, Math.round((topic.totalScore + adjustment + starvationBoost) * 10) / 10));
+    const subtopicBoost = enableSubtopicBalancing && resolvedSubtopic
+      ? calculateSubtopicStarvationBoost(resolvedSubtopic, existingSubtopicCoverage)
+      : 0;
+    const effectiveScore = Math.max(0, Math.min(100, Math.round((topic.totalScore + adjustment + starvationBoost + subtopicBoost) * 10) / 10));
 
     enrichedCandidates.push({
       ...topic,
@@ -181,6 +197,15 @@ export function selectEditorialCandidates(
     const recencyB = existingRecency?.[b.pillar] ?? 0;
     if (Math.abs(recencyA - recencyB) >= 1) {
       return recencyB - recencyA; // Starved pillar ranks first
+    }
+
+    // Favor under-covered subtopics (e.g. 0 articles published) before saturated ones
+    if (enableSubtopicBalancing && options.existingSubtopicCoverage) {
+      const covA = a.subtopic !== undefined ? (options.existingSubtopicCoverage[a.subtopic] ?? 0) : 999;
+      const covB = b.subtopic !== undefined ? (options.existingSubtopicCoverage[b.subtopic] ?? 0) : 999;
+      if (covA !== covB) {
+        return covA - covB; // Under-covered subtopic ranks first
+      }
     }
 
     // Next favor pillars with lower total published count

@@ -139,6 +139,7 @@ export const articleSchema = z.object({
 
   // Content Engine metadata
   format: ArticleFormatEnum.default('standard'),
+  subtopic: z.string().optional(),
   topicId: z.string().optional(),
   audience: z.string().optional(),
   primaryIntent: SearchIntentEnum.default('informational'),
