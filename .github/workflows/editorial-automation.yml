@@ -86,12 +86,14 @@ jobs:
           R2_PUBLIC_BASE_URL: ${{ secrets.R2_PUBLIC_BASE_URL }}
 
           # Scheduled Automation Runtime Settings
-          LIFEMODE_AUTOMATION_ENABLED: "true"
+          # Phase 1 safety policy: normal editorial generation/publication is
+          # paused pending explicit human approval workflow implementation.
+          LIFEMODE_AUTOMATION_ENABLED: "false"
           LIFEMODE_AUTOMATION_WATCHDOG: "true"
           LIFEMODE_AUTOMATION_FORCE: ${{ github.event_name == 'workflow_dispatch' && inputs.force == true && 'true' || 'false' }}
           LIFEMODE_AUTOMATION_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run == true && 'true' || 'false' }}
-          LIFEMODE_AUTOMATION_COMMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run == true && 'false' || 'true' }}
-          LIFEMODE_AUTOMATION_PUSH: ${{ github.event_name == 'workflow_dispatch' && (inputs.dry_run == true || inputs.allow_push == false) && 'false' || 'true' }}
+          LIFEMODE_AUTOMATION_COMMIT: "false"
+          LIFEMODE_AUTOMATION_PUSH: "false"
           LIFEMODE_DAILY_ARTICLE_LIMIT: "3"
           LIFEMODE_AUTOMATION_MAX_OPPORTUNITIES: ${{ github.event_name == 'workflow_dispatch' && inputs.max_opportunities || '3' }}
           LIFEMODE_AUTOMATION_MIN_SCORE: ${{ github.event_name == 'workflow_dispatch' && inputs.min_score || '80' }}
@@ -100,7 +102,9 @@ jobs:
           LIFEMODE_AUTOMATION_GIT_BRANCH: "master"
 
           # Image Generation Pipeline Settings
-          LIFEMODE_IMAGE_ENABLED: "true"
+          # Images are optional editorial assets and must not be generated
+          # automatically during the Phase 1 pause.
+          LIFEMODE_IMAGE_ENABLED: "false"
           LIFEMODE_IMAGE_PROVIDER: "cloudflare"
           LIFEMODE_IMAGE_COST_GUARD: "true"
           LIFEMODE_IMAGE_DAILY_LIMIT: "5"

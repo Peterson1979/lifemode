@@ -35,9 +35,10 @@ async function main() {
     }
   }
 
-  const overrides: any = {
-    enabled: true, // CLI invocation explicitly enables execution
-  };
+  // Scheduled runs must respect the environment-level safety switch. The
+  // previous unconditional `enabled: true` override made it impossible for
+  // CI to disable normal editorial automation without changing the command.
+  const overrides: any = {};
 
   if (isLiveCommit) {
     overrides.allowCommit = true;
