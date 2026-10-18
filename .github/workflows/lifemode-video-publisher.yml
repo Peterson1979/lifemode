@@ -1,0 +1,90 @@
+name: LifeMode Video Publisher (manual checks only)
+
+# Deliberately no schedule. Enable a schedule only after preflight and dry-run
+# have passed and the source/R2 bridge has been reviewed.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Safe check to run; live publishing is intentionally unavailable
+        required: true
+        type: choice
+        options:
+          - preflight
+          - dry-run
+        default: preflight
+
+concurrency:
+  group: lifemode-life-hacks-video-publisher
+  cancel-in-progress: false
+
+jobs:
+  safe-check:
+    name: Four-destination video publisher safe check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout LifeMode repository
+        uses: actions/checkout@v4
+        with:
+          repository: Peterson1979/lifemode
+          ref: ${{ github.sha }}
+          path: lifemode
+
+      # The publisher must be present in this repository; this explicit check
+      # prevents accidentally running a similarly named local or stale script.
+      - name: Verify publisher source is present in LifeMode
+        working-directory: lifemode
+        shell: bash
+        run: |
+          test -f tools/lifemode_video_publisher/cloud_publisher.py
+          test -f tools/lifemode_video_publisher/multi_publisher.py
+          test -f tools/lifemode_video_publisher/publisher.py
+          test -f tools/lifemode_video_publisher/r2_storage.py
+          test -f tools/lifemode_video_publisher/cover_images.py
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Ensure ffmpeg is available for live cover generation
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y --no-install-recommends ffmpeg
+          fi
+          command -v ffmpeg >/dev/null 2>&1
+          ffmpeg -version | sed -n '1p'
+
+      - name: Run safe publisher check
+        working-directory: lifemode/tools/lifemode_video_publisher
+        env:
+          # Existing LifeMode secret names reused where compatible.
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_RUNTIME_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_RUNTIME_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+          R2_PUBLIC_BASE_URL: ${{ secrets.R2_PUBLIC_BASE_URL }}
+          R2_KEY_PREFIX: lifemode-life-hacks/videos
+          R2_STATE_KEY: lifemode-life-hacks/state/multiplatform_state.json
+
+          LIFEMODE_FACEBOOK_PAGE_ACCESS_TOKEN: ${{ secrets.FACEBOOK_PAGE_ACCESS_TOKEN }}
+          LIFEMODE_FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+          LIFEMODE_PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
+          LIFEMODE_PINTEREST_BOARD_ID: ${{ secrets.PINTEREST_BOARD_ID }}
+          LIFEMODE_THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+
+          # Everyday Ideas uses its own token and its own verified public board ID.
+          EVERYDAY_PINTEREST_ACCESS_TOKEN: ${{ secrets.EVERYDAY_PINTEREST_ACCESS_TOKEN }}
+          EVERYDAY_PINTEREST_BOARD_ID: '1033646620665404418'
+        run: |
+          set -euo pipefail
+          case "${{ inputs.mode }}" in
+            preflight) python cloud_publisher.py --preflight ;;
+            dry-run) python cloud_publisher.py --dry-run ;;
+            *) echo 'Unsupported mode; live publishing is not available in this workflow.' >&2; exit 2 ;;
+          esac
