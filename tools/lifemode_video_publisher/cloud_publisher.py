@@ -56,10 +56,10 @@ def run(mode="run"):
             ready[name] = destination.preflight()
         except (multi_publisher.ApiError, multi_publisher.PinterestError, OSError) as exc:
             errors[name] = str(exc)
-            logging.warning("Cloud preflight unavailable: %s", name)
+            logging.warning("Cloud preflight unavailable: %s: %s", name, exc)
     if mode == "preflight":
         logging.info("Cloud preflight: r2_objects=%d, ready=%d, unavailable=%d", len(objects), len(ready), len(errors))
-        return 0 if ready else 1
+        return 0 if len(ready) == len(destinations) and not errors else 1
     if mode == "dry-run":
         for name in ready:
             logging.info("Cloud dry-run %s: next=%s", name, (select_objects(objects, state["platforms"][name])[0]["key"] if select_objects(objects, state["platforms"][name]) else "none"))
