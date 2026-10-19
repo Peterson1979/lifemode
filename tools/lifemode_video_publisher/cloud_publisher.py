@@ -21,6 +21,8 @@ from r2_storage import R2Client, R2Config, R2Error
 
 
 STATE_KEY = os.getenv("R2_STATE_KEY", "lifemode-life-hacks/state/multiplatform_state.json")
+FIRST_VIDEO_KEY = "lifemode-life-hacks/videos/0165ec40ae9ee03b1074fac6c122a73d5e1ee059a0394ed32f946b49c05d7302-@sidneyraz-2026-10-07_1805-i-tried-#cozy-#lifehack-7693957734345002270.mp4"
+FIRST_VIDEO_DIGEST = "0165ec40ae9ee03b1074fac6c122a73d5e1ee059a0394ed32f946b49c05d7302"
 
 
 def load_remote_state(r2):
@@ -76,6 +78,72 @@ def report_preflight(r2_object_count, destinations):
     return ready, errors
 
 
+def publish_first_video(r2, objects, destinations, ready, state):
+    if set(ready) != set(multi_publisher.PLATFORMS):
+        logging.error("First-video publish requires all four destinations to pass preflight")
+        return 1
+    matches = [obj for obj in objects if obj["key"] == FIRST_VIDEO_KEY]
+    if len(matches) != 1:
+        logging.error("First-video publish target is missing or duplicated: %s", FIRST_VIDEO_KEY)
+        return 1
+    obj = matches[0]
+    if obj["digest"] != FIRST_VIDEO_DIGEST:
+        logging.error("First-video publish target digest does not match its key")
+        return 1
+    filename = object_filename(obj["key"])
+    digest = obj["digest"]
+    for name in multi_publisher.PLATFORMS:
+        platform_state = state.get("platforms", {}).get(name)
+        if not platform_state:
+            logging.error("First-video publish state is missing for %s", name)
+            return 1
+        if digest in platform_state.get("uncertain", {}) or digest in platform_state.get("in_progress", {}):
+            logging.error("First-video publish has unresolved state for %s; refusing retry", name)
+            return 1
+        text_errors = validate_post_text(build_post_text(filename), name)
+        if text_errors:
+            logging.error("Post text validation failed for %s/%s: %s", filename, name, "; ".join(text_errors))
+            return 1
+    failed = False
+    for name in multi_publisher.PLATFORMS:
+        platform_state = state["platforms"][name]
+        if digest in platform_state.get("published", {}):
+            logging.info("First video already confirmed for %s; skipping duplicate", name)
+            continue
+        post_text = build_post_text(filename)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / filename
+            path.write_bytes(r2.get(obj["key"]))
+            if fingerprint(path) != digest:
+                raise R2Error("Downloaded first-video object failed hash verification")
+            if name == "lifemode_threads":
+                destinations[name].media_url_factory = lambda _path, key=obj["key"]: r2.presign_get(key)
+            platform_state["in_progress"][digest] = {"file": filename, "r2_key": obj["key"]}
+            save_remote_state(r2, state)
+            try:
+                cover_url = None
+                if name.startswith("everyday_") or name == "lifemode_pinterest":
+                    cover_url = upload_cover(path, obj["key"])
+                if name.startswith("everyday_") or name == "lifemode_pinterest":
+                    result = destinations[name].publish(path, ready[name], cover_url, post_text)
+                else:
+                    result = destinations[name].publish(path, post_text)
+                post_id = result.get("id") or result.get("post_id")
+                if not post_id:
+                    raise ValueError("destination returned no publication ID")
+                platform_state["published"][digest] = {"file": filename, "r2_key": obj["key"], "post_id": post_id}
+                platform_state["in_progress"].pop(digest, None)
+                save_remote_state(r2, state)
+                logging.info("First video published for %s: %s", name, filename)
+            except (multi_publisher.ApiError, multi_publisher.PinterestError, OSError, ValueError) as exc:
+                platform_state["uncertain"][digest] = {"file": filename, "r2_key": obj["key"], "error": str(exc)}
+                platform_state["in_progress"].pop(digest, None)
+                save_remote_state(r2, state)
+                logging.error("First-video publication uncertain for %s; retry disabled: %s", name, exc)
+                failed = True
+    return 1 if failed else 0
+
+
 def run(mode="run"):
     r2 = R2Client(R2Config.from_env("runtime"))
     objects = [{**obj, "digest": object_digest(obj["key"])} for obj in r2.list_video_objects()]
@@ -101,6 +169,8 @@ def run(mode="run"):
         for name in ready:
             logging.info("Cloud dry-run %s: next=%s", name, (select_objects(objects, state["platforms"][name])[0]["key"] if select_objects(objects, state["platforms"][name]) else "none"))
         return 1 if invalid else 0
+    if mode == "publish-first-video":
+        return publish_first_video(r2, objects, destinations, ready, state)
     for name in ready:
         candidates = select_objects(objects, state["platforms"][name])
         if candidates:
@@ -153,8 +223,9 @@ def main(argv=None):
     parser = argparse.ArgumentParser()
     parser.add_argument("--preflight", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--publish-first-video", action="store_true")
     args = parser.parse_args(argv)
-    mode = "preflight" if args.preflight else "dry-run" if args.dry_run else "run"
+    mode = "preflight" if args.preflight else "dry-run" if args.dry_run else "publish-first-video" if args.publish_first_video else "run"
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s", force=True)
     try:
         return run(mode)

@@ -6,12 +6,13 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: Safe check to run; live publishing is intentionally unavailable
+        description: Select a safe check or the explicit one-video publish operation
         required: true
         type: choice
         options:
           - preflight
           - dry-run
+          - publish-first-video
         default: preflight
 
 concurrency:
@@ -86,5 +87,6 @@ jobs:
           case "${{ inputs.mode }}" in
             preflight) python cloud_publisher.py --preflight ;;
             dry-run) python cloud_publisher.py --dry-run ;;
-            *) echo 'Unsupported mode; live publishing is not available in this workflow.' >&2; exit 2 ;;
+            publish-first-video) python cloud_publisher.py --publish-first-video ;;
+            *) echo 'Unsupported mode.' >&2; exit 2 ;;
           esac
