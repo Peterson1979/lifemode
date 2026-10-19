@@ -41,6 +41,7 @@ class MultiConfig:
     lifemode_pin_board_id: str
     lifemode_pin_section: str
     facebook_token: str
+    facebook_user_token: str
     facebook_page_id: str
     facebook_api_base: str
     threads_token: str
@@ -64,6 +65,7 @@ class MultiConfig:
             lifemode_pin_board_id=os.getenv("LIFEMODE_PINTEREST_BOARD_ID", os.getenv("PINTEREST_BOARD_ID", os.getenv("PIN_BOARD_ID", ""))),
             lifemode_pin_section=os.getenv("LIFEMODE_PINTEREST_SECTION_NAME", ""),
             facebook_token=os.getenv("LIFEMODE_FACEBOOK_PAGE_ACCESS_TOKEN", os.getenv("FACEBOOK_PAGE_ACCESS_TOKEN", "")),
+            facebook_user_token=os.getenv("LIFEMODE_FACEBOOK_USER_ACCESS_TOKEN", os.getenv("FACEBOOK_USER_ACCESS_TOKEN", "")),
             facebook_page_id=os.getenv("LIFEMODE_FACEBOOK_PAGE_ID", os.getenv("FACEBOOK_PAGE_ID", "")),
             facebook_api_base=os.getenv("FACEBOOK_API_BASE", "https://graph.facebook.com/v20.0").rstrip("/"),
             threads_token=os.getenv("LIFEMODE_THREADS_ACCESS_TOKEN", ""),
@@ -167,6 +169,7 @@ class FacebookDestination:
     def __init__(self, config):
         self.config = config
         self.api = JsonApi(config.facebook_api_base, config.facebook_token)
+        self.permission_api = JsonApi(config.facebook_api_base, getattr(config, "facebook_user_token", ""))
 
     def preflight(self):
         if not self.config.facebook_token or not self.config.facebook_page_id:
@@ -174,22 +177,33 @@ class FacebookDestination:
         _, page = self.api.request(
             "GET",
             f"/{urllib.parse.quote(self.config.facebook_page_id, safe='')}",
-            query={"fields": "id,name,link,tasks"},
+            query={"fields": "id,name,link"},
         )
         if str(page.get("id")) != self.config.facebook_page_id:
             raise ApiError("Facebook API returned a different page ID")
-        tasks = page.get("tasks")
-        if tasks is not None:
-            if not isinstance(tasks, list):
-                raise ApiError("Facebook API returned an invalid Page tasks value")
-            normalized_tasks = {str(task).upper() for task in tasks}
-            if not normalized_tasks.intersection(FACEBOOK_VIDEO_PUBLISH_TASKS):
-                raise ApiError(
-                    "Facebook Page token lacks CREATE_CONTENT permission/task required to publish videos; "
-                    "re-authorize the app and issue a new Page access token"
-                )
-        else:
-            logging.warning("Facebook preflight could not verify Page tasks; upload permission remains unconfirmed")
+        user_token = getattr(self.config, "facebook_user_token", "")
+        if not user_token:
+            raise ApiError(
+                "LIFEMODE_FACEBOOK_USER_ACCESS_TOKEN is required to verify Facebook Page tasks; "
+                "provide the user token used to acquire the Page access token"
+            )
+        _, accounts = self.permission_api.request(
+            "GET",
+            "/me/accounts",
+            query={"fields": "id,tasks", "limit": "100"},
+        )
+        matching_accounts = [account for account in accounts.get("data", []) if str(account.get("id")) == self.config.facebook_page_id]
+        if len(matching_accounts) != 1:
+            raise ApiError("Facebook user token did not return exactly one matching LifeMode Page")
+        tasks = matching_accounts[0].get("tasks")
+        if not isinstance(tasks, list):
+            raise ApiError("Facebook /me/accounts response did not include Page tasks")
+        normalized_tasks = {str(task).upper() for task in tasks}
+        if not normalized_tasks.intersection(FACEBOOK_VIDEO_PUBLISH_TASKS):
+            raise ApiError(
+                "Facebook Page user lacks CREATE_CONTENT permission/task required to publish videos; "
+                "re-authorize the app and issue a new Page access token"
+            )
         return page
 
     def publish(self, path, post_text):

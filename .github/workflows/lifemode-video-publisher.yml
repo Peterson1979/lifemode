@@ -75,6 +75,7 @@ jobs:
           R2_STATE_KEY: lifemode-life-hacks/state/multiplatform_state.json
 
           LIFEMODE_FACEBOOK_PAGE_ACCESS_TOKEN: ${{ secrets.FACEBOOK_PAGE_ACCESS_TOKEN }}
+          LIFEMODE_FACEBOOK_USER_ACCESS_TOKEN: ${{ secrets.FACEBOOK_USER_ACCESS_TOKEN }}
           LIFEMODE_FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
           LIFEMODE_PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
           LIFEMODE_PINTEREST_BOARD_ID: ${{ secrets.PINTEREST_BOARD_ID }}

@@ -11,12 +11,15 @@ from publisher import PostText
 
 
 class FakeFacebookApi:
-    def __init__(self, page):
+    def __init__(self, page, accounts=None):
         self.page = page
+        self.accounts = accounts or [{"id": "226949230493910", "tasks": ["CREATE_CONTENT"]}]
         self.calls = []
 
     def request(self, method, path, query=None):
         self.calls.append((method, path, query))
+        if path == "/me/accounts":
+            return 200, {"data": self.accounts}
         return 200, self.page
 
 
@@ -24,10 +27,12 @@ def make_destination(page):
     config = SimpleNamespace(
         facebook_api_base="https://graph.facebook.com/v20.0",
         facebook_token="test-page-token",
+        facebook_user_token="test-user-token",
         facebook_page_id="226949230493910",
     )
     destination = multi_publisher.FacebookDestination(config)
     destination.api = FakeFacebookApi(page)
+    destination.permission_api = FakeFacebookApi(page)
     return destination
 
 
@@ -36,13 +41,12 @@ class FacebookPreflightTests(unittest.TestCase):
         for page in (
             {"id": "226949230493910", "name": "LifeMode", "link": ""},
             {"id": "226949230493910", "name": "LifeMode", "link": "https://www.facebook.com/another-public-url"},
-            {"id": "226949230493910", "name": "LifeMode", "link": "", "tasks": ["CREATE_CONTENT"]},
-            {"id": "226949230493910", "name": "LifeMode", "link": "", "tasks": ["PROFILE_PLUS_CREATE_CONTENT"]},
         ):
             with self.subTest(link=page["link"]):
                 destination = make_destination(page)
                 self.assertEqual(destination.preflight(), page)
-                self.assertEqual(destination.api.calls[0][2]["fields"], "id,name,link,tasks")
+                self.assertEqual(destination.api.calls[0][2]["fields"], "id,name,link")
+                self.assertEqual(destination.permission_api.calls[0][2]["fields"], "id,tasks")
 
     def test_mismatched_page_id_fails(self):
         destination = make_destination({"id": "999999999999999", "name": "Other Page", "link": ""})
@@ -51,10 +55,27 @@ class FacebookPreflightTests(unittest.TestCase):
             destination.preflight()
 
     def test_missing_create_content_task_fails_before_upload(self):
-        destination = make_destination({"id": "226949230493910", "name": "LifeMode", "link": "", "tasks": ["MODERATE"]})
+        destination = make_destination({"id": "226949230493910", "name": "LifeMode", "link": ""})
+        destination.permission_api = FakeFacebookApi(
+            destination.api.page,
+            accounts=[{"id": "226949230493910", "tasks": ["MODERATE"]}],
+        )
 
         with self.assertRaisesRegex(multi_publisher.ApiError, "CREATE_CONTENT"):
             destination.preflight()
+
+    def test_page_endpoint_does_not_request_unsupported_tasks_field(self):
+        destination = make_destination({"id": "226949230493910", "name": "LifeMode", "link": ""})
+
+        class UnsupportedPageTasksApi(FakeFacebookApi):
+            def request(self, method, path, query=None):
+                if path != "/me/accounts" and "tasks" in query.get("fields", ""):
+                    raise AssertionError("Page endpoint must not request tasks")
+                return super().request(method, path, query)
+
+        destination.api = UnsupportedPageTasksApi(destination.api.page)
+
+        self.assertEqual(destination.preflight()["id"], "226949230493910")
 
     def test_page_token_permission_failure_is_reported_without_token(self):
         destination = make_destination({"id": "226949230493910", "name": "LifeMode", "link": "", "tasks": ["CREATE_CONTENT"]})
