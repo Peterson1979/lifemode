@@ -95,6 +95,8 @@ class JsonApi:
                 return response.status, json.loads(raw) if raw else {}
         except urllib.error.HTTPError as exc:
             detail = exc.read().decode(errors="replace")[:500]
+            if self.token:
+                detail = detail.replace(self.token, "[REDACTED]")
             raise ApiError(f"{method} {path} failed ({exc.code}): {detail}") from exc
         except (urllib.error.URLError, TimeoutError) as exc:
             raise ApiError(f"{method} {path} network failure: {exc}") from exc

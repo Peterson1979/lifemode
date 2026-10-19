@@ -98,6 +98,34 @@ class FirstVideoR2:
         return "https://example.test/video"
 
 
+class FacebookResumeDestination:
+    def __init__(self, existing=None, failure=None):
+        self.existing = existing or []
+        self.failure = failure
+        self.reconcile_calls = 0
+        self.publish_calls = 0
+
+    def reconcile(self, post_text):
+        self.reconcile_calls += 1
+        return self.existing
+
+    def publish(self, path, post_text):
+        self.publish_calls += 1
+        if self.failure:
+            raise self.failure
+        return {"id": "facebook-resumed"}
+
+
+def unresolved_facebook_state():
+    state = multi_publisher.initial_state()
+    state["platforms"]["lifemode_facebook"]["uncertain"][FIRST_VIDEO_DIGEST] = {
+        "file": "@sidneyraz-2026-10-07_1805-i-tried-#cozy-#lifehack-7693957734345002270.mp4",
+        "r2_key": FIRST_VIDEO_KEY,
+        "error": "Facebook video upload failed (400): code=324; message=Invalid upload",
+    }
+    return state
+
+
 class CloudDryRunTests(unittest.TestCase):
     def test_publish_first_video_publishes_only_target_to_all_destinations_and_updates_state(self):
         r2 = FirstVideoR2(extra=True)
@@ -246,6 +274,52 @@ class CloudDryRunTests(unittest.TestCase):
 
         self.assertEqual(result, 1)
         self.assertEqual(calls, [])
+
+    def test_facebook_resume_reconciles_existing_post_without_republishing(self):
+        r2 = FirstVideoR2()
+        objects = [{**obj, "digest": FIRST_VIDEO_DIGEST} for obj in r2.objects]
+        destination = FacebookResumeDestination(existing=[{"id": "facebook-existing"}])
+        state = unresolved_facebook_state()
+
+        with patch.object(cloud_publisher, "save_remote_state"):
+            result = cloud_publisher.resume_facebook_first_video(r2, objects, destination, state)
+
+        self.assertEqual(result, 0)
+        self.assertEqual(destination.reconcile_calls, 1)
+        self.assertEqual(destination.publish_calls, 0)
+        platform_state = state["platforms"]["lifemode_facebook"]
+        self.assertEqual(platform_state["published"][FIRST_VIDEO_DIGEST]["post_id"], "facebook-existing")
+        self.assertNotIn(FIRST_VIDEO_DIGEST, platform_state["uncertain"])
+
+    def test_facebook_resume_uploads_only_after_no_matching_post(self):
+        r2 = FirstVideoR2()
+        objects = [{**obj, "digest": FIRST_VIDEO_DIGEST} for obj in r2.objects]
+        destination = FacebookResumeDestination()
+        state = unresolved_facebook_state()
+
+        with patch.object(cloud_publisher, "save_remote_state"), \
+             patch.object(cloud_publisher, "fingerprint", return_value=FIRST_VIDEO_DIGEST):
+            result = cloud_publisher.resume_facebook_first_video(r2, objects, destination, state)
+
+        self.assertEqual(result, 0)
+        self.assertEqual(destination.reconcile_calls, 1)
+        self.assertEqual(destination.publish_calls, 1)
+        platform_state = state["platforms"]["lifemode_facebook"]
+        self.assertEqual(platform_state["published"][FIRST_VIDEO_DIGEST]["post_id"], "facebook-resumed")
+        self.assertNotIn(FIRST_VIDEO_DIGEST, platform_state["uncertain"])
+
+    def test_facebook_resume_refuses_ambiguous_duplicate_matches(self):
+        r2 = FirstVideoR2()
+        objects = [{**obj, "digest": FIRST_VIDEO_DIGEST} for obj in r2.objects]
+        destination = FacebookResumeDestination(existing=[{"id": "facebook-1"}, {"id": "facebook-2"}])
+        state = unresolved_facebook_state()
+
+        with patch.object(cloud_publisher, "save_remote_state"):
+            result = cloud_publisher.resume_facebook_first_video(r2, objects, destination, state)
+
+        self.assertEqual(result, 1)
+        self.assertEqual(destination.publish_calls, 0)
+        self.assertIn(FIRST_VIDEO_DIGEST, state["platforms"]["lifemode_facebook"]["uncertain"])
 
     def test_preflight_reports_all_destinations_and_succeeds_only_when_all_ready(self):
         destinations = {name: NoPublishDestination(name) for name in multi_publisher.PLATFORMS}

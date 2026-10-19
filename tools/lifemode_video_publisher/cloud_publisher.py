@@ -175,13 +175,99 @@ def publish_first_video(r2, objects, destinations, ready, state):
     return 1 if failed else 0
 
 
+def resume_facebook_first_video(r2, objects, destination, state):
+    """Reconcile or publish only the known first video to LifeMode Facebook."""
+    matches = [obj for obj in objects if obj["key"] == FIRST_VIDEO_KEY]
+    if len(matches) != 1:
+        logging.error("Facebook resume target is missing or duplicated: %s", FIRST_VIDEO_KEY)
+        return 1
+    obj = matches[0]
+    if obj["digest"] != FIRST_VIDEO_DIGEST:
+        logging.error("Facebook resume target digest does not match its key")
+        return 1
+
+    platform_state = state.get("platforms", {}).get("lifemode_facebook")
+    if not platform_state:
+        logging.error("Facebook resume state is missing")
+        return 1
+    digest = obj["digest"]
+    filename = object_filename(obj["key"])
+    if digest in platform_state.get("published", {}):
+        logging.info("First video already confirmed for lifemode_facebook; skipping duplicate")
+        return 0
+    if digest in platform_state.get("in_progress", {}):
+        logging.error("Facebook resume has unresolved in-progress state; refusing retry")
+        return 1
+    if digest not in platform_state.get("uncertain", {}):
+        logging.error("Facebook resume requires the existing unresolved state; refusing untracked upload")
+        return 1
+
+    post_text = build_post_text(filename)
+    text_errors = validate_post_text(post_text, "lifemode_facebook")
+    if text_errors:
+        logging.error("Post text validation failed for %s/lifemode_facebook: %s", filename, "; ".join(text_errors))
+        return 1
+
+    existing = destination.reconcile(post_text)
+    if len(existing) > 1:
+        logging.error("Facebook resume found %d matching posts; refusing to choose or republish", len(existing))
+        return 1
+    if existing:
+        post_id = existing[0].get("id") or existing[0].get("post_id")
+        if not post_id:
+            logging.error("Facebook resume found a matching post without a publication ID; refusing state update")
+            return 1
+        platform_state["published"][digest] = {"file": filename, "r2_key": obj["key"], "post_id": post_id}
+        platform_state["uncertain"].pop(digest, None)
+        save_remote_state(r2, state)
+        logging.info("Reconciled existing Facebook publication for %s: %s", filename, post_id)
+        return 0
+
+    with tempfile.TemporaryDirectory(dir=Path.cwd()) as directory:
+        path = Path(directory) / filename
+        path.write_bytes(r2.get(obj["key"]))
+        if fingerprint(path) != digest:
+            raise R2Error("Downloaded first-video object failed hash verification")
+        attempt = {"file": filename, "r2_key": obj["key"], "publish_started": False}
+        platform_state["in_progress"][digest] = attempt
+        save_remote_state(r2, state)
+        try:
+            attempt["publish_started"] = True
+            save_remote_state(r2, state)
+            result = destination.publish(path, post_text)
+            post_id = result.get("id") or result.get("post_id")
+            if not post_id:
+                raise ValueError("Facebook destination returned no publication ID")
+            platform_state["published"][digest] = {"file": filename, "r2_key": obj["key"], "post_id": post_id}
+            platform_state["uncertain"].pop(digest, None)
+            platform_state["in_progress"].pop(digest, None)
+            save_remote_state(r2, state)
+            logging.info("Resumed Facebook publication for %s: %s", filename, post_id)
+            return 0
+        except Exception as exc:
+            platform_state["uncertain"][digest] = {"file": filename, "r2_key": obj["key"], "error": str(exc)}
+            platform_state["in_progress"].pop(digest, None)
+            save_remote_state(r2, state)
+            logging.error("Facebook publication remains uncertain; retry disabled: %s", exc)
+            return 1
+
+
 def run(mode="run"):
     r2 = R2Client(R2Config.from_env("runtime"))
     objects = [{**obj, "digest": object_digest(obj["key"])} for obj in r2.list_video_objects()]
     objects = [obj for obj in objects if obj["digest"]]
     config = multi_publisher.MultiConfig.from_env()
-    destinations = multi_publisher.build_destinations(config)
     state = load_remote_state(r2)
+    if mode == "resume-facebook-first-video":
+        destination = multi_publisher.FacebookDestination(config)
+        try:
+            destination.preflight()
+        except (multi_publisher.ApiError, OSError) as exc:
+            logging.error("Facebook resume preflight failed: %s", exc)
+            return 1
+        return resume_facebook_first_video(r2, objects, destination, state)
+
+    destinations = multi_publisher.build_destinations(config)
     ready, errors = report_preflight(len(objects), destinations)
     if mode == "preflight":
         return 0 if set(ready) == set(multi_publisher.PLATFORMS) and not errors else 1
@@ -255,8 +341,9 @@ def main(argv=None):
     parser.add_argument("--preflight", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--publish-first-video", action="store_true")
+    parser.add_argument("--resume-facebook-first-video", action="store_true")
     args = parser.parse_args(argv)
-    mode = "preflight" if args.preflight else "dry-run" if args.dry_run else "publish-first-video" if args.publish_first_video else "run"
+    mode = "preflight" if args.preflight else "dry-run" if args.dry_run else "publish-first-video" if args.publish_first_video else "resume-facebook-first-video" if args.resume_facebook_first_video else "run"
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s", force=True)
     try:
         return run(mode)
