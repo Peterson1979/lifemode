@@ -139,7 +139,7 @@ def publish_first_video(r2, objects, destinations, ready, state):
             logging.info("First video already confirmed for %s; skipping duplicate", name)
             continue
         post_text = build_post_text(filename)
-        with tempfile.TemporaryDirectory() as directory:
+        with tempfile.TemporaryDirectory(dir=Path.cwd()) as directory:
             path = Path(directory) / filename
             path.write_bytes(r2.get(obj["key"]))
             if fingerprint(path) != digest:
@@ -156,9 +156,9 @@ def publish_first_video(r2, objects, destinations, ready, state):
                 attempt["publish_started"] = True
                 save_remote_state(r2, state)
                 if name.startswith("everyday_") or name == "lifemode_pinterest":
-                    result = destinations[name].publish(path, ready[name], cover_url)
+                    result = destinations[name].publish(path, ready[name], cover_url, post_text)
                 else:
-                    result = destinations[name].publish(path)
+                    result = destinations[name].publish(path, post_text)
                 post_id = result.get("id") or result.get("post_id")
                 if not post_id:
                     raise ValueError("destination returned no publication ID")
@@ -222,7 +222,7 @@ def run(mode="run"):
         text_errors = validate_post_text(post_text, name)
         if text_errors:
             raise ValueError(f"Invalid post text for {filename}/{name}: {'; '.join(text_errors)}")
-        with tempfile.TemporaryDirectory() as directory:
+        with tempfile.TemporaryDirectory(dir=Path.cwd()) as directory:
             path = Path(directory) / filename
             path.write_bytes(r2.get(obj["key"]))
             if fingerprint(path) != digest:
@@ -236,9 +236,9 @@ def run(mode="run"):
                 if name.startswith("everyday_") or name == "lifemode_pinterest":
                     cover_url = upload_cover(path, obj["key"])
                 if name.startswith("everyday_") or name == "lifemode_pinterest":
-                    result = destinations[name].publish(path, target, cover_url)
+                    result = destinations[name].publish(path, target, cover_url, post_text)
                 else:
-                    result = destinations[name].publish(path)
+                    result = destinations[name].publish(path, post_text)
                 platform_state["published"][digest] = {"file": filename, "r2_key": obj["key"], "post_id": result.get("id") or result.get("post_id")}
                 platform_state["in_progress"].pop(digest, None)
                 save_remote_state(r2, state)

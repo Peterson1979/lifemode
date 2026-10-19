@@ -19,8 +19,9 @@ from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 
-from publisher import (DESCRIPTION, LINK, TITLE, Config as PinterestConfig,
-                       PinterestClient, PinterestError, eligible_files,
+from publisher import (LINK, TITLE, Config as PinterestConfig,
+                       PinterestClient, PinterestError, build_post_text,
+                       eligible_files, validate_post_text,
                        fingerprint, load_state, run_lock, save_state,
                        setup_logging, valid_cover_url)
 
@@ -128,16 +129,35 @@ class PinterestDestination:
         self.client.verify_read_access()
         return {"account": actual, "board_id": board_id, "section_id": section_id}
 
-    def publish(self, path, target, cover_image_url=None):
+    def publish(self, path, target, cover_image_url=None, post_text=None):
         if not cover_image_url and not self.cover_url:
             raise ApiError("Pinterest video cover image was not generated")
         registration = self.client.register_media()
         self.client.upload_file(registration, path)
         self.client.wait_for_media(registration["media_id"])
-        return self.client.create_video_pin(target["board_id"], target["section_id"], registration["media_id"], cover_image_url)
+        return self.client.create_video_pin(target["board_id"], target["section_id"], registration["media_id"], cover_image_url, post_text)
 
     def reconcile(self, target):
         return self.client.find_existing_pin(target["board_id"])
+
+
+def facebook_http_error_details(exc, access_token):
+    try:
+        payload = json.loads(exc.read().decode("utf-8", "replace"))
+    except (AttributeError, UnicodeDecodeError, json.JSONDecodeError):
+        return "API response did not contain structured error details"
+    error = payload.get("error", payload) if isinstance(payload, dict) else {}
+    if not isinstance(error, dict):
+        return "API response did not contain structured error details"
+    details = []
+    for key in ("code", "error_subcode", "type", "message"):
+        value = error.get(key)
+        if value not in (None, ""):
+            text = str(value)
+            if access_token:
+                text = text.replace(access_token, "[REDACTED]")
+            details.append(f"{key}={text}")
+    return "; ".join(details) or "API response did not contain structured error details"
 
 
 class FacebookDestination:
@@ -153,14 +173,14 @@ class FacebookDestination:
             raise ApiError("Facebook API returned a different page ID")
         return page
 
-    def publish(self, path):
+    def publish(self, path, post_text):
         # Graph Page video upload accepts a multipart source and Page access token.
         boundary = "----DailyIdeasHubFacebook"
         content = path.read_bytes()
         parts = [
             f"--{boundary}\r\nContent-Disposition: form-data; name=\"access_token\"\r\n\r\n{self.config.facebook_token}\r\n".encode(),
-            f"--{boundary}\r\nContent-Disposition: form-data; name=\"title\"\r\n\r\n{TITLE}\r\n".encode(),
-            f"--{boundary}\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n{DESCRIPTION}\r\n".encode(),
+            f"--{boundary}\r\nContent-Disposition: form-data; name=\"title\"\r\n\r\n{post_text.title}\r\n".encode(),
+            f"--{boundary}\r\nContent-Disposition: form-data; name=\"description\"\r\n\r\n{post_text.facebook_text}\r\n".encode(),
             f"--{boundary}\r\nContent-Disposition: form-data; name=\"source\"; filename=\"{path.name}\"\r\nContent-Type: video/mp4\r\n\r\n".encode(), content,
             f"\r\n--{boundary}--\r\n".encode(),
         ]
@@ -171,13 +191,14 @@ class FacebookDestination:
                 raw = response.read()
                 return json.loads(raw) if raw else {}
         except urllib.error.HTTPError as exc:
-            raise ApiError(f"Facebook video upload failed ({exc.code})") from exc
+            raise ApiError(f"Facebook video upload failed ({exc.code}): {facebook_http_error_details(exc, self.config.facebook_token)}") from exc
         except (urllib.error.URLError, TimeoutError) as exc:
             raise ApiError(f"Facebook video upload network failure: {exc}") from exc
 
-    def reconcile(self):
+    def reconcile(self, post_text=None):
         _, data = self.api.request("GET", f"/{self.config.facebook_page_id}/videos", query={"fields": "id,title,description", "limit": "50"})
-        return [v for v in data.get("data", []) if v.get("title") == TITLE and LINK in v.get("description", "")]
+        expected_title = post_text.title if post_text else TITLE
+        return [v for v in data.get("data", []) if v.get("title") == expected_title and LINK in v.get("description", "")]
 
 
 class ThreadsDestination:
@@ -206,8 +227,8 @@ class ThreadsDestination:
             return self.media_url_factory(path)
         return self.config.threads_public_base_url + "/" + urllib.parse.quote(path.name)
 
-    def publish(self, path):
-        text = f"{TITLE}\n\n{DESCRIPTION}\n\n{LINK}"
+    def publish(self, path, post_text):
+        text = post_text.threads_text
         if not self.user_id:
             raise ApiError("Threads user ID has not been resolved")
         _, container = self.api.request("POST", f"/{self.user_id}/threads", query={"media_type": "VIDEO", "video_url": self.media_url(path), "text": text})
@@ -274,11 +295,21 @@ def run(config, mode="run"):
         return 0 if ready else 1
     today = date.today().isoformat()
     if mode == "dry-run":
+        invalid = False
+        for path in files:
+            post_text = build_post_text(path.name)
+            for name in destinations:
+                text_errors = validate_post_text(post_text, name)
+                if text_errors:
+                    invalid = True
+                    logging.error("Dry-run invalid post text %s/%s: %s", path.name, name, "; ".join(text_errors))
+                preview = post_text.threads_text if name == "lifemode_threads" else post_text.facebook_text if name == "lifemode_facebook" else post_text.caption
+                logging.info("Dry-run preview %s/%s: title=%r caption=%r", path.name, name, post_text.title, preview)
         for name in ready:
             platform_state = state["platforms"][name]
             candidates = available(files, platform_state)
             logging.info("Dry-run %s: next=%s", name, candidates[0] if candidates else "none")
-        return 0
+        return 1 if invalid else 0
     if mode == "reconcile":
         for name, target in ready.items():
             destination = destinations[name]
@@ -288,6 +319,13 @@ def run(config, mode="run"):
             except (ApiError, PinterestError) as exc:
                 logging.warning("Reconcile failed for %s: %s", name, exc)
         return 0
+    for name in ready:
+        candidates = available(files, state["platforms"][name])
+        if candidates:
+            text_errors = validate_post_text(build_post_text(candidates[0].name), name)
+            if text_errors:
+                logging.error("Post text validation failed for %s/%s: %s", candidates[0].name, name, "; ".join(text_errors))
+                return 1
     for name, target in ready.items():
         platform_state = state["platforms"][name]
         if platform_state["published"].get(today):
@@ -298,10 +336,18 @@ def run(config, mode="run"):
             continue
         path = candidates[0]
         digest = fingerprint(path)
+        post_text = build_post_text(path.name)
+        text_errors = validate_post_text(post_text, name)
+        if text_errors:
+            logging.error("Post text validation failed for %s/%s: %s", path.name, name, "; ".join(text_errors))
+            continue
         platform_state["in_progress"][digest] = {"file": str(path), "date": today}
         save_state(config.state_file, state)
         try:
-            result = destinations[name].publish(path, target) if name.startswith("everyday_") or name == "lifemode_pinterest" else destinations[name].publish(path)
+            if name.startswith("everyday_") or name == "lifemode_pinterest":
+                result = destinations[name].publish(path, target, post_text=post_text)
+            else:
+                result = destinations[name].publish(path, post_text)
             platform_state["published"][digest] = {"file": str(path), "date": today, "post_id": result.get("id") or result.get("post_id")}
             platform_state["published"][today] = {"file": str(path), "post_id": result.get("id") or result.get("post_id")}
             platform_state["in_progress"].pop(digest, None)

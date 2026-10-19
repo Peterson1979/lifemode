@@ -36,7 +36,7 @@ class PinterestLiveDestination(NoPublishDestination):
         self.calls = calls
         self.failure = failure
 
-    def publish(self, path, target, cover_image_url=None):
+    def publish(self, path, target, cover_image_url=None, post_text=None):
         self.calls.append(self.name)
         if self.failure:
             raise self.failure
@@ -49,7 +49,7 @@ class FacebookLiveDestination(NoPublishDestination):
         self.calls = calls
         self.failure = failure
 
-    def publish(self, path):
+    def publish(self, path, post_text=None):
         self.calls.append(self.name)
         if self.failure:
             raise self.failure
