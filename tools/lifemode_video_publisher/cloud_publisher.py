@@ -135,7 +135,7 @@ def publish_first_video(r2, objects, destinations, ready, state):
                 platform_state["in_progress"].pop(digest, None)
                 save_remote_state(r2, state)
                 logging.info("First video published for %s: %s", name, filename)
-            except (multi_publisher.ApiError, multi_publisher.PinterestError, OSError, ValueError) as exc:
+            except Exception as exc:
                 platform_state["uncertain"][digest] = {"file": filename, "r2_key": obj["key"], "error": str(exc)}
                 platform_state["in_progress"].pop(digest, None)
                 save_remote_state(r2, state)

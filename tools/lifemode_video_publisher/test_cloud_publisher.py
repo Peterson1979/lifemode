@@ -143,6 +143,31 @@ class CloudDryRunTests(unittest.TestCase):
         self.assertEqual(retry_result, 1)
         self.assertEqual(len(calls), first_call_count)
 
+    def test_publish_first_video_records_unexpected_adapter_failure_as_uncertain(self):
+        calls = []
+        destinations = live_destinations(calls)
+        destinations["everyday_pinterest"] = PinterestLiveDestination(
+            "everyday_pinterest", calls, TypeError("unexpected adapter contract")
+        )
+        state = multi_publisher.initial_state()
+        r2 = FirstVideoR2()
+
+        with patch.object(cloud_publisher, "R2Client", return_value=r2), \
+             patch.object(cloud_publisher.multi_publisher, "build_destinations", return_value=destinations), \
+             patch.object(cloud_publisher, "load_remote_state", return_value=state), \
+             patch.object(cloud_publisher, "save_remote_state"), \
+             patch.object(cloud_publisher, "upload_cover", return_value="https://example.test/cover"), \
+             patch.object(cloud_publisher, "fingerprint", return_value=FIRST_VIDEO_DIGEST):
+            result = cloud_publisher.run("publish-first-video")
+
+        self.assertEqual(result, 1)
+        platform_state = state["platforms"]["everyday_pinterest"]
+        self.assertNotIn(FIRST_VIDEO_DIGEST, platform_state["in_progress"])
+        self.assertEqual(
+            platform_state["uncertain"][FIRST_VIDEO_DIGEST]["error"],
+            "unexpected adapter contract",
+        )
+
     def test_publish_first_video_fails_closed_when_target_is_missing(self):
         calls = []
         destinations = live_destinations(calls)
