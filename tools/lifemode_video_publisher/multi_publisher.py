@@ -151,9 +151,6 @@ class FacebookDestination:
         _, page = self.api.request("GET", f"/{urllib.parse.quote(self.config.facebook_page_id, safe='')}", query={"fields": "id,name,link"})
         if str(page.get("id")) != self.config.facebook_page_id:
             raise ApiError("Facebook API returned a different page ID")
-        link = page.get("link", "")
-        if link and "LifeModeHQ" not in link:
-            raise ApiError("Facebook API page does not match https://www.facebook.com/LifeModeHQ")
         return page
 
     def publish(self, path):
