@@ -29,6 +29,25 @@ def load_remote_state(r2):
     return json.loads(r2.get(STATE_KEY))
 
 
+def require_completed_first_video_state(state):
+    platforms = state.get("platforms") if isinstance(state, dict) else None
+    if not isinstance(platforms, dict):
+        raise R2Error("First-video completion state is missing its platforms")
+    incomplete = []
+    for name in multi_publisher.PLATFORMS:
+        platform_state = platforms.get(name)
+        record = platform_state.get("published", {}).get(FIRST_VIDEO_DIGEST) if isinstance(platform_state, dict) else None
+        if (
+            not isinstance(record, dict)
+            or not record.get("post_id")
+            or FIRST_VIDEO_DIGEST in platform_state.get("uncertain", {})
+            or FIRST_VIDEO_DIGEST in platform_state.get("in_progress", {})
+        ):
+            incomplete.append(name)
+    if incomplete:
+        raise R2Error("First-video completion state is incomplete or conflicting for: " + ", ".join(incomplete))
+
+
 def save_remote_state(r2, state):
     r2.put(STATE_KEY, (json.dumps(state, indent=2, sort_keys=True) + "\n").encode(), "application/json")
 
@@ -255,6 +274,8 @@ def run(mode="run"):
     objects = [obj for obj in objects if obj["digest"]]
     config = multi_publisher.MultiConfig.from_env()
     state = load_remote_state(r2)
+    if mode == "run":
+        require_completed_first_video_state(state)
     if mode == "resume-facebook-first-video":
         destination = multi_publisher.FacebookDestination(config)
         try:

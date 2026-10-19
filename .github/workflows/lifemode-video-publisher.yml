@@ -4,7 +4,7 @@ on:
   schedule:
     # Run after the daily social automation window; the publisher selects the
     # next eligible R2 video per destination from persistent state.
-    - cron: '30 13 * * *'
+    - cron: '0 16 * * *'
   workflow_dispatch:
     inputs:
       mode:

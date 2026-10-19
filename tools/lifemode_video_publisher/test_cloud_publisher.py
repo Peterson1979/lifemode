@@ -148,6 +148,25 @@ class CloudDryRunTests(unittest.TestCase):
 
         self.assertEqual(cloud_publisher.select_objects(objects, platform_state), [objects[1]])
 
+    def test_completed_first_video_is_excluded_for_every_destination(self):
+        first_video = {"key": cloud_publisher.FIRST_VIDEO_KEY, "digest": cloud_publisher.FIRST_VIDEO_DIGEST}
+        state = multi_publisher.initial_state()
+        for platform_state in state["platforms"].values():
+            platform_state["published"][cloud_publisher.FIRST_VIDEO_DIGEST] = {"post_id": "confirmed"}
+
+        for name in multi_publisher.PLATFORMS:
+            self.assertEqual(cloud_publisher.select_objects([first_video], state["platforms"][name]), [])
+
+    def test_scheduled_state_requires_first_video_confirmation_for_all_destinations(self):
+        state = multi_publisher.initial_state()
+        for platform_state in state["platforms"].values():
+            platform_state["published"][cloud_publisher.FIRST_VIDEO_DIGEST] = {"post_id": "confirmed"}
+
+        cloud_publisher.require_completed_first_video_state(state)
+        del state["platforms"]["lifemode_facebook"]["published"][cloud_publisher.FIRST_VIDEO_DIGEST]
+        with self.assertRaisesRegex(cloud_publisher.R2Error, "lifemode_facebook"):
+            cloud_publisher.require_completed_first_video_state(state)
+
     def test_publish_first_video_publishes_only_target_to_all_destinations_and_updates_state(self):
         r2 = FirstVideoR2(extra=True)
         calls = []
