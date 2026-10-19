@@ -13,8 +13,10 @@ from publisher import PostText
 class FakeFacebookApi:
     def __init__(self, page):
         self.page = page
+        self.calls = []
 
     def request(self, method, path, query=None):
+        self.calls.append((method, path, query))
         return 200, self.page
 
 
@@ -34,15 +36,46 @@ class FacebookPreflightTests(unittest.TestCase):
         for page in (
             {"id": "226949230493910", "name": "LifeMode", "link": ""},
             {"id": "226949230493910", "name": "LifeMode", "link": "https://www.facebook.com/another-public-url"},
+            {"id": "226949230493910", "name": "LifeMode", "link": "", "tasks": ["CREATE_CONTENT"]},
+            {"id": "226949230493910", "name": "LifeMode", "link": "", "tasks": ["PROFILE_PLUS_CREATE_CONTENT"]},
         ):
             with self.subTest(link=page["link"]):
-                self.assertEqual(make_destination(page).preflight(), page)
+                destination = make_destination(page)
+                self.assertEqual(destination.preflight(), page)
+                self.assertEqual(destination.api.calls[0][2]["fields"], "id,name,link,tasks")
 
     def test_mismatched_page_id_fails(self):
         destination = make_destination({"id": "999999999999999", "name": "Other Page", "link": ""})
 
         with self.assertRaisesRegex(multi_publisher.ApiError, "different page ID"):
             destination.preflight()
+
+    def test_missing_create_content_task_fails_before_upload(self):
+        destination = make_destination({"id": "226949230493910", "name": "LifeMode", "link": "", "tasks": ["MODERATE"]})
+
+        with self.assertRaisesRegex(multi_publisher.ApiError, "CREATE_CONTENT"):
+            destination.preflight()
+
+    def test_page_token_permission_failure_is_reported_without_token(self):
+        destination = make_destination({"id": "226949230493910", "name": "LifeMode", "link": "", "tasks": ["CREATE_CONTENT"]})
+        token = destination.config.facebook_token
+        body = json.dumps({
+            "error": {
+                "message": "(#100) No permission to publish the video",
+                "type": "OAuthException",
+                "code": 100,
+            }
+        }).encode()
+        error = HTTPError("https://graph.facebook.com", 400, "Bad Request", {}, None)
+        error.read = lambda: body
+
+        with tempfile.TemporaryDirectory(dir=Path.cwd()) as directory:
+            path = Path(directory) / "video.mp4"
+            path.write_bytes(b"video-bytes")
+            with patch.object(multi_publisher.urllib.request, "urlopen", side_effect=error):
+                with self.assertRaisesRegex(multi_publisher.ApiError, r"400.*code=100.*No permission to publish the video") as raised:
+                    destination.publish(path, PostText("Title", "Description", "@creator"))
+        self.assertNotIn(token, str(raised.exception))
 
 
 class FacebookPublishTests(unittest.TestCase):

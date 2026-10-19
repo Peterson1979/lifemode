@@ -26,6 +26,7 @@ from publisher import (LINK, TITLE, Config as PinterestConfig,
                        setup_logging, valid_cover_url)
 
 PLATFORMS = ("everyday_pinterest", "lifemode_facebook", "lifemode_pinterest", "lifemode_threads")
+FACEBOOK_VIDEO_PUBLISH_TASKS = {"CREATE_CONTENT", "PROFILE_PLUS_CREATE_CONTENT"}
 
 
 @dataclass(frozen=True)
@@ -170,9 +171,25 @@ class FacebookDestination:
     def preflight(self):
         if not self.config.facebook_token or not self.config.facebook_page_id:
             raise ApiError("LifeMode Facebook token/page ID is not configured")
-        _, page = self.api.request("GET", f"/{urllib.parse.quote(self.config.facebook_page_id, safe='')}", query={"fields": "id,name,link"})
+        _, page = self.api.request(
+            "GET",
+            f"/{urllib.parse.quote(self.config.facebook_page_id, safe='')}",
+            query={"fields": "id,name,link,tasks"},
+        )
         if str(page.get("id")) != self.config.facebook_page_id:
             raise ApiError("Facebook API returned a different page ID")
+        tasks = page.get("tasks")
+        if tasks is not None:
+            if not isinstance(tasks, list):
+                raise ApiError("Facebook API returned an invalid Page tasks value")
+            normalized_tasks = {str(task).upper() for task in tasks}
+            if not normalized_tasks.intersection(FACEBOOK_VIDEO_PUBLISH_TASKS):
+                raise ApiError(
+                    "Facebook Page token lacks CREATE_CONTENT permission/task required to publish videos; "
+                    "re-authorize the app and issue a new Page access token"
+                )
+        else:
+            logging.warning("Facebook preflight could not verify Page tasks; upload permission remains unconfirmed")
         return page
 
     def publish(self, path, post_text):
