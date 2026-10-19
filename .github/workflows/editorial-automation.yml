@@ -22,10 +22,6 @@ on:
         description: 'Minimum topic score threshold (0-100)'
         type: number
         default: 80
-      allow_push:
-        description: 'Allow pushing published content to remote master branch'
-        type: boolean
-        default: true
 
 concurrency:
   group: editorial-automation
@@ -36,7 +32,7 @@ jobs:
     name: Run Editorial Automation Pipeline
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
 
     steps:
       - name: Checkout repository
@@ -86,9 +82,9 @@ jobs:
           R2_PUBLIC_BASE_URL: ${{ secrets.R2_PUBLIC_BASE_URL }}
 
           # Scheduled Automation Runtime Settings
-          # Phase 1 safety policy: normal editorial generation/publication is
-          # paused pending explicit human approval workflow implementation.
-          LIFEMODE_AUTOMATION_ENABLED: "false"
+          # Generation, research, and AI review are active. Publication remains
+          # human-gated: this workflow only creates approval-queue artifacts.
+          LIFEMODE_AUTOMATION_ENABLED: "true"
           LIFEMODE_AUTOMATION_WATCHDOG: "true"
           LIFEMODE_AUTOMATION_FORCE: ${{ github.event_name == 'workflow_dispatch' && inputs.force == true && 'true' || 'false' }}
           LIFEMODE_AUTOMATION_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run == true && 'true' || 'false' }}
@@ -102,12 +98,20 @@ jobs:
           LIFEMODE_AUTOMATION_GIT_BRANCH: "master"
 
           # Image Generation Pipeline Settings
-          # Images are optional editorial assets and must not be generated
-          # automatically during the Phase 1 pause.
+          # Images remain optional editorial assets and are disabled by default.
           LIFEMODE_IMAGE_ENABLED: "false"
           LIFEMODE_IMAGE_PROVIDER: "cloudflare"
           LIFEMODE_IMAGE_COST_GUARD: "true"
           LIFEMODE_IMAGE_DAILY_LIMIT: "5"
           LIFEMODE_IMAGE_MONTHLY_LIMIT: "120"
         run: |
-          npx tsx scripts/run-scheduled-automation.ts
+          node scripts/run-scheduled-automation.ts
+
+      - name: Upload editorial approval queue
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: editorial-approval-queue-${{ github.run_id }}
+          path: data/editorial/approval-queue.json
+          if-no-files-found: ignore
+          retention-days: 14
