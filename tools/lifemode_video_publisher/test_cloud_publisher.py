@@ -30,17 +30,48 @@ class FailedPreflightDestination(NoPublishDestination):
         raise RuntimeError("simulated preflight failure")
 
 
-class LiveDestination(NoPublishDestination):
+class PinterestLiveDestination(NoPublishDestination):
     def __init__(self, name, calls, failure=None):
         super().__init__(name)
         self.calls = calls
         self.failure = failure
 
-    def publish(self, *args, **kwargs):
+    def publish(self, path, target, cover_image_url=None):
         self.calls.append(self.name)
         if self.failure:
             raise self.failure
         return {"id": self.name + "-post"}
+
+
+class FacebookLiveDestination(NoPublishDestination):
+    def __init__(self, name, calls, failure=None):
+        super().__init__(name)
+        self.calls = calls
+        self.failure = failure
+
+    def publish(self, path):
+        self.calls.append(self.name)
+        if self.failure:
+            raise self.failure
+        return {"id": self.name + "-post"}
+
+
+class ThreadsLiveDestination(FacebookLiveDestination):
+    pass
+
+
+def live_destinations(calls, failure_name=None):
+    destinations = {}
+    for name in multi_publisher.PLATFORMS:
+        failure = multi_publisher.ApiError("failed") if name == failure_name else None
+        if name.startswith("everyday_") or name == "lifemode_pinterest":
+            destination = PinterestLiveDestination(name, calls, failure)
+        elif name == "lifemode_threads":
+            destination = ThreadsLiveDestination(name, calls, failure)
+        else:
+            destination = FacebookLiveDestination(name, calls, failure)
+        destinations[name] = destination
+    return destinations
 
 
 FIRST_VIDEO_KEY = cloud_publisher.FIRST_VIDEO_KEY
@@ -71,7 +102,7 @@ class CloudDryRunTests(unittest.TestCase):
     def test_publish_first_video_publishes_only_target_to_all_destinations_and_updates_state(self):
         r2 = FirstVideoR2(extra=True)
         calls = []
-        destinations = {name: LiveDestination(name, calls) for name in multi_publisher.PLATFORMS}
+        destinations = live_destinations(calls)
         state = multi_publisher.initial_state()
 
         with patch.object(cloud_publisher, "R2Client", return_value=r2), \
@@ -91,8 +122,7 @@ class CloudDryRunTests(unittest.TestCase):
 
     def test_publish_first_video_records_failure_and_refuses_uncertain_retry(self):
         calls = []
-        destinations = {name: LiveDestination(name, calls) for name in multi_publisher.PLATFORMS}
-        destinations["lifemode_facebook"] = LiveDestination("lifemode_facebook", calls, multi_publisher.ApiError("failed"))
+        destinations = live_destinations(calls, failure_name="lifemode_facebook")
         state = multi_publisher.initial_state()
         r2 = FirstVideoR2()
         patches = [
@@ -115,7 +145,7 @@ class CloudDryRunTests(unittest.TestCase):
 
     def test_publish_first_video_fails_closed_when_target_is_missing(self):
         calls = []
-        destinations = {name: LiveDestination(name, calls) for name in multi_publisher.PLATFORMS}
+        destinations = live_destinations(calls)
         state = multi_publisher.initial_state()
         r2 = FirstVideoR2()
         r2.objects = [{"key": "lifemode-life-hacks/videos/" + "b" * 64 + "-other.mp4"}]

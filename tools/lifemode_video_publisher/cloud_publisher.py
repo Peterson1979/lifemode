@@ -125,9 +125,9 @@ def publish_first_video(r2, objects, destinations, ready, state):
                 if name.startswith("everyday_") or name == "lifemode_pinterest":
                     cover_url = upload_cover(path, obj["key"])
                 if name.startswith("everyday_") or name == "lifemode_pinterest":
-                    result = destinations[name].publish(path, ready[name], cover_url, post_text)
+                    result = destinations[name].publish(path, ready[name], cover_url)
                 else:
-                    result = destinations[name].publish(path, post_text)
+                    result = destinations[name].publish(path)
                 post_id = result.get("id") or result.get("post_id")
                 if not post_id:
                     raise ValueError("destination returned no publication ID")
@@ -205,9 +205,9 @@ def run(mode="run"):
                 if name.startswith("everyday_") or name == "lifemode_pinterest":
                     cover_url = upload_cover(path, obj["key"])
                 if name.startswith("everyday_") or name == "lifemode_pinterest":
-                    result = destinations[name].publish(path, target, cover_url, post_text)
+                    result = destinations[name].publish(path, target, cover_url)
                 else:
-                    result = destinations[name].publish(path, post_text)
+                    result = destinations[name].publish(path)
                 platform_state["published"][digest] = {"file": filename, "r2_key": obj["key"], "post_id": result.get("id") or result.get("post_id")}
                 platform_state["in_progress"].pop(digest, None)
                 save_remote_state(r2, state)
