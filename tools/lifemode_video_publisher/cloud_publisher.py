@@ -155,7 +155,7 @@ def main(argv=None):
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args(argv)
     mode = "preflight" if args.preflight else "dry-run" if args.dry_run else "run"
-    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s", force=True)
     try:
         return run(mode)
     except (R2Error, multi_publisher.ApiError, multi_publisher.PinterestError, OSError, ValueError) as exc:

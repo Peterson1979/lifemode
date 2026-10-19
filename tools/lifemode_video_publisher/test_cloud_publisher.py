@@ -1,5 +1,5 @@
 import unittest
-from contextlib import redirect_stdout
+from contextlib import redirect_stderr, redirect_stdout
 from io import StringIO
 from types import SimpleNamespace
 from unittest.mock import patch
@@ -83,6 +83,21 @@ class CloudDryRunTests(unittest.TestCase):
             result = cloud_publisher.run("dry-run")
 
         self.assertEqual(result, 0)
+
+    def test_main_dry_run_emits_preview_log(self):
+        destinations = {name: NoPublishDestination(name) for name in multi_publisher.PLATFORMS}
+        state = multi_publisher.initial_state()
+
+        with patch.object(cloud_publisher, "R2Client", return_value=FakeR2()), \
+             patch.object(cloud_publisher.multi_publisher, "build_destinations", return_value=destinations), \
+             patch.object(cloud_publisher, "load_remote_state", return_value=state), \
+             patch.object(cloud_publisher, "save_remote_state", side_effect=AssertionError("dry-run must not write state")):
+            output = StringIO()
+            with redirect_stderr(output):
+                result = cloud_publisher.main(["--dry-run"])
+
+        self.assertEqual(result, 0)
+        self.assertIn("Dry-run preview", output.getvalue())
 
     def test_dry_run_fails_for_invalid_post_text_without_publishing(self):
         destinations = {name: NoPublishDestination(name) for name in multi_publisher.PLATFORMS}
