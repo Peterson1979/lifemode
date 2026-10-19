@@ -127,6 +127,27 @@ def unresolved_facebook_state():
 
 
 class CloudDryRunTests(unittest.TestCase):
+    def test_load_remote_state_fails_closed_when_state_is_unavailable(self):
+        class StateUnavailableR2:
+            def get(self, key):
+                raise cloud_publisher.R2Error("state unavailable")
+
+        with self.assertRaisesRegex(cloud_publisher.R2Error, "state unavailable"):
+            cloud_publisher.load_remote_state(StateUnavailableR2())
+
+    def test_select_objects_skips_completed_and_uncertain_videos(self):
+        objects = [
+            {"key": "a" * 64 + "-first.mp4", "digest": "a" * 64},
+            {"key": "b" * 64 + "-next.mp4", "digest": "b" * 64},
+            {"key": "c" * 64 + "-uncertain.mp4", "digest": "c" * 64},
+        ]
+        platform_state = {
+            "published": {"a" * 64: {"post_id": "done"}},
+            "uncertain": {"c" * 64: {"error": "unknown"}},
+        }
+
+        self.assertEqual(cloud_publisher.select_objects(objects, platform_state), [objects[1]])
+
     def test_publish_first_video_publishes_only_target_to_all_destinations_and_updates_state(self):
         r2 = FirstVideoR2(extra=True)
         calls = []

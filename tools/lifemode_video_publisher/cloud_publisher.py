@@ -26,10 +26,7 @@ FIRST_VIDEO_DIGEST = "0165ec40ae9ee03b1074fac6c122a73d5e1ee059a0394ed32f946b49c0
 
 
 def load_remote_state(r2):
-    try:
-        return json.loads(r2.get(STATE_KEY))
-    except R2Error:
-        return multi_publisher.initial_state()
+    return json.loads(r2.get(STATE_KEY))
 
 
 def save_remote_state(r2, state):

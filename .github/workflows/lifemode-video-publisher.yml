@@ -1,8 +1,10 @@
-name: LifeMode Video Publisher (manual checks only)
+name: LifeMode Video Publisher
 
-# Deliberately no schedule. Enable a schedule only after preflight and dry-run
-# have passed and the source/R2 bridge has been reviewed.
 on:
+  schedule:
+    # Run after the daily social automation window; the publisher selects the
+    # next eligible R2 video per destination from persistent state.
+    - cron: '30 13 * * *'
   workflow_dispatch:
     inputs:
       mode:
@@ -91,5 +93,6 @@ jobs:
             dry-run) python cloud_publisher.py --dry-run ;;
             publish-first-video) python cloud_publisher.py --publish-first-video ;;
             resume-facebook-first-video) python cloud_publisher.py --resume-facebook-first-video ;;
+            '') python cloud_publisher.py ;;
             *) echo 'Unsupported mode.' >&2; exit 2 ;;
           esac
