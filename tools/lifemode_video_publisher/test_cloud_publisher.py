@@ -168,6 +168,68 @@ class CloudDryRunTests(unittest.TestCase):
             "unexpected adapter contract",
         )
 
+    def test_publish_first_video_recovers_known_legacy_pre_call_state(self):
+        calls = []
+        destinations = live_destinations(calls)
+        state = multi_publisher.initial_state()
+        state["platforms"]["everyday_pinterest"]["in_progress"][FIRST_VIDEO_DIGEST] = {
+            "file": "@sidneyraz-2026-10-07_1805-i-tried-#cozy-#lifehack-7693957734345002270.mp4",
+            "r2_key": FIRST_VIDEO_KEY,
+        }
+
+        with patch.object(cloud_publisher, "R2Client", return_value=FirstVideoR2()), \
+             patch.object(cloud_publisher.multi_publisher, "build_destinations", return_value=destinations), \
+             patch.object(cloud_publisher, "load_remote_state", return_value=state), \
+             patch.object(cloud_publisher, "save_remote_state"), \
+             patch.object(cloud_publisher, "upload_cover", return_value="https://example.test/cover"), \
+             patch.object(cloud_publisher, "fingerprint", return_value=FIRST_VIDEO_DIGEST):
+            result = cloud_publisher.run("publish-first-video")
+
+        self.assertEqual(result, 0)
+        self.assertEqual(calls, list(multi_publisher.PLATFORMS))
+        self.assertNotIn(FIRST_VIDEO_DIGEST, state["platforms"]["everyday_pinterest"]["in_progress"])
+
+    def test_publish_first_video_refuses_attempted_in_progress_state(self):
+        calls = []
+        destinations = live_destinations(calls)
+        state = multi_publisher.initial_state()
+        state["platforms"]["everyday_pinterest"]["in_progress"][FIRST_VIDEO_DIGEST] = {
+            "file": "target.mp4",
+            "r2_key": FIRST_VIDEO_KEY,
+            "publish_started": True,
+        }
+
+        with patch.object(cloud_publisher, "R2Client", return_value=FirstVideoR2()), \
+             patch.object(cloud_publisher.multi_publisher, "build_destinations", return_value=destinations), \
+             patch.object(cloud_publisher, "load_remote_state", return_value=state), \
+             patch.object(cloud_publisher, "save_remote_state"), \
+             patch.object(cloud_publisher, "fingerprint", return_value=FIRST_VIDEO_DIGEST):
+            result = cloud_publisher.run("publish-first-video")
+
+        self.assertEqual(result, 1)
+        self.assertEqual(calls, [])
+
+    def test_publish_first_video_skips_already_published_destination(self):
+        calls = []
+        destinations = live_destinations(calls)
+        state = multi_publisher.initial_state()
+        state["platforms"]["everyday_pinterest"]["published"][FIRST_VIDEO_DIGEST] = {
+            "file": "target.mp4",
+            "r2_key": FIRST_VIDEO_KEY,
+            "post_id": "existing-pin",
+        }
+
+        with patch.object(cloud_publisher, "R2Client", return_value=FirstVideoR2()), \
+             patch.object(cloud_publisher.multi_publisher, "build_destinations", return_value=destinations), \
+             patch.object(cloud_publisher, "load_remote_state", return_value=state), \
+             patch.object(cloud_publisher, "save_remote_state"), \
+             patch.object(cloud_publisher, "upload_cover", return_value="https://example.test/cover"), \
+             patch.object(cloud_publisher, "fingerprint", return_value=FIRST_VIDEO_DIGEST):
+            result = cloud_publisher.run("publish-first-video")
+
+        self.assertEqual(result, 0)
+        self.assertEqual(calls, list(multi_publisher.PLATFORMS)[1:])
+
     def test_publish_first_video_fails_closed_when_target_is_missing(self):
         calls = []
         destinations = live_destinations(calls)

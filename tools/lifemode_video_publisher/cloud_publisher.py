@@ -78,6 +78,25 @@ def report_preflight(r2_object_count, destinations):
     return ready, errors
 
 
+def recover_pre_publish_state(name, digest, filename, r2_key, platform_state):
+    record = platform_state.get("in_progress", {}).get(digest)
+    if record is None:
+        return False
+    if (
+        record.get("publish_started") is False
+        and record.get("file") == filename
+        and record.get("r2_key") == r2_key
+    ):
+        platform_state["in_progress"].pop(digest, None)
+        return True
+    legacy_record = {"file": filename, "r2_key": r2_key}
+    if name == "everyday_pinterest" and digest == FIRST_VIDEO_DIGEST and record == legacy_record:
+        logging.warning("Recovering known pre-call first-video state for %s", name)
+        platform_state["in_progress"].pop(digest, None)
+        return True
+    return False
+
+
 def publish_first_video(r2, objects, destinations, ready, state):
     if set(ready) != set(multi_publisher.PLATFORMS):
         logging.error("First-video publish requires all four destinations to pass preflight")
@@ -92,18 +111,27 @@ def publish_first_video(r2, objects, destinations, ready, state):
         return 1
     filename = object_filename(obj["key"])
     digest = obj["digest"]
+    recovered = False
     for name in multi_publisher.PLATFORMS:
         platform_state = state.get("platforms", {}).get(name)
         if not platform_state:
             logging.error("First-video publish state is missing for %s", name)
             return 1
-        if digest in platform_state.get("uncertain", {}) or digest in platform_state.get("in_progress", {}):
+        if digest in platform_state.get("uncertain", {}):
             logging.error("First-video publish has unresolved state for %s; refusing retry", name)
             return 1
+        if digest in platform_state.get("in_progress", {}):
+            if recover_pre_publish_state(name, digest, filename, obj["key"], platform_state):
+                recovered = True
+            else:
+                logging.error("First-video publish has unresolved state for %s; refusing retry", name)
+                return 1
         text_errors = validate_post_text(build_post_text(filename), name)
         if text_errors:
             logging.error("Post text validation failed for %s/%s: %s", filename, name, "; ".join(text_errors))
             return 1
+    if recovered:
+        save_remote_state(r2, state)
     failed = False
     for name in multi_publisher.PLATFORMS:
         platform_state = state["platforms"][name]
@@ -118,12 +146,15 @@ def publish_first_video(r2, objects, destinations, ready, state):
                 raise R2Error("Downloaded first-video object failed hash verification")
             if name == "lifemode_threads":
                 destinations[name].media_url_factory = lambda _path, key=obj["key"]: r2.presign_get(key)
-            platform_state["in_progress"][digest] = {"file": filename, "r2_key": obj["key"]}
+            attempt = {"file": filename, "r2_key": obj["key"], "publish_started": False}
+            platform_state["in_progress"][digest] = attempt
             save_remote_state(r2, state)
             try:
                 cover_url = None
                 if name.startswith("everyday_") or name == "lifemode_pinterest":
                     cover_url = upload_cover(path, obj["key"])
+                attempt["publish_started"] = True
+                save_remote_state(r2, state)
                 if name.startswith("everyday_") or name == "lifemode_pinterest":
                     result = destinations[name].publish(path, ready[name], cover_url)
                 else:
