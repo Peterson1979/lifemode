@@ -28,7 +28,7 @@ async function createTempWorkspace(): Promise<{
   contentDir: string;
   cleanup: () => Promise<void>;
 }> {
-  const repoDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lifemode-auto-test-'));
+  const repoDir = await fs.mkdtemp(path.join(process.cwd(), '.lifemode-auto-test-'));
   const contentDir = path.join(repoDir, 'src', 'content');
 
   await fs.mkdir(path.join(contentDir, 'tech-ai'), { recursive: true });
@@ -99,11 +99,11 @@ test('1. Happy path: End-to-end editorial automation pipeline in fixture dry-run
     assert.equal(opp.stageResults.STORAGE.status, 'SUCCESS');
     assert.equal(opp.stageResults.GIT_PUBLICATION.status, 'DRY_RUN');
 
-    // Verify article was stored in repository
+    // Dry-run storage is simulated and must not write an article file.
     assert.ok(opp.storage?.article?.filePath);
     const stored = await repository.get(opp.pillar, opp.storage!.article!.slug);
-    assert.ok(stored);
-    assert.equal(stored?.frontmatter.lifecycleStatus, 'STORED');
+    assert.equal(stored, null);
+    assert.equal(opp.storage?.article?.frontmatter.lifecycleStatus, 'STORED');
 
     // Verify dry-run did not create any new git commits
     const commitCount = await execFileAsync('git', ['rev-list', '--count', 'HEAD'], { cwd: repoDir });
@@ -323,7 +323,7 @@ test('6. Idempotency: Pre-existing article on disk is skipped during topic selec
     // Run first automation run to store an article
     const firstRun = await runEditorialAutomation({
       enabled: true,
-      dryRun: true,
+      dryRun: false,
       maxOpportunities: 1,
       contentRepository: repository,
       gitPublisher,
@@ -331,6 +331,7 @@ test('6. Idempotency: Pre-existing article on disk is skipped during topic selec
       gitRepoRoot: repoDir,
       storagePath,
       allowUnrelatedChanges: true,
+      allowNoImageFallback: true,
     });
 
     assert.equal(firstRun.status, 'SUCCESS');
@@ -339,7 +340,7 @@ test('6. Idempotency: Pre-existing article on disk is skipped during topic selec
     // Run second automation run; the previously stored topic should be skipped
     const secondRun = await runEditorialAutomation({
       enabled: true,
-      dryRun: true,
+      dryRun: false,
       maxOpportunities: 1,
       contentRepository: repository,
       gitPublisher,
@@ -347,6 +348,7 @@ test('6. Idempotency: Pre-existing article on disk is skipped during topic selec
       gitRepoRoot: repoDir,
       storagePath,
       allowUnrelatedChanges: true,
+      allowNoImageFallback: true,
     });
 
     assert.equal(secondRun.status, 'SUCCESS');
@@ -541,7 +543,7 @@ test('11. Candidate rejection persistence: Rejected candidate is marked in stora
     // Run 1: Candidate is selected, reviewed, and REJECTED
     const run1 = await runEditorialAutomation({
       enabled: true,
-      dryRun: true,
+      dryRun: false,
       maxOpportunities: 1,
       reviewProvider: rejectingReviewProvider,
       contentRepository: repository,
@@ -549,6 +551,8 @@ test('11. Candidate rejection persistence: Rejected candidate is marked in stora
       contentRoot: contentDir,
       gitRepoRoot: repoDir,
       storagePath,
+      allowUnrelatedChanges: true,
+      allowNoImageFallback: true,
     });
 
     assert.equal(run1.status, 'SUCCESS');
@@ -559,7 +563,7 @@ test('11. Candidate rejection persistence: Rejected candidate is marked in stora
     const passReviewProvider = new FixtureReviewProvider({ outcome: 'PASS' });
     const run2 = await runEditorialAutomation({
       enabled: true,
-      dryRun: true,
+      dryRun: false,
       maxOpportunities: 1,
       reviewProvider: passReviewProvider,
       contentRepository: repository,
@@ -567,6 +571,8 @@ test('11. Candidate rejection persistence: Rejected candidate is marked in stora
       contentRoot: contentDir,
       gitRepoRoot: repoDir,
       storagePath,
+      allowUnrelatedChanges: true,
+      allowNoImageFallback: true,
     });
 
     assert.equal(run2.status, 'SUCCESS');

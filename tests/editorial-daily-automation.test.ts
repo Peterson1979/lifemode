@@ -169,7 +169,7 @@ async function createTempWorkspace(): Promise<{
   contentDir: string;
   cleanup: () => Promise<void>;
 }> {
-  const repoDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lifemode-daily-test-'));
+  const repoDir = await fs.mkdtemp(path.join(process.cwd(), '.lifemode-daily-test-'));
   const contentDir = path.join(repoDir, 'src', 'content');
 
   await fs.mkdir(path.join(contentDir, 'tech-ai'), { recursive: true });

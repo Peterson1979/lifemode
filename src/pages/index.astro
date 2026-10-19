@@ -1,261 +1,232 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import TopicHubCard from '../components/TopicHubCard.astro';
-import ArticleCard from '../components/ArticleCard.astro';
-import ToolCard from '../components/ToolCard.astro';
-import ChecklistCard from '../components/ChecklistCard.astro';
-import DailyIdeasPicks from '../components/DailyIdeasPicks.astro';
-import TrustBanner from '../components/TrustBanner.astro';
-import TopicDataSection from '../components/topic-data/TopicDataSection.astro';
 import { getCollection } from 'astro:content';
-import { SITE_CONFIG, PILLARS } from '../config/site';
-import { getCuratedPicks } from '../lib/commerce/curated-picks';
-import { generateWebsiteSchema } from '../utils/seo';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { CATEGORIES } from '../utils/categories';
 
-// Fetch collections with empty-state resilience
-const [allTools, allGuides, allChecklists, allHealth, allWealth, allHome, allLife, allTech] = await Promise.all([
-  getCollection('tools').catch(() => []),
-  getCollection('guides').catch(() => []),
-  getCollection('checklists').catch(() => []),
-  getCollection('health').catch(() => []),
-  getCollection('wealth').catch(() => []),
-  getCollection('home').catch(() => []),
-  getCollection('life').catch(() => []),
-  getCollection('tech-ai').catch(() => []),
+const categories = Object.values(CATEGORIES);
+const [allGuides, allTools, allChecklists] = await Promise.all([
+  getCollection('guides'),
+  getCollection('tools'),
+  getCollection('checklists'),
 ]);
 
-// 6 Primary Topic Pillars
-const primaryPillars = [
-  { ...PILLARS['health'], count: allHealth.length },
-  { ...PILLARS['wealth'], count: allWealth.length },
-  { ...PILLARS['home'], count: allHome.length + allGuides.length },
-  { ...PILLARS['life'], count: allLife.length },
-  { ...PILLARS['tech-ai'], count: allTech.length },
-  { ...PILLARS['tools'], count: allTools.length },
-];
-
-// Sort guides by date
-const activeGuides = allGuides.sort(
-  (a: any, b: any) =>
-    new Date(b.data.publishedDate || b.data.pubDate || 0).getTime() -
-    new Date(a.data.publishedDate || a.data.pubDate || 0).getTime()
-);
-
-const featuredGuides = activeGuides.slice(0, 6);
+// Featured Guides
+const featuredGuides = allGuides.slice(0, 6);
+// Featured Tools
 const featuredTools = allTools.slice(0, 4);
+// Featured Checklists
 const featuredChecklists = allChecklists.slice(0, 3);
-
-// Curated Contextual Product Picks
-const homeCommercePicks = getCuratedPicks(['madamelique-turkish-towels', 'lagraty-chunky-knit-blanket', 'mulwr-travertine-bathroom-tray', 'nintiue-dimmable-arc-floor-lamp']);
-
-// Life Hacks Video Trio for Homepage
-const videoHacks = [
-  {
-    title: 'The Leidenfrost Test: Stainless Steel Non-Stick Secret',
-    category: 'Kitchen Hack',
-    time: '2:15',
-    thumbnail: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&q=80&auto=format&fit=crop',
-  },
-  {
-    title: 'How to Clean & Oil Cast Iron in Under 3 Minutes',
-    category: 'Cookware Care',
-    time: '3:20',
-    thumbnail: 'https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?w=600&q=80&auto=format&fit=crop',
-  },
-  {
-    title: 'Keep Fresh Herbs Crisp & Fresh for 3+ Weeks',
-    category: 'Food Preservation',
-    time: '1:45',
-    thumbnail: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80&auto=format&fit=crop',
-  },
-];
-
-const websiteSchema = generateWebsiteSchema();
 ---
 
 <BaseLayout
   title="LifeMode — Practical Guides, Tools & Ideas for Modern Life"
-  description={SITE_CONFIG.description}
-  jsonLd={websiteSchema}
+  description="Practical answers for everyday decisions, problems, and tasks. High-quality reference guides, evidence-based care instructions, and interactive tools."
+  canonicalUrl="https://lifemode.life/"
 >
-  <!-- 1. SIMPLIFIED EDITORIAL HERO WITH SEARCH CENTERPIECE -->
+  <!-- Hero Section -->
   <section class="hero-section">
     <div class="container hero-inner">
+      <div class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+        <span>Authoritative Everyday Reference & Decision Library</span>
+      </div>
+
       <h1 class="hero-heading">
-        Practical guides, tools, and ideas for modern life.
+        Everyday answers.<br />
+        <span class="hero-highlight">Practical decisions.</span><br />
+        Better ways to do things.
       </h1>
 
       <p class="hero-subheading">
-        Clear answers, tested routines, and decision frameworks for health, home, work, and everyday living.
+        Clear, fact-checked reference guidance, evidence-based care protocols, and interactive decision tools for everyday household life.
       </p>
 
       <!-- Centerpiece Search Trigger Box -->
       <div class="hero-search-box">
-        <button class="hero-search-btn" id="hero-open-search" aria-label="Open search modal">
-          <svg class="search-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+        <button class="hero-search-btn" id="hero-open-search">
+          <svg class="search-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
             <circle cx="11" cy="11" r="8"/>
             <path d="m21 21-4.3-4.3"/>
           </svg>
-          <span class="search-prompt">Search guides, tools, routines, or questions...</span>
-          <kbd class="hero-kbd">⌘K</kbd>
+          <span class="search-prompt">What are you trying to figure out? (e.g. coffee stain, cast iron, store rice...)</span>
+          <kbd class="hero-kbd">/</kbd>
         </button>
 
         <div class="hero-quick-chips">
-          <span class="chips-title">Popular:</span>
-          <button class="hero-chip" data-search="cast iron">Cast-iron care</button>
-          <button class="hero-chip" data-search="coffee stain">Coffee stains</button>
-          <button class="hero-chip" data-search="sleep">Sleep routines</button>
-          <button class="hero-chip" data-search="side hustle">Side hustles</button>
-          <button class="hero-chip" data-search="ai">AI workflows</button>
-          <button class="hero-chip" data-search="maintenance">Home maintenance</button>
+          <span class="chips-title">Frequent queries:</span>
+          <button class="hero-chip" data-search="cast iron">🍳 Cast-Iron Pan Care</button>
+          <button class="hero-chip" data-search="coffee stain">✨ Coffee Stain Removal</button>
+          <button class="hero-chip" data-search="rice">🍚 Rice Storage Safety</button>
+          <button class="hero-chip" data-search="winter">🏡 Winter Home Prep</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 2. SIX LIFEMODE PRIMARY TOPIC HUBS -->
-  <section class="section topic-clusters-section">
+  <!-- 5 Core Knowledge Clusters -->
+  <section class="clusters-section">
     <div class="container">
       <div class="section-header">
-        <div>
-          <span class="section-kicker">Topics</span>
-          <h2 class="section-title">Explore by Topic</h2>
-          <p class="section-desc">Practical guides, tools, and ideas organized across our core areas.</p>
-        </div>
+        <span class="section-badge">Knowledge Taxonomy</span>
+        <h2 class="section-title">Browse by Knowledge Cluster</h2>
+        <p class="section-desc">Explore structured reference guides, decision tools, and preventative checklists across 5 core household domains.</p>
       </div>
 
-      <div class="topics-grid">
-        {primaryPillars.map((pillar) => (
-          <TopicHubCard pillar={pillar} count={pillar.count} />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. FEATURED GUIDES (Rendered when guides are present) -->
-  {featuredGuides.length > 0 && (
-    <section class="section section-alt guides-showcase-section">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <span class="section-kicker">Guides</span>
-            <h2 class="section-title">Featured Guides</h2>
-            <p class="section-desc">Step-by-step instructions, care protocols, and decision frameworks.</p>
-          </div>
-          <a href="/guides/" class="section-link">All guides ({allGuides.length}) &rarr;</a>
-        </div>
-
-        <div class="guides-grid">
-          {featuredGuides.map((guide) => {
-            const slug = guide.id.replace(/\.[^/.]+$/, '');
-            const guideUrl = `/${guide.data.category}/${slug}/`;
-            return (
-              <ArticleCard
-                pillar="home"
-                url={guideUrl}
-                title={guide.data.title}
-                description={guide.data.quickSummary || guide.data.seoDescription}
-                pubDate={guide.data.publishedDate}
-                author={guide.data.author?.name || 'LifeMode Editorial'}
-                readingTime={guide.data.readTime || '4 min read'}
-                contentType={guide.data.contentType}
-                variant="card"
-              />
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- 4. INTERACTIVE TOOLS -->
-  <section class="section tools-showcase-section">
-    <div class="container">
-      <div class="section-header">
-        <div>
-          <span class="section-kicker">Tools</span>
-          <h2 class="section-title">Interactive Tools</h2>
-          <p class="section-desc">Calculators, solvers, and planners for everyday tasks.</p>
-        </div>
-        <a href="/tools/" class="section-link">View all tools &rarr;</a>
-      </div>
-
-      <div class="tools-grid-quartet">
-        {featuredTools.map((tool) => (
-          <ToolCard tool={tool} />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. CHECKLISTS & CHEAT SHEETS -->
-  {featuredChecklists.length > 0 && (
-    <section class="section section-alt checklists-showcase-section">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <span class="section-kicker">Checklists</span>
-            <h2 class="section-title">Checklists &amp; Cheat Sheets</h2>
-            <p class="section-desc">Printable and interactive routines for home and daily life.</p>
-          </div>
-          <a href="/checklists/" class="section-link">All checklists &rarr;</a>
-        </div>
-
-        <div class="checklists-grid">
-          {featuredChecklists.map((chk) => (
-            <ChecklistCard checklist={chk} />
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- 6. VIDEO LIFE HACKS -->
-  <section class="section life-hacks-spotlight-section">
-    <div class="container">
-      <div class="section-header">
-        <div>
-          <span class="section-kicker">Life Hacks</span>
-          <h2 class="section-title">Video Life Hacks</h2>
-          <p class="section-desc">Quick, visual demonstrations of clever everyday shortcuts.</p>
-        </div>
-        <a href="/life-hacks" class="section-link">All video hacks &rarr;</a>
-      </div>
-
-      <div class="video-hacks-grid">
-        {videoHacks.map((vh) => (
-          <a href="/life-hacks" class="video-preview-card">
-            <div class="video-thumb-wrap">
-              <img src={vh.thumbnail} alt={vh.title} class="video-thumb-img" loading="lazy" />
-              <div class="video-play-overlay">
-                <span class="video-play-btn">▶</span>
+      <div class="clusters-grid">
+        {categories.map((cat) => {
+          const catGuidesCount = allGuides.filter(g => g.data.category === cat.id).length;
+          return (
+            <a href={`/${cat.slug}/`} class="cluster-hub-card" style={`--cat-color: ${cat.badgeColor};`}>
+              <div class="cluster-card-top">
+                <span class="cluster-icon">{cat.icon}</span>
+                <span class="cluster-count">{catGuidesCount} {catGuidesCount === 1 ? 'Guide' : 'Guides'}</span>
               </div>
-              <span class="video-duration-badge">{vh.time}</span>
-            </div>
-            <div class="video-card-body">
-              <span class="video-category-tag">{vh.category}</span>
-              <h3 class="video-card-title">{vh.title}</h3>
-            </div>
-          </a>
-        ))}
+              <h3 class="cluster-name">{cat.title}</h3>
+              <p class="cluster-info">{cat.description}</p>
+              <div class="cluster-topics-list">
+                {cat.popularTopics.slice(0, 3).map((t) => (
+                  <span class="cluster-mini-tag">• {t}</span>
+                ))}
+              </div>
+              <span class="cluster-card-link">Explore {cat.shortTitle} →</span>
+            </a>
+          );
+        })}
       </div>
     </div>
   </section>
 
-  <!-- 7. CONTEXTUAL DAILY IDEAS STORE LAYER -->
-  {homeCommercePicks.length > 0 && (
-    <section class="section section-alt daily-ideas-home-section" id="daily-ideas">
-      <div class="container">
-        <DailyIdeasPicks products={homeCommercePicks} />
+  <!-- Interactive Utility Tools Showcase -->
+  <section class="tools-showcase-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge tools-badge">Interactive Decision Support</span>
+        <h2 class="section-title">Browser-Based Household Decision Tools</h2>
+        <p class="section-desc">No accounts, no paywalls, no clutter. Instant calculations and targeted diagnosis protocols right in your browser.</p>
       </div>
-    </section>
-  )}
 
-  <!-- 8. EDITORIAL STANDARDS & TRUST BANNER -->
-  <TrustBanner />
+      <div class="tools-showcase-grid">
+        {featuredTools.map((tool) => {
+          const cat = CATEGORIES[tool.data.category];
+          const slug = tool.id.replace(/\.[^/.]+$/, '');
+          return (
+            <div class="tool-showcase-card">
+              <div class="tool-showcase-meta">
+                <span class="badge tool-badge-pill">🛠️ Interactive Utility</span>
+                {cat && <span class="tool-cat-badge">{cat.icon} {cat.title}</span>}
+              </div>
+              <h3 class="tool-showcase-title">
+                <a href={`/tools/${slug}/`}>{tool.data.title}</a>
+              </h3>
+              <p class="tool-showcase-summary">{tool.data.summary}</p>
+              <a href={`/tools/${slug}/`} class="btn btn-primary tool-launch-btn">Use Tool →</a>
+            </div>
+          );
+        })}
+      </div>
 
-  <!-- 10. LIVING INTELLIGENCE PULSE -->
-  <TopicDataSection pillar="home" pillarName="Living Intelligence" />
+      <div class="section-footer-link">
+        <a href="/tools/" class="btn btn-secondary">View All Interactive Decision Tools →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Practical Reference Guides -->
+  <section class="guides-showcase-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge guides-badge">Practical Reference Library</span>
+        <h2 class="section-title">Popular Step-by-Step Reference Guides</h2>
+        <p class="section-desc">Curated practical instructions with direct answers, common mistake warnings, and verified chemistry protocols.</p>
+      </div>
+
+      <div class="guide-grid">
+        {featuredGuides.map((guide) => {
+          const cat = CATEGORIES[guide.data.category];
+          const slug = guide.id.replace(/\.[^/.]+$/, '');
+          return (
+            <a href={`/${guide.data.category}/${slug}/`} class="guide-card">
+              <div class="card-meta-top">
+                {cat && (
+                  <span class="badge" style={`color: ${cat.badgeColor}; background-color: ${cat.lightBg};`}>
+                    {cat.icon} {cat.title}
+                  </span>
+                )}
+                <span class="type-pill">{guide.data.contentType === 'decision' ? '⚖️ Decision' : '📖 Reference'}</span>
+              </div>
+              <h3>{guide.data.title}</h3>
+              <p>{guide.data.quickSummary}</p>
+              <div class="guide-card-footer">
+                <span>⏱️ {guide.data.readTime || '4 min read'}</span>
+                <span>Verified: {guide.data.updatedDate}</span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+
+      <div class="section-footer-link">
+        <a href="/guides/" class="btn btn-secondary">Browse Complete Reference Library ({allGuides.length} Guides) →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Checklists & Printables Spotlight -->
+  <section class="checklists-showcase-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge check-badge">Practical Printables</span>
+        <h2 class="section-title">Household Checklists & Cheat Sheets</h2>
+        <p class="section-desc">Interactive browser tracking and clean, printer-optimized layouts for routine household upkeep.</p>
+      </div>
+
+      <div class="checklists-showcase-grid">
+        {featuredChecklists.map((chk) => {
+          const cat = CATEGORIES[chk.data.category];
+          const slug = chk.id.replace(/\.[^/.]+$/, '');
+          const count = chk.data.sections.reduce((acc, s) => acc + s.items.length, 0);
+
+          return (
+            <div class="chk-showcase-card">
+              <div class="chk-meta">
+                <span class="badge chk-pill">📋 {count} Checkable Tasks</span>
+                {cat && <span class="chk-cat">{cat.icon} {cat.title}</span>}
+              </div>
+              <h3 class="chk-title">
+                <a href={`/checklists/${slug}/`}>{chk.data.title}</a>
+              </h3>
+              <p class="chk-summary">{chk.data.summary}</p>
+              <a href={`/checklists/${slug}/`} class="btn btn-secondary chk-btn">Open & Print Checklist →</a>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Standards & Trust Banner -->
+  <section class="trust-banner-section">
+    <div class="container trust-banner-inner">
+      <div class="trust-banner-col">
+        <div class="trust-shield-icon">🛡️</div>
+        <h3>Evidence-Based & Fact-Checked</h3>
+        <p>Every guide references agricultural extensions, manufacturer guidelines, and recognized testing standards.</p>
+      </div>
+      <div class="trust-banner-col">
+        <div class="trust-shield-icon">🚫</div>
+        <h3>Zero AI Search Farm Content</h3>
+        <p>No generic summaries, fake expertise, or filler. Human-reviewed clarity focused on practical everyday execution.</p>
+      </div>
+      <div class="trust-banner-col">
+        <div class="trust-shield-icon">⚡</div>
+        <h3>Fast, Static & Privacy-First</h3>
+        <p>Zero tracking cookies required. Lightweight, instant page loads with Core Web Vitals optimization.</p>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <script>
@@ -284,39 +255,57 @@ const websiteSchema = generateWebsiteSchema();
 <style>
   /* Hero Section */
   .hero-section {
-    background: linear-gradient(180deg, #ffffff 0%, var(--color-bg) 100%);
-    border-bottom: 1px solid var(--color-border);
+    background: linear-gradient(180deg, #ffffff 0%, var(--slate-50) 100%);
+    border-bottom: 1px solid var(--slate-200);
     padding: 4.5rem 0 3.5rem 0;
   }
 
   .hero-inner {
     text-align: center;
     max-width: 860px;
-    margin-inline: auto;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--slate-700);
+    background-color: #ffffff;
+    border: 1px solid var(--slate-200);
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-xs);
   }
 
   .hero-heading {
-    font-size: clamp(2.2rem, 4.5vw, 3.25rem);
+    font-size: clamp(2.4rem, 5.5vw, 3.6rem);
     font-weight: 800;
-    line-height: 1.18;
+    line-height: 1.15;
     letter-spacing: -0.03em;
-    color: var(--color-text-primary);
-    margin-bottom: 1.15rem;
+    color: var(--slate-950);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-highlight {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-emerald) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .hero-subheading {
-    font-size: 1.125rem;
-    color: var(--color-text-secondary);
+    font-size: 1.2rem;
+    color: var(--slate-600);
     line-height: 1.6;
-    max-width: 640px;
-    margin-inline: auto;
     margin-bottom: 2.25rem;
   }
 
-  /* Centerpiece Search Trigger */
+  /* Centerpiece Search */
   .hero-search-box {
-    max-width: 680px;
-    margin-inline: auto;
+    max-width: 640px;
+    margin: 0 auto;
   }
 
   .hero-search-btn {
@@ -324,214 +313,417 @@ const websiteSchema = generateWebsiteSchema();
     display: flex;
     align-items: center;
     gap: 0.85rem;
-    padding: 0.95rem 1.25rem;
-    background-color: var(--color-surface);
-    border: 2px solid var(--color-border);
+    background-color: #ffffff;
+    border: 2px solid var(--slate-300);
     border-radius: var(--radius-full);
-    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+    padding: 0.85rem 1.35rem;
     cursor: pointer;
-    transition: all var(--transition-fast);
-    text-align: left;
+    box-shadow: var(--shadow-md), 0 0 0 4px rgba(37, 99, 235, 0.05);
+    transition: all var(--transition-normal);
   }
 
   .hero-search-btn:hover {
-    border-color: var(--color-primary-accent);
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.15);
+    border-color: var(--accent-blue);
+    box-shadow: var(--shadow-lg), 0 0 0 6px rgba(37, 99, 235, 0.1);
     transform: translateY(-1px);
   }
 
   .search-svg {
-    color: var(--color-text-muted);
+    color: var(--accent-blue);
     flex-shrink: 0;
   }
 
   .search-prompt {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: var(--slate-500);
+    text-align: left;
     flex-grow: 1;
-    font-size: 0.95rem;
-    color: var(--color-text-muted);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   .hero-kbd {
-    background-color: var(--color-surface-subtle);
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
-    padding: 0.2rem 0.55rem;
-    font-size: 0.75rem;
+    background-color: var(--slate-100);
+    border: 1px solid var(--slate-300);
+    border-radius: var(--radius-sm);
+    padding: 0.15rem 0.5rem;
     font-family: var(--font-mono);
-    color: var(--color-text-muted);
+    font-size: 0.85rem;
     font-weight: 700;
+    color: var(--slate-600);
   }
 
   .hero-quick-chips {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 0.5rem;
-    margin-top: 1.25rem;
+    margin-top: 1rem;
   }
 
   .chips-title {
-    font-size: 0.775rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    color: var(--color-text-muted);
+    color: var(--slate-500);
   }
 
   .hero-chip {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
+    background-color: #ffffff;
+    border: 1px solid var(--slate-200);
     border-radius: var(--radius-full);
     padding: 0.25rem 0.65rem;
-    font-size: 0.775rem;
-    font-weight: 600;
-    color: var(--color-text-secondary);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--slate-700);
     cursor: pointer;
     transition: all var(--transition-fast);
   }
 
   .hero-chip:hover {
-    border-color: var(--color-primary-accent);
-    color: var(--color-primary-accent);
-    transform: translateY(-1px);
+    background-color: var(--slate-100);
+    border-color: var(--slate-300);
+    color: var(--slate-900);
   }
 
-  /* Grid Layouts */
-  .topics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: var(--space-6);
+  /* Section Headings */
+  .section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 2.5rem auto;
   }
 
-  .guides-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: var(--space-6);
-  }
-
-  .tools-grid-quartet {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: var(--space-6);
-  }
-
-  .checklists-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-6);
-  }
-
-  /* Video Hacks Spotlight */
-  .video-hacks-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space-6);
-  }
-
-  .video-preview-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    text-decoration: none;
-    box-shadow: var(--shadow-sm);
-    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
-    display: flex;
-    flex-direction: column;
-  }
-
-  .video-preview-card:hover {
-    transform: translateY(-2px);
-    border-color: var(--color-border-hover);
-    box-shadow: var(--shadow-card);
-    text-decoration: none;
-  }
-
-  .video-thumb-wrap {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background-color: #0f172a;
-    overflow: hidden;
-  }
-
-  .video-thumb-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.88;
-    transition: transform 0.4s ease;
-  }
-
-  .video-preview-card:hover .video-thumb-img {
-    transform: scale(1.03);
-    opacity: 1;
-  }
-
-  .video-play-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 3rem;
-    height: 3rem;
-    background-color: rgba(15, 23, 42, 0.85);
-    border: 2px solid rgba(255, 255, 255, 0.9);
-    border-radius: var(--radius-full);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform var(--transition-fast), background-color var(--transition-fast);
-  }
-
-  .video-play-btn {
-    color: #ffffff;
-    font-size: 1rem;
-    margin-left: 2px;
-  }
-
-  .video-preview-card:hover .video-play-overlay {
-    transform: translate(-50%, -50%) scale(1.1);
-    background-color: #e11d48;
-    border-color: #e11d48;
-  }
-
-  .video-duration-badge {
-    position: absolute;
-    bottom: 0.6rem;
-    right: 0.6rem;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #ffffff;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 0.15rem 0.45rem;
-    border-radius: 4px;
-  }
-
-  .video-card-body {
-    padding: var(--space-4) var(--space-5);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-  }
-
-  .video-category-tag {
-    font-size: 0.725rem;
+  .section-badge {
+    display: inline-block;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: #e11d48;
+    letter-spacing: 0.05em;
+    color: var(--slate-600);
+    background-color: var(--slate-100);
+    border: 1px solid var(--slate-200);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.5rem;
   }
 
-  .video-card-title {
-    font-family: var(--font-sans);
-    font-size: 1rem;
+  .tools-badge { color: var(--accent-blue); background-color: var(--accent-blue-light); border-color: var(--accent-blue-border); }
+  .guides-badge { color: var(--slate-700); background-color: var(--slate-100); border-color: var(--slate-200); }
+  .check-badge { color: var(--accent-emerald); background-color: var(--accent-emerald-light); border-color: var(--accent-emerald-border); }
+
+  .section-title {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--slate-950);
+  }
+
+  .section-desc {
+    font-size: 1.05rem;
+    color: var(--slate-600);
+    margin: 0;
+  }
+
+  /* Clusters Section */
+  .clusters-section {
+    padding: 4.5rem 0;
+    background-color: #ffffff;
+  }
+
+  .clusters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .cluster-hub-card {
+    background-color: var(--slate-50);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-lg);
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cluster-hub-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: var(--cat-color, var(--slate-900));
+  }
+
+  .cluster-hub-card:hover {
+    background-color: #ffffff;
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--slate-300);
+    text-decoration: none;
+  }
+
+  .cluster-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .cluster-icon {
+    font-size: 2rem;
+  }
+
+  .cluster-count {
+    font-size: 0.75rem;
     font-weight: 700;
-    color: var(--color-text-primary);
-    line-height: 1.35;
+    color: var(--slate-500);
+    background-color: #ffffff;
+    border: 1px solid var(--slate-200);
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--radius-full);
+  }
+
+  .cluster-name {
+    font-size: 1.25rem;
+    color: var(--slate-900);
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+  }
+
+  .cluster-info {
+    font-size: 0.88rem;
+    color: var(--slate-600);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+  }
+
+  .cluster-topics-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+    border-top: 1px solid var(--slate-200);
+    padding-top: 0.75rem;
+  }
+
+  .cluster-mini-tag {
+    font-size: 0.78rem;
+    color: var(--slate-500);
+  }
+
+  .cluster-card-link {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--slate-900);
+    margin-top: auto;
+  }
+
+  /* Tools Showcase */
+  .tools-showcase-section {
+    padding: 4.5rem 0;
+    background-color: var(--slate-50);
+    border-top: 1px solid var(--slate-200);
+    border-bottom: 1px solid var(--slate-200);
+  }
+
+  .tools-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .tool-showcase-card {
+    background-color: #ffffff;
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-lg);
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-xs);
+    transition: all var(--transition-normal);
+  }
+
+  .tool-showcase-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .tool-showcase-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .tool-badge-pill {
+    background-color: var(--accent-blue-light);
+    color: var(--accent-blue);
+  }
+
+  .tool-cat-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--slate-500);
+  }
+
+  .tool-showcase-title {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+  }
+
+  .tool-showcase-title a {
+    color: var(--slate-900);
+    text-decoration: none;
+  }
+
+  .tool-showcase-title a:hover {
+    color: var(--accent-blue);
+    text-decoration: underline;
+  }
+
+  .tool-showcase-summary {
+    font-size: 0.9rem;
+    color: var(--slate-600);
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+  }
+
+  .tool-launch-btn {
+    width: 100%;
+  }
+
+  .section-footer-link {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+  /* Guides Showcase */
+  .guides-showcase-section {
+    padding: 4.5rem 0;
+    background-color: #ffffff;
+  }
+
+  .type-pill {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--slate-500);
+  }
+
+  /* Checklists Showcase */
+  .checklists-showcase-section {
+    padding: 4.5rem 0;
+    background-color: var(--slate-50);
+    border-top: 1px solid var(--slate-200);
+    border-bottom: 1px solid var(--slate-200);
+  }
+
+  .checklists-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .chk-showcase-card {
+    background-color: #ffffff;
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-lg);
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-xs);
+  }
+
+  .chk-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .chk-pill {
+    background-color: var(--accent-emerald-light);
+    color: var(--accent-emerald);
+  }
+
+  .chk-cat {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--slate-500);
+  }
+
+  .chk-title {
+    font-size: 1.25rem;
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+  }
+
+  .chk-title a {
+    color: var(--slate-900);
+    text-decoration: none;
+  }
+
+  .chk-title a:hover {
+    color: var(--accent-blue);
+    text-decoration: underline;
+  }
+
+  .chk-summary {
+    font-size: 0.92rem;
+    color: var(--slate-600);
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+  }
+
+  .chk-btn {
+    width: 100%;
+  }
+
+  /* Trust Banner */
+  .trust-banner-section {
+    padding: 3.5rem 0;
+    background-color: #ffffff;
+  }
+
+  .trust-banner-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+
+  .trust-banner-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .trust-shield-icon {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .trust-banner-col h3 {
+    font-size: 1.15rem;
+    color: var(--slate-900);
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+  }
+
+  .trust-banner-col p {
+    font-size: 0.92rem;
+    color: var(--slate-600);
+    line-height: 1.5;
     margin: 0;
   }
 </style>

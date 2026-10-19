@@ -1,68 +1,122 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCanonicalUrl } from '../utils/seo';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
-const canonicalUrl = getCanonicalUrl('/editorial-standards');
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Editorial Standards', url: '/editorial-standards/' },
+];
 ---
 
 <BaseLayout
-  title="Editorial Standards & Verification Policy — LifeMode"
-  description="LifeMode editorial guidelines, verification protocols, sourcing standards, factual review process, and affiliate transparency."
-  canonicalUrl={canonicalUrl}
+  title="Editorial Standards & Fact-Checking Policy — LifeMode"
+  description="LifeMode's rigorous editorial guidelines, research methodology, source verification, and transparent review processes."
+  canonicalUrl="https://lifemode.life/editorial-standards/"
 >
-  <div class="page-shell container-prose" style="padding-top: var(--space-8); padding-bottom: var(--space-20);">
-    <header style="margin-bottom: var(--space-8);">
-      <span class="badge" style="background-color: rgba(37, 99, 235, 0.1); color: var(--color-primary-accent); border: 1px solid rgba(37, 99, 235, 0.2); font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: var(--radius-full); margin-bottom: var(--space-3); display: inline-block;">
-        Journalism &amp; Ethics
-      </span>
-      <h1 class="page-title" style="font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; color: var(--color-text-primary); margin-bottom: var(--space-3);">
-        Editorial Standards &amp; Fact-Checking Policy
-      </h1>
-      <p class="page-lead" style="font-size: 1.15rem; color: var(--color-text-secondary); line-height: 1.6;">
-        How LifeMode researches, verifies, structures, and maintains practical guidance, recipes, and decision tools.
+  <div class="article-container trust-page-wrapper">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <header class="trust-page-header">
+      <span class="badge trust-badge">Transparency & Trust</span>
+      <h1 class="trust-title">Editorial Standards & Fact-Checking</h1>
+      <p class="trust-subtitle">
+        How LifeMode researches, verifies, structures, and maintains practical household guidance.
       </p>
     </header>
 
-    <div class="prose">
-      <h2>1. Purpose &amp; Editorial Mission</h2>
+    <div class="trust-content">
+      <h2>1. Our Editorial Mission</h2>
       <p>
-        <strong>LifeMode</strong> exists to provide real, actionable, and scientifically sound solutions to daily household challenges and culinary pursuits. We believe every piece of published content must be genuinely useful to a human reader—even if search engines disappeared tomorrow.
+        LifeMode exists to provide real, actionable, and scientifically sound solutions to daily household challenges. We believe every piece of published content must be genuinely useful to a human reader—even if search engines disappeared tomorrow.
       </p>
 
-      <h2>2. Core Sourcing &amp; Research Protocol</h2>
+      <h2>2. Source Hierarchy & Fact Verification</h2>
       <p>
-        We do not rely on unverified blog posts or recycled internet folklore. Every guide and recipe is anchored in verified primary references:
+        When making factual claims regarding food safety, temperature thresholds, chemical stain interactions, or appliance maintenance, our editorial team cross-references against authoritative primary and secondary institutions:
       </p>
       <ul>
-        <li><strong>University Agricultural Extension Services:</strong> USDA, FDA, state cooperative extension offices, and food safety research centers.</li>
-        <li><strong>Material Science &amp; Textile Standards:</strong> ASTM international testing protocols, textile care standards, and manufacturer maintenance specifications.</li>
-        <li><strong>Culinary Foundations &amp; Kitchen Science:</strong> Food chemistry, fermentation science, and professional culinary technique.</li>
-        <li><strong>Peer-Reviewed Research:</strong> Environmental health, building science, and indoor air quality standards.</li>
+        <li><strong>Food & Storage Safety:</strong> USDA Food Safety and Inspection Service (FSIS), FDA Food Code, and University Agricultural Extension Services (e.g. UC Davis, Penn State Extension).</li>
+        <li><strong>Household Chemistry & Laundry:</strong> American Cleaning Institute (ACI), Textile Institute standards, and verified material safety data sheets (MSDS).</li>
+        <li><strong>Home Upkeep & Preventative Care:</strong> National Fire Protection Association (NFPA), ENERGY STAR technical documentation, and certified manufacturer operational manuals.</li>
       </ul>
 
-      <h2>3. The Fact-Checking Process</h2>
+      <h2>3. Internal AI Usage & Quality Safeguards</h2>
       <p>
-        Before any guide is published:
+        We believe in full transparency regarding technology. AI tools may assist our research team in initial topic clustering, outline structuring, grammar QA, and formatting. However:
       </p>
-      <ol>
-        <li><strong>Technical Verification:</strong> Step-by-step procedures are verified against chemical and material safety rules (e.g., pH compatibility for surfaces, thermal shock prevention for cookware).</li>
-        <li><strong>Risk &amp; Hazard Screening:</strong> Explicit safety warnings and common mistakes are highlighted to protect user property and personal safety.</li>
-        <li><strong>Review &amp; Maintenance:</strong> Content is periodically audited to reflect newer safety standards and improved methodologies.</li>
-      </ol>
+      <div class="callout-box callout-tip">
+        <strong>Our Technology Principle:</strong> No raw, unverified AI outputs are ever published. Every guide, metric, step, and temperature threshold is manually reviewed, fact-checked against authoritative sources, and edited for human clarity.
+      </div>
+      <p>We strictly prohibit automated content farming, repetitive AI filler language, and unverified statistical claims.</p>
 
-      <h2>4. Editorial Independence &amp; Commercial Transparency</h2>
+      <h2>4. Regular Audits & Update Cycle</h2>
       <p>
-        LifeMode maintains strict editorial independence. If affiliate links or sponsor relationships are present, they are clearly disclosed. Recommendations are formulated entirely on functional merit, durability, safety, and practical efficacy.
+        Practical standards and manufacturer guidelines evolve. We timestamp all articles with both their initial publication date and their <strong>"Last Updated & Verified"</strong> date. Our team routinely audits existing guides to ensure recommendations remain accurate and compliant with modern home standards.
       </p>
 
-      <h2>5. Corrections &amp; Reader Inquiries</h2>
+      <h2>5. Corrections & Feedback Policy</h2>
       <p>
-        If you spot a factual error, outdated specification, or safety concern in any of our guides or tools, please notify our editorial desk immediately:
+        If you spot an error, an outdated recommendation, or have specialized insight on a household routine, we welcome corrections. Please contact our editorial desk via <a href="/contact/">our Contact Page</a> with the page URL and source reference. Verified corrections are promptly implemented.
       </p>
+
+      <h2>6. Independence & Commercial Relationships</h2>
       <p>
-        <strong>Editorial Desk:</strong> <a href="mailto:editorial@lifemode.life">editorial@lifemode.life</a><br />
-        <strong>General Inquiries:</strong> <a href="mailto:contact@lifemode.life">contact@lifemode.life</a>
+        LifeMode maintains strict editorial independence. If affiliate links or sponsor relationships are introduced in the future, they will be clearly disclosed. Guides and decision recommendations are formulated entirely on functional merit, durability, and practical efficacy.
       </p>
     </div>
   </div>
 </BaseLayout>
+
+<style>
+  .trust-page-wrapper {
+    padding-top: 2rem;
+  }
+
+  .trust-page-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .trust-badge {
+    background-color: var(--accent-emerald-light);
+    color: var(--accent-emerald);
+    border: 1px solid var(--accent-emerald-border);
+    margin-bottom: 0.75rem;
+  }
+
+  .trust-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: var(--slate-950);
+    margin-bottom: 0.75rem;
+  }
+
+  .trust-subtitle {
+    font-size: 1.2rem;
+    color: var(--slate-600);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .trust-content h2 {
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .trust-content p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .trust-content ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .trust-content li {
+    font-size: 1rem;
+    color: var(--slate-700);
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+  }
+</style>

@@ -17,6 +17,17 @@ export interface PillarConfig {
   subtopics?: SubtopicConfig[];
 }
 
+const runtimeEnv = typeof import.meta !== 'undefined' ? (import.meta as any).env : undefined;
+const configuredSiteUrl =
+  runtimeEnv?.PUBLIC_SITE_URL ||
+  ((globalThis as any).process?.env?.PUBLIC_SITE_URL as string | undefined) ||
+  '';
+const localSiteUrlPattern = /^https?:\/\/(?:localhost|127\.0\.0\.1)(?::\d+)?(?:\/|$)/i;
+const resolvedSiteUrl =
+  runtimeEnv?.PROD && localSiteUrlPattern.test(configuredSiteUrl)
+    ? 'https://lifemode.life'
+    : configuredSiteUrl || 'https://lifemode.life';
+
 export const ACTIVE_EDITORIAL_PILLARS = [
   'health',
   'wealth',
@@ -260,10 +271,7 @@ export const SITE_CONFIG = {
   slogan: 'Practical guides, tools, and ideas for modern life',
   title: 'LifeMode — Practical Guides, Tools & Ideas for Everyday Life',
   description: 'A modern lifestyle publication delivering practical guides, decision tools, household routines, and tested advice across Health, Wealth, Home, Life, Tech & AI.',
-  siteUrl:
-    (typeof import.meta !== 'undefined' && (import.meta as any).env?.PUBLIC_SITE_URL) ||
-    ((globalThis as any).process?.env?.PUBLIC_SITE_URL as string) ||
-    'https://lifemode.life',
+  siteUrl: resolvedSiteUrl,
   gaMeasurementId:
     (typeof import.meta !== 'undefined' && (import.meta as any).env?.PUBLIC_GA_MEASUREMENT_ID) ||
     ((globalThis as any).process?.env?.PUBLIC_GA_MEASUREMENT_ID as string) ||
@@ -273,12 +281,12 @@ export const SITE_CONFIG = {
   twitterHandle: '@LifeModeMag',
   author: 'LifeMode Editorial',
   navLinks: [
-    { name: 'Health', href: '/health', slug: 'health' },
-    { name: 'Wealth', href: '/wealth', slug: 'wealth' },
-    { name: 'Home', href: '/home', slug: 'home' },
-    { name: 'Life', href: '/life', slug: 'life' },
-    { name: 'Tech & AI', href: '/tech-ai', slug: 'tech-ai' },
+    { name: 'Food & Kitchen', href: '/food-kitchen', slug: 'food-kitchen' },
+    { name: 'Cleaning', href: '/cleaning-laundry', slug: 'cleaning-laundry' },
+    { name: 'Maintenance', href: '/home-maintenance', slug: 'home-maintenance' },
+    { name: 'Guides', href: '/guides', slug: 'guides' },
     { name: 'Tools', href: '/tools', slug: 'tools' },
+    { name: 'Checklists', href: '/checklists', slug: 'checklists' },
     { name: 'Life Hacks', href: '/life-hacks', slug: 'life-hacks' },
     { name: 'Daily Ideas Store', href: '/daily-ideas', slug: 'daily-ideas' },
   ],

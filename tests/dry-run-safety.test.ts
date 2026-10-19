@@ -30,7 +30,7 @@ async function createTempWorkspace(prefix = 'lifemode-dryrun-safe-'): Promise<{
   topicDir: string;
   cleanup: () => Promise<void>;
 }> {
-  const repoDir = await fs.mkdtemp(path.join(os.tmpdir(), prefix));
+  const repoDir = await fs.mkdtemp(path.join(process.cwd(), `.${prefix}`));
   const contentDir = path.join(repoDir, 'src', 'content');
   const topicDir = path.join(repoDir, 'data', 'topics');
 

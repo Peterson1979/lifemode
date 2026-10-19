@@ -88,14 +88,14 @@ test('3. Pillar & Category Architecture: Kitchen & Food Care and Food & Drink ar
 
   // Life Hacks top-level topic
   assert.strictEqual(PILLARS['life-hacks'].name, 'Life Hacks');
-  // 6 Magazine Core Pillars in Primary Navigation
+  // Restored EverydayGuide categories in primary navigation
   assert.ok(
-    SITE_CONFIG.navLinks.some((l) => l.name === 'Home' && l.href === '/home'),
-    'Navigation must include Home pillar'
+    SITE_CONFIG.navLinks.some((l) => l.name === 'Food & Kitchen' && l.href === '/food-kitchen'),
+    'Navigation must include Food & Kitchen category'
   );
   assert.ok(
-    SITE_CONFIG.navLinks.some((l) => l.name === 'Life' && l.href === '/life'),
-    'Navigation must include Life pillar'
+    SITE_CONFIG.navLinks.some((l) => l.name === 'Cleaning' && l.href === '/cleaning-laundry'),
+    'Navigation must include Cleaning category'
   );
   assert.ok(
     SITE_CONFIG.footerLinks.some((l) => l.name === 'Video Life Hacks' && l.href === '/life-hacks'),

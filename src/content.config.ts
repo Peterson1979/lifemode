@@ -429,30 +429,6 @@ const checklists = defineCollection({
 });
 
 export const collections = {
-  health: defineCollection({
-    loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/health' }),
-    schema: articleSchema,
-  }),
-  wealth: defineCollection({
-    loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/wealth' }),
-    schema: articleSchema,
-  }),
-  home: defineCollection({
-    loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/home' }),
-    schema: articleSchema,
-  }),
-  life: defineCollection({
-    loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/life' }),
-    schema: articleSchema,
-  }),
-  'tech-ai': defineCollection({
-    loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/tech-ai' }),
-    schema: articleSchema,
-  }),
-  'food-drink': defineCollection({
-    loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/food-drink' }),
-    schema: articleSchema,
-  }),
   guides,
   tools,
   checklists,

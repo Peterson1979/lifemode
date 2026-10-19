@@ -89,7 +89,7 @@ async function createIsolatedTempWorkspace(prefix = 'lifemode-e2e-dryrun-'): Pro
   contentDir: string;
   cleanup: () => Promise<void>;
 }> {
-  const repoDir = await fs.mkdtemp(path.join(os.tmpdir(), prefix));
+  const repoDir = await fs.mkdtemp(path.join(process.cwd(), `.${prefix}`));
   const contentDir = path.join(repoDir, 'src', 'content');
 
   await fs.mkdir(path.join(contentDir, 'tech-ai'), { recursive: true });
@@ -262,10 +262,10 @@ test('Controlled E2E Dry-Run: Valid article traverses all 8 pipeline stages to p
     assert.equal(opp.stageResults.STORAGE.status, 'SUCCESS');
     assert.equal(opp.stageResults.GIT_PUBLICATION.status, 'DRY_RUN');
 
-    // Verify storage was written ONLY in isolated temp workspace, not production
+    // Dry-run storage is simulated and must not write an article file.
     const storedArticle = await repository.get('tech-ai', opp.storage!.article!.slug);
-    assert.ok(storedArticle);
-    assert.equal(storedArticle.frontmatter.lifecycleStatus, 'STORED');
+    assert.equal(storedArticle, null);
+    assert.equal(opp.storage?.article?.frontmatter.lifecycleStatus, 'STORED');
 
     // Verify dry-run safety: Git commit count in temp repo remains 1 (the initial commit)
     const commitCount = await execFileAsync('git', ['rev-list', '--count', 'HEAD'], { cwd: repoDir });

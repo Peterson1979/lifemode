@@ -15,8 +15,7 @@ export async function getStaticPaths() {
 const { categoryKey } = Astro.props;
 const category = CATEGORIES[categoryKey];
 
-const [allHomeArticles, allGuides, allTools, allChecklists] = await Promise.all([
-  getCollection('home', (h: any) => !h.data.draft && h.data.subtopic === categoryKey).catch(() => []),
+const [allGuides, allTools, allChecklists] = await Promise.all([
   getCollection('guides', (g: any) => g.data.category === categoryKey).catch(() => []),
   getCollection('tools', (t: any) => t.data.category === categoryKey).catch(() => []),
   getCollection('checklists', (c: any) => c.data.category === categoryKey).catch(() => []),
@@ -96,31 +95,6 @@ const breadcrumbSchema = generateBreadcrumbSchema([
     )}
 
     <!-- Editorial Articles in this Cluster -->
-    {allHomeArticles.length > 0 && (
-      <section class="cat-guides-section" style="margin-bottom: var(--space-8);">
-        <h2 class="section-title">
-          <span>📖</span> In-Depth {category.title} Guides ({allHomeArticles.length})
-        </h2>
-        <div class="guide-grid">
-          {allHomeArticles.map((article: any) => (
-            <a href={`/home/${article.id}/`} class="guide-card">
-              <div class="card-meta-top">
-                <span class="badge" style={`color: ${category.badgeColor}; background-color: ${category.lightBg};`}>
-                  {article.data.format || 'Editorial Guide'}
-                </span>
-              </div>
-              <h3>{article.data.title}</h3>
-              <p>{article.data.description}</p>
-              <div class="guide-card-footer">
-                <span>⏱️ {article.data.readingTime ? `${article.data.readingTime} min read` : '5 min read'}</span>
-                <span>Verified: {article.data.pubDate ? new Date(article.data.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : ''}</span>
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
-    )}
-
     <!-- All Reference & Decision Guides in this Cluster -->
     {allGuides.length > 0 && (
       <section class="cat-guides-section">
@@ -153,7 +127,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
       </section>
     )}
 
-    {allHomeArticles.length === 0 && allGuides.length === 0 && (
+    {allGuides.length === 0 && (
       <section class="cat-guides-section">
         <h2 class="section-title">
           <span>📖</span> Reference &amp; Decision Guides

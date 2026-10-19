@@ -19,7 +19,7 @@ const execFileAsync = promisify(execFile);
 
 // Helper to create an isolated temporary Git repository for testing
 async function createTempGitRepo(): Promise<{ repoDir: string; contentDir: string }> {
-  const repoDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lifemode-git-test-'));
+  const repoDir = await fs.mkdtemp(path.join(process.cwd(), '.lifemode-git-test-'));
   const contentDir = path.join(repoDir, 'src', 'content');
 
   await fs.mkdir(path.join(contentDir, 'tech-ai'), { recursive: true });

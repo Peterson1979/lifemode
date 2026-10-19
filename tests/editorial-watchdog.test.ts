@@ -25,7 +25,7 @@ async function createTempWorkspace(prefix = 'lifemode-watchdog-test-'): Promise<
   storagePath: string;
   cleanup: () => Promise<void>;
 }> {
-  const repoDir = await fs.mkdtemp(path.join(os.tmpdir(), prefix));
+  const repoDir = await fs.mkdtemp(path.join(process.cwd(), `.${prefix}`));
   const contentDir = path.join(repoDir, 'src', 'content');
   const lockPath = path.join(repoDir, '.automation.lock');
   const storagePath = path.join(repoDir, 'candidates.json');

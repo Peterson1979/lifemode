@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { resolve } from 'node:path';
-import { FilesystemContentRepository } from '../src/lib/editorial/storage/repository.ts';
+import { listExistingGuides } from '../src/lib/editorial/guides/service.ts';
 import {
   ALL_SUBTOPIC_DEFINITIONS,
   EDITORIAL_ARTICLE_SUBTOPICS,
@@ -68,26 +68,33 @@ test('2. Subtopic Resolution: Accurately maps topics by explicit subtopic, tag, 
   );
 });
 
-test('3. Real Repository Content Coverage: All 22 subtopics have active, verified editorial content', async () => {
-  const repository = new FilesystemContentRepository({
-    contentRoot: resolve(process.cwd(), 'src', 'content'),
-  });
-  const articles = await repository.list();
+test('3. Restored Guide Collection: every guide file parses and covers each active guide category', async () => {
+  const guidesRoot = resolve(process.cwd(), 'src', 'content', 'guides');
+  const guideEntries = await listExistingGuides(guidesRoot);
+  const guideFiles = (await import('node:fs/promises')).readdir(guidesRoot);
+  const markdownFiles = (await guideFiles).filter((file) => /\.mdx?$/i.test(file));
+  const expectedCategories = [
+    'cleaning-laundry',
+    'everyday-how-to',
+    'food-kitchen',
+    'home-maintenance',
+    'storage-organization',
+  ];
 
-  assert.ok(articles.length >= 22, `Repository should have at least 22 articles, found ${articles.length}`);
+  assert.ok(markdownFiles.length > 0, 'The restored guide collection must contain Markdown files');
+  assert.equal(guideEntries.length, markdownFiles.length, 'Every guide file must parse into a guide entry');
 
-  const coverage = calculateSubtopicCoverage(articles);
-  const report = getSubtopicCoverageReport(coverage, EDITORIAL_ARTICLE_SUBTOPICS);
+  const categories = new Set(guideEntries.map((guide) => guide.frontmatter.category));
+  assert.deepEqual([...categories].sort(), expectedCategories, 'The restored collection must cover every guide category');
 
-  assert.equal(report.totalSubtopics, 22, 'Should audit all 22 defined subtopics');
-  assert.equal(report.coveredSubtopics, 22, 'Every defined subtopic must have at least 1 published article');
-  assert.equal(report.emptySubtopics, 0, 'No defined subtopic should remain empty');
-  assert.equal(report.coveragePercent, 100, 'Coverage should be 100%');
-
-  for (const [pillar, subList] of Object.entries(report.byPillar)) {
-    for (const sub of subList) {
-      assert.ok(sub.count >= 1, `Subtopic ${pillar}/${sub.slug} must have >= 1 article, has ${sub.count}`);
-    }
+  for (const guide of guideEntries) {
+    const { frontmatter } = guide;
+    assert.ok(frontmatter.title?.trim(), `${guide.slug} must have a title`);
+    assert.ok(frontmatter.quickSummary?.trim(), `${guide.slug} must have a quick summary`);
+    assert.ok(frontmatter.publishedDate && !Number.isNaN(Date.parse(frontmatter.publishedDate)), `${guide.slug} must have a valid published date`);
+    assert.ok(frontmatter.updatedDate && !Number.isNaN(Date.parse(frontmatter.updatedDate)), `${guide.slug} must have a valid updated date`);
+    assert.ok(frontmatter.category && expectedCategories.includes(frontmatter.category), `${guide.slug} must have a valid guide category`);
+    assert.ok(guide.content.trim().length > 0, `${guide.slug} must have article content`);
   }
 });
 
