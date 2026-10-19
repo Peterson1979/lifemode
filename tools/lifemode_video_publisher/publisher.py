@@ -14,6 +14,7 @@ import re
 import sys
 import tempfile
 import time
+import unicodedata
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -25,9 +26,100 @@ from pathlib import Path
 
 SUPPORTED_EXTENSIONS = {".mp4", ".mov", ".m4v"}
 TITLE = "Smart Life Hacks for Everyday Living"
-DESCRIPTION = ("Discover clever life hacks, simple DIY ideas, and practical tips to make everyday life easier. "
-               "Save these useful ideas for later! Explore more everyday inspiration: https://lifemode.bio.link/")
+DESCRIPTION = "Discover clever life hacks, simple DIY ideas, and practical tips for everyday living."
 LINK = "https://lifemode.bio.link/"
+FALLBACK_TITLE = "Life Hacks"
+PLATFORM_LIMITS = {
+    "everyday_pinterest": {"title": 100, "caption": 800},
+    "lifemode_pinterest": {"title": 100, "caption": 800},
+    "lifemode_facebook": {"title": 255, "caption": 5000},
+    "lifemode_threads": {"text": 500},
+}
+
+
+@dataclass(frozen=True)
+class PostText:
+    title: str
+    description: str
+    creator_handle: str
+    bio_link: str = LINK
+
+    @property
+    def caption(self):
+        lines = [self.description]
+        if self.creator_handle:
+            lines.append(self.creator_handle)
+        lines.append(self.bio_link)
+        return "\n".join(lines)
+
+    @property
+    def threads_text(self):
+        return f"{self.title}\n\n{self.caption}"
+
+    @property
+    def facebook_text(self):
+        return f"{self.title}\n\n{self.caption}"
+
+
+def _readable_title(value: str) -> str:
+    value = unicodedata.normalize("NFC", value)
+    acronyms = {"AI", "DIY", "FAQ", "R2", "TV"}
+    minor_words = {"a", "an", "and", "as", "at", "but", "by", "for", "in", "of", "on", "or", "the", "to", "via"}
+    words = re.split(r"\s+", value.strip())
+    readable = []
+    for index, word in enumerate(words):
+        if index and word.lower() in minor_words:
+            readable.append(word.lower())
+        elif word.upper() in acronyms:
+            readable.append(word.upper())
+        else:
+            readable.append(word.capitalize())
+    return " ".join(readable)
+
+
+def parse_video_filename(filename: str):
+    stem = Path(filename).stem
+    creator = ""
+    creator_match = re.match(r"^(@[A-Za-z0-9][A-Za-z0-9._-]*?)[_-](?=\d{4}-\d{2}-\d{2})", stem)
+    if creator_match:
+        creator = creator_match.group(1)
+        stem = stem[creator_match.end():]
+    stem = re.sub(r"\d{4}-\d{2}-\d{2}[_-]\d{3,4}(?:-\d+)?(?=[_-]|$)", " ", stem)
+    stem = stem.split("#", 1)[0]
+    stem = re.sub(r"[-_\s]+\d{10,}(?:[-_\s]+(?:\(\d+\)|copy|duplicate|dup|\d{1,3}))?$", "", stem, flags=re.IGNORECASE)
+    stem = re.sub(r"[-_\s]+(?:\(\d+\)|copy|duplicate|dup)$", "", stem, flags=re.IGNORECASE)
+    stem = re.sub(r"[_-]+", " ", stem)
+    words = stem.split()
+    if len(words) >= 10 and words[-1].casefold() in {"in", "col", "f"}:
+        words.pop()
+    stem = " ".join(words)
+    return creator, _readable_title(stem) or FALLBACK_TITLE
+
+
+def build_post_text(filename: str) -> PostText:
+    creator, title = parse_video_filename(filename)
+    return PostText(title=title, description=DESCRIPTION, creator_handle=creator)
+
+
+def validate_post_text(post_text: PostText, destination: str):
+    errors = []
+    if not post_text.title.strip():
+        errors.append("title is empty")
+    if not post_text.description.strip():
+        errors.append("description is empty")
+    if post_text.creator_handle and not re.fullmatch(r"@[A-Za-z0-9._-]+", post_text.creator_handle):
+        errors.append("creator handle is malformed")
+    if LINK not in post_text.caption:
+        errors.append("bio link is missing")
+    limits = PLATFORM_LIMITS.get(destination, {})
+    if len(post_text.title) > limits.get("title", float("inf")):
+        errors.append(f"title exceeds {limits['title']} characters")
+    rendered_text = post_text.facebook_text if destination == "lifemode_facebook" else post_text.caption
+    if len(rendered_text) > limits.get("caption", float("inf")):
+        errors.append(f"caption exceeds {limits['caption']} characters")
+    if len(post_text.threads_text) > limits.get("text", float("inf")):
+        errors.append(f"text exceeds {limits['text']} characters")
+    return errors
 
 
 @dataclass(frozen=True)
@@ -170,8 +262,9 @@ class PinterestClient:
             time.sleep(5)
         raise PinterestError(f"Timed out waiting for media {media_id}")
 
-    def create_video_pin(self, board_id, section_id, media_id, cover_image_url=None):
-        payload = {"title": TITLE, "description": DESCRIPTION, "link": LINK, "board_id": board_id,
+    def create_video_pin(self, board_id, section_id, media_id, cover_image_url=None, post_text=None):
+        post_text = post_text or PostText(TITLE, DESCRIPTION, "")
+        payload = {"title": post_text.title, "description": post_text.caption, "link": LINK, "board_id": board_id,
                    "media_source": {"source_type": "video_id",
                    "cover_image_url": cover_image_url or self.config.cover_image_url, "media_id": media_id}}
         if section_id:
@@ -260,7 +353,6 @@ def preflight(config, client):
     logging.info("Preflight OK: @%s, board_id=%s, section_id=%s, eligible=%d, available=%d", target[0], target[1], target[2], len(files), len(available))
     return target, files, state
 
-
 def run(config, mode="run"):
     setup_logging(config)
     client = PinterestClient(config)
@@ -297,13 +389,17 @@ def run(config, mode="run"):
         return 0
     path = candidates[0]
     digest = fingerprint(path)
+    post_text = build_post_text(path.name)
+    errors = validate_post_text(post_text, "everyday_pinterest")
+    if errors:
+        raise PinterestError("Invalid video post text: " + "; ".join(errors))
     registration = client.register_media()
     state.setdefault("in_progress", {})[digest] = {"file": str(path), "media_id": registration.get("media_id"), "started_at": time.time()}
     save_state(config.state_file, state)
     client.upload_file(registration, path)
     client.wait_for_media(registration["media_id"])
     try:
-        result = client.create_video_pin(target[1], target[2], registration["media_id"])
+        result = client.create_video_pin(target[1], target[2], registration["media_id"], post_text=post_text)
     except PinterestError as exc:
         state.setdefault("uncertain", {})[digest] = {"file": str(path), "media_id": registration["media_id"], "error": str(exc), "date": today}
         state.get("in_progress", {}).pop(digest, None)
