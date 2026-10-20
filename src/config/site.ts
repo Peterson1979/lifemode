@@ -301,6 +301,7 @@ export const SITE_CONFIG = {
     { name: 'Contact', href: '/contact' },
     { name: 'Privacy Policy', href: '/privacy' },
     { name: 'Cookie Policy', href: '/cookies' },
+    { name: 'AI Disclaimer', href: '/ai-disclaimer' },
     { name: 'Terms of Service', href: '/terms' },
   ],
 };

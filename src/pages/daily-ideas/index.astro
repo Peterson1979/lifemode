@@ -53,6 +53,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
       <p class="hero-lead" style="max-width: 760px; margin-bottom: var(--space-6);">
         Curated home, kitchen, storage, style, and living essentials vetted for real-world utility, durability, and value. No sponsored clutter—only items we genuinely recommend.
       </p>
+      <p class="affiliate-disclosure" role="note">
+        <strong>Affiliate disclosure:</strong> As an Amazon Associate I earn from qualifying purchases. LifeMode may earn a commission when you buy through qualifying Amazon.com links on this page, at no additional cost to you. Our recommendations remain editorially independent.
+      </p>
     </div>
   </section>
 
@@ -133,6 +136,14 @@ const breadcrumbSchema = generateBreadcrumbSchema([
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: var(--space-6);
+  }
+
+  .affiliate-disclosure {
+    max-width: 760px;
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.6;
   }
 
   .store-item-card {

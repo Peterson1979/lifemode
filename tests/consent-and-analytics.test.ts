@@ -54,6 +54,8 @@ test('LifeMode GA4 & Cookie Consent Architecture Suite', async (t) => {
     assert.ok(consentComponent.includes('ga-disable-'), 'Must support immediate opt-out disabling flag');
     assert.ok(consentComponent.includes('deleteGaCookies'), 'Must include comprehensive GA cookie cleanup');
     assert.ok(consentComponent.includes('lifemode_consent_v2'), 'Must use consistent storage key');
+    assert.ok(consentComponent.includes('initBanner();'), 'Must initialize consent immediately after the body markup is rendered');
+    assert.ok(consentComponent.includes('if (initialized) return;'), 'Consent initialization must be idempotent');
   });
 
   await t.test('4. Footer Integration: Footer.astro links Cookie Policy and provides Cookie Settings trigger', () => {
@@ -76,17 +78,29 @@ test('LifeMode GA4 & Cookie Consent Architecture Suite', async (t) => {
       'utf8'
     );
 
-    assert.ok(privacyContent.includes('G-V06H9EB5QK'), 'Privacy policy must disclose GA4 Measurement ID');
+    assert.ok(privacyContent.includes('SITE_CONFIG.gaMeasurementId'), 'Privacy policy must disclose the configured GA4 Measurement ID');
     assert.ok(privacyContent.includes('Google Consent Mode v2'), 'Privacy policy must mention Consent Mode v2');
     assert.ok(privacyContent.includes('/cookies'), 'Privacy policy must reference Cookie Policy');
     assert.ok(privacyContent.includes('CMP Clarification'), 'Privacy policy must include CMP clarification');
+    assert.ok(privacyContent.includes('Amazon Associate I earn from qualifying purchases'), 'Privacy policy must include the Amazon Associate disclosure');
+    assert.ok(privacyContent.includes('not currently active in production'), 'Privacy policy must not describe Pinterest as active');
 
     assert.ok(cookiesContent.includes('lifemode_consent_v2'), 'Cookies page must disclose consent storage key');
     assert.ok(cookiesContent.includes('lifemode-checklist-*'), 'Cookies page must disclose functional checklist storage key');
+    assert.ok(cookiesContent.includes('SITE_CONFIG.gaMeasurementId'), 'Cookies page must disclose the configured GA4 Measurement ID');
     assert.ok(cookiesContent.includes('_ga'), 'Cookies page must disclose Google Analytics cookies');
     assert.ok(cookiesContent.includes('__cf_bm'), 'Cookies page must describe Cloudflare security cookie conditionally');
     assert.ok(cookiesContent.includes('data-open-cookie-settings'), 'Cookies page must have open-cookie-settings trigger');
     assert.ok(cookiesContent.includes('CMP Clarification'), 'Cookies page must include CMP clarification');
+
+    const termsContent = fs.readFileSync(path.resolve(process.cwd(), 'src/pages/terms.astro'), 'utf8');
+    const aiDisclaimerContent = fs.readFileSync(path.resolve(process.cwd(), 'src/pages/ai-disclaimer.astro'), 'utf8');
+    assert.ok(termsContent.includes('/ai-disclaimer'), 'Terms must link to the AI Disclaimer');
+    assert.ok(termsContent.includes('Amazon Associate I earn from qualifying purchases'), 'Terms must include the Amazon Associate disclosure');
+    assert.ok(aiDisclaimerContent.includes('human editorial review'), 'AI Disclaimer must explain human review');
+
+    const dailyIdeasContent = fs.readFileSync(path.resolve(process.cwd(), 'src/pages/daily-ideas/index.astro'), 'utf8');
+    assert.ok(dailyIdeasContent.includes('Amazon Associate I earn from qualifying purchases'), 'Standalone product page must show the Amazon Associate disclosure');
   });
 
   await t.test('6. Environment Templates: .env and .env.example contain PUBLIC_GA_MEASUREMENT_ID', () => {

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_CONFIG } from '../config/site';
 import { getCanonicalUrl } from '../utils/seo';
 
 const lastUpdated = 'October 9, 2026';
@@ -98,8 +99,8 @@ const canonicalUrl = getCanonicalUrl('/cookies');
                 <td style="padding: 10px 14px;"><code>__cf_bm</code></td>
                 <td style="padding: 10px 14px;">HTTP Cookie</td>
                 <td style="padding: 10px 14px;">Cloudflare (CDN)</td>
-                <td style="padding: 10px 14px;">Placed only when Cloudflare edge security or bot mitigation rules are actively triggered to identify automated bot traffic.</td>
-                <td style="padding: 10px 14px;">Up to 30 minutes (when present)</td>
+                <td style="padding: 10px 14px;">If set by the configured Cloudflare security service, it may help identify automated bot traffic.</td>
+                <td style="padding: 10px 14px;">Provider-configured; not confirmed here</td>
               </tr>
             </tbody>
           </table>
@@ -109,7 +110,7 @@ const canonicalUrl = getCanonicalUrl('/cookies');
       <section id="analytics-cookies">
         <h2>4. Analytics &amp; Performance Cookies (Strictly Opt-In)</h2>
         <p>
-          When you explicitly grant permission for Analytics, Google Analytics 4 (Measurement ID: <code>G-V06H9EB5QK</code>) is initialized to help us understand aggregate traffic volume, popular reference guides, and reader navigation patterns. Google Analytics processes IP addresses at intake to derive coarse geographic location (such as country or region), but does not log or store individual raw IP addresses in standard reports.
+          When you explicitly grant permission for Analytics, Google Analytics 4 (Measurement ID: <code>{SITE_CONFIG.gaMeasurementId}</code>) is initialized to help us understand aggregate traffic volume, popular reference guides, and reader navigation patterns. Google Analytics may process IP addresses to derive coarse geographic location. The exact Google property settings, reporting treatment, and retention period have not been confirmed here.
         </p>
         <div class="table-container" style="overflow-x: auto; margin: var(--space-6) 0;">
           <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left;">
@@ -128,14 +129,14 @@ const canonicalUrl = getCanonicalUrl('/cookies');
                 <td style="padding: 10px 14px;">HTTP Cookie</td>
                 <td style="padding: 10px 14px;">Google Analytics (GA4)</td>
                 <td style="padding: 10px 14px;">Calculates visitor, session, and campaign data for aggregated publication analytics.</td>
-                <td style="padding: 10px 14px;">Up to 2 years (or property retention limit)</td>
+                <td style="padding: 10px 14px;">Configured by the GA4 property; not confirmed here</td>
               </tr>
               <tr style="border-bottom: 1px solid var(--color-border);">
                 <td style="padding: 10px 14px;"><code>_ga_*</code></td>
                 <td style="padding: 10px 14px;">HTTP Cookie</td>
                 <td style="padding: 10px 14px;">Google Analytics (GA4)</td>
                 <td style="padding: 10px 14px;">Used to maintain and persist session state for the specific GA4 measurement property.</td>
-                <td style="padding: 10px 14px;">Up to 2 years</td>
+                <td style="padding: 10px 14px;">Configured by the GA4 property; not confirmed here</td>
               </tr>
             </tbody>
           </table>

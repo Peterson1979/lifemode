@@ -273,6 +273,16 @@ const { gaMeasurementId = SITE_CONFIG.gaMeasurementId } = Astro.props;
       deleteGaCookies();
     }
 
+    function updateConsentSignals(consentRecord) {
+      if (typeof window.gtag !== 'function') return;
+      window.gtag('consent', 'update', {
+        analytics_storage: consentRecord.analytics ? 'granted' : 'denied',
+        ad_storage: consentRecord.marketing ? 'granted' : 'denied',
+        ad_user_data: consentRecord.marketing ? 'granted' : 'denied',
+        ad_personalization: consentRecord.marketing ? 'granted' : 'denied',
+      });
+    }
+
     // Update Consent Signals & State
     function applyConsent(analytics, marketing) {
       const consentRecord = {
@@ -289,14 +299,7 @@ const { gaMeasurementId = SITE_CONFIG.gaMeasurementId } = Astro.props;
       }
 
       // Update Consent Mode v2 Signals
-      if (typeof window.gtag === 'function') {
-        window.gtag('consent', 'update', {
-          analytics_storage: consentRecord.analytics ? 'granted' : 'denied',
-          ad_storage: consentRecord.marketing ? 'granted' : 'denied',
-          ad_user_data: consentRecord.marketing ? 'granted' : 'denied',
-          ad_personalization: consentRecord.marketing ? 'granted' : 'denied',
-        });
-      }
+      updateConsentSignals(consentRecord);
 
       // Trigger or Disable GA4 Tag
       if (consentRecord.analytics) {
@@ -419,8 +422,14 @@ const { gaMeasurementId = SITE_CONFIG.gaMeasurementId } = Astro.props;
       }
     });
 
-    // Initial check on page load
+    // Initial check on page load. The component is rendered at the end of <body>,
+    // so initialize immediately instead of relying only on DOMContentLoaded. This
+    // also covers Astro/dev navigation where that event may already have fired.
+    let initialized = false;
     function initBanner() {
+      if (initialized) return;
+      initialized = true;
+
       const saved = getSavedConsent();
       const banner = getElement('cookie-banner');
       if (!saved) {
@@ -428,25 +437,16 @@ const { gaMeasurementId = SITE_CONFIG.gaMeasurementId } = Astro.props;
           banner.hidden = false;
         }
       } else {
+        updateConsentSignals(saved);
         if (saved.analytics) {
-          if (typeof window.gtag === 'function') {
-            window.gtag('consent', 'update', {
-              analytics_storage: 'granted',
-              ad_storage: saved.marketing ? 'granted' : 'denied',
-              ad_user_data: saved.marketing ? 'granted' : 'denied',
-              ad_personalization: saved.marketing ? 'granted' : 'denied',
-            });
-          }
           loadGoogleAnalytics();
+        } else {
+          disableGoogleAnalytics();
         }
       }
     }
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initBanner);
-    } else {
-      initBanner();
-    }
+    initBanner();
   })();
 </script>
 

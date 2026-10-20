@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCanonicalUrl } from '../utils/seo';
+
+const canonicalUrl = getCanonicalUrl('/ai-disclaimer');
+---
+
+<BaseLayout
+  title="AI Disclaimer — LifeMode"
+  description="How LifeMode uses AI-assisted editorial tools and the limits of AI-assisted informational content."
+  canonicalUrl={canonicalUrl}
+>
+  <div class="page-shell container-prose" style="padding-top: var(--space-8); padding-bottom: var(--space-20);">
+    <header style="margin-bottom: var(--space-8);">
+      <span class="badge" style="background-color: rgba(37, 99, 235, 0.1); color: var(--color-primary-accent); border: 1px solid rgba(37, 99, 235, 0.2); font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: var(--radius-full); margin-bottom: var(--space-3); display: inline-block;">
+        Editorial Transparency
+      </span>
+      <h1 class="page-title" style="font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; color: var(--color-text-primary); margin-bottom: var(--space-3);">
+        AI Disclaimer
+      </h1>
+      <p class="page-lead" style="font-size: 1.15rem; color: var(--color-text-secondary); line-height: 1.6;">
+        How LifeMode uses AI-assisted tools while keeping human editorial responsibility.
+      </p>
+    </header>
+
+    <div class="prose">
+      <h2>AI-Assisted Editorial Work</h2>
+      <p>
+        LifeMode may use AI-assisted tools for internal topic research, outlining, drafting, or content synthesis. AI output is treated as editorial working material, not as an authoritative source.
+      </p>
+
+      <h2>Human Review and Responsibility</h2>
+      <p>
+        Published articles are subject to human editorial review and approval. We may revise, verify, or reject AI-assisted material before publication, but no editorial process can guarantee that every statement is complete or current.
+      </p>
+
+      <h2>Use of the Information</h2>
+      <p>
+        LifeMode content is general informational and educational material. It is not medical, legal, financial, engineering, or other professional advice. For decisions involving material health, safety, legal, or financial consequences, consult a qualified professional and verify current primary sources.
+      </p>
+
+      <p>
+        For privacy details about editorial tools and visitor information, see our <a href="/privacy">Privacy Policy</a>.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
