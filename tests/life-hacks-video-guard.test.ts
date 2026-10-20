@@ -5,6 +5,7 @@ import { validateEditorialArticle } from '../src/lib/editorial/validation/valida
 import { PILLARS, SITE_CONFIG } from '../src/config/site.ts';
 import { CATEGORIES } from '../src/utils/categories.ts';
 import type { EditorialTopic } from '../src/lib/editorial/types.ts';
+import { readFile } from 'node:fs/promises';
 
 test('1. Life Hacks: Selection guard rejects text article candidate generation', () => {
   const candidate: EditorialTopic = {
@@ -103,4 +104,10 @@ test('3. Pillar & Category Architecture: Kitchen & Food Care and Food & Drink ar
     SITE_CONFIG.footerLinks.some((l) => l.name === 'Video Life Hacks' && l.href === '/life-hacks'),
     'Footer navigation must include Video Life Hacks'
   );
+});
+
+test('4. Life Hacks renders video content only and leaves commerce to Daily Ideas Store', async () => {
+  const source = await readFile(new URL('../src/pages/life-hacks/index.astro', import.meta.url), 'utf8');
+  assert.doesNotMatch(source, /DailyIdeasPicks|hackProductPicks|getCuratedPicks/);
+  assert.match(source, /lifeHackVideos\.map/);
 });

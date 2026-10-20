@@ -1,9 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import DailyIdeasPicks from '../../components/DailyIdeasPicks.astro';
 import TopicDataSection from '../../components/topic-data/TopicDataSection.astro';
 import { PILLARS } from '../../config/site';
-import { getCuratedPicks } from '../../lib/commerce/curated-picks';
 import { generateBreadcrumbSchema } from '../../utils/seo';
 
 const pillar = PILLARS['life-hacks'];
@@ -143,8 +141,6 @@ const lifeHackVideos: LifeHackVideo[] = [
   },
 ];
 
-const hackProductPicks = getCuratedPicks(['lifewit-clothes-storage-bins', 'lifewit-60l-underbed-storage-bags', 'wlive-4-drawer-dresser-nightstand', 'elegant-comfort-king-fitted-sheet']);
-
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: '/' },
   { name: pillar.name, url: `/${pillar.slug}` },
@@ -263,16 +259,6 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         </div>
       )}
 
-      <!-- Contextual Commerce Picks for Household Shortcuts -->
-      {hackProductPicks.length > 0 && (
-        <div style="margin-top: var(--space-16);">
-          <DailyIdeasPicks
-            products={hackProductPicks}
-            title="Tools & Essentials for Smart Everyday Shortcuts"
-            subtitle="Curated finds tested to make household tasks, cooking, and storage effortless."
-          />
-        </div>
-      )}
     </div>
   </section>
 

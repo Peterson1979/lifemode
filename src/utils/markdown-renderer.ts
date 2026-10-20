@@ -264,7 +264,7 @@ function escapeHtml(str: string): string {
 function formatInlineMarkdown(text: string): string {
   if (!text) return '';
 
-  let res = text;
+  let res = escapeHtml(text);
 
   // Bold + Italic
   res = res.replace(/\*\*\*([^*]+)\*\*\*/g, '<strong><em>$1</em></strong>');

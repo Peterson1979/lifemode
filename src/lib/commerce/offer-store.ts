@@ -92,17 +92,46 @@ function toProduct(offer: OfferRecord): CuratedProduct {
   };
 }
 
+function identityKeys(offer: CuratedProduct): string[] {
+  const keys = [`id:${offer.id}`];
+  if (offer.asin) keys.push(`asin:${offer.asin.trim().toUpperCase()}`);
+  if (offer.affiliateUrl) {
+    keys.push(`url:${offer.affiliateUrl.trim().toLowerCase()}`);
+  }
+  return keys;
+}
+
 export async function listOfferRecords(customPath?: string): Promise<OfferRecord[]> {
   return readRecords(getOfferStorePath(customPath));
 }
 
 export async function listPublicOffers(customPath?: string): Promise<CuratedProduct[]> {
   const records = await listOfferRecords(customPath);
-  if (records.length === 0) return Object.values(CURATED_PRODUCTS);
-  return records
+  const managed = records
     .filter((offer) => isPubliclyEligible(offer))
-    .sort((a, b) => (a.displayOrder ?? 0) - (b.displayOrder ?? 0))
+    // `createdAt` is persisted when an offer is first created and is not changed by edits.
+    // Keep input order when timestamps cannot be compared; never infer recency from names or URLs.
+    .sort((a, b) => {
+      const aCreated = Date.parse(a.createdAt);
+      const bCreated = Date.parse(b.createdAt);
+      return Number.isFinite(aCreated) && Number.isFinite(bCreated) ? bCreated - aCreated : 0;
+    })
     .map(toProduct);
+
+  const seenKeys = new Set<string>();
+  const uniqueManaged = managed.filter((offer) => {
+    const keys = identityKeys(offer);
+    if (keys.some((key) => seenKeys.has(key))) return false;
+    keys.forEach((key) => seenKeys.add(key));
+    return true;
+  });
+  const curated = Object.values(CURATED_PRODUCTS).filter((offer) => {
+    const keys = identityKeys(offer);
+    if (keys.some((key) => seenKeys.has(key))) return false;
+    keys.forEach((key) => seenKeys.add(key));
+    return true;
+  });
+  return [...uniqueManaged, ...curated];
 }
 
 export async function saveOffer(input: Partial<OfferRecord>, customPath?: string): Promise<OfferRecord> {
