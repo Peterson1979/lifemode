@@ -199,7 +199,7 @@ export async function runScheduledEditorialAutomation(
       enabled: config.enabled,
       dryRun: config.dryRun,
       allowCommit: config.allowCommit,
-      allowUnrelatedChanges: options.allowUnrelatedChanges ?? true,
+      allowUnrelatedChanges: false,
       maxOpportunities: dailyPlan.totalArticlesTarget,
       minScoreThreshold: config.minScoreThreshold,
       providerMode: config.providerMode,
@@ -255,29 +255,6 @@ export async function runScheduledEditorialAutomation(
           dryRun: config.dryRun,
         });
 
-        if (
-          guideResult &&
-          (guideResult.status === 'CREATED' || guideResult.status === 'UPDATED') &&
-          config.allowCommit &&
-          !config.dryRun
-        ) {
-          const isRepo = await gitCli.isGitRepo(repoRoot);
-          if (isRepo && guideResult.filePath) {
-            const relGuidePath = gitCli.normalizeGitPath(path.relative(repoRoot, guideResult.filePath));
-            const statusBefore = await gitCli.getRepoStatus(repoRoot, relGuidePath);
-            if (statusBefore.modifiedFiles.includes(relGuidePath) || statusBefore.untrackedFiles.includes(relGuidePath)) {
-              await gitCli.stageSingleFile(repoRoot, relGuidePath);
-              await gitCli.createCommit(
-                repoRoot,
-                `feat: ${guideResult.action === 'CREATE' ? 'create' : 'update'} featured guide ${guideResult.slug}`,
-                options.commitAuthor || {
-                  name: 'LifeMode Editorial Automation',
-                  email: 'automation@lifemode.local',
-                }
-              );
-            }
-          }
-        }
       } catch (gErr: any) {
         // Non-fatal guide processing notice
         automationResult.summary += `\n[Notice] Guide opportunity execution: ${gErr?.message || 'Incomplete'}`;

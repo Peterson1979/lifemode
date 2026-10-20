@@ -4,25 +4,19 @@ import { buildReviewPrompt } from '../prompt.ts';
 import { AIRouter, defaultAIRouter } from '../../../ai/router.ts';
 import type { AIRequest } from '../../../ai/types.ts';
 import { extractAndParseJson } from '../../../ai/json-extractor.ts';
-import { FixtureReviewProvider } from './fixture.ts';
 
 /**
  * Adapter bridging the AI Quality Reviewer to the AI Router subsystem.
  * Routes review tasks via `taskType: 'content_review'`.
- * Includes deterministic fallback for pipeline resilience.
+ * Fails closed when the AI review service is unavailable or returns invalid output.
  */
 export class AIRouterReviewProvider implements IAIReviewProvider {
   readonly name = 'AI Router Reviewer';
   readonly model = 'router-managed';
   private router: AIRouter;
-  private fallbackProvider: IAIReviewProvider | null;
 
-  constructor(
-    router: AIRouter = defaultAIRouter,
-    fallbackProvider: IAIReviewProvider | null = new FixtureReviewProvider({ outcome: 'PASS' })
-  ) {
+  constructor(router: AIRouter = defaultAIRouter) {
     this.router = router;
-    this.fallbackProvider = fallbackProvider;
   }
 
   /**
@@ -39,7 +33,6 @@ export class AIRouterReviewProvider implements IAIReviewProvider {
   }
 
   async review(request: ReviewRequest): Promise<RawAIReviewResponse> {
-    const startTime = Date.now();
     const promptPayload = buildReviewPrompt(request);
 
     const aiRequest: AIRequest = {
@@ -74,29 +67,18 @@ export class AIRouterReviewProvider implements IAIReviewProvider {
           };
         } catch (jsonErr: any) {
           routerError = new Error(`AI Router review output parsing failed: [MALFORMED_OUTPUT] ${jsonErr.message}`);
-          console.warn(`[AI Router Reviewer] Review output parsing failed (${jsonErr.message}). Falling back to deterministic review.`);
+          console.warn(`[AI Router Reviewer] Review output parsing failed (${jsonErr.message}).`);
         }
       } else {
         const errorInfo = !routerResult.success ? routerResult.error : undefined;
         routerError = new Error(`AI Router review request failed: [${errorInfo?.code || 'PROVIDER_ERROR'}] ${errorInfo?.message || 'unknown error'}`);
-        console.warn(`[AI Router Reviewer] AI review failed (${errorInfo?.code || 'ERROR'}: ${errorInfo?.message || 'unknown'}). Falling back to deterministic review.`);
+        console.warn(`[AI Router Reviewer] AI review failed (${errorInfo?.code || 'ERROR'}: ${errorInfo?.message || 'unknown'}).`);
       }
     } catch (err: any) {
       routerError = err instanceof Error ? err : new Error(String(err));
-      console.warn(`[AI Router Reviewer] Unexpected review error: ${err?.message || err}. Falling back to deterministic review.`);
+      console.warn(`[AI Router Reviewer] Unexpected review error: ${err?.message || err}.`);
     }
 
-    if (!this.fallbackProvider) {
-      throw routerError || new Error('AI Router review request failed and no fallback provider is configured.');
-    }
-
-    const fallbackResult = await this.fallbackProvider.review(request);
-    return {
-      ...fallbackResult,
-      metadata: {
-        ...fallbackResult.metadata,
-        durationMs: Math.max(1, Date.now() - startTime),
-      },
-    };
+    throw routerError || new Error('AI Router review request failed.');
   }
 }

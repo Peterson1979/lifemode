@@ -21,7 +21,7 @@ import {
   FixtureEditorialImageProvider,
 } from '../src/lib/editorial/images/index.ts';
 import { runPublishingPipeline } from '../src/lib/editorial/publishing/runner.ts';
-import type { PublishingRequest } from '../src/lib/editorial/publishing/types.ts';
+import { publishingContentId, type PublishingRequest } from '../src/lib/editorial/publishing/types.ts';
 import {
   selectSocialOpportunities,
   determineTargetPlatforms,
@@ -540,6 +540,16 @@ test('Image Assignment & Fallback Regression: Prevents duplicate/unrelated image
     },
     context: {
       topicId: 'lm-food-olive-oil',
+      contentVersion: 1,
+      humanApproval: {
+        recordId: 'test-food-approval-1',
+        contentId: publishingContentId('lm-food-olive-oil', oliveOilArticle.slug),
+        contentVersion: 1,
+        reviewer: 'Test Human Editor',
+        reviewerType: 'human',
+        decision: 'APPROVED',
+        reviewedAt: new Date().toISOString(),
+      },
       pillar: 'home',
       format: 'guide',
       audience: 'Culinary enthusiasts',

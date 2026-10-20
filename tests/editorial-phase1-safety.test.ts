@@ -7,11 +7,11 @@ import { loadEditorialImageConfig } from '../src/lib/editorial/images/config.ts'
 
 const root = process.cwd();
 
-test('Phase 1 disables scheduled normal editorial publication', () => {
+test('Scheduled automation generates approval-queue drafts without enabling publication', () => {
   const workflow = fs.readFileSync(`${root}/.github/workflows/editorial-automation.yml`, 'utf8');
   const runner = fs.readFileSync(`${root}/scripts/run-scheduled-automation.ts`, 'utf8');
 
-  assert.match(workflow, /LIFEMODE_AUTOMATION_ENABLED:\s*"false"/);
+  assert.match(workflow, /LIFEMODE_AUTOMATION_ENABLED:\s*"true"/);
   assert.match(workflow, /LIFEMODE_AUTOMATION_COMMIT:\s*"false"/);
   assert.match(workflow, /LIFEMODE_AUTOMATION_PUSH:\s*"false"/);
   assert.doesNotMatch(runner, /enabled:\s*true\s*,\s*\/\/ CLI invocation explicitly enables execution/);

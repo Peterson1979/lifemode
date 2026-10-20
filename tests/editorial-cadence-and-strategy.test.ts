@@ -581,6 +581,16 @@ test('9. Guide Opportunity Execution: Creates or updates guides on Mon/Wed/Fri w
   assert.equal(nonGuideDayResult.status, 'SKIPPED');
 });
 
+test('9a. Live guide opportunities refuse direct writes outside the editorial gate', async () => {
+  const guideResult = await processGuideOpportunity({
+    targetDate: '2026-10-05',
+    dryRun: false,
+  });
+
+  assert.equal(guideResult.status, 'FAILED');
+  assert.match(guideResult.reason || '', /full research, generation, review, publishing-gate, and human-approval pipeline/);
+});
+
 test('10. Total Weekly Production Schedule Summary: Articles, GetAISet, Tools, Life Hacks, and Guides', () => {
   const days = [
     { date: '2026-10-04', dayName: 'Sunday', expAi: false, expGuide: false, expTools: true, expHacks: false },

@@ -88,7 +88,7 @@ async function main() {
     const watchdogResult = await runEditorialWatchdog({
       ...config,
       force: isForce,
-      allowUnrelatedChanges: true,
+      allowUnrelatedChanges: false,
       commitAuthor: {
         name: 'LifeMode Editorial Automation',
         email: 'automation@lifemode.local',
@@ -119,7 +119,7 @@ async function main() {
 
   const result = await runScheduledEditorialAutomation({
     ...config,
-    allowUnrelatedChanges: true,
+    allowUnrelatedChanges: false,
     commitAuthor: {
       name: 'LifeMode Editorial Automation',
       email: 'automation@lifemode.local',

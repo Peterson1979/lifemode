@@ -1400,7 +1400,7 @@ test('40. AIRouterGenerationProvider automatically injects affiliate disclosure 
   assert.ok(result.article.content.includes('Editorial Disclosure: LifeMode may earn an affiliate commission'));
 });
 
-test('41. AIRouterReviewProvider falls back to deterministic review when AI Router fails', async () => {
+test('41. AIRouterReviewProvider fails closed when AI Router fails', async () => {
   const failingRouter = new AIRouter({
     config: {
       providerOrder: ['failing'],
@@ -1414,25 +1414,24 @@ test('41. AIRouterReviewProvider falls back to deterministic review when AI Rout
   });
 
   const reviewProvider = new AIRouterReviewProvider(failingRouter);
-  const reviewResult = await reviewProvider.review({
-    topicId: 'lm-test-review-fallback',
-    pillar: 'style',
-    format: 'standard',
-    audience: 'General',
-    primaryIntent: 'informational',
-    riskLevel: 'low',
-    affiliateIntent: false,
-    sources: [],
-    internalLinks: [],
-    title: 'Test Article Title',
-    description: 'Test article description of sufficient length for review testing.',
-    excerpt: 'Test excerpt',
-    content: '## Heading One\n\nSubstantive content paragraph.\n\n## Heading Two\n\nAnother substantive paragraph.',
-  });
-
-  assert.equal(reviewResult.overallScore, 91);
-  assert.ok(reviewResult.dimensions.factuality);
-  assert.equal(reviewResult.dimensions.factuality?.score, 92);
+  await assert.rejects(
+    reviewProvider.review({
+      topicId: 'lm-test-review-fallback',
+      pillar: 'style',
+      format: 'standard',
+      audience: 'General',
+      primaryIntent: 'informational',
+      riskLevel: 'low',
+      affiliateIntent: false,
+      sources: [],
+      internalLinks: [],
+      title: 'Test Article Title',
+      description: 'Test article description of sufficient length for review testing.',
+      excerpt: 'Test excerpt',
+      content: '## Heading One\n\nSubstantive content paragraph.\n\n## Heading Two\n\nAnother substantive paragraph.',
+    }),
+    /AI Router review request failed|429 Rate Limit/
+  );
 });
 
 

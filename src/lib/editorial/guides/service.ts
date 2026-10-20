@@ -447,6 +447,18 @@ export async function processGuideOpportunity(options: {
   const isCadenceDay = isGuidesCadenceDay(options.targetDate);
   const isDryRun = options.dryRun ?? false;
 
+  // Guide files must only be written by the complete editorial pipeline.
+  // This service remains available for planning/dry-run inspection, but it
+  // cannot create or update production content directly.
+  if (!isDryRun) {
+    return {
+      status: 'FAILED',
+      reason: 'Direct guide writes are disabled; use the full research, generation, review, publishing-gate, and human-approval pipeline.',
+      isCadenceDay,
+      dryRun: false,
+    };
+  }
+
   if (!isCadenceDay && !options.force) {
     return {
       status: 'SKIPPED',

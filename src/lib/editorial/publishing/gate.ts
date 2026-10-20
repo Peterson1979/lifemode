@@ -1,4 +1,5 @@
 import type { PublishingRequest, PublishingGateThresholds, PublishingGateResult } from './types.ts';
+import { publishingContentId } from './types.ts';
 import { countWords } from '../quality.ts';
 import { validateEditorialArticle } from '../validation/validator.ts';
 import { isPersonTopic, PERSON_MIN_REQUIRED_SOURCES } from '../person-policy.ts';
@@ -11,6 +12,9 @@ export const DEFAULT_PUBLISHING_GATE_THRESHOLDS: PublishingGateThresholds = {
   disallowUnresolvedPlaceholders: true,
   requireImage: false,
 };
+
+export const HUMAN_APPROVAL_MAX_AGE_DAYS = 30;
+const HUMAN_APPROVAL_MAX_AGE_MS = HUMAN_APPROVAL_MAX_AGE_DAYS * 24 * 60 * 60 * 1000;
 
 const SUSPICIOUS_URL_PATTERNS = [
   /example\.com/i,
@@ -56,6 +60,7 @@ export function evaluatePublishingGate(
   const warnings: string[] = [];
 
   const { article, review, context } = request;
+  const isLivePublication = request.options?.dryRun === false;
 
   // 1. Article Package Integrity
   if (!article) {
@@ -230,7 +235,45 @@ export function evaluatePublishingGate(
     reasons.push('Article topic is already marked as published in editorial lifecycle.');
   }
 
-  // 7. AI Quality Review Evaluation
+  // 7. Human Editorial Approval
+  // Dry runs may inspect an unapproved draft, but live publication may not.
+  if (isLivePublication) {
+    const approval = context?.humanApproval;
+    const expectedContentId = publishingContentId(context?.topicId || '', article.slug || '');
+    const expectedVersion = context?.contentVersion ?? 1;
+
+    if (!approval) {
+      reasons.push('Live publication requires a recorded human editorial approval.');
+    } else {
+      if (!approval.recordId?.trim()) {
+        reasons.push('Human editorial approval record ID is missing.');
+      }
+      if (approval.contentId !== expectedContentId) {
+        reasons.push('Human editorial approval does not identify this exact article.');
+      }
+      if (approval.contentVersion !== expectedVersion) {
+        reasons.push(`Human editorial approval is for version ${approval.contentVersion}, but publication is version ${expectedVersion}.`);
+      }
+      if (!approval.reviewer?.trim() || approval.reviewerType !== 'human') {
+        reasons.push('Human editorial approval must identify a human reviewer.');
+      }
+      if (approval.decision !== 'APPROVED') {
+        reasons.push('Human editorial approval decision is not APPROVED.');
+      }
+
+      const reviewedAtMs = Date.parse(approval.reviewedAt || '');
+      const nowMs = Date.now();
+      if (!Number.isFinite(reviewedAtMs)) {
+        reasons.push('Human editorial approval review date is invalid.');
+      } else if (reviewedAtMs > nowMs + 5 * 60 * 1000) {
+        reasons.push('Human editorial approval review date cannot be in the future.');
+      } else if (nowMs - reviewedAtMs > HUMAN_APPROVAL_MAX_AGE_MS) {
+        reasons.push(`Human editorial approval is older than ${HUMAN_APPROVAL_MAX_AGE_DAYS} days.`);
+      }
+    }
+  }
+
+  // 8. AI Quality Review Evaluation
   if (!review) {
     reasons.push('AI Quality Review result is missing. Articles must be reviewed before entering publishing gate.');
   } else {

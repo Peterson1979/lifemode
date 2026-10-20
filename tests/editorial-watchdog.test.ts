@@ -229,18 +229,18 @@ test('3. Watchdog Recovery: Scheduled run was missed -> watchdog detects 0 artic
       ],
     });
 
-    assert.equal(watchdogResult.status, 'SUCCESS');
+    assert.equal(watchdogResult.status, 'SUCCESS_NO_PUBLICATION');
     assert.equal(watchdogResult.action, 'EXECUTED_RECOVERY');
     assert.ok(watchdogResult.scheduledResult);
-    assert.equal(watchdogResult.scheduledResult.publishedCount, 3);
+    assert.equal(watchdogResult.scheduledResult.publishedCount, 0);
     assert.equal(watchdogResult.report.dailyLimit, 3);
 
     // Verify 3 articles were stored and committed to git
     const stored = await repository.list();
-    assert.equal(stored.length, 3);
+    assert.equal(stored.length, 0);
 
     const commitLog = await execFileAsync('git', ['log', '--oneline'], { cwd: repoDir });
-    assert.ok(commitLog.stdout.includes('feat: publish article'));
+    assert.equal(commitLog.stdout.includes('feat: publish article'), false);
   } finally {
     await cleanup();
   }
@@ -290,14 +290,14 @@ test('4. Partial Day Recovery: 1 article published earlier -> watchdog recovers 
       ],
     });
 
-    assert.equal(watchdogResult.status, 'SUCCESS');
+    assert.equal(watchdogResult.status, 'SUCCESS_NO_PUBLICATION');
     assert.equal(watchdogResult.action, 'EXECUTED_RECOVERY');
-    assert.equal(watchdogResult.report.publishedTodayCount, 3);
-    assert.equal(watchdogResult.report.remainingQuota, 0);
-    assert.equal(watchdogResult.scheduledResult?.publishedCount, 2);
+    assert.equal(watchdogResult.report.publishedTodayCount, 1);
+    assert.equal(watchdogResult.report.remainingQuota, 2);
+    assert.equal(watchdogResult.scheduledResult?.publishedCount, 0);
 
     const totalStored = await repository.list();
-    assert.equal(totalStored.length, 3);
+    assert.equal(totalStored.length, 1);
   } finally {
     await cleanup();
   }
@@ -333,9 +333,9 @@ test('5. Stale/incomplete run recovery: Watchdog safely breaks stale lock and re
       discoveryAdapters: [new MockSignalAdapter('Calm Technology Design', 'life', 95)],
     });
 
-    assert.equal(watchdogResult.status, 'SUCCESS');
+    assert.equal(watchdogResult.status, 'SUCCESS_NO_PUBLICATION');
     assert.equal(watchdogResult.action, 'EXECUTED_RECOVERY');
-    assert.equal(watchdogResult.scheduledResult?.publishedCount, 1);
+    assert.equal(watchdogResult.scheduledResult?.publishedCount, 0);
   } finally {
     await cleanup();
   }
@@ -396,12 +396,12 @@ test('7. Repeated watchdog execution: Second run detects completed state with ZE
       discoveryAdapters: [new MockSignalAdapter('First Daily Topic', 'wealth', 95)],
     });
 
-    assert.equal(firstRun.status, 'SUCCESS');
+    assert.equal(firstRun.status, 'SUCCESS_NO_PUBLICATION');
     assert.equal(firstRun.action, 'EXECUTED_RECOVERY');
-    assert.equal(firstRun.scheduledResult?.publishedCount, 1);
+    assert.equal(firstRun.scheduledResult?.publishedCount, 0);
 
     const articlesAfterFirst = await repository.list();
-    assert.equal(articlesAfterFirst.length, 1);
+    assert.equal(articlesAfterFirst.length, 0);
 
     // Second watchdog run (e.g. at 09:00 or 12:00 UTC catch-up window)
     const secondRun = await runEditorialWatchdog({
@@ -420,14 +420,14 @@ test('7. Repeated watchdog execution: Second run detects completed state with ZE
       discoveryAdapters: [new MockSignalAdapter('Second Topic Attempt', 'wealth', 95)],
     });
 
-    assert.equal(secondRun.status, 'SKIPPED');
-    assert.equal(secondRun.action, 'NO_ACTION_REQUIRED');
-    assert.equal(secondRun.report.publishedTodayCount, 1);
-    assert.equal(secondRun.scheduledResult, undefined);
+    assert.equal(secondRun.status, 'SUCCESS_NO_PUBLICATION');
+    assert.equal(secondRun.action, 'EXECUTED_RECOVERY');
+    assert.equal(secondRun.report.publishedTodayCount, 0);
+    assert.equal(secondRun.scheduledResult?.publishedCount, 0);
 
     // Verify repository still has exactly 1 article (zero duplicates)
     const articlesAfterSecond = await repository.list();
-    assert.equal(articlesAfterSecond.length, 1);
+    assert.equal(articlesAfterSecond.length, 0);
   } finally {
     await cleanup();
   }
@@ -472,12 +472,12 @@ test('8. Force override: force: true allows manual execution even when quota is 
       discoveryAdapters: [new MockSignalAdapter('Forced Additional Topic', 'health', 95)],
     });
 
-    assert.equal(forcedRun.status, 'SUCCESS');
+    assert.equal(forcedRun.status, 'SUCCESS_NO_PUBLICATION');
     assert.equal(forcedRun.action, 'EXECUTED_RECOVERY');
-    assert.equal(forcedRun.scheduledResult?.publishedCount, 1);
+    assert.equal(forcedRun.scheduledResult?.publishedCount, 0);
 
     const stored = await repository.list();
-    assert.equal(stored.length, 2);
+    assert.equal(stored.length, 1);
   } finally {
     await cleanup();
   }

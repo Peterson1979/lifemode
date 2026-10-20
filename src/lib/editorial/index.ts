@@ -56,6 +56,8 @@ export * from './publishing/config.ts';
 export * from './publishing/providers/types.ts';
 export * from './publishing/providers/fixture.ts';
 export * from './publishing/runner.ts';
+export * from './approval/service.ts';
+export * from './approval/auth.ts';
 export * from './storage/types.ts';
 export * from './storage/path-security.ts';
 export * from './storage/serializer.ts';

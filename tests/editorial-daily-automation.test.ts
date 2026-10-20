@@ -198,7 +198,7 @@ async function createTempWorkspace(): Promise<{
   return { repoDir, contentDir, cleanup };
 }
 
-test('1. Successful article + image generation: Generates article, creates master image, uploads to R2, and persists markdown with image frontmatter', async () => {
+test('1. Reviewed live article is queued for human approval before image generation or persistence', async () => {
   const { repoDir, contentDir, cleanup } = await createTempWorkspace();
 
   try {
@@ -250,34 +250,29 @@ test('1. Successful article + image generation: Generates article, creates maste
     });
 
     assert.equal(result.status, 'SUCCESS');
-    assert.equal(result.succeededCount, 1);
+    assert.equal(result.succeededCount, 0);
+    assert.equal(result.pendingApprovalCount, 1);
     assert.equal(result.failedCount, 0);
 
     // Verify structured daily article result
     assert.ok(result.articles && result.articles.length === 1);
     const article = result.articles[0];
-    assert.equal(article.success, true);
+    assert.equal(article.success, false);
     assert.equal(article.pillar, 'life');
-    assert.equal(article.imageGenerated, true);
-    assert.equal(article.imageUrl, 'https://assets.lifemode.life/editorial/travel/nordic-sauna.png');
-    assert.equal(article.imageProvider, 'cloudflare-workers-ai');
-    assert.equal(article.skippedReason, undefined);
+    assert.equal(article.imageGenerated, false);
 
     // Verify image provider was called
-    assert.equal(imageProvider.generateCalls.length, 1);
+    assert.equal(imageProvider.generateCalls.length, 0);
 
     // Verify markdown persistence in content directory
     const storedArticles = await repository.list();
-    assert.equal(storedArticles.length, 1);
-    const stored = storedArticles[0];
-    assert.equal(stored.pillar, 'life');
-    assert.equal(stored.frontmatter.image, 'https://assets.lifemode.life/editorial/travel/nordic-sauna.png');
+    assert.equal(storedArticles.length, 0);
   } finally {
     await cleanup();
   }
 });
 
-test('2. Image disabled without fallback: Blocks live article publication when image generation is disabled', async () => {
+test('2. Image-disabled live article is blocked by the human-approval gate first', async () => {
   const { repoDir, contentDir, cleanup } = await createTempWorkspace();
 
   try {
@@ -329,16 +324,17 @@ test('2. Image disabled without fallback: Blocks live article publication when i
       imageStorageProvider: storageProvider,
     });
 
-    assert.equal(result.status, 'FAILED');
+    assert.equal(result.status, 'SUCCESS');
     assert.equal(result.succeededCount, 0);
-    assert.equal(result.failedCount, 1);
+    assert.equal(result.failedCount, 0);
+    assert.equal(result.pendingApprovalCount, 1);
 
     // Verify structured article result indicates failure
     assert.ok(result.articles && result.articles.length === 1);
     const article = result.articles[0];
     assert.equal(article.success, false);
     assert.equal(article.imageGenerated, false);
-    assert.equal(article.error?.code, 'IMAGE_REQUIRED');
+    assert.match(article.error?.message || '', /human editorial approval/i);
 
     // Verify image provider was never called
     assert.equal(imageProvider.generateCalls.length, 0);
@@ -351,7 +347,7 @@ test('2. Image disabled without fallback: Blocks live article publication when i
   }
 });
 
-test('2b. Image disabled with explicit fallback: Publishes article cleanly when allowNoImageFallback is true', async () => {
+test('2b. Image fallback policy does not bypass human approval', async () => {
   const { repoDir, contentDir, cleanup } = await createTempWorkspace();
 
   try {
@@ -404,16 +400,17 @@ test('2b. Image disabled with explicit fallback: Publishes article cleanly when 
     });
 
     assert.equal(result.status, 'SUCCESS');
-    assert.equal(result.succeededCount, 1);
+    assert.equal(result.succeededCount, 0);
+    assert.equal(result.pendingApprovalCount, 1);
 
     const storedArticles = await repository.list();
-    assert.equal(storedArticles.length, 1);
+    assert.equal(storedArticles.length, 0);
   } finally {
     await cleanup();
   }
 });
 
-test('3. Cost Guard blocking image without fallback: Reached quota blocks image generation and halts publication', async () => {
+test('3. Cost guard cannot bypass the human-approval gate', async () => {
   const { repoDir, contentDir, cleanup } = await createTempWorkspace();
 
   try {
@@ -478,9 +475,10 @@ test('3. Cost Guard blocking image without fallback: Reached quota blocks image 
     });
 
     // Workflow must fail due to image block
-    assert.equal(result.status, 'FAILED');
+    assert.equal(result.status, 'SUCCESS');
     assert.equal(result.succeededCount, 0);
-    assert.equal(result.failedCount, 1);
+    assert.equal(result.failedCount, 0);
+    assert.equal(result.pendingApprovalCount, 1);
 
     assert.ok(result.articles && result.articles.length === 1);
     const article = result.articles[0];
@@ -495,7 +493,7 @@ test('3. Cost Guard blocking image without fallback: Reached quota blocks image 
   }
 });
 
-test('4. Image provider failure fallback: Primary fails, fallback succeeds -> URL persisted', async () => {
+test('4. Image provider fallback is deferred until human approval', async () => {
   const { repoDir, contentDir, cleanup } = await createTempWorkspace();
 
   try {
@@ -550,24 +548,23 @@ test('4. Image provider failure fallback: Primary fails, fallback succeeds -> UR
     });
 
     assert.equal(result.status, 'SUCCESS');
-    assert.equal(result.succeededCount, 1);
+    assert.equal(result.succeededCount, 0);
+    assert.equal(result.pendingApprovalCount, 1);
 
     // Verify fallback image was persisted
     assert.ok(result.articles && result.articles.length === 1);
     const article = result.articles[0];
-    assert.equal(article.success, true);
-    assert.equal(article.imageGenerated, true);
-    assert.equal(article.imageUrl, 'https://assets.lifemode.life/editorial/bfl-image.jpg');
-    assert.equal(article.imageProvider, 'bfl-flux-2-pro');
+    assert.equal(article.success, false);
+    assert.equal(article.imageGenerated, false);
 
-    assert.equal(failingPrimary.generateCalls.length, 1);
-    assert.equal(succeedingFallback.generateCalls.length, 1);
+    assert.equal(failingPrimary.generateCalls.length, 0);
+    assert.equal(succeedingFallback.generateCalls.length, 0);
   } finally {
     await cleanup();
   }
 });
 
-test('5. Multiple article execution limit: Respects dailyArticleLimit / maxOpportunities (processes exactly 3 articles)', async () => {
+test('5. Multiple reviewed articles are queued without publication', async () => {
   const { repoDir, contentDir, cleanup } = await createTempWorkspace();
 
   try {
@@ -619,21 +616,21 @@ test('5. Multiple article execution limit: Respects dailyArticleLimit / maxOppor
 
     assert.equal(result.status, 'SUCCESS');
     assert.equal(result.processedCount, 3);
-    assert.equal(result.succeededCount, 3);
+    assert.equal(result.succeededCount, 0);
+    assert.equal(result.pendingApprovalCount, 3);
     assert.equal(result.failedCount, 0);
 
     // Verify all 3 articles are returned in structured result
     assert.ok(result.articles && result.articles.length === 3);
     for (const art of result.articles) {
-      assert.equal(art.success, true);
-      assert.ok(art.articleId);
+      assert.equal(art.success, false);
       assert.ok(art.slug);
-      assert.equal(art.imageGenerated, true);
+      assert.equal(art.imageGenerated, false);
     }
 
     // Verify 3 markdown files were written to content repo
     const storedArticles = await repository.list();
-    assert.equal(storedArticles.length, 3);
+    assert.equal(storedArticles.length, 0);
   } finally {
     await cleanup();
   }

@@ -6,6 +6,7 @@ import { buildPublishPackage } from '../src/lib/editorial/publishing/builder.ts'
 import { FixturePublishingProvider } from '../src/lib/editorial/publishing/providers/fixture.ts';
 import { runPublishingPipeline } from '../src/lib/editorial/publishing/runner.ts';
 import type { PublishingRequest } from '../src/lib/editorial/publishing/types.ts';
+import { publishingContentId } from '../src/lib/editorial/publishing/types.ts';
 import type { GeneratedArticle } from '../src/lib/editorial/generation/types.ts';
 import type { ReviewResult, ReviewDimensionKey, ReviewDimensionScore } from '../src/lib/editorial/review/types.ts';
 
@@ -101,6 +102,16 @@ const validPublishingRequest: PublishingRequest = {
       url: 'https://assets.lifemode.life/editorial/test/sample.jpg',
       prompt: 'Editorial minimal hardware photography.',
     },
+    contentVersion: 1,
+    humanApproval: {
+      recordId: 'approval-test-001',
+      contentId: publishingContentId('lm-tech-ai-2026-pub-01', sampleArticle.slug),
+      contentVersion: 1,
+      reviewer: 'Human Editorial Reviewer',
+      reviewerType: 'human',
+      decision: 'APPROVED',
+      reviewedAt: new Date().toISOString(),
+    },
   },
 };
 
@@ -108,6 +119,71 @@ test('1. Valid PASS article is eligible in Publishing Gate', () => {
   const gateResult = evaluatePublishingGate(validPublishingRequest);
   assert.equal(gateResult.eligible, true);
   assert.equal(gateResult.reasons.length, 0);
+});
+
+test('1a. Live publication is blocked without a human approval record', () => {
+  const request: PublishingRequest = {
+    ...validPublishingRequest,
+    options: { dryRun: false },
+    context: { ...validPublishingRequest.context, humanApproval: undefined },
+  };
+  const result = evaluatePublishingGate(request);
+  assert.equal(result.eligible, false);
+  assert.ok(result.reasons.some((reason) => reason.includes('recorded human editorial approval')));
+});
+
+test('1b. AI reviewer metadata cannot satisfy human approval', () => {
+  const request: PublishingRequest = {
+    ...validPublishingRequest,
+    options: { dryRun: false },
+    context: {
+      ...validPublishingRequest.context,
+      humanApproval: {
+        ...validPublishingRequest.context.humanApproval!,
+        reviewer: 'AI Router Reviewer',
+        reviewerType: 'ai' as any,
+      },
+    },
+  };
+  const result = evaluatePublishingGate(request);
+  assert.equal(result.eligible, false);
+  assert.ok(result.reasons.some((reason) => reason.includes('human reviewer')));
+});
+
+test('1c. Stale, mismatched, and invalid approval records block live publication', () => {
+  const staleRequest: PublishingRequest = {
+    ...validPublishingRequest,
+    options: { dryRun: false },
+    context: {
+      ...validPublishingRequest.context,
+      humanApproval: {
+        ...validPublishingRequest.context.humanApproval!,
+        contentVersion: 2,
+        reviewedAt: '2020-01-01T00:00:00.000Z',
+      },
+    },
+  };
+  const result = evaluatePublishingGate(staleRequest);
+  assert.equal(result.eligible, false);
+  assert.ok(result.reasons.some((reason) => reason.includes('version 2')));
+  assert.ok(result.reasons.some((reason) => reason.includes('older than')));
+
+  const invalidRequest: PublishingRequest = {
+    ...validPublishingRequest,
+    options: { dryRun: false },
+    context: {
+      ...validPublishingRequest.context,
+      humanApproval: {
+        ...validPublishingRequest.context.humanApproval!,
+        contentId: 'wrong-content',
+        reviewedAt: 'not-a-date',
+      },
+    },
+  };
+  const invalidResult = evaluatePublishingGate(invalidRequest);
+  assert.equal(invalidResult.eligible, false);
+  assert.ok(invalidResult.reasons.some((reason) => reason.includes('exact article')));
+  assert.ok(invalidResult.reasons.some((reason) => reason.includes('date is invalid')));
 });
 
 test('2. REVISE decision is blocked by Publishing Gate', () => {

@@ -16,13 +16,34 @@ import {
 } from '../src/lib/editorial/image-prompt.ts';
 
 import { runPublishingPipeline } from '../src/lib/editorial/publishing/runner.ts';
-import type { PublishingRequest, PublishPackage } from '../src/lib/editorial/publishing/types.ts';
+import { publishingContentId, type PublishingRequest, type PublishPackage } from '../src/lib/editorial/publishing/types.ts';
 import type { ISocialAssetStorageProvider, AssetUploadRequest, AssetUploadResult } from '../src/lib/social/images/storage/contracts.ts';
 
 // Valid 1x1 PNG Buffer
 const FIXTURE_PNG_BASE64 =
   'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==';
 const VALID_PNG_BUFFER = Buffer.from(FIXTURE_PNG_BASE64, 'base64');
+
+function withHumanApproval(request: PublishingRequest): PublishingRequest {
+  const contentVersion = request.context?.contentVersion ?? 1;
+  const topicId = request.context?.topicId || '';
+  return {
+    ...request,
+    context: {
+      ...request.context,
+      contentVersion,
+      humanApproval: {
+        recordId: `test-approval-${topicId}`,
+        contentId: publishingContentId(topicId, request.article.slug),
+        contentVersion,
+        reviewer: 'Test Human Editor',
+        reviewerType: 'human',
+        decision: 'APPROVED',
+        reviewedAt: new Date().toISOString(),
+      },
+    },
+  };
+}
 
 // Mock Storage Provider
 class MockStorageProvider implements ISocialAssetStorageProvider {
@@ -488,7 +509,7 @@ test('12. End-to-end publishing pipeline with image generation persistence (Work
   const mockStorage = new MockStorageProvider(true, 'https://cdn.lifemode.life/editorial/topic-wellbeing-solitude/master.jpg');
 
   const result = await runPublishingPipeline({
-    request: pubRequest,
+    request: withHumanApproval(pubRequest),
     imageConfig: loadEditorialImageConfig({ enabled: true }),
     imagePrimaryProvider: primaryImageProvider,
     imageStorageProvider: mockStorage,
@@ -577,7 +598,7 @@ test('13. End-to-end publishing pipeline with BFL fallback on Workers AI failure
   const mockStorage = new MockStorageProvider(true, 'https://cdn.lifemode.life/editorial/topic-wellbeing-solitude/bfl-master.jpg');
 
   const result = await runPublishingPipeline({
-    request: pubRequest,
+    request: withHumanApproval(pubRequest),
     imageConfig: loadEditorialImageConfig({ enabled: true }),
     imagePrimaryProvider: primaryImageProvider,
     imageFallbackProvider: fallbackImageProvider,
@@ -666,7 +687,7 @@ test('14. End-to-end publishing pipeline blocks publication when image generatio
   const mockStorage = new MockStorageProvider(false);
 
   const result = await runPublishingPipeline({
-    request: pubRequest,
+    request: withHumanApproval(pubRequest),
     imageConfig: loadEditorialImageConfig({ enabled: true, allowNoImageFallback: false }),
     imagePrimaryProvider: primaryImageProvider,
     imageFallbackProvider: fallbackImageProvider,
@@ -754,7 +775,7 @@ test('15. End-to-end publishing pipeline allows publication when allowNoImageFal
   const fallbackImageProvider = new FixtureEditorialImageProvider(false);
 
   const result = await runPublishingPipeline({
-    request: pubRequest,
+    request: withHumanApproval(pubRequest),
     imageConfig: loadEditorialImageConfig({ enabled: true, allowNoImageFallback: true }),
     imagePrimaryProvider: primaryImageProvider,
     imageFallbackProvider: fallbackImageProvider,
@@ -844,5 +865,3 @@ test('18. Fallback Image Safety: Unrelated images from other articles are never 
   const config = loadEditorialImageConfig({ enabled: true, allowNoImageFallback: true });
   assert.equal(config.allowNoImageFallback, true);
 });
-
-

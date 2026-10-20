@@ -110,6 +110,8 @@ export interface PublishingContext {
   factSheet?: import('../fact-sheet.ts').StructuredFactSheet;
   isAlreadyPublished?: boolean;
   isPerson?: boolean;
+  contentVersion?: number;
+  humanApproval?: HumanEditorialApproval;
 }
 
 /**
@@ -122,6 +124,24 @@ export interface PublishingGateThresholds {
   requirePassDecision: boolean; // default: true
   disallowUnresolvedPlaceholders: boolean; // default: true
   requireImage?: boolean; // default: false (in gate check) / true when validating publication readiness
+}
+
+/**
+ * Verifiable human approval for the exact content version being published.
+ * AI review metadata is intentionally not accepted as this record.
+ */
+export interface HumanEditorialApproval {
+  recordId: string;
+  contentId: string;
+  contentVersion: number;
+  reviewer: string;
+  reviewerType: 'human';
+  decision: 'APPROVED';
+  reviewedAt: string;
+}
+
+export function publishingContentId(topicId: string, slug: string): string {
+  return `${topicId}:${slug}`;
 }
 
 /**

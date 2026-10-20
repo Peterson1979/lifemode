@@ -146,7 +146,7 @@ test('2. Dry-run never publishes or commits to Git', async () => {
   }
 });
 
-test('3. Production configuration enables publishing and produces SUCCESS', async () => {
+test('3. Production configuration queues reviewed drafts for human approval', async () => {
   const { repoDir, contentDir, lockPath, storagePath, cleanup } = await createTempWorkspace();
 
   try {
@@ -164,21 +164,22 @@ test('3. Production configuration enables publishing and produces SUCCESS', asyn
       discoveryAdapters: [new MockDiscoveryAdapter('Mindful Minimalist Morning Rituals', 95)],
     });
 
-    assert.equal(result.status, 'SUCCESS');
-    assert.equal(result.succeededCount, 1);
-    assert.equal(result.publishedCount, 1);
+    assert.equal(result.status, 'SUCCESS_NO_PUBLICATION');
+    assert.equal(result.succeededCount, 0);
+    assert.equal(result.publishedCount, 0);
+    assert.equal(result.automationResult?.pendingApprovalCount, 1);
     assert.equal(result.rejectedCount, 0);
     assert.equal(result.failedCount, 0);
 
     // Verify git commit was created for article + candidate state
     const commitLog = await execFileAsync('git', ['log', '--oneline'], { cwd: repoDir });
-    assert.ok(commitLog.stdout.includes('feat: publish article'));
+    assert.equal(commitLog.stdout.includes('feat: publish article'), false);
   } finally {
     await cleanup();
   }
 });
 
-test('4. Successful publication produces clean machine-readable telemetry', async () => {
+test('4. Awaiting approval produces clean machine-readable telemetry', async () => {
   const { repoDir, contentDir, lockPath, storagePath, cleanup } = await createTempWorkspace();
 
   try {
@@ -197,9 +198,9 @@ test('4. Successful publication produces clean machine-readable telemetry', asyn
     });
 
     assert.ok(result.jsonResult);
-    assert.equal(result.jsonResult.status, 'SUCCESS');
-    assert.equal(result.jsonResult.counts.published, 1);
-    assert.equal(result.jsonResult.counts.succeeded, 1);
+    assert.equal(result.jsonResult.status, 'SUCCESS_NO_PUBLICATION');
+    assert.equal(result.jsonResult.counts.published, 0);
+    assert.equal(result.jsonResult.counts.succeeded, 0);
     assert.equal(result.jsonResult.pushedToRemote, false);
     assert.ok(result.jsonResult.durationMs >= 0);
   } finally {
@@ -273,10 +274,11 @@ test('5. Successful + rejected candidates produces PARTIAL_SUCCESS', async () =>
       reviewProvider: alternatingReviewProvider,
     });
 
-    assert.equal(result.status, 'PARTIAL_SUCCESS');
-    assert.equal(result.succeededCount, 1);
+    assert.equal(result.status, 'SUCCESS_NO_PUBLICATION');
+    assert.equal(result.succeededCount, 0);
     assert.equal(result.rejectedCount, 1);
-    assert.equal(result.publishedCount, 1);
+    assert.equal(result.publishedCount, 0);
+    assert.equal(result.automationResult?.pendingApprovalCount, 1);
   } finally {
     await cleanup();
   }
@@ -327,7 +329,7 @@ test('7. Infrastructure failure produces FAILED status', async () => {
   try {
     const result = await runScheduledEditorialAutomation({
       enabled: true,
-      dryRun: false,
+      dryRun: true,
       allowCommit: true,
       gitRepoRoot: repoDir,
       contentRoot: contentDir,
@@ -470,8 +472,8 @@ test('12. No duplicate publication when the same topic is encountered twice', as
       storagePath,
       discoveryAdapters: [new MockDiscoveryAdapter('Mindful Minimalist Morning Rituals', 95)],
     });
-    assert.equal(result1.status, 'SUCCESS');
-    assert.equal(result1.publishedCount, 1);
+    assert.equal(result1.status, 'SUCCESS_NO_PUBLICATION');
+    assert.equal(result1.publishedCount, 0);
 
     // Run 2: Same topic encountered again
     const result2 = await runScheduledEditorialAutomation({
@@ -540,7 +542,7 @@ test('13. Scheduler remains resilient when Reddit is disabled or a provider fail
     const rejectedOpp = resultRejected.automationResult.opportunities[0];
     assert.equal(rejectedOpp.status, 'REJECTED');
 
-    // Case B: When AI review quality gate PASSES, article publishes cleanly
+    // Case B: When AI review quality gate PASSES, article is queued for human approval.
     const workingAdapterB = new MockDiscoveryAdapter('Sustainable Desk Organization Systems', 92, 'life');
     const passingReviewProvider: IAIReviewProvider = new FixtureReviewProvider({
       outcome: 'PASS',
@@ -560,11 +562,11 @@ test('13. Scheduler remains resilient when Reddit is disabled or a provider fail
       reviewProvider: passingReviewProvider,
     });
 
-    assert.equal(resultPassed.status, 'SUCCESS');
-    assert.equal(resultPassed.publishedCount, 1);
+    assert.equal(resultPassed.status, 'SUCCESS_NO_PUBLICATION');
+    assert.equal(resultPassed.publishedCount, 0);
     assert.ok(resultPassed.automationResult);
     const passedOpp = resultPassed.automationResult.opportunities[0];
-    assert.equal(passedOpp.status, 'COMPLETED');
+    assert.equal(passedOpp.status, 'AWAITING_APPROVAL');
     assert.equal(passedOpp.stageResults.REVIEW.status, 'SUCCESS');
   } finally {
     await Promise.all([wsA.cleanup(), wsB.cleanup()]);

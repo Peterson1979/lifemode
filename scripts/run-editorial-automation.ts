@@ -14,6 +14,10 @@ async function main() {
   const isRouter = args.includes('--router') || args.includes('--ai-router');
   const isFixture = args.includes('--fixture');
 
+  if (isLiveCommit && !isRouter) {
+    throw new Error('Live editorial publication requires --router; deterministic fixture review is never permitted for production content.');
+  }
+
   let maxOpportunities: number | undefined;
   const maxArg = args.find((a) => a.startsWith('--max='));
   if (maxArg) {
@@ -76,7 +80,7 @@ async function main() {
 
   const result = await runEditorialAutomation({
     ...config,
-    allowUnrelatedChanges: true,
+    allowUnrelatedChanges: false,
     commitAuthor: {
       name: 'LifeMode Editorial Automation',
       email: 'automation@lifemode.local',

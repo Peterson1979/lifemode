@@ -6,7 +6,7 @@ import type { GenerationResult } from '../generation/types.ts';
 import type { IAIReviewProvider } from '../review/providers/types.ts';
 import type { ReviewResult } from '../review/types.ts';
 import type { IPublishingProvider } from '../publishing/providers/types.ts';
-import type { PublishingResult } from '../publishing/types.ts';
+import type { HumanEditorialApproval, PublishingResult } from '../publishing/types.ts';
 import type { IContentRepository, StorageResult } from '../storage/types.ts';
 import type { IGitPublisher, GitPublisherResult } from '../git-publisher/types.ts';
 import type { BriefGenerationOptions } from '../brief.ts';
@@ -93,7 +93,7 @@ export interface OpportunityRunResult {
   topicId: string;
   canonicalTopic: string;
   pillar: PillarSlug;
-  status: 'COMPLETED' | 'FAILED' | 'SKIPPED' | 'DRY_RUN' | 'REJECTED';
+  status: 'COMPLETED' | 'FAILED' | 'SKIPPED' | 'DRY_RUN' | 'REJECTED' | 'AWAITING_APPROVAL';
   brief?: ContentBrief;
   research?: EvidenceResult;
   generation?: GenerationResult;
@@ -162,6 +162,8 @@ export interface AutomationRequest {
   briefOptions?: BriefGenerationOptions;
   validationOptions?: ValidationRulesOptions;
   allowUnrelatedChanges?: boolean;
+  /** Required for live publication; never synthesized from an AI review. */
+  humanApproval?: HumanEditorialApproval;
   commitAuthor?: {
     name: string;
     email: string;
@@ -185,6 +187,7 @@ export interface AutomationResult {
   processedCount: number;
   succeededCount: number;
   rejectedCount?: number;
+  pendingApprovalCount?: number;
   failedCount: number;
   skippedCount: number;
   opportunities: OpportunityRunResult[];

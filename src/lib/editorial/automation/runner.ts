@@ -27,6 +27,7 @@ import { runReviewPipeline } from '../review/runner.ts';
 import { FixtureReviewProvider } from '../review/providers/fixture.ts';
 import { AIRouterReviewProvider } from '../review/providers/ai-router.ts';
 import { runPublishingPipeline } from '../publishing/runner.ts';
+import { enqueueEditorialApproval } from '../approval/service.ts';
 import { FixturePublishingProvider } from '../publishing/providers/fixture.ts';
 import { FilesystemContentRepository } from '../storage/repository.ts';
 import { storePublishPackage } from '../storage/publishing-adapter.ts';
@@ -133,6 +134,7 @@ export function formatAutomationSummary(result: AutomationResult): string {
     `Selected:    ${result.selectedCount}`,
     `Processed:   ${result.processedCount}`,
     `Succeeded:   ${result.succeededCount}`,
+    `Awaiting approval: ${result.pendingApprovalCount ?? 0}`,
     `Rejected:    ${result.rejectedCount ?? 0}`,
     `Failed:      ${result.failedCount}`,
     '',
@@ -428,7 +430,7 @@ export async function runEditorialAutomation(
   const unPublishedCandidates: EditorialTopic[] = [];
   for (const topic of candidateTopics) {
     const hasExhaustedRevisions = topic.revisionAttempted || (topic.revisionCyclesCount ?? 0) >= 1;
-    if (topic.status === 'PUBLISHED' || topic.opportunityType === 'REJECT') {
+    if (topic.status === 'PUBLISHED' || topic.status === 'IN_PRODUCTION' || topic.opportunityType === 'REJECT') {
       continue;
     }
     if (topic.status === 'REJECTED' && hasExhaustedRevisions) {
@@ -891,6 +893,8 @@ export async function runEditorialAutomation(
           guideMode: brief.guideMode,
           contentType: brief.contentType,
           factSheet: brief.factSheet,
+          contentVersion: 1,
+          humanApproval: request.humanApproval,
           sourceUrls: brief.sourceUrls,
           evidence: brief.evidence,
           searchTargets: brief.searchTargets,
@@ -932,8 +936,48 @@ export async function runEditorialAutomation(
           code: errorCode,
           message: errorMessage,
         };
-        oppResult.status = 'FAILED';
-        failedCount++;
+
+        // A reviewed live draft with no human approval is queued for the
+        // local approval dashboard. It remains unpublished and cannot bypass
+        // the same gate when approval is recorded.
+        const approvalOnlyGateBlock = publishingResult.gateResult.reasons.length > 0 &&
+          publishingResult.gateResult.reasons.every((reason) => reason.includes('recorded human editorial approval'));
+
+        if (
+          !config.dryRun &&
+          !request.humanApproval &&
+          approvalOnlyGateBlock
+        ) {
+          try {
+            const queued = await enqueueEditorialApproval(pubRequest, generationRequest);
+            oppResult.stageResults.PUBLISHING_GATE.warning = `Awaiting human approval: ${queued.id}`;
+          } catch (queueError: any) {
+            oppResult.stageResults.PUBLISHING_GATE.warning = `Approval queue unavailable: ${queueError?.message || String(queueError)}`;
+          }
+        }
+
+        if (!config.dryRun && !request.humanApproval && approvalOnlyGateBlock) {
+          // A reviewed draft is a successful automation outcome even though
+          // publication is intentionally deferred until a human approves it.
+          stageResults.PUBLISHING_GATE.status = 'WARNING';
+          oppResult.status = 'AWAITING_APPROVAL';
+          try {
+            const pendingTopic: EditorialTopic = {
+              ...topic,
+              status: 'IN_PRODUCTION',
+              updatedAt: new Date().toISOString(),
+            };
+            const currentCandidates = await loadCandidates(request.storagePath);
+            const { updatedList } = mergeCandidateTopic(pendingTopic, currentCandidates);
+            await saveCandidates(updatedList, request.storagePath);
+          } catch {
+            // Best-effort lifecycle persistence; the approval queue is the
+            // authoritative record for the pending draft.
+          }
+        } else {
+          oppResult.status = 'FAILED';
+          failedCount++;
+        }
         opportunityResults.push(oppResult);
         continue;
       }
@@ -1005,7 +1049,10 @@ export async function runEditorialAutomation(
         allowCommit: config.allowCommit,
         gitRepoRoot: request.gitRepoRoot,
         contentRoot: request.contentRoot,
-        allowUnrelatedChanges: request.allowUnrelatedChanges,
+        // Dry-run only inspects the publication plan and never stages or
+        // commits, so the scheduler's lock file must not make the simulation
+        // look like an unsafe live working tree.
+        allowUnrelatedChanges: config.dryRun ? true : request.allowUnrelatedChanges,
         commitAuthor: request.commitAuthor,
       });
 
@@ -1137,6 +1184,7 @@ export async function runEditorialAutomation(
     processedCount,
     succeededCount,
     rejectedCount,
+    pendingApprovalCount: opportunityResults.filter((opp) => opp.status === 'AWAITING_APPROVAL').length,
     failedCount,
     skippedCount: candidateCount - processedCount,
     opportunities: opportunityResults,

@@ -576,7 +576,9 @@ test('11. Candidate rejection persistence: Rejected candidate is marked in stora
     });
 
     assert.equal(run2.status, 'SUCCESS');
-    assert.equal(run2.succeededCount, 1);
+    assert.equal(run2.succeededCount, 0);
+    assert.equal(run2.pendingApprovalCount, 1);
+    assert.equal(run2.opportunities[0].status, 'AWAITING_APPROVAL');
     const run2TopicId = run2.opportunities[0].topicId;
     assert.notEqual(run2TopicId, rejectedTopicId, 'Run 2 must select a different candidate than the previously rejected topic');
   } finally {

@@ -482,7 +482,7 @@ test('Controlled E2E Dry-Run: Negative/Invalid case is deterministically blocked
   }
 });
 
-test('Controlled E2E Dry-Run: Negative case is deterministically blocked at PUBLISHING_GATE when required image is missing without fallback', async () => {
+test('Controlled E2E live draft is queued at PUBLISHING_GATE until human approval', async () => {
   const { repoDir, contentDir, cleanup } = await createIsolatedTempWorkspace('lifemode-e2e-neg-img-');
   const storagePath = path.join(repoDir, 'candidates.json');
 
@@ -551,17 +551,18 @@ test('Controlled E2E Dry-Run: Negative case is deterministically blocked at PUBL
     });
 
     // Verify publication is blocked at PUBLISHING_GATE
-    assert.equal(result.status, 'FAILED');
-    assert.equal(result.failedCount, 1);
+    assert.equal(result.status, 'SUCCESS');
+    assert.equal(result.failedCount, 0);
+    assert.equal(result.pendingApprovalCount, 1);
     assert.equal(result.succeededCount, 0);
 
     const opp = result.opportunities[0];
-    assert.equal(opp.status, 'FAILED');
+    assert.equal(opp.status, 'AWAITING_APPROVAL');
     assert.equal(opp.failedStage, 'PUBLISHING_GATE');
     assert.equal(opp.stageResults.VALIDATION.status, 'SUCCESS');
     assert.equal(opp.stageResults.REVIEW.status, 'SUCCESS');
-    assert.equal(opp.stageResults.PUBLISHING_GATE.status, 'FAILED');
-    assert.equal(opp.stageResults.PUBLISHING_GATE.error?.code, 'IMAGE_REQUIRED');
+    assert.equal(opp.stageResults.PUBLISHING_GATE.status, 'WARNING');
+    assert.match(opp.stageResults.PUBLISHING_GATE.error?.message || '', /human editorial approval/i);
     assert.equal(opp.stageResults.STORAGE.status, 'PENDING');
     assert.equal(opp.stageResults.GIT_PUBLICATION.status, 'PENDING');
 
@@ -573,7 +574,7 @@ test('Controlled E2E Dry-Run: Negative case is deterministically blocked at PUBL
   }
 });
 
-test('Controlled E2E Isolated Run: Mock image provider generates and persists image frontmatter end-to-end', async () => {
+test('Controlled E2E Isolated Run: Mock image generation remains deferred until approval', async () => {
   const { repoDir, contentDir, cleanup } = await createIsolatedTempWorkspace('lifemode-e2e-img-mock-');
   const storagePath = path.join(repoDir, 'candidates.json');
 
@@ -641,24 +642,23 @@ test('Controlled E2E Isolated Run: Mock image provider generates and persists im
     });
 
     assert.equal(result.status, 'SUCCESS');
-    assert.equal(result.succeededCount, 1);
+    assert.equal(result.succeededCount, 0);
+    assert.equal(result.pendingApprovalCount, 1);
     assert.equal(result.failedCount, 0);
 
     const opp = result.opportunities[0];
-    assert.equal(opp.status, 'COMPLETED');
-    assert.equal(opp.stageResults.PUBLISHING_GATE.status, 'SUCCESS');
-    assert.equal(opp.stageResults.STORAGE.status, 'SUCCESS');
-    assert.equal(opp.stageResults.GIT_PUBLICATION.status, 'SUCCESS');
+    assert.equal(opp.status, 'AWAITING_APPROVAL');
+    assert.equal(opp.stageResults.PUBLISHING_GATE.status, 'WARNING');
+    assert.equal(opp.stageResults.STORAGE.status, 'PENDING');
+    assert.equal(opp.stageResults.GIT_PUBLICATION.status, 'PENDING');
 
     // Verify mock image provider was invoked
-    assert.equal(mockImageProvider.generateCalls.length, 1);
-    assert.equal(mockStorageProvider.uploadCalls.length, 1);
+    assert.equal(mockImageProvider.generateCalls.length, 0);
+    assert.equal(mockStorageProvider.uploadCalls.length, 0);
 
     // Verify stored article in isolated test repo has image URL in frontmatter
     const storedArticles = await repository.list();
-    assert.equal(storedArticles.length, 1);
-    assert.ok(storedArticles[0].frontmatter.image);
-    assert.ok(storedArticles[0].frontmatter.image.includes('assets.lifemode.life/editorial/'));
+    assert.equal(storedArticles.length, 0);
   } finally {
     await cleanup();
   }
