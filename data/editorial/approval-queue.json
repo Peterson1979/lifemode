@@ -4,7 +4,7 @@
     "contentId": "lm-tech-ai-20261020-how-ordinary-users-can-organiz:organizing-daily-life-work-with-claude-chatgpt",
     "version": 1,
     "contentHash": "7202a8b8456852fa2fd8a2528eceba2223d58e5855359b7d6cc174c60f0f113a",
-    "status": "PENDING",
+    "status": "APPROVED",
     "publishingRequest": {
       "article": {
         "title": "Organizing daily life and work with Claude and ChatGPT",
@@ -274,6 +274,15 @@
           "freshnessSensitivity": "high",
           "opportunityScore": 88,
           "recommendedAngle": "How Ordinary Users Can Organize Daily Life and Work with Claude and Chatgpt"
+        },
+        "humanApproval": {
+          "recordId": "approval-lm-tech-ai-20261020-how-ordinary-users-can-organiz:organizing-daily-life-work-with-claude-chatgpt-v1-1792508109995",
+          "contentId": "lm-tech-ai-20261020-how-ordinary-users-can-organiz:organizing-daily-life-work-with-claude-chatgpt",
+          "contentVersion": 1,
+          "reviewer": "human-review",
+          "reviewerType": "human",
+          "decision": "APPROVED",
+          "reviewedAt": "2026-10-20T14:55:09.995Z"
         }
       },
       "options": {
@@ -520,7 +529,24 @@
       "contentType": "NEWS"
     },
     "createdAt": "2026-10-20T12:47:50.703Z",
-    "updatedAt": "2026-10-20T12:47:50.703Z"
+    "updatedAt": "2026-10-20T14:55:10.048Z",
+    "approval": {
+      "recordId": "approval-lm-tech-ai-20261020-how-ordinary-users-can-organiz:organizing-daily-life-work-with-claude-chatgpt-v1-1792508109995",
+      "contentId": "lm-tech-ai-20261020-how-ordinary-users-can-organiz:organizing-daily-life-work-with-claude-chatgpt",
+      "contentVersion": 1,
+      "reviewer": "human-review",
+      "reviewerType": "human",
+      "decision": "APPROVED",
+      "reviewedAt": "2026-10-20T14:55:09.995Z"
+    },
+    "publication": {
+      "publicationId": "pub-lm-tech-ai-20261020-how-ordinary-users-can-organiz-organizing-daily-life-work-with-claude-chatgpt",
+      "collection": "guides",
+      "path": "C:\\Users\\opeti\\LifeMode\\lifemode\\src\\content\\guides\\organizing-daily-life-work-with-claude-chatgpt.md",
+      "route": "/everyday-how-to/organizing-daily-life-work-with-claude-chatgpt/",
+      "contentHash": "7202a8b8456852fa2fd8a2528eceba2223d58e5855359b7d6cc174c60f0f113a",
+      "publishedAt": "2026-10-20T14:55:10.048Z"
+    }
   },
   {
     "id": "approval-lm-home-20261020-how-to-clean-and-season-a-cast:how-to-clean-and-season-cast-iron-skillet-oil-polymerization-v1",
