@@ -897,7 +897,7 @@
     "contentId": "lm-health-20261020-circadian-light-management-mor:circadian-light-morning-sun-blue-light-sleep",
     "version": 1,
     "contentHash": "055d3d123d0918dcd41e1aa553a213bbfb0ee896f83fc1e259cdc9b0a0d7a13c",
-    "status": "PENDING",
+    "status": "APPROVED",
     "publishingRequest": {
       "article": {
         "title": "How to use morning sunlight and evening blue‑light control for deeper sleep",
@@ -1170,6 +1170,15 @@
           "freshnessSensitivity": "high",
           "opportunityScore": 82,
           "recommendedAngle": "Circadian Light Management Morning Sun Protocol and Blue Light Timing for Deep Sleep: Timing, Dosage, and Daily Optimization Protocol"
+        },
+        "humanApproval": {
+          "recordId": "approval-lm-health-20261020-circadian-light-management-mor:circadian-light-morning-sun-blue-light-sleep-v1-1792508149486",
+          "contentId": "lm-health-20261020-circadian-light-management-mor:circadian-light-morning-sun-blue-light-sleep",
+          "contentVersion": 1,
+          "reviewer": "human-review",
+          "reviewerType": "human",
+          "decision": "APPROVED",
+          "reviewedAt": "2026-10-20T14:55:49.486Z"
         }
       },
       "options": {
@@ -1411,6 +1420,23 @@
       "contentType": "reference"
     },
     "createdAt": "2026-10-20T12:52:05.798Z",
-    "updatedAt": "2026-10-20T12:52:05.798Z"
+    "updatedAt": "2026-10-20T14:55:49.505Z",
+    "approval": {
+      "recordId": "approval-lm-health-20261020-circadian-light-management-mor:circadian-light-morning-sun-blue-light-sleep-v1-1792508149486",
+      "contentId": "lm-health-20261020-circadian-light-management-mor:circadian-light-morning-sun-blue-light-sleep",
+      "contentVersion": 1,
+      "reviewer": "human-review",
+      "reviewerType": "human",
+      "decision": "APPROVED",
+      "reviewedAt": "2026-10-20T14:55:49.486Z"
+    },
+    "publication": {
+      "publicationId": "pub-lm-health-20261020-circadian-light-management-mor-circadian-light-morning-sun-blue-light-sleep",
+      "collection": "guides",
+      "path": "C:\\Users\\opeti\\LifeMode\\lifemode\\src\\content\\guides\\circadian-light-morning-sun-blue-light-sleep.md",
+      "route": "/everyday-how-to/circadian-light-morning-sun-blue-light-sleep/",
+      "contentHash": "055d3d123d0918dcd41e1aa553a213bbfb0ee896f83fc1e259cdc9b0a0d7a13c",
+      "publishedAt": "2026-10-20T14:55:49.505Z"
+    }
   }
 ]
