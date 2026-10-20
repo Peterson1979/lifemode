@@ -70,7 +70,7 @@ export class GroqProvider implements IAIProvider {
   constructor(options: GroqProviderOptions = {}) {
     const config = loadAIConfig().groq;
     this.apiKey = options.apiKey !== undefined ? options.apiKey : config.apiKey;
-    this.defaultModel = options.defaultModel || config.model || 'llama-3.3-70b-versatile';
+    this.defaultModel = options.defaultModel || config.model || 'openai/gpt-oss-120b';
     this.fetchFn = options.fetchFn || globalThis.fetch.bind(globalThis);
     this.omitResponseFormat = Boolean(options.omitResponseFormat);
   }
