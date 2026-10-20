@@ -10,6 +10,10 @@ import type { IAIReviewProvider } from '../review/providers/types.ts';
 import type { PublishingRequest, HumanEditorialApproval } from '../publishing/types.ts';
 import { evaluatePublishingGate } from '../publishing/gate.ts';
 import { publishingContentId } from '../publishing/types.ts';
+import { buildPublishPackage } from '../publishing/builder.ts';
+import type { PublishPackage } from '../publishing/types.ts';
+import { sanitizeArticleContent } from '../sanitization.ts';
+import { releaseApprovedArticle, type ApprovalReleaseResult } from './release.ts';
 
 export type ApprovalQueueStatus = 'PENDING' | 'APPROVED' | 'REVISION_REQUESTED' | 'REJECTED';
 
@@ -26,6 +30,14 @@ export interface EditorialApprovalQueueItem {
   revisionNotes?: string;
   lastError?: string;
   approval?: HumanEditorialApproval;
+  publication?: {
+    publicationId: string;
+    collection: 'guides';
+    path: string;
+    route: string;
+    contentHash: string;
+    publishedAt: string;
+  };
 }
 
 export interface ApprovalActionResult {
@@ -33,13 +45,20 @@ export interface ApprovalActionResult {
   reasons?: string[];
 }
 
+export interface ApprovalPublicationOptions {
+  contentRoot?: string;
+  autoRelease?: boolean;
+  release?: (request: { articlePath: string; queuePath: string; route: string; title: string }) => Promise<ApprovalReleaseResult>;
+}
+
 export interface ApprovalActionInput {
-  reviewer: string;
+  reviewer?: string;
   version: number;
   feedback?: string;
 }
 
 const DEFAULT_QUEUE_PATH = resolve(process.cwd(), 'data', 'editorial', 'approval-queue.json');
+const DEFAULT_CONTENT_ROOT = resolve(process.cwd(), 'src', 'content');
 
 export function getApprovalQueuePath(customPath?: string): string {
   return resolve(customPath || process.env.LIFEMODE_APPROVAL_QUEUE_PATH || DEFAULT_QUEUE_PATH);
@@ -70,20 +89,100 @@ function assertVersion(item: EditorialApprovalQueueItem, version: number): void 
   }
 }
 
-function assertReviewer(reviewer: string): string {
-  const normalized = reviewer.trim();
-  if (!normalized || normalized.length < 2 || normalized.length > 120) {
-    throw new Error('A named human reviewer is required.');
+function canonicalize(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(canonicalize);
+  if (value && typeof value === 'object') {
+    return Object.keys(value as Record<string, unknown>).sort().reduce<Record<string, unknown>>((result, key) => {
+      const entry = (value as Record<string, unknown>)[key];
+      if (entry !== undefined) result[key] = canonicalize(entry);
+      return result;
+    }, {});
   }
-  return normalized;
+  return value;
 }
 
 function articleContentHash(request: PublishingRequest): string {
-  return createHash('sha256').update(JSON.stringify({
+  return createHash('sha256').update(JSON.stringify(canonicalize({
     article: request.article,
     context: { ...request.context, humanApproval: undefined },
+    options: { ...request.options, dryRun: false },
     review: request.review,
-  })).digest('hex');
+  }))).digest('hex');
+}
+
+function guideCategory(request: PublishingRequest): 'food-kitchen' | 'home-maintenance' {
+  const text = `${request.article.title} ${request.article.slug} ${(request.context.tags || []).join(' ')}`.toLowerCase();
+  if (/(cast.?iron|skillet|cookware|kitchen|food|pan)/i.test(text)) return 'food-kitchen';
+  if (request.context.pillar === 'home') return 'home-maintenance';
+  throw new Error(`No public guide category is configured for pillar "${request.context.pillar}".`);
+}
+
+function guideFrontmatter(pkg: PublishPackage, category: 'food-kitchen' | 'home-maintenance', publishedDate: string): string {
+  const readTime = `${Math.max(1, Math.ceil(pkg.content.trim().split(/\s+/).filter(Boolean).length / 200))} min read`;
+  const quote = (value: string) => JSON.stringify(value);
+  const sources = pkg.sources.length > 0
+    ? `sources:\n${pkg.sources.map((source) => `  - title: ${quote(source.name)}\n    publisher: ${quote(source.name)}${source.url ? `\n    url: ${quote(source.url)}` : ''}`).join('\n')}`
+    : 'sources: []';
+  return [
+    '---',
+    `title: ${quote(pkg.title)}`,
+    `seoTitle: ${quote(pkg.title)}`,
+    `seoDescription: ${quote(pkg.description)}`,
+    `category: ${quote(category)}`,
+    'contentType: "reference"',
+    `publishedDate: ${quote(publishedDate)}`,
+    `updatedDate: ${quote(publishedDate)}`,
+    `readTime: ${quote(readTime)}`,
+    'author:',
+    '  name: "LifeMode Editorial Team"',
+    '  role: "Practical Knowledge Researcher"',
+    'reviewedBy:',
+    '  name: "LifeMode Human Editorial Review"',
+    '  role: "Human approval gate"',
+    `quickSummary: ${quote(pkg.excerpt || pkg.description)}`,
+    sources,
+    '---',
+    '',
+  ].join('\n');
+}
+
+async function publishApprovedPackage(
+  item: EditorialApprovalQueueItem,
+  request: PublishingRequest,
+  options: { contentRoot?: string } = {},
+): Promise<NonNullable<EditorialApprovalQueueItem['publication']>> {
+  const category = guideCategory(request);
+  const pkg = buildPublishPackage(request, {
+    author: request.options?.author || 'LifeMode',
+    targetDate: item.createdAt.slice(0, 10),
+    dryRun: false,
+  });
+  const { cleanContent } = sanitizeArticleContent(pkg.content);
+  const publishedDate = item.createdAt.slice(0, 10);
+  const filePath = resolve(options.contentRoot || DEFAULT_CONTENT_ROOT, 'guides', `${pkg.slug}.md`);
+  const expected = `${guideFrontmatter({ ...pkg, content: cleanContent }, category, publishedDate)}${cleanContent.trim()}\n`;
+  const publicationId = pkg.id;
+  const route = `/${category}/${pkg.slug}/`;
+
+  try {
+    const existing = await fs.readFile(filePath, 'utf8');
+    if (existing !== expected) {
+      throw new Error(`Publication conflict: ${filePath} already contains different content.`);
+    }
+  } catch (error: any) {
+    if (error?.code !== 'ENOENT') throw error;
+    await fs.mkdir(dirname(filePath), { recursive: true });
+    await fs.writeFile(filePath, expected, 'utf8');
+  }
+
+  return {
+    publicationId,
+    collection: 'guides',
+    path: filePath,
+    route,
+    contentHash: item.contentHash,
+    publishedAt: new Date().toISOString(),
+  };
 }
 
 export async function listApprovalQueue(customPath?: string): Promise<EditorialApprovalQueueItem[]> {
@@ -135,7 +234,8 @@ export async function enqueueEditorialApproval(
 export async function approveEditorialQueueItem(
   id: string,
   input: ApprovalActionInput,
-  customPath?: string
+  customPath?: string,
+  options: ApprovalPublicationOptions = {},
 ): Promise<ApprovalActionResult> {
   const queuePath = getApprovalQueuePath(customPath);
   const items = await readQueue(queuePath);
@@ -146,12 +246,11 @@ export async function approveEditorialQueueItem(
   if (articleContentHash(item.publishingRequest) !== item.contentHash) {
     throw new Error('This approval item changed after it was queued and must be regenerated and reviewed again.');
   }
-  const reviewer = assertReviewer(input.reviewer);
-  const approval: HumanEditorialApproval = {
+  const approval: HumanEditorialApproval = item.approval || {
     recordId: `${item.id}-${Date.now()}`,
     contentId: item.contentId,
     contentVersion: item.version,
-    reviewer,
+    reviewer: 'human-review',
     reviewerType: 'human',
     decision: 'APPROVED',
     reviewedAt: new Date().toISOString(),
@@ -166,17 +265,40 @@ export async function approveEditorialQueueItem(
     return { item, reasons: gate.reasons };
   }
 
+  let publication: NonNullable<EditorialApprovalQueueItem['publication']>;
+  try {
+    publication = await publishApprovedPackage(item, request, options);
+  } catch (error: any) {
+    throw new Error(`Publication failed; approval was not recorded: ${error?.message || String(error)}`);
+  }
+
   const updated: EditorialApprovalQueueItem = {
     ...item,
     status: 'APPROVED',
     publishingRequest: request,
     approval,
+    publication,
     revisionNotes: undefined,
     lastError: undefined,
     updatedAt: new Date().toISOString(),
   };
   items[index] = updated;
   await writeQueue(queuePath, items);
+
+  if (options.autoRelease !== false) {
+    try {
+      const release = options.release || releaseApprovedArticle;
+      await release({
+        articlePath: publication.path,
+        queuePath,
+        route: publication.route,
+        title: request.article.title,
+      });
+    } catch (error: any) {
+      throw new Error(`Release failed after local approval was recorded: ${error?.message || String(error)}`);
+    }
+  }
+
   return { item: updated };
 }
 
@@ -194,7 +316,6 @@ export async function rejectEditorialQueueItem(
   if (articleContentHash(item.publishingRequest) !== item.contentHash) {
     throw new Error('This approval item changed after it was queued and must be regenerated and reviewed again.');
   }
-  assertReviewer(input.reviewer);
   const updated = { ...item, status: 'REJECTED' as const, revisionNotes: input.feedback?.trim() || undefined, updatedAt: new Date().toISOString() };
   items[index] = updated;
   await writeQueue(queuePath, items);
@@ -245,7 +366,6 @@ export async function requestEditorialRevision(
   if (articleContentHash(item.publishingRequest) !== item.contentHash) {
     throw new Error('This approval item changed after it was queued and must be regenerated and reviewed again.');
   }
-  const reviewer = assertReviewer(input.reviewer);
   const feedback = input.feedback?.trim();
   if (!feedback) throw new Error('Revision feedback is required.');
 
@@ -263,7 +383,7 @@ export async function requestEditorialRevision(
       },
       revisionAttempt: item.version,
     },
-    contentInstructions: `${item.generationRequest.contentInstructions || ''}\nHuman editor revision request from ${reviewer}: ${feedback}`.trim(),
+    contentInstructions: `${item.generationRequest.contentInstructions || ''}\nHuman editor revision request: ${feedback}`.trim(),
   };
 
   const generated = await runGenerationPipeline({ request: revisionRequest, provider: providers.generationProvider });
@@ -297,7 +417,7 @@ export async function requestEditorialRevision(
     status: 'PENDING',
     publishingRequest: updatedRequest,
     generationRequest: item.generationRequest,
-    revisionNotes: `Revision requested by ${reviewer}: ${feedback}`,
+    revisionNotes: `Revision requested: ${feedback}`,
     lastError: undefined,
     approval: undefined,
     updatedAt: new Date().toISOString(),

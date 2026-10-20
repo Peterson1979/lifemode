@@ -9,12 +9,14 @@ import {
   enqueueEditorialApproval,
   listApprovalQueue,
   approveEditorialQueueItem,
+  rejectEditorialQueueItem,
   requestEditorialRevision,
 } from '../src/lib/editorial/approval/service.ts';
 import type { PublishingRequest } from '../src/lib/editorial/publishing/types.ts';
 import type { GenerationRequest } from '../src/lib/editorial/generation/types.ts';
 import type { IGenerationProvider } from '../src/lib/editorial/generation/providers/types.ts';
 import { FixtureReviewProvider } from '../src/lib/editorial/review/providers/fixture.ts';
+import { releaseApprovedArticle } from '../src/lib/editorial/approval/release.ts';
 
 const articleContent = `To clean a cast iron pan, remove loose residue, wash it with suitable soap and water, dry it promptly, and restore a thin protective layer. ${Array.from({ length: 100 }, (_, index) => `Practical cast-iron care sentence ${index + 1}.`).join(' ')}`;
 
@@ -68,9 +70,9 @@ const generationRequest = {
   searchTargets: { primaryKeyword: 'editorial approval test' },
 } as GenerationRequest;
 
-async function tempQueue(): Promise<{ path: string; cleanup: () => Promise<void> }> {
+async function tempQueue(): Promise<{ path: string; contentRoot: string; cleanup: () => Promise<void> }> {
   const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'lifemode-approval-'));
-  return { path: path.join(dir, 'queue.json'), cleanup: () => fs.rm(dir, { recursive: true, force: true }) };
+  return { path: path.join(dir, 'queue.json'), contentRoot: path.join(dir, 'content'), cleanup: () => fs.rm(dir, { recursive: true, force: true }) };
 }
 
 test('Approval dashboard authorization rejects missing, wrong, and malformed tokens', () => {
@@ -85,10 +87,22 @@ test('Approval workflow queues an exact version and records validated human appr
   try {
     const queued = await enqueueEditorialApproval(makeRequest(), generationRequest, queue.path);
     assert.equal(queued.status, 'PENDING');
-    const approval = await approveEditorialQueueItem(queued.id, { reviewer: 'Editorial Lead', version: 1 }, queue.path);
+    let releaseCalled = false;
+    const approval = await approveEditorialQueueItem(queued.id, { version: 1 }, queue.path, {
+      contentRoot: queue.contentRoot,
+      release: async (request) => {
+        releaseCalled = true;
+        assert.equal(request.route, '/food-kitchen/how-to-clean-cast-iron-pan-safely/');
+        return { commitHash: 'test-commit', url: `https://lifemode.life${request.route}` };
+      },
+    });
     assert.equal(approval.item.status, 'APPROVED', JSON.stringify(approval.reasons));
     assert.equal(approval.item.approval?.reviewerType, 'human');
     assert.equal(approval.item.approval?.contentVersion, 1);
+    assert.equal(approval.item.publication?.collection, 'guides');
+    assert.equal(releaseCalled, true);
+    assert.equal(approval.item.publication?.route, '/food-kitchen/how-to-clean-cast-iron-pan-safely/');
+    assert.match(await fs.readFile(path.join(queue.contentRoot, 'guides', 'how-to-clean-cast-iron-pan-safely.md'), 'utf8'), /How to Clean a Cast Iron Pan Safely/);
     assert.equal((await listApprovalQueue(queue.path))[0].status, 'APPROVED');
   } finally {
     await queue.cleanup();
@@ -99,7 +113,7 @@ test('Approval version mismatch blocks approval and human revision returns to ge
   const queue = await tempQueue();
   try {
     const queued = await enqueueEditorialApproval(makeRequest(), generationRequest, queue.path);
-    const mismatch = await approveEditorialQueueItem(queued.id, { reviewer: 'Editorial Lead', version: 2 }, queue.path).catch((error) => error);
+    const mismatch = await approveEditorialQueueItem(queued.id, { version: 2 }, queue.path, { contentRoot: queue.contentRoot, autoRelease: false }).catch((error) => error);
     assert.match(String(mismatch?.message), /version mismatch/i);
 
     const failingGeneration: IGenerationProvider = {
@@ -111,7 +125,7 @@ test('Approval version mismatch blocks approval and human revision returns to ge
     };
     const revised = await requestEditorialRevision(
       queued.id,
-      { reviewer: 'Editorial Lead', version: 1, feedback: 'Add a sourced warning and clarify the practical steps.' },
+      { version: 1, feedback: 'Add a sourced warning and clarify the practical steps.' },
       { generationProvider: failingGeneration, reviewProvider: new FixtureReviewProvider({ outcome: 'PASS' }) },
       queue.path
     );
@@ -121,4 +135,110 @@ test('Approval version mismatch blocks approval and human revision returns to ge
   } finally {
     await queue.cleanup();
   }
+});
+
+test('Approval fingerprint is stable after queue normalization and still detects edits', async () => {
+  const queue = await tempQueue();
+  try {
+    const queued = await enqueueEditorialApproval(makeRequest(), generationRequest, queue.path);
+    const approved = await approveEditorialQueueItem(queued.id, { version: 1 }, queue.path, { contentRoot: queue.contentRoot, autoRelease: false });
+    assert.equal(approved.item.status, 'APPROVED');
+
+    const records = JSON.parse(await fs.readFile(queue.path, 'utf8'));
+    records[0].publishingRequest.article.content += '\n\nTampered after review.';
+    await fs.writeFile(queue.path, JSON.stringify(records, null, 2));
+    const mismatch = await rejectEditorialQueueItem(queued.id, { version: 1 }, queue.path).catch((error) => error);
+    assert.match(String(mismatch?.message), /changed after it was queued/i);
+  } finally {
+    await queue.cleanup();
+  }
+});
+
+test('Reject action does not require a reviewer name', async () => {
+  const queue = await tempQueue();
+  try {
+    const queued = await enqueueEditorialApproval(makeRequest(), generationRequest, queue.path);
+    const rejected = await rejectEditorialQueueItem(queued.id, { version: 1, feedback: 'Needs a clearer safety note.' }, queue.path);
+    assert.equal(rejected.item.status, 'REJECTED');
+    assert.equal(rejected.item.revisionNotes, 'Needs a clearer safety note.');
+  } finally {
+    await queue.cleanup();
+  }
+});
+
+test('Approval publication failure leaves the item pending and retry is idempotent', async () => {
+  const queue = await tempQueue();
+  try {
+    const queued = await enqueueEditorialApproval(makeRequest(), generationRequest, queue.path);
+    const target = path.join(queue.contentRoot, 'guides', 'how-to-clean-cast-iron-pan-safely.md');
+    await fs.mkdir(path.dirname(target), { recursive: true });
+    await fs.writeFile(target, 'unrelated content', 'utf8');
+    const failed = await approveEditorialQueueItem(queued.id, { version: 1 }, queue.path, { contentRoot: queue.contentRoot, autoRelease: false }).catch((error) => error);
+    assert.match(String(failed?.message), /Publication failed/i);
+    assert.equal((await listApprovalQueue(queue.path))[0].status, 'PENDING');
+
+    await fs.rm(target);
+    const published = await approveEditorialQueueItem(queued.id, { version: 1 }, queue.path, { contentRoot: queue.contentRoot, autoRelease: false });
+    const firstPublishedBody = await fs.readFile(target, 'utf8');
+    const retried = await approveEditorialQueueItem(published.item.id, { version: 1 }, queue.path, { contentRoot: queue.contentRoot, autoRelease: false });
+    assert.equal(retried.item.status, 'APPROVED');
+    assert.equal(retried.item.publication?.path, published.item.publication?.path);
+    assert.equal(await fs.readFile(target, 'utf8'), firstPublishedBody);
+  } finally {
+    await queue.cleanup();
+  }
+});
+
+test('Pending queue articles remain unpublished', async () => {
+  const queue = await tempQueue();
+  try {
+    const queued = await enqueueEditorialApproval(makeRequest(), generationRequest, queue.path);
+    assert.equal(queued.status, 'PENDING');
+    assert.deepEqual(await fs.readdir(queue.contentRoot).catch(() => []), []);
+  } finally {
+    await queue.cleanup();
+  }
+});
+
+test('Release failure is surfaced after local approval and never reported as success', async () => {
+  const queue = await tempQueue();
+  try {
+    const queued = await enqueueEditorialApproval(makeRequest(), generationRequest, queue.path);
+    const failure = await approveEditorialQueueItem(queued.id, { version: 1 }, queue.path, {
+      contentRoot: queue.contentRoot,
+      release: async () => { throw new Error('push rejected'); },
+    }).catch((error) => error);
+    assert.match(String(failure?.message), /Release failed.*push rejected/i);
+    assert.equal((await listApprovalQueue(queue.path))[0].status, 'APPROVED');
+  } finally {
+    await queue.cleanup();
+  }
+});
+
+test('Release stages only the approved article and queue, pushes, and verifies the live URL', async () => {
+  const calls: string[][] = [];
+  const fakeGit = {
+    async getRepoStatus() { return { stagedFiles: [] }; },
+    async runGit(args: string[]) {
+      calls.push(args);
+      return { stdout: args[0] === 'diff' ? 'data/editorial/approval-queue.json\nsrc/content/guides/article.md' : '', stderr: '' };
+    },
+    async createCommit() { return 'commit-123'; },
+    async push(_repo: string, remote: string, branch: string) { calls.push(['push', remote, branch]); return undefined; },
+  };
+  let verified = false;
+  const result = await releaseApprovedArticle({
+    articlePath: path.resolve('src/content/guides/article.md'),
+    queuePath: path.resolve('data/editorial/approval-queue.json'),
+    route: '/food-kitchen/article/',
+    title: 'Article',
+  }, {
+    gitCli: fakeGit as any,
+    repoRoot: process.cwd(),
+    verify: async (url, title) => { verified = url.endsWith('/food-kitchen/article/'); assert.equal(title, 'Article'); },
+  });
+  assert.equal(result.commitHash, 'commit-123');
+  assert.equal(verified, true);
+  assert.deepEqual(calls.find((args) => args[0] === 'add')?.slice(0, 2), ['add', '--']);
+  assert.deepEqual(calls.find((args) => args[0] === 'push')?.slice(0, 3), ['push', 'origin', 'master']);
 });
