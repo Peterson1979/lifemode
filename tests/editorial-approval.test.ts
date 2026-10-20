@@ -215,6 +215,31 @@ test('Release failure is surfaced after local approval and never reported as suc
   }
 });
 
+test('Concurrent approvals serialize against one queue snapshot', async () => {
+  const queue = await tempQueue();
+  try {
+    const queued = await enqueueEditorialApproval(makeRequest(), generationRequest, queue.path);
+    let activeReleases = 0;
+    let maximumConcurrentReleases = 0;
+    const release = async () => {
+      activeReleases += 1;
+      maximumConcurrentReleases = Math.max(maximumConcurrentReleases, activeReleases);
+      await new Promise((resolve) => setTimeout(resolve, 10));
+      activeReleases -= 1;
+      return { commitHash: 'serialized-commit', url: 'https://lifemode.life/everyday-how-to/how-to-clean-cast-iron-pan-safely/' };
+    };
+    const results = await Promise.all([
+      approveEditorialQueueItem(queued.id, { version: 1 }, queue.path, { contentRoot: queue.contentRoot, release }),
+      approveEditorialQueueItem(queued.id, { version: 1 }, queue.path, { contentRoot: queue.contentRoot, release }),
+    ]);
+    assert.equal(maximumConcurrentReleases, 1);
+    assert.equal(results[0].item.status, 'APPROVED');
+    assert.equal(results[1].item.status, 'APPROVED');
+  } finally {
+    await queue.cleanup();
+  }
+});
+
 test('Release stages only the approved article and queue, pushes, and verifies the live URL', async () => {
   const calls: string[][] = [];
   const fakeGit = {

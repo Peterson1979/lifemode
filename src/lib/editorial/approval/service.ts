@@ -59,6 +59,7 @@ export interface ApprovalActionInput {
 
 const DEFAULT_QUEUE_PATH = resolve(process.cwd(), 'data', 'editorial', 'approval-queue.json');
 const DEFAULT_CONTENT_ROOT = resolve(process.cwd(), 'src', 'content');
+const approvalLocks = new Map<string, Promise<void>>();
 
 export function getApprovalQueuePath(customPath?: string): string {
   return resolve(customPath || process.env.LIFEMODE_APPROVAL_QUEUE_PATH || DEFAULT_QUEUE_PATH);
@@ -110,14 +111,17 @@ function articleContentHash(request: PublishingRequest): string {
   }))).digest('hex');
 }
 
-function guideCategory(request: PublishingRequest): 'food-kitchen' | 'home-maintenance' {
+function guideCategory(request: PublishingRequest): 'food-kitchen' | 'home-maintenance' | 'everyday-how-to' {
   const text = `${request.article.title} ${request.article.slug} ${(request.context.tags || []).join(' ')}`.toLowerCase();
   if (/(cast.?iron|skillet|cookware|kitchen|food|pan)/i.test(text)) return 'food-kitchen';
   if (request.context.pillar === 'home') return 'home-maintenance';
-  throw new Error(`No public guide category is configured for pillar "${request.context.pillar}".`);
+  // The guides collection already provides a general-purpose route for the
+  // remaining adopted editorial pillars. Keeping the fallback explicit makes
+  // future approved articles publishable without inventing a second system.
+  return 'everyday-how-to';
 }
 
-function guideFrontmatter(pkg: PublishPackage, category: 'food-kitchen' | 'home-maintenance', publishedDate: string): string {
+function guideFrontmatter(pkg: PublishPackage, category: 'food-kitchen' | 'home-maintenance' | 'everyday-how-to', publishedDate: string): string {
   const readTime = `${Math.max(1, Math.ceil(pkg.content.trim().split(/\s+/).filter(Boolean).length / 200))} min read`;
   const quote = (value: string) => JSON.stringify(value);
   const sources = pkg.sources.length > 0
@@ -231,7 +235,7 @@ export async function enqueueEditorialApproval(
   return item;
 }
 
-export async function approveEditorialQueueItem(
+async function approveEditorialQueueItemUnlocked(
   id: string,
   input: ApprovalActionInput,
   customPath?: string,
@@ -300,6 +304,26 @@ export async function approveEditorialQueueItem(
   }
 
   return { item: updated };
+}
+
+export async function approveEditorialQueueItem(
+  id: string,
+  input: ApprovalActionInput,
+  customPath?: string,
+  options: ApprovalPublicationOptions = {},
+): Promise<ApprovalActionResult> {
+  const queuePath = getApprovalQueuePath(customPath);
+  const previous = approvalLocks.get(queuePath) || Promise.resolve();
+  let unlock!: () => void;
+  const current = new Promise<void>((resolve) => { unlock = resolve; });
+  approvalLocks.set(queuePath, current);
+  await previous;
+  try {
+    return await approveEditorialQueueItemUnlocked(id, input, customPath, options);
+  } finally {
+    unlock();
+    if (approvalLocks.get(queuePath) === current) approvalLocks.delete(queuePath);
+  }
 }
 
 export async function rejectEditorialQueueItem(
