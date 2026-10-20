@@ -72,6 +72,16 @@ export class AIRouterFixtureProvider implements IAIProvider {
       await new Promise((resolve) => setTimeout(resolve, this.latencyMs));
     }
 
+    const defaultJsonReview = JSON.stringify({
+      overallScore: 91,
+      dimensions: Object.fromEntries([
+        'factuality', 'usefulness', 'originality', 'readability', 'structure',
+        'searchIntent', 'seo', 'editorialFit', 'safety', 'monetizationFit',
+      ].map((key) => [key, { score: 91, rationale: 'Fixture review passed.', issues: [] }])),
+      criticalIssues: [],
+      warnings: [],
+    });
+
     // Default valid JSON article payload for content generation tasks
     const defaultJsonArticle = JSON.stringify({
       title: 'Intentional Living in 2026: Practical Daily Protocol',
@@ -106,7 +116,7 @@ export class AIRouterFixtureProvider implements IAIProvider {
       socialHooks: ['Why intentional lifestyle design is the defining shift of 2026.']
     }, null, 2);
 
-    const responseText = this.mockResponseText || defaultJsonArticle;
+    const responseText = this.mockResponseText || (request.taskType === 'content_review' ? defaultJsonReview : defaultJsonArticle);
     const model = request.model || this.defaultModel;
 
     const inputTokens = this.mockUsage?.inputTokens ?? Math.max(10, Math.ceil(request.prompt.length / 4));

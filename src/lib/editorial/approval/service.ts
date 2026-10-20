@@ -111,6 +111,18 @@ function articleContentHash(request: PublishingRequest): string {
   }))).digest('hex');
 }
 
+function normalizeQueuedRequest(request: PublishingRequest, version: number): PublishingRequest {
+  return {
+    ...request,
+    options: { ...request.options, dryRun: false },
+    context: { ...request.context, contentVersion: version, humanApproval: undefined },
+  };
+}
+
+export function approvalContentFingerprint(request: PublishingRequest): string {
+  return articleContentHash(normalizeQueuedRequest(request, request.context.contentVersion ?? 1));
+}
+
 function guideCategory(request: PublishingRequest): 'food-kitchen' | 'home-maintenance' | 'everyday-how-to' {
   const text = `${request.article.title} ${request.article.slug} ${(request.context.tags || []).join(' ')}`.toLowerCase();
   if (/(cast.?iron|skillet|cookware|kitchen|food|pan)/i.test(text)) return 'food-kitchen';
@@ -215,17 +227,14 @@ export async function enqueueEditorialApproval(
   if (existing) return existing;
 
   const now = new Date().toISOString();
+  const normalizedRequest = normalizeQueuedRequest(request, version);
   const item: EditorialApprovalQueueItem = {
     id: `approval-${contentId.replace(/[^a-z0-9:-]+/gi, '-')}-v${version}`,
     contentId,
     version,
-    contentHash: articleContentHash(request),
+    contentHash: articleContentHash(normalizedRequest),
     status: 'PENDING',
-    publishingRequest: {
-      ...request,
-      options: { ...request.options, dryRun: false },
-      context: { ...request.context, contentVersion: version, humanApproval: undefined },
-    },
+    publishingRequest: normalizedRequest,
     generationRequest,
     createdAt: now,
     updatedAt: now,

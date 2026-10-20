@@ -13,7 +13,11 @@ test('editorial operations dashboard remains loopback and human-gated', async ()
   assert.doesNotMatch(source, /runScheduledEditorialAutomation/);
   assert.doesNotMatch(source, /git push|git commit/);
   assert.doesNotMatch(source, /Reviewer name|class="reviewer"|querySelector\('\.reviewer'\)/);
-  assert.match(source, /feedback,version:item\.version/);
+  assert.match(source, /data-version/);
+  assert.match(source, /data-action="approve"/);
+  assert.match(source, /data-action="revise"/);
+  assert.match(source, /data-action="reject"/);
+  assert.match(source, /Action recorded successfully/);
   assert.equal(isApprovalAuthorizationValid('Bearer expected-token', 'expected-token'), true);
   assert.equal(isApprovalAuthorizationValid('Bearer wrong-token', 'expected-token'), false);
 });

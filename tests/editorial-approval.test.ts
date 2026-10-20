@@ -11,6 +11,7 @@ import {
   approveEditorialQueueItem,
   rejectEditorialQueueItem,
   requestEditorialRevision,
+  approvalContentFingerprint,
 } from '../src/lib/editorial/approval/service.ts';
 import type { PublishingRequest } from '../src/lib/editorial/publishing/types.ts';
 import type { GenerationRequest } from '../src/lib/editorial/generation/types.ts';
@@ -104,6 +105,21 @@ test('Approval workflow queues an exact version and records validated human appr
     assert.equal(approval.item.publication?.route, '/food-kitchen/how-to-clean-cast-iron-pan-safely/');
     assert.match(await fs.readFile(path.join(queue.contentRoot, 'guides', 'how-to-clean-cast-iron-pan-safely.md'), 'utf8'), /How to Clean a Cast Iron Pan Safely/);
     assert.equal((await listApprovalQueue(queue.path))[0].status, 'APPROVED');
+  } finally {
+    await queue.cleanup();
+  }
+});
+
+test('Queued fingerprints use the persisted normalized request', async () => {
+  const queue = await tempQueue();
+  try {
+    const request = makeRequest();
+    request.options = { ...request.options, dryRun: true };
+    delete request.context.contentVersion;
+    const queued = await enqueueEditorialApproval(request, generationRequest, queue.path);
+    assert.equal(queued.contentHash, approvalContentFingerprint(queued.publishingRequest));
+    const approved = await approveEditorialQueueItem(queued.id, { version: 1 }, queue.path, { contentRoot: queue.contentRoot, autoRelease: false });
+    assert.equal(approved.item.status, 'APPROVED');
   } finally {
     await queue.cleanup();
   }
