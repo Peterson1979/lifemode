@@ -93,10 +93,12 @@ test('3. Pillar & Category Architecture: Kitchen & Food Care and Food & Drink ar
     SITE_CONFIG.navLinks.some((l) => l.name === 'Food & Kitchen' && l.href === '/food-kitchen'),
     'Navigation must include Food & Kitchen category'
   );
-  assert.ok(
-    SITE_CONFIG.navLinks.some((l) => l.name === 'Cleaning' && l.href === '/cleaning-laundry'),
-    'Navigation must include Cleaning category'
+  assert.equal(
+    SITE_CONFIG.navLinks.some((l) => l.name === 'Cleaning' || l.href === '/cleaning-laundry'),
+    false,
+    'Cleaning must not appear in primary navigation'
   );
+  assert.ok(PILLARS['cleaning-laundry'], 'Cleaning category data must remain available');
   assert.ok(
     SITE_CONFIG.footerLinks.some((l) => l.name === 'Video Life Hacks' && l.href === '/life-hacks'),
     'Footer navigation must include Video Life Hacks'

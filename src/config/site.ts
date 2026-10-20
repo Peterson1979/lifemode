@@ -282,7 +282,6 @@ export const SITE_CONFIG = {
   author: 'LifeMode Editorial',
   navLinks: [
     { name: 'Food & Kitchen', href: '/food-kitchen', slug: 'food-kitchen' },
-    { name: 'Cleaning', href: '/cleaning-laundry', slug: 'cleaning-laundry' },
     { name: 'Maintenance', href: '/home-maintenance', slug: 'home-maintenance' },
     { name: 'Guides', href: '/guides', slug: 'guides' },
     { name: 'Tools', href: '/tools', slug: 'tools' },

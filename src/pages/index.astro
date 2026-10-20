@@ -1,21 +1,39 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { CATEGORIES } from '../utils/categories';
 
 const categories = Object.values(CATEGORIES);
-const [allGuides, allTools, allChecklists] = await Promise.all([
-  getCollection('guides'),
-  getCollection('tools'),
-  getCollection('checklists'),
-]);
-
-// Featured Guides
-const featuredGuides = allGuides.slice(0, 6);
-// Featured Tools
-const featuredTools = allTools.slice(0, 4);
-// Featured Checklists
-const featuredChecklists = allChecklists.slice(0, 3);
+const homepageCategories = categories.filter((category) =>
+  !['cleaning-laundry', 'storage-organization'].includes(category.id)
+);
+const utilityLinks = [
+  { href: '/guides/', icon: '📖', title: 'Guides', description: 'Step-by-step answers.' },
+  { href: '/tools/', icon: '🛠️', title: 'Tools', description: 'Interactive decision helpers.' },
+  { href: '/checklists/', icon: '📋', title: 'Checklists', description: 'Print-friendly routines.' },
+];
+const topicLinks = [
+  ...homepageCategories.map((category) => ({
+    href: `/${category.slug}/`,
+    icon: category.icon,
+    title: category.title,
+    description: category.description,
+    color: category.badgeColor,
+  })),
+  {
+    href: '/life-hacks/',
+    icon: '🎬',
+    title: 'Life Hacks',
+    description: 'Practical video demonstrations for useful everyday improvements.',
+    color: '#db2777',
+  },
+  {
+    href: '/daily-ideas/',
+    icon: '🛍️',
+    title: 'Daily Ideas Store',
+    description: 'A small set of practical recommendations selected for everyday use.',
+    color: '#ea580c',
+  },
+];
 ---
 
 <BaseLayout
@@ -66,149 +84,54 @@ const featuredChecklists = allChecklists.slice(0, 3);
     </div>
   </section>
 
-  <!-- 5 Core Knowledge Clusters -->
+  <!-- Main topics -->
   <section class="clusters-section">
     <div class="container">
       <div class="section-header">
-        <span class="section-badge">Knowledge Taxonomy</span>
-        <h2 class="section-title">Browse by Knowledge Cluster</h2>
-        <p class="section-desc">Explore structured reference guides, decision tools, and preventative checklists across 5 core household domains.</p>
+        <span class="section-badge">Explore LifeMode</span>
+        <h2 class="section-title">Find the right place to start</h2>
+        <p class="section-desc">Choose a practical topic for the problem, project, or idea you have in mind.</p>
       </div>
 
       <div class="clusters-grid">
-        {categories.map((cat) => {
-          const catGuidesCount = allGuides.filter(g => g.data.category === cat.id).length;
-          return (
-            <a href={`/${cat.slug}/`} class="cluster-hub-card" style={`--cat-color: ${cat.badgeColor};`}>
-              <div class="cluster-card-top">
-                <span class="cluster-icon">{cat.icon}</span>
-                <span class="cluster-count">{catGuidesCount} {catGuidesCount === 1 ? 'Guide' : 'Guides'}</span>
-              </div>
-              <h3 class="cluster-name">{cat.title}</h3>
-              <p class="cluster-info">{cat.description}</p>
-              <div class="cluster-topics-list">
-                {cat.popularTopics.slice(0, 3).map((t) => (
-                  <span class="cluster-mini-tag">• {t}</span>
-                ))}
-              </div>
-              <span class="cluster-card-link">Explore {cat.shortTitle} →</span>
+        {topicLinks.map((topic) => (
+          <a href={topic.href} class="cluster-hub-card" style={`--cat-color: ${topic.color};`}>
+            <div class="cluster-card-top"><span class="cluster-icon">{topic.icon}</span></div>
+            <h3 class="cluster-name">{topic.title}</h3>
+            <p class="cluster-info">{topic.description}</p>
+            <span class="cluster-card-link">Explore {topic.title} →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Guides, tools, and checklists -->
+  <section class="utility-nav-section" aria-labelledby="utility-nav-title">
+    <div class="container">
+      <div class="utility-nav-block">
+        <div class="utility-nav-heading">
+          <span class="section-badge">Practical resources</span>
+          <h2 id="utility-nav-title">Guides, tools & checklists</h2>
+        </div>
+        <nav class="utility-nav-links" aria-label="Practical resources">
+          {utilityLinks.map((item) => (
+            <a href={item.href} class="utility-nav-link">
+              <span class="utility-nav-icon" aria-hidden="true">{item.icon}</span>
+              <span>
+                <strong>{item.title}</strong>
+                <small>{item.description}</small>
+              </span>
+              <span class="utility-nav-arrow" aria-hidden="true">→</span>
             </a>
-          );
-        })}
+          ))}
+        </nav>
       </div>
     </div>
   </section>
 
-  <!-- Interactive Utility Tools Showcase -->
-  <section class="tools-showcase-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge tools-badge">Interactive Decision Support</span>
-        <h2 class="section-title">Browser-Based Household Decision Tools</h2>
-        <p class="section-desc">No accounts, no paywalls, no clutter. Instant calculations and targeted diagnosis protocols right in your browser.</p>
-      </div>
-
-      <div class="tools-showcase-grid">
-        {featuredTools.map((tool) => {
-          const cat = CATEGORIES[tool.data.category];
-          const slug = tool.id.replace(/\.[^/.]+$/, '');
-          return (
-            <div class="tool-showcase-card">
-              <div class="tool-showcase-meta">
-                <span class="badge tool-badge-pill">🛠️ Interactive Utility</span>
-                {cat && <span class="tool-cat-badge">{cat.icon} {cat.title}</span>}
-              </div>
-              <h3 class="tool-showcase-title">
-                <a href={`/tools/${slug}/`}>{tool.data.title}</a>
-              </h3>
-              <p class="tool-showcase-summary">{tool.data.summary}</p>
-              <a href={`/tools/${slug}/`} class="btn btn-primary tool-launch-btn">Use Tool →</a>
-            </div>
-          );
-        })}
-      </div>
-
-      <div class="section-footer-link">
-        <a href="/tools/" class="btn btn-secondary">View All Interactive Decision Tools →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Popular Practical Reference Guides -->
-  <section class="guides-showcase-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge guides-badge">Practical Reference Library</span>
-        <h2 class="section-title">Popular Step-by-Step Reference Guides</h2>
-        <p class="section-desc">Curated practical instructions with direct answers, common mistake warnings, and verified chemistry protocols.</p>
-      </div>
-
-      <div class="guide-grid">
-        {featuredGuides.map((guide) => {
-          const cat = CATEGORIES[guide.data.category];
-          const slug = guide.id.replace(/\.[^/.]+$/, '');
-          return (
-            <a href={`/${guide.data.category}/${slug}/`} class="guide-card">
-              <div class="card-meta-top">
-                {cat && (
-                  <span class="badge" style={`color: ${cat.badgeColor}; background-color: ${cat.lightBg};`}>
-                    {cat.icon} {cat.title}
-                  </span>
-                )}
-                <span class="type-pill">{guide.data.contentType === 'decision' ? '⚖️ Decision' : '📖 Reference'}</span>
-              </div>
-              <h3>{guide.data.title}</h3>
-              <p>{guide.data.quickSummary}</p>
-              <div class="guide-card-footer">
-                <span>⏱️ {guide.data.readTime || '4 min read'}</span>
-                <span>Verified: {guide.data.updatedDate}</span>
-              </div>
-            </a>
-          );
-        })}
-      </div>
-
-      <div class="section-footer-link">
-        <a href="/guides/" class="btn btn-secondary">Browse Complete Reference Library ({allGuides.length} Guides) →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Checklists & Printables Spotlight -->
-  <section class="checklists-showcase-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge check-badge">Practical Printables</span>
-        <h2 class="section-title">Household Checklists & Cheat Sheets</h2>
-        <p class="section-desc">Interactive browser tracking and clean, printer-optimized layouts for routine household upkeep.</p>
-      </div>
-
-      <div class="checklists-showcase-grid">
-        {featuredChecklists.map((chk) => {
-          const cat = CATEGORIES[chk.data.category];
-          const slug = chk.id.replace(/\.[^/.]+$/, '');
-          const count = chk.data.sections.reduce((acc, s) => acc + s.items.length, 0);
-
-          return (
-            <div class="chk-showcase-card">
-              <div class="chk-meta">
-                <span class="badge chk-pill">📋 {count} Checkable Tasks</span>
-                {cat && <span class="chk-cat">{cat.icon} {cat.title}</span>}
-              </div>
-              <h3 class="chk-title">
-                <a href={`/checklists/${slug}/`}>{chk.data.title}</a>
-              </h3>
-              <p class="chk-summary">{chk.data.summary}</p>
-              <a href={`/checklists/${slug}/`} class="btn btn-secondary chk-btn">Open & Print Checklist →</a>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  </section>
-
-  <!-- Editorial Standards & Trust Banner -->
-  <section class="trust-banner-section">
+  <!-- Editorial Standards & Trust Banner (rendered after Apps & Tools by BaseLayout) -->
+  <section slot="after-promotional-apps" class="trust-banner-section">
     <div class="container trust-banner-inner">
       <div class="trust-banner-col">
         <div class="trust-shield-icon">🛡️</div>
@@ -257,7 +180,7 @@ const featuredChecklists = allChecklists.slice(0, 3);
   .hero-section {
     background: linear-gradient(180deg, #ffffff 0%, var(--slate-50) 100%);
     border-bottom: 1px solid var(--slate-200);
-    padding: 4.5rem 0 3.5rem 0;
+    padding: 3.75rem 0 3rem;
   }
 
   .hero-inner {
@@ -281,12 +204,12 @@ const featuredChecklists = allChecklists.slice(0, 3);
   }
 
   .hero-heading {
-    font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+    font-size: clamp(2.35rem, 5vw, 3.35rem);
     font-weight: 800;
     line-height: 1.15;
     letter-spacing: -0.03em;
     color: var(--slate-950);
-    margin-bottom: 1.25rem;
+    margin: 0 0 1rem;
   }
 
   .hero-highlight {
@@ -296,10 +219,11 @@ const featuredChecklists = allChecklists.slice(0, 3);
   }
 
   .hero-subheading {
-    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 1.75rem;
+    font-size: 1.1rem;
     color: var(--slate-600);
     line-height: 1.6;
-    margin-bottom: 2.25rem;
   }
 
   /* Centerpiece Search */
@@ -390,9 +314,12 @@ const featuredChecklists = allChecklists.slice(0, 3);
 
   /* Section Headings */
   .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     max-width: 720px;
-    margin: 0 auto 2.5rem auto;
+    margin: 0 auto 1.75rem;
   }
 
   .section-badge {
@@ -414,39 +341,50 @@ const featuredChecklists = allChecklists.slice(0, 3);
   .check-badge { color: var(--accent-emerald); background-color: var(--accent-emerald-light); border-color: var(--accent-emerald-border); }
 
   .section-title {
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    margin-top: 0.25rem;
-    margin-bottom: 0.5rem;
+    font-size: clamp(1.75rem, 3vw, 2.35rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0.15rem 0 0.45rem;
     color: var(--slate-950);
   }
 
   .section-desc {
-    font-size: 1.05rem;
+    max-width: 620px;
+    font-size: 0.95rem;
+    line-height: 1.5;
     color: var(--slate-600);
     margin: 0;
   }
 
   /* Clusters Section */
   .clusters-section {
-    padding: 4.5rem 0;
+    padding: 3rem 0 2.75rem;
     background-color: #ffffff;
   }
 
   .clusters-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1rem;
   }
 
+  .cluster-hub-card:nth-child(-n + 5) { grid-column: span 2; }
+  .cluster-hub-card:nth-child(4) { grid-column: 2 / span 2; }
+  .cluster-hub-card:nth-child(5) { grid-column: 4 / span 2; }
+
   .cluster-hub-card {
-    background-color: var(--slate-50);
-    border: 1px solid var(--slate-200);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
-    padding: 1.6rem;
+    min-height: 245px;
+    padding: var(--space-6) var(--space-5);
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     text-decoration: none;
-    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
     position: relative;
     overflow: hidden;
   }
@@ -457,23 +395,24 @@ const featuredChecklists = allChecklists.slice(0, 3);
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    background-color: var(--cat-color, var(--slate-900));
+    height: 3px;
+    background: linear-gradient(90deg, var(--cat-color, var(--color-primary-accent)), #7c3aed, #ec4899);
+    opacity: 0.8;
   }
 
   .cluster-hub-card:hover {
-    background-color: #ffffff;
+    background-color: var(--color-surface);
     transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--slate-300);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--color-border-hover);
     text-decoration: none;
   }
 
   .cluster-card-top {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 0.75rem;
+    margin-bottom: var(--space-4);
   }
 
   .cluster-icon {
@@ -491,17 +430,19 @@ const featuredChecklists = allChecklists.slice(0, 3);
   }
 
   .cluster-name {
-    font-size: 1.25rem;
-    color: var(--slate-900);
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--color-text-primary);
     margin-top: 0;
-    margin-bottom: 0.4rem;
+    margin-bottom: var(--space-2);
   }
 
   .cluster-info {
-    font-size: 0.88rem;
-    color: var(--slate-600);
-    line-height: 1.5;
-    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    margin: 0 0 var(--space-5);
     flex-grow: 1;
   }
 
@@ -520,10 +461,112 @@ const featuredChecklists = allChecklists.slice(0, 3);
   }
 
   .cluster-card-link {
-    font-size: 0.88rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    color: var(--slate-900);
+    color: var(--color-text-primary);
+    background-color: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
     margin-top: auto;
+  }
+
+  .cluster-hub-card:hover .cluster-card-link {
+    color: #ffffff;
+    background-color: var(--color-primary-accent);
+    border-color: var(--color-primary-accent);
+  }
+
+  /* Compact utility navigation */
+  .utility-nav-section {
+    padding: 0 0 2.75rem;
+    background-color: #ffffff;
+  }
+
+  .utility-nav-block {
+    padding: var(--space-6) 0 0;
+  }
+
+  .utility-nav-heading {
+    margin: 0 auto var(--space-5);
+    text-align: center;
+  }
+
+  .utility-nav-heading h2 {
+    margin: 0.4rem 0 0;
+    font-size: clamp(1.65rem, 2.8vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+  }
+
+  .utility-nav-links {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-5);
+  }
+
+  .utility-nav-link {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-width: 0;
+    min-height: 170px;
+    padding: var(--space-6) var(--space-5);
+    color: var(--color-text-primary);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    text-align: center;
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+    overflow: hidden;
+  }
+
+  .utility-nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary-accent), #7c3aed, #ec4899);
+    opacity: 0.8;
+  }
+
+  .utility-nav-link:hover {
+    border-color: var(--color-border-hover);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px);
+    text-decoration: none;
+  }
+
+  .utility-nav-icon { font-size: 2rem; }
+  .utility-nav-link strong,
+  .utility-nav-link small { display: block; }
+  .utility-nav-link strong { font-size: 1.3rem; font-weight: 700; line-height: 1.25; }
+  .utility-nav-link small { margin-top: 0.15rem; color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.5; }
+  .utility-nav-arrow { position: absolute; top: 1rem; right: 1rem; color: var(--color-text-muted); }
+
+  @media (max-width: 760px) {
+    .hero-section { padding: 2.75rem 0 2.25rem; }
+    .hero-subheading { font-size: 1rem; }
+    .clusters-section { padding-top: 2.5rem; }
+    .clusters-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+    .cluster-hub-card:nth-child(4),
+    .cluster-hub-card:nth-child(5) { grid-column: auto; }
+    .cluster-hub-card { min-height: 0; }
+    .utility-nav-block { padding-top: var(--space-5); }
+    .utility-nav-links { grid-template-columns: 1fr; }
+    .utility-nav-link { min-height: 145px; }
   }
 
   /* Tools Showcase */
@@ -692,20 +735,21 @@ const featuredChecklists = allChecklists.slice(0, 3);
 
   /* Trust Banner */
   .trust-banner-section {
-    padding: 3.5rem 0;
+    padding: 2.75rem 0;
     background-color: #ffffff;
   }
 
   .trust-banner-inner {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .trust-banner-col {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
   }
 
   .trust-shield-icon {
@@ -714,16 +758,21 @@ const featuredChecklists = allChecklists.slice(0, 3);
   }
 
   .trust-banner-col h3 {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     color: var(--slate-900);
     margin-top: 0;
     margin-bottom: 0.4rem;
   }
 
   .trust-banner-col p {
-    font-size: 0.92rem;
+    max-width: 320px;
+    font-size: 0.84rem;
     color: var(--slate-600);
     line-height: 1.5;
     margin: 0;
+  }
+
+  @media (max-width: 760px) {
+    .trust-banner-section { padding: 2.25rem 0; }
   }
 </style>

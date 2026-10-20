@@ -47,6 +47,7 @@ const { showPromotionalApps = true, ...seoProps } = Astro.props;
       <slot />
     </main>
     {showPromotionalApps && <PromotionalAppsSection />}
+    <slot name="after-promotional-apps" />
     <Footer />
     <SearchModal />
     <CookieConsent />
