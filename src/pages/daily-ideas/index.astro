@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { CURATED_PRODUCTS, STOREFRONT_URL } from '../../lib/commerce/curated-picks';
+import { listPublicOffers } from '../../lib/commerce/offer-store';
 import { generateBreadcrumbSchema } from '../../utils/seo';
 
-const allProducts = Object.values(CURATED_PRODUCTS);
+const allProducts = await listPublicOffers();
+const hasAmazonRecommendations = allProducts.some((product) => /amazon(?:\.|\/)/i.test(product.affiliateUrl));
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: '/' },
@@ -32,20 +33,6 @@ const breadcrumbSchema = generateBreadcrumbSchema([
     <div class="container">
       <div style="margin-bottom: var(--space-3); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-3);">
         <span class="store-badge">🛍️ Curated Products</span>
-        <a
-          href={STOREFRONT_URL}
-          target="_blank"
-          rel="noopener noreferrer sponsored"
-          class="btn-store-cta"
-          style="padding: 0.35rem 0.75rem; font-size: 0.75rem;"
-        >
-          <span>Visit Amazon Storefront</span>
-          <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-            <polyline points="15 3 21 3 21 9" />
-            <line x1="10" y1="14" x2="21" y2="3" />
-          </svg>
-        </a>
       </div>
       <h1 class="hero-heading" style="margin-bottom: var(--space-3);">
         Daily Ideas Store
@@ -54,8 +41,13 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         Curated home, kitchen, storage, style, and living essentials vetted for real-world utility, durability, and value. No sponsored clutter—only items we genuinely recommend.
       </p>
       <p class="affiliate-disclosure" role="note">
-        <strong>Affiliate disclosure:</strong> As an Amazon Associate I earn from qualifying purchases. LifeMode may earn a commission when you buy through qualifying Amazon.com links on this page, at no additional cost to you. Our recommendations remain editorially independent.
+        <strong>Affiliate disclosure:</strong> Some recommendations may use affiliate links, which may earn LifeMode a commission at no additional cost to you. Our recommendations remain editorially independent.
       </p>
+      {hasAmazonRecommendations && (
+        <p class="affiliate-disclosure" role="note">
+          <strong>Amazon disclosure:</strong> As an Amazon Associate I earn from qualifying purchases. LifeMode may earn a commission when you buy through qualifying Amazon.com links on this page.
+        </p>
+      )}
     </div>
   </section>
 
@@ -99,9 +91,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
                 target="_blank"
                 rel="noopener noreferrer sponsored"
                 class="btn-store-cta"
-                aria-label={`View ${product.name} on Amazon (opens in new tab)`}
+                aria-label={`View ${product.name} (opens in new tab)`}
               >
-                <span>View on Amazon</span>
+                <span>View recommendation</span>
                 <svg class="external-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                   <polyline points="15 3 21 3 21 9" />

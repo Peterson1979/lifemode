@@ -14,7 +14,16 @@ export type CommerceCategory = typeof VALID_COMMERCE_CATEGORIES[number];
 
 export const ASIN_REGEX = /^[A-Z0-9]{10}$/;
 export const ID_SLUG_REGEX = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-export const AFFILIATE_URL_REGEX = /^https:\/\/(?:link\.amazon\/[A-Za-z0-9_-]+|(?:www\.)?amazon\.[a-z.]+\/[^\s]+)$/;
+
+export function isValidDestinationUrl(value: unknown): value is string {
+  if (typeof value !== 'string' || value.trim().length === 0) return false;
+  try {
+    const parsed = new URL(value.trim());
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
 
 export interface ProductValidationResult {
   isValid: boolean;
@@ -39,7 +48,7 @@ export interface RegistryValidationResult {
  */
 export function validateCuratedProduct(
   product: CuratedProduct,
-  options: { requireImage?: boolean; requireAsin?: boolean } = {}
+  options: { requireImage?: boolean } = {}
 ): ProductValidationResult {
   const errors: string[] = [];
   const warnings: string[] = [];
@@ -80,17 +89,9 @@ export function validateCuratedProduct(
     errors.push(`Product "${product.id || 'unknown'}": Editorial note must be at least 15 characters long.`);
   }
 
-  // 6. Affiliate URL Format
-  if (!product.affiliateUrl || typeof product.affiliateUrl !== 'string' || !AFFILIATE_URL_REGEX.test(product.affiliateUrl.trim())) {
-    errors.push(`Product "${product.id || 'unknown'}": Invalid affiliate URL "${product.affiliateUrl}". Must be a valid Amazon or link.amazon URL.`);
-  }
-
-  // 7. ASIN Validation (Required for Amazon affiliate links or when requireAsin is set)
-  const isAmazonUrl = typeof product.affiliateUrl === 'string' && (product.affiliateUrl.includes('amazon') || product.affiliateUrl.includes('link.amazon'));
-  if (options.requireAsin || isAmazonUrl) {
-    if (!product.asin || typeof product.asin !== 'string' || !ASIN_REGEX.test(product.asin.trim())) {
-      errors.push(`Product "${product.id || 'unknown'}": Missing or invalid ASIN "${product.asin}". Must be a 10-character alphanumeric Amazon ASIN.`);
-    }
+  // 6. Destination URL Format
+  if (!isValidDestinationUrl(product.affiliateUrl)) {
+    errors.push(`Product "${product.id || 'unknown'}": Destination URL must be an absolute HTTP or HTTPS URL.`);
   }
 
   // 8. Optional Brand & Badge Strings
@@ -132,7 +133,7 @@ export function validateCuratedProduct(
  */
 export function validateCuratedProductRegistry(
   registry: Record<string, CuratedProduct>,
-  options: { requireImage?: boolean; requireAsin?: boolean } = {}
+  options: { requireImage?: boolean } = {}
 ): RegistryValidationResult {
   const errors: string[] = [];
   const warnings: string[] = [];
@@ -220,7 +221,7 @@ export function validateCuratedProductRegistry(
  */
 export function assertValidCuratedProductRegistry(
   registry: Record<string, CuratedProduct>,
-  options: { requireImage?: boolean; requireAsin?: boolean } = {}
+  options: { requireImage?: boolean } = {}
 ): void {
   const result = validateCuratedProductRegistry(registry, options);
   if (!result.isValid) {
