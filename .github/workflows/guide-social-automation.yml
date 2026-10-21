@@ -90,6 +90,9 @@ jobs:
           LIFEMODE_SOCIAL_GIT_REMOTE: "origin"
           LIFEMODE_SOCIAL_GIT_BRANCH: "master"
         run: |
+          set -o pipefail
+          mkdir -p artifacts/guide-social-current
+
           ARGS=""
           if [ "${{ inputs.publish }}" = "true" ] && [ "${{ inputs.dry_run }}" = "false" ]; then
             ARGS="--publish"
@@ -99,13 +102,22 @@ jobs:
           else
             ARGS="--dry-run"
           fi
-          npx tsx scripts/run-guide-social.ts $ARGS
+
+          npx tsx scripts/run-guide-social.ts $ARGS --json | tee artifacts/guide-social-current/result.json
+
+      - name: Prepare Current Run Artifact
+        if: always()
+        run: |
+          mkdir -p artifacts/guide-social-current
+          if [ ! -f artifacts/guide-social-current/result.json ]; then
+            printf '{"run_id":"%s","status":"NO_RESULT","message":"Check workflow logs for the failure details."}\n' "$GITHUB_RUN_ID" > artifacts/guide-social-current/result.json
+          fi
 
       - name: Upload Guide Social Artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: guide-social-manifest
-          path: data/social/
-          if-no-files-found: ignore
+          path: artifacts/guide-social-current/
+          if-no-files-found: warn
           retention-days: 30
