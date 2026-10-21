@@ -327,33 +327,29 @@ export async function composeSocialCard(options: ComposeSocialCardOptions): Prom
     }
   }
 
-  // If no hero image is available, generate a stylized hero visual container
+  // If no hero image is available, use the specified LifeMode logo without
+  // stretching or cropping it. A missing logo is an explicit fallback error.
   if (!heroImageBuffer) {
-    const fallbackHeroSvg = `
-      <svg width="${heroWidth}" height="${heroHeight}" viewBox="0 0 ${heroWidth} ${heroHeight}" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="heroFallbackGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#18181b" stop-opacity="0.95" />
-            <stop offset="100%" stop-color="#09090b" stop-opacity="0.98" />
-          </linearGradient>
-          <radialGradient id="heroGlow" cx="50%" cy="50%" r="60%">
-            <stop offset="0%" stop-color="${theme.accentColor}" stop-opacity="0.25" />
-            <stop offset="100%" stop-color="${theme.accentColor}" stop-opacity="0" />
-          </radialGradient>
-        </defs>
-        <rect width="${heroWidth}" height="${heroHeight}" rx="24" fill="url(#heroFallbackGrad)" />
-        <circle cx="${heroWidth / 2}" cy="${heroHeight / 2}" r="${heroWidth * 0.35}" fill="url(#heroGlow)" />
-        
-        <!-- Architectural Grid Motif -->
-        <line x1="80" y1="120" x2="${heroWidth - 80}" y2="120" stroke="${theme.accentColor}" stroke-opacity="0.15" stroke-width="1.5" />
-        <line x1="80" y1="${heroHeight - 120}" x2="${heroWidth - 80}" y2="${heroHeight - 120}" stroke="${theme.accentColor}" stroke-opacity="0.15" stroke-width="1.5" />
-        <circle cx="${heroWidth / 2}" cy="${heroHeight / 2}" r="64" fill="none" stroke="${theme.accentColor}" stroke-opacity="0.3" stroke-width="2" />
-        <circle cx="${heroWidth / 2}" cy="${heroHeight / 2}" r="12" fill="${theme.accentColor}" fill-opacity="0.6" />
-      </svg>
-    `;
-    heroImageBuffer = await sharp(Buffer.from(fallbackHeroSvg))
-      .png()
-      .toBuffer();
+    const fallbackLogoPath = path.resolve(options.baseDir || process.cwd(), 'public/assets/branding/lifemode-logo.webp');
+    let fallbackLogo: Buffer;
+    try {
+      fallbackLogo = await fs.readFile(fallbackLogoPath);
+    } catch (error: any) {
+      throw new Error(`LifeMode fallback logo is missing or unreadable at ${fallbackLogoPath}: ${error?.message || String(error)}`);
+    }
+
+    try {
+      const roundedCornerMask = Buffer.from(
+        `<svg width="${heroWidth}" height="${heroHeight}"><rect x="0" y="0" width="${heroWidth}" height="${heroHeight}" rx="24" ry="24" fill="#ffffff"/></svg>`
+      );
+      heroImageBuffer = await sharp(fallbackLogo)
+        .resize(heroWidth, heroHeight, { fit: 'contain', background: '#0a0a0e' })
+        .composite([{ input: roundedCornerMask, blend: 'dest-in' }])
+        .png()
+        .toBuffer();
+    } catch (error: any) {
+      throw new Error(`LifeMode fallback logo is unreadable at ${fallbackLogoPath}: ${error?.message || String(error)}`);
+    }
   }
 
   // 3. Compute Title Layout & Line Wrapping (Enhanced 1.5x typography scale)
