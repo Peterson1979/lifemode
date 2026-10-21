@@ -27,6 +27,11 @@ export interface PlatformCredentials {
     boardId?: string;
     configured: boolean;
   };
+  everydayPinterest?: {
+    accessToken?: string;
+    boardId?: string;
+    configured: boolean;
+  };
   threads: {
     accessToken?: string;
     userId?: string;
@@ -40,6 +45,7 @@ export interface SocialImageConfig {
   accountId?: string;
   endpointUrl?: string;
   defaultFormat: '1080x1350';
+  pexelsApiKey?: string;
 }
 
 export interface SocialStorageConfig {
@@ -118,25 +124,28 @@ export function loadSocialConfig(overrides: Partial<SocialAutomationConfig> = {}
   const storageDir = overrides.storageDir || getEnvVar('LIFEMODE_SOCIAL_STORAGE_DIR') || 'data/social';
 
   // Facebook credentials
-  const fbToken = overrides.credentials?.facebook?.pageAccessToken || getEnvVar('FACEBOOK_PAGE_ACCESS_TOKEN') || getEnvVar('FB_PAGE_TOKEN');
-  const fbPageId = overrides.credentials?.facebook?.pageId || getEnvVar('FACEBOOK_PAGE_ID') || getEnvVar('FB_PAGE_ID');
+  const fbToken = overrides.credentials?.facebook?.pageAccessToken || getEnvVar('LIFEMODE_FACEBOOK_PAGE_ACCESS_TOKEN') || getEnvVar('FACEBOOK_PAGE_ACCESS_TOKEN') || getEnvVar('FB_PAGE_TOKEN');
+  const fbPageId = overrides.credentials?.facebook?.pageId || getEnvVar('LIFEMODE_FACEBOOK_PAGE_ID') || getEnvVar('FACEBOOK_PAGE_ID') || getEnvVar('FB_PAGE_ID');
 
   // Instagram credentials
   const igToken = overrides.credentials?.instagram?.accessToken || getEnvVar('INSTAGRAM_ACCESS_TOKEN') || fbToken;
   const igAccountId = overrides.credentials?.instagram?.businessAccountId || getEnvVar('INSTAGRAM_BUSINESS_ACCOUNT_ID') || getEnvVar('INSTAGRAM_ACCOUNT_ID') || getEnvVar('IG_ACCOUNT_ID');
 
   // Pinterest credentials
-  const pinToken = overrides.credentials?.pinterest?.accessToken || getEnvVar('PINTEREST_ACCESS_TOKEN') || getEnvVar('PIN_ACCESS_TOKEN');
-  const pinBoardId = overrides.credentials?.pinterest?.boardId || getEnvVar('PINTEREST_BOARD_ID') || getEnvVar('PIN_BOARD_ID');
+  const pinToken = overrides.credentials?.pinterest?.accessToken || getEnvVar('LIFEMODE_PINTEREST_ACCESS_TOKEN') || getEnvVar('PINTEREST_ACCESS_TOKEN') || getEnvVar('PIN_ACCESS_TOKEN');
+  const pinBoardId = overrides.credentials?.pinterest?.boardId || getEnvVar('LIFEMODE_PINTEREST_BOARD_ID') || getEnvVar('PINTEREST_BOARD_ID') || getEnvVar('PIN_BOARD_ID') || '495607202683261049';
+  const everydayPinToken = overrides.credentials?.everydayPinterest?.accessToken || getEnvVar('EVERYDAY_PINTEREST_ACCESS_TOKEN');
+  const everydayPinBoardId = overrides.credentials?.everydayPinterest?.boardId || getEnvVar('EVERYDAY_PINTEREST_BOARD_ID') || '1033646620665404418';
 
   // Threads credentials
-  const threadsToken = overrides.credentials?.threads?.accessToken || getEnvVar('THREADS_ACCESS_TOKEN') || getEnvVar('THREADS_TOKEN');
-  const threadsUserId = overrides.credentials?.threads?.userId || getEnvVar('THREADS_USER_ID') || '28272717349017680';
+  const threadsToken = overrides.credentials?.threads?.accessToken || getEnvVar('LIFEMODE_THREADS_ACCESS_TOKEN') || getEnvVar('THREADS_ACCESS_TOKEN') || getEnvVar('THREADS_TOKEN');
+  const threadsUserId = overrides.credentials?.threads?.userId || getEnvVar('LIFEMODE_THREADS_USER_ID') || getEnvVar('THREADS_USER_ID') || '28272717349017680';
 
   // Image provider credentials
   const cfImageApiKey = overrides.imageConfig?.apiKey || getEnvVar('CLOUDFLARE_IMAGE_API_KEY') || getEnvVar('CF_API_TOKEN');
   const cfAccountId = overrides.imageConfig?.accountId || getEnvVar('CLOUDFLARE_ACCOUNT_ID');
   const openaiKey = getEnvVar('OPENAI_API_KEY');
+  const pexelsApiKey = overrides.imageConfig?.pexelsApiKey || getEnvVar('PEXELS_API_KEY');
 
   // Storage credentials (Cloudflare R2 / S3-compatible)
   const r2AccountId = getEnvVar('R2_ACCOUNT_ID') || getEnvVar('CLOUDFLARE_ACCOUNT_ID');
@@ -179,6 +188,11 @@ export function loadSocialConfig(overrides: Partial<SocialAutomationConfig> = {}
       boardId: pinBoardId,
       configured: overrides.credentials?.pinterest?.configured ?? Boolean(pinToken && pinBoardId),
     },
+    everydayPinterest: {
+      accessToken: everydayPinToken,
+      boardId: everydayPinBoardId,
+      configured: overrides.credentials?.everydayPinterest?.configured ?? Boolean(everydayPinToken && everydayPinBoardId),
+    },
     threads: {
       accessToken: threadsToken,
       userId: threadsUserId,
@@ -191,6 +205,7 @@ export function loadSocialConfig(overrides: Partial<SocialAutomationConfig> = {}
     apiKey: cfImageApiKey || openaiKey,
     accountId: cfAccountId,
     defaultFormat: '1080x1350',
+    pexelsApiKey,
   };
 
   return {
@@ -213,6 +228,7 @@ export function loadSocialConfig(overrides: Partial<SocialAutomationConfig> = {}
       facebook: overrides.platforms?.facebook ?? true,
       instagram: overrides.platforms?.instagram ?? true,
       pinterest: overrides.platforms?.pinterest ?? true,
+    'pinterest-everyday': overrides.platforms?.['pinterest-everyday'] ?? true,
       threads: overrides.platforms?.threads ?? true,
     },
     credentials,

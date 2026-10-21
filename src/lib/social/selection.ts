@@ -179,7 +179,7 @@ export async function selectSocialOpportunities(
 
     // Restricted Topics Cooldown Gate: Tech & AI and Money restricted to max 1 social appearance per rolling 14-day window
     if (RESTRICTED_SOCIAL_PILLARS.includes(topic.pillar)) {
-      if (historyRepo) {
+      if (historyRepo && typeof historyRepo.isPillarRecentlyPublished === 'function') {
         const isRestrictedInCooldown = await historyRepo.isPillarRecentlyPublished(
           topic.pillar,
           RESTRICTED_PILLAR_COOLDOWN_DAYS,
@@ -213,6 +213,13 @@ export async function selectSocialOpportunities(
     // Determine target platforms based on scoring & strengths
     const allPlatforms = determineTargetPlatforms(topic);
     let activePlatforms = [...allPlatforms];
+    if (
+      options.configuredPlatforms?.includes('pinterest-everyday') &&
+      allPlatforms.includes('pinterest') &&
+      !activePlatforms.includes('pinterest-everyday')
+    ) {
+      activePlatforms.push('pinterest-everyday');
+    }
 
     // Check per-platform publication history: only target unfulfilled platforms
     if (historyRepo) {
@@ -292,7 +299,7 @@ export async function selectSocialOpportunities(
       continue;
     }
 
-    const destinationUrl = `${baseUrl}/${topic.pillar}/${topic.slug}`;
+    const destinationUrl = resolveDestinationUrl(baseUrl, topic as any);
 
     selected.push({
       topicId: topic.id,
@@ -305,6 +312,9 @@ export async function selectSocialOpportunities(
       opportunityType: topic.opportunityType || 'ARTICLE_AND_SOCIAL',
       targetPlatforms: item.activePlatforms,
       destinationUrl,
+      publicRoute: (topic as any).publicRoute,
+      publicSection: (topic as any).publicSection,
+      isGuide: (topic as any).isGuide,
       evidence: topic.evidence?.map((e) => ({
         title: e.title,
         url: e.url,
@@ -330,7 +340,7 @@ export async function selectSocialOpportunities(
       if (RESTRICTED_SOCIAL_PILLARS.includes(topic.pillar) && (pillarCounts[topic.pillar] || 0) >= 1) {
         continue;
       }
-      const destinationUrl = `${baseUrl}/${topic.pillar}/${topic.slug}`;
+      const destinationUrl = resolveDestinationUrl(baseUrl, topic as any);
 
       selected.push({
         topicId: topic.id,
@@ -343,6 +353,9 @@ export async function selectSocialOpportunities(
         opportunityType: topic.opportunityType || 'ARTICLE_AND_SOCIAL',
         targetPlatforms: item.activePlatforms,
         destinationUrl,
+        publicRoute: (topic as any).publicRoute,
+        publicSection: (topic as any).publicSection,
+        isGuide: (topic as any).isGuide,
         evidence: topic.evidence?.map((e) => ({
           title: e.title,
           url: e.url,

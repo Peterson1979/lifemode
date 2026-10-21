@@ -21,6 +21,7 @@ import {
   InstagramPlatformAdapter,
   PinterestPlatformAdapter,
   FixtureSocialImageProvider,
+  PexelsSocialImageProvider,
   isValidJpegBuffer,
   FixtureSocialGenerationProvider,
   FixtureSocialAssetStorageProvider,
@@ -37,6 +38,7 @@ import {
   resolveDestinationUrl,
   runGuideSocialPipeline,
 } from '../src/lib/social/index.ts';
+import type { StoredArticle } from '../src/lib/editorial/storage/types.ts';
 import { resolveGuideRouting } from '../src/lib/editorial/normalization.ts';
 import { AIRouterSocialGenerationProvider } from '../src/lib/social/generation/providers/ai-router.ts';
 import { loadAIConfig } from '../src/lib/ai/config.ts';
@@ -3171,6 +3173,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
       const result1 = await runGuideSocialPipeline({
         contentRepository: contentRepo,
         historyRepository: historyRepo,
+        referenceDate: '2026-10-20T12:00:00Z',
         dryRun: true,
         allowPublish: false,
       });
@@ -3187,12 +3190,23 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
 
       // 2. Persist published entries to history and verify deduplication in subsequent execution
       for (const entry of result1.manifestEntries) {
-        await historyRepo.recordEntry(entry);
+        const publishedEntry: SocialManifestEntry = {
+          ...entry,
+          overallStatus: 'COMPLETED',
+          platformResults: Object.fromEntries(
+            Object.entries(entry.platformResults || {}).map(([p, r]) => [
+              p,
+              { ...r, status: 'PUBLISHED' as const },
+            ])
+          ),
+        };
+        await historyRepo.recordEntry(publishedEntry);
       }
 
       const result2 = await runGuideSocialPipeline({
         contentRepository: contentRepo,
         historyRepository: historyRepo,
+        referenceDate: '2026-10-20T12:00:00Z',
         dryRun: true,
         allowPublish: false,
       });
@@ -3244,6 +3258,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
         recordEntryCalls++;
       },
       isPlatformPublished: async () => false,
+      isPillarRecentlyPublished: async () => false,
       getHistoryForTopic: async () => [],
     };
 
@@ -3255,6 +3270,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     const dryRunResult = await runGuideSocialPipeline({
       contentRepository: contentRepo,
       historyRepository: mockHistoryRepo,
+      referenceDate: '2026-10-20T12:00:00Z',
       dryRun: true,
       allowPublish: false,
     });
@@ -3293,11 +3309,367 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
       contentRepository: contentRepo,
       historyRepository: mockHistoryRepo,
       platformAdapters: liveAdapters,
+      referenceDate: '2026-10-20T12:00:00Z',
       dryRun: false,
       allowPublish: true,
     });
 
     assert.equal(liveResult.status, 'COMPLETED');
     assert.equal(recordEntryCalls, 1, 'live-run MUST call history repository recordEntry');
+  });
+
+  await t.test('85. Guide social pipeline strictly enforces 24-hour publication freshness cutoff', async () => {
+    const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lm-cutoff-test-'));
+    try {
+      const historyRepo = new FilesystemSocialHistoryRepository(tmpDir);
+      const staleGuide: StoredArticle = {
+        identity: { slug: 'stale-guide', topicId: 'lm-guide-stale' },
+        slug: 'stale-guide',
+        pillar: 'food-drink',
+        filePath: 'src/content/guides/stale-guide.md',
+        content: '# Stale Guide',
+        frontmatter: {
+          title: 'Stale Guide Title',
+          description: 'A guide published two days ago',
+          pubDate: '2026-10-18T10:00:00Z',
+          author: 'LifeMode',
+          tags: ['food-drink'],
+          featured: false,
+          draft: false,
+          format: 'guide',
+          primaryIntent: 'informational',
+          riskLevel: 'low',
+          sources: [],
+          version: 1,
+          lifecycleStatus: 'PUBLISHED',
+        },
+      };
+
+      // 1. Guide published 48 hours before referenceDate (2026-10-20T10:00:00Z)
+      const staleResult = await runGuideSocialPipeline({
+        guides: [staleGuide],
+        historyRepository: historyRepo,
+        referenceDate: '2026-10-20T10:00:00Z',
+        dryRun: true,
+        allowPublish: false,
+      });
+
+      assert.equal(staleResult.status, 'SKIPPED');
+      assert.equal(staleResult.publishedCount, 0);
+      assert.equal(staleResult.manifestEntries.length, 0);
+      assert.match(staleResult.summary, /24-hour freshness window|No eligible guides/);
+
+      // 2. Guide published within 24 hours (e.g. 2 hours before referenceDate)
+      const freshGuide: StoredArticle = {
+        identity: { slug: 'fresh-guide', topicId: 'lm-guide-fresh' },
+        slug: 'fresh-guide',
+        pillar: 'food-drink',
+        filePath: 'src/content/guides/fresh-guide.md',
+        content: '# Fresh Guide',
+        frontmatter: {
+          title: 'Fresh Guide Title',
+          description: 'A guide published two hours ago',
+          pubDate: '2026-10-20T08:00:00Z',
+          author: 'LifeMode',
+          tags: ['food-drink'],
+          featured: false,
+          draft: false,
+          format: 'guide',
+          primaryIntent: 'informational',
+          riskLevel: 'low',
+          sources: [],
+          version: 1,
+          lifecycleStatus: 'PUBLISHED',
+        },
+      };
+
+      const freshResult = await runGuideSocialPipeline({
+        guides: [freshGuide],
+        historyRepository: historyRepo,
+        referenceDate: '2026-10-20T10:00:00Z',
+        dryRun: true,
+        allowPublish: false,
+      });
+
+      assert.equal(freshResult.status, 'DRY_RUN');
+      assert.equal(freshResult.manifestEntries.length, 1);
+      assert.equal(freshResult.manifestEntries[0].topicId, 'lm-guide-fresh');
+    } finally {
+      await fs.rm(tmpDir, { recursive: true, force: true }).catch(() => {});
+    }
+  });
+
+  await t.test('86. Approved social image workflow uses Pexels with LifeMode logo fallback and correct title and CTA', async () => {
+    const provider = new PexelsSocialImageProvider();
+    const result = await provider.generateImage({
+      topicId: 'lm-guide-cast-iron',
+      pillar: 'food-drink',
+      prompt: 'Clean chemistry-backed cast-iron pan care',
+      format: '1080x1350',
+      articleTitle: 'How to Clean a Cast Iron Skillet',
+      ctaText: 'Read the complete guide on lifemode.life',
+    });
+
+    assert.equal(result.success, true);
+    assert.ok(result.asset, 'Must generate visual asset');
+    assert.equal(result.asset.format, '1080x1350');
+    assert.equal(result.asset.width, 1080);
+    assert.equal(result.asset.height, 1350);
+    assert.equal(result.asset.mimeType, 'image/jpeg');
+    assert.ok(result.asset.buffer, 'Must contain rendered image buffer');
+    assert.ok(isValidJpegBuffer(result.asset.buffer), 'Must be valid JPEG bytes');
+
+    // Prove it runs through the pipeline without relying on fixture provider
+    const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lm-img-test-'));
+    try {
+      const historyRepo = new FilesystemSocialHistoryRepository(tmpDir);
+      const testGuide: StoredArticle = {
+        identity: { slug: 'test-cast-iron', topicId: 'lm-guide-cast-iron' },
+        slug: 'test-cast-iron',
+        pillar: 'food-drink',
+        filePath: 'src/content/guides/test-cast-iron.md',
+        content: '# Test Cast Iron',
+        frontmatter: {
+          title: 'How to Clean a Cast Iron Skillet',
+          description: 'Step-by-step chemistry guide',
+          pubDate: '2026-10-20T10:00:00Z',
+          author: 'LifeMode',
+          tags: ['food-drink'],
+          featured: false,
+          draft: false,
+          format: 'guide',
+          primaryIntent: 'informational',
+          riskLevel: 'low',
+          sources: [],
+          version: 1,
+          lifecycleStatus: 'PUBLISHED',
+        },
+      };
+
+      const pipeResult = await runGuideSocialPipeline({
+        guides: [testGuide],
+        historyRepository: historyRepo,
+        referenceDate: '2026-10-20T11:00:00Z',
+        dryRun: true,
+        allowPublish: false,
+      });
+
+      assert.equal(pipeResult.status, 'DRY_RUN');
+      assert.equal(pipeResult.manifestEntries.length, 1);
+      const entry = pipeResult.manifestEntries[0];
+      assert.ok(entry.imageSelection, 'Manifest must record imageSelection info');
+      assert.equal(entry.imageSelection.provider, 'Pexels Social Image Provider');
+      assert.equal(entry.imageSelection.status, 'BRANDED_FALLBACK');
+    } finally {
+      await fs.rm(tmpDir, { recursive: true, force: true }).catch(() => {});
+    }
+  });
+
+  await t.test('87. Everyday Ideas Pinterest routes to board 1033646620665404418 and remains isolated from LifeMode board 495607202683261049', async () => {
+    // 1. Verify default board configuration
+    const config = loadSocialConfig();
+    assert.equal(config.credentials.pinterest.boardId, '495607202683261049', 'LifeMode Pinterest default board');
+    assert.equal(config.credentials.everydayPinterest.boardId, '1033646620665404418', 'Everyday Ideas Pinterest default board');
+
+    // 2. LifeMode adapter isolation
+    const lifeAdapter = new PinterestPlatformAdapter(undefined, 'lifemode');
+    assert.equal(lifeAdapter.platform, 'pinterest');
+    assert.equal(lifeAdapter.name, 'Pinterest Platform Adapter');
+
+    const mockContent: GeneratedSocialContent = {
+      topicId: 'lm-guide-organization',
+      pillar: 'home',
+      title: 'Small Pantry Organization',
+      shortCaption: 'Maximize every square inch of your pantry.',
+      hashtags: ['#Pantry', '#Organization'],
+      destinationUrl: 'https://lifemode.life/guides/how-to-organize-small-pantry',
+    };
+    const mockAsset: SocialVisualAsset = {
+      assetId: 'asset-test',
+      format: '1080x1350',
+      width: 1080,
+      height: 1350,
+      mimeType: 'image/jpeg',
+      assetHash: 'hash123',
+      url: 'https://pub-assets.lifemode.life/social/guides/pantry.jpg',
+    };
+
+    const lifePkg = await lifeAdapter.prepare(mockContent, mockAsset);
+    assert.equal(lifePkg.platform, 'pinterest');
+    assert.equal(lifePkg.boardId, '495607202683261049');
+    assert.equal(lifePkg.preparedPayload.board_id, '495607202683261049');
+
+    // 3. Everyday Ideas adapter isolation
+    const everydayAdapter = new PinterestPlatformAdapter(undefined, 'everyday');
+    assert.equal(everydayAdapter.platform, 'pinterest-everyday');
+    assert.equal(everydayAdapter.name, 'Everyday Ideas Pinterest Platform Adapter');
+
+    const everydayPkg = await everydayAdapter.prepare(mockContent, mockAsset);
+    assert.equal(everydayPkg.platform, 'pinterest-everyday');
+    assert.equal(everydayPkg.boardId, '1033646620665404418');
+    assert.equal(everydayPkg.preparedPayload.board_id, '1033646620665404418');
+
+    // 4. Publishing isolation: publishing to LifeMode Pinterest does not suppress Everyday Ideas in history
+    const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lm-pin-iso-'));
+    try {
+      const historyRepo = new FilesystemSocialHistoryRepository(tmpDir);
+      await historyRepo.recordEntry({
+        runId: 'run-pin-test',
+        topicId: 'lm-guide-organization',
+        pillar: 'home',
+        canonicalTopic: 'Small Pantry Organization',
+        contentHash: 'hash-c',
+        assetHash: 'hash-a',
+        idempotencyKey: 'idem-1',
+        targetPlatforms: ['pinterest'],
+        platformResults: {
+          pinterest: {
+            platform: 'pinterest',
+            status: 'PUBLISHED',
+            postId: 'pin-123',
+            publishedAt: new Date().toISOString(),
+            idempotencyKey: 'idem-1',
+          },
+        },
+        reviewScore: 90,
+        overallStatus: 'COMPLETED',
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      });
+
+      assert.equal(await historyRepo.isPlatformPublished('lm-guide-organization', 'pinterest'), true);
+      assert.equal(await historyRepo.isPlatformPublished('lm-guide-organization', 'pinterest-everyday'), false);
+
+      // Verify selectSocialOpportunities retains pinterest-everyday when configured
+      const candidate: EditorialTopic = {
+        id: 'lm-guide-organization',
+        canonicalTopic: 'Small Pantry Organization',
+        pillar: 'style',
+        slug: 'small-pantry-organization',
+        totalScore: 90,
+        status: 'PUBLISHED',
+        publishedAt: '2026-10-20T10:00:00Z',
+        scoring: { socialPotential: 85, pinterestPotential: 85 },
+      } as any;
+
+      const opps = await selectSocialOpportunities([candidate], {
+        maxOpportunities: 1,
+        maxFreshnessDays: 1,
+        referenceDate: '2026-10-20T12:00:00Z',
+        historyRepository: historyRepo,
+        configuredPlatforms: ['pinterest', 'pinterest-everyday'],
+      });
+
+      assert.equal(opps.length, 1);
+      assert.ok(!opps[0].targetPlatforms.includes('pinterest'), 'LifeMode pinterest was already published');
+      assert.ok(opps[0].targetPlatforms.includes('pinterest-everyday'), 'Everyday pinterest must remain targeted');
+    } finally {
+      await fs.rm(tmpDir, { recursive: true, force: true }).catch(() => {});
+    }
+  });
+
+  await t.test('88. DRY_RUN history records do not suppress posts from subsequent live publication', async () => {
+    const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lm-dryrun-iso-'));
+    try {
+      const historyRepo = new FilesystemSocialHistoryRepository(tmpDir);
+      const testTopicId = 'lm-test-dryrun-suppression';
+
+      // 1. Record a simulated DRY_RUN manifest entry into history
+      const dryRunEntry: SocialManifestEntry = {
+        runId: 'run-dryrun-test',
+        topicId: testTopicId,
+        pillar: 'style',
+        canonicalTopic: 'Dry Run Non-Suppression Test Topic',
+        contentHash: 'hash-dry',
+        assetHash: 'hash-asset',
+        idempotencyKey: 'idem-dry',
+        targetPlatforms: ['facebook', 'pinterest'],
+        platformResults: {
+          facebook: {
+            platform: 'facebook',
+            status: 'DRY_RUN',
+            postId: 'fb-dryrun-1',
+            publishedAt: new Date().toISOString(),
+            idempotencyKey: 'idem-dry-fb',
+          },
+          pinterest: {
+            platform: 'pinterest',
+            status: 'DRY_RUN',
+            postId: 'pin-dryrun-1',
+            publishedAt: new Date().toISOString(),
+            idempotencyKey: 'idem-dry-pin',
+          },
+        },
+        reviewScore: 90,
+        overallStatus: 'DRY_RUN',
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      };
+      await historyRepo.recordEntry(dryRunEntry);
+
+      // 2. Verify isPlatformPublished returns FALSE for DRY_RUN records
+      const isFbPublished = await historyRepo.isPlatformPublished(testTopicId, 'facebook');
+      const isPinPublished = await historyRepo.isPlatformPublished(testTopicId, 'pinterest');
+      assert.equal(isFbPublished, false, 'DRY_RUN record must NOT be treated as published on Facebook');
+      assert.equal(isPinPublished, false, 'DRY_RUN record must NOT be treated as published on Pinterest');
+
+      // 3. Verify selectSocialOpportunities does NOT suppress platforms with DRY_RUN history
+      const candidate: EditorialTopic = {
+        id: testTopicId,
+        canonicalTopic: 'Dry Run Non-Suppression Test Topic',
+        pillar: 'style',
+        slug: 'dry-run-non-suppression-test-topic',
+        totalScore: 90,
+        status: 'PUBLISHED',
+        publishedAt: '2026-10-20T10:00:00Z',
+        scoring: { socialPotential: 85, pinterestPotential: 85 },
+      } as any;
+
+      const opps = await selectSocialOpportunities([candidate], {
+        maxOpportunities: 1,
+        maxFreshnessDays: 1,
+        referenceDate: '2026-10-20T12:00:00Z',
+        historyRepository: historyRepo,
+        configuredPlatforms: ['facebook', 'pinterest'],
+      });
+
+      assert.equal(opps.length, 1);
+      assert.ok(opps[0].targetPlatforms.includes('facebook'), 'Facebook must remain targeted despite DRY_RUN in history');
+      assert.ok(opps[0].targetPlatforms.includes('pinterest'), 'Pinterest must remain targeted despite DRY_RUN in history');
+
+      // 4. Now record a genuine PUBLISHED entry and verify it IS suppressed
+      const liveEntry: SocialManifestEntry = {
+        ...dryRunEntry,
+        runId: 'run-live-test',
+        overallStatus: 'COMPLETED',
+        platformResults: {
+          facebook: {
+            platform: 'facebook',
+            status: 'PUBLISHED',
+            postId: 'fb-live-1',
+            publishedAt: new Date().toISOString(),
+            idempotencyKey: 'idem-live-fb',
+          },
+        },
+      };
+      await historyRepo.recordEntry(liveEntry);
+
+      assert.equal(await historyRepo.isPlatformPublished(testTopicId, 'facebook'), true, 'PUBLISHED status must be recognized');
+      assert.equal(await historyRepo.isPlatformPublished(testTopicId, 'pinterest'), false, 'Pinterest is still not published');
+
+      const oppsAfterLive = await selectSocialOpportunities([candidate], {
+        maxOpportunities: 1,
+        maxFreshnessDays: 1,
+        referenceDate: '2026-10-20T12:00:00Z',
+        historyRepository: historyRepo,
+        configuredPlatforms: ['facebook', 'pinterest'],
+      });
+
+      assert.equal(oppsAfterLive.length, 1);
+      assert.ok(!oppsAfterLive[0].targetPlatforms.includes('facebook'), 'Facebook must now be excluded after genuine publish');
+      assert.ok(oppsAfterLive[0].targetPlatforms.includes('pinterest'), 'Pinterest remains targeted');
+    } finally {
+      await fs.rm(tmpDir, { recursive: true, force: true }).catch(() => {});
+    }
   });
 });

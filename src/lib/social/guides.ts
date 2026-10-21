@@ -8,7 +8,7 @@ import type {
   SocialPlatformPublishResult,
 } from './types.ts';
 import { loadSocialConfig, type SocialAutomationConfig } from './config.ts';
-import { resolveDestinationUrl } from './selection.ts';
+import { resolveDestinationUrl, selectSocialOpportunities } from './selection.ts';
 import {
   FilesystemSocialHistoryRepository,
   type ISocialHistoryRepository,
@@ -22,6 +22,7 @@ import { ThreadsPlatformAdapter } from './platforms/threads.ts';
 import { FilesystemContentRepository } from '../editorial/storage/repository.ts';
 import type { IContentRepository, StoredArticle } from '../editorial/storage/types.ts';
 import { resolveGuideRouting } from '../editorial/normalization.ts';
+import type { EditorialTopic } from '../editorial/types.ts';
 import type { ISocialGenerationProvider } from './generation/contracts.ts';
 import { FixtureSocialGenerationProvider } from './generation/providers/fixture.ts';
 import { AIRouterSocialGenerationProvider } from './generation/providers/ai-router.ts';
@@ -49,6 +50,8 @@ export interface GuideSocialPipelineRunOptions {
   dryRun?: boolean;
   allowPublish?: boolean;
   guides?: StoredArticle[];
+  maxFreshnessDays?: number;
+  referenceDate?: Date | string;
 }
 
 export interface GuideSocialAutomationResult {
@@ -70,6 +73,7 @@ export interface GuideSocialAutomationResult {
  * Runs the separate Guide social publishing pipeline.
  *
  * Discovers eligible guides from src/content/guides/, maps canonical public routes,
+ * filters through selectSocialOpportunities for 24-hour freshness and platform gating,
  * and enforces at most one Guide post per destination account/platform per execution.
  * Respects existing social publication history and deduplication.
  */
@@ -96,7 +100,7 @@ export async function runGuideSocialPipeline(
   const defaultAdapters = new Map<SocialPlatform, ISocialPlatformAdapter>([
     ['facebook', new FacebookPlatformAdapter()],
     ['instagram', new InstagramPlatformAdapter()],
-    ['pinterest', new PinterestPlatformAdapter()],
+    ['pinterest', new PinterestPlatformAdapter(undefined, 'lifemode')],
     ['threads', new ThreadsPlatformAdapter()],
   ]);
   if (config.credentials.everydayPinterest?.configured) {
@@ -121,12 +125,15 @@ export async function runGuideSocialPipeline(
 
   const imageProvider =
     options.imageProvider ||
-    (config.imageProviderMode === 'fixture' || isDryRun
+    (options.config?.imageProviderMode === 'fixture'
       ? new FixtureSocialImageProvider()
       : new PexelsSocialImageProvider());
 
   const storageProvider =
-    options.storageProvider || new FixtureSocialAssetStorageProvider(config.storageConfig.publicBaseUrl);
+    options.storageProvider ||
+    (config.storageConfig.configured
+      ? new CloudflareR2SocialAssetStorageProvider(config.storageConfig)
+      : new FixtureSocialAssetStorageProvider(config.storageConfig.publicBaseUrl));
 
   // 3. Discover eligible Guides
   let allGuides: StoredArticle[] = [];
@@ -164,34 +171,74 @@ export async function runGuideSocialPipeline(
     };
   }
 
-  // 4. Enforce AT MOST ONE Guide post per destination account/platform per execution
-  const targetPlatforms = (Array.from(platformAdapters.keys()) as SocialPlatform[]).filter(
+  // Convert eligible guides to candidate EditorialTopic objects
+  const guideCandidates: EditorialTopic[] = [];
+  const guideByTopicId = new Map<string, StoredArticle>();
+
+  for (const guide of eligibleGuides) {
+    const rawCategory = (guide.frontmatter as any).category || (guide as any).category;
+    const routing = resolveGuideRouting(rawCategory, guide.frontmatter.title, guide.slug);
+    const topicId = guide.identity?.topicId || guide.frontmatter.topicId || `lm-guide-${guide.slug}`;
+    const publicationDate = guide.frontmatter.pubDate || (guide.frontmatter as any).publishedDate;
+    const pubDateStr = publicationDate ? new Date(publicationDate).toISOString() : '';
+    const description =
+      guide.frontmatter.description || (guide.frontmatter as any).seoDescription || guide.frontmatter.title;
+
+    guideByTopicId.set(topicId, guide);
+
+    guideCandidates.push({
+      id: topicId,
+      canonicalTopic: guide.frontmatter.title,
+      pillar: routing.pillar,
+      slug: guide.slug,
+      totalScore: 90,
+      status: 'PUBLISHED',
+      opportunityType: 'ARTICLE_AND_SOCIAL',
+      scoring: {
+        socialPotential: 85,
+        pinterestPotential: 85,
+        searchPotential: 80,
+        lifeModeRelevance: 90,
+        commercialPotential: 50,
+        freshness: 90,
+        competitionOpportunity: 80,
+        originalityPotential: 85,
+      },
+      tags: guide.frontmatter.tags || [routing.pillar, 'guide', 'lifestyle'],
+      sourceSignals: [],
+      queryVariants: [],
+      freshnessScore: 90,
+      createdAt: pubDateStr,
+      updatedAt: guide.frontmatter.updatedDate ? new Date(guide.frontmatter.updatedDate).toISOString() : pubDateStr,
+      articleTitle: guide.frontmatter.title,
+      articleDescription: description,
+      publishedAt: pubDateStr,
+      articleImage: (guide.frontmatter as any).image,
+      publicRoute: routing.publicRoute,
+      publicSection: routing.publicSection,
+      isGuide: true,
+    } as any);
+  }
+
+  // 4. Select opportunity enforcing 24-hour freshness cutoff and platform history
+  const configuredPlatforms: SocialPlatform[] = (Array.from(platformAdapters.keys()) as SocialPlatform[]).filter(
     (p) => config.platforms[p] !== false
   );
 
-  const guideAssignments = new Map<SocialPlatform, StoredArticle>();
-  const historyEntries =
-    typeof (historyRepo as any).loadHistory === 'function'
-      ? await (historyRepo as any).loadHistory()
-      : [];
+  const maxFreshnessDays = options.maxFreshnessDays ?? config.maxFreshnessDays ?? 1;
 
-  for (const platform of targetPlatforms) {
-    for (const guide of eligibleGuides) {
-      const topicId = guide.identity?.topicId || guide.frontmatter.topicId || `lm-guide-${guide.slug}`;
-      const isLivePublished = await historyRepo.isPlatformPublished(topicId, platform);
-      const isAlreadyRecorded = historyEntries.some((item: any) => {
-        if (item.topicId?.trim().toLowerCase() !== topicId.trim().toLowerCase()) return false;
-        const res = item.platformResults?.[platform];
-        return res && (res.status === 'PUBLISHED' || res.status === 'DRY_RUN');
-      });
-      if (!isLivePublished && !isAlreadyRecorded) {
-        guideAssignments.set(platform, guide);
-        break; // Enforce at most one Guide post per destination account/platform!
-      }
-    }
-  }
+  const opportunities = await selectSocialOpportunities(guideCandidates, {
+    maxOpportunities: 1, // Enforce at most one Guide post per execution
+    minScoreThreshold: config.minScoreThreshold ?? 80,
+    maxFreshnessDays,
+    referenceDate: options.referenceDate,
+    historyRepository: historyRepo,
+    baseUrl: config.baseUrl,
+    configuredPlatforms,
+    publishedOnly: true,
+  });
 
-  if (guideAssignments.size === 0) {
+  if (opportunities.length === 0) {
     const durationMs = Math.max(1, Date.now() - startTime);
     return {
       runId,
@@ -204,36 +251,38 @@ export async function runGuideSocialPipeline(
       publishedCount: 0,
       platformSummary,
       manifestEntries: [],
-      summary: 'All eligible guides have already been published to all target platforms.',
+      summary: 'No eligible guides published within the 24-hour freshness window (or all target platforms already published).',
     };
-  }
-
-  // Group platform assignments by Guide
-  const guidesToProcess = new Map<StoredArticle, SocialPlatform[]>();
-  for (const [platform, guide] of guideAssignments.entries()) {
-    const platforms = guidesToProcess.get(guide) || [];
-    platforms.push(platform);
-    guidesToProcess.set(guide, platforms);
   }
 
   const manifestEntries: SocialManifestEntry[] = [];
   let totalPublishedCount = 0;
 
   // 5. Process each selected Guide and publish to its assigned platforms
-  for (const [guide, assignedPlatforms] of guidesToProcess.entries()) {
+  for (const opp of opportunities) {
+    const guide = guideByTopicId.get(opp.topicId);
+    if (!guide) continue;
+
     const rawCategory = (guide.frontmatter as any).category || (guide as any).category;
     const routing = resolveGuideRouting(rawCategory, guide.frontmatter.title, guide.slug);
-    const destinationUrl = resolveDestinationUrl(config.baseUrl, {
+    const destinationUrl = opp.destinationUrl || resolveDestinationUrl(config.baseUrl, {
       pillar: routing.pillar,
       slug: guide.slug,
       publicRoute: routing.publicRoute,
       publicSection: routing.publicSection,
       isGuide: true,
     });
-    const topicId = guide.identity?.topicId || guide.frontmatter.topicId || `lm-guide-${guide.slug}`;
-    const description = guide.frontmatter.description || (guide.frontmatter as any).seoDescription || guide.frontmatter.title;
+    const topicId = opp.topicId;
+    const description =
+      guide.frontmatter.description || (guide.frontmatter as any).seoDescription || guide.frontmatter.title;
+
+    const assignedPlatforms = opp.targetPlatforms.filter(
+      (p) => platformAdapters.has(p) && config.platforms[p] !== false
+    );
+    if (assignedPlatforms.length === 0) continue;
 
     const brief: SocialBrief = {
+      briefId: `brief-${topicId}-${Date.now()}`,
       topicId,
       pillar: routing.pillar,
       canonicalTopic: guide.frontmatter.title,
@@ -297,33 +346,74 @@ export async function runGuideSocialPipeline(
       content.hashtags = [`#${routing.pillar}`, '#LifeMode', '#EverydayGuide'];
     }
 
-    // Generate Visual Asset
+    // Generate Visual Asset using approved image workflow
     let asset: SocialVisualAsset;
+    let imageSelectionInfo: {
+      provider: string;
+      status: 'STOCK_PHOTO' | 'BRANDED_FALLBACK' | 'FAILED';
+      error?: string;
+    } = {
+      provider: imageProvider.name,
+      status: 'BRANDED_FALLBACK',
+    };
+
     try {
-      const imgResult = await imageProvider.generateVisualAsset({
+      const imgResult = await imageProvider.generateImage({
         topicId,
         pillar: routing.pillar,
         prompt: content.imagePrompt || guide.frontmatter.title,
         format: '1080x1350',
-        title: guide.frontmatter.title,
+        headlineOverlay: undefined,
+        articleTitle: guide.frontmatter.title,
+        category: routing.pillar,
+        ctaText: 'Read the complete guide on lifemode.life',
       });
-      asset = imgResult.asset || {
-        assetHash: hashString(`${topicId}-asset`),
-        url: `${config.storageConfig.publicBaseUrl || 'https://pub-assets.lifemode.life'}/social/guides/${guide.slug}.jpg`,
-        width: 1080,
-        height: 1350,
-        format: '1080x1350',
-        mimeType: 'image/jpeg',
+
+      if (imgResult.success && imgResult.asset) {
+        asset = imgResult.asset;
+        imageSelectionInfo = {
+          provider: imgResult.provider,
+          status: imgResult.error ? 'BRANDED_FALLBACK' : 'STOCK_PHOTO',
+          error: imgResult.error,
+        };
+      } else {
+        throw new Error(imgResult.error || 'Image generation unsuccessful');
+      }
+    } catch (imgErr: any) {
+      imageSelectionInfo = {
+        provider: imageProvider.name,
+        status: 'FAILED',
+        error: imgErr?.message || String(imgErr),
       };
-    } catch {
+      const fallbackHash = hashString(`${topicId}-asset`);
       asset = {
-        assetHash: hashString(`${topicId}-asset`),
+        assetId: `asset-${topicId}-${fallbackHash.slice(0, 8)}`,
+        assetHash: fallbackHash,
         url: `${config.storageConfig.publicBaseUrl || 'https://pub-assets.lifemode.life'}/social/guides/${guide.slug}.jpg`,
         width: 1080,
         height: 1350,
         format: '1080x1350',
         mimeType: 'image/jpeg',
       };
+    }
+
+    // Upload asset via storage provider if buffer exists
+    if (asset.buffer) {
+      try {
+        const uploadResult = await storageProvider.uploadAsset({
+          topicId,
+          pillar: routing.pillar,
+          assetHash: asset.assetHash,
+          buffer: asset.buffer,
+          mimeType: asset.mimeType,
+          format: asset.format,
+        });
+        if (uploadResult.success && uploadResult.publicUrl) {
+          asset.url = uploadResult.publicUrl;
+        }
+      } catch {
+        // Keep existing asset.url if upload fails
+      }
     }
 
     const platformResults: Partial<Record<SocialPlatform, SocialPlatformPublishResult>> = {};
@@ -377,6 +467,7 @@ export async function runGuideSocialPipeline(
       targetPlatforms: assignedPlatforms,
       platformResults,
       reviewScore: 90,
+      imageSelection: imageSelectionInfo,
       overallStatus: isDryRun ? 'DRY_RUN' : anySuccess ? 'COMPLETED' : 'FAILED',
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),

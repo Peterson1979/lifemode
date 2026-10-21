@@ -1,5 +1,6 @@
 import type { ISocialPlatformAdapter, PlatformPrepareOptions, PlatformPublishOptions } from './contracts.ts';
 import type {
+  SocialPlatform,
   GeneratedSocialContent,
   SocialVisualAsset,
   SocialPlatformPackage,
@@ -10,17 +11,21 @@ import { loadSocialConfig } from '../config.ts';
 import { createIdempotencyKey, hashString } from '../storage/repository.ts';
 
 export class PinterestPlatformAdapter implements ISocialPlatformAdapter {
-  readonly platform = 'pinterest' as const;
-  readonly name = 'Pinterest Platform Adapter';
+  readonly platform: SocialPlatform;
+  readonly name: string;
   private customFetch?: typeof fetch;
+  private account: 'lifemode' | 'everyday';
 
-  constructor(customFetch?: typeof fetch) {
+  constructor(customFetch?: typeof fetch, account: 'lifemode' | 'everyday' = 'lifemode') {
     this.customFetch = customFetch;
+    this.account = account;
+    this.platform = account === 'everyday' ? 'pinterest-everyday' : 'pinterest';
+    this.name = account === 'everyday' ? 'Everyday Ideas Pinterest Platform Adapter' : 'Pinterest Platform Adapter';
   }
 
   isConfigured(): boolean {
     const config = loadSocialConfig();
-    return config.credentials.pinterest.configured;
+    return this.account === 'everyday' ? Boolean(config.credentials.everydayPinterest?.configured) : config.credentials.pinterest.configured;
   }
 
   validate(pkg: SocialPlatformPackage): SocialValidationResult {
@@ -65,13 +70,18 @@ export class PinterestPlatformAdapter implements ISocialPlatformAdapter {
 
     // Truncate title to <= 100 characters for Pinterest API
     const pinTitle = content.title.length > 95 ? `${content.title.slice(0, 92)}...` : content.title;
-    const pinDescription = `${content.shortCaption}\n\nExplore the complete guide on LifeMode.\n\n${tagString}`.slice(0, 500).trim();
+    const pinterestCta = 'https://lifemode.bio.link';
+    const captionWithCta = content.shortCaption.includes(pinterestCta)
+      ? content.shortCaption
+      : `${content.shortCaption}\n\n${pinterestCta}`;
+    const pinDescription = `${captionWithCta}\n\n${tagString}`.slice(0, 500).trim();
 
     const contentHash = hashString(`${pinTitle}-${pinDescription}`);
     const idempotencyKey = createIdempotencyKey(content.topicId, this.platform, contentHash);
 
     const config = loadSocialConfig();
-    const boardId = options?.boardId || config.credentials.pinterest.boardId;
+    const credentials = this.account === 'everyday' ? config.credentials.everydayPinterest : config.credentials.pinterest;
+    const boardId = options?.boardId || credentials?.boardId;
 
     const payload = {
       title: pinTitle,
@@ -105,7 +115,9 @@ export class PinterestPlatformAdapter implements ISocialPlatformAdapter {
   ): Promise<SocialPlatformPublishResult> {
     const now = new Date().toISOString();
     const config = loadSocialConfig();
-    const { accessToken, boardId } = config.credentials.pinterest;
+    const credentials = this.account === 'everyday' ? config.credentials.everydayPinterest : config.credentials.pinterest;
+    const accessToken = credentials?.accessToken;
+    const boardId = credentials?.boardId;
 
     if (options.dryRun) {
       return {
@@ -122,7 +134,9 @@ export class PinterestPlatformAdapter implements ISocialPlatformAdapter {
       return {
         platform: this.platform,
         status: 'NOT_CONFIGURED',
-        error: 'Pinterest credentials (PINTEREST_ACCESS_TOKEN and PINTEREST_BOARD_ID) not configured.',
+        error: this.account === 'everyday'
+          ? 'Everyday Ideas Pinterest credentials (EVERYDAY_PINTEREST_ACCESS_TOKEN and EVERYDAY_PINTEREST_BOARD_ID) not configured.'
+          : 'Pinterest credentials (PINTEREST_ACCESS_TOKEN and PINTEREST_BOARD_ID) not configured.',
         publishedAt: now,
         idempotencyKey: pkg.idempotencyKey,
       };

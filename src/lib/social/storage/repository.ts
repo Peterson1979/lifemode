@@ -166,7 +166,7 @@ export class FilesystemSocialHistoryRepository implements ISocialHistoryReposito
         return false;
       }
       const res = item.platformResults?.[platform];
-      return res && res.status === 'PUBLISHED';
+      return Boolean(res && res.status === 'PUBLISHED');
     });
   }
 
