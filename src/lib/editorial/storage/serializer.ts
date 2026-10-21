@@ -195,11 +195,13 @@ export function parseArticle(
     throw new Error('Malformed article frontmatter: "title" is required and must be a non-empty string.');
   }
 
-  if (!parsedData.description || typeof parsedData.description !== 'string' || !parsedData.description.trim()) {
+  const description = parsedData.description || parsedData.seoDescription;
+  if (!description || typeof description !== 'string' || !description.trim()) {
     throw new Error('Malformed article frontmatter: "description" is required and must be a non-empty string.');
   }
 
-  if (!parsedData.pubDate || typeof parsedData.pubDate !== 'string') {
+  const pubDate = parsedData.pubDate || parsedData.publishedDate;
+  if (!pubDate || typeof pubDate !== 'string') {
     throw new Error('Malformed article frontmatter: "pubDate" is required.');
   }
 
@@ -225,8 +227,8 @@ export function parseArticle(
 
   const frontmatter: StoredArticleFrontmatter = {
     title: parsedData.title.trim(),
-    description: parsedData.description.trim(),
-    pubDate: parsedData.pubDate,
+    description: description.trim(),
+    pubDate,
     updatedDate: parsedData.updatedDate,
     author: parsedData.author || 'LifeMode',
     tags: Array.isArray(parsedData.tags) ? parsedData.tags : [],
