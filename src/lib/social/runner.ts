@@ -17,7 +17,7 @@ import { AIRouterSocialGenerationProvider } from './generation/providers/ai-rout
 import { FixtureSocialGenerationProvider } from './generation/providers/fixture.ts';
 import type { ISocialImageProvider } from './images/contracts.ts';
 import { FixtureSocialImageProvider } from './images/providers/fixture.ts';
-import { APISocialImageProvider } from './images/providers/api.ts';
+import { PexelsSocialImageProvider } from './images/providers/pexels.ts';
 import { validateSocialContent, validateSocialVisualAsset } from './validation.ts';
 import type { ISocialReviewProvider } from './review/contracts.ts';
 import { AIRouterSocialReviewProvider } from './review/providers/ai-router.ts';
@@ -82,7 +82,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
     options.imageProvider ||
     (config.imageProviderMode === 'fixture' || config.dryRun || config.storageTest
       ? new FixtureSocialImageProvider()
-      : new APISocialImageProvider());
+      : new PexelsSocialImageProvider());
 
   const storageProvider: ISocialAssetStorageProvider =
     options.storageProvider ||
@@ -105,12 +105,19 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
     ['pinterest', new PinterestPlatformAdapter()],
     ['threads', new ThreadsPlatformAdapter()],
   ]);
+  // Everyday Ideas is a separate Pinterest identity. It is added to the same
+  // workflow only when its own credentials are present; it never falls back
+  // to LifeMode's token or board.
+  if (config.credentials.everydayPinterest?.configured) {
+    defaultAdapters.set('pinterest-everyday', new PinterestPlatformAdapter(undefined, 'everyday'));
+  }
   const platformAdapters = options.platformAdapters || defaultAdapters;
 
   const platformSummary: Record<SocialPlatform, { published: number; failed: number; skipped: number }> = {
     facebook: { published: 0, failed: 0, skipped: 0 },
     instagram: { published: 0, failed: 0, skipped: 0 },
     pinterest: { published: 0, failed: 0, skipped: 0 },
+    'pinterest-everyday': { published: 0, failed: 0, skipped: 0 },
     threads: { published: 0, failed: 0, skipped: 0 },
   };
 
@@ -191,7 +198,8 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
 
       for (const art of publishedArticles) {
         const topicId = art.identity?.topicId || art.frontmatter.topicId || `lm-${art.pillar}-${art.slug}`;
-        const pubDateStr = art.frontmatter.pubDate ? new Date(art.frontmatter.pubDate).toISOString() : '';
+        const publicationDate = art.frontmatter.pubDate || (art.frontmatter as any).publishedDate;
+        const pubDateStr = publicationDate ? new Date(publicationDate).toISOString() : '';
         const existingIdx = candidatePool.findIndex((c) => c.id === topicId || (c.pillar === art.pillar && c.slug === art.slug));
         if (existingIdx >= 0) {
           candidatePool[existingIdx] = {
@@ -245,6 +253,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
   if (config.credentials.facebook.configured || platformAdapters.has('facebook')) configuredPlatforms.push('facebook');
   if (config.credentials.instagram.configured || platformAdapters.has('instagram')) configuredPlatforms.push('instagram');
   if (config.credentials.pinterest.configured || platformAdapters.has('pinterest')) configuredPlatforms.push('pinterest');
+  if (config.credentials.everydayPinterest?.configured || platformAdapters.has('pinterest-everyday')) configuredPlatforms.push('pinterest-everyday');
   if (config.credentials.threads.configured || platformAdapters.has('threads')) configuredPlatforms.push('threads');
 
   let opportunities = await selectSocialOpportunities(candidatePool, {
@@ -311,6 +320,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
     facebook: 'FAIL',
     instagram: 'FAIL',
     pinterest: 'FAIL',
+    'pinterest-everyday': 'FAIL',
     threads: 'FAIL',
   };
 
@@ -360,7 +370,16 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
 
       // Step F: Image Asset Generation
       const articleTitle = opp.articleTitle || opp.canonicalTopic;
-      const headlineOverlay = content.imageText?.headline || articleTitle;
+      // Social captions are intentionally short and deterministic across all
+      // adapters while retaining the exact published article title.
+      content = {
+        ...content,
+        title: articleTitle,
+        shortCaption: `${articleTitle} — Read the full article at https://lifemode.bio.link`,
+        callToAction: 'Read the full article at https://lifemode.bio.link',
+        destinationUrl: opp.destinationUrl,
+      };
+      const headlineOverlay = content.imageText?.headline;
       const imageResult = await imageProvider.generateImage({
         topicId: opp.topicId,
         pillar: opp.pillar,
@@ -370,12 +389,34 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
         subheadlineOverlay: `LIFEMODE ${opp.pillar.toUpperCase()}`,
         articleImage: opp.articleImage,
         articleTitle,
+        category: opp.pillar,
         ctaText: 'Read the complete guide on lifemode.life',
       });
 
       if (!imageResult.success || !imageResult.asset) {
         failedCount++;
         if (config.storageTest) lastStorageTestError = imageResult.error || 'Image asset generation failed';
+        if (!config.storageTest) {
+          const now = new Date().toISOString();
+          const failedImageEntry: SocialManifestEntry = {
+            runId,
+            topicId: opp.topicId,
+            pillar: opp.pillar,
+            canonicalTopic: opp.canonicalTopic,
+            contentHash: hashString(`${content.title}-${content.shortCaption}`),
+            assetHash: '',
+            idempotencyKey: `lm-soc-${opp.topicId}-image-failed`,
+            targetPlatforms: opp.targetPlatforms,
+            platformResults: {},
+            reviewScore: reviewResult.score,
+            overallStatus: 'FAILED',
+            imageSelection: { provider: imageResult.provider, status: 'FAILED', error: imageResult.error || 'Image asset generation failed' },
+            createdAt: now,
+            updatedAt: now,
+          };
+          await historyRepo.recordEntry(failedImageEntry);
+          manifestEntries.push(failedImageEntry);
+        }
         continue;
       }
 
@@ -531,6 +572,11 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
           targetPlatforms: opp.targetPlatforms,
           platformResults,
           reviewScore: reviewResult.score,
+          imageSelection: {
+            provider: imageResult.provider,
+            status: imageResult.error ? 'BRANDED_FALLBACK' : 'STOCK_PHOTO',
+            error: imageResult.error,
+          },
           overallStatus: allTargetPublished
             ? (config.dryRun ? 'DRY_RUN' : 'COMPLETED')
             : anySuccess

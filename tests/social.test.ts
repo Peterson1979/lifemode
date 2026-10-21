@@ -353,7 +353,8 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     const pkg = await fbAdapter.prepare(content, asset);
     assert.equal(pkg.platform, 'facebook');
     assert.ok(pkg.caption.includes('Calm Workspace Design Principles'));
-    assert.ok(pkg.caption.includes('Read the full guide on LifeMode.'));
+    assert.ok(pkg.caption.includes('Read the full article at https://lifemode.life/'));
+    assert.ok(pkg.caption.includes('https://lifemode.life/'));
     assert.ok(pkg.caption.includes('#LifeMode'));
     assert.ok(pkg.idempotencyKey.startsWith('lm-soc-top-12345-facebook-'));
   });
@@ -366,6 +367,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     const pkg = await igAdapter.prepare(content, asset);
     assert.equal(pkg.platform, 'instagram');
     assert.ok(pkg.caption.toLowerCase().includes('link in'));
+    assert.ok(pkg.caption.includes('Link in bio'));
     assert.ok(pkg.caption.length <= 2200);
     assert.equal(igAdapter.validate(pkg).valid, true);
   });
@@ -380,6 +382,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     assert.equal(pkg.platform, 'pinterest');
     assert.ok(pkg.title && pkg.title.length <= 100);
     assert.ok(pkg.caption.length <= 500);
+    assert.ok(pkg.caption.includes('https://lifemode.bio.link'));
     assert.ok(pkg.destinationUrl?.startsWith('http'));
   });
 
@@ -1271,6 +1274,40 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
 
     const fbResult = result.manifestEntries[0].platformResults.facebook;
     assert.ok(fbResult);
+
+    await fs.rm(tempDir, { recursive: true, force: true });
+  });
+
+  await t.test('40b. Guide publishedDate is mapped to the social publication timestamp', async () => {
+    const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lm-soc-guide-pubdate-'));
+    const today = new Date().toISOString().split('T')[0];
+
+    const result = await runSocialPipeline({
+      contentRepository: {
+        list: async () => [
+          {
+            pillar: 'style',
+            slug: 'published-date-guide',
+            frontmatter: {
+              title: 'Guide Publication Date Mapping',
+              description: 'Verifies guide publication metadata.',
+              publishedDate: today,
+              updatedDate: '2020-01-01',
+              draft: false,
+            },
+          },
+        ],
+      } as any,
+      config: {
+        enabled: true,
+        dryRun: true,
+        storageDir: path.join(tempDir, 'social'),
+        baseUrl: 'https://lifemode.life',
+      },
+    });
+
+    assert.equal(result.selectedCount, 1);
+    assert.equal(result.manifestEntries[0].canonicalTopic, 'Guide Publication Date Mapping');
 
     await fs.rm(tempDir, { recursive: true, force: true });
   });
