@@ -304,3 +304,61 @@ export function generateTopicId(pillar: PillarSlug, slug: string): string {
   const dateStr = new Date().toISOString().slice(0, 10).replace(/-/g, '');
   return `lm-${normPillar}-${dateStr}-${slug.slice(0, 30)}`;
 }
+
+export interface GuideRouting {
+  pillar: ActivePillarSlug;
+  publicSection: string;
+  publicRoute: string;
+  isGuide: true;
+}
+
+/**
+ * Public sections for guides on LifeMode.
+ * Supported public sections include '/food-kitchen', '/guides', and '/home-maintenance'.
+ */
+export const GUIDE_PUBLIC_SECTIONS = ['food-kitchen', 'guides', 'home-maintenance'] as const;
+export type GuidePublicSection = (typeof GUIDE_PUBLIC_SECTIONS)[number];
+
+/**
+ * Resolves operational editorial pillar and public URL section for Guide content.
+ * Discovered Guides route to explicit public sections (/food-kitchen, /guides, /home-maintenance)
+ * rather than assuming their operational pillar matches their public URL segment.
+ */
+export function resolveGuideRouting(
+  category?: string,
+  textForInference: string = '',
+  slug: string = ''
+): GuideRouting {
+  const normCategory = (category || '').toLowerCase().trim();
+
+  // 1. Resolve public section / route
+  let publicSection: GuidePublicSection = 'guides';
+  if (normCategory === 'food-kitchen') {
+    publicSection = 'food-kitchen';
+  } else if (normCategory === 'home-maintenance') {
+    publicSection = 'home-maintenance';
+  } else {
+    // everyday-how-to and general guides route under /guides
+    publicSection = 'guides';
+  }
+
+  // 2. Resolve operational pillar
+  let pillar: ActivePillarSlug;
+  if (normCategory === 'everyday-how-to') {
+    // Everyday-how-to guides use keyword inference across topic title/slug to determine their operational pillar
+    const combinedText = `${textForInference} ${slug}`.trim();
+    pillar = inferPillarFromKeywords(combinedText, 'life');
+  } else {
+    const normalized = normalizePillar(normCategory);
+    pillar = normalized || 'home';
+  }
+
+  return {
+    pillar,
+    publicSection,
+    publicRoute: publicSection,
+    isGuide: true,
+  };
+}
+
+export const resolveGuidePillarAndRoute = resolveGuideRouting;

@@ -46,6 +46,9 @@ export interface StoredArticleFrontmatter {
   readingTime?: string;
   version: number;
   lifecycleStatus: ArticleLifecycleStatus;
+  publicRoute?: string;
+  publicSection?: string;
+  isGuide?: boolean;
 }
 
 /**
@@ -62,6 +65,9 @@ export interface StoredArticle {
   frontmatter: StoredArticleFrontmatter;
   content: string; // Markdown body without frontmatter
   filePath: string;
+  publicRoute?: string;
+  publicSection?: string;
+  isGuide?: boolean;
 }
 
 /**

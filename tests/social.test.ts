@@ -33,7 +33,9 @@ import {
   type ISocialGenerationProvider,
   type ISocialPlatformAdapter,
   type SocialPlatform,
+  resolveDestinationUrl,
 } from '../src/lib/social/index.ts';
+import { resolveGuideRouting } from '../src/lib/editorial/normalization.ts';
 import { AIRouterSocialGenerationProvider } from '../src/lib/social/generation/providers/ai-router.ts';
 import { loadAIConfig } from '../src/lib/ai/config.ts';
 import { parseGroqRetryDuration } from '../src/lib/ai/providers/groq.ts';
@@ -1308,6 +1310,43 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
 
     assert.equal(result.selectedCount, 1);
     assert.equal(result.manifestEntries[0].canonicalTopic, 'Guide Publication Date Mapping');
+
+    await fs.rm(tempDir, { recursive: true, force: true });
+  });
+
+  await t.test('40c. Guide discovery normalizes category, publishedDate, and seoDescription', async () => {
+    const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lm-soc-guide-discovery-'));
+    const contentDir = path.join(tempDir, 'content');
+    const guidesDir = path.join(contentDir, 'guides');
+    await fs.mkdir(guidesDir, { recursive: true });
+    const today = new Date().toISOString().split('T')[0];
+    await fs.writeFile(
+      path.join(guidesDir, 'guide-discovery.md'),
+      `---\ntitle: "Guide Discovery Regression"\nseoDescription: "A valid guide description."\ncategory: "food-kitchen"\ncontentType: "reference"\npublishedDate: "${today}"\nupdatedDate: "${today}"\ndraft: false\n---\nA valid guide body.\n`,
+      'utf8'
+    );
+
+    const contentRepo = new FilesystemContentRepository({ contentRoot: contentDir });
+    const discovered = await contentRepo.list();
+    assert.equal(discovered.length, 1);
+    assert.equal(discovered[0].pillar, 'home');
+    assert.equal(discovered[0].frontmatter.pubDate, today);
+    assert.equal(discovered[0].frontmatter.description, 'A valid guide description.');
+
+    const result = await runSocialPipeline({
+      contentRepository: contentRepo,
+      contentRoot: contentDir,
+      referenceDate: `${today}T12:00:00.000Z`,
+      config: {
+        enabled: true,
+        dryRun: true,
+        storageDir: path.join(tempDir, 'social'),
+        baseUrl: 'https://lifemode.life',
+      },
+    });
+
+    assert.equal(result.selectedCount, 1);
+    assert.equal(result.manifestEntries[0].canonicalTopic, 'Guide Discovery Regression');
 
     await fs.rm(tempDir, { recursive: true, force: true });
   });
@@ -2997,5 +3036,218 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     const result = validateSocialContent(leakedContent);
     assert.equal(result.valid, false);
     assert.ok(result.errors.some((e) => e.includes('Forbidden internal metadata pattern detected')));
+  });
+
+  await t.test('78. Discovered Guide routing: Cast-iron skillet guide maps to operational pillar home and public URL under /food-kitchen/', async () => {
+    const title = 'How to clean and season a cast iron skillet using the oil polymerization protocol';
+    const slug = 'how-to-clean-and-season-cast-iron-skillet-oil-polymerization';
+    const routing = resolveGuideRouting('food-kitchen', title, slug);
+
+    assert.equal(routing.pillar, 'home', 'Operational pillar must be home');
+    assert.equal(routing.publicRoute, 'food-kitchen', 'Public route must be food-kitchen');
+    assert.equal(routing.publicSection, 'food-kitchen', 'Public section must be food-kitchen');
+    assert.equal(routing.isGuide, true, 'Guide marker must be true');
+
+    const destinationUrl = resolveDestinationUrl('https://lifemode.life', {
+      pillar: routing.pillar,
+      slug,
+      publicRoute: routing.publicRoute,
+      isGuide: routing.isGuide,
+    });
+    assert.equal(destinationUrl, `https://lifemode.life/food-kitchen/${slug}`);
+    assert.ok(destinationUrl.startsWith('https://lifemode.life/food-kitchen/'));
+
+    const recentIso = new Date(Date.now() - 3600 * 1000).toISOString();
+    const candidate = createMockTopic({
+      id: 'lm-home-cast-iron-skillet',
+      canonicalTopic: title,
+      pillar: routing.pillar,
+      slug,
+      isGuide: true,
+      publicRoute: routing.publicRoute,
+      publicSection: routing.publicSection,
+      status: 'PUBLISHED',
+      publishedAt: recentIso,
+      totalScore: 90,
+    });
+
+    const selected = await selectSocialOpportunities([candidate], {
+      maxOpportunities: 1,
+      publishedOnly: true,
+      baseUrl: 'https://lifemode.life',
+    });
+
+    assert.equal(selected.length, 1);
+    assert.equal(selected[0].pillar, 'home');
+    assert.equal(selected[0].isGuide, true);
+    assert.equal(selected[0].destinationUrl, `https://lifemode.life/food-kitchen/${slug}`);
+    assert.ok(selected[0].destinationUrl.startsWith('https://lifemode.life/food-kitchen/'));
+  });
+
+  await t.test('79. Discovered Guide routing: Morning sunlight / blue-light guide maps to operational pillar health and public URL under /guides/', async () => {
+    const title = 'How to use morning sunlight and evening blue‑light control for deeper sleep';
+    const slug = 'circadian-light-morning-sun-blue-light-sleep';
+    const routing = resolveGuideRouting('everyday-how-to', title, slug);
+
+    assert.equal(routing.pillar, 'health', 'Operational pillar must be health via keyword inference');
+    assert.equal(routing.publicRoute, 'guides', 'Public route must be guides');
+    assert.equal(routing.publicSection, 'guides', 'Public section must be guides');
+    assert.equal(routing.isGuide, true, 'Guide marker must be true');
+
+    const destinationUrl = resolveDestinationUrl('https://lifemode.life', {
+      pillar: routing.pillar,
+      slug,
+      publicRoute: routing.publicRoute,
+      isGuide: routing.isGuide,
+    });
+    assert.equal(destinationUrl, `https://lifemode.life/guides/${slug}`);
+    assert.ok(destinationUrl.startsWith('https://lifemode.life/guides/'));
+
+    const recentIso = new Date(Date.now() - 3600 * 1000).toISOString();
+    const candidate = createMockTopic({
+      id: 'lm-health-morning-sunlight',
+      canonicalTopic: title,
+      pillar: routing.pillar,
+      slug,
+      isGuide: true,
+      publicRoute: routing.publicRoute,
+      publicSection: routing.publicSection,
+      status: 'PUBLISHED',
+      publishedAt: recentIso,
+      totalScore: 92,
+    });
+
+    const selected = await selectSocialOpportunities([candidate], {
+      maxOpportunities: 1,
+      publishedOnly: true,
+      baseUrl: 'https://lifemode.life',
+    });
+
+    assert.equal(selected.length, 1);
+    assert.equal(selected[0].pillar, 'health');
+    assert.equal(selected[0].isGuide, true);
+    assert.equal(selected[0].destinationUrl, `https://lifemode.life/guides/${slug}`);
+    assert.ok(selected[0].destinationUrl.startsWith('https://lifemode.life/guides/'));
+  });
+
+  await t.test('80. Discovered Guide routing: Claude/ChatGPT daily-life guide maps to operational pillar tech-ai and public URL under /guides/', async () => {
+    const title = 'Organizing daily life and work with Claude and ChatGPT';
+    const slug = 'organizing-daily-life-work-with-claude-chatgpt';
+    const routing = resolveGuideRouting('everyday-how-to', title, slug);
+
+    assert.equal(routing.pillar, 'tech-ai', 'Operational pillar must be tech-ai via keyword inference');
+    assert.equal(routing.publicRoute, 'guides', 'Public route must be guides');
+    assert.equal(routing.publicSection, 'guides', 'Public section must be guides');
+    assert.equal(routing.isGuide, true, 'Guide marker must be true');
+
+    const destinationUrl = resolveDestinationUrl('https://lifemode.life', {
+      pillar: routing.pillar,
+      slug,
+      publicRoute: routing.publicRoute,
+      isGuide: routing.isGuide,
+    });
+    assert.equal(destinationUrl, `https://lifemode.life/guides/${slug}`);
+    assert.ok(destinationUrl.startsWith('https://lifemode.life/guides/'));
+
+    const recentIso = new Date(Date.now() - 3600 * 1000).toISOString();
+    const candidate = createMockTopic({
+      id: 'lm-tech-ai-claude-chatgpt-guide',
+      canonicalTopic: title,
+      pillar: routing.pillar,
+      slug,
+      isGuide: true,
+      publicRoute: routing.publicRoute,
+      publicSection: routing.publicSection,
+      status: 'PUBLISHED',
+      publishedAt: recentIso,
+      totalScore: 91,
+    });
+
+    const selected = await selectSocialOpportunities([candidate], {
+      maxOpportunities: 1,
+      publishedOnly: true,
+      baseUrl: 'https://lifemode.life',
+    });
+
+    assert.equal(selected.length, 1);
+    assert.equal(selected[0].pillar, 'tech-ai');
+    assert.equal(selected[0].isGuide, true);
+    assert.equal(selected[0].destinationUrl, `https://lifemode.life/guides/${slug}`);
+    assert.ok(selected[0].destinationUrl.startsWith('https://lifemode.life/guides/'));
+  });
+
+  await t.test('81. Ordinary non-Guide candidates with internal life pillar remain strictly excluded from social selection', async () => {
+    const recentIso = new Date(Date.now() - 3600 * 1000).toISOString();
+
+    // 1. Ordinary non-Guide life candidate (no publicRoute, no isGuide)
+    const ordinaryLifeCandidate = createMockTopic({
+      id: 'lm-life-ordinary-candidate',
+      canonicalTopic: 'Ordinary Non-Guide Life Topic',
+      pillar: 'life',
+      slug: 'ordinary-non-guide-life-topic',
+      status: 'PUBLISHED',
+      publishedAt: recentIso,
+      totalScore: 95,
+    });
+
+    const selected1 = await selectSocialOpportunities([ordinaryLifeCandidate], {
+      maxOpportunities: 1,
+      publishedOnly: true,
+      baseUrl: 'https://lifemode.life',
+    });
+    assert.equal(selected1.length, 0, 'Ordinary non-Guide candidate with pillar "life" must be excluded');
+
+    // 2. Candidate with pillar "life" and publicRoute/publicSection but WITHOUT isGuide marker must NOT bypass exclusion
+    const bypassedAttemptCandidate = createMockTopic({
+      id: 'lm-life-attempted-bypass',
+      canonicalTopic: 'Attempted Bypass Life Candidate',
+      pillar: 'life',
+      slug: 'attempted-bypass-life-candidate',
+      publicRoute: 'guides',
+      publicSection: 'guides',
+      status: 'PUBLISHED',
+      publishedAt: recentIso,
+      totalScore: 95,
+      // isGuide is NOT set (undefined / false)
+    });
+
+    const selected2 = await selectSocialOpportunities([bypassedAttemptCandidate], {
+      maxOpportunities: 1,
+      publishedOnly: true,
+      baseUrl: 'https://lifemode.life',
+    });
+    assert.equal(selected2.length, 0, 'Candidate with pillar "life" must NOT bypass exclusion gate merely because publicRoute/publicSection is present');
+  });
+
+  await t.test('82. FilesystemContentRepository discovers guides from src/content/guides with correct operational pillars and public routes', async () => {
+    const contentRepo = new FilesystemContentRepository({
+      contentRoot: path.resolve(process.cwd(), 'src/content'),
+    });
+
+    const articles = await contentRepo.list();
+    const castIron = articles.find((a) => a.slug === 'how-to-clean-and-season-cast-iron-skillet-oil-polymerization');
+    const morningLight = articles.find((a) => a.slug === 'circadian-light-morning-sun-blue-light-sleep');
+    const claudeChatgpt = articles.find((a) => a.slug === 'organizing-daily-life-work-with-claude-chatgpt');
+
+    assert.ok(castIron, 'Cast-iron skillet guide should be discovered');
+    assert.equal(castIron.pillar, 'home', 'Cast-iron guide operational pillar must be home');
+    assert.equal(castIron.publicRoute, 'food-kitchen', 'Cast-iron guide public route must be food-kitchen');
+
+    assert.ok(morningLight, 'Morning sunlight guide should be discovered');
+    assert.equal(morningLight.pillar, 'health', 'Morning sunlight guide operational pillar must be health');
+    assert.equal(morningLight.publicRoute, 'guides', 'Morning sunlight guide public route must be guides');
+
+    assert.ok(claudeChatgpt, 'Claude/ChatGPT guide should be discovered');
+    assert.equal(claudeChatgpt.pillar, 'tech-ai', 'Claude/ChatGPT guide operational pillar must be tech-ai');
+    assert.equal(claudeChatgpt.publicRoute, 'guides', 'Claude/ChatGPT guide public route must be guides');
+
+    // Verify social URL generation for all three
+    const castIronUrl = resolveDestinationUrl('https://lifemode.life', castIron);
+    const morningLightUrl = resolveDestinationUrl('https://lifemode.life', morningLight);
+    const claudeChatgptUrl = resolveDestinationUrl('https://lifemode.life', claudeChatgpt);
+
+    assert.equal(castIronUrl, 'https://lifemode.life/food-kitchen/how-to-clean-and-season-cast-iron-skillet-oil-polymerization');
+    assert.equal(morningLightUrl, 'https://lifemode.life/guides/circadian-light-morning-sun-blue-light-sleep');
+    assert.equal(claudeChatgptUrl, 'https://lifemode.life/guides/organizing-daily-life-work-with-claude-chatgpt');
   });
 });

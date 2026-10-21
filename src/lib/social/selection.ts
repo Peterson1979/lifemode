@@ -77,6 +77,39 @@ export function determineTargetPlatforms(topic: EditorialTopic): SocialPlatform[
 }
 
 /**
+ * Resolves the canonical destination URL for a social opportunity.
+ * Uses publicRoute or publicSection when provided (e.g. for discovered Guides)
+ * instead of assuming the internal operational pillar is a URL segment.
+ */
+export function resolveDestinationUrl(
+  baseUrl: string,
+  topic: {
+    pillar: string;
+    slug: string;
+    publicRoute?: string;
+    publicSection?: string;
+    destinationUrl?: string;
+    isGuide?: boolean;
+  }
+): string {
+  if (topic.destinationUrl) {
+    return topic.destinationUrl;
+  }
+  const routeSegment = topic.publicRoute || topic.publicSection;
+  if (routeSegment) {
+    const cleanSegment = routeSegment.replace(/^\/+|\/+$/g, '');
+    if (cleanSegment.endsWith(topic.slug)) {
+      return `${baseUrl}/${cleanSegment}`;
+    }
+    return `${baseUrl}/${cleanSegment}/${topic.slug}`;
+  }
+  if (topic.isGuide) {
+    return `${baseUrl}/guides/${topic.slug}`;
+  }
+  return `${baseUrl}/${topic.pillar}/${topic.slug}`;
+}
+
+/**
  * Deterministically selects the top social opportunities from published articles.
  *
  * Enforces:
@@ -110,8 +143,8 @@ export async function selectSocialOpportunities(
     const effectiveTotalScore = topic.totalScore ?? 80;
     if (effectiveTotalScore < minScore) continue;
 
-    // Filter out inactive / removed pillars
-    if ((topic.pillar as string) === 'life') continue;
+    // Filter out inactive / removed pillars (ordinary non-Guide content must remain excluded)
+    if ((topic.pillar as string) === 'life' && !topic.isGuide) continue;
 
     // In published-only mode, only consider topics that are actually published
     if (publishedOnly && topic.status !== 'PUBLISHED') {
@@ -249,7 +282,7 @@ export async function selectSocialOpportunities(
       continue;
     }
 
-    const destinationUrl = `${baseUrl}/${topic.pillar}/${topic.slug}`;
+    const destinationUrl = resolveDestinationUrl(baseUrl, topic);
 
     selected.push({
       topicId: topic.id,
@@ -310,6 +343,9 @@ export async function selectSocialOpportunities(
         articleDescription: (topic as any).articleDescription,
         publishedAt: (topic as any).publishedAt || topic.updatedAt,
         articleImage: (topic as any).articleImage,
+        isGuide: Boolean(topic.isGuide),
+        publicRoute: topic.publicRoute,
+        publicSection: topic.publicSection,
       });
     }
   }

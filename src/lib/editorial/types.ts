@@ -180,6 +180,9 @@ export interface EditorialTopic {
   articleTitle?: string;
   articleDescription?: string;
   articleImage?: string;
+  publicRoute?: string;
+  publicSection?: string;
+  isGuide?: boolean;
 }
 
 /**

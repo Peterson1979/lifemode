@@ -58,6 +58,9 @@ export interface SocialOpportunity {
   videoUrl?: string;
   mediaType?: SocialMediaType;
   sourceProject?: string;
+  publicRoute?: string;
+  publicSection?: string;
+  isGuide?: boolean;
 }
 
 /**
@@ -69,6 +72,9 @@ export interface SocialBrief {
   pillar: PillarSlug;
   canonicalTopic: string;
   destinationUrl: string;
+  publicRoute?: string;
+  publicSection?: string;
+  isGuide?: boolean;
   coreConcept: string;
   editorialHook: string;
   targetAudience: string;

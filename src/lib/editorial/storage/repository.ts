@@ -1,5 +1,5 @@
 import { promises as fs } from 'node:fs';
-import { dirname } from 'node:path';
+import { dirname, join } from 'node:path';
 import type {
   IContentRepository,
   StoredArticle,
@@ -11,6 +11,7 @@ import type {
 import { resolveSafeArticlePath, validatePillar } from './path-security.ts';
 import { serializeArticle, parseArticle } from './serializer.ts';
 import { VALID_PILLARS } from '../types.ts';
+import { normalizePillar, resolveGuideRouting } from '../normalization.ts';
 
 export interface FilesystemContentRepositoryOptions {
   contentRoot: string;
@@ -349,6 +350,44 @@ export class FilesystemContentRepository implements IContentRepository {
         }
       } catch {
         // Directory may not exist yet, treat as empty
+      }
+    }
+
+    // Guides use a dedicated Astro collection and category names. Normalize
+    // their metadata into the same stored-article shape used by social discovery.
+    if (!pillar) {
+      const guidesDir = join(this.contentRoot, 'guides');
+      try {
+        const files = await fs.readdir(guidesDir);
+        for (const file of files) {
+          if (!file.endsWith('.md') && !file.endsWith('.mdx')) continue;
+
+          const slug = file.replace(/\.(md|mdx)$/, '');
+          const filePath = join(guidesDir, file);
+          try {
+            const rawContent = await fs.readFile(filePath, 'utf-8');
+            const categoryMatch = rawContent.match(/^category:\s*["']?([^"'\r\n]+?)["']?\s*$/m);
+            const titleMatch = rawContent.match(/^title:\s*["']?([^"'\r\n]+?)["']?\s*$/m);
+            const rawCategory = categoryMatch?.[1];
+            const rawTitle = titleMatch?.[1] || '';
+
+            const routing = resolveGuideRouting(rawCategory, rawTitle, slug);
+            if (!routing.pillar) continue;
+
+            const article = parseArticle(rawContent, routing.pillar, slug, filePath);
+            article.isGuide = true;
+            article.publicRoute = routing.publicRoute;
+            article.publicSection = routing.publicSection;
+            if (!seenPaths.has(article.filePath)) {
+              seenPaths.add(article.filePath);
+              articles.push(article);
+            }
+          } catch {
+            // Ignore unparseable or temporary guide files in listing.
+          }
+        }
+      } catch {
+        // Guides directory may not exist in repository fixtures.
       }
     }
 

@@ -210,6 +210,9 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
             articleDescription: art.frontmatter.description,
             publishedAt: pubDateStr || candidatePool[existingIdx].publishedAt,
             articleImage: art.frontmatter.image,
+            isGuide: Boolean(art.isGuide),
+            publicRoute: art.publicRoute || art.frontmatter.publicRoute,
+            publicSection: art.publicSection || art.frontmatter.publicSection,
           } as any;
         } else {
           candidatePool.push({
@@ -220,6 +223,9 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
             totalScore: 85,
             status: 'PUBLISHED',
             opportunityType: 'ARTICLE_AND_SOCIAL',
+            isGuide: Boolean(art.isGuide),
+            publicRoute: art.publicRoute || art.frontmatter.publicRoute,
+            publicSection: art.publicSection || art.frontmatter.publicSection,
             scoring: {
               socialPotential: 85,
               pinterestPotential: 85,
