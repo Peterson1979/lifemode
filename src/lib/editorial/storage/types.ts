@@ -124,5 +124,6 @@ export interface IContentRepository {
   get(pillar: PillarSlug, slug: string): Promise<StoredArticle | null>;
   exists(pillar: PillarSlug, slug: string): Promise<boolean>;
   list(pillar?: PillarSlug): Promise<StoredArticle[]>;
+  listGuides?(): Promise<StoredArticle[]>;
   remove(pillar: PillarSlug, slug: string): Promise<StorageResult>;
 }

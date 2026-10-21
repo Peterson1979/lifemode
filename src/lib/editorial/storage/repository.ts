@@ -353,45 +353,58 @@ export class FilesystemContentRepository implements IContentRepository {
       }
     }
 
-    // Guides use a dedicated Astro collection and category names. Normalize
-    // their metadata into the same stored-article shape used by social discovery.
-    if (!pillar) {
-      const guidesDir = join(this.contentRoot, 'guides');
-      try {
-        const files = await fs.readdir(guidesDir);
-        for (const file of files) {
-          if (!file.endsWith('.md') && !file.endsWith('.mdx')) continue;
+    // Deterministic sort: by pubDate desc, then slug asc
+    return articles.sort((a, b) => {
+      const dateA = new Date(a.frontmatter.pubDate).getTime() || 0;
+      const dateB = new Date(b.frontmatter.pubDate).getTime() || 0;
+      if (dateB !== dateA) return dateB - dateA;
+      return a.slug.localeCompare(b.slug);
+    });
+  }
 
-          const slug = file.replace(/\.(md|mdx)$/, '');
-          const filePath = join(guidesDir, file);
-          try {
-            const rawContent = await fs.readFile(filePath, 'utf-8');
-            const categoryMatch = rawContent.match(/^category:\s*["']?([^"'\r\n]+?)["']?\s*$/m);
-            const titleMatch = rawContent.match(/^title:\s*["']?([^"'\r\n]+?)["']?\s*$/m);
-            const rawCategory = categoryMatch?.[1];
-            const rawTitle = titleMatch?.[1] || '';
+  /**
+   * Discovers guides from the dedicated guides collection directory (src/content/guides).
+   * Resolves their operational pillar and public routing while marking them with isGuide: true.
+   */
+  async listGuides(): Promise<StoredArticle[]> {
+    const guidesDir = join(this.contentRoot, 'guides');
+    const articles: StoredArticle[] = [];
+    const seenPaths = new Set<string>();
 
-            const routing = resolveGuideRouting(rawCategory, rawTitle, slug);
-            if (!routing.pillar) continue;
+    try {
+      const files = await fs.readdir(guidesDir);
+      for (const file of files) {
+        if (!file.endsWith('.md') && !file.endsWith('.mdx')) continue;
 
-            const article = parseArticle(rawContent, routing.pillar, slug, filePath);
-            article.isGuide = true;
-            article.publicRoute = routing.publicRoute;
-            article.publicSection = routing.publicSection;
-            if (!seenPaths.has(article.filePath)) {
-              seenPaths.add(article.filePath);
-              articles.push(article);
-            }
-          } catch {
-            // Ignore unparseable or temporary guide files in listing.
+        const slug = file.replace(/\.(md|mdx)$/, '');
+        const filePath = join(guidesDir, file);
+        try {
+          const rawContent = await fs.readFile(filePath, 'utf-8');
+          const categoryMatch = rawContent.match(/^category:\s*["']?([^"'\r\n]+?)["']?\s*$/m);
+          const titleMatch = rawContent.match(/^title:\s*["']?([^"'\r\n]+?)["']?\s*$/m);
+          const rawCategory = categoryMatch?.[1];
+          const rawTitle = titleMatch?.[1] || '';
+
+          const routing = resolveGuideRouting(rawCategory, rawTitle, slug);
+          if (!routing.pillar) continue;
+
+          const article = parseArticle(rawContent, routing.pillar, slug, filePath);
+          article.isGuide = true;
+          article.publicRoute = routing.publicRoute;
+          article.publicSection = routing.publicSection;
+          (article.frontmatter as any).category = rawCategory;
+          if (!seenPaths.has(article.filePath)) {
+            seenPaths.add(article.filePath);
+            articles.push(article);
           }
+        } catch {
+          // Ignore unparseable or temporary guide files in listing.
         }
-      } catch {
-        // Guides directory may not exist in repository fixtures.
       }
+    } catch {
+      // Guides directory may not exist in repository fixtures.
     }
 
-    // Deterministic sort: by pubDate desc, then slug asc
     return articles.sort((a, b) => {
       const dateA = new Date(a.frontmatter.pubDate).getTime() || 0;
       const dateB = new Date(b.frontmatter.pubDate).getTime() || 0;

@@ -1,0 +1,110 @@
+name: Guide Social Automation
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Allow live publishing to social platforms (MUST be explicitly true to publish)'
+        type: boolean
+        default: false
+      dry_run:
+        description: 'Execute in safe dry-run mode (no external publishing, no history writes)'
+        type: boolean
+        default: true
+      allow_push:
+        description: 'Allow pushing publication history to remote master branch'
+        type: boolean
+        default: false
+
+concurrency:
+  group: guide-social-automation
+  cancel-in-progress: false
+
+jobs:
+  run-guide-social:
+    name: Run Guide Social Automation
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Configure Git Identity
+        run: |
+          git config user.name "LifeMode Guide Social Automation"
+          git config user.email "social-automation@lifemode.local"
+
+      - name: Execute Guide Social Automation
+        env:
+          # AI Router & Provider Credentials (GitHub Secrets)
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GROQ_MODEL: ${{ vars.GROQ_MODEL || 'openai/gpt-oss-20b' }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+          # Cloudflare Workers AI & Image Credentials (GitHub Secrets)
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_IMAGE_API_KEY: ${{ secrets.CLOUDFLARE_IMAGE_API_KEY || secrets.CLOUDFLARE_API_TOKEN }}
+
+          # Cloudflare R2 Master Asset Storage (GitHub Secrets)
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+          R2_PUBLIC_BASE_URL: ${{ secrets.R2_PUBLIC_BASE_URL }}
+
+          # Social Platform Credentials (GitHub Secrets)
+          FACEBOOK_PAGE_ACCESS_TOKEN: ${{ secrets.FACEBOOK_PAGE_ACCESS_TOKEN }}
+          FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          INSTAGRAM_BUSINESS_ACCOUNT_ID: ${{ secrets.INSTAGRAM_BUSINESS_ACCOUNT_ID || secrets.INSTAGRAM_ACCOUNT_ID }}
+          PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
+          PINTEREST_BOARD_ID: ${{ secrets.PINTEREST_BOARD_ID }}
+          EVERYDAY_PINTEREST_ACCESS_TOKEN: ${{ secrets.EVERYDAY_PINTEREST_ACCESS_TOKEN }}
+          EVERYDAY_PINTEREST_BOARD_ID: ${{ secrets.EVERYDAY_PINTEREST_BOARD_ID }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID || '28272717349017680' }}
+
+          # Social Automation Runtime Settings
+          LIFEMODE_SOCIAL_ENABLED: "true"
+          LIFEMODE_SOCIAL_PUBLISH: ${{ inputs.publish == true && inputs.dry_run == false && 'true' || 'false' }}
+          LIFEMODE_SOCIAL_DRY_RUN: ${{ (inputs.dry_run == true || inputs.publish == false) && 'true' || 'false' }}
+          LIFEMODE_SOCIAL_COMMIT: ${{ inputs.publish == true && inputs.dry_run == false && inputs.allow_push == true && 'true' || 'false' }}
+          LIFEMODE_SOCIAL_PUSH: ${{ inputs.publish == true && inputs.dry_run == false && inputs.allow_push == true && 'true' || 'false' }}
+          LIFEMODE_SOCIAL_PROVIDER: "router"
+          LIFEMODE_SOCIAL_GIT_REMOTE: "origin"
+          LIFEMODE_SOCIAL_GIT_BRANCH: "master"
+        run: |
+          ARGS=""
+          if [ "${{ inputs.publish }}" = "true" ] && [ "${{ inputs.dry_run }}" = "false" ]; then
+            ARGS="--publish"
+            if [ "${{ inputs.allow_push }}" = "true" ]; then
+              ARGS="$ARGS --push --commit"
+            fi
+          else
+            ARGS="--dry-run"
+          fi
+          npx tsx scripts/run-guide-social.ts $ARGS
+
+      - name: Upload Guide Social Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: guide-social-manifest
+          path: data/social/
+          if-no-files-found: ignore
+          retention-days: 30

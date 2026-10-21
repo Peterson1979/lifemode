@@ -7,9 +7,9 @@ export type { PillarSlug, OpportunityType, EditorialTopic };
 /**
  * Supported Social Media Platforms in LifeMode Social Automation.
  */
-export type SocialPlatform = 'facebook' | 'instagram' | 'pinterest' | 'threads';
+export type SocialPlatform = 'facebook' | 'instagram' | 'pinterest' | 'pinterest-everyday' | 'threads';
 
-export const ALL_SOCIAL_PLATFORMS: SocialPlatform[] = ['facebook', 'instagram', 'pinterest', 'threads'];
+export const ALL_SOCIAL_PLATFORMS: SocialPlatform[] = ['facebook', 'instagram', 'pinterest', 'pinterest-everyday', 'threads'];
 
 /**
  * Standard visual aspect ratios supported by social automation.

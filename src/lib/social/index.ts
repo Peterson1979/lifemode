@@ -35,3 +35,5 @@ export * from './platforms/threads.ts';
 // Cross-Project Distribution (Dreamly AI, AI Zodiac, GetAISet, LifeMode)
 export * from './cross-project.ts';
 
+// Separate Guide Publishing Pipeline
+export * from './guides.ts';

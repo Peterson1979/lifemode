@@ -143,8 +143,8 @@ export async function selectSocialOpportunities(
     const effectiveTotalScore = topic.totalScore ?? 80;
     if (effectiveTotalScore < minScore) continue;
 
-    // Filter out inactive / removed pillars (ordinary non-Guide content must remain excluded)
-    if ((topic.pillar as string) === 'life' && !topic.isGuide) continue;
+    // Filter out inactive / removed pillars
+    if ((topic.pillar as string) === 'life') continue;
 
     // In published-only mode, only consider topics that are actually published
     if (publishedOnly && topic.status !== 'PUBLISHED') {
@@ -218,6 +218,16 @@ export async function selectSocialOpportunities(
     if (historyRepo) {
       const remainingPlatforms: SocialPlatform[] = [];
       for (const p of allPlatforms) {
+        // Pinterest may represent two independent configured accounts. Keep
+        // the destination that still needs publication instead of letting a
+        // successful LifeMode pin suppress Everyday Ideas (or vice versa).
+        if (p === 'pinterest' && options.configuredPlatforms?.includes('pinterest-everyday')) {
+          const lifeModePublished = await historyRepo.isPlatformPublished(topic.id, 'pinterest');
+          const everydayPublished = await historyRepo.isPlatformPublished(topic.id, 'pinterest-everyday');
+          if (!lifeModePublished) remainingPlatforms.push('pinterest');
+          if (!everydayPublished) remainingPlatforms.push('pinterest-everyday');
+          continue;
+        }
         const isPublished = await historyRepo.isPlatformPublished(topic.id, p);
         if (!isPublished) {
           remainingPlatforms.push(p);
@@ -282,7 +292,7 @@ export async function selectSocialOpportunities(
       continue;
     }
 
-    const destinationUrl = resolveDestinationUrl(baseUrl, topic);
+    const destinationUrl = `${baseUrl}/${topic.pillar}/${topic.slug}`;
 
     selected.push({
       topicId: topic.id,
@@ -343,9 +353,6 @@ export async function selectSocialOpportunities(
         articleDescription: (topic as any).articleDescription,
         publishedAt: (topic as any).publishedAt || topic.updatedAt,
         articleImage: (topic as any).articleImage,
-        isGuide: Boolean(topic.isGuide),
-        publicRoute: topic.publicRoute,
-        publicSection: topic.publicSection,
       });
     }
   }

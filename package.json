@@ -16,6 +16,7 @@
     "editorial:scheduled": "node scripts/run-scheduled-automation.ts",
     "editorial:approval": "node scripts/editorial-approval-dashboard.ts",
     "social:automation": "node scripts/run-social-automation.ts",
+    "social:guides": "node scripts/run-guide-social.ts",
     "astro": "astro"
   },
   "dependencies": {

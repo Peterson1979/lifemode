@@ -33,7 +33,9 @@ import {
   type ISocialGenerationProvider,
   type ISocialPlatformAdapter,
   type SocialPlatform,
+  type ISocialHistoryRepository,
   resolveDestinationUrl,
+  runGuideSocialPipeline,
 } from '../src/lib/social/index.ts';
 import { resolveGuideRouting } from '../src/lib/editorial/normalization.ts';
 import { AIRouterSocialGenerationProvider } from '../src/lib/social/generation/providers/ai-router.ts';
@@ -1327,16 +1329,15 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     );
 
     const contentRepo = new FilesystemContentRepository({ contentRoot: contentDir });
-    const discovered = await contentRepo.list();
+    const discovered = await contentRepo.listGuides();
     assert.equal(discovered.length, 1);
     assert.equal(discovered[0].pillar, 'home');
     assert.equal(discovered[0].frontmatter.pubDate, today);
     assert.equal(discovered[0].frontmatter.description, 'A valid guide description.');
 
-    const result = await runSocialPipeline({
+    const result = await runGuideSocialPipeline({
       contentRepository: contentRepo,
       contentRoot: contentDir,
-      referenceDate: `${today}T12:00:00.000Z`,
       config: {
         enabled: true,
         dryRun: true,
@@ -1345,7 +1346,7 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
       },
     });
 
-    assert.equal(result.selectedCount, 1);
+    assert.ok(result.publishedCount >= 1);
     assert.equal(result.manifestEntries[0].canonicalTopic, 'Guide Discovery Regression');
 
     await fs.rm(tempDir, { recursive: true, force: true });
@@ -3056,32 +3057,6 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     });
     assert.equal(destinationUrl, `https://lifemode.life/food-kitchen/${slug}`);
     assert.ok(destinationUrl.startsWith('https://lifemode.life/food-kitchen/'));
-
-    const recentIso = new Date(Date.now() - 3600 * 1000).toISOString();
-    const candidate = createMockTopic({
-      id: 'lm-home-cast-iron-skillet',
-      canonicalTopic: title,
-      pillar: routing.pillar,
-      slug,
-      isGuide: true,
-      publicRoute: routing.publicRoute,
-      publicSection: routing.publicSection,
-      status: 'PUBLISHED',
-      publishedAt: recentIso,
-      totalScore: 90,
-    });
-
-    const selected = await selectSocialOpportunities([candidate], {
-      maxOpportunities: 1,
-      publishedOnly: true,
-      baseUrl: 'https://lifemode.life',
-    });
-
-    assert.equal(selected.length, 1);
-    assert.equal(selected[0].pillar, 'home');
-    assert.equal(selected[0].isGuide, true);
-    assert.equal(selected[0].destinationUrl, `https://lifemode.life/food-kitchen/${slug}`);
-    assert.ok(selected[0].destinationUrl.startsWith('https://lifemode.life/food-kitchen/'));
   });
 
   await t.test('79. Discovered Guide routing: Morning sunlight / blue-light guide maps to operational pillar health and public URL under /guides/', async () => {
@@ -3102,32 +3077,6 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     });
     assert.equal(destinationUrl, `https://lifemode.life/guides/${slug}`);
     assert.ok(destinationUrl.startsWith('https://lifemode.life/guides/'));
-
-    const recentIso = new Date(Date.now() - 3600 * 1000).toISOString();
-    const candidate = createMockTopic({
-      id: 'lm-health-morning-sunlight',
-      canonicalTopic: title,
-      pillar: routing.pillar,
-      slug,
-      isGuide: true,
-      publicRoute: routing.publicRoute,
-      publicSection: routing.publicSection,
-      status: 'PUBLISHED',
-      publishedAt: recentIso,
-      totalScore: 92,
-    });
-
-    const selected = await selectSocialOpportunities([candidate], {
-      maxOpportunities: 1,
-      publishedOnly: true,
-      baseUrl: 'https://lifemode.life',
-    });
-
-    assert.equal(selected.length, 1);
-    assert.equal(selected[0].pillar, 'health');
-    assert.equal(selected[0].isGuide, true);
-    assert.equal(selected[0].destinationUrl, `https://lifemode.life/guides/${slug}`);
-    assert.ok(selected[0].destinationUrl.startsWith('https://lifemode.life/guides/'));
   });
 
   await t.test('80. Discovered Guide routing: Claude/ChatGPT daily-life guide maps to operational pillar tech-ai and public URL under /guides/', async () => {
@@ -3148,39 +3097,12 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     });
     assert.equal(destinationUrl, `https://lifemode.life/guides/${slug}`);
     assert.ok(destinationUrl.startsWith('https://lifemode.life/guides/'));
-
-    const recentIso = new Date(Date.now() - 3600 * 1000).toISOString();
-    const candidate = createMockTopic({
-      id: 'lm-tech-ai-claude-chatgpt-guide',
-      canonicalTopic: title,
-      pillar: routing.pillar,
-      slug,
-      isGuide: true,
-      publicRoute: routing.publicRoute,
-      publicSection: routing.publicSection,
-      status: 'PUBLISHED',
-      publishedAt: recentIso,
-      totalScore: 91,
-    });
-
-    const selected = await selectSocialOpportunities([candidate], {
-      maxOpportunities: 1,
-      publishedOnly: true,
-      baseUrl: 'https://lifemode.life',
-    });
-
-    assert.equal(selected.length, 1);
-    assert.equal(selected[0].pillar, 'tech-ai');
-    assert.equal(selected[0].isGuide, true);
-    assert.equal(selected[0].destinationUrl, `https://lifemode.life/guides/${slug}`);
-    assert.ok(selected[0].destinationUrl.startsWith('https://lifemode.life/guides/'));
   });
 
-  await t.test('81. Ordinary non-Guide candidates with internal life pillar remain strictly excluded from social selection', async () => {
+  await t.test('81. Candidates with internal life pillar remain strictly excluded from standard social selection', async () => {
     const recentIso = new Date(Date.now() - 3600 * 1000).toISOString();
 
-    // 1. Ordinary non-Guide life candidate (no publicRoute, no isGuide)
-    const ordinaryLifeCandidate = createMockTopic({
+    const lifeCandidate = createMockTopic({
       id: 'lm-life-ordinary-candidate',
       canonicalTopic: 'Ordinary Non-Guide Life Topic',
       pillar: 'life',
@@ -3190,44 +3112,31 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
       totalScore: 95,
     });
 
-    const selected1 = await selectSocialOpportunities([ordinaryLifeCandidate], {
+    const selected = await selectSocialOpportunities([lifeCandidate], {
       maxOpportunities: 1,
       publishedOnly: true,
       baseUrl: 'https://lifemode.life',
     });
-    assert.equal(selected1.length, 0, 'Ordinary non-Guide candidate with pillar "life" must be excluded');
-
-    // 2. Candidate with pillar "life" and publicRoute/publicSection but WITHOUT isGuide marker must NOT bypass exclusion
-    const bypassedAttemptCandidate = createMockTopic({
-      id: 'lm-life-attempted-bypass',
-      canonicalTopic: 'Attempted Bypass Life Candidate',
-      pillar: 'life',
-      slug: 'attempted-bypass-life-candidate',
-      publicRoute: 'guides',
-      publicSection: 'guides',
-      status: 'PUBLISHED',
-      publishedAt: recentIso,
-      totalScore: 95,
-      // isGuide is NOT set (undefined / false)
-    });
-
-    const selected2 = await selectSocialOpportunities([bypassedAttemptCandidate], {
-      maxOpportunities: 1,
-      publishedOnly: true,
-      baseUrl: 'https://lifemode.life',
-    });
-    assert.equal(selected2.length, 0, 'Candidate with pillar "life" must NOT bypass exclusion gate merely because publicRoute/publicSection is present');
+    assert.equal(selected.length, 0, 'Candidates with pillar "life" must remain excluded from standard social selection');
   });
 
-  await t.test('82. FilesystemContentRepository discovers guides from src/content/guides with correct operational pillars and public routes', async () => {
+  await t.test('82. FilesystemContentRepository isolates standard articles and discovers guides via listGuides', async () => {
     const contentRepo = new FilesystemContentRepository({
       contentRoot: path.resolve(process.cwd(), 'src/content'),
     });
 
+    // Standard list() must NOT return guides (preserving standard social run and editorial isolation)
     const articles = await contentRepo.list();
-    const castIron = articles.find((a) => a.slug === 'how-to-clean-and-season-cast-iron-skillet-oil-polymerization');
-    const morningLight = articles.find((a) => a.slug === 'circadian-light-morning-sun-blue-light-sleep');
-    const claudeChatgpt = articles.find((a) => a.slug === 'organizing-daily-life-work-with-claude-chatgpt');
+    const hasGuidesInStandardList = articles.some((a) => a.isGuide || a.filePath.includes(path.join('content', 'guides')));
+    assert.equal(hasGuidesInStandardList, false, 'Standard list() must not include articles from guides collection');
+
+    // listGuides() discovers guides with resolved operational pillar and public route
+    const guides = await contentRepo.listGuides();
+    assert.ok(guides.length >= 3, 'Should discover at least 3 guides');
+
+    const castIron = guides.find((a) => a.slug === 'how-to-clean-and-season-cast-iron-skillet-oil-polymerization');
+    const morningLight = guides.find((a) => a.slug === 'circadian-light-morning-sun-blue-light-sleep');
+    const claudeChatgpt = guides.find((a) => a.slug === 'organizing-daily-life-work-with-claude-chatgpt');
 
     assert.ok(castIron, 'Cast-iron skillet guide should be discovered');
     assert.equal(castIron.pillar, 'home', 'Cast-iron guide operational pillar must be home');
@@ -3241,7 +3150,6 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     assert.equal(claudeChatgpt.pillar, 'tech-ai', 'Claude/ChatGPT guide operational pillar must be tech-ai');
     assert.equal(claudeChatgpt.publicRoute, 'guides', 'Claude/ChatGPT guide public route must be guides');
 
-    // Verify social URL generation for all three
     const castIronUrl = resolveDestinationUrl('https://lifemode.life', castIron);
     const morningLightUrl = resolveDestinationUrl('https://lifemode.life', morningLight);
     const claudeChatgptUrl = resolveDestinationUrl('https://lifemode.life', claudeChatgpt);
@@ -3249,5 +3157,147 @@ test('LifeMode Social Automation V1 Test Suite', async (t) => {
     assert.equal(castIronUrl, 'https://lifemode.life/food-kitchen/how-to-clean-and-season-cast-iron-skillet-oil-polymerization');
     assert.equal(morningLightUrl, 'https://lifemode.life/guides/circadian-light-morning-sun-blue-light-sleep');
     assert.equal(claudeChatgptUrl, 'https://lifemode.life/guides/organizing-daily-life-work-with-claude-chatgpt');
+  });
+
+  await t.test('83. Separate Guide publishing task runs independently and enforces at most 1 post per destination', async () => {
+    const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), 'lm-guide-test-'));
+    try {
+      const historyRepo = new FilesystemSocialHistoryRepository(tmpDir);
+      const contentRepo = new FilesystemContentRepository({
+        contentRoot: path.resolve(process.cwd(), 'src/content'),
+      });
+
+      // 1. First execution: dry-run safe mode
+      const result1 = await runGuideSocialPipeline({
+        contentRepository: contentRepo,
+        historyRepository: historyRepo,
+        dryRun: true,
+        allowPublish: false,
+      });
+
+      assert.equal(result1.status, 'DRY_RUN');
+      assert.ok(result1.discoveredGuidesCount >= 3, 'Should discover guides');
+      // Enforce at most 1 post per destination account/platform
+      for (const [platform, summary] of Object.entries(result1.platformSummary)) {
+        assert.ok(
+          summary.published <= 1,
+          `Platform "${platform}" must receive at most 1 Guide post per execution, got ${summary.published}`
+        );
+      }
+
+      // 2. Persist published entries to history and verify deduplication in subsequent execution
+      for (const entry of result1.manifestEntries) {
+        await historyRepo.recordEntry(entry);
+      }
+
+      const result2 = await runGuideSocialPipeline({
+        contentRepository: contentRepo,
+        historyRepository: historyRepo,
+        dryRun: true,
+        allowPublish: false,
+      });
+
+      // Topics published in run 1 should not repeat for the same platforms in run 2
+      for (const entry2 of result2.manifestEntries) {
+        const entry1 = result1.manifestEntries.find((m) => m.topicId === entry2.topicId);
+        if (entry1) {
+          for (const p of entry2.targetPlatforms) {
+            assert.ok(
+              !entry1.targetPlatforms.includes(p),
+              `Topic ${entry2.topicId} was already published to ${p} in run 1 and must not repeat in run 2`
+            );
+          }
+        }
+      }
+
+      // 3. Verify standard social run remains completely unchanged and independent
+      const mockStandardTopic = createMockTopic({
+        id: 'lm-home-standard-topic',
+        canonicalTopic: 'Standard Home Topic',
+        pillar: 'home',
+        slug: 'standard-home-topic',
+        status: 'PUBLISHED',
+        publishedAt: new Date(Date.now() - 3600 * 1000).toISOString(),
+        totalScore: 90,
+      });
+
+      const standardSelected = await selectSocialOpportunities([mockStandardTopic], {
+        maxOpportunities: 1,
+        publishedOnly: true,
+        baseUrl: 'https://lifemode.life',
+      });
+
+      assert.equal(standardSelected.length, 1);
+      assert.equal(standardSelected[0].destinationUrl, 'https://lifemode.life/home/standard-home-topic');
+      assert.equal((standardSelected[0] as any).isGuide, undefined);
+    } finally {
+      await fs.rm(tmpDir, { recursive: true, force: true }).catch(() => {});
+    }
+  });
+
+  await t.test('84. Separate Guide publishing dry-run strictly prevents history repository recording', async () => {
+    let recordEntryCalls = 0;
+    const mockHistoryRepo: ISocialHistoryRepository = {
+      loadHistory: async () => [],
+      saveHistory: async () => {},
+      recordEntry: async () => {
+        recordEntryCalls++;
+      },
+      isPlatformPublished: async () => false,
+      getHistoryForTopic: async () => [],
+    };
+
+    const contentRepo = new FilesystemContentRepository({
+      contentRoot: path.resolve(process.cwd(), 'src/content'),
+    });
+
+    // 1. Dry run execution: must NOT call recordEntry
+    const dryRunResult = await runGuideSocialPipeline({
+      contentRepository: contentRepo,
+      historyRepository: mockHistoryRepo,
+      dryRun: true,
+      allowPublish: false,
+    });
+
+    assert.equal(dryRunResult.status, 'DRY_RUN');
+    assert.ok(dryRunResult.manifestEntries.length > 0, 'Dry-run produces planned manifest entries for inspection');
+    assert.equal(recordEntryCalls, 0, 'dry-run MUST NOT call history repository recordEntry');
+
+    // 2. Live run execution: must preserve normal history recording
+    const mockLiveAdapter: ISocialPlatformAdapter = {
+      platform: 'facebook',
+      prepare: async (content, asset, options) => ({
+        platform: 'facebook',
+        topicId: content.topicId,
+        destinationUrl: options?.destinationUrl || 'https://lifemode.life',
+        content,
+        mediaAsset: asset,
+        idempotencyKey: 'mock-live-key',
+      }),
+      validate: () => ({ valid: true, errors: [] }),
+      publish: async () => ({
+        platform: 'facebook',
+        status: 'PUBLISHED',
+        postId: 'fb-live-123',
+        postUrl: 'https://facebook.com/123',
+        publishedAt: new Date().toISOString(),
+        idempotencyKey: 'mock-live-key',
+      }),
+    };
+
+    const liveAdapters = new Map<SocialPlatform, ISocialPlatformAdapter>([
+      ['facebook', mockLiveAdapter],
+    ]);
+
+    const liveResult = await runGuideSocialPipeline({
+      contentRepository: contentRepo,
+      historyRepository: mockHistoryRepo,
+      platformAdapters: liveAdapters,
+      dryRun: false,
+      allowPublish: true,
+    });
+
+    assert.equal(liveResult.status, 'COMPLETED');
+    assert.equal(recordEntryCalls, 1, 'live-run MUST call history repository recordEntry');
   });
 });
