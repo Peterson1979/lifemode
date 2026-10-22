@@ -1997,7 +1997,7 @@
     "contentId": "lm-home-20261022-how-to-prepare-home-for-winter:how-to-ready-home-winter-gutter-draft-pipe",
     "version": 1,
     "contentHash": "daded5243b36df2e2dda1984f51fd6c27181fec451321e6e258a356d9a9757c7",
-    "status": "PENDING",
+    "status": "APPROVED",
     "publishingRequest": {
       "article": {
         "title": "How to ready your home for winter: gutter cleaning, draft proofing, and pipe care",
@@ -2161,6 +2161,15 @@
           "freshnessSensitivity": "high",
           "opportunityScore": 86,
           "recommendedAngle": "How to Prepare Home for Winter Gutter Cleaning Draft Proofing and Pipe Care"
+        },
+        "humanApproval": {
+          "recordId": "approval-lm-home-20261022-how-to-prepare-home-for-winter:how-to-ready-home-winter-gutter-draft-pipe-v1-1792676302349",
+          "contentId": "lm-home-20261022-how-to-prepare-home-for-winter:how-to-ready-home-winter-gutter-draft-pipe",
+          "contentVersion": 1,
+          "reviewer": "human-review",
+          "reviewerType": "human",
+          "decision": "APPROVED",
+          "reviewedAt": "2026-10-22T13:38:22.349Z"
         }
       },
       "options": {
@@ -2310,7 +2319,24 @@
       "contentType": "reference"
     },
     "createdAt": "2026-10-22T11:21:08.808Z",
-    "updatedAt": "2026-10-22T11:21:08.808Z"
+    "updatedAt": "2026-10-22T13:38:22.362Z",
+    "approval": {
+      "recordId": "approval-lm-home-20261022-how-to-prepare-home-for-winter:how-to-ready-home-winter-gutter-draft-pipe-v1-1792676302349",
+      "contentId": "lm-home-20261022-how-to-prepare-home-for-winter:how-to-ready-home-winter-gutter-draft-pipe",
+      "contentVersion": 1,
+      "reviewer": "human-review",
+      "reviewerType": "human",
+      "decision": "APPROVED",
+      "reviewedAt": "2026-10-22T13:38:22.349Z"
+    },
+    "publication": {
+      "publicationId": "pub-lm-home-20261022-how-to-prepare-home-for-winter-how-to-ready-home-winter-gutter-draft-pipe",
+      "collection": "guides",
+      "path": "C:\\Users\\opeti\\LifeMode\\lifemode\\src\\content\\guides\\how-to-ready-home-winter-gutter-draft-pipe.md",
+      "route": "/home-maintenance/how-to-ready-home-winter-gutter-draft-pipe/",
+      "contentHash": "daded5243b36df2e2dda1984f51fd6c27181fec451321e6e258a356d9a9757c7",
+      "publishedAt": "2026-10-22T13:38:22.362Z"
+    }
   },
   {
     "id": "approval-lm-health-20261022-circadian-light-management-mor:circadian-light-management-morning-sun-protocol-v1",
