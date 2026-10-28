@@ -343,7 +343,13 @@ const checklists = defineCollection({
   }),
 });
 
+const guides = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/guides' }),
+  schema: articleSchema,
+});
+
 export const collections = {
   tools,
   checklists,
+  guides,
 };

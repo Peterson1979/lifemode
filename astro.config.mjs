@@ -11,7 +11,6 @@ export default defineConfig({
   redirects: {
     '/food-kitchen': '/tools',
     '/home-maintenance': '/checklists',
-    '/guides': '/tools',
   },
   markdown: {
     shikiConfig: {

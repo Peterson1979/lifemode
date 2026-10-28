@@ -255,6 +255,7 @@ export const SITE_CONFIG = {
   navLinks: [
     { name: 'Tools', href: '/tools', slug: 'tools' },
     { name: 'Checklists', href: '/checklists', slug: 'checklists' },
+    { name: 'Guides', href: '/guides', slug: 'guides' },
     { name: 'Life Hacks', href: '/life-hacks', slug: 'life-hacks' },
     { name: 'Daily Ideas Store', href: '/daily-ideas', slug: 'daily-ideas' },
   ],

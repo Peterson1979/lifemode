@@ -1,0 +1,140 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import {
+  getCanonicalUrl,
+  generateArticleSchema,
+  generateBreadcrumbSchema,
+} from '../../utils/seo';
+import { isPubliclyVisibleGuide, guideSlug } from '../../utils/guides';
+
+export async function getStaticPaths() {
+  // Only publicly published guides become routes; DRAFT/REVIEWED/APPROVED/STORED
+  // and ARCHIVED entries are never rendered.
+  const guides = await getCollection('guides', isPubliclyVisibleGuide);
+  return guides.map((guide) => ({
+    params: { slug: guideSlug(guide.id) },
+    props: { guide },
+  }));
+}
+
+const { guide } = Astro.props;
+const { Content } = await render(guide);
+const slug = guideSlug(guide.id);
+
+const canonicalUrl = getCanonicalUrl(`/guides/${slug}`);
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  timeZone: 'UTC',
+});
+const pubDateFormatted = dateFormatter.format(guide.data.pubDate);
+
+const articleSchema = generateArticleSchema({
+  title: guide.data.title,
+  description: guide.data.description,
+  url: canonicalUrl,
+  pubDate: guide.data.pubDate,
+  updatedDate: guide.data.updatedDate,
+  authorName: guide.data.author,
+  image: guide.data.image,
+  pillarName: 'Guides',
+});
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Guides', url: '/guides/' },
+  { name: guide.data.title, url: `/guides/${slug}/` },
+]);
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Guides', url: '/guides/' },
+  { label: guide.data.title, url: `/guides/${slug}/` },
+];
+---
+
+<BaseLayout
+  title={guide.data.title}
+  description={guide.data.description}
+  canonicalUrl={canonicalUrl}
+  type="article"
+  pubDate={guide.data.pubDate}
+  updatedDate={guide.data.updatedDate}
+  author={guide.data.author}
+  jsonLd={[articleSchema, breadcrumbSchema]}
+>
+  <article class="container guide-article-wrapper">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <header class="guide-article-header">
+      <span class="badge guide-article-badge">📖 Practical Guide</span>
+      <h1 class="guide-article-title">{guide.data.title}</h1>
+      <p class="guide-article-description">{guide.data.description}</p>
+      <div class="guide-article-meta">
+        <span class="meta-item">By {guide.data.author}</span>
+        <span class="meta-item">Published {pubDateFormatted}</span>
+        {guide.data.readingTime && <span class="meta-item">⏱️ {guide.data.readingTime}</span>}
+      </div>
+    </header>
+
+    <div class="guide-article-body prose">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .guide-article-wrapper {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-20);
+    max-width: 820px;
+  }
+
+  .guide-article-header {
+    margin-bottom: var(--space-10);
+  }
+
+  .guide-article-badge {
+    display: inline-block;
+    background-color: rgba(124, 58, 237, 0.1);
+    color: #7c3aed;
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-3);
+  }
+
+  .guide-article-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .guide-article-description {
+    font-size: 1.15rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-4);
+  }
+
+  .guide-article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .guide-article-body {
+    margin-top: var(--space-2);
+  }
+</style>
