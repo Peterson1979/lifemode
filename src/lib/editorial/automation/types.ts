@@ -159,6 +159,7 @@ export interface AutomationRequest {
   storagePath?: string; // discovery candidate storage path
   contentRoot?: string; // base content root for articles
   gitRepoRoot?: string; // base git repository root
+  approvalQueuePath?: string; // optional approval queue path (isolated tests/operations)
   briefOptions?: BriefGenerationOptions;
   validationOptions?: ValidationRulesOptions;
   allowUnrelatedChanges?: boolean;

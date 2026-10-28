@@ -16,6 +16,7 @@ import { selectEditorialCandidates } from '../selection.ts';
 import { calculateSubtopicCoverage } from '../coverage.ts';
 import { getEditorialDailyPlan } from '../cadence.ts';
 import { slugify } from '../normalization.ts';
+import { checkTopicDuplicate } from '../deduplication.ts';
 import { buildContentBrief } from '../brief.ts';
 import { buildFactSheet } from '../fact-sheet.ts';
 import { briefToGenerationRequest } from '../generation/brief-adapter.ts';
@@ -27,9 +28,10 @@ import { runReviewPipeline } from '../review/runner.ts';
 import { FixtureReviewProvider } from '../review/providers/fixture.ts';
 import { AIRouterReviewProvider } from '../review/providers/ai-router.ts';
 import { runPublishingPipeline } from '../publishing/runner.ts';
-import { enqueueEditorialApproval } from '../approval/service.ts';
+import { enqueueEditorialApproval, listApprovalQueue, type EditorialApprovalQueueItem } from '../approval/service.ts';
 import { FixturePublishingProvider } from '../publishing/providers/fixture.ts';
 import { FilesystemContentRepository } from '../storage/repository.ts';
+import type { StoredArticle } from '../storage/types.ts';
 import { storePublishPackage } from '../storage/publishing-adapter.ts';
 import { AstroGitPublisher } from '../git-publisher/publisher.ts';
 import { GitCli } from '../git-publisher/git-cli.ts';
@@ -412,9 +414,62 @@ export async function runEditorialAutomation(
     return result;
   }
 
-  // 3. SELECTION & DEDUPLICATION against stored repository
-  // Filter out candidates that already exist on disk
+  // 3. SELECTION & DEDUPLICATION against stored repository, guides, and the
+  // approval queue. Titles/slugs/IDs are not sufficient: generated IDs and
+  // rewritten titles change between runs, so semantic identity is checked too.
   const existingArticles = await repository.list();
+
+  let guideArticles: StoredArticle[] = [];
+  try {
+    guideArticles = (await repository.listGuides?.()) || [];
+  } catch {
+    guideArticles = [];
+  }
+
+  let approvalQueueItems: EditorialApprovalQueueItem[] = [];
+  try {
+    approvalQueueItems = await listApprovalQueue(request.approvalQueuePath);
+  } catch {
+    approvalQueueItems = [];
+  }
+
+  const knownTopicRecords = [
+    ...existingArticles.map((article) => ({
+      id: article.frontmatter.topicId || article.identity?.topicId,
+      canonicalTopic: article.frontmatter.title,
+      slug: article.slug,
+      pillar: article.pillar,
+    })),
+    ...guideArticles.map((article) => ({
+      id: article.frontmatter.topicId || article.identity?.topicId,
+      canonicalTopic: article.frontmatter.title,
+      slug: article.slug,
+      pillar: article.pillar,
+    })),
+    ...approvalQueueItems.flatMap((item) => {
+      const records: Array<{ id?: string; canonicalTopic: string; slug?: string; pillar?: string }> = [];
+      const articleTitle = item.publishingRequest?.article?.title;
+      if (articleTitle) {
+        records.push({
+          id: item.publishingRequest?.context?.topicId,
+          canonicalTopic: articleTitle,
+          slug: item.publishingRequest?.article?.slug,
+          pillar: item.publishingRequest?.context?.pillar,
+        });
+      }
+      const titleAngle = item.generationRequest?.titleAngle;
+      if (titleAngle && titleAngle !== articleTitle) {
+        records.push({
+          id: item.publishingRequest?.context?.topicId,
+          canonicalTopic: titleAngle,
+          slug: item.publishingRequest?.article?.slug,
+          pillar: item.publishingRequest?.context?.pillar,
+        });
+      }
+      return records;
+    }),
+  ];
+
   const existingTopicIds = new Set(
     existingArticles
       .map((a) => a.frontmatter.topicId || a.identity?.topicId)
@@ -451,12 +506,17 @@ export async function runEditorialAutomation(
       )
     );
 
+    // Compare normalized topic identity against pillar articles, featured
+    // guides, and approval-queue records (including PENDING items).
+    const semanticDuplicate = checkTopicDuplicate(topic.canonicalTopic, knownTopicRecords);
+
     if (
       !isTopicIdPublished &&
       !isSlugPublished &&
       !isCanonicalTitlePublished &&
       !isDirectMatch &&
-      !isMatchedInPillar
+      !isMatchedInPillar &&
+      !semanticDuplicate.isDuplicate
     ) {
       unPublishedCandidates.push({
         ...topic,
@@ -949,7 +1009,7 @@ export async function runEditorialAutomation(
           approvalOnlyGateBlock
         ) {
           try {
-            const queued = await enqueueEditorialApproval(pubRequest, generationRequest);
+            const queued = await enqueueEditorialApproval(pubRequest, generationRequest, request.approvalQueuePath);
             oppResult.stageResults.PUBLISHING_GATE.warning = `Awaiting human approval: ${queued.id}`;
           } catch (queueError: any) {
             oppResult.stageResults.PUBLISHING_GATE.warning = `Approval queue unavailable: ${queueError?.message || String(queueError)}`;
