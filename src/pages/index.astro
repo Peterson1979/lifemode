@@ -43,14 +43,6 @@ const topicLinks = [
   <!-- Hero Section -->
   <section class="hero-section">
     <div class="container hero-inner">
-      <div class="hero-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          <path d="m9 12 2 2 4-4"/>
-        </svg>
-        <span>Authoritative Everyday Reference & Decision Library</span>
-      </div>
-
       <h1 class="hero-heading">
         Everyday answers.<br />
         <span class="hero-highlight">Practical decisions.</span><br />
@@ -61,25 +53,6 @@ const topicLinks = [
         Interactive decision tools, printable checklists, clever life hacks, and practical ideas for everyday household life.
       </p>
 
-      <!-- Centerpiece Search Trigger Box -->
-      <div class="hero-search-box">
-        <button class="hero-search-btn" id="hero-open-search">
-          <svg class="search-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-            <circle cx="11" cy="11" r="8"/>
-            <path d="m21 21-4.3-4.3"/>
-          </svg>
-          <span class="search-prompt">What are you trying to figure out? (e.g. coffee stain, cast iron, store rice...)</span>
-          <kbd class="hero-kbd">/</kbd>
-        </button>
-
-        <div class="hero-quick-chips">
-          <span class="chips-title">Frequent queries:</span>
-          <button class="hero-chip" data-search="coffee stain">✨ Coffee Stain Removal</button>
-          <button class="hero-chip" data-search="laundry">🧺 Laundry Care</button>
-          <button class="hero-chip" data-search="pantry">📦 Pantry Organization</button>
-          <button class="hero-chip" data-search="storage">🗄️ Small-Space Storage</button>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -151,29 +124,6 @@ const topicLinks = [
   </section>
 </BaseLayout>
 
-<script>
-  const heroSearchBtn = document.getElementById('hero-open-search');
-  const openSearchBtn = document.getElementById('open-search-btn');
-
-  heroSearchBtn?.addEventListener('click', () => {
-    openSearchBtn?.click();
-  });
-
-  document.querySelectorAll('.hero-chip').forEach(chip => {
-    chip.addEventListener('click', () => {
-      const q = chip.getAttribute('data-search') || '';
-      openSearchBtn?.click();
-      setTimeout(() => {
-        const input = document.getElementById('global-search-input') as HTMLInputElement;
-        if (input) {
-          input.value = q;
-          input.dispatchEvent(new Event('input'));
-        }
-      }, 100);
-    });
-  });
-</script>
-
 <style>
   /* Hero Section */
   .hero-section {
@@ -185,21 +135,6 @@ const topicLinks = [
   .hero-inner {
     text-align: center;
     max-width: 860px;
-  }
-
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--slate-700);
-    background-color: #ffffff;
-    border: 1px solid var(--slate-200);
-    padding: 0.35rem 0.85rem;
-    border-radius: var(--radius-full);
-    margin-bottom: 1.5rem;
-    box-shadow: var(--shadow-xs);
   }
 
   .hero-heading {
@@ -219,96 +154,10 @@ const topicLinks = [
 
   .hero-subheading {
     max-width: 700px;
-    margin: 0 auto 1.75rem;
+    margin: 0 auto;
     font-size: 1.1rem;
     color: var(--slate-600);
     line-height: 1.6;
-  }
-
-  /* Centerpiece Search */
-  .hero-search-box {
-    max-width: 640px;
-    margin: 0 auto;
-  }
-
-  .hero-search-btn {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    background-color: #ffffff;
-    border: 2px solid var(--slate-300);
-    border-radius: var(--radius-full);
-    padding: 0.85rem 1.35rem;
-    cursor: pointer;
-    box-shadow: var(--shadow-md), 0 0 0 4px rgba(37, 99, 235, 0.05);
-    transition: all var(--transition-normal);
-  }
-
-  .hero-search-btn:hover {
-    border-color: var(--accent-blue);
-    box-shadow: var(--shadow-lg), 0 0 0 6px rgba(37, 99, 235, 0.1);
-    transform: translateY(-1px);
-  }
-
-  .search-svg {
-    color: var(--accent-blue);
-    flex-shrink: 0;
-  }
-
-  .search-prompt {
-    font-family: var(--font-body);
-    font-size: 1.05rem;
-    color: var(--slate-500);
-    text-align: left;
-    flex-grow: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .hero-kbd {
-    background-color: var(--slate-100);
-    border: 1px solid var(--slate-300);
-    border-radius: var(--radius-sm);
-    padding: 0.15rem 0.5rem;
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--slate-600);
-  }
-
-  .hero-quick-chips {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
-  }
-
-  .chips-title {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--slate-500);
-  }
-
-  .hero-chip {
-    background-color: #ffffff;
-    border: 1px solid var(--slate-200);
-    border-radius: var(--radius-full);
-    padding: 0.25rem 0.65rem;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--slate-700);
-    cursor: pointer;
-    transition: all var(--transition-fast);
-  }
-
-  .hero-chip:hover {
-    background-color: var(--slate-100);
-    border-color: var(--slate-300);
-    color: var(--slate-900);
   }
 
   /* Section Headings */
@@ -505,8 +354,10 @@ const topicLinks = [
 
   .utility-nav-links {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-5);
+    max-width: 880px;
+    margin-inline: auto;
   }
 
   .utility-nav-link {

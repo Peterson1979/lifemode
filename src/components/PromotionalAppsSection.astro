@@ -1,6 +1,36 @@
 ---
 import { OWNED_PROJECTS } from '../lib/projects/config';
 
+interface FeaturedApp {
+  id: string;
+  name: string;
+  tagline: string;
+  description: string;
+  url: string;
+  logoUrl: string;
+  categories: string[];
+  ctaLabel: string;
+}
+
+// MatchSignal is promoted on this showcase only. It stays out of
+// src/lib/projects/config.ts, which drives semantic article matching and
+// intentionally excludes sports-betting projects.
+const FEATURED_APPS: FeaturedApp[] = [
+  {
+    id: 'matchsignal',
+    name: 'MatchSignal',
+    tagline: 'Get daily AI-powered betting insights for Football and more.',
+    description:
+      'MatchSignal is a free, AI-powered sports betting analysis platform that combines real-time odds data from multiple bookmakers with AI-generated match context. The goal is to help users make more informed betting decisions — completely free of charge.',
+    url: 'https://www.matchsignal.com/',
+    logoUrl: '/assets/projects/matchsignal.jpeg',
+    categories: ['Sports Analytics'],
+    ctaLabel: 'Visit MatchSignal',
+  },
+];
+
+const featuredApps = [...OWNED_PROJECTS, ...FEATURED_APPS];
+
 export interface Props {
   title?: string;
   description?: string;
@@ -22,7 +52,7 @@ const {
     </div>
 
     <div class="promotional-apps-grid">
-      {OWNED_PROJECTS.map((app) => (
+      {featuredApps.map((app) => (
         <article class="promotional-app-card" id={`app-card-${app.id}`}>
           <div class="app-card-top-row">
             <div class="app-icon-wrap">
@@ -87,7 +117,7 @@ const {
 
   .promotional-apps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
     gap: var(--space-6);
   }
 
