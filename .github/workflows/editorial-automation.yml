@@ -1,9 +1,6 @@
 name: Scheduled Editorial Automation
 
 on:
-  schedule:
-    # Primary scheduled run at 06:00 UTC + automated watchdog catch-up windows at 09:00, 12:00, 18:00 UTC
-    - cron: '0 6,9,12,18 * * *'
   workflow_dispatch:
     inputs:
       force:
@@ -84,7 +81,7 @@ jobs:
           # Scheduled Automation Runtime Settings
           # Generation, research, and AI review are active. Publication remains
           # human-gated: this workflow only creates approval-queue artifacts.
-          LIFEMODE_AUTOMATION_ENABLED: "true"
+          LIFEMODE_AUTOMATION_ENABLED: "false"
           LIFEMODE_AUTOMATION_WATCHDOG: "true"
           LIFEMODE_AUTOMATION_FORCE: ${{ github.event_name == 'workflow_dispatch' && inputs.force == true && 'true' || 'false' }}
           LIFEMODE_AUTOMATION_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run == true && 'true' || 'false' }}

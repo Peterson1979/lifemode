@@ -39,9 +39,6 @@ sections:
         text: "Label containers with item name and purchase / expiration month."
         note: "Use chalk markers or masking tape on container bases."
         frequency: "Ongoing"
-relatedGuides:
-  - "how-to-organize-small-pantry"
-  - "how-to-store-cooked-rice"
 relatedTools:
   - "food-storage-calculator"
 ---

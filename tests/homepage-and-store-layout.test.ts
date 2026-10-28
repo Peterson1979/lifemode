@@ -6,7 +6,7 @@ import { CATEGORIES } from '../src/utils/categories.ts';
 test('homepage exposes the adopted topic hubs without internal taxonomy labels', async () => {
   const source = await readFile(new URL('../src/pages/index.astro', import.meta.url), 'utf8');
   assert.ok(source.includes('...homepageCategories.map'), 'topic map must use the merged homepage categories');
-  assert.equal(Object.keys(CATEGORIES).length, 5);
+  assert.equal(Object.keys(CATEGORIES).length, 3);
   for (const href of ['/life-hacks/', '/daily-ideas/']) {
     assert.ok(source.includes(`href: '${href}'`), `topic map must include ${href}`);
   }
@@ -16,9 +16,10 @@ test('homepage exposes the adopted topic hubs without internal taxonomy labels',
   assert.ok(source.includes('href={topic.href}'), 'topic cards should be rendered from one compact map');
   assert.match(source, /!\['cleaning-laundry', 'storage-organization'\]\.includes\(category\.id\)/);
   assert.ok(source.includes('class="utility-nav-block"'));
-  for (const href of ['/guides/', '/tools/', '/checklists/']) {
+  for (const href of ['/tools/', '/checklists/']) {
     assert.ok(source.includes(`href: '${href}'`), `utility navigation must include ${href}`);
   }
+  assert.equal(source.includes("href: '/guides/'"), false, 'utility navigation must not include removed guides');
 });
 
 test('Daily Ideas disclosure is consolidated below the product grid and cards constrain images', async () => {

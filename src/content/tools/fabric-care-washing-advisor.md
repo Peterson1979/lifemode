@@ -6,8 +6,6 @@ category: "cleaning-laundry"
 toolType: "fabric-care-advisor"
 summary: "Match natural and synthetic fabrics with scientifically optimal water temperatures, spin agitation speeds, detergent chemistry, and drying protocols."
 instructions: "Select your garment's primary fabric material, clothing type, and cleaning need to view the optimal washing and drying protocol."
-relatedGuides:
-  - "capsule-wardrobe-fabric-care-tailoring-guide"
 relatedChecklists:
   - "laundry-care-cheat-sheet"
 ---

@@ -6,8 +6,6 @@ category: "storage-organization"
 toolType: "storage-planner"
 summary: "Calculate hanging garment capacity, modular tote requirements, and vertical storage blueprints for reach-in, walk-in, and under-bed storage zones."
 instructions: "Select your closet or storage zone type, enter linear width in feet, select your primary item category, and choose vertical hanging tiers."
-relatedGuides:
-  - "smart-everyday-spatial-routines-hacks"
 relatedChecklists:
   - "seasonal-home-maintenance-checklist"
 ---

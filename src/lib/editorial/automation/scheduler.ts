@@ -10,7 +10,7 @@ import type {
 import { GitCli } from '../git-publisher/git-cli.ts';
 import { loadGitPublisherConfig } from '../git-publisher/config.ts';
 import { getEditorialDailyPlan } from '../cadence.ts';
-import { processGuideOpportunity, type GuideOpportunityResult } from '../guides/service.ts';
+import type { GuideOpportunityResult } from '../guides/service.ts';
 
 /**
  * Executes a production-safe Scheduled Editorial Automation run.
@@ -246,20 +246,8 @@ export async function runScheduledEditorialAutomation(
 
     let pushedToRemote = false;
 
-    // 5. Execute Guide Opportunity on Guide Cadence Days (Mon, Wed, Fri)
-    let guideResult: GuideOpportunityResult | undefined;
-    if (dailyPlan.isGuidesDay && config.enabled) {
-      try {
-        guideResult = await processGuideOpportunity({
-          targetDate: options.targetDate ?? dailyPlan.targetDate,
-          dryRun: config.dryRun,
-        });
-
-      } catch (gErr: any) {
-        // Non-fatal guide processing notice
-        automationResult.summary += `\n[Notice] Guide opportunity execution: ${gErr?.message || 'Incomplete'}`;
-      }
-    }
+    // 5. Guide opportunity execution is disabled: the Guides section has been removed.
+    const guideResult: GuideOpportunityResult | undefined = undefined;
 
     // 6. Post-publication candidate state commit & remote Git push
     if (counts.succeeded > 0 && config.allowCommit && !config.dryRun) {

@@ -7,7 +7,6 @@ const homepageCategories = categories.filter((category) =>
   !['cleaning-laundry', 'storage-organization'].includes(category.id)
 );
 const utilityLinks = [
-  { href: '/guides/', icon: '📖', title: 'Guides', description: 'Step-by-step answers.' },
   { href: '/tools/', icon: '🛠️', title: 'Tools', description: 'Interactive decision helpers.' },
   { href: '/checklists/', icon: '📋', title: 'Checklists', description: 'Print-friendly routines.' },
 ];
@@ -37,8 +36,8 @@ const topicLinks = [
 ---
 
 <BaseLayout
-  title="LifeMode — Practical Guides, Tools & Ideas for Modern Life"
-  description="Practical answers for everyday decisions, problems, and tasks. High-quality reference guides, evidence-based care instructions, and interactive tools."
+  title="LifeMode — Practical Tools, Checklists & Ideas for Modern Life"
+  description="Practical answers for everyday decisions, problems, and tasks. Interactive tools, printable checklists, life hacks, and everyday ideas."
   canonicalUrl="https://lifemode.life/"
 >
   <!-- Hero Section -->
@@ -59,7 +58,7 @@ const topicLinks = [
       </h1>
 
       <p class="hero-subheading">
-        Clear, fact-checked reference guidance, evidence-based care protocols, and interactive decision tools for everyday household life.
+        Interactive decision tools, printable checklists, clever life hacks, and practical ideas for everyday household life.
       </p>
 
       <!-- Centerpiece Search Trigger Box -->
@@ -75,10 +74,10 @@ const topicLinks = [
 
         <div class="hero-quick-chips">
           <span class="chips-title">Frequent queries:</span>
-          <button class="hero-chip" data-search="cast iron">🍳 Cast-Iron Pan Care</button>
           <button class="hero-chip" data-search="coffee stain">✨ Coffee Stain Removal</button>
-          <button class="hero-chip" data-search="rice">🍚 Rice Storage Safety</button>
-          <button class="hero-chip" data-search="winter">🏡 Winter Home Prep</button>
+          <button class="hero-chip" data-search="laundry">🧺 Laundry Care</button>
+          <button class="hero-chip" data-search="pantry">📦 Pantry Organization</button>
+          <button class="hero-chip" data-search="storage">🗄️ Small-Space Storage</button>
         </div>
       </div>
     </div>
@@ -106,13 +105,13 @@ const topicLinks = [
     </div>
   </section>
 
-  <!-- Guides, tools, and checklists -->
+  <!-- Tools and checklists -->
   <section class="utility-nav-section" aria-labelledby="utility-nav-title">
     <div class="container">
       <div class="utility-nav-block">
         <div class="utility-nav-heading">
           <span class="section-badge">Practical resources</span>
-          <h2 id="utility-nav-title">Guides, tools & checklists</h2>
+          <h2 id="utility-nav-title">Tools &amp; checklists</h2>
         </div>
         <nav class="utility-nav-links" aria-label="Practical resources">
           {utilityLinks.map((item) => (
@@ -136,7 +135,7 @@ const topicLinks = [
       <div class="trust-banner-col">
         <div class="trust-shield-icon">🛡️</div>
         <h3>Evidence-Based & Fact-Checked</h3>
-        <p>Every guide references agricultural extensions, manufacturer guidelines, and recognized testing standards.</p>
+        <p>Every tool and checklist references manufacturer guidelines, recognized testing standards, and practical evidence.</p>
       </div>
       <div class="trust-banner-col">
         <div class="trust-shield-icon">🚫</div>

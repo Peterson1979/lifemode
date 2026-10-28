@@ -2,14 +2,10 @@
 title: "Food Shelf-Life & Storage Reference Calculator"
 seoTitle: "Food Shelf-Life & Storage Calculator — Pantry, Fridge & Freezer Finder"
 seoDescription: "Lookup shelf-life, temperature requirements, optimal containers, and sensory spoilage signs for produce, dairy, grains, and leftovers."
-category: "food-kitchen"
+category: "storage-organization"
 toolType: "food-storage"
 summary: "Comprehensive food preservation database with exact refrigerator timelines, counter safety limits, optimal containers, and spoilage indicators."
 instructions: "Filter by category or select an ingredient to review its optimal storage zone, shelf-life duration across pantry, fridge, and freezer, and critical safety rules."
-relatedGuides:
-  - "how-to-store-fresh-herbs"
-  - "how-to-store-cooked-rice"
-  - "how-to-keep-bread-fresh"
 relatedChecklists:
   - "pantry-organization-cheat-sheet"
 ---

@@ -33,7 +33,6 @@ export interface Props {
       summary: string;
       badge?: string;
       instructions?: string;
-      relatedGuides?: string[];
       relatedChecklists?: string[];
     };
   };
@@ -118,10 +117,9 @@ const toolSchema = {
       <slot />
     </article>
 
-    <!-- Internal Linking to Related Guides and Checklists -->
+    <!-- Internal Linking to Related Tools and Checklists -->
     <RelatedCluster
       currentCategory={data.category}
-      relatedGuides={data.relatedGuides}
       relatedChecklists={data.relatedChecklists}
     />
   </div>

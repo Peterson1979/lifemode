@@ -6,9 +6,6 @@ category: "cleaning-laundry"
 toolType: "stain-solver"
 summary: "Instant, evidence-based chemistry protocols to remove coffee, wine, oil, blood, ink, and protein stains from delicate and everyday fabrics."
 instructions: "Select the stain substance, your garment's fabric type, and the stain's age. Follow the step-by-step protocol before applying any machine heat."
-relatedGuides:
-  - "how-to-remove-coffee-stains"
-  - "how-to-wash-different-fabrics"
 relatedChecklists:
   - "laundry-care-cheat-sheet"
 ---

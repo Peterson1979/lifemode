@@ -26,10 +26,8 @@ const SUBTOPIC_KEYWORDS: Record<string, string[]> = {
   'creator-economy': ['creator', 'newsletter', 'substack', 'audience', 'sponsorship', 'micro-sponsorship', 'media kit', 'subscribers'],
   'ecommerce-selling': ['ecommerce', 'e-commerce', 'online store', 'shopify', 'fulfillment', 'inventory', 'margins', 'selling online', 'merchandise'],
 
-  // Home (4)
-  'food-kitchen': ['food', 'kitchen', 'cooking', 'cookware', 'cast iron', 'carbon steel', 'pantry', 'seasoning', 'refrigerator', 'leftovers', 'culinary'],
+  // Home (2)
   'cleaning-laundry': ['cleaning', 'laundry', 'stain', 'detergent', 'washing machine', 'enzyme', 'fabric care', 'odor', 'bleach', 'sanitizing'],
-  'home-maintenance': ['home maintenance', 'maintenance', 'hvac', 'plumbing', 'envelope', 'filter', 'gutter', 'insulation', 'moisture', 'leak'],
   'storage-organization': ['storage', 'closet', 'organization', 'declutter', 'small space', 'shelving', 'modular storage', 'pantry organization'],
 
   // Life (3)

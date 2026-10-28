@@ -35,10 +35,6 @@ sections:
         text: "Measure detergent accurately: Use only 2 tablespoons (30ml) of liquid detergent per standard load."
         note: "Excess detergent leaves a sticky surfactant film on fibers that attracts dirt and bacteria."
         frequency: "Every Load"
-relatedGuides:
-  - "how-to-wash-different-fabrics"
-  - "how-to-clean-washing-machine"
-  - "how-to-remove-coffee-stains"
 relatedTools:
   - "laundry-stain-solver"
 ---

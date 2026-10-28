@@ -2,13 +2,10 @@
 title: "Cookware Material Decision Finder"
 seoTitle: "Cookware Material Decision Finder: Cast Iron vs Stainless vs Carbon Steel"
 seoDescription: "Match your cooking style, maintenance tolerance, and heat preferences with the ideal kitchen pan material."
-category: "food-kitchen"
+category: "everyday-how-to"
 toolType: "cookware-selector"
 summary: "Match your cooking style, maintenance preference, and stove type with the ideal cookware material: Cast Iron, Tri-Ply Stainless Steel, Carbon Steel, or Ceramic."
 instructions: "Select your cooking priorities to discover your optimal pan material, maintenance expectations, and material science insights."
-relatedGuides:
-  - "how-to-clean-cast-iron-pan"
-  - "cookware-material-decision-guide"
 relatedChecklists:
   - "kitchen-deep-clean-checklist"
 ---

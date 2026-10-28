@@ -58,16 +58,6 @@ export const PILLAR_SLUGS = [
 
 export type PillarSlug = (typeof PILLAR_SLUGS)[number];
 
-export const GUIDE_CATEGORY_SLUGS = [
-  'food-kitchen',
-  'cleaning-laundry',
-  'home-maintenance',
-  'storage-organization',
-  'everyday-how-to',
-] as const;
-
-export type GuideCategory = (typeof GUIDE_CATEGORY_SLUGS)[number];
-
 export const PILLARS: Record<string, PillarConfig> = {
   // --- SIX TOP-LEVEL EDITORIAL PILLARS ---
   health: {
@@ -106,15 +96,13 @@ export const PILLARS: Record<string, PillarConfig> = {
     name: 'Home',
     slug: 'home',
     icon: '🏡',
-    tagline: 'Food, Kitchen Care & Household Systems',
-    description: 'Practical living essentials: Food & Kitchen, Cleaning & Laundry, Home Maintenance, Storage, and Curated Products.',
+    tagline: 'Cleaning, Laundry & Household Systems',
+    description: 'Practical living essentials: Cleaning & Laundry, Storage & Organization, and everyday household systems.',
     color: '#ea580c', // Terracotta Paprika
     bgLight: 'rgba(234, 88, 12, 0.08)',
     subtopics: [
-      { name: 'Food & Kitchen', icon: '🍳', description: 'Cookware care, food storage science, pantry preservation & culinary craft', slug: 'food-kitchen', href: '/home/cast-iron-carbon-steel-seasoning-metallurgy' },
-      { name: 'Cleaning & Laundry', icon: '✨', description: 'Stain solver chemistry, fabric care protocols & appliance sanitization', slug: 'cleaning-laundry', href: '/home/enzyme-detergent-chemistry-stain-removal' },
-      { name: 'Home Maintenance', icon: '🏡', description: 'Seasonal upkeep checklists, HVAC schedules & preventive homeowner protection', slug: 'home-maintenance', href: '/home/preventative-home-envelope-moisture-audit' },
-      { name: 'Storage & Organization', icon: '📦', description: 'Small-space systems, modular closet frameworks & spatial decluttering', slug: 'storage-organization', href: '/home/vertical-storage-architecture-small-spaces' },
+      { name: 'Cleaning & Laundry', icon: '✨', description: 'Stain solver chemistry, fabric care protocols & appliance sanitization', slug: 'cleaning-laundry', href: '/cleaning-laundry/' },
+      { name: 'Storage & Organization', icon: '📦', description: 'Small-space systems, modular closet frameworks & spatial decluttering', slug: 'storage-organization', href: '/storage-organization/' },
     ],
   },
   life: {
@@ -176,14 +164,6 @@ export const PILLARS: Record<string, PillarConfig> = {
     color: '#ea580c', // Warm Terracotta Paprika
     bgLight: 'rgba(234, 88, 12, 0.08)',
   },
-  'food-kitchen': {
-    name: 'Kitchen & Food Care',
-    slug: 'food-kitchen' as any,
-    tagline: 'Safe Storage, Pantry & Cookware Care',
-    description: 'Practical guidance for food safety, storage, pantry longevity, cookware care, and everyday kitchen problem-solving.',
-    color: '#059669', // Emerald
-    bgLight: 'rgba(5, 150, 105, 0.08)',
-  },
   'life-hacks': {
     name: 'Life Hacks',
     slug: 'life-hacks',
@@ -199,14 +179,6 @@ export const PILLARS: Record<string, PillarConfig> = {
     description: 'Evidence-based stain removal, fabric care, appliance cleaning routines, and non-toxic household cleaning methods.',
     color: '#2563eb', // Slate Blue
     bgLight: 'rgba(37, 99, 235, 0.08)',
-  },
-  'home-maintenance': {
-    name: 'Home Maintenance',
-    slug: 'home-maintenance' as any,
-    tagline: 'Preventive Upkeep & Seasonal Protocols',
-    description: 'Preventive upkeep schedules, seasonal checklists, and safe homeowner routines to protect your living space.',
-    color: '#d97706', // Warm Amber
-    bgLight: 'rgba(217, 119, 6, 0.08)',
   },
   'storage-organization': {
     name: 'Storage & Org',
@@ -268,9 +240,9 @@ export const PILLARS: Record<string, PillarConfig> = {
 
 export const SITE_CONFIG = {
   name: 'LifeMode',
-  slogan: 'Practical guides, tools, and ideas for modern life',
-  title: 'LifeMode — Practical Guides, Tools & Ideas for Everyday Life',
-  description: 'A modern lifestyle publication delivering practical guides, decision tools, household routines, and tested advice across Health, Wealth, Home, Life, Tech & AI.',
+  slogan: 'Practical tools, checklists, and ideas for modern life',
+  title: 'LifeMode — Practical Tools, Checklists & Ideas for Everyday Life',
+  description: 'Practical interactive tools, printable checklists, clever life hacks, and everyday ideas for modern living.',
   siteUrl: resolvedSiteUrl,
   gaMeasurementId:
     (typeof import.meta !== 'undefined' && (import.meta as any).env?.PUBLIC_GA_MEASUREMENT_ID) ||
@@ -281,9 +253,6 @@ export const SITE_CONFIG = {
   twitterHandle: '@LifeModeMag',
   author: 'LifeMode Editorial',
   navLinks: [
-    { name: 'Food & Kitchen', href: '/food-kitchen', slug: 'food-kitchen' },
-    { name: 'Maintenance', href: '/home-maintenance', slug: 'home-maintenance' },
-    { name: 'Guides', href: '/guides', slug: 'guides' },
     { name: 'Tools', href: '/tools', slug: 'tools' },
     { name: 'Checklists', href: '/checklists', slug: 'checklists' },
     { name: 'Life Hacks', href: '/life-hacks', slug: 'life-hacks' },
@@ -294,7 +263,6 @@ export const SITE_CONFIG = {
     { name: 'Editorial Standards', href: '/editorial-standards' },
     { name: 'Interactive Tools', href: '/tools' },
     { name: 'Printable Checklists', href: '/checklists' },
-    { name: 'Reference Guides', href: '/guides' },
     { name: 'Video Life Hacks', href: '/life-hacks' },
     { name: 'Daily Ideas Store', href: '/daily-ideas' },
     { name: 'Contact', href: '/contact' },

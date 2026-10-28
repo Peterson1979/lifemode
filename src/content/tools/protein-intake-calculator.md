@@ -6,8 +6,6 @@ category: "everyday-how-to"
 toolType: "protein-calculator"
 summary: "Calculate your personalized daily protein target, per-meal distribution band, and real-food portion equivalents based on weight, age, and lifestyle goals."
 instructions: "Select your weight unit, enter your body weight, pick your primary health goal, and choose how many meals you eat per day."
-relatedGuides:
-  - "dietary-protein-distribution-muscle-synthesis"
 relatedChecklists:
   - "daily-routine-focus-checklist"
 ---

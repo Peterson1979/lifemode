@@ -296,96 +296,13 @@ export const articleSchema = z.object({
 
 export type ArticleFrontmatter = z.infer<typeof articleSchema>;
 
-const guides = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/guides' }),
-  schema: z.object({
-    title: z.string(),
-    seoTitle: z.string().optional(),
-    seoDescription: z.string().optional(),
-    category: z.enum(['food-kitchen', 'cleaning-laundry', 'home-maintenance', 'storage-organization', 'everyday-how-to']),
-    contentType: z.enum(['reference', 'decision']).default('reference'),
-    publishedDate: z.string(),
-    updatedDate: z.string(),
-    readTime: z.string().default('4 min read'),
-    author: z.object({
-      name: z.string().default('LifeMode Editorial Team'),
-      role: z.string().default('Practical Knowledge Researcher'),
-      avatar: z.string().optional(),
-    }).default({ name: 'LifeMode Editorial Team', role: 'Practical Knowledge Researcher' }),
-    reviewedBy: z.object({
-      name: z.string().default('Household Systems Review Board'),
-      role: z.string().default('Technical QA & Fact Checking'),
-      credentials: z.string().optional(),
-    }).default({ name: 'Household Systems Review Board', role: 'Technical QA & Fact Checking' }),
-    quickSummary: z.string(),
-    difficulty: z.enum(['Easy', 'Moderate', 'Advanced']).optional(),
-    timeNeeded: z.string().optional(),
-    keyFacts: z.array(z.object({
-      label: z.string(),
-      value: z.string(),
-      icon: z.string().optional(),
-    })).optional(),
-    materialsNeeded: z.array(z.string()).optional(),
-    toolsNeeded: z.array(z.string()).optional(),
-    steps: z.array(z.object({
-      stepNumber: z.number(),
-      title: z.string(),
-      description: z.string(),
-      tip: z.string().optional(),
-      warning: z.string().optional(),
-    })).optional(),
-    commonMistakes: z.array(z.object({
-      mistake: z.string(),
-      whyItMatters: z.string(),
-      howToFix: z.string(),
-    })).optional(),
-    proTips: z.array(z.string()).optional(),
-    decisionCriteria: z.array(z.object({
-      criterion: z.string(),
-      importance: z.string(),
-      advice: z.string(),
-    })).optional(),
-    comparisonTable: z.object({
-      headers: z.array(z.string()),
-      rows: z.array(z.array(z.string())),
-    })?.optional(),
-    faqs: z.array(z.object({
-      question: z.string(),
-      answer: z.string(),
-    })).optional(),
-    sources: z.array(z.object({
-      title: z.string(),
-      url: z.string().optional(),
-      publisher: z.string(),
-      note: z.string().optional(),
-    })).optional(),
-    relatedGuides: z.array(z.string()).optional(),
-    relatedTools: z.array(z.string()).optional(),
-    relatedChecklists: z.array(z.string()).optional(),
-    dailyIdeasPicks: z.array(z.string()).optional(),
-    infographic: infographicSchema.optional(),
-    video: z.object({
-      type: z.enum(['youtube', 'local', 'animated-svg']),
-      videoId: z.string().optional(),
-      url: z.string().optional(),
-      title: z.string(),
-      description: z.string(),
-      thumbnail: z.string().optional(),
-      duration: z.string().optional(),
-      transcript: z.string().optional(),
-      creator: z.string().optional(),
-      attribution: z.string().optional(),
-    }).optional(),
-  }),
-});
-
 const tools = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/tools' }),
   schema: z.object({
     title: z.string(),
     seoTitle: z.string().optional(),
     seoDescription: z.string().optional(),
-    category: z.enum(['food-kitchen', 'cleaning-laundry', 'home-maintenance', 'storage-organization', 'everyday-how-to']),
+    category: z.enum(['cleaning-laundry', 'storage-organization', 'everyday-how-to']),
     toolType: z.enum([
       'stain-solver',
       'food-storage',
@@ -399,7 +316,6 @@ const tools = defineCollection({
     summary: z.string(),
     badge: z.string().optional(),
     instructions: z.string().optional(),
-    relatedGuides: z.array(z.string()).optional(),
     relatedChecklists: z.array(z.string()).optional(),
   }),
 });
@@ -410,7 +326,7 @@ const checklists = defineCollection({
     title: z.string(),
     seoTitle: z.string().optional(),
     seoDescription: z.string().optional(),
-    category: z.enum(['food-kitchen', 'cleaning-laundry', 'home-maintenance', 'storage-organization', 'everyday-how-to']),
+    category: z.enum(['cleaning-laundry', 'storage-organization', 'everyday-how-to']),
     summary: z.string(),
     estimatedTime: z.string().optional(),
     printSubtitle: z.string().optional(),
@@ -423,13 +339,11 @@ const checklists = defineCollection({
         frequency: z.string().optional(),
       })),
     })),
-    relatedGuides: z.array(z.string()).optional(),
     relatedTools: z.array(z.string()).optional(),
   }),
 });
 
 export const collections = {
-  guides,
   tools,
   checklists,
 };

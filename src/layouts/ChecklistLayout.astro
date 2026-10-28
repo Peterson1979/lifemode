@@ -21,7 +21,6 @@ export interface Props {
         title: string;
         items: { id: string; text: string; note?: string; frequency?: string }[];
       }[];
-      relatedGuides?: string[];
       relatedTools?: string[];
     };
   };
@@ -102,7 +101,6 @@ const checklistSchema = {
     <!-- Internal Linking -->
     <RelatedCluster
       currentCategory={data.category}
-      relatedGuides={data.relatedGuides}
       relatedTools={data.relatedTools}
     />
   </div>

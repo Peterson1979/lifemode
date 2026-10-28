@@ -15,8 +15,7 @@ export async function getStaticPaths() {
 const { categoryKey } = Astro.props;
 const category = CATEGORIES[categoryKey];
 
-const [allGuides, allTools, allChecklists] = await Promise.all([
-  getCollection('guides', (g: any) => g.data.category === categoryKey).catch(() => []),
+const [allTools, allChecklists] = await Promise.all([
   getCollection('tools', (t: any) => t.data.category === categoryKey).catch(() => []),
   getCollection('checklists', (c: any) => c.data.category === categoryKey).catch(() => []),
 ]);
@@ -35,7 +34,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 ---
 
 <BaseLayout
-  title={`${category.title} Practical Reference & Decision Guides — LifeMode`}
+  title={`${category.title} Practical Tools & Checklists — LifeMode`}
   description={category.metaDescription}
   canonicalUrl={canonicalUrl}
   jsonLd={breadcrumbSchema}
@@ -91,48 +90,6 @@ const breadcrumbSchema = generateBreadcrumbSchema([
             </a>
           ))}
         </div>
-      </section>
-    )}
-
-    <!-- Editorial Articles in this Cluster -->
-    <!-- All Reference & Decision Guides in this Cluster -->
-    {allGuides.length > 0 && (
-      <section class="cat-guides-section">
-        <h2 class="section-title">
-          <span>📖</span> Reference &amp; Decision Guides ({allGuides.length})
-        </h2>
-        <div class="guide-grid">
-          {allGuides.map((guide: any) => {
-            const slug = guide.id.replace(/\.[^/.]+$/, '');
-            return (
-              <a href={`/${guide.data.category}/${slug}/`} class="guide-card">
-                <div class="card-meta-top">
-                  <span class="badge" style={`color: ${category.badgeColor}; background-color: ${category.lightBg};`}>
-                    {guide.data.contentType === 'decision' ? '⚖️ Decision Guide' : '📖 Reference'}
-                  </span>
-                  {guide.data.difficulty && (
-                    <span class="diff-badge">{guide.data.difficulty}</span>
-                  )}
-                </div>
-                <h3>{guide.data.title}</h3>
-                <p>{guide.data.quickSummary}</p>
-                <div class="guide-card-footer">
-                  <span>⏱️ {guide.data.readTime || '4 min read'}</span>
-                  <span>Verified: {guide.data.updatedDate}</span>
-                </div>
-              </a>
-            );
-          })}
-        </div>
-      </section>
-    )}
-
-    {allGuides.length === 0 && (
-      <section class="cat-guides-section">
-        <h2 class="section-title">
-          <span>📖</span> Reference &amp; Decision Guides
-        </h2>
-        <p class="empty-text">New verified guides in {category.title} are currently being researched and added.</p>
       </section>
     )}
   </div>

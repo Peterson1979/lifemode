@@ -13,19 +13,6 @@ export interface CategoryMeta {
 }
 
 export const CATEGORIES: Record<string, CategoryMeta> = {
-  'food-kitchen': {
-    id: 'food-kitchen',
-    slug: 'food-kitchen',
-    title: 'Kitchen & Food Care',
-    shortTitle: 'Kitchen & Food Care',
-    description: 'Practical guidance for food safety, storage, pantry longevity, cookware care, and everyday kitchen problem-solving.',
-    metaDescription: 'Practical guidance for food safety, storage, pantry longevity, cookware care, and everyday kitchen problem-solving.',
-    icon: '🍳',
-    badgeColor: '#059669', // Emerald
-    lightBg: '#ecfdf5',
-    borderColor: '#a7f3d0',
-    popularTopics: ['Food Storage & Shelf Life', 'Cookware Care & Seasoning', 'Safe Leftover Handling', 'Pantry Preservation', 'Kitchen Cleaning']
-  },
   'cleaning-laundry': {
     id: 'cleaning-laundry',
     slug: 'cleaning-laundry',
@@ -38,19 +25,6 @@ export const CATEGORIES: Record<string, CategoryMeta> = {
     lightBg: '#eff6ff',
     borderColor: '#bfdbfe',
     popularTopics: ['Stain Removal Protocols', 'Washing Machine Maintenance', 'Fabric & Garment Care', 'Odor Elimination', 'Surface Care']
-  },
-  'home-maintenance': {
-    id: 'home-maintenance',
-    slug: 'home-maintenance',
-    title: 'Home Maintenance',
-    shortTitle: 'Home Maintenance',
-    description: 'Preventive upkeep schedules, seasonal checklists, and safe homeowner routines to protect your living space.',
-    metaDescription: 'Step-by-step preventive home maintenance guides, seasonal checklists, and appliance upkeep schedules.',
-    icon: '🏡',
-    badgeColor: '#d97706', // Warm Amber
-    lightBg: '#fffbeb',
-    borderColor: '#fde68a',
-    popularTopics: ['Seasonal Prep', 'Appliance Upkeep', 'Moisture & Mold Prevention', 'HVAC Filter Schedules', 'Plumbing Prevention']
   },
   'storage-organization': {
     id: 'storage-organization',

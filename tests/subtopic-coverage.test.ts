@@ -1,7 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { resolve } from 'node:path';
-import { listExistingGuides } from '../src/lib/editorial/guides/service.ts';
 import {
   ALL_SUBTOPIC_DEFINITIONS,
   EDITORIAL_ARTICLE_SUBTOPICS,
@@ -14,7 +13,7 @@ import {
 import { selectEditorialCandidates } from '../src/lib/editorial/selection.ts';
 import type { EditorialTopic } from '../src/lib/editorial/types.ts';
 
-test('1. Taxonomy Completeness: All 22 defined editorial subtopics are cataloged across 5 active pillars', () => {
+test('1. Taxonomy Completeness: All 20 defined editorial subtopics are cataloged across 5 active pillars', () => {
   const healthSubs = EDITORIAL_ARTICLE_SUBTOPICS.filter((s) => s.pillar === 'health');
   const wealthSubs = EDITORIAL_ARTICLE_SUBTOPICS.filter((s) => s.pillar === 'wealth');
   const homeSubs = EDITORIAL_ARTICLE_SUBTOPICS.filter((s) => s.pillar === 'home');
@@ -23,17 +22,17 @@ test('1. Taxonomy Completeness: All 22 defined editorial subtopics are cataloged
 
   assert.equal(healthSubs.length, 5, 'Health must define exactly 5 subtopics');
   assert.equal(wealthSubs.length, 5, 'Wealth must define exactly 5 subtopics');
-  assert.equal(homeSubs.length, 4, 'Home must define exactly 4 subtopics');
+  assert.equal(homeSubs.length, 2, 'Home must define exactly 2 subtopics');
   assert.equal(lifeSubs.length, 3, 'Life must define exactly 3 subtopics');
   assert.equal(techSubs.length, 5, 'Tech & AI must define exactly 5 subtopics');
-  assert.equal(EDITORIAL_ARTICLE_SUBTOPICS.length, 22, 'Total active editorial subtopics must be 22');
+  assert.equal(EDITORIAL_ARTICLE_SUBTOPICS.length, 20, 'Total active editorial subtopics must be 20');
   assert.equal(TOOL_SUBTOPICS.length, 8, 'Total interactive tools subtopics must be 8');
-  assert.equal(ALL_SUBTOPIC_DEFINITIONS.length, 30, 'Total subtopics across 6 pillars must be 30');
+  assert.equal(ALL_SUBTOPIC_DEFINITIONS.length, 28, 'Total subtopics across 6 pillars must be 28');
 
   // Verify key slugs
   assert.ok(healthSubs.some((s) => s.slug === 'longevity-aging'));
   assert.ok(wealthSubs.some((s) => s.slug === 'online-side-hustles'));
-  assert.ok(homeSubs.some((s) => s.slug === 'food-kitchen'));
+  assert.ok(homeSubs.some((s) => s.slug === 'cleaning-laundry'));
   assert.ok(lifeSubs.some((s) => s.slug === 'style-beauty'));
   assert.ok(techSubs.some((s) => s.slug === 'ai-tools'));
 });
@@ -68,34 +67,10 @@ test('2. Subtopic Resolution: Accurately maps topics by explicit subtopic, tag, 
   );
 });
 
-test('3. Restored Guide Collection: every guide file parses and covers each active guide category', async () => {
+test('3. Removed Guides Collection: no guide content directory or collection remains', async () => {
   const guidesRoot = resolve(process.cwd(), 'src', 'content', 'guides');
-  const guideEntries = await listExistingGuides(guidesRoot);
-  const guideFiles = (await import('node:fs/promises')).readdir(guidesRoot);
-  const markdownFiles = (await guideFiles).filter((file) => /\.mdx?$/i.test(file));
-  const expectedCategories = [
-    'cleaning-laundry',
-    'everyday-how-to',
-    'food-kitchen',
-    'home-maintenance',
-    'storage-organization',
-  ];
-
-  assert.ok(markdownFiles.length > 0, 'The restored guide collection must contain Markdown files');
-  assert.equal(guideEntries.length, markdownFiles.length, 'Every guide file must parse into a guide entry');
-
-  const categories = new Set(guideEntries.map((guide) => guide.frontmatter.category));
-  assert.deepEqual([...categories].sort(), expectedCategories, 'The restored collection must cover every guide category');
-
-  for (const guide of guideEntries) {
-    const { frontmatter } = guide;
-    assert.ok(frontmatter.title?.trim(), `${guide.slug} must have a title`);
-    assert.ok(frontmatter.quickSummary?.trim(), `${guide.slug} must have a quick summary`);
-    assert.ok(frontmatter.publishedDate && !Number.isNaN(Date.parse(frontmatter.publishedDate)), `${guide.slug} must have a valid published date`);
-    assert.ok(frontmatter.updatedDate && !Number.isNaN(Date.parse(frontmatter.updatedDate)), `${guide.slug} must have a valid updated date`);
-    assert.ok(frontmatter.category && expectedCategories.includes(frontmatter.category), `${guide.slug} must have a valid guide category`);
-    assert.ok(guide.content.trim().length > 0, `${guide.slug} must have article content`);
-  }
+  const exists = await (await import('node:fs/promises')).stat(guidesRoot).then(() => true).catch(() => false);
+  assert.equal(exists, false, 'The removed guides collection must not exist');
 });
 
 test('4. Anti-Starvation Boost: Under-covered subtopics gain competitive advantage while respecting quality gate', () => {

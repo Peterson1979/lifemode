@@ -69,35 +69,25 @@ test('2. Life Hacks: Validator gate rejects written text articles for life-hacks
   );
 });
 
-test('3. Pillar & Category Architecture: Kitchen & Food Care and Food & Drink are clearly differentiated', () => {
-  // Editorial pillar: Food & Drink
+test('3. Pillar & Category Architecture: removed kitchen and maintenance sections are absent', () => {
+  // Editorial pillar: Food & Drink remains available
   assert.strictEqual(PILLARS['food-drink'].name, 'Food & Drink');
   assert.match(PILLARS['food-drink'].description, /recipes|culinary/i);
 
-  // Practical guidance pillar: Kitchen & Food Care
-  assert.strictEqual(CATEGORIES['food-kitchen'].title, 'Kitchen & Food Care');
-  assert.strictEqual(
-    CATEGORIES['food-kitchen'].description,
-    'Practical guidance for food safety, storage, pantry longevity, cookware care, and everyday kitchen problem-solving.'
-  );
-
-  assert.strictEqual(PILLARS['food-kitchen'].name, 'Kitchen & Food Care');
-  assert.strictEqual(
-    PILLARS['food-kitchen'].description,
-    'Practical guidance for food safety, storage, pantry longevity, cookware care, and everyday kitchen problem-solving.'
-  );
+  // Removed practical sections must no longer be configured
+  assert.equal(CATEGORIES['food-kitchen'], undefined);
+  assert.equal(CATEGORIES['home-maintenance'], undefined);
+  assert.equal(PILLARS['food-kitchen'], undefined);
+  assert.equal(PILLARS['home-maintenance'], undefined);
 
   // Life Hacks top-level topic
   assert.strictEqual(PILLARS['life-hacks'].name, 'Life Hacks');
-  // Restored EverydayGuide categories in primary navigation
-  assert.ok(
-    SITE_CONFIG.navLinks.some((l) => l.name === 'Food & Kitchen' && l.href === '/food-kitchen'),
-    'Navigation must include Food & Kitchen category'
-  );
-  assert.equal(
-    SITE_CONFIG.navLinks.some((l) => l.name === 'Cleaning' || l.href === '/cleaning-laundry'),
-    false,
-    'Cleaning must not appear in primary navigation'
+
+  // Primary navigation retains only the approved destinations
+  assert.deepEqual(
+    SITE_CONFIG.navLinks.map((l) => l.href),
+    ['/tools', '/checklists', '/life-hacks', '/daily-ideas'],
+    'Navigation must only include retained destinations'
   );
   assert.ok(PILLARS['cleaning-laundry'], 'Cleaning category data must remain available');
   assert.ok(

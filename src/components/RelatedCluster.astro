@@ -4,24 +4,21 @@ import { CATEGORIES } from '../utils/categories';
 
 export interface Props {
   currentCategory: string;
-  relatedGuides?: string[];
   relatedTools?: string[];
   relatedChecklists?: string[];
   relatedEntries?: any[];
 }
 
-const { currentCategory, relatedGuides = [], relatedTools = [], relatedChecklists = [], relatedEntries = [] } = Astro.props;
+const { currentCategory, relatedTools = [], relatedChecklists = [], relatedEntries = [] } = Astro.props;
 
-const allGuides = await getCollection('guides').catch(() => []);
 const allTools = await getCollection('tools').catch(() => []);
 const allChecklists = await getCollection('checklists').catch(() => []);
 
-const matchedGuides = allGuides.filter(g => relatedGuides.includes(g.id.replace(/\.[^/.]+$/, '')));
 const matchedTools = allTools.filter(t => relatedTools.includes(t.id.replace(/\.[^/.]+$/, '')));
 const matchedChecklists = allChecklists.filter(c => relatedChecklists.includes(c.id.replace(/\.[^/.]+$/, '')));
 
 const categoryMeta = CATEGORIES[currentCategory];
-const hasContent = matchedTools.length > 0 || matchedChecklists.length > 0 || matchedGuides.length > 0 || relatedEntries.length > 0;
+const hasContent = matchedTools.length > 0 || matchedChecklists.length > 0 || relatedEntries.length > 0;
 ---
 
 {hasContent && (
@@ -29,7 +26,7 @@ const hasContent = matchedTools.length > 0 || matchedChecklists.length > 0 || ma
     <div class="cluster-header">
       <span class="cluster-badge">Connected Knowledge</span>
       <h3 id="cluster-resources-heading" class="cluster-title">Related Practical Resources</h3>
-      <p class="cluster-sub">Explore companion tools, checklists, and reference guides in {categoryMeta ? categoryMeta.title : 'this field'}:</p>
+      <p class="cluster-sub">Explore companion tools, checklists, and practical resources in {categoryMeta ? categoryMeta.title : 'this field'}:</p>
     </div>
 
     <div class="cluster-grid">
@@ -51,15 +48,6 @@ const hasContent = matchedTools.length > 0 || matchedChecklists.length > 0 || ma
         </a>
       ))}
 
-      {matchedGuides.map((g) => (
-        <a href={`/${g.data.category}/${g.id.replace(/\.[^/.]+$/, '')}/`} class="cluster-card guide-card-small">
-          <div class="card-icon-badge">📖 {g.data.contentType === 'decision' ? 'Decision Guide' : 'Reference Guide'}</div>
-          <h4 class="card-item-title">{g.data.title}</h4>
-          <p class="card-item-desc">{g.data.quickSummary}</p>
-          <span class="card-action">Read Guide &rarr;</span>
-        </a>
-      ))}
-
       {relatedEntries.map((e) => (
         <a href={`/${e.collection || currentCategory}/${e.id.replace(/\.[^/.]+$/, '')}`} class="cluster-card guide-card-small">
           <div class="card-icon-badge">📄 Practical Guide</div>
@@ -73,21 +61,12 @@ const hasContent = matchedTools.length > 0 || matchedChecklists.length > 0 || ma
     {categoryMeta && (
       <div class="cluster-footer">
         <a href={`/${categoryMeta.slug}/`} class="category-hub-link">
-          Browse all <strong>{categoryMeta.title}</strong> reference guides &amp; tools &rarr;
+          Browse all <strong>{categoryMeta.title}</strong> tools &amp; checklists &rarr;
         </a>
       </div>
     )}
   </div>
 )}
-
-  {categoryMeta && (
-    <div class="cluster-footer">
-      <a href={`/${categoryMeta.slug}/`} class="category-hub-link">
-        Browse all <strong>{categoryMeta.title}</strong> reference guides & tools &rarr;
-      </a>
-    </div>
-  )}
-</div>
 
 <style>
   .related-cluster-container {

@@ -2,23 +2,12 @@ import { getCollection } from 'astro:content';
 import { CATEGORIES } from '../utils/categories';
 
 export async function GET() {
-  const [guides, tools, checklists] = await Promise.all([
-    getCollection('guides').catch(() => []),
+  const [tools, checklists] = await Promise.all([
     getCollection('tools').catch(() => []),
     getCollection('checklists').catch(() => []),
   ]);
 
   const items = [
-    ...guides.map((g) => ({
-      id: g.id,
-      title: g.data.title,
-      summary: g.data.quickSummary,
-      category: g.data.category,
-      categoryName: CATEGORIES[g.data.category]?.title || g.data.category,
-      type: g.data.contentType === 'decision' ? 'Decision Guide' : 'Reference Guide',
-      url: `/${g.data.category}/${g.id.replace(/\.[^/.]+$/, '')}/`,
-      badge: g.data.contentType === 'decision' ? '⚖️ Decision' : '📖 Guide',
-    })),
     ...tools.map((t) => ({
       id: t.id,
       title: t.data.title,
