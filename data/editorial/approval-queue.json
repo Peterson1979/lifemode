@@ -17798,7 +17798,7 @@
     "contentId": "lm-home-20261029-how-to-clean-and-maintain-kitchen-knives:how-to-clean-and-maintain-kitchen-knives",
     "version": 1,
     "contentHash": "275e445a7a1f63a16283d529bd92aabd2c4f8d90411d2d95c8e6320a4d19aee6",
-    "status": "PENDING",
+    "status": "APPROVED",
     "publishingRequest": {
       "article": {
         "title": "How to Clean and Maintain Kitchen Knives Properly",
@@ -17834,7 +17834,20 @@
         },
         "sourceUrls": [],
         "readerProblem": "Learn how to clean, dry, store, and maintain kitchen knives safely to protect their edges and extend their useful life.",
-        "contentVersion": 1
+        "contentVersion": 1,
+        "humanApproval": {
+          "recordId": "approval-lm-home-20261029-how-to-clean-and-maintain-kitchen-knives:how-to-clean-and-maintain-kitchen-knives-v1-1793273611638",
+          "contentId": "lm-home-20261029-how-to-clean-and-maintain-kitchen-knives:how-to-clean-and-maintain-kitchen-knives",
+          "contentVersion": 1,
+          "reviewer": "LifeMode owner",
+          "reviewerType": "human",
+          "decision": "APPROVED",
+          "reviewedAt": "2026-10-29T11:33:31.638Z",
+          "manualAuthorization": {
+            "reason": "LifeMode owner explicitly authorized publishing this existing guide article without an AI review, preserving its current text and frontmatter.",
+            "authorizedAt": "2026-10-29T11:33:31.638Z"
+          }
+        }
       },
       "options": {
         "dryRun": false,
@@ -17954,8 +17967,28 @@
       "internalLinks": []
     },
     "createdAt": "2026-10-29T09:44:38.218Z",
-    "updatedAt": "2026-10-29T11:20:30.577Z",
-    "lastError": "Queued AI review decision: REJECT; human approval stays blocked until a review passes."
+    "updatedAt": "2026-10-29T11:33:31.646Z",
+    "approval": {
+      "recordId": "approval-lm-home-20261029-how-to-clean-and-maintain-kitchen-knives:how-to-clean-and-maintain-kitchen-knives-v1-1793273611638",
+      "contentId": "lm-home-20261029-how-to-clean-and-maintain-kitchen-knives:how-to-clean-and-maintain-kitchen-knives",
+      "contentVersion": 1,
+      "reviewer": "LifeMode owner",
+      "reviewerType": "human",
+      "decision": "APPROVED",
+      "reviewedAt": "2026-10-29T11:33:31.638Z",
+      "manualAuthorization": {
+        "reason": "LifeMode owner explicitly authorized publishing this existing guide article without an AI review, preserving its current text and frontmatter.",
+        "authorizedAt": "2026-10-29T11:33:31.638Z"
+      }
+    },
+    "publication": {
+      "publicationId": "pub-lm-home-20261029-how-to-clean-and-maintain-kitchen-knives-how-to-clean-and-maintain-kitchen-knives",
+      "collection": "guides",
+      "path": "C:\\Users\\opeti\\LifeMode\\lifemode\\src\\content\\guides\\how-to-clean-and-maintain-kitchen-knives.md",
+      "route": "/guides/how-to-clean-and-maintain-kitchen-knives/",
+      "contentHash": "275e445a7a1f63a16283d529bd92aabd2c4f8d90411d2d95c8e6320a4d19aee6",
+      "publishedAt": "2026-10-29T11:33:31.646Z"
+    }
   },
   {
     "id": "approval-lm-home-20261029-how-to-organize-your-refrigerator:how-to-organize-your-refrigerator-v1",
