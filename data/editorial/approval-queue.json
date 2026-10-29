@@ -18210,7 +18210,7 @@
     "contentId": "lm-home-20261029-how-to-remove-soap-scum-from-shower-doors-and-tiles:how-to-remove-soap-scum-from-shower-doors-and-tiles",
     "version": 1,
     "contentHash": "5e55f3ea3ad3fe8094f015572531d972460a78d0a1e4fd442662b7ed56da2d51",
-    "status": "PENDING",
+    "status": "APPROVED",
     "publishingRequest": {
       "article": {
         "title": "How to Remove Soap Scum from Shower Doors and Tiles",
@@ -18246,7 +18246,20 @@
         },
         "sourceUrls": [],
         "readerProblem": "Learn how to remove soap scum from shower doors and tiles using practical cleaning methods suited to different bathroom surfaces.",
-        "contentVersion": 1
+        "contentVersion": 1,
+        "humanApproval": {
+          "recordId": "approval-lm-home-20261029-how-to-remove-soap-scum-from-shower-doors-and-tiles:how-to-remove-soap-scum-from-shower-doors-and-tiles-v1-1793273722955",
+          "contentId": "lm-home-20261029-how-to-remove-soap-scum-from-shower-doors-and-tiles:how-to-remove-soap-scum-from-shower-doors-and-tiles",
+          "contentVersion": 1,
+          "reviewer": "LifeMode owner",
+          "reviewerType": "human",
+          "decision": "APPROVED",
+          "reviewedAt": "2026-10-29T11:35:22.955Z",
+          "manualAuthorization": {
+            "reason": "LifeMode owner explicitly authorized publishing this existing guide article without an AI review, preserving its current text and frontmatter.",
+            "authorizedAt": "2026-10-29T11:35:22.955Z"
+          }
+        }
       },
       "options": {
         "dryRun": false,
@@ -18276,7 +18289,28 @@
       "internalLinks": []
     },
     "createdAt": "2026-10-29T09:44:38.326Z",
-    "updatedAt": "2026-10-29T09:44:38.326Z"
+    "updatedAt": "2026-10-29T11:35:22.960Z",
+    "approval": {
+      "recordId": "approval-lm-home-20261029-how-to-remove-soap-scum-from-shower-doors-and-tiles:how-to-remove-soap-scum-from-shower-doors-and-tiles-v1-1793273722955",
+      "contentId": "lm-home-20261029-how-to-remove-soap-scum-from-shower-doors-and-tiles:how-to-remove-soap-scum-from-shower-doors-and-tiles",
+      "contentVersion": 1,
+      "reviewer": "LifeMode owner",
+      "reviewerType": "human",
+      "decision": "APPROVED",
+      "reviewedAt": "2026-10-29T11:35:22.955Z",
+      "manualAuthorization": {
+        "reason": "LifeMode owner explicitly authorized publishing this existing guide article without an AI review, preserving its current text and frontmatter.",
+        "authorizedAt": "2026-10-29T11:35:22.955Z"
+      }
+    },
+    "publication": {
+      "publicationId": "pub-lm-home-20261029-how-to-remove-soap-scum-from-shower-doors-and-tiles-how-to-remove-soap-scum-from-shower-doors-and-tiles",
+      "collection": "guides",
+      "path": "C:\\Users\\opeti\\LifeMode\\lifemode\\src\\content\\guides\\how-to-remove-soap-scum-from-shower-doors-and-tiles.md",
+      "route": "/guides/how-to-remove-soap-scum-from-shower-doors-and-tiles/",
+      "contentHash": "5e55f3ea3ad3fe8094f015572531d972460a78d0a1e4fd442662b7ed56da2d51",
+      "publishedAt": "2026-10-29T11:35:22.960Z"
+    }
   },
   {
     "id": "approval-lm-home-20261029-how-to-unclog-a-slow-bathroom-sink:how-to-unclog-a-slow-bathroom-sink-v1",
