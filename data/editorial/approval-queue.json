@@ -18317,7 +18317,7 @@
     "contentId": "lm-home-20261029-how-to-unclog-a-slow-bathroom-sink:how-to-unclog-a-slow-bathroom-sink",
     "version": 1,
     "contentHash": "aa294d712ecaa33f0a6ab1562eaf24fbff403aab41f37387f095e6b059ea004b",
-    "status": "PENDING",
+    "status": "APPROVED",
     "publishingRequest": {
       "article": {
         "title": "How to Unclog a Slow Bathroom Sink: A Practical Guide",
@@ -18365,7 +18365,20 @@
           "https://www.epa.gov/saferchoice"
         ],
         "readerProblem": "Learn how to diagnose and clear a slow bathroom sink using practical cleaning methods, with safety advice and signs that you may need a plumber.",
-        "contentVersion": 1
+        "contentVersion": 1,
+        "humanApproval": {
+          "recordId": "approval-lm-home-20261029-how-to-unclog-a-slow-bathroom-sink:how-to-unclog-a-slow-bathroom-sink-v1-1793273757982",
+          "contentId": "lm-home-20261029-how-to-unclog-a-slow-bathroom-sink:how-to-unclog-a-slow-bathroom-sink",
+          "contentVersion": 1,
+          "reviewer": "LifeMode owner",
+          "reviewerType": "human",
+          "decision": "APPROVED",
+          "reviewedAt": "2026-10-29T11:35:57.982Z",
+          "manualAuthorization": {
+            "reason": "LifeMode owner explicitly authorized publishing this existing guide article without an AI review, preserving its current text and frontmatter.",
+            "authorizedAt": "2026-10-29T11:35:57.982Z"
+          }
+        }
       },
       "options": {
         "dryRun": false,
@@ -18395,6 +18408,27 @@
       "internalLinks": []
     },
     "createdAt": "2026-10-29T09:44:38.380Z",
-    "updatedAt": "2026-10-29T09:44:38.380Z"
+    "updatedAt": "2026-10-29T11:35:57.987Z",
+    "approval": {
+      "recordId": "approval-lm-home-20261029-how-to-unclog-a-slow-bathroom-sink:how-to-unclog-a-slow-bathroom-sink-v1-1793273757982",
+      "contentId": "lm-home-20261029-how-to-unclog-a-slow-bathroom-sink:how-to-unclog-a-slow-bathroom-sink",
+      "contentVersion": 1,
+      "reviewer": "LifeMode owner",
+      "reviewerType": "human",
+      "decision": "APPROVED",
+      "reviewedAt": "2026-10-29T11:35:57.982Z",
+      "manualAuthorization": {
+        "reason": "LifeMode owner explicitly authorized publishing this existing guide article without an AI review, preserving its current text and frontmatter.",
+        "authorizedAt": "2026-10-29T11:35:57.982Z"
+      }
+    },
+    "publication": {
+      "publicationId": "pub-lm-home-20261029-how-to-unclog-a-slow-bathroom-sink-how-to-unclog-a-slow-bathroom-sink",
+      "collection": "guides",
+      "path": "C:\\Users\\opeti\\LifeMode\\lifemode\\src\\content\\guides\\how-to-unclog-a-slow-bathroom-sink.md",
+      "route": "/guides/how-to-unclog-a-slow-bathroom-sink/",
+      "contentHash": "aa294d712ecaa33f0a6ab1562eaf24fbff403aab41f37387f095e6b059ea004b",
+      "publishedAt": "2026-10-29T11:35:57.987Z"
+    }
   }
 ]
