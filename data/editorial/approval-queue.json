@@ -17995,7 +17995,7 @@
     "contentId": "lm-home-20261029-how-to-organize-your-refrigerator:how-to-organize-your-refrigerator",
     "version": 1,
     "contentHash": "8f13b59624d95f603b4046bdb4118c6d207b4f5c6191c705eef12a9017cbcbde",
-    "status": "PENDING",
+    "status": "APPROVED",
     "publishingRequest": {
       "article": {
         "title": "How to Organize Your Refrigerator for Fresher Food",
@@ -18031,7 +18031,20 @@
         },
         "sourceUrls": [],
         "readerProblem": "Learn how to organize your refrigerator, store food safely, reduce waste, and make everyday meal preparation easier.",
-        "contentVersion": 1
+        "contentVersion": 1,
+        "humanApproval": {
+          "recordId": "approval-lm-home-20261029-how-to-organize-your-refrigerator:how-to-organize-your-refrigerator-v1-1793273652301",
+          "contentId": "lm-home-20261029-how-to-organize-your-refrigerator:how-to-organize-your-refrigerator",
+          "contentVersion": 1,
+          "reviewer": "LifeMode owner",
+          "reviewerType": "human",
+          "decision": "APPROVED",
+          "reviewedAt": "2026-10-29T11:34:12.301Z",
+          "manualAuthorization": {
+            "reason": "LifeMode owner explicitly authorized publishing this existing guide article without an AI review, preserving its current text and frontmatter.",
+            "authorizedAt": "2026-10-29T11:34:12.301Z"
+          }
+        }
       },
       "options": {
         "dryRun": false,
@@ -18061,7 +18074,28 @@
       "internalLinks": []
     },
     "createdAt": "2026-10-29T09:44:38.248Z",
-    "updatedAt": "2026-10-29T09:44:38.248Z"
+    "updatedAt": "2026-10-29T11:34:12.307Z",
+    "approval": {
+      "recordId": "approval-lm-home-20261029-how-to-organize-your-refrigerator:how-to-organize-your-refrigerator-v1-1793273652301",
+      "contentId": "lm-home-20261029-how-to-organize-your-refrigerator:how-to-organize-your-refrigerator",
+      "contentVersion": 1,
+      "reviewer": "LifeMode owner",
+      "reviewerType": "human",
+      "decision": "APPROVED",
+      "reviewedAt": "2026-10-29T11:34:12.301Z",
+      "manualAuthorization": {
+        "reason": "LifeMode owner explicitly authorized publishing this existing guide article without an AI review, preserving its current text and frontmatter.",
+        "authorizedAt": "2026-10-29T11:34:12.301Z"
+      }
+    },
+    "publication": {
+      "publicationId": "pub-lm-home-20261029-how-to-organize-your-refrigerator-how-to-organize-your-refrigerator",
+      "collection": "guides",
+      "path": "C:\\Users\\opeti\\LifeMode\\lifemode\\src\\content\\guides\\how-to-organize-your-refrigerator.md",
+      "route": "/guides/how-to-organize-your-refrigerator/",
+      "contentHash": "8f13b59624d95f603b4046bdb4118c6d207b4f5c6191c705eef12a9017cbcbde",
+      "publishedAt": "2026-10-29T11:34:12.307Z"
+    }
   },
   {
     "id": "approval-lm-home-20261029-how-to-read-laundry-care-labels:how-to-read-laundry-care-labels-v1",
