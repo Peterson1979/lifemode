@@ -18102,7 +18102,7 @@
     "contentId": "lm-home-20261029-how-to-read-laundry-care-labels:how-to-read-laundry-care-labels",
     "version": 1,
     "contentHash": "7fcbe38878fcbf5ece6d59c6f16265dbbf212766b926af88f2cd478172bbf8a8",
-    "status": "PENDING",
+    "status": "APPROVED",
     "publishingRequest": {
       "article": {
         "title": "How to Read Laundry Care Labels and Choose the Right Wash Cycle",
@@ -18139,7 +18139,20 @@
         "sourceUrls": [],
         "readerProblem": "Learn what laundry care symbols mean, how to choose the right washing machine cycle, and how to avoid common clothing-care mistakes.",
         "contentVersion": 1,
-        "contentType": "reference"
+        "contentType": "reference",
+        "humanApproval": {
+          "recordId": "approval-lm-home-20261029-how-to-read-laundry-care-labels:how-to-read-laundry-care-labels-v1-1793273687404",
+          "contentId": "lm-home-20261029-how-to-read-laundry-care-labels:how-to-read-laundry-care-labels",
+          "contentVersion": 1,
+          "reviewer": "LifeMode owner",
+          "reviewerType": "human",
+          "decision": "APPROVED",
+          "reviewedAt": "2026-10-29T11:34:47.404Z",
+          "manualAuthorization": {
+            "reason": "LifeMode owner explicitly authorized publishing this existing guide article without an AI review, preserving its current text and frontmatter.",
+            "authorizedAt": "2026-10-29T11:34:47.404Z"
+          }
+        }
       },
       "options": {
         "dryRun": false,
@@ -18169,7 +18182,28 @@
       "internalLinks": []
     },
     "createdAt": "2026-10-29T09:44:38.284Z",
-    "updatedAt": "2026-10-29T11:20:15.747Z"
+    "updatedAt": "2026-10-29T11:34:47.408Z",
+    "approval": {
+      "recordId": "approval-lm-home-20261029-how-to-read-laundry-care-labels:how-to-read-laundry-care-labels-v1-1793273687404",
+      "contentId": "lm-home-20261029-how-to-read-laundry-care-labels:how-to-read-laundry-care-labels",
+      "contentVersion": 1,
+      "reviewer": "LifeMode owner",
+      "reviewerType": "human",
+      "decision": "APPROVED",
+      "reviewedAt": "2026-10-29T11:34:47.404Z",
+      "manualAuthorization": {
+        "reason": "LifeMode owner explicitly authorized publishing this existing guide article without an AI review, preserving its current text and frontmatter.",
+        "authorizedAt": "2026-10-29T11:34:47.404Z"
+      }
+    },
+    "publication": {
+      "publicationId": "pub-lm-home-20261029-how-to-read-laundry-care-labels-how-to-read-laundry-care-labels",
+      "collection": "guides",
+      "path": "C:\\Users\\opeti\\LifeMode\\lifemode\\src\\content\\guides\\how-to-read-laundry-care-labels.md",
+      "route": "/guides/how-to-read-laundry-care-labels/",
+      "contentHash": "7fcbe38878fcbf5ece6d59c6f16265dbbf212766b926af88f2cd478172bbf8a8",
+      "publishedAt": "2026-10-29T11:34:47.408Z"
+    }
   },
   {
     "id": "approval-lm-home-20261029-how-to-remove-soap-scum-from-shower-doors-and-tiles:how-to-remove-soap-scum-from-shower-doors-and-tiles-v1",
