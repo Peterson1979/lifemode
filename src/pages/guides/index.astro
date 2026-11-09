@@ -32,7 +32,6 @@ const breadcrumbSchema = generateBreadcrumbSchema([
     <Breadcrumbs items={breadcrumbs} />
 
     <header class="directory-header">
-      <span class="badge directory-badge">In-Depth Planning Guides</span>
       <h1 class="directory-title">Practical Household Guides</h1>
       <p class="directory-subtitle">
         Longer-form, step-by-step planning guides that walk through a complete household project from assessment to action plan.
@@ -55,12 +54,11 @@ const breadcrumbSchema = generateBreadcrumbSchema([
           const slug = guideSlug(guide.id);
           return (
             <div class="guide-directory-card">
-              <div class="card-meta">
-                <span class="badge guide-pill">📖 Practical Guide</span>
-                {guide.data.readingTime && (
+              {guide.data.readingTime && (
+                <div class="card-meta">
                   <span class="reading-pill">⏱️ {guide.data.readingTime}</span>
-                )}
-              </div>
+                </div>
+              )}
               <h2 class="card-title">
                 <a href={`/guides/${slug}/`}>{guide.data.title}</a>
               </h2>

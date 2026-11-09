@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { CATEGORIES, CATEGORY_KEYS } from '../../utils/categories';
 import { getCanonicalUrl, generateBreadcrumbSchema } from '../../utils/seo';
+import { isPubliclyVisibleGuide, guideSlug } from '../../utils/guides';
 
 export async function getStaticPaths() {
   return CATEGORY_KEYS.map((catKey) => ({
@@ -15,10 +16,21 @@ export async function getStaticPaths() {
 const { categoryKey } = Astro.props;
 const category = CATEGORIES[categoryKey];
 
-const [allTools, allChecklists] = await Promise.all([
-  getCollection('tools', (t: any) => t.data.category === categoryKey).catch(() => []),
+const legacyToolSlugs = new Set(['protein-intake-calculator', 'zone-2-heart-rate-calculator']);
+
+const [allGuides, allTools, allChecklists] = await Promise.all([
+  getCollection('guides', (g: any) =>
+    isPubliclyVisibleGuide(g) && g.data.category === categoryKey
+  ).catch(() => []),
+  getCollection('tools', (t: any) =>
+    t.data.category === categoryKey && !legacyToolSlugs.has(t.id.replace(/\.[^/.]+$/, ''))
+  ).catch(() => []),
   getCollection('checklists', (c: any) => c.data.category === categoryKey).catch(() => []),
 ]);
+
+const sortedGuides = allGuides.sort(
+  (a: any, b: any) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
 
 const canonicalUrl = getCanonicalUrl(`/${category.slug}`);
 
@@ -31,10 +43,12 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: '/' },
   { name: category.title, url: `/${category.slug}` },
 ]);
+
+const hasResources = sortedGuides.length > 0 || allTools.length > 0 || allChecklists.length > 0;
 ---
 
 <BaseLayout
-  title={`${category.title} Practical Tools & Checklists — LifeMode`}
+  title={`${category.title} Practical Guides, Tools & Checklists — LifeMode`}
   description={category.metaDescription}
   canonicalUrl={canonicalUrl}
   jsonLd={breadcrumbSchema}
@@ -46,49 +60,115 @@ const breadcrumbSchema = generateBreadcrumbSchema([
     <header class="category-header-card" style={`border-top: 4px solid ${category.badgeColor};`}>
       <div class="cat-icon-lg">{category.icon}</div>
       <div class="cat-header-text">
-        <span class="badge cat-badge" style={`color: ${category.badgeColor}; background-color: ${category.lightBg};`}>
-          Knowledge Cluster
-        </span>
         <h1 class="cat-title">{category.title}</h1>
         <p class="cat-description">{category.description}</p>
       </div>
     </header>
 
-    <!-- Popular Topic Tags -->
-    {category.popularTopics && category.popularTopics.length > 0 && (
-      <div class="topic-chips-bar">
-        <span class="topic-label">Core Topics:</span>
-        <div class="chips-list">
-          {category.popularTopics.map((topic) => (
-            <span class="topic-chip">{topic}</span>
-          ))}
+    <!-- Guides Section -->
+    {sortedGuides.length > 0 && (
+      <section class="cat-section">
+        <div class="cat-section-header">
+          <h2 class="section-title">
+            <span>📖</span> {category.title} Guides
+          </h2>
+          <p class="section-subtitle">Comprehensive, evidence-based planning guides from initial assessment to actionable project plans.</p>
         </div>
-      </div>
+        <div class="guide-grid">
+          {sortedGuides.map((guide) => {
+            const slug = guideSlug(guide.id);
+            return (
+              <a href={`/guides/${slug}/`} class="guide-card" style={`--accent-color: ${category.badgeColor};`}>
+                {guide.data.readingTime && (
+                  <div class="card-meta-top">
+                    <span class="reading-time">⏱️ {guide.data.readingTime}</span>
+                  </div>
+                )}
+                <h3>{guide.data.title}</h3>
+                <p>{guide.data.description || guide.data.quickSummary}</p>
+                <div class="guide-card-footer">
+                  <span class="card-author">By {guide.data.author}</span>
+                  <span class="read-link">Read Guide &rarr;</span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </section>
     )}
 
-    <!-- Category Interactive Tools & Checklists Spotlight -->
-    {(allTools.length > 0 || allChecklists.length > 0) && (
-      <section class="cat-utilities-section">
-        <h2 class="section-title">
-          <span>🛠️</span> {category.title} Interactive Tools &amp; Checklists
-        </h2>
+    <!-- Interactive Tools Section -->
+    {allTools.length > 0 && (
+      <section class="cat-section">
+        <div class="cat-section-header">
+          <h2 class="section-title">
+            <span>🛠️</span> {category.title} Tools
+          </h2>
+          <p class="section-subtitle">Privacy-preserving calculators and customized decision assistants.</p>
+        </div>
         <div class="utilities-grid">
-          {allTools.map((tool) => (
-            <a href={`/tools/${tool.id.replace(/\.[^/.]+$/, '')}/`} class="utility-card tool-card">
-              <span class="utility-badge">🛠️ Interactive Tool</span>
-              <h3>{tool.data.title}</h3>
-              <p>{tool.data.summary}</p>
-              <span class="utility-link-text">Launch Tool &rarr;</span>
-            </a>
-          ))}
-          {allChecklists.map((chk) => (
-            <a href={`/checklists/${chk.id.replace(/\.[^/.]+$/, '')}/`} class="utility-card check-card">
-              <span class="utility-badge">📋 Printable Checklist</span>
-              <h3>{chk.data.title}</h3>
-              <p>{chk.data.summary}</p>
-              <span class="utility-link-text">View Checklist &rarr;</span>
-            </a>
-          ))}
+          {allTools.map((tool) => {
+            const slug = tool.id.replace(/\.[^/.]+$/, '');
+            return (
+              <a href={`/tools/${slug}/`} class="utility-card tool-card">
+                <h3>{tool.data.title}</h3>
+                <p>{tool.data.summary}</p>
+                <span class="utility-link-text">Launch Tool &rarr;</span>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    )}
+
+    <!-- Printable Checklists Section -->
+    {allChecklists.length > 0 && (
+      <section class="cat-section">
+        <div class="cat-section-header">
+          <h2 class="section-title">
+            <span>📋</span> {category.title} Checklists
+          </h2>
+          <p class="section-subtitle">Printable routine cheat sheets with browser progress tracking.</p>
+        </div>
+        <div class="utilities-grid">
+          {allChecklists.map((chk) => {
+            const slug = chk.id.replace(/\.[^/.]+$/, '');
+            const taskCount = chk.data.sections.reduce((acc: number, s: any) => acc + s.items.length, 0);
+            return (
+              <a href={`/checklists/${slug}/`} class="utility-card check-card">
+                <span class="utility-badge">📋 {taskCount} Tasks</span>
+                <h3>{chk.data.title}</h3>
+                <p>{chk.data.summary}</p>
+                <span class="utility-link-text">View Checklist &rarr;</span>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    )}
+
+    <!-- Empty State for Categories in Preparation -->
+    {!hasResources && (
+      <section class="category-empty-state">
+        <div class="empty-icon-large">{category.icon}</div>
+        <h2 class="empty-title">{category.title} Hub in Editorial Development</h2>
+        <p class="empty-lead">
+          Our editorial team is currently developing authoritative, evidence-based guides, decision tools, and printable checklists for {category.title} according to our fact-checking standards.
+        </p>
+        <p class="empty-sub">
+          We strictly adhere to a zero-filler policy: content is published only when thoroughly tested, researched against primary sources, and verified for practical utility.
+        </p>
+
+        <div class="empty-navigation-box">
+          <span class="empty-nav-heading">Explore our active practical categories and resources:</span>
+          <div class="empty-links-list">
+            <a href="/food-kitchen/" class="empty-pill-link">🍳 Food &amp; Kitchen</a>
+            <a href="/home-maintenance/" class="empty-pill-link">🔧 Home Maintenance</a>
+            <a href="/cleaning-laundry/" class="empty-pill-link">✨ Cleaning &amp; Laundry</a>
+            <a href="/home-organization/" class="empty-pill-link">📦 Home Organization</a>
+            <a href="/tools/" class="empty-pill-link">🛠️ All Interactive Tools</a>
+            <a href="/checklists/" class="empty-pill-link">📋 All Checklists</a>
+          </div>
         </div>
       </section>
     )}
@@ -189,75 +269,40 @@ const breadcrumbSchema = generateBreadcrumbSchema([
     font-weight: 500;
   }
 
-  .cat-utilities-section {
+  .cat-section {
     margin-bottom: var(--space-12);
+  }
+
+  .cat-section-header {
+    margin-bottom: var(--space-6);
+  }
+
+  .cat-section-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.35rem;
   }
 
   .section-title {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-bottom: var(--space-5);
+    margin-top: 0;
+    margin-bottom: 0.35rem;
     font-family: var(--font-display);
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-text-primary);
   }
 
-  .utilities-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-5);
-  }
-
-  .utility-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: var(--space-6);
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    box-shadow: var(--shadow-sm);
-    transition: all var(--transition-base);
-  }
-
-  .utility-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-card);
-    text-decoration: none;
-  }
-
-  .tool-card { border-left: 4px solid var(--color-primary-accent); }
-  .check-card { border-left: 4px solid #059669; }
-
-  .utility-badge {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--color-text-muted);
-    margin-bottom: 0.5rem;
-  }
-
-  .utility-card h3 {
-    font-family: var(--font-sans);
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    margin-top: 0;
-    margin-bottom: 0.4rem;
-  }
-
-  .utility-card p {
+  .section-subtitle {
     font-size: 0.95rem;
     color: var(--color-text-secondary);
-    margin-bottom: 1rem;
-    flex-grow: 1;
-  }
-
-  .utility-link-text {
-    font-size: 0.88rem;
-    font-weight: 700;
-    color: var(--color-primary-accent);
+    margin-bottom: 0;
   }
 
   .guide-grid {
@@ -292,9 +337,18 @@ const breadcrumbSchema = generateBreadcrumbSchema([
     margin-bottom: 0.75rem;
   }
 
-  .diff-badge {
+  .guide-pill {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.2rem 0.55rem;
+    background-color: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    color: var(--color-text-muted);
+  }
+
+  .reading-time {
     font-size: 0.75rem;
-    font-weight: 600;
     color: var(--color-text-muted);
   }
 
@@ -312,22 +366,184 @@ const breadcrumbSchema = generateBreadcrumbSchema([
     font-size: 0.92rem;
     color: var(--color-text-secondary);
     line-height: 1.55;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     flex-grow: 1;
   }
 
   .guide-card-footer {
     display: flex;
     justify-content: space-between;
-    font-size: 0.78rem;
-    color: var(--color-text-muted);
+    align-items: center;
+    font-size: 0.8rem;
     border-top: 1px solid var(--color-border-subtle);
     padding-top: 0.75rem;
   }
 
-  .empty-text {
-    font-size: 1rem;
+  .card-author {
     color: var(--color-text-muted);
-    font-style: italic;
+  }
+
+  .read-link {
+    font-weight: 700;
+    color: var(--color-primary-accent);
+  }
+
+  .utilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: var(--space-5);
+  }
+
+  .utility-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    min-height: 220px;
+    height: 100%;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+  }
+
+  .utility-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card);
+    text-decoration: none;
+  }
+
+  .tool-card { border-left: 4px solid var(--color-primary-accent); }
+  .check-card { border-left: 4px solid #059669; }
+
+  .utility-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .utility-card h3 {
+    font-family: var(--font-sans);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+  }
+
+  .utility-card p {
+    font-size: 0.92rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+    line-height: 1.5;
+  }
+
+  .utility-link-text {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--color-primary-accent);
+  }
+
+  /* Empty State */
+  .category-empty-state {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-12) var(--space-8);
+    text-align: center;
+    max-width: 800px;
+    margin: var(--space-8) auto 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .empty-state-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #059669;
+    background-color: rgba(5, 150, 105, 0.1);
+    border: 1px solid rgba(5, 150, 105, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-4);
+  }
+
+  .empty-icon-large {
+    font-size: 3.5rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .empty-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-top: 0;
+    margin-bottom: var(--space-3);
+  }
+
+  .empty-lead {
+    font-size: 1.05rem;
+    color: var(--color-text-primary);
+    max-width: 640px;
+    margin: 0 auto var(--space-3);
+    line-height: 1.6;
+  }
+
+  .empty-sub {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    max-width: 580px;
+    margin: 0 auto var(--space-8);
+    line-height: 1.5;
+  }
+
+  .empty-navigation-box {
+    border-top: 1px solid var(--color-border-subtle);
+    padding-top: var(--space-6);
+  }
+
+  .empty-nav-heading {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-4);
+  }
+
+  .empty-links-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .empty-pill-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.825rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    background-color: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+
+  .empty-pill-link:hover {
+    background-color: var(--color-surface-tint);
+    border-color: var(--color-border-hover);
+    color: var(--color-primary-accent);
+    text-decoration: none;
   }
 </style>

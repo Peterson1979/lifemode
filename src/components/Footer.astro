@@ -20,14 +20,15 @@ const currentYear = new Date().getUTCFullYear();
 
       <!-- Category & Editorial Navigation -->
       <div class="footer-links-group">
-        <h4>Knowledge Pillars</h4>
+        <h4>Categories</h4>
         <ul>
-          {SITE_CONFIG.navLinks.map((link) => {
+          {SITE_CONFIG.categoryLinks.map((link) => {
             const pillar = PILLARS[link.slug as PillarSlug];
+            const color = link.color || pillar?.color || '#94a3b8';
             return (
               <li>
                 <a href={link.href}>
-                  <span class="footer-dot" style={pillar ? `background-color: ${pillar.color}` : undefined}></span>
+                  <span class="footer-dot" style={`background-color: ${color}`}></span>
                   <span>{link.name}</span>
                 </a>
               </li>

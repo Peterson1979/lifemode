@@ -1,5 +1,5 @@
 ---
-import { SITE_CONFIG, PILLARS, type PillarSlug } from '../config/site';
+import { SITE_CONFIG, APPROVED_EDITORIAL_CATEGORIES } from '../config/site';
 
 const currentPath = Astro.url.pathname;
 
@@ -9,6 +9,18 @@ function isActive(href: string): boolean {
   }
   return currentPath.startsWith(href);
 }
+
+const CATEGORY_SLUGS = [
+  'food-kitchen',
+  'home-maintenance',
+  'cleaning-laundry',
+  'home-organization',
+  'smart-home',
+  'home-garden',
+];
+
+const isCategoryActive = CATEGORY_SLUGS.some((slug) => currentPath.startsWith(`/${slug}/`));
+const isGuidesSectionActive = currentPath.startsWith('/guides') || isCategoryActive;
 
 const todayFormatted = new Intl.DateTimeFormat('en-US', {
   weekday: 'long',
@@ -26,7 +38,10 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
       <span class="site-topbar-pulse" aria-hidden="true"></span>
       <span>{todayFormatted}</span>
     </div>
-    <span class="topbar-right">{SITE_CONFIG.slogan}</span>
+    <nav class="topbar-meta-nav" aria-label="Editorial Links">
+      <a href="/about/" class={currentPath === '/about/' ? 'active' : ''}>About</a>
+      <a href="/editorial-standards/" class={currentPath === '/editorial-standards/' ? 'active' : ''}>Editorial Standards</a>
+    </nav>
   </div>
 </div>
 
@@ -46,29 +61,110 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
       />
     </a>
 
-    <!-- Desktop Navigation -->
+    <!-- Desktop Primary Navigation -->
     <nav class="nav-desktop" aria-label="Primary Navigation">
       <ul class="nav-list">
-        {SITE_CONFIG.navLinks.map((link) => {
-          const active = isActive(link.href);
-          const pillarConfig = PILLARS[link.slug as PillarSlug];
-          return (
-            <li>
-              <a
-                href={link.href}
-                class={active ? 'active' : ''}
-                style={pillarConfig ? `--nav-accent: ${pillarConfig.color}` : undefined}
-              >
-                {pillarConfig && <span class="nav-dot" style={`background-color: ${pillarConfig.color}`}></span>}
-                <span>{link.name}</span>
+        <!-- 1. Guides with Category Dropdown -->
+        <li class="nav-item nav-item-has-dropdown" id="nav-item-guides">
+          <div class={`nav-item-group ${isGuidesSectionActive ? 'active' : ''}`}>
+            <a
+              href="/guides/"
+              class={`nav-link ${isGuidesSectionActive ? 'active' : ''}`}
+              id="guides-main-link"
+            >
+              <span>Guides</span>
+            </a>
+            <button
+              type="button"
+              class="nav-dropdown-toggle"
+              id="guides-dropdown-toggle"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="guides-desktop-menu"
+              aria-label="Toggle Guides categories menu"
+            >
+              <svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Guides Dropdown Menu -->
+          <div
+            id="guides-desktop-menu"
+            class="nav-dropdown-menu"
+            role="menu"
+            aria-labelledby="guides-main-link"
+          >
+            <div class="dropdown-header">
+              <a href="/guides/" class="dropdown-view-all">
+                All Guides &rarr;
               </a>
-            </li>
-          );
-        })}
+            </div>
+            <ul class="dropdown-category-list">
+              {APPROVED_EDITORIAL_CATEGORIES.map((cat) => {
+                const active = isActive(cat.href);
+                const color = cat.color || 'var(--color-primary-accent)';
+                return (
+                  <li role="none">
+                    <a
+                      href={cat.href}
+                      class={`dropdown-category-link ${active ? 'active' : ''}`}
+                      role="menuitem"
+                    >
+                      <span class="nav-dot" style={`background-color: ${color}`} aria-hidden="true"></span>
+                      <span class="category-name">{cat.name}</span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </li>
+
+        <!-- 2. Tools -->
+        <li class="nav-item">
+          <a
+            href="/tools/"
+            class={`nav-link ${currentPath.startsWith('/tools') ? 'active' : ''}`}
+          >
+            <span>Tools</span>
+          </a>
+        </li>
+
+        <!-- 3. Checklists -->
+        <li class="nav-item">
+          <a
+            href="/checklists/"
+            class={`nav-link ${currentPath.startsWith('/checklists') ? 'active' : ''}`}
+          >
+            <span>Checklists</span>
+          </a>
+        </li>
+
+        <!-- 4. Life Hacks -->
+        <li class="nav-item">
+          <a
+            href="/life-hacks/"
+            class={`nav-link ${currentPath.startsWith('/life-hacks') ? 'active' : ''}`}
+          >
+            <span>Life Hacks</span>
+          </a>
+        </li>
+
+        <!-- 5. Daily Ideas Store (Directly visible) -->
+        <li class="nav-item">
+          <a
+            href="/daily-ideas/"
+            class={`nav-link ${currentPath.startsWith('/daily-ideas') ? 'active' : ''}`}
+          >
+            <span>Daily Ideas Store</span>
+          </a>
+        </li>
       </ul>
     </nav>
 
-    <!-- Header Actions (Search Button + Mobile Menu) -->
+    <!-- Header Actions (Search Button + Mobile Drawer Toggle) -->
     <div class="header-actions">
       <button id="open-search-btn" class="header-search-btn" aria-label="Search tools, checklists, and life hacks">
         <svg class="search-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
@@ -79,53 +175,229 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
         <kbd class="search-btn-kbd">⌘K</kbd>
       </button>
 
-      <!-- Mobile Drawer -->
-      <details class="mobile-nav-details">
+      <!-- Mobile Drawer Details -->
+      <details class="mobile-nav-details" id="mobile-nav-details">
         <summary class="mobile-nav-summary" aria-label="Toggle navigation menu">
           <span class="menu-icon-bar"></span>
           <span class="menu-icon-bar"></span>
           <span class="menu-icon-bar"></span>
         </summary>
         <div class="mobile-drawer-menu">
-          <div class="mobile-drawer-header">
-            <span class="mobile-drawer-title">Explore LifeMode</span>
-          </div>
-          <nav aria-label="Mobile Navigation">
-            <ul class="mobile-nav-list">
-              <li>
-                <a href="/" class={`mobile-nav-link ${currentPath === '/' ? 'active' : ''}`}>
-                  <span>Home</span>
-                </a>
-              </li>
-              {SITE_CONFIG.navLinks.map((link) => {
-                const active = isActive(link.href);
-                const pillar = PILLARS[link.slug as PillarSlug];
-                return (
-                  <li>
+          <!-- Primary Content Sections -->
+          <div class="mobile-drawer-section">
+            <div class="mobile-drawer-header">
+              <span class="mobile-drawer-title">Navigation</span>
+            </div>
+            <nav aria-label="Mobile Primary Navigation">
+              <ul class="mobile-nav-list">
+                <li>
+                  <a href="/" class={`mobile-nav-link ${currentPath === '/' ? 'active' : ''}`}>
+                    <span>Home</span>
+                  </a>
+                </li>
+
+                <!-- Mobile Guides (Expandable on tap) -->
+                <li class="mobile-nav-item-with-submenu">
+                  <div class="mobile-nav-row">
                     <a
-                      href={link.href}
-                      class={`mobile-nav-link ${active ? 'active' : ''}`}
+                      href="/guides/"
+                      class={`mobile-nav-link mobile-nav-link-flex ${isGuidesSectionActive ? 'active' : ''}`}
                     >
-                      <span class="mobile-nav-dot" style={pillar ? `background-color: ${pillar.color}` : undefined}></span>
-                      <span>{link.name}</span>
+                      <span>Guides</span>
                     </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
+                    <button
+                      type="button"
+                      class="mobile-submenu-toggle"
+                      id="mobile-guides-toggle"
+                      aria-expanded={isGuidesSectionActive ? 'true' : 'false'}
+                      aria-controls="mobile-guides-submenu"
+                      aria-label="Toggle Guides categories submenu"
+                    >
+                      <svg class="mobile-submenu-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                        <path d="m6 9 6 6 6-6"/>
+                      </svg>
+                    </button>
+                  </div>
+                  <ul
+                    id="mobile-guides-submenu"
+                    class={`mobile-submenu ${isGuidesSectionActive ? 'is-expanded' : ''}`}
+                    aria-label="Guides categories"
+                  >
+                    <li>
+                      <a href="/guides/" class={`mobile-submenu-link ${currentPath === '/guides/' ? 'active' : ''}`}>
+                        <span class="mobile-submenu-arrow">&rarr;</span>
+                        <span>All Practical Guides</span>
+                      </a>
+                    </li>
+                    {APPROVED_EDITORIAL_CATEGORIES.map((cat) => {
+                      const active = isActive(cat.href);
+                      const color = cat.color || 'var(--color-primary-accent)';
+                      return (
+                        <li>
+                          <a
+                            href={cat.href}
+                            class={`mobile-submenu-link ${active ? 'active' : ''}`}
+                          >
+                            <span class="mobile-nav-dot" style={`background-color: ${color}`}></span>
+                            <span>{cat.name}</span>
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </li>
+
+                <!-- Tools -->
+                <li>
+                  <a href="/tools/" class={`mobile-nav-link ${currentPath.startsWith('/tools') ? 'active' : ''}`}>
+                    <span>Tools</span>
+                  </a>
+                </li>
+
+                <!-- Checklists -->
+                <li>
+                  <a href="/checklists/" class={`mobile-nav-link ${currentPath.startsWith('/checklists') ? 'active' : ''}`}>
+                    <span>Checklists</span>
+                  </a>
+                </li>
+
+                <!-- Life Hacks -->
+                <li>
+                  <a href="/life-hacks/" class={`mobile-nav-link ${currentPath.startsWith('/life-hacks') ? 'active' : ''}`}>
+                    <span>Life Hacks</span>
+                  </a>
+                </li>
+
+                <!-- Daily Ideas Store -->
+                <li>
+                  <a href="/daily-ideas/" class={`mobile-nav-link ${currentPath.startsWith('/daily-ideas') ? 'active' : ''}`}>
+                    <span>Daily Ideas Store</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <!-- Publication / Secondary Section -->
+          <div class="mobile-drawer-section mobile-drawer-section-secondary">
+            <div class="mobile-drawer-header">
+              <span class="mobile-drawer-title">About LifeMode</span>
+            </div>
+            <nav aria-label="Mobile Publication Navigation">
+              <ul class="mobile-nav-list">
+                <li>
+                  <a href="/about/" class={`mobile-nav-link ${currentPath === '/about/' ? 'active' : ''}`}>
+                    <span>About</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/editorial-standards/" class={`mobile-nav-link ${currentPath === '/editorial-standards/' ? 'active' : ''}`}>
+                    <span>Editorial Standards</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
       </details>
     </div>
   </div>
 </header>
 
+<script is:inline>
+  (function() {
+    function initHeaderNav() {
+      // Desktop Guides Dropdown
+      const desktopToggle = document.getElementById('guides-dropdown-toggle');
+      const guidesNavItem = document.getElementById('nav-item-guides');
+      const dropdownMenu = document.getElementById('guides-desktop-menu');
+
+      if (desktopToggle && guidesNavItem && dropdownMenu) {
+        desktopToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          const expanded = desktopToggle.getAttribute('aria-expanded') === 'true';
+          desktopToggle.setAttribute('aria-expanded', String(!expanded));
+          guidesNavItem.classList.toggle('is-open', !expanded);
+          if (!expanded) {
+            const firstItem = dropdownMenu.querySelector('a');
+            if (firstItem) firstItem.focus();
+          }
+        });
+
+        // Close on click outside
+        document.addEventListener('click', function(e) {
+          if (!guidesNavItem.contains(e.target)) {
+            desktopToggle.setAttribute('aria-expanded', 'false');
+            guidesNavItem.classList.remove('is-open');
+          }
+        });
+
+        // Keyboard navigation inside dropdown
+        guidesNavItem.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') {
+            desktopToggle.setAttribute('aria-expanded', 'false');
+            guidesNavItem.classList.remove('is-open');
+            desktopToggle.focus();
+          }
+        });
+      }
+
+      // Mobile Guides Submenu Accordion
+      const mobileToggle = document.getElementById('mobile-guides-toggle');
+      const mobileSubmenu = document.getElementById('mobile-guides-submenu');
+
+      if (mobileToggle && mobileSubmenu) {
+        mobileToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+          mobileToggle.setAttribute('aria-expanded', String(!expanded));
+          mobileSubmenu.classList.toggle('is-expanded', !expanded);
+        });
+      }
+
+      // Close mobile drawer when clicking outside
+      const mobileDetails = document.getElementById('mobile-nav-details');
+      if (mobileDetails) {
+        document.addEventListener('click', function(e) {
+          if (mobileDetails.open && !mobileDetails.contains(e.target)) {
+            mobileDetails.removeAttribute('open');
+          }
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHeaderNav);
+    } else {
+      initHeaderNav();
+    }
+  })();
+</script>
+
 <style>
-  .topbar-right {
-    color: #94a3b8;
-    font-weight: 500;
+  /* Topbar Meta Navigation */
+  .topbar-meta-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.15rem;
   }
 
+  .topbar-meta-nav a {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .topbar-meta-nav a:hover,
+  .topbar-meta-nav a.active {
+    color: #f8fafc;
+  }
+
+  /* Brand */
   .brand-wrapper {
     display: inline-flex;
     align-items: center;
@@ -146,48 +418,210 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
     transform: translateY(-1px);
   }
 
+  /* Desktop Primary Navigation */
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+  }
+
   .nav-list {
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 0.25rem;
+    gap: 0.35rem;
     margin: 0;
     padding: 0;
   }
 
-  .nav-desktop a {
+  .nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--color-text-secondary);
+    padding: 0.45rem 0.75rem;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .nav-link:hover {
+    color: var(--color-text-primary);
+    background-color: var(--color-surface-subtle);
+  }
+
+  .nav-link.active {
+    color: var(--color-text-primary);
+    background-color: var(--color-surface-subtle);
+    box-shadow: inset 0 0 0 1.5px var(--color-primary-accent);
+  }
+
+  /* Guides Split Button Item */
+  .nav-item-group {
+    display: inline-flex;
+    align-items: center;
+    border-radius: var(--radius-full);
+    transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .nav-item-group:hover,
+  .nav-item-group:focus-within,
+  .nav-item-group.is-open {
+    background-color: var(--color-surface-subtle);
+  }
+
+  .nav-item-group.active {
+    background-color: var(--color-surface-subtle);
+    box-shadow: inset 0 0 0 1.5px var(--color-primary-accent);
+  }
+
+  .nav-item-group .nav-link {
+    padding-right: 0.2rem;
+  }
+
+  .nav-item-group.active .nav-link {
+    box-shadow: none;
+  }
+
+  .nav-dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 0.55rem 0.45rem 0.15rem;
+    border-radius: 0 var(--radius-full) var(--radius-full) 0;
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: color var(--transition-fast);
+  }
+
+  .nav-dropdown-toggle:hover,
+  .nav-dropdown-toggle:focus-visible {
+    color: var(--color-text-primary);
+    outline: none;
+  }
+
+  .dropdown-chevron {
+    transition: transform var(--transition-fast);
+  }
+
+  .nav-item-has-dropdown.is-open .dropdown-chevron,
+  .nav-item-has-dropdown:hover .dropdown-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Dropdown Menu */
+  .nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    min-width: 260px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-elevated);
+    padding: 0.6rem;
+    z-index: 150;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    pointer-events: none;
+    transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
+  }
+
+  /* Invisible hover bridge between button and dropdown */
+  .nav-dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 10px;
+  }
+
+  .nav-item-has-dropdown:hover .nav-dropdown-menu,
+  .nav-item-has-dropdown:focus-within .nav-dropdown-menu,
+  .nav-item-has-dropdown.is-open .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0.4rem 0.5rem 0.55rem;
+    border-bottom: 1px solid var(--color-border-subtle);
+    margin-bottom: 0.4rem;
+  }
+
+  .dropdown-view-all {
     font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    color: var(--color-primary-accent);
+    text-decoration: none;
+    transition: opacity var(--transition-fast);
+  }
+
+  .dropdown-view-all:hover {
+    text-decoration: underline;
+  }
+
+  .dropdown-category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .dropdown-category-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0.65rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.8125rem;
+    font-weight: 600;
     color: var(--color-text-secondary);
-    padding: 0.4rem 0.6rem;
-    border-radius: var(--radius-full);
-    transition: color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
-    white-space: nowrap;
+    text-decoration: none;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  .dropdown-category-link:hover,
+  .dropdown-category-link:focus-visible {
+    background-color: var(--color-surface-subtle);
+    color: var(--color-text-primary);
+    outline: none;
+  }
+
+  .dropdown-category-link.active {
+    background-color: var(--color-surface-subtle);
+    color: var(--color-text-primary);
+    font-weight: 700;
   }
 
   .nav-dot {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     flex-shrink: 0;
   }
 
-  .nav-desktop a:hover {
-    color: var(--color-text-primary);
-    background-color: var(--color-surface-subtle);
-  }
-
-  .nav-desktop a.active {
-    color: var(--color-text-primary);
-    background-color: var(--color-surface-subtle);
-    box-shadow: inset 0 0 0 1.5px var(--nav-accent, var(--color-primary-accent));
-  }
-
+  /* Header Actions */
   .header-actions {
     display: flex;
     align-items: center;
@@ -230,6 +664,7 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
     color: var(--color-text-muted);
   }
 
+  /* Mobile Navigation Drawer */
   .mobile-nav-details {
     display: none;
     position: relative;
@@ -270,7 +705,7 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
     position: absolute;
     top: calc(100% + 8px);
     right: 0;
-    width: 260px;
+    width: 280px;
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
@@ -299,6 +734,8 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
+    padding: 0;
+    margin: 0;
   }
 
   .mobile-nav-link {
@@ -320,19 +757,107 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
     color: var(--color-text-primary);
   }
 
+  .mobile-nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mobile-nav-link-flex {
+    flex: 1;
+  }
+
+  .mobile-submenu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 0.75rem;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: color var(--transition-fast), background-color var(--transition-fast);
+  }
+
+  .mobile-submenu-toggle:hover,
+  .mobile-submenu-toggle:focus-visible {
+    background-color: var(--color-surface-subtle);
+    color: var(--color-text-primary);
+  }
+
+  .mobile-submenu-chevron {
+    transition: transform var(--transition-fast);
+  }
+
+  .mobile-submenu-toggle[aria-expanded="true"] .mobile-submenu-chevron {
+    transform: rotate(180deg);
+  }
+
+  .mobile-submenu {
+    list-style: none;
+    padding: 0.35rem 0 0.35rem 0.75rem;
+    margin: 0.25rem 0 0.25rem 0.75rem;
+    display: none;
+    flex-direction: column;
+    gap: 0.25rem;
+    border-left: 2px solid var(--color-border);
+  }
+
+  .mobile-submenu.is-expanded {
+    display: flex;
+  }
+
+  .mobile-submenu-link {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.45rem 0.6rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  .mobile-submenu-link:hover,
+  .mobile-submenu-link.active {
+    background-color: var(--color-surface-subtle);
+    color: var(--color-text-primary);
+  }
+
+  .mobile-submenu-arrow {
+    color: var(--color-primary-accent);
+    font-weight: 700;
+  }
+
   .mobile-nav-dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: var(--color-primary-accent);
+    flex-shrink: 0;
   }
 
-  @media (max-width: 1140px) {
+  .mobile-drawer-section-secondary {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  /* Responsive Breakpoints */
+  @media (max-width: 1024px) {
     .nav-desktop {
       display: none;
     }
     .mobile-nav-details {
       display: block;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .topbar-meta-nav {
+      display: none;
     }
   }
 

@@ -3,143 +3,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import TopicDataSection from '../../components/topic-data/TopicDataSection.astro';
 import { PILLARS } from '../../config/site';
 import { generateBreadcrumbSchema } from '../../utils/seo';
+import { LIFE_HACK_VIDEOS, type LifeHackVideo } from '../../utils/life-hacks';
+
+export type { LifeHackVideo };
 
 const pillar = PILLARS['life-hacks'];
 
-export interface LifeHackVideo {
-  id: string;
-  title: string;
-  description: string;
-  thumbnail: string;
-  duration?: string;
-  category?: string;
-  videoUrl: string;
-  creator?: string;
-}
-
-// Dedicated curated video library — YouTube videos only, zero text articles.
-const lifeHackVideos: LifeHackVideo[] = [
-  {
-    id: 'pan-heating-technique',
-    title: 'How to Properly Heat a Pan',
-    description: 'Learn the exact temperature test that prevents sticking when cooking with stainless steel cookware.',
-    thumbnail: 'https://i.ytimg.com/vi/CB-SCA1reqE/hqdefault.jpg',
-    duration: '2:15',
-    category: 'Cookware Care',
-    videoUrl: 'https://www.youtube.com/watch?v=CB-SCA1reqE',
-    creator: 'Rouxbe',
-  },
-  {
-    id: 'basic-knife-skills',
-    title: 'Basic Knife Skills',
-    description: 'Master the fundamental chef grip, claw hand technique, and slicing motions for safe, efficient prep.',
-    thumbnail: 'https://i.ytimg.com/vi/G-Fg7l7G1zw/hqdefault.jpg',
-    duration: '3:45',
-    category: 'Kitchen Skill',
-    videoUrl: 'https://www.youtube.com/watch?v=G-Fg7l7G1zw',
-    creator: 'Tasty',
-  },
-  {
-    id: 'clean-season-cast-iron',
-    title: "How to Clean and Season a Cast-Iron Pan",
-    description: 'The proven America’s Test Kitchen routine for washing, drying on stovetop heat, and seasoning cast iron pans.',
-    thumbnail: 'https://i.ytimg.com/vi/kmVmKmR0CXA/hqdefault.jpg',
-    duration: '4:20',
-    category: 'Cookware Care',
-    videoUrl: 'https://www.youtube.com/watch?v=kmVmKmR0CXA',
-    creator: "America's Test Kitchen",
-  },
-  {
-    id: 'fresh-herbs-storage-guide',
-    title: "Expert's Guide to Fresh Herbs",
-    description: 'Keep tender and woody fresh herbs crisp and vibrant for weeks with proper moisture control methods.',
-    thumbnail: 'https://i.ytimg.com/vi/GJ0lNZwoAKM/hqdefault.jpg',
-    duration: '3:10',
-    category: 'Food Preservation',
-    videoUrl: 'https://www.youtube.com/watch?v=GJ0lNZwoAKM',
-    creator: "America's Test Kitchen",
-  },
-  {
-    id: 'unclog-any-drain-ask-toh',
-    title: 'How to Unclog Any Drain',
-    description: 'Plumbing expert Richard Trethewey demonstrates mechanical drain clearance techniques for sinks, tubs, and showers.',
-    thumbnail: 'https://i.ytimg.com/vi/LpDLynrXln8/hqdefault.jpg',
-    duration: '5:30',
-    category: 'Plumbing & Drainage',
-    videoUrl: 'https://www.youtube.com/watch?v=LpDLynrXln8',
-    creator: 'This Old House',
-  },
-  {
-    id: 'repair-stripped-screw-hole',
-    title: 'How to Repair a Stripped Screw Hole',
-    description: 'Tom Silva shares simple wood restoration tricks to firmly fix loose screws in doors, cabinets, and furniture.',
-    thumbnail: 'https://i.ytimg.com/vi/nA0a0KJH9tA/hqdefault.jpg',
-    duration: '3:50',
-    category: 'Home Repair',
-    videoUrl: 'https://www.youtube.com/watch?v=nA0a0KJH9tA',
-    creator: 'This Old House',
-  },
-  {
-    id: 'patch-drywall-hole-guide',
-    title: 'How to Patch a Drywall Hole',
-    description: 'Step-by-step tutorial on creating clean drywall backing, taping, and applying joint compound smoothly.',
-    thumbnail: 'https://i.ytimg.com/vi/PLGmTzEGSIY/hqdefault.jpg',
-    duration: '4:15',
-    category: 'Home Maintenance',
-    videoUrl: 'https://www.youtube.com/watch?v=PLGmTzEGSIY',
-    creator: 'This Old House',
-  },
-  {
-    id: 'fold-fitted-sheet-pro',
-    title: 'How to Fold a Fitted Sheet like a PRO',
-    description: 'Transform bulky fitted sheets into neat, stackable rectangular bundles in under a minute.',
-    thumbnail: 'https://i.ytimg.com/vi/0O3N-vbGb38/hqdefault.jpg',
-    duration: '2:30',
-    category: 'Organization',
-    videoUrl: 'https://www.youtube.com/watch?v=0O3N-vbGb38',
-    creator: 'GoCleanCo',
-  },
-  {
-    id: 'perfect-crispy-bacon-atk',
-    title: "How to Cook Bacon So It's Crispy, Tender, and the Most Perfect Ever",
-    description: 'The science-backed skillet technique using a splash of water for evenly rendered, crispy bacon.',
-    thumbnail: 'https://i.ytimg.com/vi/2guC4Badq2s/hqdefault.jpg',
-    duration: '3:20',
-    category: 'Culinary Technique',
-    videoUrl: 'https://www.youtube.com/watch?v=2guC4Badq2s',
-    creator: "America's Test Kitchen",
-  },
-  {
-    id: 'wirecutter-fitted-sheet-method',
-    title: 'How to Fold a Fitted Sheet: Our Best Method',
-    description: 'Wirecutter’s tested, reliable folding technique for fitted bed sheets without frustration.',
-    thumbnail: 'https://i.ytimg.com/vi/JGZCyVkMhIM/hqdefault.jpg',
-    duration: '1:45',
-    category: 'Organization',
-    videoUrl: 'https://www.youtube.com/watch?v=JGZCyVkMhIM',
-    creator: 'NYT Wirecutter',
-  },
-  {
-    id: 'replace-polybutylene-piping',
-    title: 'How To Replace Polybutylene Water Piping',
-    description: 'Plumbing diagnosis and replacement protocols for aging household supply lines and valves.',
-    thumbnail: 'https://i.ytimg.com/vi/2ALEi8EqkGs/hqdefault.jpg',
-    duration: '6:10',
-    category: 'Home Plumbing',
-    videoUrl: 'https://www.youtube.com/watch?v=2ALEi8EqkGs',
-    creator: 'This Old House',
-  },
-  {
-    id: 'patch-cracked-drywall-toh',
-    title: 'How to Patch Cracked Drywall',
-    description: 'Professional methods for cutting out stress cracks, applying mesh tape, and blending wall texture.',
-    thumbnail: 'https://i.ytimg.com/vi/YU1z2y11KZY/hqdefault.jpg',
-    duration: '4:40',
-    category: 'Home Repair',
-    videoUrl: 'https://www.youtube.com/watch?v=YU1z2y11KZY',
-    creator: 'This Old House',
-  },
-];
+// All source video entries preserved; public listing filters out consolidated duplicates
+const allLifeHackVideos: LifeHackVideo[] = LIFE_HACK_VIDEOS;
+const lifeHackVideos = allLifeHackVideos.filter((v) => !v.hidden);
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: '/' },
@@ -168,13 +40,6 @@ const breadcrumbSchema = generateBreadcrumbSchema([
     <div class="container">
       <h1 class="video-pillar-title">{pillar.name}</h1>
       <p class="video-pillar-lead">{pillar.description}</p>
-
-      <div class="video-format-pill">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <polygon points="5 3 19 12 5 21 5 3"/>
-        </svg>
-        <span>Practical visual demonstrations &bull; Clever shortcuts &bull; Zero fluff</span>
-      </div>
     </div>
   </section>
 
@@ -183,7 +48,6 @@ const breadcrumbSchema = generateBreadcrumbSchema([
     <div class="container">
       <div class="section-header">
         <div>
-          <span class="section-kicker">Curated Visual Library</span>
           <h2 class="section-title">Quick Fixes &amp; Smart Shortcuts</h2>
           <p class="section-desc">Actionable, step-by-step visual solutions for everyday living</p>
         </div>
@@ -219,6 +83,21 @@ const breadcrumbSchema = generateBreadcrumbSchema([
                 <p class="video-card-desc">{video.description}</p>
                 {video.creator && (
                   <span class="video-creator-credit">By {video.creator}</span>
+                )}
+                {(video.relatedGuide || video.relatedTool) && (
+                  <div class="video-companion-links">
+                    <span class="companion-label">Companion Practical Resource:</span>
+                    {video.relatedGuide && (
+                      <a href={`/guides/${video.relatedGuide.slug}/`} class="companion-link">
+                        <span>📖 {video.relatedGuide.title}</span>
+                      </a>
+                    )}
+                    {video.relatedTool && (
+                      <a href={`/tools/${video.relatedTool.slug}/`} class="companion-link">
+                        <span>🛠️ {video.relatedTool.title}</span>
+                      </a>
+                    )}
+                  </div>
                 )}
                 <div class="video-card-foot">
                   <a
@@ -483,6 +362,36 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 
   .btn-watch-video:hover {
     gap: 0.55rem;
+  }
+
+  .video-companion-links {
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border-subtle);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .companion-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+  }
+
+  .companion-link {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-primary-accent);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .companion-link:hover {
+    color: var(--color-text-primary);
+    text-decoration: underline;
   }
 
   .video-empty-state {

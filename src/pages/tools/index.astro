@@ -5,7 +5,10 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { CATEGORIES } from '../../utils/categories';
 import { getCanonicalUrl, generateBreadcrumbSchema } from '../../utils/seo';
 
-const tools = await getCollection('tools');
+const legacyToolSlugs = new Set(['protein-intake-calculator', 'zone-2-heart-rate-calculator']);
+const tools = (await getCollection('tools')).filter(
+  (tool) => !legacyToolSlugs.has(tool.id.replace(/\.[^/.]+$/, ''))
+);
 
 const breadcrumbs = [
   { label: 'Home', url: '/' },
@@ -42,14 +45,13 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         const slug = tool.id.replace(/\.[^/.]+$/, '');
         return (
           <div class="tool-directory-card">
-            <div class="card-meta">
-              <span class="badge tool-pill">🛠️ Interactive Utility</span>
-              {cat && (
+            {cat && (
+              <div class="card-meta">
                 <span class="cat-pill" style={`color: ${cat.badgeColor}; background-color: ${cat.lightBg};`}>
                   {cat.icon} {cat.title}
                 </span>
-              )}
-            </div>
+              </div>
+            )}
             <h2 class="card-title">
               <a href={`/tools/${slug}/`}>{tool.data.title}</a>
             </h2>
@@ -104,7 +106,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 
   .tools-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
     gap: var(--space-6);
   }
 
@@ -115,6 +117,8 @@ const breadcrumbSchema = generateBreadcrumbSchema([
     padding: var(--space-6);
     display: flex;
     flex-direction: column;
+    min-height: 250px;
+    height: 100%;
     box-shadow: var(--shadow-sm);
     transition: all var(--transition-base);
   }
