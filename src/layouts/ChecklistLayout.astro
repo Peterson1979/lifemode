@@ -22,6 +22,8 @@ export interface Props {
         items: { id: string; text: string; note?: string; frequency?: string }[];
       }[];
       relatedTools?: string[];
+      relatedGuides?: string[];
+      relatedVideos?: string[];
     };
   };
 }
@@ -98,10 +100,12 @@ const checklistSchema = {
       <slot />
     </article>
 
-    <!-- Internal Linking -->
+    <!-- Internal Linking to Related Tools, Checklists, Guides, and Videos -->
     <RelatedCluster
       currentCategory={data.category}
+      relatedGuides={data.relatedGuides}
       relatedTools={data.relatedTools}
+      relatedVideos={data.relatedVideos}
     />
   </div>
 </BaseLayout>

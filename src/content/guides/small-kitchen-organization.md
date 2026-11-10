@@ -6,6 +6,7 @@ author: "LifeMode Editorial"
 tags: ["kitchen", "organization", "decluttering", "storage", "home"]
 draft: false
 format: "practical-guide"
+category: "home-organization"
 primaryIntent: "informational"
 primaryKeyword: "small kitchen organization"
 readingTime: "19 min read"
@@ -14,6 +15,17 @@ difficulty: "Easy"
 timeNeeded: "Weekend project"
 quickSummary: "A practical guide to organizing a small kitchen by decluttering, grouping items around everyday tasks, improving cabinet and counter storage, choosing useful organizers, and following a manageable weekend plan."
 lifecycleStatus: "PUBLISHED"
+relatedGuides:
+  - "small-pantry-organization"
+  - "small-closet-organization"
+  - "how-to-organize-your-refrigerator"
+relatedTools:
+  - "small-space-storage-planner"
+relatedChecklists:
+  - "pantry-organization-cheat-sheet"
+  - "kitchen-deep-clean-checklist"
+relatedVideos:
+  - "repair-stripped-screw-hole"
 ---
 
 A small kitchen can work surprisingly well when every item has a clear purpose and a practical place to live. You do not necessarily need more cabinets, expensive organizers, or a complete renovation. In many cases, the biggest improvement comes from changing how you use the space you already have.

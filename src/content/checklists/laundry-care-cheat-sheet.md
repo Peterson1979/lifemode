@@ -36,7 +36,13 @@ sections:
         note: "Excess detergent leaves a sticky surfactant film on fibers that attracts dirt and bacteria."
         frequency: "Every Load"
 relatedTools:
+  - "fabric-care-washing-advisor"
   - "laundry-stain-solver"
+relatedGuides:
+  - "how-to-read-laundry-care-labels"
+  - "how-to-clean-a-washing-machine"
+relatedVideos:
+  - "fold-fitted-sheet-pro"
 ---
 
 ## Why Less Detergent Produces Cleaner Clothes

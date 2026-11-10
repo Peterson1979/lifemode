@@ -25,9 +25,11 @@
       <!-- Quick Category Filters -->
       <div class="search-filters">
         <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="food-kitchen">Food &amp; Kitchen</button>
+        <button class="filter-btn" data-filter="home-maintenance">Home Maintenance</button>
         <button class="filter-btn" data-filter="cleaning-laundry">Cleaning &amp; Laundry</button>
-        <button class="filter-btn" data-filter="storage-organization">Storage &amp; Org</button>
-        <button class="filter-btn" data-filter="everyday-how-to">How-To</button>
+        <button class="filter-btn" data-filter="home-organization">Home Organization</button>
+        <button class="filter-btn" data-filter="guides">📖 Guides</button>
         <button class="filter-btn" data-filter="tools">🛠️ Tools</button>
         <button class="filter-btn" data-filter="checklists">📋 Checklists</button>
       </div>
@@ -374,6 +376,8 @@
         filtered = filtered.filter(item => item.type === 'Interactive Tool');
       } else if (activeFilter === 'checklists') {
         filtered = filtered.filter(item => item.type === 'Checklist & Printable');
+      } else if (activeFilter === 'guides') {
+        filtered = filtered.filter(item => item.type === 'Planning Guide');
       } else {
         filtered = filtered.filter(item => item.category === activeFilter);
       }

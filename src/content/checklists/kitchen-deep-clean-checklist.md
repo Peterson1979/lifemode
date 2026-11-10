@@ -55,6 +55,12 @@ sections:
         frequency: "Monthly"
 relatedTools:
   - "food-storage-calculator"
+  - "cookware-material-finder"
+relatedGuides:
+  - "how-to-organize-your-refrigerator"
+  - "how-to-clean-and-maintain-kitchen-knives"
+relatedVideos:
+  - "clean-season-cast-iron"
 ---
 
 ## Practical Kitchen Sanitation Best Practices

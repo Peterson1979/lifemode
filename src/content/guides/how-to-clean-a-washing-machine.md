@@ -6,6 +6,7 @@ author: "LifeMode Editorial"
 tags: ["washing machine", "laundry", "cleaning", "home maintenance", "appliance care"]
 draft: false
 format: "practical-guide"
+category: "cleaning-laundry"
 primaryIntent: "informational"
 contentType: "reference"
 difficulty: "Easy"
@@ -14,10 +15,13 @@ readingTime: "8 min read"
 primaryKeyword: "how to clean a washing machine"
 quickSummary: "A practical maintenance guide to cleaning a washing machine: how to clean the drum, detergent drawer, door seal, accessible drain filter, and exterior, plus a realistic cleaning schedule and common mistakes to avoid."
 lifecycleStatus: "PUBLISHED"
+relatedGuides:
+  - "how-to-read-laundry-care-labels"
+relatedTools:
+  - "fabric-care-washing-advisor"
+relatedChecklists:
+  - "laundry-care-cheat-sheet"
 ---
-
-# How to Clean a Washing Machine: A Practical Maintenance Guide
-
 A washing machine cleans clothes, but detergent residue, fabric fibres, body oils, and moisture can build up inside the machine over time. That buildup may contribute to unpleasant smells, residue on laundry, or a less-than-fresh drum.
 
 Cleaning the machine does not need to be complicated. The safest approach is to follow the manufacturer’s instructions and clean the parts that your model allows you to access. This guide covers the main areas to check and a simple routine for keeping the machine fresh.

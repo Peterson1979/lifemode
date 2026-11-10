@@ -15,6 +15,8 @@ const {
   subtitle = 'Curated home, kitchen, style and self-care finds you can actually use every day.',
 } = Astro.props;
 
+const hasAmazonRecommendations = products.some((product) => /amazon(?:\.|\/)/i.test(product.affiliateUrl));
+
 if (!products || products.length === 0) {
   return null;
 }
@@ -83,10 +85,10 @@ if (!products || products.length === 0) {
               href={product.affiliateUrl}
               target="_blank"
               rel="nofollow noopener sponsored"
-              class="btn-amazon"
-              aria-label={`View ${product.name} on Amazon (opens in a new tab)`}
+              class="btn-recommendation"
+              aria-label={`View ${product.name} (opens in a new tab)`}
             >
-              <span>View on Amazon</span>
+              <span>View recommendation</span>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                 <polyline points="15 3 21 3 21 9"></polyline>
@@ -100,8 +102,13 @@ if (!products || products.length === 0) {
 
     <footer class="daily-ideas-footer">
       <p class="affiliate-disclosure">
-        <strong>Editorial Transparency:</strong> As an Amazon Associate I earn from qualifying purchases. When you buy through curated Amazon.com links on LifeMode, we may earn an affiliate commission at no extra cost to you. We only recommend products tested, vetted, or aligned with our practical standards.
+        <strong>Editorial Transparency:</strong> Some recommendations may use affiliate links, which may earn LifeMode a commission at no extra cost to you. We only recommend products tested, vetted, or aligned with our practical standards.
       </p>
+      {hasAmazonRecommendations && (
+        <p class="affiliate-disclosure">
+          <strong>Amazon disclosure:</strong> As an Amazon Associate I earn from qualifying purchases. LifeMode may earn a commission through qualifying Amazon.com links.
+        </p>
+      )}
     </footer>
   </div>
 </section>
@@ -333,7 +340,7 @@ if (!products || products.length === 0) {
     color: var(--color-text-primary);
   }
 
-  .btn-amazon {
+  .btn-recommendation {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
@@ -348,7 +355,7 @@ if (!products || products.length === 0) {
     transition: all var(--transition-fast);
   }
 
-  .btn-amazon:hover {
+  .btn-recommendation:hover {
     background-color: #ea580c;
     color: #ffffff;
     text-decoration: none;

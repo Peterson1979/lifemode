@@ -1,59 +1,160 @@
 ---
 import { getCollection } from 'astro:content';
-import { CATEGORIES } from '../utils/categories';
+import { getCategory } from '../utils/categories';
+import { isPubliclyVisibleGuide, guideSlug } from '../utils/guides';
+import { LIFE_HACK_VIDEOS } from '../utils/life-hacks';
 
 export interface Props {
-  currentCategory: string;
+  currentCategory?: string;
+  relatedGuides?: string[];
   relatedTools?: string[];
   relatedChecklists?: string[];
+  relatedVideos?: string[];
   relatedEntries?: any[];
 }
 
-const { currentCategory, relatedTools = [], relatedChecklists = [], relatedEntries = [] } = Astro.props;
+const {
+  currentCategory = '',
+  relatedGuides = [],
+  relatedTools = [],
+  relatedChecklists = [],
+  relatedVideos = [],
+  relatedEntries = [],
+} = Astro.props;
 
-const allTools = await getCollection('tools').catch(() => []);
-const allChecklists = await getCollection('checklists').catch(() => []);
+const [allGuides, allTools, allChecklists] = await Promise.all([
+  getCollection('guides', isPubliclyVisibleGuide).catch(() => []),
+  getCollection('tools').catch(() => []),
+  getCollection('checklists').catch(() => []),
+]);
 
-const matchedTools = allTools.filter(t => relatedTools.includes(t.id.replace(/\.[^/.]+$/, '')));
-const matchedChecklists = allChecklists.filter(c => relatedChecklists.includes(c.id.replace(/\.[^/.]+$/, '')));
+// Resolve valid matching items by slug/ID
+const matchedGuides = relatedGuides
+  .map((slug) => allGuides.find((g) => guideSlug(g.id) === slug))
+  .filter((g): g is NonNullable<typeof g> => Boolean(g));
 
-const categoryMeta = CATEGORIES[currentCategory];
-const hasContent = matchedTools.length > 0 || matchedChecklists.length > 0 || relatedEntries.length > 0;
+const matchedTools = relatedTools
+  .map((slug) => allTools.find((t) => t.id.replace(/\.[^/.]+$/, '') === slug))
+  .filter((t): t is NonNullable<typeof t> => Boolean(t));
+
+const matchedChecklists = relatedChecklists
+  .map((slug) => allChecklists.find((c) => c.id.replace(/\.[^/.]+$/, '') === slug))
+  .filter((c): c is NonNullable<typeof c> => Boolean(c));
+
+const matchedVideos = relatedVideos
+  .map((id) => LIFE_HACK_VIDEOS.find((v) => v.id === id && !v.hidden))
+  .filter((v): v is NonNullable<typeof v> => Boolean(v));
+
+// Consolidate into structured recommendations, capped at 4 items, prioritizing format diversity
+interface RecommendationItem {
+  type: 'guide' | 'tool' | 'checklist' | 'video';
+  title: string;
+  desc: string;
+  url: string;
+  badge: string;
+  action: string;
+  target?: string;
+  rel?: string;
+}
+
+const recommendations: RecommendationItem[] = [];
+
+// Interleave across available types up to a maximum of 4 items
+const maxPerType = Math.max(
+  matchedGuides.length,
+  matchedTools.length,
+  matchedChecklists.length,
+  matchedVideos.length,
+  relatedEntries.length
+);
+
+for (let i = 0; i < maxPerType && recommendations.length < 4; i++) {
+  if (i < matchedGuides.length && recommendations.length < 4) {
+    const g = matchedGuides[i];
+    recommendations.push({
+      type: 'guide',
+      title: g.data.title,
+      desc: g.data.description || '',
+      url: `/guides/${guideSlug(g.id)}/`,
+      badge: '📖 Planning Guide',
+      action: 'Read Guide →',
+    });
+  }
+  if (i < matchedTools.length && recommendations.length < 4) {
+    const t = matchedTools[i];
+    recommendations.push({
+      type: 'tool',
+      title: t.data.title,
+      desc: t.data.summary,
+      url: `/tools/${t.id.replace(/\.[^/.]+$/, '')}/`,
+      badge: '🛠️ Interactive Tool',
+      action: 'Use Tool →',
+    });
+  }
+  if (i < matchedChecklists.length && recommendations.length < 4) {
+    const c = matchedChecklists[i];
+    recommendations.push({
+      type: 'checklist',
+      title: c.data.title,
+      desc: c.data.summary,
+      url: `/checklists/${c.id.replace(/\.[^/.]+$/, '')}/`,
+      badge: '📋 Checklist & Printable',
+      action: 'View Checklist →',
+    });
+  }
+  if (i < matchedVideos.length && recommendations.length < 4) {
+    const v = matchedVideos[i];
+    recommendations.push({
+      type: 'video',
+      title: v.title,
+      desc: v.description,
+      url: `/life-hacks/#video-${v.id}`,
+      badge: '🎬 Video Demonstration',
+      action: 'Watch Video →',
+    });
+  }
+}
+
+// Append legacy entries if space permits
+for (const e of relatedEntries) {
+  if (recommendations.length >= 4) break;
+  recommendations.push({
+    type: 'guide',
+    title: e.data.title,
+    desc: e.data.description || e.data.quickSummary || '',
+    url: `/${e.collection || currentCategory}/${e.id.replace(/\.[^/.]+$/, '')}/`,
+    badge: '📄 Practical Guide',
+    action: 'Read Guide →',
+  });
+}
+
+const categoryMeta = currentCategory ? getCategory(currentCategory) : undefined;
+const hasContent = recommendations.length > 0;
 ---
 
 {hasContent && (
-  <div class="related-cluster-container no-print" aria-labelledby="cluster-resources-heading">
+  <aside class="related-cluster-container no-print" aria-labelledby="cluster-resources-heading">
     <div class="cluster-header">
       <span class="cluster-badge">Connected Knowledge</span>
       <h3 id="cluster-resources-heading" class="cluster-title">Related Practical Resources</h3>
-      <p class="cluster-sub">Explore companion tools, checklists, and practical resources in {categoryMeta ? categoryMeta.title : 'this field'}:</p>
+      <p class="cluster-sub">
+        Explore vetted companion guides, interactive calculators, checklists, and video demonstrations
+        {categoryMeta ? ` in ${categoryMeta.title}` : ''}:
+      </p>
     </div>
 
     <div class="cluster-grid">
-      {matchedTools.map((t) => (
-        <a href={`/tools/${t.id.replace(/\.[^/.]+$/, '')}/`} class="cluster-card tool-card">
-          <div class="card-icon-badge">🛠️ Interactive Tool</div>
-          <h4 class="card-item-title">{t.data.title}</h4>
-          <p class="card-item-desc">{t.data.summary}</p>
-          <span class="card-action">Use Tool &rarr;</span>
-        </a>
-      ))}
-
-      {matchedChecklists.map((c) => (
-        <a href={`/checklists/${c.id.replace(/\.[^/.]+$/, '')}/`} class="cluster-card check-card">
-          <div class="card-icon-badge">📋 Checklist &amp; Printable</div>
-          <h4 class="card-item-title">{c.data.title}</h4>
-          <p class="card-item-desc">{c.data.summary}</p>
-          <span class="card-action">View Checklist &rarr;</span>
-        </a>
-      ))}
-
-      {relatedEntries.map((e) => (
-        <a href={`/${e.collection || currentCategory}/${e.id.replace(/\.[^/.]+$/, '')}`} class="cluster-card guide-card-small">
-          <div class="card-icon-badge">📄 Practical Guide</div>
-          <h4 class="card-item-title">{e.data.title}</h4>
-          <p class="card-item-desc">{e.data.description || e.data.quickSummary}</p>
-          <span class="card-action">Read Guide &rarr;</span>
+      {recommendations.map((item) => (
+        <a
+          href={item.url}
+          class={`cluster-card ${item.type}-card`}
+          target={item.target}
+          rel={item.rel}
+        >
+          <div class="card-icon-badge">{item.badge}</div>
+          <h4 class="card-item-title">{item.title}</h4>
+          <p class="card-item-desc">{item.desc}</p>
+          <span class="card-action">{item.action}</span>
         </a>
       ))}
     </div>
@@ -61,20 +162,20 @@ const hasContent = matchedTools.length > 0 || matchedChecklists.length > 0 || re
     {categoryMeta && (
       <div class="cluster-footer">
         <a href={`/${categoryMeta.slug}/`} class="category-hub-link">
-          Browse all <strong>{categoryMeta.title}</strong> tools &amp; checklists &rarr;
+          Browse the complete <strong>{categoryMeta.title}</strong> editorial hub &rarr;
         </a>
       </div>
     )}
-  </div>
+  </aside>
 )}
 
 <style>
   .related-cluster-container {
-    background: linear-gradient(180deg, #ffffff 0%, var(--slate-50) 100%);
-    border: 1px solid var(--slate-200);
-    border-radius: var(--radius-lg);
+    background: linear-gradient(180deg, var(--color-surface, #ffffff) 0%, var(--color-surface-subtle, #f8fafc) 100%);
+    border: 1px solid var(--color-border, #e2e8f0);
+    border-radius: var(--radius-lg, 12px);
     padding: 2rem;
-    margin: 3rem 0;
+    margin: 3.5rem 0 2rem 0;
     box-shadow: var(--shadow-sm);
   }
 
@@ -86,27 +187,30 @@ const hasContent = matchedTools.length > 0 || matchedChecklists.length > 0 || re
     font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--accent-blue);
-    background-color: var(--accent-blue-light);
-    border: 1px solid var(--accent-blue-border);
-    padding: 0.2rem 0.6rem;
-    border-radius: var(--radius-full);
+    letter-spacing: 0.06em;
+    color: var(--color-primary-accent, #2563eb);
+    background-color: rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full, 9999px);
     display: inline-block;
     margin-bottom: 0.5rem;
   }
 
   .cluster-title {
-    font-size: 1.35rem;
-    color: var(--slate-900);
+    font-family: var(--font-display, var(--font-heading, sans-serif));
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--color-text-primary, #0f172a);
     margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.35rem;
   }
 
   .cluster-sub {
     font-size: 0.95rem;
-    color: var(--slate-600);
+    color: var(--color-text-secondary, #475569);
     margin: 0;
+    line-height: 1.5;
   }
 
   .cluster-grid {
@@ -117,44 +221,62 @@ const hasContent = matchedTools.length > 0 || matchedChecklists.length > 0 || re
   }
 
   .cluster-card {
-    background-color: #ffffff;
-    border: 1px solid var(--slate-200);
-    border-radius: var(--radius-md);
+    background-color: var(--color-surface, #ffffff);
+    border: 1px solid var(--color-border, #e2e8f0);
+    border-radius: var(--radius-md, 8px);
     padding: 1.25rem;
     display: flex;
     flex-direction: column;
     text-decoration: none;
-    transition: all var(--transition-normal);
+    transition: all var(--transition-fast, 0.15s ease);
+    position: relative;
   }
 
   .cluster-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     box-shadow: var(--shadow-md);
-    border-color: var(--slate-300);
+    border-color: var(--color-border-hover, #cbd5e1);
     text-decoration: none;
+  }
+
+  .guide-card {
+    border-top: 3px solid #7c3aed;
+  }
+
+  .tool-card {
+    border-top: 3px solid #2563eb;
+  }
+
+  .checklist-card {
+    border-top: 3px solid #059669;
+  }
+
+  .video-card {
+    border-top: 3px solid #0891b2;
   }
 
   .card-icon-badge {
     font-size: 0.75rem;
     font-weight: 700;
-    color: var(--slate-500);
+    color: var(--color-text-muted, #64748b);
     margin-bottom: 0.5rem;
   }
 
   .card-item-title {
-    font-family: var(--font-heading);
+    font-family: var(--font-display, var(--font-sans, sans-serif));
     font-size: 1.05rem;
     font-weight: 700;
-    color: var(--slate-900);
+    color: var(--color-text-primary, #0f172a);
     margin-top: 0;
     margin-bottom: 0.4rem;
+    line-height: 1.35;
   }
 
   .card-item-desc {
     font-size: 0.85rem;
-    color: var(--slate-600);
-    line-height: 1.4;
-    margin-bottom: 0.75rem;
+    color: var(--color-text-secondary, #475569);
+    line-height: 1.45;
+    margin-bottom: 1rem;
     flex-grow: 1;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -163,24 +285,34 @@ const hasContent = matchedTools.length > 0 || matchedChecklists.length > 0 || re
   }
 
   .card-action {
-    font-size: 0.82rem;
+    font-size: 0.825rem;
     font-weight: 700;
-    color: var(--accent-blue);
+    color: var(--color-primary-accent, #2563eb);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .cluster-card:hover .card-action {
+    text-decoration: underline;
   }
 
   .cluster-footer {
-    border-top: 1px solid var(--slate-200);
+    border-top: 1px solid var(--color-border-subtle, #e2e8f0);
     padding-top: 1.25rem;
     text-align: center;
   }
 
   .category-hub-link {
-    font-size: 0.95rem;
-    color: var(--slate-700);
-    font-weight: 500;
+    font-size: 0.925rem;
+    color: var(--color-text-secondary, #475569);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color var(--transition-fast, 0.15s ease);
   }
 
   .category-hub-link:hover {
-    color: var(--accent-blue);
+    color: var(--color-primary-accent, #2563eb);
+    text-decoration: underline;
   }
 </style>

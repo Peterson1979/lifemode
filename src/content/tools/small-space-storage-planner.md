@@ -2,12 +2,19 @@
 title: "Small-Space Storage & Closet Capacity Planner"
 seoTitle: "Closet Storage & Bin Capacity Planner: Small Space Organization Tool | LifeMode"
 seoDescription: "Calculate hanging rod garment capacity, top-shelf storage bin requirements, and usable cubic volume for small apartments and closets."
-category: "storage-organization"
+category: "home-organization"
 toolType: "storage-planner"
 summary: "Calculate hanging garment capacity, modular tote requirements, and vertical storage blueprints for reach-in, walk-in, and under-bed storage zones."
 instructions: "Select your closet or storage zone type, enter linear width in feet, select your primary item category, and choose vertical hanging tiers."
+relatedGuides:
+  - "small-pantry-organization"
+  - "small-closet-organization"
+  - "small-kitchen-organization"
+  - "how-to-organize-your-refrigerator"
 relatedChecklists:
-  - "seasonal-home-maintenance-checklist"
+  - "pantry-organization-cheat-sheet"
+relatedVideos:
+  - "fold-fitted-sheet-pro"
 ---
 
 ## Principles of Small-Space Spatial Organization

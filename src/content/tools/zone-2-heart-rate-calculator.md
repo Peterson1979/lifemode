@@ -6,8 +6,7 @@ category: "everyday-how-to"
 toolType: "heart-rate-calculator"
 summary: "Calculate your personalized Zone 2 aerobic heart rate training band, 5-zone exertion spectrum, and weekly session allocation based on age and resting heart rate."
 instructions: "Enter your age and morning resting heart rate, choose your calculation formula, and select your weekly cardiovascular minute target."
-relatedChecklists:
-  - "daily-routine-focus-checklist"
+relatedChecklists: []
 ---
 
 ## Understanding Heart Rate Intensity Zones

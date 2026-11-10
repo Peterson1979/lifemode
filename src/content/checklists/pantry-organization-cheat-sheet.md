@@ -2,7 +2,7 @@
 title: "Pantry Organization & Inventory Cheat Sheet"
 seoTitle: "Pantry Organization Checklist: Categorization & FIFO Rotation"
 seoDescription: "Step-by-step pantry organization system. Zone layouts, airtight container guidelines, and First-In First-Out food rotation protocols."
-category: "storage-organization"
+category: "home-organization"
 summary: "A practical step-by-step framework to zone your pantry, eliminate expired food waste, prevent pantry pests, and optimize vertical cabinet space."
 estimatedTime: "1.5 hours"
 printSubtitle: "Pantry Zonation & Pest Defense Checklist"
@@ -41,6 +41,13 @@ sections:
         frequency: "Ongoing"
 relatedTools:
   - "food-storage-calculator"
+  - "small-space-storage-planner"
+relatedGuides:
+  - "small-pantry-organization"
+  - "small-kitchen-organization"
+  - "how-to-organize-your-refrigerator"
+relatedVideos:
+  - "fresh-herbs-storage-guide"
 ---
 
 ## The FIFO Rule and Vertical Space Maximization

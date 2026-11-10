@@ -136,6 +136,7 @@ export const articleSchema = z.object({
   tags: z.array(z.string()).default([]),
   featured: z.boolean().default(false),
   draft: z.boolean().default(false),
+  category: z.string().optional(),
 
   // Content Engine metadata
   format: ArticleFormatEnum.default('standard'),
@@ -292,6 +293,12 @@ export const articleSchema = z.object({
       })
     )
     .optional(),
+
+  // Internal Content Architecture Relationships
+  relatedGuides: z.array(z.string()).optional(),
+  relatedTools: z.array(z.string()).optional(),
+  relatedChecklists: z.array(z.string()).optional(),
+  relatedVideos: z.array(z.string()).optional(),
 });
 
 export type ArticleFrontmatter = z.infer<typeof articleSchema>;
@@ -302,7 +309,16 @@ const tools = defineCollection({
     title: z.string(),
     seoTitle: z.string().optional(),
     seoDescription: z.string().optional(),
-    category: z.enum(['cleaning-laundry', 'storage-organization', 'everyday-how-to']),
+    category: z.enum([
+      'food-kitchen',
+      'home-maintenance',
+      'cleaning-laundry',
+      'home-organization',
+      'smart-home',
+      'home-garden',
+      'storage-organization',
+      'everyday-how-to',
+    ]),
     toolType: z.enum([
       'stain-solver',
       'food-storage',
@@ -317,6 +333,8 @@ const tools = defineCollection({
     badge: z.string().optional(),
     instructions: z.string().optional(),
     relatedChecklists: z.array(z.string()).optional(),
+    relatedGuides: z.array(z.string()).optional(),
+    relatedVideos: z.array(z.string()).optional(),
   }),
 });
 
@@ -326,7 +344,16 @@ const checklists = defineCollection({
     title: z.string(),
     seoTitle: z.string().optional(),
     seoDescription: z.string().optional(),
-    category: z.enum(['cleaning-laundry', 'storage-organization', 'everyday-how-to']),
+    category: z.enum([
+      'food-kitchen',
+      'home-maintenance',
+      'cleaning-laundry',
+      'home-organization',
+      'smart-home',
+      'home-garden',
+      'storage-organization',
+      'everyday-how-to',
+    ]),
     summary: z.string(),
     estimatedTime: z.string().optional(),
     printSubtitle: z.string().optional(),
@@ -340,6 +367,8 @@ const checklists = defineCollection({
       })),
     })),
     relatedTools: z.array(z.string()).optional(),
+    relatedGuides: z.array(z.string()).optional(),
+    relatedVideos: z.array(z.string()).optional(),
   }),
 });
 

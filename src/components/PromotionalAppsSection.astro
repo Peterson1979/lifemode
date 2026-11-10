@@ -12,24 +12,14 @@ interface FeaturedApp {
   ctaLabel: string;
 }
 
-// MatchSignal is promoted on this showcase only. It stays out of
-// src/lib/projects/config.ts, which drives semantic article matching and
-// intentionally excludes sports-betting projects.
-const FEATURED_APPS: FeaturedApp[] = [
-  {
-    id: 'matchsignal',
-    name: 'MatchSignal',
-    tagline: 'Get daily AI-powered betting insights for Football and more.',
-    description:
-      'MatchSignal is a free, AI-powered sports betting analysis platform that combines real-time odds data from multiple bookmakers with AI-generated match context. The goal is to help users make more informed betting decisions — completely free of charge.',
-    url: 'https://www.matchsignal.pro/',
-    logoUrl: '/assets/projects/matchsignal.jpeg',
-    categories: ['Sports Analytics'],
-    ctaLabel: 'Visit MatchSignal',
-  },
-];
+// Featured owned apps displayed in the Apps & Tools showcase:
+// AI Zodiac, Dreamly AI, and GetAISet.com.
+const FEATURED_APPS: FeaturedApp[] = [];
 
-const featuredApps = [...OWNED_PROJECTS, ...FEATURED_APPS];
+const DISALLOWED_APP_IDS = new Set(['matchsignal']);
+const featuredApps = [...OWNED_PROJECTS, ...FEATURED_APPS].filter(
+  (app) => !DISALLOWED_APP_IDS.has(app.id)
+);
 
 export interface Props {
   title?: string;
@@ -42,6 +32,7 @@ const {
 } = Astro.props;
 ---
 
+{featuredApps.length > 0 && (
 <section class="promotional-apps-section" id="apps-and-tools" aria-labelledby="promotional-apps-heading">
   <div class="container">
     <div class="section-header">
@@ -100,6 +91,7 @@ const {
     </div>
   </div>
 </section>
+)}
 
 <style>
   .promotional-apps-section .section-header {
