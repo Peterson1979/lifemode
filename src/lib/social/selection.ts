@@ -92,9 +92,91 @@ export function resolveDestinationUrl(
     isGuide?: boolean;
   }
 ): string {
+  if (topic.isGuide) {
+    const allowedSections = new Set([
+      'everyday-how-to',
+      'food-kitchen',
+      'cleaning-laundry',
+      'home-maintenance',
+      'storage-organization',
+      'guides',
+    ]);
+
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(topic.slug)) {
+      throw new Error(`Invalid Guide slug: ${topic.slug}`);
+    }
+
+    let siteUrl: URL;
+    try {
+      siteUrl = new URL(baseUrl);
+    } catch {
+      throw new Error('Invalid Guide base URL.');
+    }
+
+    if (
+      siteUrl.protocol !== 'https:' ||
+      (siteUrl.hostname !== 'lifemode.site' && siteUrl.hostname !== 'lifemode.life') ||
+      siteUrl.username ||
+      siteUrl.password ||
+      siteUrl.search ||
+      siteUrl.hash
+    ) {
+      throw new Error('Invalid Guide base URL: expected https://lifemode.site.');
+    }
+
+    const routeSegment = topic.publicRoute || topic.publicSection;
+    if (!routeSegment) {
+      throw new Error('Missing Guide public route.');
+    }
+
+    const parts = routeSegment.replace(/^\/+|\/+$/g, '').split('/');
+    let section: string;
+
+    if (parts.length === 1) {
+      section = parts[0];
+    } else if (parts.length === 2 && parts[1] === topic.slug) {
+      section = parts[0];
+    } else {
+      throw new Error(`Invalid Guide public route: ${routeSegment}`);
+    }
+
+    if (!allowedSections.has(section)) {
+      throw new Error(`Invalid Guide public route: ${section}`);
+    }
+
+    const canonicalUrl = `${baseUrl.replace(/\/+$/, '')}/${section}/${topic.slug}`;
+
+    if (topic.destinationUrl) {
+      let suppliedUrl: URL;
+      try {
+        suppliedUrl = new URL(topic.destinationUrl);
+      } catch {
+        throw new Error('Invalid Guide destination URL.');
+      }
+
+      if (
+        suppliedUrl.protocol !== 'https:' ||
+        (suppliedUrl.hostname !== 'lifemode.site' && suppliedUrl.hostname !== 'lifemode.life') ||
+        suppliedUrl.username ||
+        suppliedUrl.password ||
+        suppliedUrl.search ||
+        suppliedUrl.hash ||
+        suppliedUrl.pathname.replace(/\/+$/, '') !== `/${section}/${topic.slug}`
+      ) {
+        throw new Error(
+          `Guide destination does not match canonical URL: expected ${canonicalUrl}`
+        );
+      }
+    }
+
+    return canonicalUrl;
+  }
+
+  // Preserve existing URL behavior for non-Guide content.
   if (topic.destinationUrl) {
     return topic.destinationUrl;
   }
+
   const routeSegment = topic.publicRoute || topic.publicSection;
   if (routeSegment) {
     const cleanSegment = routeSegment.replace(/^\/+|\/+$/g, '');
@@ -103,28 +185,16 @@ export function resolveDestinationUrl(
     }
     return `${baseUrl}/${cleanSegment}/${topic.slug}`;
   }
-  if (topic.isGuide) {
-    return `${baseUrl}/guides/${topic.slug}`;
-  }
+
   return `${baseUrl}/${topic.pillar}/${topic.slug}`;
 }
-
-/**
- * Deterministically selects the top social opportunities from published articles.
- *
- * Enforces:
- * 1. Freshness Gate: Only newly published content (< maxFreshnessDays, default 1) is eligible.
- * 2. Idempotency Gate: Excludes platforms that have already been PUBLISHED.
- * 3. Sorting: Prioritizes newly published articles descending, then composite social score.
- * 4. Frequency Limit: Returns at most `maxOpportunities` (default 1).
- */
 export async function selectSocialOpportunities(
   candidates: EditorialTopic[],
   options: SocialSelectionOptions = {}
 ): Promise<SocialOpportunity[]> {
   const max = options.maxOpportunities ?? 1;
   const minScore = options.minScoreThreshold ?? 80;
-  const baseUrl = (options.baseUrl || 'https://lifemode.life').replace(/\/+$/, '');
+  const baseUrl = (options.baseUrl || 'https://lifemode.site').replace(/\/+$/, '');
   const historyRepo = options.historyRepository;
   const publishedOnly = options.publishedOnly ?? false;
   const maxFreshnessDays = options.maxFreshnessDays ?? 1;

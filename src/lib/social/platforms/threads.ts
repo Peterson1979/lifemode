@@ -204,8 +204,8 @@ export class ThreadsPlatformAdapter implements ISocialPlatformAdapter {
   ): string {
     const title = content.title.trim();
     const tagString = content.hashtags.slice(0, 4).join(' ');
-    const link = destinationUrl || content.destinationUrl || 'https://lifemode.life';
-    const cta = `🔗 ${link}`;
+    const link = destinationUrl || content.destinationUrl || 'https://lifemode.site';
+    const cta = `🔗 Read the full article at ${link}`;
 
     const rawBody = (content.shortCaption || content.concept || '').trim();
 
@@ -244,7 +244,7 @@ export class ThreadsPlatformAdapter implements ISocialPlatformAdapter {
       sourceProject?: string;
     }
   ): Promise<SocialPlatformPackage> {
-    const link = options?.destinationUrl || content.destinationUrl || 'https://lifemode.life';
+    const link = options?.destinationUrl || content.destinationUrl || 'https://lifemode.site';
     const formattedCaption = this.formatThreadsCaption(content, link);
 
     const contentHash = hashString(formattedCaption);

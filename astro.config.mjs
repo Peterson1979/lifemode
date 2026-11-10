@@ -5,12 +5,12 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://lifemode.life',
+  site: 'https://lifemode.site',
   integrations: [mdx(), sitemap()],
   output: 'static',
   redirects: {
-    '/food-kitchen': '/tools',
-    '/home-maintenance': '/checklists',
+    '/storage-organization': '/home-organization',
+    '/everyday-how-to': '/home-maintenance',
   },
   markdown: {
     shikiConfig: {

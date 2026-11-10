@@ -128,7 +128,7 @@ export class GoogleTrendsDiscoveryAdapter implements IDiscoveryAdapter {
 
       const response = await fetchImpl(endpoint, {
         headers: {
-          'User-Agent': 'LifeMode-Editorial-Bot/1.0 (+https://lifemode.life; editorial@lifemode.life)',
+          'User-Agent': 'LifeMode-Editorial-Bot/1.0 (+https://lifemode.site; editorial@lifemode.site)',
           Accept: 'application/rss+xml, application/xml, text/xml;q=0.9, */*;q=0.8',
         },
         signal,

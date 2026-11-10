@@ -65,7 +65,7 @@ export async function releaseApprovedArticle(
     }
     const commitHash = await git.createCommit(repoRoot, `feat: publish approved article "${request.title.replace(/[\r\n"]+/g, ' ').slice(0, 160)}"`);
     await git.push(repoRoot, options.remote || process.env.LIFEMODE_APPROVAL_GIT_REMOTE || 'origin', options.branch || process.env.LIFEMODE_APPROVAL_GIT_BRANCH || 'master');
-    const baseUrl = (options.baseUrl || process.env.LIFEMODE_BASE_URL || 'https://lifemode.life').replace(/\/$/, '');
+    const baseUrl = (options.baseUrl || process.env.LIFEMODE_BASE_URL || 'https://lifemode.site').replace(/\/$/, '');
     const url = `${baseUrl}${request.route.startsWith('/') ? request.route : `/${request.route}`}`;
     await (options.verify || ((target, title) => verifyLive(target, title, options.timeoutMs ?? 120_000)))(url, request.title);
     return { commitHash, url };

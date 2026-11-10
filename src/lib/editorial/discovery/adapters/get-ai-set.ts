@@ -160,7 +160,7 @@ export class GetAISetDiscoveryAdapter implements IDiscoveryAdapter {
 
         const response = await fetchImpl(feedUrl, {
           headers: {
-            'User-Agent': 'LifeMode-Editorial-Bot/1.0 (+https://lifemode.life; editorial@lifemode.life)',
+            'User-Agent': 'LifeMode-Editorial-Bot/1.0 (+https://lifemode.site; editorial@lifemode.site)',
             Accept: 'application/rss+xml, application/atom+xml, application/xml, text/xml;q=0.9, */*;q=0.8',
           },
           signal: controller.signal,

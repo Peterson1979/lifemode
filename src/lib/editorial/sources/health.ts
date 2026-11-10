@@ -86,7 +86,7 @@ export async function checkSingleSourceHealth(
 
     const isFeed = Boolean(source.feedUrl);
     const headers: Record<string, string> = {
-      'User-Agent': 'LifeMode-HealthCheck/1.0 (+https://lifemode.life; editorial@lifemode.life)',
+      'User-Agent': 'LifeMode-HealthCheck/1.0 (+https://lifemode.site; editorial@lifemode.site)',
       Accept: isFeed
         ? 'application/rss+xml, application/xml, text/xml, */*'
         : 'text/html, application/xhtml+xml, */*',

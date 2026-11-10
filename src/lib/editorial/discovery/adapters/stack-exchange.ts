@@ -91,7 +91,7 @@ export class StackExchangeDiscoveryAdapter implements IDiscoveryAdapter {
         const response = await fetchImpl(url, {
           headers: {
             Accept: 'application/json',
-            'User-Agent': 'LifeMode-Discovery/2.0 (+https://lifemode.life)',
+            'User-Agent': 'LifeMode-Discovery/2.0 (+https://lifemode.site)',
           },
           signal,
         });

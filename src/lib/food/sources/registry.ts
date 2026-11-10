@@ -126,7 +126,7 @@ export function validateRecipeProvenance(recipe: RecipeProvenanceData): Provenan
   } else {
     // Check local asset or approved CDN
     if (recipe.image.startsWith('http://') || recipe.image.startsWith('https://')) {
-      if (!recipe.image.includes('r2.dev') && !recipe.image.includes('lifemode.life')) {
+      if (!recipe.image.includes('r2.dev') && !recipe.image.includes('lifemode.site') && !recipe.image.includes('lifemode.life')) {
         errors.push(
           `Recipe image "${recipe.image}" must be stored as a local LifeMode static asset or approved LifeMode storage.`
         );

@@ -10,7 +10,7 @@ import type {
   SocialAutomationResult,
 } from './types.ts';
 import { loadSocialConfig, type SocialAutomationConfig } from './config.ts';
-import { selectSocialOpportunities } from './selection.ts';
+import { resolveDestinationUrl, selectSocialOpportunities } from './selection.ts';
 import { buildSocialBrief } from './brief.ts';
 import type { ISocialGenerationProvider } from './generation/contracts.ts';
 import { AIRouterSocialGenerationProvider } from './generation/providers/ai-router.ts';
@@ -201,9 +201,17 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
         const publicationDate = art.frontmatter.pubDate || (art.frontmatter as any).publishedDate;
         const pubDateStr = publicationDate ? new Date(publicationDate).toISOString() : '';
         const existingIdx = candidatePool.findIndex((c) => c.id === topicId || (c.pillar === art.pillar && c.slug === art.slug));
+		const canonicalUrl = resolveDestinationUrl(config.baseUrl, {
+  pillar: art.pillar,
+  slug: art.slug,
+  publicRoute: art.publicRoute || art.frontmatter.publicRoute,
+  publicSection: art.publicSection || art.frontmatter.publicSection,
+  isGuide: art.isGuide ?? art.frontmatter.isGuide,
+});
         if (existingIdx >= 0) {
           candidatePool[existingIdx] = {
             ...candidatePool[existingIdx],
+			destinationUrl: canonicalUrl,
             canonicalTopic: art.frontmatter.title || candidatePool[existingIdx].canonicalTopic,
             status: 'PUBLISHED',
             articleTitle: art.frontmatter.title,
@@ -214,6 +222,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
         } else {
           candidatePool.push({
             id: topicId,
+			destinationUrl: canonicalUrl,
             canonicalTopic: art.frontmatter.title,
             pillar: art.pillar,
             slug: art.slug,
@@ -376,7 +385,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
         ...content,
         title: articleTitle,
         shortCaption: `${articleTitle} — Read the full article at https://lifemode.bio.link`,
-        callToAction: 'Read the full article at https://lifemode.bio.link',
+        callToAction: 'Read more at https://lifemode.bio.link',
         destinationUrl: opp.destinationUrl,
       };
       const headlineOverlay = content.imageText?.headline;
@@ -390,7 +399,7 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
         articleImage: opp.articleImage,
         articleTitle,
         category: opp.pillar,
-        ctaText: 'Read the complete guide on lifemode.life',
+        ctaText: 'Read the complete guide on lifemode.site',
       });
 
       if (!imageResult.success || !imageResult.asset) {
@@ -490,9 +499,21 @@ export async function runSocialPipeline(options: SocialPipelineRunOptions = {}):
             }
           }
 
-          const pkg: SocialPlatformPackage = await adapter.prepare(content, asset, {
-            destinationUrl: opp.destinationUrl,
-          });
+          
+const platformContent: GeneratedSocialContent =
+  platform === 'threads'
+    ? {
+        ...content,
+        shortCaption: articleTitle,
+        callToAction: 'Read the full article',
+        destinationUrl: opp.destinationUrl,
+      }
+    : content;
+
+const pkg: SocialPlatformPackage = await adapter.prepare(platformContent, asset, {
+  destinationUrl: opp.destinationUrl,
+});
+
 
           const pkgValidation = adapter.validate(pkg);
           if (!pkgValidation.valid) {

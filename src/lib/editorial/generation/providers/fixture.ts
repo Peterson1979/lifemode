@@ -395,11 +395,11 @@ export class FixtureGenerationProvider implements IGenerationProvider {
 
     const sources = request.requiredSources?.map((s) => ({
       name: s.name,
-      url: s.url || 'https://lifemode.life/editorial-standards',
+      url: s.url || 'https://lifemode.site/editorial-standards',
     })) || [
       {
         name: 'LifeMode Technical & Editorial Standards',
-        url: 'https://lifemode.life/editorial-standards',
+        url: 'https://lifemode.site/editorial-standards',
       },
     ];
 

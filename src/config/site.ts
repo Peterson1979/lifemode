@@ -25,8 +25,8 @@ const configuredSiteUrl =
 const localSiteUrlPattern = /^https?:\/\/(?:localhost|127\.0\.0\.1)(?::\d+)?(?:\/|$)/i;
 const resolvedSiteUrl =
   runtimeEnv?.PROD && localSiteUrlPattern.test(configuredSiteUrl)
-    ? 'https://lifemode.life'
-    : configuredSiteUrl || 'https://lifemode.life';
+    ? 'https://lifemode.site'
+    : configuredSiteUrl || 'https://lifemode.site';
 
 export const ACTIVE_EDITORIAL_PILLARS = [
   'health',
@@ -148,14 +148,57 @@ export const PILLARS: Record<string, PillarConfig> = {
       { name: 'Food Storage Calculator', icon: '🥗', description: 'Optimal refrigeration, freezing times and pantry shelf-life lookup', slug: 'food-storage-calculator', href: '/tools/food-storage-calculator/' },
       { name: 'Seasonal Home Planner', icon: '📋', description: 'Custom preventive upkeep schedules and seasonal homeowner inspection checklists', slug: 'seasonal-maintenance-planner', href: '/tools/seasonal-maintenance-planner/' },
       { name: 'Cookware Material Finder', icon: '🍳', description: 'Personalized cookware selector matching cooking styles with ideal pan alloys', slug: 'cookware-material-finder', href: '/tools/cookware-material-finder/' },
-      { name: 'Protein Intake Calculator', icon: '🥩', description: 'Personalized daily protein distribution and real-food portion calculator', slug: 'protein-intake-calculator', href: '/tools/protein-intake-calculator/' },
       { name: 'Storage & Closet Planner', icon: '📦', description: 'Hanging capacity, modular tote calculator and small-space storage blueprint', slug: 'small-space-storage-planner', href: '/tools/small-space-storage-planner/' },
-      { name: 'Zone 2 Heart Rate Finder', icon: '💓', description: 'Personalized aerobic heart rate training bands using Karvonen and Tanaka formulas', slug: 'zone-2-heart-rate-calculator', href: '/tools/zone-2-heart-rate-calculator/' },
       { name: 'Fabric Care & Washing Advisor', icon: '👕', description: 'Material-specific water temperatures, detergent chemistry, and washing protocols', slug: 'fabric-care-washing-advisor', href: '/tools/fabric-care-washing-advisor/' },
     ],
   },
 
   // --- PRESERVED & BACKWARD-COMPATIBLE PILLAR ALIASES ---
+  'food-kitchen': {
+    name: 'Food & Kitchen',
+    slug: 'food-kitchen' as any,
+    tagline: 'Cookware, Food Storage & Practical Kitchen Solutions',
+    description: 'Evidence-based culinary skills, cast iron and knife maintenance, food preservation times, and practical kitchen organization.',
+    color: '#ea580c',
+    bgLight: 'rgba(234, 88, 12, 0.08)',
+    icon: '🍳',
+  },
+  'home-maintenance': {
+    name: 'Home Maintenance',
+    slug: 'home-maintenance' as any,
+    tagline: 'Preventive Care, Plumbing & Upkeep Schedules',
+    description: 'Practical DIY repairs, seasonal home inspection schedules, plumbing troubleshooting, and appliance care.',
+    color: '#0284c7',
+    bgLight: 'rgba(2, 132, 199, 0.08)',
+    icon: '🔧',
+  },
+  'home-organization': {
+    name: 'Home Organization',
+    slug: 'home-organization' as any,
+    tagline: 'Small Space Systems & Storage Planning',
+    description: 'Practical spatial organization, modular storage frameworks, closet systems, and pantry organization cheat sheets.',
+    color: '#7c3aed',
+    bgLight: 'rgba(124, 58, 237, 0.08)',
+    icon: '📦',
+  },
+  'smart-home': {
+    name: 'Smart Home',
+    slug: 'smart-home' as any,
+    tagline: 'Everyday Automation, Energy & Connected Living',
+    description: 'Practical home automation, energy-efficient living setups, and smart home reliability guides.',
+    color: '#059669',
+    bgLight: 'rgba(5, 150, 105, 0.08)',
+    icon: '💡',
+  },
+  'home-garden': {
+    name: 'Home & Garden',
+    slug: 'home-garden' as any,
+    tagline: 'Indoor Plants, Outdoor Spaces & Seasonal Living',
+    description: 'Indoor plant care protocols, balcony and garden upkeep, soil health, and outdoor living maintenance.',
+    color: '#16a34a',
+    bgLight: 'rgba(22, 163, 74, 0.08)',
+    icon: '🌱',
+  },
   'food-drink': {
     name: 'Food & Drink',
     slug: 'food-drink',
@@ -238,6 +281,23 @@ export const PILLARS: Record<string, PillarConfig> = {
   },
 };
 
+export const APPROVED_EDITORIAL_CATEGORIES = [
+  { name: 'Food & Kitchen', href: '/food-kitchen/', slug: 'food-kitchen', color: '#ea580c' },
+  { name: 'Home Maintenance', href: '/home-maintenance/', slug: 'home-maintenance', color: '#0284c7' },
+  { name: 'Cleaning & Laundry', href: '/cleaning-laundry/', slug: 'cleaning-laundry', color: '#2563eb' },
+  { name: 'Home Organization', href: '/home-organization/', slug: 'home-organization', color: '#7c3aed' },
+  { name: 'Smart Home', href: '/smart-home/', slug: 'smart-home', color: '#059669' },
+  { name: 'Home & Garden', href: '/home-garden/', slug: 'home-garden', color: '#16a34a' },
+] as const;
+
+export const FUNCTIONAL_NAV_LINKS = [
+  { name: 'Guides', href: '/guides/', slug: 'guides' },
+  { name: 'Tools', href: '/tools/', slug: 'tools' },
+  { name: 'Checklists', href: '/checklists/', slug: 'checklists' },
+  { name: 'Life Hacks', href: '/life-hacks/', slug: 'life-hacks' },
+  { name: 'Daily Ideas Store', href: '/daily-ideas/', slug: 'daily-ideas' },
+] as const;
+
 export const SITE_CONFIG = {
   name: 'LifeMode',
   slogan: 'Practical tools, checklists, and ideas for modern life',
@@ -252,16 +312,13 @@ export const SITE_CONFIG = {
   locale: 'en_US',
   twitterHandle: '@LifeModeMag',
   author: 'LifeMode Editorial',
-  navLinks: [
-    { name: 'Tools', href: '/tools', slug: 'tools' },
-    { name: 'Checklists', href: '/checklists', slug: 'checklists' },
-    { name: 'Guides', href: '/guides', slug: 'guides' },
-    { name: 'Life Hacks', href: '/life-hacks', slug: 'life-hacks' },
-    { name: 'Daily Ideas Store', href: '/daily-ideas', slug: 'daily-ideas' },
-  ],
+  categoryLinks: APPROVED_EDITORIAL_CATEGORIES,
+  functionalLinks: FUNCTIONAL_NAV_LINKS,
+  navLinks: APPROVED_EDITORIAL_CATEGORIES,
   footerLinks: [
     { name: 'About', href: '/about' },
     { name: 'Editorial Standards', href: '/editorial-standards' },
+    { name: 'Practical Guides', href: '/guides' },
     { name: 'Interactive Tools', href: '/tools' },
     { name: 'Printable Checklists', href: '/checklists' },
     { name: 'Video Life Hacks', href: '/life-hacks' },

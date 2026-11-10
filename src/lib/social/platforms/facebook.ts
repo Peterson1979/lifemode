@@ -164,12 +164,12 @@ export class FacebookPlatformAdapter implements ISocialPlatformAdapter {
     asset: SocialVisualAsset,
     options?: PlatformPrepareOptions
   ): Promise<SocialPlatformPackage> {
-    const link = options?.destinationUrl || content.destinationUrl || 'https://lifemode.life';
+    const link = 'https://lifemode.bio.link';
     const tagString = content.hashtags.slice(0, 6).join(' ');
 
     const bodyParagraph = content.extendedCaption || content.shortCaption;
-    const ctaText = content.callToAction || 'Read the complete guide on LifeMode';
-    const formattedCaption = `${content.title}\n\n${bodyParagraph}\n\n${ctaText}: 🔗 ${link}\n\n${tagString}`.trim();
+    const ctaText = 'Read the full article at https://lifemode.site/';
+    const formattedCaption = `${content.title}\n\n${bodyParagraph}\n\n${ctaText}\n🔗 ${link}\n\n${tagString}`.trim();
 
     const contentHash = hashString(formattedCaption);
     const idempotencyKey = createIdempotencyKey(content.topicId, this.platform, contentHash);

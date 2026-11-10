@@ -109,7 +109,7 @@ export class AIRouterFixtureProvider implements IAIProvider {
         { question: 'What is intentional lifestyle design?', answer: 'Focusing on signal over noise in daily choices and workflows.' }
       ],
       sources: [
-        { name: 'LifeMode Editorial Standards', url: 'https://lifemode.life/editorial-standards' }
+        { name: 'LifeMode Editorial Standards', url: 'https://lifemode.site/editorial-standards' }
       ],
       internalLinks: ['/life'],
       affiliateIntents: [],

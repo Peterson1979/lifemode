@@ -62,7 +62,7 @@ export class FreeNewsApiProvider extends BaseTopicDataProvider<NewsData> {
 
   protected getRequestHeaders(options: ProviderRequestOptions): Record<string, string> {
     const headers = super.getRequestHeaders(options);
-    headers['X-Agent'] = 'agent_name=LifeMode; purpose=topic_intelligence; contact=https://lifemode.life';
+    headers['X-Agent'] = 'agent_name=LifeMode; purpose=topic_intelligence; contact=https://lifemode.site';
     return headers;
   }
 

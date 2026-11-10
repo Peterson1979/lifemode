@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lifemode.life/sitemap-index.xml
+Sitemap: https://lifemode.site/sitemap-index.xml

@@ -559,6 +559,7 @@ export async function validateVisualRelevance(
         'images.pexels.com',
         'live.staticflickr.com',
         'r2.cloudflarestorage.com',
+        'lifemode.site',
         'lifemode.life',
         'localhost',
       ];
@@ -704,6 +705,7 @@ export function validateVisualRelevanceSync(
         'images.pexels.com',
         'live.staticflickr.com',
         'r2.cloudflarestorage.com',
+        'lifemode.site',
         'lifemode.life',
         'localhost',
       ];

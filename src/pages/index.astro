@@ -3,42 +3,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { CATEGORIES } from '../utils/categories';
 
 const categories = Object.values(CATEGORIES);
-const homepageCategories = categories.filter((category) =>
-  !['cleaning-laundry', 'storage-organization'].includes(category.id)
-);
 const utilityLinks = [
+  { href: '/guides/', icon: '📖', title: 'Guides', description: 'In-depth practical walkthroughs.' },
   { href: '/tools/', icon: '🛠️', title: 'Tools', description: 'Interactive decision helpers.' },
   { href: '/checklists/', icon: '📋', title: 'Checklists', description: 'Print-friendly routines.' },
+  { href: '/life-hacks/', icon: '🎬', title: 'Life Hacks', description: 'Practical video solutions.' },
+  { href: '/daily-ideas/', icon: '🛍️', title: 'Daily Ideas Store', description: 'Curated everyday essentials.' },
 ];
-const topicLinks = [
-  ...homepageCategories.map((category) => ({
-    href: `/${category.slug}/`,
-    icon: category.icon,
-    title: category.title,
-    description: category.description,
-    color: category.badgeColor,
-  })),
-  {
-    href: '/life-hacks/',
-    icon: '🎬',
-    title: 'Life Hacks',
-    description: 'Practical video demonstrations for useful everyday improvements.',
-    color: '#db2777',
-  },
-  {
-    href: '/daily-ideas/',
-    icon: '🛍️',
-    title: 'Daily Ideas Store',
-    description: 'A small set of practical recommendations selected for everyday use.',
-    color: '#ea580c',
-  },
-];
+const topicLinks = categories.map((category) => ({
+  href: `/${category.slug}/`,
+  icon: category.icon,
+  title: category.title,
+  description: category.description,
+  color: category.badgeColor,
+}));
 ---
 
 <BaseLayout
   title="LifeMode — Practical Tools, Checklists & Ideas for Modern Life"
   description="Practical answers for everyday decisions, problems, and tasks. Interactive tools, printable checklists, life hacks, and everyday ideas."
-  canonicalUrl="https://lifemode.life/"
+  canonicalUrl="https://lifemode.site/"
 >
   <!-- Hero Section -->
   <section class="hero-section">
@@ -212,19 +196,16 @@ const topicLinks = [
 
   .clusters-grid {
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
   }
-
-  .cluster-hub-card:nth-child(-n + 5) { grid-column: span 2; }
-  .cluster-hub-card:nth-child(4) { grid-column: 2 / span 2; }
-  .cluster-hub-card:nth-child(5) { grid-column: 4 / span 2; }
 
   .cluster-hub-card {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
-    min-height: 245px;
+    min-height: 250px;
+    height: 100%;
     padding: var(--space-6) var(--space-5);
     display: flex;
     flex-direction: column;
@@ -354,9 +335,9 @@ const topicLinks = [
 
   .utility-nav-links {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-5);
-    max-width: 880px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1rem;
+    max-width: 1100px;
     margin-inline: auto;
   }
 
@@ -368,8 +349,9 @@ const topicLinks = [
     justify-content: center;
     gap: 0.45rem;
     min-width: 0;
-    min-height: 170px;
-    padding: var(--space-6) var(--space-5);
+    min-height: 165px;
+    height: 100%;
+    padding: var(--space-6) var(--space-4);
     color: var(--color-text-primary);
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
@@ -402,21 +384,41 @@ const topicLinks = [
   .utility-nav-icon { font-size: 2rem; }
   .utility-nav-link strong,
   .utility-nav-link small { display: block; }
-  .utility-nav-link strong { font-size: 1.3rem; font-weight: 700; line-height: 1.25; }
-  .utility-nav-link small { margin-top: 0.15rem; color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.5; }
+  .utility-nav-link strong { font-size: 1.25rem; font-weight: 700; line-height: 1.25; }
+  .utility-nav-link small { margin-top: 0.15rem; color: var(--color-text-secondary); font-size: 0.85rem; line-height: 1.45; }
   .utility-nav-arrow { position: absolute; top: 1rem; right: 1rem; color: var(--color-text-muted); }
 
-  @media (max-width: 760px) {
+  @media (max-width: 992px) {
+    .clusters-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .utility-nav-links {
+      grid-template-columns: repeat(6, 1fr);
+      gap: var(--space-4);
+    }
+    .utility-nav-link:nth-child(-n + 3) {
+      grid-column: span 2;
+    }
+    .utility-nav-link:nth-child(4) {
+      grid-column: 2 / span 2;
+    }
+    .utility-nav-link:nth-child(5) {
+      grid-column: 4 / span 2;
+    }
+  }
+
+  @media (max-width: 640px) {
     .hero-section { padding: 2.75rem 0 2.25rem; }
     .hero-subheading { font-size: 1rem; }
     .clusters-section { padding-top: 2.5rem; }
-    .clusters-grid { grid-template-columns: 1fr; gap: 0.85rem; }
-    .cluster-hub-card:nth-child(4),
-    .cluster-hub-card:nth-child(5) { grid-column: auto; }
+    .clusters-grid { grid-template-columns: 1fr; gap: 1rem; }
     .cluster-hub-card { min-height: 0; }
     .utility-nav-block { padding-top: var(--space-5); }
-    .utility-nav-links { grid-template-columns: 1fr; }
-    .utility-nav-link { min-height: 145px; }
+    .utility-nav-links { grid-template-columns: 1fr; gap: 0.75rem; }
+    .utility-nav-link:nth-child(-n + 5) { grid-column: auto; }
+    .utility-nav-link { min-height: 140px; }
   }
 
   /* Tools Showcase */

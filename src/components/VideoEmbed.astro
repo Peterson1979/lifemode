@@ -24,7 +24,7 @@ const videoSchema = {
   '@type': 'VideoObject',
   name: video.title,
   description: video.description,
-  thumbnailUrl: video.thumbnail || (video.videoId ? `https://i.ytimg.com/vi/${video.videoId}/hqdefault.jpg` : 'https://lifemode.life/og-default.svg'),
+  thumbnailUrl: video.thumbnail || (video.videoId ? `https://i.ytimg.com/vi/${video.videoId}/hqdefault.jpg` : 'https://lifemode.site/og-default.svg'),
   uploadDate: '2026-01-01T00:00:00+00:00',
   duration: video.duration || 'PT2M30S',
   embedUrl: video.videoId ? `https://www.youtube-nocookie.com/embed/${video.videoId}` : video.url,

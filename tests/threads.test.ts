@@ -134,7 +134,7 @@ test('LifeMode Threads Integration & Cross-Project Distribution Test Suite', asy
     const pkg = await adapter.prepare(content, asset);
     assert.equal(pkg.platform, 'threads');
     assert.ok(pkg.caption.length <= 500, `Caption length (${pkg.caption.length}) must be <= 500`);
-    assert.ok(pkg.caption.includes('https://lifemode.life'));
+    assert.ok(pkg.caption.includes('Read the full article at https://lifemode.life/'));
     assert.ok(pkg.idempotencyKey.startsWith('lm-soc-top-mindful-sleep-threads-'));
 
     const validation = adapter.validate(pkg);

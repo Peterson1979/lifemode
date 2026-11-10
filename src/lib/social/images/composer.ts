@@ -243,7 +243,7 @@ export async function composeSocialCard(options: ComposeSocialCardOptions): Prom
   const height = options.format === '1080x1080' ? 1080 : 1350;
   const pillar = options.pillar || 'style';
   const theme = PILLAR_VISUAL_THEMES[pillar] || PILLAR_VISUAL_THEMES.style;
-  const ctaText = options.ctaText || 'Read the complete guide on lifemode.life';
+  const ctaText = options.ctaText || 'Read the complete guide on lifemode.site';
   const title = options.title || options.headlineOverlay || 'Contemporary Style & Beauty';
 
   // 1. Resolve & load pillar background
@@ -281,8 +281,13 @@ export async function composeSocialCard(options: ComposeSocialCardOptions): Prom
       } else if (typeof options.articleImage === 'string') {
         const imageSource = options.articleImage.trim();
         if (imageSource.startsWith('http://') || imageSource.startsWith('https://')) {
-          // If the URL points to lifemode.life canonical site, try local file first for speed and resilience
-          if (imageSource.startsWith('https://lifemode.life/') || imageSource.startsWith('http://lifemode.life/')) {
+          // If the URL points to lifemode canonical site, try local file first for speed and resilience
+          if (
+            imageSource.startsWith('https://lifemode.site/') ||
+            imageSource.startsWith('http://lifemode.site/') ||
+            imageSource.startsWith('https://lifemode.life/') ||
+            imageSource.startsWith('http://lifemode.life/')
+          ) {
             try {
               const urlPath = new URL(imageSource).pathname;
               rawImageBuffer = await loadLocalImage(urlPath, options.baseDir);
@@ -415,7 +420,7 @@ export async function composeSocialCard(options: ComposeSocialCardOptions): Prom
       <g transform="translate(70, 1205)">
         <rect width="940" height="76" rx="38" fill="#0a0a0e" fill-opacity="0.80" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1.2" />
         <text x="40" y="49" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="${ctaFontSize}" font-weight="600" fill="#d4d4d8">${escapeXml(ctaText)}</text>
-        <text x="900" y="49" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" letter-spacing="1" fill="${theme.accentColor}">lifemode.life &#x2192;</text>
+        <text x="900" y="49" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="800" letter-spacing="1" fill="${theme.accentColor}">lifemode.site &#x2192;</text>
       </g>
     </svg>
   `;

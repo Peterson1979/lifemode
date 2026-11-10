@@ -4,7 +4,7 @@ export class FixtureSocialAssetStorageProvider implements ISocialAssetStoragePro
   readonly name = 'Fixture Social Asset Storage Provider';
   private publicBaseUrl: string;
 
-  constructor(publicBaseUrl: string = 'https://media.lifemode.life') {
+  constructor(publicBaseUrl: string = 'https://media.lifemode.site') {
     this.publicBaseUrl = publicBaseUrl.replace(/\/$/, '');
   }
 

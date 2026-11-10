@@ -165,7 +165,7 @@ export class WebEditorialResearchProvider implements IEditorialResearchProvider 
 
       const response = await this.fetchFn(endpoint, {
         headers: {
-          'User-Agent': 'LifeMode-Editorial-Research/1.0 (+https://lifemode.life; editorial@lifemode.life)',
+          'User-Agent': 'LifeMode-Editorial-Research/1.0 (+https://lifemode.site; editorial@lifemode.site)',
           Accept: 'application/rss+xml, application/xml, text/xml',
         },
         signal,
@@ -323,7 +323,7 @@ export class WebEditorialResearchProvider implements IEditorialResearchProvider 
 
     if (selectedItems.length === 0) {
       // Fallback to high-level standards reference if needed
-      const fallbackUrl = `https://lifemode.life/editorial-standards/${topic.pillar}`;
+      const fallbackUrl = `https://lifemode.site/editorial-standards/${topic.pillar}`;
       return {
         topicId: topic.id,
         required: true,

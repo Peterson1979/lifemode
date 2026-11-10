@@ -464,15 +464,23 @@ export async function runGuideSocialPipeline(
       guide.slug
     );
 
-    const destinationUrl =
-      opportunity.destinationUrl ||
-      resolveDestinationUrl(config.baseUrl, {
+    let destinationUrl: string;
+    try {
+      destinationUrl = resolveDestinationUrl(config.baseUrl, {
         pillar: routing.pillar,
         slug: guide.slug,
         publicRoute: routing.publicRoute,
         publicSection: routing.publicSection,
+        destinationUrl: opportunity.destinationUrl,
         isGuide: true,
       });
+    } catch (error: unknown) {
+      const reason = error instanceof Error ? error.message : String(error);
+      console.error(
+        `[Guide Social] Skipping ${guide.slug}: invalid canonical destination URL. ${reason}`
+      );
+      continue;
+    }
 
     const topicId = opportunity.topicId;
     const description =
@@ -559,7 +567,7 @@ export async function runGuideSocialPipeline(
         headlineOverlay: undefined,
         articleTitle: guide.frontmatter.title,
         category: routing.pillar,
-        ctaText: 'Read the complete guide on lifemode.life',
+        ctaText: 'Read the complete guide on lifemode.site',
       });
 
       if (!imageResult.success || !imageResult.asset) {
@@ -587,7 +595,7 @@ export async function runGuideSocialPipeline(
       asset = {
         assetId: `asset-${topicId}-${fallbackHash.slice(0, 8)}`,
         assetHash: fallbackHash,
-        url: `${config.storageConfig.publicBaseUrl || 'https://pub-assets.lifemode.life'}/social/guides/${guide.slug}.jpg`,
+        url: `${config.storageConfig.publicBaseUrl || 'https://pub-assets.lifemode.site'}/social/guides/${guide.slug}.jpg`,
         width: 1080,
         height: 1350,
         format: '1080x1350',

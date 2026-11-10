@@ -72,7 +72,7 @@ export class RedditSocialDiscoveryAdapter implements IDiscoveryAdapter {
 
         const response = await fetchImpl(url, {
           headers: {
-            'User-Agent': 'LifeMode-Editorial-Bot/1.0 (contact: editorial@lifemode.life; unauthenticated discovery)',
+            'User-Agent': 'LifeMode-Editorial-Bot/1.0 (contact: editorial@lifemode.site; unauthenticated discovery)',
             Accept: 'application/json',
           },
           signal,

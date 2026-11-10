@@ -210,7 +210,7 @@ export abstract class BaseTopicDataProvider<T = unknown> {
   protected getRequestHeaders(_options: ProviderRequestOptions): Record<string, string> {
     return {
       Accept: 'application/json',
-      'User-Agent': 'LifeMode/1.0 (https://lifemode.life; topic-data)',
+      'User-Agent': 'LifeMode/1.0 (https://lifemode.site; topic-data)',
     };
   }
 
