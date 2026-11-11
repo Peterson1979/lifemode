@@ -284,8 +284,11 @@ function formatInlineMarkdown(text: string): string {
   // Strikethrough
   res = res.replace(/~~([^~]+)~~/g, '<del>$1</del>');
 
+  // Images: ![alt](url)
+  res = res.replace(/!\[([^\]]*)\]\((https?:\/\/[^\s\)]+|\/[^\s\)]+)\)/g, '<img src="$2" alt="$1" class="article-body-img" style="max-width:100%;border-radius:8px;margin:1rem 0;" />');
+
   // Links
-  res = res.replace(/\[([^\]]+)\]\((https?:\/\/[^\s\)]+|\/[^\s\)]+)\)/g, '<a href="$2" rel="noopener noreferrer" target="_blank">$1</a>');
+  res = res.replace(/(?<!!)(?:\[([^\]]+)\])\((https?:\/\/[^\s\)]+|\/[^\s\)]+)\)/g, '<a href="$2" rel="noopener noreferrer" target="_blank">$1</a>');
 
   return res;
 }

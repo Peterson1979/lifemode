@@ -1,0 +1,34 @@
+[
+  {
+    "id": "med-98efd0a0",
+    "fileName": "test-printable-checklist.pdf",
+    "url": "/images/guides/test-printable-checklist-98efd0a0397d.pdf",
+    "mimeType": "application/pdf",
+    "size": 328,
+    "uploadedAt": "2026-11-11T11:20:05.172Z"
+  },
+  {
+    "id": "med-ee60ec4f",
+    "fileName": "qa-runtime-verify-checklist.pdf",
+    "url": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/guides/qa-runtime-verify-checklist-98efd0a0397d.pdf",
+    "mimeType": "application/pdf",
+    "size": 328,
+    "uploadedAt": "2026-11-11T11:02:29.162Z"
+  },
+  {
+    "id": "med-72a00412",
+    "fileName": "qa-runtime-verify.png",
+    "url": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/guides/qa-runtime-verify-fbc5695cdd68.png",
+    "mimeType": "image/png",
+    "size": 103,
+    "uploadedAt": "2026-11-11T10:34:54.147Z"
+  },
+  {
+    "id": "med-735e3c8b",
+    "fileName": "test-pixel.png",
+    "url": "/images/guides/test-pixel-6b7fa434f92a.png",
+    "mimeType": "image/png",
+    "size": 70,
+    "uploadedAt": "2026-11-11T10:56:48.315Z"
+  }
+]
