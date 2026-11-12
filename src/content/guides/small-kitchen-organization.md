@@ -1,31 +1,39 @@
 ---
-title: "Small Kitchen Organization: A Practical Planning Guide"
-description: "Make a small kitchen easier to use with practical decluttering steps, smarter cabinet storage, budget-friendly ideas, and a simple weekend plan."
-pubDate: "2026-10-28"
-author: "LifeMode Editorial"
-tags: ["kitchen", "organization", "decluttering", "storage", "home"]
+title: 'Small Kitchen Organization: A Practical Planning Guide'
+description: Make a small kitchen easier to use with practical decluttering steps, smarter cabinet storage, budget-friendly ideas, and a simple weekend plan.
+pubDate: '2026-10-28'
+author: LifeMode Editorial
+tags: []
 draft: false
-format: "practical-guide"
-category: "home-organization"
-primaryIntent: "informational"
-primaryKeyword: "small kitchen organization"
-readingTime: "19 min read"
-contentType: "reference"
-difficulty: "Easy"
-timeNeeded: "Weekend project"
-quickSummary: "A practical guide to organizing a small kitchen by decluttering, grouping items around everyday tasks, improving cabinet and counter storage, choosing useful organizers, and following a manageable weekend plan."
-lifecycleStatus: "PUBLISHED"
+format: practical-guide
+category: home-organization
+primaryIntent: informational
+primaryKeyword: small kitchen organization
+readingTime: 19 min read
+contentType: reference
+difficulty: Easy
+timeNeeded: Weekend project
+quickSummary: A practical guide to organizing a small kitchen by decluttering, grouping items around everyday tasks, improving cabinet and counter storage, choosing useful organizers, and following a manageable weekend plan.
+lifecycleStatus: PUBLISHED
 relatedGuides:
-  - "small-pantry-organization"
-  - "small-closet-organization"
-  - "how-to-organize-your-refrigerator"
+  - small-pantry-organization
+  - small-closet-organization
+  - how-to-organize-your-refrigerator
 relatedTools:
-  - "small-space-storage-planner"
+  - small-space-storage-planner
 relatedChecklists:
-  - "pantry-organization-cheat-sheet"
-  - "kitchen-deep-clean-checklist"
+  - pantry-organization-cheat-sheet
+  - kitchen-deep-clean-checklist
 relatedVideos:
-  - "repair-stripped-screw-hole"
+  - repair-stripped-screw-hole
+seoTitle: 'Small Kitchen Organization: A Practical Planning Guide'
+seoDescription: Make a small kitchen easier to use with practical decluttering steps, smarter cabinet storage, budget-friendly ideas, and a simple weekend plan.
+publishedDate: '2026-10-28'
+updatedDate: '2026-11-12'
+readTime: 19 min read
+image: /images/guides/Small-Kitchen-a4fa5f1b3ba9.jpg
+imageAlt: 'Small Kitchen Organization: A Practical Planning Guide'
+summary: Make a small kitchen easier to use with practical decluttering steps, smarter cabinet storage, budget-friendly ideas, and a simple weekend plan.
 ---
 
 A small kitchen can work surprisingly well when every item has a clear purpose and a practical place to live. You do not necessarily need more cabinets, expensive organizers, or a complete renovation. In many cases, the biggest improvement comes from changing how you use the space you already have.

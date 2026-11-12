@@ -1,30 +1,39 @@
 ---
-title: "How to Unclog a Slow Bathroom Sink: A Practical Guide"
-description: "Learn how to diagnose and clear a slow bathroom sink using practical cleaning methods, with safety advice and signs that you may need a plumber."
-pubDate: "2026-10-29"
+title: 'How to Unclog a Slow Bathroom Sink: A Practical Guide'
+description: Learn how to diagnose and clear a slow bathroom sink using practical cleaning methods, with safety advice and signs that you may need a plumber.
+pubDate: '2026-10-29'
 draft: false
-lifecycleStatus: "PUBLISHED"
-format: "practical-guide"
-category: "home-maintenance"
-primaryIntent: "informational"
-contentType: "reference"
-difficulty: "Easy"
-timeNeeded: "15–45 minutes, depending on the cause"
-readingTime: "7 min read"
-primaryKeyword: "how to unclog a slow bathroom sink"
-author: "LifeMode Editorial"
-tags: ["bathroom cleaning", "home maintenance", "plumbing", "drain cleaning", "DIY"]
-quickSummary: "A step-by-step guide to diagnosing and clearing a slow bathroom sink, from removing hair and cleaning the stopper to checking the drain trap safely and knowing when to call a plumber."
+lifecycleStatus: PUBLISHED
+format: practical-guide
+category: home-maintenance
+primaryIntent: informational
+contentType: reference
+difficulty: Easy
+timeNeeded: 15–45 minutes, depending on the cause
+readingTime: 7 min read
+primaryKeyword: how to unclog a slow bathroom sink
+author: LifeMode Editorial
+tags: []
+quickSummary: A step-by-step guide to diagnosing and clearing a slow bathroom sink, from removing hair and cleaning the stopper to checking the drain trap safely and knowing when to call a plumber.
 relatedGuides:
-  - "how-to-clean-a-showerhead"
-  - "how-to-recaulk-a-bathtub-or-shower"
+  - how-to-clean-a-showerhead
+  - how-to-recaulk-a-bathtub-or-shower
 relatedTools:
-  - "seasonal-maintenance-planner"
+  - seasonal-maintenance-planner
 relatedChecklists:
-  - "master-seasonal-home-checklist"
+  - master-seasonal-home-checklist
 relatedVideos:
-  - "unclog-any-drain-ask-toh"
+  - unclog-any-drain-ask-toh
+seoTitle: 'How to Unclog a Slow Bathroom Sink: A Practical Guide'
+seoDescription: Learn how to diagnose and clear a slow bathroom sink using practical cleaning methods, with safety advice and signs that you may need a plumber.
+publishedDate: '2026-10-29'
+updatedDate: '2026-11-12'
+readTime: 7 min read
+image: /images/guides/Slow-Bathroom-Sink-3fedb7fe4ffd.jpg
+imageAlt: 'How to Unclog a Slow Bathroom Sink: A Practical Guide'
+summary: Learn how to diagnose and clear a slow bathroom sink using practical cleaning methods, with safety advice and signs that you may need a plumber.
 ---
+
 A bathroom sink that drains slowly is a common household problem. Hair, soap residue, toothpaste, and other debris can gradually collect around the stopper or inside the drain. The water may still disappear eventually, but the delay is often a sign that the drain needs attention.
 
 In many cases, you can improve drainage with a few straightforward cleaning steps. The key is to start with the simplest likely cause, avoid damaging the plumbing, and stop if the problem appears to be deeper in the drainage system.

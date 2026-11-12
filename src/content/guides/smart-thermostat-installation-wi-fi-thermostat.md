@@ -1,29 +1,37 @@
 ---
-title: "Smart Thermostat Installation: How to Replace and Set Up a Wi-Fi Thermostat"
-description: "Step-by-step guide to installing a smart Wi-Fi thermostat: HVAC compatibility checks, C-wire requirements, safe wiring steps, app setup, and scheduling."
-pubDate: "2026-11-09"
+title: 'Smart Thermostat Installation: How to Replace and Set Up a Wi-Fi Thermostat'
+description: 'Step-by-step guide to installing a smart Wi-Fi thermostat: HVAC compatibility checks, C-wire requirements, safe wiring steps, app setup, and scheduling.'
+pubDate: '2026-11-09'
 draft: false
-lifecycleStatus: "PUBLISHED"
-format: "practical-guide"
-category: "smart-home"
-primaryIntent: "informational"
-contentType: "protocol"
-difficulty: "Moderate"
-timeNeeded: "45–60 minutes"
-readingTime: "8 min read"
-primaryKeyword: "smart thermostat installation"
-author: "LifeMode Editorial"
-tags: ["smart thermostat", "smart home", "wi-fi thermostat", "home automation", "hvac"]
-quickSummary: "Learn how to replace a traditional thermostat with a Wi-Fi model, verify 24V low-voltage and C-wire compatibility, wire safely, and set up an efficient heating schedule."
+lifecycleStatus: PUBLISHED
+format: practical-guide
+category: smart-home
+primaryIntent: informational
+contentType: protocol
+difficulty: Moderate
+timeNeeded: 45–60 minutes
+readingTime: 8 min read
+primaryKeyword: smart thermostat installation
+author: LifeMode Editorial
+tags: []
+quickSummary: Learn how to replace a traditional thermostat with a Wi-Fi model, verify 24V low-voltage and C-wire compatibility, wire safely, and set up an efficient heating schedule.
 relatedGuides:
-  - "smart-home-wireless-protocols-explained"
-  - "how-to-prepare-your-home-for-winter"
+  - smart-home-wireless-protocols-explained
+  - how-to-prepare-your-home-for-winter
 relatedTools:
-  - "seasonal-maintenance-planner"
+  - seasonal-maintenance-planner
 relatedChecklists:
-  - "master-seasonal-home-checklist"
+  - master-seasonal-home-checklist
 relatedVideos:
-  - "repair-stripped-screw-hole"
+  - repair-stripped-screw-hole
+seoTitle: 'Smart Thermostat Installation: How to Replace and Set Up a Wi-Fi Thermostat'
+seoDescription: 'Step-by-step guide to installing a smart Wi-Fi thermostat: HVAC compatibility checks, C-wire requirements, safe wiring steps, app setup, and scheduling.'
+publishedDate: '2026-11-09'
+updatedDate: '2026-11-12'
+readTime: 8 min read
+image: /images/guides/Wi-Fi-Thermostat-bcaf4c0d86a4.jpg
+imageAlt: 'Smart Thermostat Installation: How to Replace and Set Up a Wi-Fi Thermostat'
+summary: 'Step-by-step guide to installing a smart Wi-Fi thermostat: HVAC compatibility checks, C-wire requirements, safe wiring steps, app setup, and scheduling.'
 ---
 
 A smart thermostat can make home temperature control more convenient, help reduce unnecessary heating and cooling, and give you more control over your energy schedule. However, replacing a traditional thermostat is not simply a matter of removing one device and attaching another. Before buying or installing a Wi-Fi thermostat, you need to check your heating system, wiring, and compatibility.
@@ -199,4 +207,3 @@ Replacing a traditional thermostat with a Wi-Fi model can improve convenience an
 Check the wiring, identify the C-wire, follow the manufacturer's instructions, and use a professional installer if you are not comfortable working with HVAC wiring.
 
 A properly installed smart thermostat should make everyday temperature control simpler without introducing unnecessary complexity. Explore our [Smart Home Hub](/smart-home/) for more practical guides on modern connected home devices.
-

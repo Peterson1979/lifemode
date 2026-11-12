@@ -7,7 +7,7 @@ lifecycleStatus: PUBLISHED
 format: practical-guide
 category: home-garden
 primaryIntent: informational
-contentType: guide
+contentType: explainer
 difficulty: Easy
 timeNeeded: 10 min read
 readingTime: 10 min read

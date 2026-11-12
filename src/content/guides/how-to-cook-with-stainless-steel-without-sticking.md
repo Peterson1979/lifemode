@@ -7,7 +7,7 @@ lifecycleStatus: PUBLISHED
 format: practical-guide
 category: food-kitchen
 primaryIntent: informational
-contentType: guide
+contentType: protocol
 difficulty: Easy
 timeNeeded: 5–10 minutes preheating and prep
 readingTime: 7 min read

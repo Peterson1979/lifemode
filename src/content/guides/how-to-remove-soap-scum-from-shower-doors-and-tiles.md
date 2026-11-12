@@ -1,27 +1,36 @@
 ---
-title: "How to Remove Soap Scum from Shower Doors and Tiles"
-description: "Learn how to remove soap scum from shower doors and tiles using practical cleaning methods suited to different bathroom surfaces."
-pubDate: "2026-10-29"
+title: How to Remove Soap Scum from Shower Doors and Tiles
+description: Learn how to remove soap scum from shower doors and tiles using practical cleaning methods suited to different bathroom surfaces.
+pubDate: '2026-10-29'
 draft: false
-lifecycleStatus: "PUBLISHED"
-format: "practical-guide"
-category: "cleaning-laundry"
-primaryIntent: "informational"
-contentType: "reference"
-difficulty: "Easy"
-timeNeeded: "15–30 minutes, depending on buildup"
-readingTime: "7 min read"
-primaryKeyword: "how to remove soap scum"
-author: "LifeMode Editorial"
-tags: ["bathroom cleaning", "shower cleaning", "soap scum", "glass cleaning", "home maintenance"]
-quickSummary: "A practical guide to removing soap scum from shower doors and tiles, choosing surface-safe cleaners, preventing streaks, and avoiding damage to glass, grout, stone, and decorative finishes."
+lifecycleStatus: PUBLISHED
+format: practical-guide
+category: cleaning-laundry
+primaryIntent: informational
+contentType: reference
+difficulty: Easy
+timeNeeded: 15–30 minutes, depending on buildup
+readingTime: 7 min read
+primaryKeyword: how to remove soap scum
+author: LifeMode Editorial
+tags: []
+quickSummary: A practical guide to removing soap scum from shower doors and tiles, choosing surface-safe cleaners, preventing streaks, and avoiding damage to glass, grout, stone, and decorative finishes.
 relatedGuides:
-  - "how-to-clean-a-showerhead"
+  - how-to-clean-a-showerhead
 relatedTools:
-  - "seasonal-maintenance-planner"
+  - seasonal-maintenance-planner
 relatedChecklists:
-  - "master-seasonal-home-checklist"
+  - master-seasonal-home-checklist
+seoTitle: How to Remove Soap Scum from Shower Doors and Tiles
+seoDescription: Learn how to remove soap scum from shower doors and tiles using practical cleaning methods suited to different bathroom surfaces.
+publishedDate: '2026-10-29'
+updatedDate: '2026-11-12'
+readTime: 7 min read
+image: /images/guides/Shower-Doors-ca47cd90eb4f.jpg
+imageAlt: How to Remove Soap Scum from Shower Doors and Tiles
+summary: Learn how to remove soap scum from shower doors and tiles using practical cleaning methods suited to different bathroom surfaces.
 ---
+
 Soap scum can make shower doors look cloudy and leave bathroom tiles with a dull, sticky film. Regular rinsing helps, but soap residue, body oils, and minerals in hard water can gradually build up on surfaces that stay wet frequently.
 
 The most effective cleaning method depends on the surface. Glass, ceramic tile, porcelain, grout, and natural stone do not all respond to the same products. A cleaner that works well on one material may damage another.

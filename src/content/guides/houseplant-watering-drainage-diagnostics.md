@@ -1,29 +1,37 @@
 ---
-title: "Why Is Your Houseplant Dying? How to Diagnose Overwatering, Underwatering and Drainage Problems"
-description: "Learn how to diagnose houseplant watering and drainage issues. Identify overwatering vs. underwatering symptoms, test root moisture, fix drainage, and prevent root rot."
-pubDate: "2026-11-09"
+title: Why Is Your Houseplant Dying? How to Diagnose Overwatering, Underwatering and Drainage Problems
+description: Learn how to diagnose houseplant watering and drainage issues. Identify overwatering vs. underwatering symptoms, test root moisture, fix drainage, and prevent root rot.
+pubDate: '2026-11-09'
 draft: false
-lifecycleStatus: "PUBLISHED"
-format: "practical-guide"
-category: "home-garden"
-primaryIntent: "informational"
-contentType: "protocol"
-difficulty: "Easy"
-timeNeeded: "15–20 minutes"
-readingTime: "8 min read"
-primaryKeyword: "houseplant watering drainage diagnostics"
-author: "LifeMode Editorial"
-tags: ["houseplants", "indoor plants", "plant care", "drainage", "home and garden"]
-quickSummary: "Diagnose whether your indoor houseplant suffers from overwatering, underwatering, or poor container drainage, and learn how to restore healthy root aeration."
+lifecycleStatus: PUBLISHED
+format: practical-guide
+category: home-garden
+primaryIntent: informational
+contentType: protocol
+difficulty: Easy
+timeNeeded: 15–20 minutes
+readingTime: 8 min read
+primaryKeyword: houseplant watering drainage diagnostics
+author: LifeMode Editorial
+tags: []
+quickSummary: Diagnose whether your indoor houseplant suffers from overwatering, underwatering, or poor container drainage, and learn how to restore healthy root aeration.
 relatedGuides:
-  - "houseplant-light-requirements-indoor-plants"
-  - "how-to-prepare-your-home-for-winter"
+  - houseplant-light-requirements-indoor-plants
+  - how-to-prepare-your-home-for-winter
 relatedTools:
-  - "seasonal-maintenance-planner"
+  - seasonal-maintenance-planner
 relatedChecklists:
-  - "master-seasonal-home-checklist"
+  - master-seasonal-home-checklist
 relatedVideos:
-  - "fresh-herbs-storage-guide"
+  - fresh-herbs-storage-guide
+seoTitle: Why Is Your Houseplant Dying? How to Diagnose Overwatering, Underwatering and Drainage Problems
+seoDescription: Learn how to diagnose houseplant watering and drainage issues. Identify overwatering vs. underwatering symptoms, test root moisture, fix drainage, and prevent root rot.
+publishedDate: '2026-11-09'
+updatedDate: '2026-11-12'
+readTime: 8 min read
+image: /images/guides/Houseplant-Dying-ffef8ef3d3b3.jpg
+imageAlt: Why Is Your Houseplant Dying? How to Diagnose Overwatering, Underwatering and Drainage Problems
+summary: Learn how to diagnose houseplant watering and drainage issues. Identify overwatering vs. underwatering symptoms, test root moisture, fix drainage, and prevent root rot.
 ---
 
 A houseplant with yellow leaves, drooping stems, or brown leaf edges is not necessarily asking for more water. In fact, overwatering is one of the most common reasons indoor plants decline. The difficulty is that both too much and too little water can cause wilting, yellowing, and leaf loss.
@@ -222,4 +230,3 @@ A struggling houseplant does not always need more water. The real problem may be
 Check moisture below the surface, make sure excess water can escape, and look at the roots when symptoms persist. A soil moisture meter such as the XLUX can provide an additional reference point, but careful observation remains essential.
 
 The goal is not to water more often. It is to give each plant the right amount of moisture while keeping its roots healthy and properly aerated. Explore our [Home & Garden Hub](/home-garden/) for more practical guides on indoor plants and home gardening.
-

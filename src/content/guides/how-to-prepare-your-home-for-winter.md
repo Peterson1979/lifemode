@@ -1,30 +1,38 @@
 ---
-title: "How to Prepare Your Home for Winter: A Practical Room-by-Room Checklist"
-description: "Prepare your home for freezing weather with a practical inspection guide covering drafts, pipe insulation, heating checks, roof drainage, and safety alarms."
-pubDate: "2026-11-09"
+title: 'How to Prepare Your Home for Winter: A Practical Room-by-Room Checklist'
+description: Prepare your home for freezing weather with a practical inspection guide covering drafts, pipe insulation, heating checks, roof drainage, and safety alarms.
+pubDate: '2026-11-09'
 draft: false
-lifecycleStatus: "PUBLISHED"
-format: "practical-guide"
-category: "home-maintenance"
-primaryIntent: "informational"
-contentType: "protocol"
-difficulty: "Easy"
-timeNeeded: "1–2 weekends before freezing weather"
-readingTime: "8 min read"
-primaryKeyword: "how to prepare your home for winter"
-author: "LifeMode Editorial"
-tags: ["winter preparation", "home maintenance", "pipe insulation", "draft sealing", "heating check"]
-quickSummary: "A comprehensive cold-weather preparation guide covering window draft sealing, frozen pipe prevention, heating system checks, gutter cleaning, and seasonal safety routines."
+lifecycleStatus: PUBLISHED
+format: practical-guide
+category: home-maintenance
+primaryIntent: informational
+contentType: protocol
+difficulty: Easy
+timeNeeded: 1–2 weekends before freezing weather
+readingTime: 8 min read
+primaryKeyword: how to prepare your home for winter
+author: LifeMode Editorial
+tags: []
+quickSummary: A comprehensive cold-weather preparation guide covering window draft sealing, frozen pipe prevention, heating system checks, gutter cleaning, and seasonal safety routines.
 relatedGuides:
-  - "how-to-recaulk-a-bathtub-or-shower"
-  - "how-to-unclog-a-slow-bathroom-sink"
+  - how-to-recaulk-a-bathtub-or-shower
+  - how-to-unclog-a-slow-bathroom-sink
 relatedTools:
-  - "seasonal-maintenance-planner"
+  - seasonal-maintenance-planner
 relatedChecklists:
-  - "master-seasonal-home-checklist"
+  - master-seasonal-home-checklist
 relatedVideos:
-  - "repair-stripped-screw-hole"
-  - "replace-polybutylene-piping"
+  - repair-stripped-screw-hole
+  - replace-polybutylene-piping
+seoTitle: 'How to Prepare Your Home for Winter: A Practical Room-by-Room Checklist'
+seoDescription: Prepare your home for freezing weather with a practical inspection guide covering drafts, pipe insulation, heating checks, roof drainage, and safety alarms.
+publishedDate: '2026-11-09'
+updatedDate: '2026-11-12'
+readTime: 8 min read
+image: /images/guides/How-to-Prepare-Your-Home-for-W-5dfa9d167224.jpg
+imageAlt: 'How to Prepare Your Home for Winter: A Practical Room-by-Room Checklist'
+summary: Prepare your home for freezing weather with a practical inspection guide covering drafts, pipe insulation, heating checks, roof drainage, and safety alarms.
 ---
 
 Cold weather puts extra pressure on your home's heating system, plumbing, windows, roof, and exterior. A little preparation before temperatures drop can help prevent frozen pipes, reduce uncomfortable drafts, and make winter maintenance easier.
@@ -205,4 +213,3 @@ A short inspection and a few targeted repairs can make your home more comfortabl
 - [ENERGY STAR – Locating Air Leaks](https://www.energystar.gov/saveathome/seal_insulate/do-it-yourself-guide/locating-air-leaks)
 - [U.S. Department of Energy – Whole-House Weatherization](https://www.energy.gov/cmei/scep/wap/whole-house-weatherization)
 - [3M – Indoor Window Insulator Kit](https://www.3m.com/3M/en_US/p/d/v000241377/)
-

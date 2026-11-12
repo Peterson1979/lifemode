@@ -1,31 +1,39 @@
 ---
-title: "How to Recaulk a Bathtub or Shower: Remove Old Sealant and Apply a Clean, Waterproof Bead"
-description: "Learn how to remove deteriorated bathroom caulk, prep and dry joints, apply 100% silicone sealant, and create a smooth waterproof seal around tubs and showers."
-pubDate: "2026-11-09"
+title: 'How to Recaulk a Bathtub or Shower: Remove Old Sealant and Apply a Clean, Waterproof Bead'
+description: Learn how to remove deteriorated bathroom caulk, prep and dry joints, apply 100% silicone sealant, and create a smooth waterproof seal around tubs and showers.
+pubDate: '2026-11-09'
 draft: false
-lifecycleStatus: "PUBLISHED"
-format: "practical-guide"
-category: "home-maintenance"
-primaryIntent: "informational"
-contentType: "protocol"
-difficulty: "Easy"
-timeNeeded: "45–60 minutes plus 24-hour cure time"
-readingTime: "8 min read"
-primaryKeyword: "how to recaulk a bathtub or shower"
-author: "LifeMode Editorial"
-tags: ["caulk", "bathroom maintenance", "silicone sealant", "shower repair", "waterproofing"]
-quickSummary: "A practical guide to removing old bathtub and shower caulk, cleaning the joint, applying a waterproof silicone bead, and allowing proper cure time to prevent water damage."
+lifecycleStatus: PUBLISHED
+format: practical-guide
+category: home-maintenance
+primaryIntent: informational
+contentType: protocol
+difficulty: Easy
+timeNeeded: 45–60 minutes plus 24-hour cure time
+readingTime: 8 min read
+primaryKeyword: how to recaulk a bathtub or shower
+author: LifeMode Editorial
+tags: []
+quickSummary: A practical guide to removing old bathtub and shower caulk, cleaning the joint, applying a waterproof silicone bead, and allowing proper cure time to prevent water damage.
 relatedGuides:
-  - "how-to-prepare-your-home-for-winter"
-  - "how-to-unclog-a-slow-bathroom-sink"
-  - "how-to-remove-soap-scum-from-shower-doors-and-tiles"
+  - how-to-prepare-your-home-for-winter
+  - how-to-unclog-a-slow-bathroom-sink
+  - how-to-remove-soap-scum-from-shower-doors-and-tiles
 relatedTools:
-  - "seasonal-maintenance-planner"
+  - seasonal-maintenance-planner
 relatedChecklists:
-  - "master-seasonal-home-checklist"
+  - master-seasonal-home-checklist
 relatedVideos:
-  - "unclog-any-drain-ask-toh"
-  - "patch-drywall-hole-guide"
+  - unclog-any-drain-ask-toh
+  - patch-drywall-hole-guide
+seoTitle: 'How to Recaulk a Bathtub or Shower: Remove Old Sealant and Apply a Clean, Waterproof Bead'
+seoDescription: Learn how to remove deteriorated bathroom caulk, prep and dry joints, apply 100% silicone sealant, and create a smooth waterproof seal around tubs and showers.
+publishedDate: '2026-11-09'
+updatedDate: '2026-11-12'
+readTime: 8 min read
+image: /images/guides/Bathtub-or-Shower2-975547b0bec3.jpg
+imageAlt: 'How to Recaulk a Bathtub or Shower: Remove Old Sealant and Apply a Clean, Waterproof Bead'
+summary: Learn how to remove deteriorated bathroom caulk, prep and dry joints, apply 100% silicone sealant, and create a smooth waterproof seal around tubs and showers.
 ---
 
 The sealant around a bathtub or shower does more than create a neat finish. It helps prevent water from entering the gaps between the tub, shower tray, walls, and surrounding surfaces.
@@ -218,4 +226,3 @@ If you discover water damage, loose tiles, or persistent moisture behind the joi
 - [GE Sealants – Advanced Silicone 2 Kitchen & Bath](https://gesealants.com/products/advanced-silicone-2-kitchen-bath-sealant/)
 - [GE Sealants – Frequently Asked Questions](https://gesealants.com/Frequently-asked-questions/)
 - [GE Advanced Silicone 2 – Technical Data Sheet](https://gesealants.com/wp-content/uploads/2023/04/Advanced-Silicone-2-Kitchen-Bath-Sealant-Technical-Data-Sheet.pdf)
-

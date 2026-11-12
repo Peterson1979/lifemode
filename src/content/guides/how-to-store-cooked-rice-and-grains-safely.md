@@ -1,31 +1,40 @@
 ---
-title: "How to Store Cooked Rice and Grains Safely: Cooling, Refrigeration and Reheating"
-description: "Learn how to cool, refrigerate, freeze, and reheat cooked rice and grains safely. Prevent food poisoning with practical temperature control and storage times."
-pubDate: "2026-11-08"
+title: 'How to Store Cooked Rice and Grains Safely: Cooling, Refrigeration and Reheating'
+description: Learn how to cool, refrigerate, freeze, and reheat cooked rice and grains safely. Prevent food poisoning with practical temperature control and storage times.
+pubDate: '2026-11-08'
 draft: false
-lifecycleStatus: "PUBLISHED"
-format: "practical-guide"
-category: "food-kitchen"
-primaryIntent: "informational"
-contentType: "protocol"
-difficulty: "Easy"
-timeNeeded: "10–15 minutes plus cooling time"
-readingTime: "6 min read"
-primaryKeyword: "how to store cooked rice safely"
-author: "LifeMode Editorial"
-tags: ["rice storage", "food safety", "meal prep", "food storage", "kitchen tips"]
-quickSummary: "A practical food-safety guide on how to safely cool, refrigerate, freeze, and reheat cooked rice and other grains, including key UK and US guidelines on storage times."
+lifecycleStatus: PUBLISHED
+format: practical-guide
+category: food-kitchen
+primaryIntent: informational
+contentType: protocol
+difficulty: Easy
+timeNeeded: 10–15 minutes plus cooling time
+readingTime: 6 min read
+primaryKeyword: how to store cooked rice safely
+author: LifeMode Editorial
+tags: []
+quickSummary: A practical food-safety guide on how to safely cool, refrigerate, freeze, and reheat cooked rice and other grains, including key UK and US guidelines on storage times.
 relatedGuides:
-  - "how-to-organize-your-refrigerator"
-  - "how-to-clean-and-maintain-kitchen-knives"
+  - how-to-organize-your-refrigerator
+  - how-to-clean-and-maintain-kitchen-knives
 relatedTools:
-  - "food-storage-calculator"
+  - food-storage-calculator
 relatedChecklists:
-  - "kitchen-deep-clean-checklist"
-  - "pantry-organization-cheat-sheet"
+  - kitchen-deep-clean-checklist
+  - pantry-organization-cheat-sheet
 relatedVideos:
-  - "fresh-herbs-storage-guide"
+  - fresh-herbs-storage-guide
+seoTitle: 'How to Store Cooked Rice and Grains Safely: Cooling, Refrigeration and Reheating'
+seoDescription: Learn how to cool, refrigerate, freeze, and reheat cooked rice and grains safely. Prevent food poisoning with practical temperature control and storage times.
+publishedDate: '2026-11-08'
+updatedDate: '2026-11-12'
+readTime: 6 min read
+image: /images/guides/cooked-rice-066c8f4b9e67.jpg
+imageAlt: 'How to Store Cooked Rice and Grains Safely: Cooling, Refrigeration and Reheating'
+summary: Learn how to cool, refrigerate, freeze, and reheat cooked rice and grains safely. Prevent food poisoning with practical temperature control and storage times.
 ---
+
 Cooked rice is convenient for meal prep, quick lunches, and easy weeknight dinners. But unlike many people realize, it needs careful handling after cooking. Leaving rice at room temperature for too long can allow bacteria to multiply and produce toxins that reheating may not destroy.
 
 The safest approach is simple: cool cooked rice quickly, refrigerate or freeze it promptly, and reheat it thoroughly when needed.
@@ -168,4 +177,3 @@ Safe rice storage does not require complicated equipment or elaborate meal-prep 
 Cool rice quickly, divide it into shallow portions, refrigerate or freeze it promptly, and reheat only what you need. Most importantly, never assume that reheating can make improperly stored rice safe again.
 
 A few consistent habits can help protect your household while making leftover rice more convenient to use.
-
