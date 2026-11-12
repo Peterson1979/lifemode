@@ -1,12 +1,12 @@
 ---
 title: "High-Protein Meals: How to Build Quick, Balanced Meals That Keep You Satisfied"
-seoTitle: "High-Protein Meals: How to Build Quick, Balanced Meals Th..."
-description: "High-protein meals have become one of the biggest food trends, but you don't need expensive supplements, complicated recipes, or a complete change in..."
-seoDescription: "High-protein meals have become one of the biggest food trends, but you don't need expensive supplements, complicated recipes, or a complete change in..."
+seoTitle: "Quick High-Protein Meals: Balanced, Satisfying Recipes"
+description: "Learn how to create quick, balanced high-protein meals using everyday ingredients—protein, veggies, carbs, and healthy fats—for breakfast, lunch, or dinner."
+seoDescription: "Learn how to create quick, balanced high-protein meals using everyday ingredients—protein, veggies, carbs, and healthy fats—for breakfast, lunch, or dinner."
 category: "food-kitchen"
-pubDate: "2026-11-11"
-publishedDate: "2026-11-11"
-updatedDate: "2026-11-11"
+pubDate: "2026-11-12"
+publishedDate: "2026-11-12"
+updatedDate: "2026-11-12"
 author: "LifeMode Editorial"
 tags: ["food kitchen"]
 draft: false
@@ -16,8 +16,8 @@ primaryIntent: "informational"
 contentType: "protocol"
 readingTime: "10 min read"
 readTime: "10 min read"
-quickSummary: "High-protein meals have become one of the biggest food trends, but you don't need expensive supplements, complicated recipes, or a complete change in..."
-primaryKeyword: "high-protein meals build quick"
+quickSummary: "Learn how to create quick, balanced high-protein meals using everyday ingredients—protein, veggies, carbs, and healthy fats—for breakfast, lunch, or dinner."
+primaryKeyword: "high protein meals"
 image: "/images/guides/pexels-jeremy-wong-1918664027--3b12740f8589.jpg"
 ---
 
