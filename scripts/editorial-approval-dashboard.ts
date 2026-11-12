@@ -30,8 +30,30 @@ import {
   quickAddAffiliateOffer,
   saveCmsAffiliateOffer,
   deleteCmsAffiliateOffer,
+  scanGuideAffiliateProducts,
+  importGuideAffiliateOffer,
 } from '../src/lib/editorial/cms/affiliates.ts';
 import { getPrimaryProductImage, type ProductImage } from '../src/lib/commerce/types.ts';
+
+// Autoload Cloudflare R2 secrets if present in user AppData and not yet set in process.env
+try {
+  const localAppData = process.env.LOCALAPPDATA || (process.platform === 'win32' ? join(process.env.USERPROFILE || 'C:\\Users\\opeti', 'AppData', 'Local') : '');
+  if (localAppData) {
+    const credPath = join(localAppData, 'LifeMode', 'secrets', 'daily-ideas-r2.json');
+    const rawCred = await readFile(credPath, 'utf8').catch(() => null);
+    if (rawCred) {
+      const parsed = JSON.parse(rawCred);
+      const keys = ['R2_ACCOUNT_ID', 'R2_ACCESS_KEY_ID', 'R2_SECRET_ACCESS_KEY', 'R2_BUCKET_NAME', 'R2_PUBLIC_BASE_URL'];
+      for (const k of keys) {
+        if (!process.env[k] && parsed[k]) {
+          process.env[k] = parsed[k];
+        }
+      }
+    }
+  }
+} catch {
+  // Graceful fallback
+}
 
 const host = '127.0.0.1';
 const port = Number(process.env.LIFEMODE_APPROVAL_PORT || 4311);
@@ -165,7 +187,7 @@ header h1{margin:0;font-size:1.5rem;font-weight:700;color:var(--text)}
   <button type="button" class="tab-btn" data-tab="drafts">📝 Drafts (<span id="drafts-count">0</span>)</button>
   <button type="button" class="tab-btn" data-tab="history">📚 Publication History (<span id="history-count">0</span>)</button>
   <button type="button" class="tab-btn" data-tab="media">🖼️ Media Library (<span id="media-count">0</span>)</button>
-  <button type="button" class="tab-btn" data-tab="affiliates">🛍️ Affiliate Offers (<span id="affiliates-count">0</span>)</button>
+  <button type="button" class="tab-btn" data-tab="affiliates">🛍️ Affiliate Offers Management (<span id="affiliates-count">0</span>)</button>
 </nav>
 
 <!-- Tab 1: Guides Editor -->
@@ -227,7 +249,7 @@ header h1{margin:0;font-size:1.5rem;font-weight:700;color:var(--text)}
           <button type="button" onclick="insertMd('guide', '1. ', '', 'Step item')">1. Num</button>
           <button type="button" onclick="insertMd('guide', '[', '](https://example.com)', 'Link text')">Link</button>
           <button type="button" onclick="insertTable('guide')">Table</button>
-          <button type="button" onclick="openAffiliateSelectorModal()" style="margin-left:auto;background:#fef3c7;border-color:#fde68a;color:#92400e;font-weight:700">🛍️ Affiliate Offers</button>
+          <button type="button" onclick="openAffiliateSelectorModal()" style="margin-left:auto;background:#fef3c7;border-color:#fde68a;color:#92400e;font-weight:700" title="Find Guides-eligible offers and insert product boxes or links into this article">🔍 Affiliate Inspector (Insert Link/Box)</button>
         </div>
         <textarea id="article-content" class="editor-textarea" style="min-height:440px" required placeholder="# Article Title
 
@@ -734,62 +756,236 @@ Include your practical instructions, bullet lists, comparison tables, and any af
   </div>
 </section>
 
-<!-- Tab 8: Affiliate Offers -->
+<!-- Tab 8: Affiliate Offers Management -->
 <section id="tab-affiliates" class="tab-pane">
-  <div class="card">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:1rem">
+  <!-- Top Header Bar -->
+  <div class="card" style="margin-bottom:1.25rem">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
       <div>
-        <h2 style="margin:0 0 .25rem 0;font-size:1.15rem">Unified Affiliate Offers Catalog</h2>
-        <span style="font-size:.8rem;color:var(--muted)">Manage affiliate recommendations across Daily Ideas Store, LifeMode Picks, and Guide Articles.</span>
+        <h2 style="margin:0 0 .25rem 0;font-size:1.25rem">🛍️ Unified Affiliate Offers Management</h2>
+        <span style="font-size:.85rem;color:var(--muted)">Create, edit, manage product images, and set independent destination eligibility across Guides, Daily Ideas Store, and LifeMode Picks.</span>
+      </div>
+      <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap">
+        <button type="button" class="btn btn-primary" onclick="resetAffiliateFormForNew()">+ Add New Affiliate Offer</button>
+        <button type="button" class="btn btn-secondary" onclick="openGuideImportModal()">📥 Import from Guides (<span id="uncataloged-guides-count">0</span>)</button>
+        <button type="button" class="btn btn-secondary btn-sm" onclick="loadAffiliates()">🔄 Refresh</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Management Form (Create & Edit) -->
+  <div id="affiliate-management-card" class="card" style="margin-bottom:1.5rem;border:2px solid #0284c7;background:#ffffff">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;border-bottom:1px solid var(--border);padding-bottom:.75rem;flex-wrap:wrap;gap:.5rem">
+      <div>
+        <h3 id="affiliate-form-heading" style="margin:0;font-size:1.15rem;color:#0f172a">Add New Affiliate Offer</h3>
+        <span id="affiliate-form-subheading" style="font-size:.8rem;color:var(--muted)">Paste an affiliate link or enter product details to add a new recommendation to data/commerce/products.json</span>
       </div>
       <div style="display:flex;gap:.5rem;align-items:center">
-        <button class="btn btn-primary" onclick="openAffiliateEditModal()">+ Create Custom Offer</button>
-        <button class="btn btn-secondary btn-sm" onclick="loadAffiliates()">Refresh</button>
+        <span id="affiliate-mode-badge" class="badge-pill green">New Offer Mode</span>
+        <button type="button" class="btn btn-secondary btn-sm" onclick="resetAffiliateFormForNew()">Reset Form</button>
       </div>
     </div>
 
-    <!-- URL Quick Add Card -->
-    <div style="background:#f1f5f9;border:1px solid var(--border);border-radius:8px;padding:1rem;margin-bottom:1.25rem">
-      <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.35rem">
-        <strong style="font-size:.9rem">⚡ URL Quick Add</strong>
-        <span style="font-size:.75rem;color:var(--muted)">— Paste any affiliate link to create an instant draft record with zero manual typing</span>
-      </div>
-      <form id="form-quick-add-affiliate" style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center" onsubmit="handleQuickAddAffiliate(event)">
-        <input type="url" id="quick-add-url" required placeholder="https://..." style="flex:1;min-width:280px;padding:.55rem .75rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem">
-        <select id="quick-add-type" style="padding:.55rem .75rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem">
-          <option value="physical">Physical Product</option>
-          <option value="digital">Digital Product</option>
-          <option value="course">Course / Education</option>
-          <option value="software">Software / SaaS</option>
-          <option value="travel">Travel / Stay</option>
-          <option value="service">Service</option>
-          <option value="other">Other Offer</option>
-        </select>
-        <button type="submit" class="btn btn-primary" id="btn-quick-add">Quick Add Draft</button>
-      </form>
-      <div id="quick-add-feedback" style="margin-top:.4rem;font-size:.8rem;font-weight:600"></div>
-    </div>
+    <form id="form-affiliate-management" novalidate onsubmit="handleSaveAffiliateManagement(event)">
+      <input type="hidden" id="manage-aff-id">
 
-    <!-- Search & Filter Bar -->
+      <!-- Section: Destination URL & Fast Prefill -->
+      <div style="background:#f0f9ff;border:1px solid #bae6fd;border-radius:6px;padding:1rem;margin-bottom:1.25rem">
+        <div class="form-group" style="margin-bottom:0">
+          <label for="manage-aff-url" style="font-weight:700;color:#0369a1">Affiliate Destination URL * <small style="font-weight:normal;color:var(--muted)">(Amazon, ShareASale, CJ, Partnerize, or Direct)</small></label>
+          <div style="display:flex;gap:.5rem;margin-top:.25rem">
+            <input type="text" id="manage-aff-url" required placeholder="https://www.amazon.com/dp/... or https://..." style="font-family:monospace;font-size:.85rem;flex:1;padding:.55rem .75rem;border:1px solid #7dd3fc;border-radius:6px" oninput="handleUrlInputAutoFill(this.value)">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="handleAutoFillFromUrl()" style="white-space:nowrap">⚡ Auto-Fill Details</button>
+          </div>
+          <small style="color:#0369a1;display:block;margin-top:.35rem">✓ Exact affiliate tracking URL is preserved byte-for-byte in the catalog.</small>
+        </div>
+      </div>
+
+      <!-- Core Details Row 1 -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="manage-aff-title" style="font-weight:700">Product Title / Display Name *</label>
+          <input type="text" id="manage-aff-title" required placeholder="e.g. Cuisinart Chef's Classic Stainless Cookware Set" style="font-size:.9rem;padding:.55rem .75rem">
+        </div>
+        <div class="form-group">
+          <label for="manage-aff-custom-id" style="font-weight:700">Unique Product ID <small style="font-weight:normal;color:var(--muted)">(Auto-assigned or custom)</small></label>
+          <input type="text" id="manage-aff-custom-id" placeholder="e.g. cuisinart-stainless-cookware-set" style="font-family:monospace;font-size:.85rem;padding:.55rem .75rem">
+        </div>
+      </div>
+
+      <!-- Core Details Row 2 -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="manage-aff-brand">Brand / Creator</label>
+          <input type="text" id="manage-aff-brand" placeholder="e.g. Cuisinart, Apple, Coursera, Logitech">
+        </div>
+        <div class="form-group">
+          <label for="manage-aff-merchant">Merchant / Network</label>
+          <input type="text" id="manage-aff-merchant" placeholder="e.g. Amazon, ShareASale, Direct, Target">
+        </div>
+        <div class="form-group">
+          <label for="manage-aff-asin">ASIN <small style="font-weight:normal;color:var(--muted)">(Optional, Amazon items only)</small></label>
+          <input type="text" id="manage-aff-asin" placeholder="e.g. B005H05SXM">
+        </div>
+      </div>
+
+      <!-- Core Details Row 3: Type, Status, Price -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="manage-aff-type" style="font-weight:700">Offer Type *</label>
+          <select id="manage-aff-type" style="padding:.55rem .75rem">
+            <option value="physical">Physical Product</option>
+            <option value="digital">Digital Product</option>
+            <option value="course">Course / Education</option>
+            <option value="software">Software / SaaS</option>
+            <option value="travel">Travel / Stay</option>
+            <option value="service">Service</option>
+            <option value="other">Other Offer</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="manage-aff-status" style="font-weight:700">Publication Status *</label>
+          <select id="manage-aff-status" style="padding:.55rem .75rem">
+            <option value="ACTIVE">ACTIVE (Published to eligible destinations)</option>
+            <option value="DRAFT">DRAFT (Hidden from all public destinations)</option>
+            <option value="ARCHIVED">ARCHIVED (Deactivated / Inactive)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="manage-aff-price">Price Range / Note</label>
+          <input type="text" id="manage-aff-price" placeholder="e.g. $149, $29–$39, $15/mo, Free trial">
+        </div>
+      </div>
+
+      <!-- Row 4: Badge & Default CTA -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="manage-aff-badge">Editorial Badge <small style="font-weight:normal;color:var(--muted)">(Optional)</small></label>
+          <input type="text" id="manage-aff-badge" placeholder="e.g. Editor's Choice, Top Pick, Best Value">
+        </div>
+        <div class="form-group">
+          <label for="manage-aff-cta">Default CTA Button Text</label>
+          <input type="text" id="manage-aff-cta" placeholder="View recommendation">
+        </div>
+      </div>
+
+      <!-- CRITICAL REQUIREMENT C: Three Independent Eligibility Controls -->
+      <div style="background:#f8fafc;border:2px solid #cbd5e1;border-radius:8px;padding:1.1rem;margin-bottom:1.25rem">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem">
+          <strong style="font-size:.95rem;color:#0f172a">🎯 Destination Eligibility Controls (Independent Settings)</strong>
+          <span style="font-size:.75rem;color:var(--muted);background:#fff;border:1px solid var(--border);padding:.2rem .5rem;border-radius:4px">Never automatically all enabled</span>
+        </div>
+        <p style="margin:0 0 .85rem 0;font-size:.8rem;color:#64748b">
+          Select which destinations may display this offer. Each flag operates independently; toggling one does not affect the others.
+        </p>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:1rem">
+          <!-- Control 1: Guides -->
+          <label style="display:flex;align-items:flex-start;gap:.6rem;background:#fff;padding:.75rem;border:1px solid var(--border);border-radius:6px;cursor:pointer">
+            <input type="checkbox" id="manage-aff-elig-guides" style="margin-top:.2rem;transform:scale(1.2)">
+            <div>
+              <strong style="font-size:.85rem;color:#0369a1;display:block">1. Guides (eligibleForGuides)</strong>
+              <span style="font-size:.75rem;color:var(--muted)">Allows offer to be inserted into Guide articles as product boxes or contextual links, and surfaced in the Inspector.</span>
+            </div>
+          </label>
+
+          <!-- Control 2: Daily Ideas Store -->
+          <label style="display:flex;align-items:flex-start;gap:.6rem;background:#fff;padding:.75rem;border:1px solid var(--border);border-radius:6px;cursor:pointer">
+            <input type="checkbox" id="manage-aff-elig-store" style="margin-top:.2rem;transform:scale(1.2)">
+            <div>
+              <strong style="font-size:.85rem;color:#b45309;display:block">2. Daily Ideas Store (eligibleForStore)</strong>
+              <span style="font-size:.75rem;color:var(--muted)">Displays product cards in the Daily Ideas Store (/daily-ideas).</span>
+            </div>
+          </label>
+
+          <!-- Control 3: LifeMode Picks -->
+          <label style="display:flex;align-items:flex-start;gap:.6rem;background:#fff;padding:.75rem;border:1px solid var(--border);border-radius:6px;cursor:pointer">
+            <input type="checkbox" id="manage-aff-elig-picks" style="margin-top:.2rem;transform:scale(1.2)">
+            <div>
+              <strong style="font-size:.85rem;color:#7e22ce;display:block">3. LifeMode Picks (eligibleForPicks)</strong>
+              <span style="font-size:.75rem;color:var(--muted)">Displays curated offer cards in the LifeMode Picks public destination (/picks).</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Descriptions -->
+      <div class="form-group">
+        <label for="manage-aff-desc">Short Description / Summary</label>
+        <textarea id="manage-aff-desc" rows="2" placeholder="Key specs, summary, or highlights of this recommendation"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="manage-aff-note">Editorial Recommendation Note</label>
+        <textarea id="manage-aff-note" rows="2" placeholder="Why our editors recommend it: durability, practical utility, value"></textarea>
+      </div>
+
+      <!-- CRITICAL REQUIREMENT D: Product Image Management -->
+      <div style="border:1px solid var(--border);border-radius:8px;padding:1.1rem;margin-bottom:1.25rem;background:#fafafa">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;flex-wrap:wrap;gap:.5rem">
+          <div>
+            <strong style="font-size:.9rem;color:#0f172a">🖼️ Product Image Management (Multi-Image Support)</strong>
+            <span style="font-size:.75rem;color:var(--muted);display:block">Upload new images, pick from Media Library, or paste image URLs. The Primary image is used in cards, boxes, and previews.</span>
+          </div>
+          <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+            <input type="file" id="manage-aff-file-input" accept="image/jpeg,image/png,image/webp" style="display:none">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="document.querySelector('#manage-aff-file-input').click()">📷 Upload Image to R2</button>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="openMediaPickerForEditor('manage-aff-image')">🖼️ Select from Media</button>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="addManageImageRow()">+ Add Image URL</button>
+          </div>
+        </div>
+
+        <div id="manage-aff-upload-status" style="font-size:.8rem;font-weight:600;margin-bottom:.5rem"></div>
+        <div id="manage-aff-images-list" style="display:flex;flex-direction:column;gap:.5rem;max-height:260px;overflow-y:auto">
+          <!-- Dynamic image cards -->
+        </div>
+      </div>
+
+      <!-- Management Actions Bar -->
+      <div style="display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:.75rem">
+        <span id="manage-aff-feedback" class="status-msg"></span>
+        <div style="display:flex;gap:.5rem;align-items:center">
+          <button type="button" class="btn btn-danger btn-sm" id="btn-manage-aff-delete" style="display:none" onclick="handleDeleteCurrentOffer()">🗑️ Delete Offer</button>
+          <button type="button" class="btn btn-secondary" onclick="resetAffiliateFormForNew()">Clear Form</button>
+          <button type="submit" class="btn btn-primary" id="btn-manage-aff-save" style="background:#0284c7">💾 Save Affiliate Offer</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Catalog Browser Table -->
+  <div class="card">
     <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1rem">
-      <div class="filter-pills" id="affiliate-type-filters">
-        <button type="button" class="filter-pill active" onclick="filterAffiliates('type', 'all')">All Types</button>
-        <button type="button" class="filter-pill" onclick="filterAffiliates('type', 'physical')">Physical</button>
-        <button type="button" class="filter-pill" onclick="filterAffiliates('type', 'digital')">Digital</button>
-        <button type="button" class="filter-pill" onclick="filterAffiliates('type', 'course')">Courses</button>
-        <button type="button" class="filter-pill" onclick="filterAffiliates('type', 'software')">Software / SaaS</button>
-        <button type="button" class="filter-pill" onclick="filterAffiliates('type', 'travel')">Travel</button>
-        <button type="button" class="filter-pill" onclick="filterAffiliates('type', 'service')">Services</button>
+      <div>
+        <h3 style="margin:0 0 .25rem 0;font-size:1.1rem">All Catalog Offers (<span id="affiliates-list-count">0</span>)</h3>
+        <span style="font-size:.8rem;color:var(--muted)">Select any offer below to load and edit its product information in the management form above.</span>
       </div>
-      <div style="display:flex;gap:.5rem;align-items:center">
-        <input type="text" id="affiliate-search-input" placeholder="Search offers by name, merchant, or ID…" oninput="handleAffiliateSearch()" style="padding:.4rem .65rem;border:1px solid var(--border);border-radius:6px;font-size:.85rem;width:240px">
+      <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap">
+        <input type="text" id="affiliate-search-input" placeholder="Search by name, brand, merchant, or ID…" oninput="handleAffiliateSearch()" style="padding:.4rem .65rem;border:1px solid var(--border);border-radius:6px;font-size:.85rem;width:260px">
         <select id="affiliate-dest-filter" onchange="filterAffiliates('dest', this.value)" style="padding:.4rem .65rem;border:1px solid var(--border);border-radius:6px;font-size:.85rem">
           <option value="all">All Destinations</option>
+          <option value="guides">Guides Eligible</option>
           <option value="store">Store Eligible</option>
           <option value="picks">Picks Eligible</option>
-          <option value="guides">Guides Eligible</option>
+        </select>
+        <select id="affiliate-status-filter" onchange="filterAffiliates('status', this.value)" style="padding:.4rem .65rem;border:1px solid var(--border);border-radius:6px;font-size:.85rem">
+          <option value="all">All Statuses</option>
+          <option value="ACTIVE">ACTIVE Only</option>
+          <option value="DRAFT">DRAFT Only</option>
+          <option value="ARCHIVED">ARCHIVED Only</option>
         </select>
       </div>
+    </div>
+
+    <!-- Type Pills -->
+    <div class="filter-pills" id="affiliate-type-filters" style="margin-bottom:1rem">
+      <button type="button" class="filter-pill active" onclick="filterAffiliates('type', 'all')">All Types</button>
+      <button type="button" class="filter-pill" onclick="filterAffiliates('type', 'physical')">Physical</button>
+      <button type="button" class="filter-pill" onclick="filterAffiliates('type', 'digital')">Digital</button>
+      <button type="button" class="filter-pill" onclick="filterAffiliates('type', 'course')">Courses</button>
+      <button type="button" class="filter-pill" onclick="filterAffiliates('type', 'software')">Software / SaaS</button>
+      <button type="button" class="filter-pill" onclick="filterAffiliates('type', 'travel')">Travel</button>
+      <button type="button" class="filter-pill" onclick="filterAffiliates('type', 'service')">Services</button>
     </div>
 
     <!-- Table Container -->
@@ -808,140 +1004,58 @@ Include your practical instructions, bullet lists, comparison tables, and any af
   </div>
 </div>
 
-<!-- Offer Edit Modal -->
-<div id="affiliate-modal" class="modal">
-  <div class="modal-content" style="max-width:760px">
+<!-- Import Guide Offers Modal -->
+<div id="modal-guide-import" class="modal">
+  <div class="modal-content" style="max-width:840px">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:.75rem">
-      <h3 id="affiliate-modal-title" style="margin:0;font-size:1.15rem">Edit Affiliate Offer</h3>
-      <button type="button" class="btn btn-secondary btn-sm" onclick="closeAffiliateModal()">&times; Close</button>
+      <div>
+        <h3 style="margin:0;font-size:1.15rem">📥 Import Affiliate Recommendations from Published Guides</h3>
+        <span style="font-size:.8rem;color:var(--muted)">Discovered affiliate links embedded in published guides that are not yet cataloged in the unified system.</span>
+      </div>
+      <button type="button" class="btn btn-secondary btn-sm" onclick="closeGuideImportModal()">&times; Close</button>
     </div>
-    <form id="form-affiliate-modal" onsubmit="handleSaveAffiliateModal(event)">
-      <input type="hidden" id="modal-aff-id">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="modal-aff-title">Title / Display Name *</label>
-          <input type="text" id="modal-aff-title" required placeholder="Offer title">
-        </div>
-        <div class="form-group">
-          <label for="modal-aff-url">Affiliate Destination URL *</label>
-          <input type="url" id="modal-aff-url" required placeholder="https://..." style="font-family:monospace;font-size:.85rem">
-          <small style="color:var(--muted)">Exact affiliate link preserved byte-for-byte.</small>
-        </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;background:#f8fafc;padding:.75rem 1rem;border-radius:6px;border:1px solid var(--border);flex-wrap:wrap;gap:.5rem">
+      <div style="font-size:.85rem">
+        <span id="guide-import-summary" style="font-weight:600">Scanning guides…</span>
       </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="modal-aff-brand">Brand / Creator</label>
-          <input type="text" id="modal-aff-brand" placeholder="e.g. NordicTrack, Apple, Coursera">
-        </div>
-        <div class="form-group">
-          <label for="modal-aff-merchant">Merchant / Network</label>
-          <input type="text" id="modal-aff-merchant" placeholder="e.g. Amazon, Direct, ShareASale">
-        </div>
+      <div style="display:flex;gap:.5rem">
+        <button type="button" class="btn btn-secondary btn-sm" onclick="loadGuideImportScan()">🔄 Re-Scan</button>
+        <button type="button" class="btn btn-primary btn-sm" id="btn-import-all-selected" onclick="importAllSelectedGuideOffers()">Import All Selected</button>
       </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="modal-aff-type">Offer Type</label>
-          <select id="modal-aff-type">
-            <option value="physical">Physical Product</option>
-            <option value="digital">Digital Product</option>
-            <option value="course">Course / Education</option>
-            <option value="software">Software / SaaS</option>
-            <option value="travel">Travel / Stay</option>
-            <option value="service">Service</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="modal-aff-status">Publication Status</label>
-          <select id="modal-aff-status">
-            <option value="DRAFT">DRAFT</option>
-            <option value="ACTIVE">ACTIVE</option>
-            <option value="ARCHIVED">ARCHIVED</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="modal-aff-price">Price Range / Note</label>
-          <input type="text" id="modal-aff-price" placeholder="e.g. $29–$39, $12/mo, Free trial">
-        </div>
-        <div class="form-group">
-          <label for="modal-aff-badge">Badge (Optional)</label>
-          <input type="text" id="modal-aff-badge" placeholder="e.g. Top Pick, Best Value, Editor's Choice">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="modal-aff-cta">Default CTA Button Text</label>
-          <input type="text" id="modal-aff-cta" placeholder="View recommendation">
-        </div>
-        <div class="form-group">
-          <label for="modal-aff-asin">ASIN (Optional, Amazon only)</label>
-          <input type="text" id="modal-aff-asin" placeholder="e.g. B001234567">
-        </div>
-      </div>
-
-      <!-- Destination Eligibility Checkboxes -->
-      <div style="background:#f8fafc;border:1px solid var(--border);border-radius:6px;padding:.85rem;margin-bottom:1rem">
-        <strong style="font-size:.85rem;display:block;margin-bottom:.5rem">Independent Destination Eligibility:</strong>
-        <div style="display:flex;gap:1.5rem;flex-wrap:wrap;font-size:.85rem">
-          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer">
-            <input type="checkbox" id="modal-aff-elig-store"> Daily Ideas Store (/daily-ideas)
-          </label>
-          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer">
-            <input type="checkbox" id="modal-aff-elig-picks"> LifeMode Picks (Main Hub)
-          </label>
-          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer">
-            <input type="checkbox" id="modal-aff-elig-guides"> Guide Articles (Editorial selection)
-          </label>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="modal-aff-desc">Short Description</label>
-        <textarea id="modal-aff-desc" rows="2" placeholder="Brief summary of the offer"></textarea>
-      </div>
-
-      <div class="form-group">
-        <label for="modal-aff-note">Why Editors Recommend It (Editorial Note)</label>
-        <textarea id="modal-aff-note" rows="2" placeholder="Key utility, durability, or practical reason to recommend"></textarea>
-      </div>
-
-      <!-- Multi-image Management Section -->
-      <div style="border:1px solid var(--border);border-radius:6px;padding:.85rem;margin-bottom:1rem">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem">
-          <div>
-            <strong style="font-size:.85rem">Product Images (Multi-Image Support)</strong>
-            <span style="font-size:.75rem;color:var(--muted);display:block">The image marked as Primary will be used in cards and preview boxes.</span>
-          </div>
-          <div style="display:flex;gap:.5rem">
-            <input type="file" id="modal-aff-file-input" accept="image/jpeg,image/png,image/webp" style="display:none">
-            <button type="button" class="btn btn-secondary btn-sm" onclick="document.querySelector('#modal-aff-file-input').click()">📷 Upload to R2</button>
-            <button type="button" class="btn btn-secondary btn-sm" onclick="addModalImageRow()">+ Add Image URL</button>
-          </div>
-        </div>
-        <div id="modal-aff-images-list" style="display:flex;flex-direction:column;gap:.5rem;max-height:220px;overflow-y:auto"></div>
-      </div>
-
-      <div class="actions-bar" style="margin-top:1rem;padding-top:1rem">
-        <span id="modal-aff-feedback" class="status-msg"></span>
-        <button type="button" class="btn btn-secondary" onclick="closeAffiliateModal()">Cancel</button>
-        <button type="submit" class="btn btn-primary" id="btn-modal-aff-save">Save Offer</button>
-      </div>
-    </form>
+    </div>
+    <div id="guide-import-list" style="max-height:460px;overflow-y:auto;display:flex;flex-direction:column;gap:.75rem">
+      Loading scanned recommendations…
+    </div>
   </div>
 </div>
 
 <!-- Affiliate Selector Modal (For Guide Editor) -->
 <div id="affiliate-selector-modal" class="modal">
-  <div class="modal-content" style="max-width:720px">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:.75rem">
+  <div class="modal-content" style="max-width:760px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;border-bottom:1px solid var(--border);padding-bottom:.75rem">
       <div>
         <h3 style="margin:0;font-size:1.15rem">🛍️ Affiliate Recommendations Inspector</h3>
-        <span style="font-size:.8rem;color:var(--muted)">Search active catalog offers eligible for Guides. Copy link or reference into your article.</span>
+        <span style="font-size:.8rem;color:var(--muted)">Browse active catalog offers eligible for Guides, or import uncataloged recommendations.</span>
       </div>
       <button type="button" class="btn btn-secondary btn-sm" onclick="closeAffiliateSelectorModal()">&times; Close</button>
     </div>
+
+    <!-- Guide-specific uncataloged banner -->
+    <div id="selector-guide-uncataloged-banner" style="display:none;background:#fef3c7;border:1px solid #fde68a;border-radius:6px;padding:.65rem .85rem;margin-bottom:.85rem;font-size:.85rem;color:#92400e;align-items:center;justify-content:space-between">
+      <div>
+        <strong>Notice:</strong> Found <span id="selector-guide-uncataloged-count">0</span> uncataloged recommendation(s) in published guides.
+      </div>
+      <button type="button" class="btn btn-secondary btn-sm" onclick="openGuideImportModal()" style="font-size:.8rem;background:#fff">📥 Review &amp; Import</button>
+    </div>
+
+    <!-- Actions Legend / Helper -->
+    <div style="background:#f8fafc;border:1px solid var(--border);border-radius:6px;padding:.6rem .85rem;margin-bottom:.85rem;font-size:.78rem;color:#475569;display:grid;grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));gap:.4rem">
+      <div><strong>➕ Insert Box:</strong> Inserts <code>::product-box{id="..."}</code> at cursor</div>
+      <div><strong>🔗 Insert Link:</strong> Inserts <code>[Text](aff:id)</code> at cursor</div>
+      <div><strong>📋 Copy Box / Link:</strong> Copies markdown snippet to clipboard</div>
+      <div><strong>🆔 Copy ID:</strong> Copies offer ID for manual shortcode use</div>
+    </div>
+
     <div style="margin-bottom:1rem">
       <input type="text" id="selector-affiliate-search" placeholder="Search by product name, brand, or merchant…" oninput="renderAffiliateSelectorList()" style="width:100%;padding:.55rem .75rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem">
     </div>
@@ -957,6 +1071,7 @@ let currentMedia = [];
 let currentAffiliates = [];
 let affiliateTypeFilter = 'all';
 let affiliateDestFilter = 'all';
+let affiliateStatusFilter = 'all';
 let affiliateSearchQuery = '';
 let currentEditImages = [];
 let mediaPickerTarget = null;
@@ -1026,6 +1141,9 @@ async function refreshCounts() {
     if (document.querySelector('#affiliates-count')) {
       document.querySelector('#affiliates-count').textContent = data.affiliatesCount || 0;
     }
+    if (document.querySelector('#uncataloged-guides-count')) {
+      document.querySelector('#uncataloged-guides-count').textContent = data.uncatalogedGuidesCount || 0;
+    }
     document.querySelector('#count-hist-guides').textContent = data.guidesCount || 0;
     document.querySelector('#count-hist-tools').textContent = data.toolsCount || 0;
     document.querySelector('#count-hist-checklists').textContent = data.checklistsCount || 0;
@@ -1067,6 +1185,21 @@ guideContentEl.addEventListener('input', () => {
   clearTimeout(guidePreviewDebounce);
   guidePreviewDebounce = setTimeout(updateGuidePreview, 250);
 });
+
+// Cursor position tracking for article content
+let lastGuideCursorPos = { start: -1, end: -1 };
+function saveGuideCursorPos() {
+  if (guideContentEl) {
+    lastGuideCursorPos = {
+      start: guideContentEl.selectionStart,
+      end: guideContentEl.selectionEnd,
+    };
+  }
+}
+guideContentEl.addEventListener('keyup', saveGuideCursorPos);
+guideContentEl.addEventListener('click', saveGuideCursorPos);
+guideContentEl.addEventListener('select', saveGuideCursorPos);
+guideContentEl.addEventListener('blur', saveGuideCursorPos);
 
 // Featured Image helpers & direct file picker
 function updateFeaturedImageDisplay() {
@@ -2202,6 +2335,9 @@ window.selectMediaAsset = (url, fileName, isPdf) => {
     } else {
       insertMd('checklist', '![Checklist Diagram](' + url + ')', '', '');
     }
+  } else if (mediaPickerTarget === 'manage-aff-image' || mediaPickerTarget === 'modal-aff-image') {
+    addManageImageRow(url, fileName.replace(/\.[^.]+$/, ''));
+    if (typeof addModalImageRow === 'function') addModalImageRow(url, fileName.replace(/\.[^.]+$/, ''));
   }
   closeMediaModal();
 };
@@ -2234,7 +2370,7 @@ window.insertMd = (target, prefix, suffix, sample) => {
 };
 
 window.insertTable = (target) => {
-  const tableSample = '\n\n| Column 1 | Column 2 | Column 3 |\n| :--- | :--- | :--- |\n| Data A | Data B | Data C |\n| Data X | Data Y | Data Z |\n\n';
+  const tableSample = '\\n\\n| Column 1 | Column 2 | Column 3 |\\n| :--- | :--- | :--- |\\n| Data A | Data B | Data C |\\n| Data X | Data Y | Data Z |\\n\\n';
   insertMd(target, tableSample, '', '');
 };
 
@@ -2247,6 +2383,7 @@ async function loadAffiliates() {
     const params = new URLSearchParams();
     if (affiliateTypeFilter !== 'all') params.set('type', affiliateTypeFilter);
     if (affiliateDestFilter !== 'all') params.set('destination', affiliateDestFilter);
+    if (affiliateStatusFilter !== 'all') params.set('status', affiliateStatusFilter);
     if (affiliateSearchQuery.trim()) params.set('q', affiliateSearchQuery.trim());
 
     currentAffiliates = await api('/api/affiliates?' + params.toString());
@@ -2262,28 +2399,33 @@ async function loadAffiliates() {
 function renderAffiliatesTable() {
   const container = document.querySelector('#affiliates-table-container');
   if (!container) return;
+
+  const countBadge = document.querySelector('#affiliates-list-count');
+  if (countBadge) countBadge.textContent = currentAffiliates.length;
+
   if (!currentAffiliates.length) {
-    container.innerHTML = '<p class="muted">No affiliate offers found matching current filters.</p>';
+    container.innerHTML = '<p class="muted" style="padding:1rem 0">No affiliate offers found matching current filters.</p>';
     return;
   }
 
   container.innerHTML = '<table class="list-table"><thead><tr>' +
-    '<th>Visual</th><th>Offer Title &amp; Brand</th><th>Type &amp; Merchant</th><th>Destinations</th><th>Status</th><th>Actions</th>' +
+    '<th>Visual</th><th>Offer Title &amp; ID</th><th>Type &amp; Merchant</th><th>Destination Eligibility</th><th>Status</th><th>Actions</th>' +
     '</tr></thead><tbody>' +
     currentAffiliates.map(o => {
       const imgUrl = (o.images && o.images[0] && o.images[0].url) || o.imageUrl || '';
       const thumb = imgUrl
         ? '<img src="' + esc(imgUrl) + '" style="width:54px;height:42px;object-fit:cover;border-radius:4px;border:1px solid var(--border)">'
-        : '<div style="width:54px;height:42px;background:#e2e8f0;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.1rem">🛍️</div>';
+        : '<div style="display:flex;flex-direction:column;align-items:center;gap:.2rem"><div style="width:54px;height:28px;background:#e2e8f0;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1rem">🛍️</div><button type="button" class="btn btn-secondary btn-sm" style="font-size:.65rem;padding:.1rem .3rem;line-height:1" onclick="editAffiliateOffer(\\'' + esc(o.id) + '\\')">📷 Add</button></div>';
 
       const typeLabel = esc((o.offerType || 'physical').toUpperCase());
-      const brandStr = o.brand ? '<br><span style="font-size:.78rem;color:var(--muted)">' + esc(o.brand) + '</span>' : '';
+      const brandStr = o.brand ? '<br><span style="font-size:.78rem;color:var(--muted)">Brand: ' + esc(o.brand) + '</span>' : '';
+      const idBadge = '<br><code style="font-size:.72rem;color:#475569">ID: ' + esc(o.id) + '</code>';
 
       let destBadges = [];
-      if (o.eligibleForStore) destBadges.push('<span class="badge-pill amber" style="font-size:.7rem">Store</span>');
-      if (o.eligibleForPicks) destBadges.push('<span class="badge-pill purple" style="font-size:.7rem">Picks</span>');
-      if (o.eligibleForGuides) destBadges.push('<span class="badge-pill blue" style="font-size:.7rem">Guides</span>');
-      if (!destBadges.length) destBadges.push('<span class="badge-pill" style="font-size:.7rem">Unassigned</span>');
+      if (o.eligibleForGuides) destBadges.push('<span class="badge-pill blue" style="font-size:.7rem" title="Eligible for Guide articles and product boxes">Guides</span>');
+      if (o.eligibleForStore) destBadges.push('<span class="badge-pill amber" style="font-size:.7rem" title="Eligible for Daily Ideas Store (/daily-ideas)">Store</span>');
+      if (o.eligibleForPicks) destBadges.push('<span class="badge-pill purple" style="font-size:.7rem" title="Eligible for LifeMode Picks (/picks)">Picks</span>');
+      if (!destBadges.length) destBadges.push('<span class="badge-pill" style="font-size:.7rem;color:var(--muted)">No Destinations</span>');
 
       const isAct = (o.status === 'ACTIVE' || o.state === 'ACTIVE');
       const isArch = (o.status === 'ARCHIVED' || o.state === 'INACTIVE');
@@ -2293,15 +2435,15 @@ function renderAffiliatesTable() {
 
       return '<tr>' +
         '<td>' + thumb + '</td>' +
-        '<td><strong>' + esc(o.title || o.name || 'Untitled Offer') + '</strong>' + brandStr + '</td>' +
+        '<td><strong>' + esc(o.title || o.name || 'Untitled Offer') + '</strong>' + brandStr + idBadge + '</td>' +
         '<td><span class="badge-pill">' + typeLabel + '</span><br><span style="font-size:.75rem;color:var(--muted)">' + esc(o.merchant || 'Direct') + '</span></td>' +
         '<td><div style="display:flex;gap:.25rem;flex-wrap:wrap">' + destBadges.join('') + '</div></td>' +
         '<td>' + statusPill + '</td>' +
         '<td>' +
-          '<div style="display:flex;gap:.35rem">' +
-            '<button class="btn btn-secondary btn-sm" onclick="openAffiliateEditModal(\'' + esc(o.id) + '\')">Edit</button>' +
-            '<button class="btn btn-secondary btn-sm" onclick="copyAffiliateLink(\'' + esc(o.affiliateUrl) + '\', \'' + esc(o.title || o.name || 'Recommendation') + '\')">Copy Link</button>' +
-            '<button class="btn btn-danger btn-sm" onclick="deleteAffiliateOffer(\'' + esc(o.id) + '\')">Delete</button>' +
+          '<div style="display:flex;gap:.35rem;flex-wrap:wrap">' +
+            '<button type="button" class="btn btn-primary btn-sm" onclick="editAffiliateOffer(\\'' + esc(o.id) + '\\')">✏️ Edit</button>' +
+            '<button type="button" class="btn btn-secondary btn-sm" onclick="copyAffiliateLink(\\'' + esc(o.affiliateUrl) + '\\', \\'' + esc(o.title || o.name || 'Recommendation') + '\\')">Copy Link</button>' +
+            '<button type="button" class="btn btn-danger btn-sm" onclick="deleteAffiliateOffer(\\'' + esc(o.id) + '\\')">Delete</button>' +
           '</div>' +
         '</td>' +
       '</tr>';
@@ -2317,6 +2459,8 @@ window.filterAffiliates = (facet, val) => {
     });
   } else if (facet === 'dest') {
     affiliateDestFilter = val;
+  } else if (facet === 'status') {
+    affiliateStatusFilter = val;
   }
   loadAffiliates();
 };
@@ -2326,156 +2470,224 @@ window.handleAffiliateSearch = () => {
   loadAffiliates();
 };
 
-window.handleQuickAddAffiliate = async (e) => {
-  e.preventDefault();
-  const urlInput = document.querySelector('#quick-add-url');
-  const typeSelect = document.querySelector('#quick-add-type');
-  const feedback = document.querySelector('#quick-add-feedback');
-  const btn = document.querySelector('#btn-quick-add');
+// -------------------------------------------------------------
+// Interactive Affiliate Offers Management Logic (Inline Panel)
+// -------------------------------------------------------------
+let currentManageImages = [];
 
-  const rawUrl = urlInput.value.trim();
-  if (!rawUrl) return;
-
-  btn.disabled = true;
-  feedback.style.color = 'var(--muted)';
-  feedback.textContent = 'Processing link and creating record…';
-
-  try {
-    const res = await api('/api/affiliates/quick-add', {
-      method: 'POST',
-      body: JSON.stringify({ affiliateUrl: rawUrl, offerType: typeSelect.value }),
-    });
-
-    feedback.style.color = 'var(--success)';
-    feedback.textContent = (res.isExisting ? '✓ Existing offer found in catalog: ' : '✓ Created new draft offer: ') + (res.offer.title || res.offer.name || res.offer.id);
-    urlInput.value = '';
-    await loadAffiliates();
-  } catch (err) {
-    feedback.style.color = 'var(--danger)';
-    feedback.textContent = 'Failed: ' + err.message;
-  } finally {
-    btn.disabled = false;
-  }
-};
-
-window.openAffiliateEditModal = async (offerId) => {
-  const modal = document.querySelector('#affiliate-modal');
-  const titleEl = document.querySelector('#affiliate-modal-title');
-  const feedback = document.querySelector('#modal-aff-feedback');
-  feedback.textContent = '';
+window.editAffiliateOffer = async (offerId) => {
+  const heading = document.querySelector('#affiliate-form-heading');
+  const subHeading = document.querySelector('#affiliate-form-subheading');
+  const badge = document.querySelector('#affiliate-mode-badge');
+  const btnDelete = document.querySelector('#btn-manage-aff-delete');
+  const feedback = document.querySelector('#manage-aff-feedback');
+  if (feedback) feedback.textContent = '';
 
   let offer = null;
   if (offerId) {
-    titleEl.textContent = 'Edit Affiliate Offer (' + offerId + ')';
     offer = currentAffiliates.find(o => o.id === offerId) || await api('/api/affiliates/' + encodeURIComponent(offerId));
+    if (heading) heading.textContent = 'Edit Affiliate Offer: ' + (offer.title || offer.name || offer.id);
+    if (subHeading) subHeading.textContent = 'Editing existing catalog offer. Preserves exact affiliate URL and settings.';
+    if (badge) {
+      badge.className = 'badge-pill blue';
+      badge.textContent = 'Editing ID: ' + offer.id;
+    }
+    if (btnDelete) btnDelete.style.display = 'inline-block';
   } else {
-    titleEl.textContent = 'Create New Custom Affiliate Offer';
-    offer = {
-      id: '',
-      title: '',
-      affiliateUrl: '',
-      brand: '',
-      merchant: '',
-      offerType: 'physical',
-      status: 'DRAFT',
-      priceRange: '',
-      badge: '',
-      defaultCtaText: 'View recommendation',
-      asin: '',
-      eligibleForStore: false,
-      eligibleForPicks: true,
-      eligibleForGuides: true,
-      description: '',
-      editorialNote: '',
-      images: [],
-    };
-  }
-
-  document.querySelector('#modal-aff-id').value = offer.id || '';
-  document.querySelector('#modal-aff-title').value = offer.title || offer.name || '';
-  document.querySelector('#modal-aff-url').value = offer.affiliateUrl || '';
-  document.querySelector('#modal-aff-brand').value = offer.brand || '';
-  document.querySelector('#modal-aff-merchant').value = offer.merchant || '';
-  document.querySelector('#modal-aff-type').value = offer.offerType || 'physical';
-  document.querySelector('#modal-aff-status').value = offer.status || (offer.state === 'ACTIVE' ? 'ACTIVE' : (offer.state === 'INACTIVE' ? 'ARCHIVED' : 'DRAFT'));
-  document.querySelector('#modal-aff-price').value = offer.priceRange || '';
-  document.querySelector('#modal-aff-badge').value = offer.badge || '';
-  document.querySelector('#modal-aff-cta').value = offer.defaultCtaText || 'View recommendation';
-  document.querySelector('#modal-aff-asin').value = offer.asin || '';
-  document.querySelector('#modal-aff-elig-store').checked = Boolean(offer.eligibleForStore);
-  document.querySelector('#modal-aff-elig-picks').checked = Boolean(offer.eligibleForPicks);
-  document.querySelector('#modal-aff-elig-guides').checked = Boolean(offer.eligibleForGuides);
-  document.querySelector('#modal-aff-desc').value = offer.description || '';
-  document.querySelector('#modal-aff-note').value = offer.editorialNote || '';
-
-  currentEditImages = Array.isArray(offer.images) && offer.images.length
-    ? JSON.parse(JSON.stringify(offer.images))
-    : (offer.imageUrl ? [{ url: offer.imageUrl, alt: offer.imageAlt || '', isPrimary: true, displayOrder: 0 }] : []);
-
-  renderModalImagesList();
-  modal.classList.add('open');
-};
-
-window.closeAffiliateModal = () => {
-  document.querySelector('#affiliate-modal')?.classList.remove('open');
-  currentEditImages = [];
-};
-
-function renderModalImagesList() {
-  const container = document.querySelector('#modal-aff-images-list');
-  if (!container) return;
-  if (!currentEditImages.length) {
-    container.innerHTML = '<span style="font-size:.8rem;color:var(--muted);padding:.35rem 0">No images added yet. Click "+ Add Image URL" or "📷 Upload to R2".</span>';
+    resetAffiliateFormForNew();
     return;
   }
 
-  container.innerHTML = currentEditImages.map((img, idx) => {
+  document.querySelector('#manage-aff-id').value = offer.id || '';
+  document.querySelector('#manage-aff-custom-id').value = offer.id || '';
+  document.querySelector('#manage-aff-title').value = offer.title || offer.name || '';
+  document.querySelector('#manage-aff-url').value = offer.affiliateUrl || '';
+  document.querySelector('#manage-aff-brand').value = offer.brand || '';
+  document.querySelector('#manage-aff-merchant').value = offer.merchant || '';
+  document.querySelector('#manage-aff-asin').value = offer.asin || '';
+  document.querySelector('#manage-aff-type').value = offer.offerType || 'physical';
+  document.querySelector('#manage-aff-status').value = offer.status || (offer.state === 'ACTIVE' ? 'ACTIVE' : (offer.state === 'INACTIVE' ? 'ARCHIVED' : 'DRAFT'));
+  document.querySelector('#manage-aff-price').value = offer.priceRange || '';
+  document.querySelector('#manage-aff-badge').value = offer.badge || '';
+  document.querySelector('#manage-aff-cta').value = offer.defaultCtaText || 'View recommendation';
+
+  // Three Independent Destination Eligibility Controls
+  document.querySelector('#manage-aff-elig-guides').checked = Boolean(offer.eligibleForGuides);
+  document.querySelector('#manage-aff-elig-store').checked = Boolean(offer.eligibleForStore);
+  document.querySelector('#manage-aff-elig-picks').checked = Boolean(offer.eligibleForPicks);
+
+  document.querySelector('#manage-aff-desc').value = offer.description || '';
+  document.querySelector('#manage-aff-note').value = offer.editorialNote || '';
+
+  // Multi-image Management
+  currentManageImages = Array.isArray(offer.images) && offer.images.length
+    ? JSON.parse(JSON.stringify(offer.images))
+    : (offer.imageUrl ? [{ url: offer.imageUrl, alt: offer.imageAlt || '', isPrimary: true, displayOrder: 0 }] : []);
+
+  renderManageImagesList();
+
+  // Smoothly focus/scroll to the management card
+  document.querySelector('#affiliate-management-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
+window.resetAffiliateFormForNew = () => {
+  const heading = document.querySelector('#affiliate-form-heading');
+  const subHeading = document.querySelector('#affiliate-form-subheading');
+  const badge = document.querySelector('#affiliate-mode-badge');
+  const btnDelete = document.querySelector('#btn-manage-aff-delete');
+  const feedback = document.querySelector('#manage-aff-feedback');
+  if (feedback) feedback.textContent = '';
+
+  if (heading) heading.textContent = 'Add New Affiliate Offer';
+  if (subHeading) subHeading.textContent = 'Paste an affiliate link or enter product details to add a new recommendation to data/commerce/products.json';
+  if (badge) {
+    badge.className = 'badge-pill green';
+    badge.textContent = 'New Offer Mode';
+  }
+  if (btnDelete) btnDelete.style.display = 'none';
+
+  document.querySelector('#manage-aff-id').value = '';
+  document.querySelector('#manage-aff-custom-id').value = '';
+  document.querySelector('#manage-aff-title').value = '';
+  document.querySelector('#manage-aff-url').value = '';
+  document.querySelector('#manage-aff-brand').value = '';
+  document.querySelector('#manage-aff-merchant').value = '';
+  document.querySelector('#manage-aff-asin').value = '';
+  document.querySelector('#manage-aff-type').value = 'physical';
+  document.querySelector('#manage-aff-status').value = 'ACTIVE';
+  document.querySelector('#manage-aff-price').value = '';
+  document.querySelector('#manage-aff-badge').value = '';
+  document.querySelector('#manage-aff-cta').value = 'View recommendation';
+
+  // Never automatically enable all three
+  document.querySelector('#manage-aff-elig-guides').checked = false;
+  document.querySelector('#manage-aff-elig-store').checked = false;
+  document.querySelector('#manage-aff-elig-picks').checked = false;
+
+  document.querySelector('#manage-aff-desc').value = '';
+  document.querySelector('#manage-aff-note').value = '';
+
+  currentManageImages = [];
+  renderManageImagesList();
+
+  document.querySelector('#affiliate-management-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
+window.openAffiliateEditModal = (id) => {
+  editAffiliateOffer(id);
+};
+
+window.handleUrlInputAutoFill = (rawUrl) => {
+  if (!rawUrl || !rawUrl.trim()) return;
+  const url = rawUrl.trim();
+
+  // Amazon ASIN parsing
+  const asinMatch = url.match(new RegExp('(?:/(?:dp|gp/product|asin)/|ASIN=)([A-Z0-9]{10})', 'i'));
+  if (asinMatch) {
+    const asinInput = document.querySelector('#manage-aff-asin');
+    if (asinInput && !asinInput.value) {
+      asinInput.value = asinMatch[1].toUpperCase();
+    }
+  }
+
+  // Merchant parsing
+  const merchantInput = document.querySelector('#manage-aff-merchant');
+  if (merchantInput && !merchantInput.value) {
+    try {
+      const parsed = new URL(url);
+      const host = parsed.hostname.replace(/^www\./, '');
+      if (host.includes('amazon.')) merchantInput.value = 'Amazon';
+      else if (host.includes('shareasale.')) merchantInput.value = 'ShareASale';
+      else if (host.includes('coursera.')) merchantInput.value = 'Coursera';
+      else if (host.includes('target.')) merchantInput.value = 'Target';
+      else merchantInput.value = host;
+    } catch {}
+  }
+
+  // Suggested Unique ID if empty
+  const idInput = document.querySelector('#manage-aff-custom-id');
+  const existingId = document.querySelector('#manage-aff-id').value;
+  if (!existingId && idInput && !idInput.value) {
+    if (asinMatch) {
+      idInput.value = 'amazon-' + asinMatch[1].toLowerCase();
+    } else {
+      try {
+        const parsed = new URL(url);
+        const lastPart = parsed.pathname.split('/').filter(Boolean).pop();
+        if (lastPart) {
+          idInput.value = slugify(lastPart);
+        }
+      } catch {}
+    }
+  }
+};
+
+window.handleAutoFillFromUrl = () => {
+  const url = document.querySelector('#manage-aff-url')?.value || '';
+  handleUrlInputAutoFill(url);
+};
+
+function renderManageImagesList() {
+  const container = document.querySelector('#manage-aff-images-list');
+  if (!container) return;
+  if (!currentManageImages.length) {
+    container.innerHTML = '<span style="font-size:.8rem;color:var(--muted);padding:.35rem 0">No images added yet. Click "📷 Upload Image to R2", "🖼️ Select from Media", or "+ Add Image URL".</span>';
+    return;
+  }
+
+  container.innerHTML = currentManageImages.map((img, idx) => {
     return '<div class="aff-img-row" style="display:flex;align-items:center;gap:.5rem;background:#fff;border:1px solid var(--border);border-radius:4px;padding:.35rem .5rem">' +
-      '<img src="' + esc(img.url) + '" style="width:40px;height:32px;object-fit:cover;border-radius:3px;border:1px solid #cbd5e1" onerror="this.src=\'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2232%22><rect width=%22100%%22 height=%22100%%22 fill=%22%23e2e8f0%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2210%22>IMG</text></svg>\'">' +
-      '<input type="url" class="aff-img-url" value="' + esc(img.url) + '" placeholder="https://..." onchange="updateEditImage(' + idx + ', \'url\', this.value)" style="flex:2;padding:.3rem .5rem;font-size:.8rem;font-family:monospace">' +
-      '<input type="text" class="aff-img-alt" value="' + esc(img.alt || '') + '" placeholder="Alt text" onchange="updateEditImage(' + idx + ', \'alt\', this.value)" style="flex:1;padding:.3rem .5rem;font-size:.8rem">' +
-      '<label style="display:flex;align-items:center;gap:.25rem;font-size:.75rem;cursor:pointer">' +
-        '<input type="radio" name="aff-primary-img" class="aff-img-primary" ' + (img.isPrimary ? 'checked' : '') + ' onchange="setPrimaryEditImage(' + idx + ')"> Primary' +
+      '<img src="' + esc(img.url) + '" style="width:44px;height:36px;object-fit:cover;border-radius:4px;border:1px solid #cbd5e1" onerror="this.style.opacity=0.3">' +
+      '<input type="text" class="aff-img-url" value="' + esc(img.url) + '" placeholder="/images/... or https://..." onchange="updateManageImage(' + idx + ', &quot;url&quot;, this.value)" style="flex:2;padding:.3rem .5rem;font-size:.8rem;font-family:monospace">' +
+      '<input type="text" class="aff-img-alt" value="' + esc(img.alt || '') + '" placeholder="Alt text" onchange="updateManageImage(' + idx + ', &quot;alt&quot;, this.value)" style="flex:1;padding:.3rem .5rem;font-size:.8rem">' +
+      '<label style="display:flex;align-items:center;gap:.25rem;font-size:.75rem;cursor:pointer;white-space:nowrap">' +
+        '<input type="radio" name="manage-primary-img" class="aff-img-primary" ' + (img.isPrimary ? 'checked' : '') + ' onchange="setPrimaryManageImage(' + idx + ')"> Primary' +
       '</label>' +
-      '<button type="button" class="btn btn-secondary btn-sm" onclick="removeEditImage(' + idx + ')" style="padding:.2rem .4rem;font-size:.75rem">&times;</button>' +
+      '<button type="button" class="btn btn-secondary btn-sm" onclick="removeManageImage(' + idx + ')" style="padding:.2rem .4rem;font-size:.75rem" title="Remove image">&times;</button>' +
     '</div>';
   }).join('');
 }
 
-window.addModalImageRow = (url = '', alt = '') => {
-  currentEditImages.push({
+window.addManageImageRow = (url = '', alt = '') => {
+  currentManageImages.push({
     url,
     alt,
-    isPrimary: currentEditImages.length === 0,
-    displayOrder: currentEditImages.length,
+    isPrimary: currentManageImages.length === 0,
+    displayOrder: currentManageImages.length,
   });
-  renderModalImagesList();
+  renderManageImagesList();
 };
 
-window.updateEditImage = (idx, field, val) => {
-  if (currentEditImages[idx]) {
-    currentEditImages[idx][field] = val;
+window.updateManageImage = (idx, field, val) => {
+  if (currentManageImages[idx]) {
+    currentManageImages[idx][field] = val;
   }
 };
 
-window.setPrimaryEditImage = (idx) => {
-  currentEditImages.forEach((img, i) => {
+window.setPrimaryManageImage = (idx) => {
+  currentManageImages.forEach((img, i) => {
     img.isPrimary = (i === idx);
   });
-  renderModalImagesList();
+  renderManageImagesList();
 };
 
-window.removeEditImage = (idx) => {
-  currentEditImages.splice(idx, 1);
-  if (currentEditImages.length > 0 && !currentEditImages.some(img => img.isPrimary)) {
-    currentEditImages[0].isPrimary = true;
+window.removeManageImage = (idx) => {
+  currentManageImages.splice(idx, 1);
+  if (currentManageImages.length > 0 && !currentManageImages.some(img => img.isPrimary)) {
+    currentManageImages[0].isPrimary = true;
   }
-  renderModalImagesList();
+  renderManageImagesList();
 };
 
-document.querySelector('#modal-aff-file-input')?.addEventListener('change', async (e) => {
+document.querySelector('#manage-aff-file-input')?.addEventListener('change', async (e) => {
   const file = e.target.files?.[0];
   if (!file) return;
+
+  const statusEl = document.querySelector('#manage-aff-upload-status');
+  if (statusEl) {
+    statusEl.style.color = '#0284c7';
+    statusEl.textContent = 'Uploading "' + file.name + '" to Cloudflare R2…';
+  }
 
   const reader = new FileReader();
   reader.onload = async () => {
@@ -2488,81 +2700,191 @@ document.querySelector('#modal-aff-file-input')?.addEventListener('change', asyn
           base64Data: reader.result,
         }),
       });
-      addModalImageRow(res.url, file.name.replace(/\.[^.]+$/, ''));
+      addManageImageRow(res.url, file.name.replace(/\.[^.]+$/, ''));
+      if (statusEl) {
+        statusEl.style.color = '#16a34a';
+        statusEl.textContent = '✓ Image uploaded successfully to R2!';
+        setTimeout(() => { if (statusEl) statusEl.textContent = ''; }, 3000);
+      }
     } catch (err) {
+      if (statusEl) {
+        statusEl.style.color = '#dc2626';
+        statusEl.textContent = 'Upload failed: ' + err.message;
+      }
       alert('Upload failed: ' + err.message);
+    } finally {
+      e.target.value = '';
     }
   };
   reader.readAsDataURL(file);
 });
 
-window.handleSaveAffiliateModal = async (e) => {
+window.handleSaveAffiliateManagement = async (e) => {
   e.preventDefault();
-  const feedback = document.querySelector('#modal-aff-feedback');
-  const btn = document.querySelector('#btn-modal-aff-save');
+  const feedback = document.querySelector('#manage-aff-feedback');
+  const btn = document.querySelector('#btn-manage-aff-save');
 
-  const id = document.querySelector('#modal-aff-id').value.trim();
-  const title = document.querySelector('#modal-aff-title').value.trim();
-  const affiliateUrl = document.querySelector('#modal-aff-url').value.trim();
-  const brand = document.querySelector('#modal-aff-brand').value.trim();
-  const merchant = document.querySelector('#modal-aff-merchant').value.trim();
-  const offerType = document.querySelector('#modal-aff-type').value;
-  const status = document.querySelector('#modal-aff-status').value;
-  const priceRange = document.querySelector('#modal-aff-price').value.trim();
-  const badge = document.querySelector('#modal-aff-badge').value.trim();
-  const defaultCtaText = document.querySelector('#modal-aff-cta').value.trim();
-  const asin = document.querySelector('#modal-aff-asin').value.trim();
-  const eligibleForStore = document.querySelector('#modal-aff-elig-store').checked;
-  const eligibleForPicks = document.querySelector('#modal-aff-elig-picks').checked;
-  const eligibleForGuides = document.querySelector('#modal-aff-elig-guides').checked;
-  const description = document.querySelector('#modal-aff-desc').value.trim();
-  const editorialNote = document.querySelector('#modal-aff-note').value.trim();
+  const existingId = document.querySelector('#manage-aff-id').value.trim();
+  const customId = document.querySelector('#manage-aff-custom-id').value.trim();
+  const id = existingId || customId || undefined;
 
-  const validImages = currentEditImages.filter(img => img && img.url && img.url.trim());
+  const title = document.querySelector('#manage-aff-title').value.trim();
+  let affiliateUrl = document.querySelector('#manage-aff-url').value.trim();
 
-  const offerPayload = {
-    id: id || undefined,
+  // If URL field was cleared or empty when editing an existing offer, recover existing URL
+  if (!affiliateUrl && existingId) {
+    const existingOffer = currentAffiliates.find(o => o.id === existingId);
+    if (existingOffer?.affiliateUrl) {
+      affiliateUrl = existingOffer.affiliateUrl;
+      const urlInput = document.querySelector('#manage-aff-url');
+      if (urlInput) urlInput.value = affiliateUrl;
+    }
+  }
+
+  if (!affiliateUrl) {
+    alert(existingId ? 'Affiliate Destination URL is required for this offer.' : 'Product Destination Affiliate URL is required for new offers.');
+    return;
+  }
+  if (!title) {
+    alert('Product Title is required.');
+    return;
+  }
+
+  const brand = document.querySelector('#manage-aff-brand').value.trim();
+  const merchant = document.querySelector('#manage-aff-merchant').value.trim();
+  const asin = document.querySelector('#manage-aff-asin').value.trim();
+  const offerType = document.querySelector('#manage-aff-type').value;
+  const status = document.querySelector('#manage-aff-status').value;
+  const priceRange = document.querySelector('#manage-aff-price').value.trim();
+  const badge = document.querySelector('#manage-aff-badge').value.trim();
+  const defaultCtaText = document.querySelector('#manage-aff-cta').value.trim();
+
+  // CRITICAL REQUIREMENT C: Three independent eligibility flags
+  const eligibleForGuides = Boolean(document.querySelector('#manage-aff-elig-guides').checked);
+  const eligibleForStore = Boolean(document.querySelector('#manage-aff-elig-store').checked);
+  const eligibleForPicks = Boolean(document.querySelector('#manage-aff-elig-picks').checked);
+
+  const description = document.querySelector('#manage-aff-desc').value.trim();
+  const editorialNote = document.querySelector('#manage-aff-note').value.trim();
+
+  // CRITICAL REQUIREMENT D: Product Images
+  const imageRows = document.querySelectorAll('#manage-aff-images-list .aff-img-row');
+  const scrapedImages = [];
+  imageRows.forEach((row, i) => {
+    const url = (row.querySelector('.aff-img-url')?.value || '').trim();
+    const alt = (row.querySelector('.aff-img-alt')?.value || '').trim();
+    const isPrimary = Boolean(row.querySelector('.aff-img-primary')?.checked);
+    if (url) {
+      scrapedImages.push({
+        url,
+        alt: alt || title,
+        isPrimary,
+        displayOrder: i,
+      });
+    }
+  });
+
+  if (scrapedImages.length && !scrapedImages.some(img => img.isPrimary)) {
+    scrapedImages[0].isPrimary = true;
+  }
+  const primaryImg = scrapedImages.find(img => img.isPrimary) || scrapedImages[0];
+
+  const payload = {
+    id,
     title,
     name: title,
-    affiliateUrl, // byte-for-byte exact
+    affiliateUrl, // exact byte-for-byte
     brand: brand || undefined,
     merchant: merchant || undefined,
+    asin: asin || undefined,
     offerType,
     status,
     state: status === 'ACTIVE' ? 'ACTIVE' : (status === 'ARCHIVED' ? 'INACTIVE' : 'DRAFT'),
     priceRange,
     badge,
     defaultCtaText: defaultCtaText || 'View recommendation',
-    asin: asin || undefined,
+    eligibleForGuides,
     eligibleForStore,
     eligibleForPicks,
-    eligibleForGuides,
     description,
     editorialNote,
-    images: validImages.length ? validImages : undefined,
+    imageUrl: primaryImg ? primaryImg.url : undefined,
+    imageAlt: primaryImg ? (primaryImg.alt || title) : undefined,
+    images: scrapedImages,
   };
 
   btn.disabled = true;
   feedback.className = 'status-msg info';
-  feedback.textContent = 'Saving offer…';
+  feedback.textContent = 'Saving affiliate offer to catalog…';
 
   try {
-    await api('/api/affiliates', {
+    const res = await api('/api/affiliates', {
       method: 'POST',
-      body: JSON.stringify({ offer: offerPayload }),
+      body: JSON.stringify({ offer: payload }),
     });
+
     feedback.className = 'status-msg success';
-    feedback.textContent = '✓ Saved successfully!';
-    setTimeout(() => {
-      closeAffiliateModal();
-      loadAffiliates();
-    }, 400);
+    feedback.textContent = '✓ Saved offer "' + (res.offer?.title || title) + '" to catalog (ID: ' + (res.offer?.id || id) + ')!';
+
+    // Refresh table and counts
+    await loadAffiliates();
+    refreshCounts();
+
+    // Update form to edit mode for the saved offer
+    if (res.offer?.id) {
+      document.querySelector('#manage-aff-id').value = res.offer.id;
+      document.querySelector('#manage-aff-custom-id').value = res.offer.id;
+      const heading = document.querySelector('#affiliate-form-heading');
+      if (heading) heading.textContent = 'Edit Affiliate Offer: ' + (res.offer.title || title);
+      const modeBadge = document.querySelector('#affiliate-mode-badge');
+      if (modeBadge) {
+        modeBadge.className = 'badge-pill blue';
+        modeBadge.textContent = 'Saved ID: ' + res.offer.id;
+      }
+      const btnDelete = document.querySelector('#btn-manage-aff-delete');
+      if (btnDelete) btnDelete.style.display = 'inline-block';
+
+      // Keep currentManageImages in sync with the saved offer images
+      if (res.offer?.images && Array.isArray(res.offer.images) && res.offer.images.length) {
+        currentManageImages = JSON.parse(JSON.stringify(res.offer.images));
+      } else if (res.offer?.imageUrl) {
+        currentManageImages = [{
+          url: res.offer.imageUrl,
+          alt: res.offer.imageAlt || res.offer.title || title,
+          isPrimary: true,
+          displayOrder: 0,
+        }];
+      }
+      renderManageImagesList();
+    }
   } catch (err) {
     feedback.className = 'status-msg error';
-    feedback.textContent = 'Save failed: ' + err.message;
+    feedback.textContent = 'Failed to save offer: ' + err.message;
   } finally {
     btn.disabled = false;
   }
+};
+
+window.handleDeleteCurrentOffer = async () => {
+  const id = document.querySelector('#manage-aff-id').value.trim();
+  if (!id) return;
+  const title = document.querySelector('#manage-aff-title').value.trim() || id;
+  if (!confirm('Are you sure you want to delete "' + title + '" from data/commerce/products.json?')) return;
+
+  try {
+    await api('/api/affiliates/' + encodeURIComponent(id), { method: 'DELETE' });
+    resetAffiliateFormForNew();
+    await loadAffiliates();
+    refreshCounts();
+    alert('Deleted offer: ' + id);
+  } catch (err) {
+    alert('Delete failed: ' + err.message);
+  }
+};
+
+window.switchToAffiliatesTab = () => {
+  closeAffiliateSelectorModal();
+  document.querySelector('.tab-btn[data-tab="affiliates"]')?.click();
 };
 
 window.deleteAffiliateOffer = async (id) => {
@@ -2576,14 +2898,243 @@ window.deleteAffiliateOffer = async (id) => {
 };
 
 // -------------------------------------------------------------
-// 9. Guide Editor Affiliate Inspector Modal
+// 8b. Guide Affiliate Products Import Workflow
+// -------------------------------------------------------------
+let currentGuideScan = null;
+
+window.openGuideImportModal = async () => {
+  const modal = document.querySelector('#modal-guide-import');
+  if (modal) modal.classList.add('open');
+  await loadGuideImportScan();
+};
+
+window.closeGuideImportModal = () => {
+  document.querySelector('#modal-guide-import')?.classList.remove('open');
+};
+
+window.loadGuideImportScan = async () => {
+  const listEl = document.querySelector('#guide-import-list');
+  const summaryEl = document.querySelector('#guide-import-summary');
+  if (!listEl) return;
+
+  listEl.innerHTML = '<p class="muted" style="padding:.5rem 0">Scanning published guide articles for embedded affiliate links…</p>';
+  try {
+    const scan = await api('/api/affiliates/scan-guides');
+    currentGuideScan = scan;
+    const uncataloged = (scan.discovered || []).filter(item => !(item.alreadyInCatalog || item.isCataloged));
+
+    if (summaryEl) {
+      summaryEl.textContent = 'Found ' + scan.totalFound + ' total recommendation(s) across guides — ' +
+        uncataloged.length + ' not yet cataloged, ' + scan.catalogedCount + ' already in catalog.';
+    }
+
+    if (document.querySelector('#uncataloged-guides-count')) {
+      document.querySelector('#uncataloged-guides-count').textContent = uncataloged.length;
+    }
+    const banner = document.querySelector('#selector-guide-uncataloged-banner');
+    const bannerCount = document.querySelector('#selector-guide-uncataloged-count');
+    if (banner && bannerCount) {
+      bannerCount.textContent = uncataloged.length;
+      banner.style.display = uncataloged.length > 0 ? 'flex' : 'none';
+    }
+
+    if (!uncataloged.length) {
+      listEl.innerHTML = '<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;padding:1rem;text-align:center;color:#166534">' +
+        '<strong>✓ All guide affiliate recommendations are already cataloged!</strong>' +
+        '<p style="margin:.35rem 0 0 0;font-size:.85rem;color:#15803d">Every affiliate recommendation found in published guides exists in the central catalog.</p>' +
+        '</div>';
+      return;
+    }
+
+    listEl.innerHTML = uncataloged.map((item, idx) => {
+      const asinBadge = item.asin ? '<span class="badge-pill" style="font-size:.7rem">ASIN: ' + esc(item.asin) + '</span>' : '<span class="badge-pill" style="font-size:.7rem;color:var(--muted)">Non-Amazon</span>';
+      const brandText = item.brand ? '<span style="font-size:.8rem;color:var(--muted)">by ' + esc(item.brand) + '</span>' : '';
+      const thumb = item.imageUrl
+        ? '<img src="' + esc(item.imageUrl) + '" style="width:48px;height:40px;object-fit:cover;border-radius:4px;border:1px solid var(--border)">'
+        : '<div style="width:48px;height:40px;background:#e2e8f0;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.1rem">🛍️</div>';
+
+      return '<div class="guide-import-card" id="guide-import-row-' + idx + '" style="border:1px solid var(--border);border-radius:6px;padding:.75rem;background:#fff">' +
+        '<div style="display:flex;gap:.75rem;align-items:flex-start">' +
+          '<input type="checkbox" class="guide-import-select" data-idx="' + idx + '" checked style="margin-top:.25rem">' +
+          thumb +
+          '<div style="flex:1">' +
+            '<div style="display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap">' +
+              '<strong>' + esc(item.title) + '</strong> ' + brandText + ' ' + asinBadge +
+              '<span class="badge-pill blue" style="font-size:.7rem">Guide: ' + esc(item.guideSlug) + '</span>' +
+            '</div>' +
+            '<div style="font-size:.78rem;font-family:monospace;color:#0369a1;word-break:break-all;margin:.25rem 0">' +
+              esc(item.affiliateUrl) +
+            '</div>' +
+            '<div style="display:flex;gap:1.25rem;align-items:center;margin-top:.5rem;flex-wrap:wrap;background:#f8fafc;padding:.4rem .65rem;border-radius:4px;font-size:.8rem;border:1px solid var(--border)">' +
+              '<span style="font-weight:600;color:#334155">Set Destination Eligibility:</span>' +
+              '<label style="display:flex;align-items:center;gap:.35rem;cursor:pointer">' +
+                '<input type="checkbox" class="import-elig-guides" data-idx="' + idx + '" checked> Guides' +
+              '</label>' +
+              '<label style="display:flex;align-items:center;gap:.35rem;cursor:pointer">' +
+                '<input type="checkbox" class="import-elig-store" data-idx="' + idx + '"> Store (/daily-ideas)' +
+              '</label>' +
+              '<label style="display:flex;align-items:center;gap:.35rem;cursor:pointer">' +
+                '<input type="checkbox" class="import-elig-picks" data-idx="' + idx + '"> Picks (/picks)' +
+              '</label>' +
+            '</div>' +
+          '</div>' +
+          '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:.35rem">' +
+            '<button type="button" class="btn btn-primary btn-sm" id="btn-import-row-' + idx + '" onclick="importSingleGuideOffer(' + idx + ')">Import to Catalog</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  } catch (err) {
+    listEl.innerHTML = '<p class="error">Failed to scan guides: ' + esc(err.message) + '</p>';
+  }
+};
+
+window.importSingleGuideOffer = async (idx) => {
+  if (!currentGuideScan || !currentGuideScan.discovered) return;
+  const uncataloged = currentGuideScan.discovered.filter(item => !(item.alreadyInCatalog || item.isCataloged));
+  const item = uncataloged[idx];
+  if (!item) return;
+
+  const btn = document.querySelector('#btn-import-row-' + idx);
+  const rowEl = document.querySelector('#guide-import-row-' + idx);
+  const eligGuides = Boolean(rowEl?.querySelector('.import-elig-guides')?.checked);
+  const eligStore = Boolean(rowEl?.querySelector('.import-elig-store')?.checked);
+  const eligPicks = Boolean(rowEl?.querySelector('.import-elig-picks')?.checked);
+
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = 'Importing…';
+  }
+
+  try {
+    const res = await api('/api/affiliates/import-guide', {
+      method: 'POST',
+      body: JSON.stringify({
+        title: item.title,
+        brand: item.brand,
+        affiliateUrl: item.affiliateUrl,
+        asin: item.asin,
+        guideSlug: item.guideSlug,
+        eligibleForGuides: eligGuides,
+        eligibleForStore: eligStore,
+        eligibleForPicks: eligPicks,
+        price: item.price,
+        imageUrl: item.imageUrl,
+      }),
+    });
+
+    item.alreadyInCatalog = true;
+    item.isCataloged = true;
+    if (rowEl) {
+      rowEl.style.background = '#f0fdf4';
+      rowEl.style.borderColor = '#bbf7d0';
+      rowEl.innerHTML = '<div style="display:flex;align-items:center;justify-content:space-between;padding:.35rem .5rem">' +
+        '<span style="color:#166534;font-size:.85rem">✓ <strong>' + esc(item.title) + '</strong> imported to catalog (ID: <code>' + esc(res.offer.id) + '</code>).</span>' +
+        '<span class="badge-pill green" style="font-size:.7rem">Cataloged</span>' +
+        '</div>';
+    }
+
+    await loadAffiliates();
+    refreshCounts();
+  } catch (err) {
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = 'Retry Import';
+    }
+    alert('Import failed: ' + err.message);
+  }
+};
+
+window.importAllSelectedGuideOffers = async () => {
+  if (!currentGuideScan || !currentGuideScan.discovered) return;
+  const uncataloged = currentGuideScan.discovered.filter(item => !(item.alreadyInCatalog || item.isCataloged));
+  const selectedCheckboxes = document.querySelectorAll('.guide-import-select:checked');
+  if (!selectedCheckboxes.length) {
+    alert('No guide recommendations selected for import.');
+    return;
+  }
+
+  const btnAll = document.querySelector('#btn-import-all-selected');
+  if (btnAll) {
+    btnAll.disabled = true;
+    btnAll.textContent = 'Importing selected…';
+  }
+
+  let importedCount = 0;
+  for (const cb of selectedCheckboxes) {
+    const idx = Number(cb.dataset.idx);
+    const item = uncataloged[idx];
+    if (item && !(item.alreadyInCatalog || item.isCataloged)) {
+      const rowEl = document.querySelector('#guide-import-row-' + idx);
+      const eligGuides = Boolean(rowEl?.querySelector('.import-elig-guides')?.checked);
+      const eligStore = Boolean(rowEl?.querySelector('.import-elig-store')?.checked);
+      const eligPicks = Boolean(rowEl?.querySelector('.import-elig-picks')?.checked);
+
+      try {
+        const res = await api('/api/affiliates/import-guide', {
+          method: 'POST',
+          body: JSON.stringify({
+            title: item.title,
+            brand: item.brand,
+            affiliateUrl: item.affiliateUrl,
+            asin: item.asin,
+            guideSlug: item.guideSlug,
+            eligibleForGuides: eligGuides,
+            eligibleForStore: eligStore,
+            eligibleForPicks: eligPicks,
+            price: item.price,
+            imageUrl: item.imageUrl,
+          }),
+        });
+        item.alreadyInCatalog = true;
+        item.isCataloged = true;
+        importedCount++;
+        if (rowEl) {
+          rowEl.style.background = '#f0fdf4';
+          rowEl.style.borderColor = '#bbf7d0';
+          rowEl.innerHTML = '<div style="display:flex;align-items:center;justify-content:space-between;padding:.35rem .5rem">' +
+            '<span style="color:#166534;font-size:.85rem">✓ <strong>' + esc(item.title) + '</strong> imported (ID: <code>' + esc(res.offer.id) + '</code>).</span>' +
+            '<span class="badge-pill green" style="font-size:.7rem">Cataloged</span>' +
+            '</div>';
+        }
+      } catch (e) {
+        console.error('Failed to import item', item.title, e);
+      }
+    }
+  }
+
+  if (btnAll) {
+    btnAll.disabled = false;
+    btnAll.textContent = 'Import All Selected';
+  }
+
+  await loadAffiliates();
+  refreshCounts();
+  alert('Successfully imported ' + importedCount + ' guide recommendation(s) to the catalog.');
+  loadGuideImportScan();
+};
+
+// -------------------------------------------------------------
+// 9. Guide Editor Affiliate Inspector Modal & Direct Insertion
 // -------------------------------------------------------------
 window.openAffiliateSelectorModal = async () => {
+  saveGuideCursorPos();
   const modal = document.querySelector('#affiliate-selector-modal');
   modal.classList.add('open');
   if (!currentAffiliates.length) {
     currentAffiliates = await api('/api/affiliates');
   }
+  // Check uncataloged guide recommendations to inform operator
+  api('/api/affiliates/scan-guides').then(scan => {
+    currentGuideScan = scan;
+    const uncat = (scan.discovered || []).filter(item => !(item.alreadyInCatalog || item.isCataloged));
+    const banner = document.querySelector('#selector-guide-uncataloged-banner');
+    const bannerCount = document.querySelector('#selector-guide-uncataloged-count');
+    if (banner && bannerCount) {
+      bannerCount.textContent = uncat.length;
+      banner.style.display = uncat.length > 0 ? 'flex' : 'none';
+    }
+  }).catch(() => {});
   renderAffiliateSelectorList();
 };
 
@@ -2626,35 +3177,124 @@ window.renderAffiliateSelectorList = () => {
         '</div>' +
       '</div>' +
       '<div style="display:flex;gap:.35rem;flex-shrink:0;flex-wrap:wrap">' +
-        '<button type="button" class="btn btn-secondary btn-sm" onclick="copyAffiliateBox(\'' + esc(o.id) + '\')">Copy Box</button>' +
-        '<button type="button" class="btn btn-secondary btn-sm" onclick="copyContextualAffiliateLink(\'' + esc(o.id) + '\', \'' + esc(o.title || o.name) + '\')">Copy Link</button>' +
-        '<button type="button" class="btn btn-secondary btn-sm" onclick="copyAffiliateId(\'' + esc(o.id) + '\')">Copy ID</button>' +
+        '<button type="button" class="btn btn-primary btn-sm" onclick="insertAffiliateBoxIntoArticle(\\'' + esc(o.id) + '\\', \\'' + esc(o.title || o.name) + '\\')" title="Insert ::product-box directly into editor at cursor">➕ Insert Box</button>' +
+        '<button type="button" class="btn btn-secondary btn-sm" onclick="insertContextualAffiliateLinkIntoArticle(\\'' + esc(o.id) + '\\', \\'' + esc(o.title || o.name) + '\\')" title="Insert contextual markdown link at cursor">🔗 Insert Link</button>' +
+        '<button type="button" class="btn btn-secondary btn-sm" onclick="copyAffiliateBox(\\'' + esc(o.id) + '\\')" title="Copy shortcode to clipboard">Copy Box</button>' +
+        '<button type="button" class="btn btn-secondary btn-sm" onclick="copyContextualAffiliateLink(\\'' + esc(o.id) + '\\', \\'' + esc(o.title || o.name) + '\\')" title="Copy contextual link markdown">Copy Link</button>' +
+        '<button type="button" class="btn btn-secondary btn-sm" onclick="copyAffiliateId(\\'' + esc(o.id) + '\\')">Copy ID</button>' +
       '</div>' +
     '</div>';
   }).join('');
 };
 
+window.insertAffiliateBoxIntoArticle = (id, title) => {
+  if (!guideContentEl) return;
+  const currentText = guideContentEl.value;
+
+  // Accidental duplicate insertion prevention check
+  const isDuplicate = currentText.indexOf('id="' + id + '"') !== -1 ||
+                      currentText.indexOf("id='" + id + "'") !== -1 ||
+                      currentText.indexOf('aff:' + id) !== -1;
+  if (isDuplicate) {
+    const confirmDup = confirm(
+      'Notice: The affiliate offer "' + (title || id) + '" is already present in this guide.\\n\\nDo you want to insert an additional product box for this offer?'
+    );
+    if (!confirmDup) {
+      return;
+    }
+  }
+
+  let start = lastGuideCursorPos.start;
+  let end = lastGuideCursorPos.end;
+  if (start < 0 || start === undefined || isNaN(start)) {
+    start = currentText.length;
+    end = currentText.length;
+  }
+
+  // Ensure clean double newline padding around the product box shortcode
+  let prefix = '\\n\\n';
+  let suffix = '\\n\\n';
+  if (start === 0 || currentText.slice(0, start).endsWith('\\n\\n')) {
+    prefix = '';
+  } else if (currentText.slice(0, start).endsWith('\\n')) {
+    prefix = '\\n';
+  }
+
+  const snippet = prefix + '::product-box{id="' + id + '"}' + suffix;
+  const before = currentText.slice(0, start);
+  const after = currentText.slice(end);
+  guideContentEl.value = before + snippet + after;
+
+  const newPos = start + snippet.length;
+  guideContentEl.focus();
+  guideContentEl.setSelectionRange(newPos, newPos);
+  lastGuideCursorPos = { start: newPos, end: newPos };
+
+  updateGuidePreview();
+  closeAffiliateSelectorModal();
+
+  const st = document.querySelector('#editor-status');
+  if (st) {
+    st.className = 'status-msg success';
+    st.textContent = '✓ Inserted affiliate product box for "' + (title || id) + '".';
+  }
+};
+
+window.insertContextualAffiliateLinkIntoArticle = (id, title) => {
+  if (!guideContentEl) return;
+  const currentText = guideContentEl.value;
+
+  let start = lastGuideCursorPos.start;
+  let end = lastGuideCursorPos.end;
+  if (start < 0 || start === undefined || isNaN(start)) {
+    start = currentText.length;
+    end = currentText.length;
+  }
+
+  const selectedText = currentText.slice(start, end);
+  const linkText = selectedText || title || 'Recommendation';
+  const snippet = '[' + linkText + '](aff:' + id + ')';
+
+  const before = currentText.slice(0, start);
+  const after = currentText.slice(end);
+  guideContentEl.value = before + snippet + after;
+
+  const newPos = start + snippet.length;
+  guideContentEl.focus();
+  guideContentEl.setSelectionRange(newPos, newPos);
+  lastGuideCursorPos = { start: newPos, end: newPos };
+
+  updateGuidePreview();
+  closeAffiliateSelectorModal();
+
+  const st = document.querySelector('#editor-status');
+  if (st) {
+    st.className = 'status-msg success';
+    st.textContent = '✓ Inserted contextual link for "' + (title || id) + '".';
+  }
+};
+
 window.copyAffiliateBox = (id) => {
   const code = '::product-box{id="' + id + '"}';
   navigator.clipboard.writeText(code).catch(() => {});
-  alert('Copied product box shortcode to clipboard:\n' + code);
+  alert('Copied product box shortcode to clipboard:\\n' + code);
 };
 
 window.copyContextualAffiliateLink = (id, title) => {
   const md = '[' + (title || 'Recommendation') + '](aff:' + id + ')';
   navigator.clipboard.writeText(md).catch(() => {});
-  alert('Copied contextual affiliate link to clipboard:\n' + md);
+  alert('Copied contextual affiliate link to clipboard:\\n' + md);
 };
 
 window.copyAffiliateLink = (url, title) => {
   const md = '[' + title + '](' + url + ')';
   navigator.clipboard.writeText(md).catch(() => {});
-  alert('Copied Markdown affiliate link to clipboard:\n' + md);
+  alert('Copied Markdown affiliate link to clipboard:\\n' + md);
 };
 
 window.copyAffiliateId = (id) => {
   navigator.clipboard.writeText(id).catch(() => {});
-  alert('Copied product ID to clipboard:\n' + id);
+  alert('Copied product ID to clipboard:\\n' + id);
 };
 
 // Initial load
@@ -2741,6 +3381,7 @@ const server = createServer(async (request, response) => {
       const lifeHacks = await listPublishedLifeHacks();
       const media = await listMediaAssets();
       const affiliates = await listCmsAffiliateOffers();
+      const scan = await scanGuideAffiliateProducts();
       const r2 = new CloudflareR2SocialAssetStorageProvider();
 
       sendJson(response, 200, {
@@ -2752,6 +3393,7 @@ const server = createServer(async (request, response) => {
         draftsCount: drafts.length,
         mediaCount: media.length,
         affiliatesCount: affiliates.length,
+        uncatalogedGuidesCount: scan.uncatalogedCount,
         storageConfigured: r2.isConfigured(),
       });
       return;
@@ -2885,6 +3527,19 @@ const server = createServer(async (request, response) => {
     }
 
     // 7b. Unified Affiliate Offers Catalog Endpoints
+    if (url.pathname === '/api/affiliates/scan-guides' && request.method === 'GET') {
+      const scan = await scanGuideAffiliateProducts();
+      sendJson(response, 200, scan);
+      return;
+    }
+
+    if (url.pathname === '/api/affiliates/import-guide' && request.method === 'POST') {
+      const body = await readJson(request);
+      const saved = await importGuideAffiliateOffer(body);
+      sendJson(response, 200, { success: true, offer: saved });
+      return;
+    }
+
     if (url.pathname === '/api/affiliates' && request.method === 'GET') {
       const query = url.searchParams.get('q') || url.searchParams.get('query') || undefined;
       const offerType = url.searchParams.get('type') || undefined;

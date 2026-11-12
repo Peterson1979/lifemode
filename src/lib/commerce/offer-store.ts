@@ -253,8 +253,8 @@ export async function saveOffer(input: Partial<OfferRecord>, customPath?: string
     ? input.images
     : (existing as any)?.images;
 
-  let imageUrl = input.imageUrl ?? existing?.imageUrl;
-  let imageAlt = input.imageAlt ?? existing?.imageAlt;
+  let imageUrl = input.imageUrl !== undefined ? input.imageUrl : existing?.imageUrl;
+  let imageAlt = input.imageAlt !== undefined ? input.imageAlt : existing?.imageAlt;
 
   if (images && images.length > 0) {
     const primary = getPrimaryProductImage({ images, imageUrl, imageAlt, name });
@@ -263,7 +263,11 @@ export async function saveOffer(input: Partial<OfferRecord>, customPath?: string
       imageAlt = primary.alt;
     }
   } else if (imageUrl) {
-    images = [{ url: imageUrl, alt: imageAlt, isPrimary: true, displayOrder: 0 }];
+    images = [{ url: imageUrl, alt: imageAlt || name, isPrimary: true, displayOrder: 0 }];
+  } else if (Array.isArray(input.images) && input.images.length === 0) {
+    images = [];
+    imageUrl = undefined;
+    imageAlt = undefined;
   }
 
   const record: OfferRecord = {
