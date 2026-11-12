@@ -62,6 +62,7 @@ const breadcrumbs = [
   title={guide.data.title}
   description={guide.data.description}
   canonicalUrl={canonicalUrl}
+  image={guide.data.image}
   type="article"
   pubDate={guide.data.pubDate}
   updatedDate={guide.data.updatedDate}
@@ -80,6 +81,18 @@ const breadcrumbs = [
         {guide.data.readingTime && <span class="meta-item">⏱️ {guide.data.readingTime}</span>}
       </div>
     </header>
+
+    {guide.data.image && (
+      <figure class="guide-featured-image-wrapper">
+        <img
+          src={guide.data.image}
+          alt={guide.data.imageAlt || guide.data.title}
+          class="guide-featured-image"
+          loading="eager"
+          decoding="async"
+        />
+      </figure>
+    )}
 
     <div class="guide-article-body prose">
       <Content />
@@ -141,6 +154,22 @@ const breadcrumbs = [
     gap: var(--space-4);
     font-size: 0.875rem;
     color: var(--color-text-muted);
+  }
+
+  .guide-featured-image-wrapper {
+    margin: var(--space-6) 0 var(--space-8) 0;
+    border-radius: var(--radius-xl, 16px);
+    overflow: hidden;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+    background-color: var(--color-surface, #f8fafc);
+    border: 1px solid var(--color-border-subtle, #e2e8f0);
+  }
+
+  .guide-featured-image {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    display: block;
   }
 
   .guide-article-body {
