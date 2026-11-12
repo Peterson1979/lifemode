@@ -1,29 +1,41 @@
 ---
-title: "How Much Light Do Houseplants Need? A Practical Guide to Indoor Plant Lighting"
-description: "Understand indoor light levels for houseplants: low, medium, and bright indirect light, window orientation, identifying lighting issues, and using LED grow lights."
-pubDate: "2026-11-09"
+title: How Much Light Do Houseplants Need? A Practical Guide to Indoor Plant Lighting
+description: 'Understand indoor light levels for houseplants: low, medium, and bright indirect light, window orientation, identifying lighting issues, and using LED grow lights.'
+pubDate: '2026-11-09'
 draft: false
-lifecycleStatus: "PUBLISHED"
-format: "practical-guide"
-category: "home-garden"
-primaryIntent: "informational"
-contentType: "explainer"
-difficulty: "Easy"
-timeNeeded: "10 min read"
-readingTime: "10 min read"
-primaryKeyword: "houseplant light requirements indoor plant lighting"
-author: "LifeMode Editorial"
-tags: ["houseplants", "indoor plants", "grow lights", "plant lighting", "home and garden"]
-quickSummary: "A practical guide to indoor plant lighting, explaining low, medium, and bright indirect light, window orientation, symptoms of light stress, and LED grow light usage."
+lifecycleStatus: PUBLISHED
+format: practical-guide
+category: home-garden
+primaryIntent: informational
+contentType: guide
+difficulty: Easy
+timeNeeded: 10 min read
+readingTime: 10 min read
+primaryKeyword: houseplant light requirements indoor plant lighting
+author: LifeMode Editorial
+tags:
+  - houseplants
+  - indoor plants
+  - grow lights
+  - plant lighting
+  - home and garden
+quickSummary: A practical guide to indoor plant lighting, explaining low, medium, and bright indirect light, window orientation, symptoms of light stress, and LED grow light usage.
 relatedGuides:
-  - "houseplant-watering-drainage-diagnostics"
-  - "how-to-prepare-your-home-for-winter"
+  - houseplant-watering-drainage-diagnostics
+  - how-to-prepare-your-home-for-winter
 relatedTools:
-  - "seasonal-maintenance-planner"
+  - seasonal-maintenance-planner
 relatedChecklists:
-  - "master-seasonal-home-checklist"
+  - master-seasonal-home-checklist
 relatedVideos:
-  - "fresh-herbs-storage-guide"
+  - fresh-herbs-storage-guide
+seoTitle: How Much Light Do Houseplants Need? A Practical Guide to Indoor Plant Lighting
+seoDescription: 'Understand indoor light levels for houseplants: low, medium, and bright indirect light, window orientation, identifying lighting issues, and using LED grow lights.'
+publishedDate: '2026-11-09'
+updatedDate: '2026-11-12'
+readTime: 10 min read
+image: /images/guides/61pUrl7WK-L-_AC_SL1000_-3e40a5990c86.jpg
+imageAlt: How Much Light Do Houseplants Need? A Practical Guide to Indoor Plant Lighting
 ---
 
 Light is one of the most important factors in keeping houseplants healthy. It affects how quickly plants grow, how well they maintain their leaves, and whether flowering varieties produce blooms.
@@ -252,4 +264,3 @@ Healthy indoor plants need the right amount of light, not simply the brightest p
 Start by identifying each plant's requirements, assess the natural daylight in your home, and watch how the plant responds to its position. If natural light is limited, a compact LED grow light can provide useful supplementary illumination.
 
 The GooingTop LED Grow Light offers adjustable brightness, a flexible mounting arm, and timer settings for small indoor plant collections. Used thoughtfully, it can help make a darker room more suitable for plants that need additional light. Explore our [Home & Garden Hub](/home-garden/) for more practical guides and plant care advice.
-
