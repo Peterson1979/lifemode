@@ -179,27 +179,42 @@ export class GitCli {
    * Safely stages a single file. Refuses wildcards, dots, or directories.
    */
   async stageSingleFile(repoRoot: string, relativePath: string): Promise<void> {
-    const normalizedTarget = this.normalizeGitPath(relativePath);
+    await this.stageFiles(repoRoot, [relativePath]);
+  }
 
-    if (!normalizedTarget || normalizedTarget === '.' || normalizedTarget.includes('*') || normalizedTarget.includes('..')) {
-      throw new Error(`Unsafe stage target: "${relativePath}". Only explicit single file paths can be staged.`);
+  /**
+   * Safely stages explicit files. Refuses wildcards, dots, or directories.
+   */
+  async stageFiles(repoRoot: string, relativePaths: string[]): Promise<void> {
+    const normalizedTargets = relativePaths.map((p) => this.normalizeGitPath(p)).filter(Boolean);
+
+    for (const target of normalizedTargets) {
+      if (!target || target === '.' || target.includes('*') || target.includes('..')) {
+        throw new Error(`Unsafe stage target: "${target}". Only explicit single file paths can be staged.`);
+      }
     }
 
-    // Stage exclusively the target file
-    await this.runGit(['add', '--', normalizedTarget], repoRoot);
+    if (normalizedTargets.length === 0) {
+      return;
+    }
 
-    // Verify staged files list contains strictly the expected file
+    // Stage exclusively the target files
+    await this.runGit(['add', '--', ...normalizedTargets], repoRoot);
+
+    // Verify staged files list contains strictly the expected files
     const { stdout } = await this.runGit(['diff', '--name-only', '--cached'], repoRoot);
     const staged = stdout.split('\n').map((f) => this.normalizeGitPath(f.trim())).filter(Boolean);
 
-    if (staged.length !== 1 || staged[0] !== normalizedTarget) {
+    const targetSet = new Set(normalizedTargets);
+    const hasUnexpected = staged.some((f) => !targetSet.has(f));
+    if (hasUnexpected || staged.length !== normalizedTargets.length) {
       // Revert accidental staging before throwing
       try {
         await this.runGit(['reset', 'HEAD'], repoRoot);
       } catch {
         // Ignore reset error
       }
-      throw new Error(`Staging safety check failed: Expected exclusively "${normalizedTarget}" to be staged, but found: ${JSON.stringify(staged)}`);
+      throw new Error(`Staging safety check failed: Expected exclusively [${normalizedTargets.join(', ')}] to be staged, but found: ${JSON.stringify(staged)}`);
     }
   }
 

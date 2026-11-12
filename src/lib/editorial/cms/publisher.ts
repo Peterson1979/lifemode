@@ -1,4 +1,5 @@
-import { resolve, relative } from 'node:path';
+import { resolve, relative, join } from 'node:path';
+import { stat } from 'node:fs/promises';
 import { z } from 'zod';
 import { GitCli } from '../git-publisher/git-cli.ts';
 import { writeGuideFile, computeReadingTime } from './guides.ts';
@@ -351,6 +352,22 @@ export async function publishGuide(
 
   const absoluteFilePath = await writeGuideFile(slug, guide, 'PUBLISHED');
   const relativeTarget = git.normalizeGitPath(relative(repoRoot, absoluteFilePath));
+  const targetsToStage: string[] = [relativeTarget];
+
+  // If guide has a local featured image (e.g. /images/guides/...), resolve and stage it if present on disk
+  if (guide.image && (guide.image.startsWith('/images/') || guide.image.startsWith('images/'))) {
+    const cleanImgRel = guide.image.replace(/^\/+/, '');
+    const localImgRelPath = git.normalizeGitPath(join('public', cleanImgRel.replace(/^public[/\\]/, '')));
+    const localImgAbsPath = resolve(repoRoot, localImgRelPath);
+    try {
+      const imgStat = await stat(localImgAbsPath);
+      if (imgStat.isFile()) {
+        targetsToStage.push(localImgRelPath);
+      }
+    } catch {
+      // Local image not found on disk; continue with markdown target only
+    }
+  }
 
   if (options.dryRun) {
     return {
@@ -364,7 +381,7 @@ export async function publishGuide(
   await safeStageAndCommit(
     git,
     repoRoot,
-    relativeTarget,
+    targetsToStage,
     `feat: publish guide "${guide.title.replace(/[\r\n"]+/g, ' ').slice(0, 100)}"`,
     remote,
     branch
@@ -608,11 +625,17 @@ export async function publishLifeHack(
 async function safeStageAndCommit(
   git: GitCli,
   repoRoot: string,
-  relativeTarget: string,
+  relativeTargets: string | string[],
   commitMessage: string,
   remote: string,
   branch: string
 ): Promise<string> {
+  const targets = (Array.isArray(relativeTargets) ? relativeTargets : [relativeTargets])
+    .map((t) => git.normalizeGitPath(t))
+    .filter(Boolean);
+
+  const targetSet = new Set(targets);
+
   // 1. Safety check: inspect pre-existing staged files
   const { stdout: initialStagedStdout } = await git.runGit(['diff', '--name-only', '--cached'], repoRoot);
   const initialStaged = initialStagedStdout
@@ -620,28 +643,33 @@ async function safeStageAndCommit(
     .map((f) => git.normalizeGitPath(f.trim()))
     .filter((f) => f && f !== '.');
 
-  const unrelatedStaged = initialStaged.filter((f) => f !== relativeTarget);
+  const unrelatedStaged = initialStaged.filter((f) => !targetSet.has(f));
   if (unrelatedStaged.length > 0) {
     throw new Error(
       `Publish aborted: Git index already contains unrelated staged files: ${unrelatedStaged.join(', ')}. Unstage them before publishing.`
     );
   }
 
-  // 2. Stage exclusively the published target file
-  await git.stageSingleFile(repoRoot, relativeTarget);
+  // 2. Stage exclusively the published target files
+  await git.stageFiles(repoRoot, targets);
 
-  // 3. Verify exclusively the target file is staged
+  // 3. Verify exclusively the target files are staged
   const { stdout: postStagedStdout } = await git.runGit(['diff', '--name-only', '--cached'], repoRoot);
   const stagedFiles = postStagedStdout
     .split('\n')
     .map((f) => git.normalizeGitPath(f.trim()))
     .filter((f) => f && f !== '.');
 
-  if (stagedFiles.length !== 1 || stagedFiles[0] !== relativeTarget) {
+  const hasUnexpected = stagedFiles.some((f) => !targetSet.has(f));
+  if (hasUnexpected || stagedFiles.length !== targets.length) {
     try {
-      await git.runGit(['reset', 'HEAD', '--', relativeTarget], repoRoot);
+      for (const target of targets) {
+        await git.runGit(['reset', 'HEAD', '--', target], repoRoot);
+      }
     } catch {}
-    throw new Error(`Safety check failed: Expected strictly "${relativeTarget}" to be staged, but found: ${stagedFiles.join(', ')}`);
+    throw new Error(
+      `Safety check failed: Expected strictly [${targets.join(', ')}] to be staged, but found: [${stagedFiles.join(', ')}]`
+    );
   }
 
   // 4. Create commit
