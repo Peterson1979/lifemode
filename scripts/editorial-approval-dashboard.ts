@@ -1,10 +1,10 @@
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { randomBytes } from 'node:crypto';
-import { writeFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { mkdir, writeFile, readFile, stat } from 'node:fs/promises';
+import { dirname, join, resolve, extname, relative, isAbsolute } from 'node:path';
 import { tmpdir } from 'node:os';
 import { listDrafts, getDraft, saveDraft, deleteDraft, slugify } from '../src/lib/editorial/cms/drafts.ts';
-import { listPublishedGuides, getPublishedGuide } from '../src/lib/editorial/cms/guides.ts';
+import { listPublishedGuides, getPublishedGuide, processArticleMetadata, parseArticleTitleAndBody } from '../src/lib/editorial/cms/guides.ts';
 import { listPublishedTools, getPublishedTool } from '../src/lib/editorial/cms/tools.ts';
 import { listPublishedChecklists, getPublishedChecklist, renderChecklistStructuredPreview } from '../src/lib/editorial/cms/checklists.ts';
 import { listPublishedLifeHacks, getPublishedLifeHack, renderLifeHackPreview } from '../src/lib/editorial/cms/life-hacks.ts';
@@ -24,11 +24,20 @@ import {
 } from '../src/lib/editorial/cms/types.ts';
 import { renderMarkdownToHtml } from '../src/utils/markdown-renderer.ts';
 import { CloudflareR2SocialAssetStorageProvider } from '../src/lib/social/images/storage/r2.ts';
+import {
+  listCmsAffiliateOffers,
+  getCmsAffiliateOffer,
+  quickAddAffiliateOffer,
+  saveCmsAffiliateOffer,
+  deleteCmsAffiliateOffer,
+} from '../src/lib/editorial/cms/affiliates.ts';
+import { getPrimaryProductImage, type ProductImage } from '../src/lib/commerce/types.ts';
 
 const host = '127.0.0.1';
 const port = Number(process.env.LIFEMODE_APPROVAL_PORT || 4311);
 const token = randomBytes(32).toString('hex');
-const urlFile = process.env.LIFEMODE_APPROVAL_URL_FILE || join(tmpdir(), 'lifemode-editorial-approval.url');
+const defaultUrlFile = join(process.cwd(), 'logs', 'editorial-operations.url');
+const urlFile = process.env.LIFEMODE_APPROVAL_URL_FILE || defaultUrlFile;
 
 function isAuthorized(request: IncomingMessage): boolean {
   const header = request.headers.authorization || '';
@@ -131,6 +140,10 @@ header h1{margin:0;font-size:1.5rem;font-weight:700;color:var(--text)}
 .section-header-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}
 .item-builder-row{display:grid;grid-template-columns:70px 1fr 1fr 100px 32px;gap:.5rem;margin-bottom:.5rem;align-items:center}
 @media(max-width:720px){.item-builder-row{grid-template-columns:1fr;gap:.25rem;background:#fff;padding:.5rem;border:1px solid #e2e8f0;border-radius:4px}}
+.featured-image-widget{display:flex;align-items:center;gap:1rem;background:#f8fafc;border:1px dashed var(--border);border-radius:8px;padding:.6rem .85rem;min-height:85px}
+.featured-image-thumb{width:140px;height:95px;min-width:140px;min-height:95px;object-fit:cover;border-radius:6px;border:1px solid var(--border);display:block;flex-shrink:0;background:#f1f5f9}
+.featured-image-placeholder{width:140px;height:95px;min-width:140px;min-height:95px;background:#e2e8f0;border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.75rem;text-align:center;padding:.25rem;flex-shrink:0}
+.metadata-review-card{background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:1.25rem;margin-top:1.25rem}
 </style>
 </head>
 <body>
@@ -152,12 +165,13 @@ header h1{margin:0;font-size:1.5rem;font-weight:700;color:var(--text)}
   <button type="button" class="tab-btn" data-tab="drafts">📝 Drafts (<span id="drafts-count">0</span>)</button>
   <button type="button" class="tab-btn" data-tab="history">📚 Publication History (<span id="history-count">0</span>)</button>
   <button type="button" class="tab-btn" data-tab="media">🖼️ Media Library (<span id="media-count">0</span>)</button>
+  <button type="button" class="tab-btn" data-tab="affiliates">🛍️ Affiliate Offers (<span id="affiliates-count">0</span>)</button>
 </nav>
 
 <!-- Tab 1: Guides Editor -->
 <section id="tab-editor" class="tab-pane active">
-  <div class="card" style="margin-bottom:1rem;padding:.75rem 1.25rem;display:flex;align-items:center;justify-content:space-between">
-    <div><strong>Create &amp; Edit Guide Article</strong></div>
+  <div class="card" style="margin-bottom:1rem;padding:.75rem 1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem">
+    <div><strong>Create &amp; Edit Guide Article</strong> — <span style="font-size:.85rem;color:var(--muted)">Complete Article Editor</span></div>
     <div style="display:flex;align-items:center;gap:.5rem">
       <label for="select-load-guide" style="font-size:.8rem;color:var(--muted)">Load Published Guide:</label>
       <select id="select-load-guide" style="font-size:.85rem;padding:.3rem .5rem"><option value="">-- Choose Guide --</option></select>
@@ -166,21 +180,12 @@ header h1{margin:0;font-size:1.5rem;font-weight:700;color:var(--text)}
 
   <form id="guide-form" class="card">
     <input type="hidden" name="id" id="field-id">
-    <div class="form-row">
-      <div class="form-group">
-        <label for="field-title">Article Title *</label>
-        <input id="field-title" name="title" required placeholder="e.g. How to Clean a Cast-Iron Skillet">
-      </div>
-      <div class="form-group">
-        <label for="field-slug">URL Slug * <small>(e.g. /guides/your-slug/)</small></label>
-        <input id="field-slug" name="slug" required placeholder="how-to-clean-cast-iron-skillet">
-      </div>
-    </div>
 
-    <div class="form-row">
-      <div class="form-group">
-        <label for="field-category">Primary Category *</label>
-        <select id="field-category" name="category" required>
+    <!-- Configuration Row: Category & Featured Image Direct Upload -->
+    <div class="form-row" style="margin-bottom:1.25rem">
+      <div class="form-group" style="margin-bottom:0">
+        <label for="field-category" style="font-weight:700">Guide Category *</label>
+        <select id="field-category" name="category" required style="font-size:.95rem;padding:.6rem .75rem">
           <option value="food-kitchen">Food &amp; Kitchen</option>
           <option value="home-maintenance">Home Maintenance</option>
           <option value="cleaning-laundry">Cleaning &amp; Laundry</option>
@@ -188,42 +193,31 @@ header h1{margin:0;font-size:1.5rem;font-weight:700;color:var(--text)}
           <option value="smart-home">Smart Home</option>
           <option value="home-garden">Home &amp; Garden</option>
         </select>
+        <small style="color:var(--muted);margin-top:.25rem">Official LifeMode category for content routing and navigation.</small>
       </div>
-      <div class="form-group">
-        <label for="field-image">Featured Main Image URL <small>(R2 or /images/...)</small></label>
-        <div style="display:flex;gap:.5rem">
-          <input id="field-image" name="image" placeholder="https://pub-...r2.dev/guides/image.jpg">
-          <button type="button" class="btn btn-secondary" id="btn-pick-image" style="white-space:nowrap">Pick from Media</button>
+
+      <div class="form-group" style="margin-bottom:0">
+        <label style="font-weight:700">Featured Image</label>
+        <input type="hidden" id="field-image" name="image">
+        <input type="file" id="guide-direct-file-input" accept="image/jpeg,image/png,image/webp" style="display:none">
+        <div style="display:flex;gap:.5rem;margin-bottom:.5rem">
+          <button type="button" class="btn btn-secondary btn-sm" id="btn-upload-featured-image">📷 Upload Image</button>
+          <button type="button" class="btn btn-secondary btn-sm" id="btn-pick-featured-image">🖼️ Select from Media</button>
+        </div>
+        <div id="guide-image-preview-container" class="featured-image-widget">
+          <div class="featured-image-placeholder">No image selected</div>
+          <div style="flex:1;font-size:.8rem;color:var(--muted)">Upload a JPG, PNG, or WebP image directly, or choose from Media Library.</div>
         </div>
       </div>
     </div>
 
-    <div class="form-group">
-      <label for="field-description">Short Description / Excerpt * <small>(Min. 15 chars)</small></label>
-      <textarea id="field-description" name="description" rows="2" required placeholder="A concise, high-value editorial summary of the guide."></textarea>
-    </div>
-
-    <details style="margin-bottom:1rem;border:1px dashed var(--border);border-radius:6px;padding:.5rem .75rem">
-      <summary style="font-size:.85rem;font-weight:600;cursor:pointer;color:var(--primary)">SEO &amp; Metadata Directives (Optional)</summary>
-      <div class="form-row" style="margin-top:.75rem">
-        <div class="form-group">
-          <label for="field-seo-title">SEO Title</label>
-          <input id="field-seo-title" name="seoTitle" placeholder="Custom SERP title (defaults to title)">
-        </div>
-        <div class="form-group">
-          <label for="field-primary-keyword">Primary Target Keyword</label>
-          <input id="field-primary-keyword" name="primaryKeyword" placeholder="e.g. clean cast iron">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="field-seo-desc">SEO Description</label>
-        <input id="field-seo-desc" name="seoDescription" placeholder="Custom meta description (defaults to excerpt)">
-      </div>
-    </details>
-
+    <!-- Complete Article Editor and Live Preview Split View -->
     <div class="split-view">
       <div>
-        <label style="font-size:.85rem;font-weight:600;color:#334155;margin-bottom:.35rem;display:block">Article Content (Markdown) *</label>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.35rem">
+          <label style="font-size:.85rem;font-weight:700;color:#334155">Complete Article (Markdown) *</label>
+          <span style="font-size:.75rem;color:var(--muted)">Includes title (H1), intro, headings, tables &amp; affiliate links</span>
+        </div>
         <div class="editor-toolbar">
           <button type="button" onclick="insertMd('guide', '**', '**', 'bold text')"><strong>B</strong></button>
           <button type="button" onclick="insertMd('guide', '*', '*', 'italic text')"><em>I</em></button>
@@ -233,22 +227,74 @@ header h1{margin:0;font-size:1.5rem;font-weight:700;color:var(--text)}
           <button type="button" onclick="insertMd('guide', '1. ', '', 'Step item')">1. Num</button>
           <button type="button" onclick="insertMd('guide', '[', '](https://example.com)', 'Link text')">Link</button>
           <button type="button" onclick="insertTable('guide')">Table</button>
-          <button type="button" onclick="openMediaPickerForEditor('guide')">Insert Image</button>
+          <button type="button" onclick="openAffiliateSelectorModal()" style="margin-left:auto;background:#fef3c7;border-color:#fde68a;color:#92400e;font-weight:700">🛍️ Affiliate Offers</button>
         </div>
-        <textarea id="article-content" class="editor-textarea" required placeholder="Write the comprehensive guide in Markdown..."></textarea>
+        <textarea id="article-content" class="editor-textarea" style="min-height:440px" required placeholder="# Article Title
+
+Write or paste the complete ready-to-publish article here.
+Start with your main title as an H1 heading (e.g. # How to Clean a Cast-Iron Skillet).
+
+## First Step or Section
+Include your practical instructions, bullet lists, comparison tables, and any affiliate links."></textarea>
+
+        <div style="margin-top:.75rem;display:flex;align-items:center;gap:.75rem;flex-wrap:wrap">
+          <button type="button" class="btn btn-primary" id="btn-process-guide" style="background:#0284c7">⚡ Process Article &amp; Generate Metadata</button>
+          <button type="button" class="btn btn-secondary btn-sm" id="btn-clear-editor">Clear Form</button>
+        </div>
       </div>
 
       <div>
-        <label style="font-size:.85rem;font-weight:600;color:#334155;margin-bottom:.35rem;display:block">Live Formatting Preview</label>
-        <div id="preview-output" class="preview-pane">
-          <p class="muted">Live preview will appear here as you write…</p>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.35rem">
+          <label style="font-size:.85rem;font-weight:700;color:#334155">Live Formatted Preview</label>
+          <span id="preview-reading-time" style="font-size:.75rem;color:var(--muted)"></span>
         </div>
+        <div id="preview-output" class="preview-pane" style="min-height:480px">
+          <p class="muted">Live preview will appear here as you write or process the article…</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reviewable Generated Metadata Section -->
+    <div id="guide-metadata-review-card" class="metadata-review-card" style="display:none">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem">
+        <div>
+          <strong style="color:var(--primary);font-size:.95rem">Generated Metadata (Review &amp; Optional Edit)</strong>
+          <span style="font-size:.8rem;color:var(--muted);margin-left:.5rem">Populated automatically; manual editing is optional</span>
+        </div>
+        <span id="metadata-source-pill" class="badge-pill green">✓ Auto-Generated</span>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="field-title">Extracted Title *</label>
+          <input id="field-title" name="title" required placeholder="Article title">
+        </div>
+        <div class="form-group">
+          <label for="field-slug">URL Slug * <small>(e.g. /guides/your-slug/)</small></label>
+          <input id="field-slug" name="slug" required placeholder="your-article-slug">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="field-seo-title">SEO Title (SERP Display)</label>
+          <input id="field-seo-title" name="seoTitle" placeholder="Custom SERP title">
+        </div>
+        <div class="form-group">
+          <label for="field-primary-keyword">Primary Target Keyword</label>
+          <input id="field-primary-keyword" name="primaryKeyword" placeholder="Primary keyword">
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-bottom:0">
+        <label for="field-description">Short Description / Excerpt * <small>(Used for SERP snippet &amp; social cards)</small></label>
+        <textarea id="field-description" name="description" rows="2" required placeholder="Summary of the article"></textarea>
+        <input type="hidden" id="field-seo-desc" name="seoDescription">
       </div>
     </div>
 
     <div class="actions-bar">
       <span id="editor-status" class="status-msg"></span>
-      <button type="button" class="btn btn-secondary" id="btn-clear-editor">Clear Form</button>
       <button type="button" class="btn btn-secondary" id="btn-save-draft">💾 Save Draft</button>
       <button type="button" class="btn btn-primary" id="btn-publish-guide">🚀 Publish Guide</button>
     </div>
@@ -688,6 +734,69 @@ header h1{margin:0;font-size:1.5rem;font-weight:700;color:var(--text)}
   </div>
 </section>
 
+<!-- Tab 8: Affiliate Offers -->
+<section id="tab-affiliates" class="tab-pane">
+  <div class="card">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:1rem">
+      <div>
+        <h2 style="margin:0 0 .25rem 0;font-size:1.15rem">Unified Affiliate Offers Catalog</h2>
+        <span style="font-size:.8rem;color:var(--muted)">Manage affiliate recommendations across Daily Ideas Store, LifeMode Picks, and Guide Articles.</span>
+      </div>
+      <div style="display:flex;gap:.5rem;align-items:center">
+        <button class="btn btn-primary" onclick="openAffiliateEditModal()">+ Create Custom Offer</button>
+        <button class="btn btn-secondary btn-sm" onclick="loadAffiliates()">Refresh</button>
+      </div>
+    </div>
+
+    <!-- URL Quick Add Card -->
+    <div style="background:#f1f5f9;border:1px solid var(--border);border-radius:8px;padding:1rem;margin-bottom:1.25rem">
+      <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.35rem">
+        <strong style="font-size:.9rem">⚡ URL Quick Add</strong>
+        <span style="font-size:.75rem;color:var(--muted)">— Paste any affiliate link to create an instant draft record with zero manual typing</span>
+      </div>
+      <form id="form-quick-add-affiliate" style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center" onsubmit="handleQuickAddAffiliate(event)">
+        <input type="url" id="quick-add-url" required placeholder="https://..." style="flex:1;min-width:280px;padding:.55rem .75rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem">
+        <select id="quick-add-type" style="padding:.55rem .75rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem">
+          <option value="physical">Physical Product</option>
+          <option value="digital">Digital Product</option>
+          <option value="course">Course / Education</option>
+          <option value="software">Software / SaaS</option>
+          <option value="travel">Travel / Stay</option>
+          <option value="service">Service</option>
+          <option value="other">Other Offer</option>
+        </select>
+        <button type="submit" class="btn btn-primary" id="btn-quick-add">Quick Add Draft</button>
+      </form>
+      <div id="quick-add-feedback" style="margin-top:.4rem;font-size:.8rem;font-weight:600"></div>
+    </div>
+
+    <!-- Search & Filter Bar -->
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1rem">
+      <div class="filter-pills" id="affiliate-type-filters">
+        <button type="button" class="filter-pill active" onclick="filterAffiliates('type', 'all')">All Types</button>
+        <button type="button" class="filter-pill" onclick="filterAffiliates('type', 'physical')">Physical</button>
+        <button type="button" class="filter-pill" onclick="filterAffiliates('type', 'digital')">Digital</button>
+        <button type="button" class="filter-pill" onclick="filterAffiliates('type', 'course')">Courses</button>
+        <button type="button" class="filter-pill" onclick="filterAffiliates('type', 'software')">Software / SaaS</button>
+        <button type="button" class="filter-pill" onclick="filterAffiliates('type', 'travel')">Travel</button>
+        <button type="button" class="filter-pill" onclick="filterAffiliates('type', 'service')">Services</button>
+      </div>
+      <div style="display:flex;gap:.5rem;align-items:center">
+        <input type="text" id="affiliate-search-input" placeholder="Search offers by name, merchant, or ID…" oninput="handleAffiliateSearch()" style="padding:.4rem .65rem;border:1px solid var(--border);border-radius:6px;font-size:.85rem;width:240px">
+        <select id="affiliate-dest-filter" onchange="filterAffiliates('dest', this.value)" style="padding:.4rem .65rem;border:1px solid var(--border);border-radius:6px;font-size:.85rem">
+          <option value="all">All Destinations</option>
+          <option value="store">Store Eligible</option>
+          <option value="picks">Picks Eligible</option>
+          <option value="guides">Guides Eligible</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Table Container -->
+    <div id="affiliates-table-container">Loading affiliate offers…</div>
+  </div>
+</section>
+
 <!-- Media Picker Modal -->
 <div id="media-modal" class="modal">
   <div class="modal-content">
@@ -699,17 +808,174 @@ header h1{margin:0;font-size:1.5rem;font-weight:700;color:var(--text)}
   </div>
 </div>
 
+<!-- Offer Edit Modal -->
+<div id="affiliate-modal" class="modal">
+  <div class="modal-content" style="max-width:760px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:.75rem">
+      <h3 id="affiliate-modal-title" style="margin:0;font-size:1.15rem">Edit Affiliate Offer</h3>
+      <button type="button" class="btn btn-secondary btn-sm" onclick="closeAffiliateModal()">&times; Close</button>
+    </div>
+    <form id="form-affiliate-modal" onsubmit="handleSaveAffiliateModal(event)">
+      <input type="hidden" id="modal-aff-id">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="modal-aff-title">Title / Display Name *</label>
+          <input type="text" id="modal-aff-title" required placeholder="Offer title">
+        </div>
+        <div class="form-group">
+          <label for="modal-aff-url">Affiliate Destination URL *</label>
+          <input type="url" id="modal-aff-url" required placeholder="https://..." style="font-family:monospace;font-size:.85rem">
+          <small style="color:var(--muted)">Exact affiliate link preserved byte-for-byte.</small>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="modal-aff-brand">Brand / Creator</label>
+          <input type="text" id="modal-aff-brand" placeholder="e.g. NordicTrack, Apple, Coursera">
+        </div>
+        <div class="form-group">
+          <label for="modal-aff-merchant">Merchant / Network</label>
+          <input type="text" id="modal-aff-merchant" placeholder="e.g. Amazon, Direct, ShareASale">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="modal-aff-type">Offer Type</label>
+          <select id="modal-aff-type">
+            <option value="physical">Physical Product</option>
+            <option value="digital">Digital Product</option>
+            <option value="course">Course / Education</option>
+            <option value="software">Software / SaaS</option>
+            <option value="travel">Travel / Stay</option>
+            <option value="service">Service</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="modal-aff-status">Publication Status</label>
+          <select id="modal-aff-status">
+            <option value="DRAFT">DRAFT</option>
+            <option value="ACTIVE">ACTIVE</option>
+            <option value="ARCHIVED">ARCHIVED</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="modal-aff-price">Price Range / Note</label>
+          <input type="text" id="modal-aff-price" placeholder="e.g. $29–$39, $12/mo, Free trial">
+        </div>
+        <div class="form-group">
+          <label for="modal-aff-badge">Badge (Optional)</label>
+          <input type="text" id="modal-aff-badge" placeholder="e.g. Top Pick, Best Value, Editor's Choice">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="modal-aff-cta">Default CTA Button Text</label>
+          <input type="text" id="modal-aff-cta" placeholder="View recommendation">
+        </div>
+        <div class="form-group">
+          <label for="modal-aff-asin">ASIN (Optional, Amazon only)</label>
+          <input type="text" id="modal-aff-asin" placeholder="e.g. B001234567">
+        </div>
+      </div>
+
+      <!-- Destination Eligibility Checkboxes -->
+      <div style="background:#f8fafc;border:1px solid var(--border);border-radius:6px;padding:.85rem;margin-bottom:1rem">
+        <strong style="font-size:.85rem;display:block;margin-bottom:.5rem">Independent Destination Eligibility:</strong>
+        <div style="display:flex;gap:1.5rem;flex-wrap:wrap;font-size:.85rem">
+          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer">
+            <input type="checkbox" id="modal-aff-elig-store"> Daily Ideas Store (/daily-ideas)
+          </label>
+          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer">
+            <input type="checkbox" id="modal-aff-elig-picks"> LifeMode Picks (Main Hub)
+          </label>
+          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer">
+            <input type="checkbox" id="modal-aff-elig-guides"> Guide Articles (Editorial selection)
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="modal-aff-desc">Short Description</label>
+        <textarea id="modal-aff-desc" rows="2" placeholder="Brief summary of the offer"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="modal-aff-note">Why Editors Recommend It (Editorial Note)</label>
+        <textarea id="modal-aff-note" rows="2" placeholder="Key utility, durability, or practical reason to recommend"></textarea>
+      </div>
+
+      <!-- Multi-image Management Section -->
+      <div style="border:1px solid var(--border);border-radius:6px;padding:.85rem;margin-bottom:1rem">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem">
+          <div>
+            <strong style="font-size:.85rem">Product Images (Multi-Image Support)</strong>
+            <span style="font-size:.75rem;color:var(--muted);display:block">The image marked as Primary will be used in cards and preview boxes.</span>
+          </div>
+          <div style="display:flex;gap:.5rem">
+            <input type="file" id="modal-aff-file-input" accept="image/jpeg,image/png,image/webp" style="display:none">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="document.querySelector('#modal-aff-file-input').click()">📷 Upload to R2</button>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="addModalImageRow()">+ Add Image URL</button>
+          </div>
+        </div>
+        <div id="modal-aff-images-list" style="display:flex;flex-direction:column;gap:.5rem;max-height:220px;overflow-y:auto"></div>
+      </div>
+
+      <div class="actions-bar" style="margin-top:1rem;padding-top:1rem">
+        <span id="modal-aff-feedback" class="status-msg"></span>
+        <button type="button" class="btn btn-secondary" onclick="closeAffiliateModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="btn-modal-aff-save">Save Offer</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Affiliate Selector Modal (For Guide Editor) -->
+<div id="affiliate-selector-modal" class="modal">
+  <div class="modal-content" style="max-width:720px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:.75rem">
+      <div>
+        <h3 style="margin:0;font-size:1.15rem">🛍️ Affiliate Recommendations Inspector</h3>
+        <span style="font-size:.8rem;color:var(--muted)">Search active catalog offers eligible for Guides. Copy link or reference into your article.</span>
+      </div>
+      <button type="button" class="btn btn-secondary btn-sm" onclick="closeAffiliateSelectorModal()">&times; Close</button>
+    </div>
+    <div style="margin-bottom:1rem">
+      <input type="text" id="selector-affiliate-search" placeholder="Search by product name, brand, or merchant…" oninput="renderAffiliateSelectorList()" style="width:100%;padding:.55rem .75rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem">
+    </div>
+    <div id="selector-affiliate-results" style="max-height:420px;overflow-y:auto;display:flex;flex-direction:column;gap:.6rem">Loading offers…</div>
+  </div>
+</div>
+
 <script>
 const token = new URLSearchParams(window.location.search).get('token') || '';
 let currentDrafts = [];
 let currentPublished = { guides: [], tools: [], checklists: [], lifeHacks: [] };
 let currentMedia = [];
+let currentAffiliates = [];
+let affiliateTypeFilter = 'all';
+let affiliateDestFilter = 'all';
+let affiliateSearchQuery = '';
+let currentEditImages = [];
 let mediaPickerTarget = null;
 let draftsFilter = 'all';
 let historyFilter = 'all';
 
 function esc(str) {
   return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+}
+
+function slugify(text) {
+  return String(text || '')
+    .normalize('NFKD')
+    .replace(/[\\u0300-\\u036f]/g, '')
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 80) || 'draft';
 }
 
 async function api(path, options = {}) {
@@ -744,6 +1010,7 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     if (target === 'drafts') loadDrafts();
     if (target === 'history') loadHistory();
     if (target === 'media') loadMedia();
+    if (target === 'affiliates') loadAffiliates();
   });
 });
 
@@ -756,6 +1023,9 @@ async function refreshCounts() {
     document.querySelector('#drafts-count').textContent = data.draftsCount || 0;
     document.querySelector('#history-count').textContent = data.publishedCount || 0;
     document.querySelector('#media-count').textContent = data.mediaCount || 0;
+    if (document.querySelector('#affiliates-count')) {
+      document.querySelector('#affiliates-count').textContent = data.affiliatesCount || 0;
+    }
     document.querySelector('#count-hist-guides').textContent = data.guidesCount || 0;
     document.querySelector('#count-hist-tools').textContent = data.toolsCount || 0;
     document.querySelector('#count-hist-checklists').textContent = data.checklistsCount || 0;
@@ -775,10 +1045,13 @@ async function refreshCounts() {
 }
 
 // -------------------------------------------------------------
-// 1. Guides Editor Logic
+// 1. Guides Editor Logic (Simplified Single-Article Workflow)
 // -------------------------------------------------------------
 const guideTitleEl = document.querySelector('#field-title');
 const guideSlugEl = document.querySelector('#field-slug');
+const guideCategoryEl = document.querySelector('#field-category');
+const guideContentEl = document.querySelector('#article-content');
+
 guideTitleEl.addEventListener('input', () => {
   if (!guideSlugEl.dataset.manual) {
     guideSlugEl.value = slugify(guideTitleEl.value);
@@ -787,20 +1060,222 @@ guideTitleEl.addEventListener('input', () => {
 guideSlugEl.addEventListener('input', () => {
   guideSlugEl.dataset.manual = 'true';
 });
+guideCategoryEl.addEventListener('change', updateGuidePreview);
 
 let guidePreviewDebounce = null;
-const guideContentEl = document.querySelector('#article-content');
 guideContentEl.addEventListener('input', () => {
   clearTimeout(guidePreviewDebounce);
   guidePreviewDebounce = setTimeout(updateGuidePreview, 250);
 });
 
+// Featured Image helpers & direct file picker
+function updateFeaturedImageDisplay() {
+  const url = document.querySelector('#field-image').value.trim();
+  const container = document.querySelector('#guide-image-preview-container');
+  if (!container) return;
+  if (url) {
+    const filename = url.split('/').pop() || 'image';
+    container.innerHTML = '<div style="position:relative;width:140px;height:95px;min-width:140px;min-height:95px;flex-shrink:0">' +
+      '<img class="featured-image-thumb" alt="' + esc(filename) + '">' +
+      '<div class="featured-image-placeholder" style="display:none;position:absolute;top:0;left:0;width:140px;height:95px;font-size:.75rem;color:#dc2626;background:#fef2f2;border:1px solid #fecaca;border-radius:6px;align-items:center;justify-content:center;text-align:center;padding:.25rem">Preview unavailable</div>' +
+      '</div>' +
+      '<div style="flex:1"><strong style="font-size:.85rem;word-break:break-all">' + esc(filename) + '</strong><br>' +
+      '<button type="button" class="btn btn-danger btn-sm" onclick="removeFeaturedImage()" style="margin-top:.35rem">Remove Image</button></div>';
+    const img = container.querySelector('img.featured-image-thumb');
+    if (img) {
+      img.onerror = () => handleFeaturedImageError(img, url);
+      img.src = url;
+    }
+  } else {
+    container.innerHTML = '<div class="featured-image-placeholder">No image selected</div><div style="flex:1;font-size:.8rem;color:var(--muted)">Upload a JPG, PNG, or WebP image directly, or choose from Media Library.</div>';
+  }
+}
+window.handleFeaturedImageError = (img, origUrl) => {
+  if (!img.dataset.retried) {
+    img.dataset.retried = '1';
+    const sep = origUrl.includes('?') ? '&' : '?';
+    setTimeout(() => { img.src = origUrl + sep + 't=' + Date.now(); }, 250);
+  } else {
+    img.style.display = 'none';
+    const fallback = img.nextElementSibling;
+    if (fallback) fallback.style.display = 'flex';
+  }
+};
+window.removeFeaturedImage = () => {
+  document.querySelector('#field-image').value = '';
+  const fileInput = document.querySelector('#guide-direct-file-input');
+  if (fileInput) fileInput.value = '';
+  updateFeaturedImageDisplay();
+  updateGuidePreview();
+};
+
+document.querySelector('#btn-upload-featured-image')?.addEventListener('click', () => {
+  const fileInput = document.querySelector('#guide-direct-file-input');
+  if (fileInput) fileInput.value = '';
+  fileInput?.click();
+});
+document.querySelector('#btn-pick-featured-image')?.addEventListener('click', () => {
+  openMediaPickerForEditor('guide-featured-direct');
+});
+document.querySelector('#guide-direct-file-input')?.addEventListener('change', async (e) => {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+  if (!file.type.match(new RegExp('^image/(jpeg|png|webp)$', 'i'))) {
+    alert('Unsupported image format. Please select a JPG, PNG, or WebP image.');
+    return;
+  }
+  if (file.size > 10 * 1024 * 1024) {
+    alert('File is too large. Maximum size is 10 MB.');
+    return;
+  }
+  const st = document.querySelector('#editor-status');
+  st.className = 'status-msg info';
+  st.textContent = 'Uploading featured image to storage…';
+  const reader = new FileReader();
+  reader.onload = async () => {
+    try {
+      const res = await api('/api/media/upload', {
+        method: 'POST',
+        body: JSON.stringify({ fileName: file.name, mimeType: file.type, base64Data: reader.result })
+      });
+      document.querySelector('#field-image').value = res.url;
+      updateFeaturedImageDisplay();
+      updateGuidePreview();
+      st.className = 'status-msg success';
+      st.textContent = '✓ Featured image uploaded and set.';
+      refreshCounts();
+      e.target.value = '';
+    } catch (err) {
+      st.className = 'status-msg error';
+      st.textContent = 'Image upload failed: ' + err.message;
+    }
+  };
+  reader.readAsDataURL(file);
+});
+
 async function updateGuidePreview() {
   const md = guideContentEl.value;
+  const cat = document.querySelector('#field-category').value;
+  const imgUrl = document.querySelector('#field-image').value.trim();
+  const title = document.querySelector('#field-title').value.trim();
+  const slug = document.querySelector('#field-slug').value.trim();
+  const primaryKw = document.querySelector('#field-primary-keyword').value.trim();
+  const desc = document.querySelector('#field-description').value.trim();
+
+  const words = md.trim() ? md.trim().split(new RegExp('\\\\s+')).length : 0;
+  const minutes = Math.max(1, Math.ceil(words / 200));
+  const readingTime = words > 0 ? (minutes + ' min read') : '';
+  const rtEl = document.querySelector('#preview-reading-time');
+  if (rtEl) rtEl.textContent = readingTime ? ('⏱️ ' + readingTime) : '';
+
   try {
     const res = await api('/api/preview', { method: 'POST', body: JSON.stringify({ markdown: md }) });
-    document.querySelector('#preview-output').innerHTML = res.html || '<p class="muted">Empty article preview.</p>';
+    let headerHtml = '<div style="margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid #e2e8f0">';
+    headerHtml += '<div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem">';
+    headerHtml += '<span class="badge-pill blue">' + esc(cat) + '</span>';
+    if (readingTime) {
+      headerHtml += '<span style="font-size:.8rem;color:var(--muted)">⏱️ ' + readingTime + '</span>';
+    }
+    headerHtml += '</div>';
+
+    if (imgUrl) {
+      headerHtml += '<div style="margin-bottom:1rem;border-radius:8px;overflow:hidden;max-height:260px;background:#f1f5f9;display:flex;align-items:center;justify-content:center">' +
+        '<img src="' + esc(imgUrl) + '" style="width:100%;max-height:260px;object-fit:cover" alt="Featured Image">' +
+      '</div>';
+    }
+
+    if (title || slug) {
+      headerHtml += '<div style="background:#f8fafc;padding:.75rem 1rem;border-radius:6px;border:1px solid #e2e8f0;font-size:.85rem;margin-bottom:1rem">';
+      if (title) headerHtml += '<div><strong>Target Title:</strong> ' + esc(title) + '</div>';
+      if (slug) headerHtml += '<div style="color:var(--muted)"><strong>URL:</strong> /guides/' + esc(slug) + '/</div>';
+      if (primaryKw) headerHtml += '<div style="color:var(--muted)"><strong>Keyword:</strong> ' + esc(primaryKw) + '</div>';
+      if (desc) headerHtml += '<div style="color:var(--muted);margin-top:.25rem;font-style:italic">' + esc(desc) + '</div>';
+      headerHtml += '</div>';
+    }
+    headerHtml += '</div>';
+
+    document.querySelector('#preview-output').innerHTML = headerHtml + (res.html || '<p class="muted">Empty article body.</p>');
   } catch {}
+}
+
+async function processGuideArticle() {
+  const content = guideContentEl.value.trim();
+  if (!content) {
+    alert('Please write or paste your article Markdown into the editor first.');
+    return;
+  }
+  const st = document.querySelector('#editor-status');
+  st.className = 'status-msg info';
+  st.textContent = 'Analyzing article and generating metadata…';
+  const btn = document.querySelector('#btn-process-guide');
+  if (btn) btn.disabled = true;
+  try {
+    const res = await api('/api/guides/process', {
+      method: 'POST',
+      body: JSON.stringify({ markdown: content, category: document.querySelector('#field-category').value })
+    });
+    document.querySelector('#field-title').value = res.title || '';
+    document.querySelector('#field-slug').value = res.slug || '';
+    document.querySelector('#field-seo-title').value = res.seoTitle || '';
+    document.querySelector('#field-primary-keyword').value = res.primaryKeyword || '';
+    document.querySelector('#field-description').value = res.seoDescription || '';
+    document.querySelector('#field-seo-desc').value = res.seoDescription || '';
+
+    const reviewCard = document.querySelector('#guide-metadata-review-card');
+    if (reviewCard) reviewCard.style.display = 'block';
+
+    const pill = document.querySelector('#metadata-source-pill');
+    if (pill) {
+      pill.textContent = res.source === 'ai' ? '🤖 AI-Generated' : '⚡ Smart Fallback';
+      pill.className = res.source === 'ai' ? 'badge-pill purple' : 'badge-pill green';
+    }
+
+    if (res.readingTime) {
+      const rtEl = document.querySelector('#preview-reading-time');
+      if (rtEl) rtEl.textContent = '⏱️ ' + res.readingTime + ' read';
+    }
+
+    st.className = 'status-msg success';
+    st.textContent = '✓ Article processed (' + (res.source === 'ai' ? 'AI' : 'Fallback') + '). Metadata ready.';
+    updateGuidePreview();
+  } catch (err) {
+    st.className = 'status-msg error';
+    st.textContent = 'Processing failed: ' + err.message;
+  } finally {
+    if (btn) btn.disabled = false;
+  }
+}
+document.querySelector('#btn-process-guide')?.addEventListener('click', processGuideArticle);
+
+function ensureGuideMetadata() {
+  const content = guideContentEl.value.trim();
+  if (!content) return;
+  let title = document.querySelector('#field-title').value.trim();
+  if (!title) {
+    const m = content.match(new RegExp('^#\\\\s+(.+)$', 'm'));
+    if (m) title = m[1].trim();
+    else {
+      const firstLine = content.split(String.fromCharCode(10))[0].replace(new RegExp('^[#\\\\s*_-]+'), '').trim();
+      title = firstLine.slice(0, 80) || 'Untitled Guide';
+    }
+    document.querySelector('#field-title').value = title;
+  }
+  let slug = document.querySelector('#field-slug').value.trim();
+  if (!slug && title) {
+    slug = slugify(title);
+    document.querySelector('#field-slug').value = slug;
+  }
+  let desc = document.querySelector('#field-description').value.trim();
+  if (!desc) {
+    const cleaned = content.replace(new RegExp('^#+.*$', 'gm'), '').trim();
+    const para = cleaned.split(new RegExp('\\\\n\\\\s*\\\\n'))[0] || '';
+    const mdChars = ['*', '_', '#', String.fromCharCode(96), '[', ']'];
+    desc = para.split('').filter(function(c) { return mdChars.indexOf(c) === -1; }).join('').trim().slice(0, 155) || title;
+    document.querySelector('#field-description').value = desc;
+    document.querySelector('#field-seo-desc').value = desc;
+  }
+  const reviewCard = document.querySelector('#guide-metadata-review-card');
+  if (reviewCard) reviewCard.style.display = 'block';
 }
 
 function getFormGuideData() {
@@ -810,7 +1285,7 @@ function getFormGuideData() {
     title: document.querySelector('#field-title').value.trim(),
     slug: document.querySelector('#field-slug').value.trim(),
     category: document.querySelector('#field-category').value,
-    image: document.querySelector('#field-image').value.trim() || undefined,
+    image: document.querySelector('#field-image').value.trim(),
     description: document.querySelector('#field-description').value.trim(),
     seoTitle: document.querySelector('#field-seo-title').value.trim() || undefined,
     seoDescription: document.querySelector('#field-seo-desc').value.trim() || undefined,
@@ -824,13 +1299,24 @@ function loadGuideIntoEditor(guide) {
   document.querySelector('#field-title').value = guide.title || '';
   document.querySelector('#field-slug').value = guide.slug || '';
   document.querySelector('#field-category').value = guide.category || 'food-kitchen';
-  document.querySelector('#field-image').value = guide.image || '';
+  document.querySelector('#field-image').value = guide.image || guide.featuredImage || guide.heroImage || '';
   document.querySelector('#field-description').value = guide.description || guide.summary || '';
   document.querySelector('#field-seo-title').value = guide.seoTitle || '';
   document.querySelector('#field-seo-desc').value = guide.seoDescription || '';
   document.querySelector('#field-primary-keyword').value = guide.primaryKeyword || '';
-  guideContentEl.value = guide.content || '';
+
+  let content = guide.content || '';
+  if (guide.title && !content.trim().startsWith('# ')) {
+    content = '# ' + guide.title + '\\n\\n' + content;
+  }
+  guideContentEl.value = content;
   guideSlugEl.dataset.manual = 'true';
+
+  updateFeaturedImageDisplay();
+  if (guide.title || guide.slug) {
+    const reviewCard = document.querySelector('#guide-metadata-review-card');
+    if (reviewCard) reviewCard.style.display = 'block';
+  }
 
   document.querySelector('[data-tab="editor"]').click();
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -840,11 +1326,23 @@ function loadGuideIntoEditor(guide) {
 document.querySelector('#btn-clear-editor').addEventListener('click', () => {
   document.querySelector('#guide-form').reset();
   document.querySelector('#field-id').value = '';
+  document.querySelector('#field-image').value = '';
   delete guideSlugEl.dataset.manual;
-  document.querySelector('#preview-output').innerHTML = '<p class="muted">Live preview will appear here as you write…</p>';
+  updateFeaturedImageDisplay();
+  const reviewCard = document.querySelector('#guide-metadata-review-card');
+  if (reviewCard) reviewCard.style.display = 'none';
+  const rtEl = document.querySelector('#preview-reading-time');
+  if (rtEl) rtEl.textContent = '';
+  document.querySelector('#preview-output').innerHTML = '<p class="muted">Live preview will appear here as you write or process the article…</p>';
 });
 
 document.querySelector('#btn-save-draft').addEventListener('click', async () => {
+  if (!document.querySelector('#field-title').value.trim()) {
+    if (guideContentEl.value.trim()) {
+      await processGuideArticle().catch(() => {});
+    }
+    ensureGuideMetadata();
+  }
   const guide = getFormGuideData();
   const st = document.querySelector('#editor-status');
   st.className = 'status-msg info';
@@ -862,6 +1360,12 @@ document.querySelector('#btn-save-draft').addEventListener('click', async () => 
 });
 
 document.querySelector('#btn-publish-guide').addEventListener('click', async () => {
+  if (!document.querySelector('#field-title').value.trim()) {
+    if (guideContentEl.value.trim()) {
+      await processGuideArticle().catch(() => {});
+    }
+    ensureGuideMetadata();
+  }
   const guide = getFormGuideData();
   if (!confirm('Publish guide "' + (guide.title || 'Untitled') + '" to the live website?\\n\\nThis will write to src/content/guides/' + guide.slug + '.md, create a git commit, and push to origin/master.')) {
     return;
@@ -1230,9 +1734,9 @@ const lhThumbEl = document.querySelector('#lh-field-thumb');
 function extractYouTubeVideoId(url) {
   if (!url || typeof url !== 'string') return null;
   const clean = url.trim();
-  const shortMatch = clean.match(/(?:https?:\/\/)?(?:www\.)?youtu\.be\/([a-zA-Z0-9_-]{11})/);
+  const shortMatch = clean.match(new RegExp('(?:https?://)?(?:www\\\\.)?youtu\\\\.be/([a-zA-Z0-9_-]{11})'));
   if (shortMatch) return shortMatch[1];
-  const standardMatch = clean.match(/(?:https?:\/\/)?(?:[a-zA-Z0-9-]+\.)?youtube\.com\/(?:watch\?.*v=|shorts\/|embed\/|v\/)([a-zA-Z0-9_-]{11})/);
+  const standardMatch = clean.match(new RegExp('(?:https?://)?(?:[a-zA-Z0-9-]+\\\\.)?youtube\\\\.com/(?:watch\\\\?.*v=|shorts/|embed/|v/)([a-zA-Z0-9_-]{11})'));
   if (standardMatch) return standardMatch[1];
   return null;
 }
@@ -1679,8 +2183,10 @@ function renderModalGrid() {
 }
 
 window.selectMediaAsset = (url, fileName, isPdf) => {
-  if (mediaPickerTarget === 'guide-image-field') {
+  if (mediaPickerTarget === 'guide-image-field' || mediaPickerTarget === 'guide-featured-direct') {
     document.querySelector('#field-image').value = url;
+    updateFeaturedImageDisplay();
+    updateGuidePreview();
   } else if (mediaPickerTarget === 'lh-thumb-url') {
     const thumbInput = document.querySelector('#lh-field-thumb');
     thumbInput.value = url;
@@ -1700,7 +2206,7 @@ window.selectMediaAsset = (url, fileName, isPdf) => {
   closeMediaModal();
 };
 
-document.querySelector('#btn-pick-image').addEventListener('click', () => {
+document.querySelector('#btn-pick-image')?.addEventListener('click', () => {
   openMediaPickerForEditor('guide-image-field');
 });
 
@@ -1728,8 +2234,427 @@ window.insertMd = (target, prefix, suffix, sample) => {
 };
 
 window.insertTable = (target) => {
-  const tableSample = '\\n\\n| Column 1 | Column 2 | Column 3 |\\n| :--- | :--- | :--- |\\n| Data A | Data B | Data C |\\n| Data X | Data Y | Data Z |\\n\\n';
+  const tableSample = '\n\n| Column 1 | Column 2 | Column 3 |\n| :--- | :--- | :--- |\n| Data A | Data B | Data C |\n| Data X | Data Y | Data Z |\n\n';
   insertMd(target, tableSample, '', '');
+};
+
+// -------------------------------------------------------------
+// 8. Unified Affiliate Offers Tab Logic
+// -------------------------------------------------------------
+async function loadAffiliates() {
+  const container = document.querySelector('#affiliates-table-container');
+  try {
+    const params = new URLSearchParams();
+    if (affiliateTypeFilter !== 'all') params.set('type', affiliateTypeFilter);
+    if (affiliateDestFilter !== 'all') params.set('destination', affiliateDestFilter);
+    if (affiliateSearchQuery.trim()) params.set('q', affiliateSearchQuery.trim());
+
+    currentAffiliates = await api('/api/affiliates?' + params.toString());
+    renderAffiliatesTable();
+    refreshCounts();
+  } catch (err) {
+    if (container) {
+      container.innerHTML = '<p class="error">Could not load affiliate offers: ' + esc(err.message) + '</p>';
+    }
+  }
+}
+
+function renderAffiliatesTable() {
+  const container = document.querySelector('#affiliates-table-container');
+  if (!container) return;
+  if (!currentAffiliates.length) {
+    container.innerHTML = '<p class="muted">No affiliate offers found matching current filters.</p>';
+    return;
+  }
+
+  container.innerHTML = '<table class="list-table"><thead><tr>' +
+    '<th>Visual</th><th>Offer Title &amp; Brand</th><th>Type &amp; Merchant</th><th>Destinations</th><th>Status</th><th>Actions</th>' +
+    '</tr></thead><tbody>' +
+    currentAffiliates.map(o => {
+      const imgUrl = (o.images && o.images[0] && o.images[0].url) || o.imageUrl || '';
+      const thumb = imgUrl
+        ? '<img src="' + esc(imgUrl) + '" style="width:54px;height:42px;object-fit:cover;border-radius:4px;border:1px solid var(--border)">'
+        : '<div style="width:54px;height:42px;background:#e2e8f0;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.1rem">🛍️</div>';
+
+      const typeLabel = esc((o.offerType || 'physical').toUpperCase());
+      const brandStr = o.brand ? '<br><span style="font-size:.78rem;color:var(--muted)">' + esc(o.brand) + '</span>' : '';
+
+      let destBadges = [];
+      if (o.eligibleForStore) destBadges.push('<span class="badge-pill amber" style="font-size:.7rem">Store</span>');
+      if (o.eligibleForPicks) destBadges.push('<span class="badge-pill purple" style="font-size:.7rem">Picks</span>');
+      if (o.eligibleForGuides) destBadges.push('<span class="badge-pill blue" style="font-size:.7rem">Guides</span>');
+      if (!destBadges.length) destBadges.push('<span class="badge-pill" style="font-size:.7rem">Unassigned</span>');
+
+      const isAct = (o.status === 'ACTIVE' || o.state === 'ACTIVE');
+      const isArch = (o.status === 'ARCHIVED' || o.state === 'INACTIVE');
+      const statusPill = isAct
+        ? '<span class="badge-pill green">ACTIVE</span>'
+        : (isArch ? '<span class="badge-pill" style="color:var(--muted)">ARCHIVED</span>' : '<span class="badge-pill amber">DRAFT</span>');
+
+      return '<tr>' +
+        '<td>' + thumb + '</td>' +
+        '<td><strong>' + esc(o.title || o.name || 'Untitled Offer') + '</strong>' + brandStr + '</td>' +
+        '<td><span class="badge-pill">' + typeLabel + '</span><br><span style="font-size:.75rem;color:var(--muted)">' + esc(o.merchant || 'Direct') + '</span></td>' +
+        '<td><div style="display:flex;gap:.25rem;flex-wrap:wrap">' + destBadges.join('') + '</div></td>' +
+        '<td>' + statusPill + '</td>' +
+        '<td>' +
+          '<div style="display:flex;gap:.35rem">' +
+            '<button class="btn btn-secondary btn-sm" onclick="openAffiliateEditModal(\'' + esc(o.id) + '\')">Edit</button>' +
+            '<button class="btn btn-secondary btn-sm" onclick="copyAffiliateLink(\'' + esc(o.affiliateUrl) + '\', \'' + esc(o.title || o.name || 'Recommendation') + '\')">Copy Link</button>' +
+            '<button class="btn btn-danger btn-sm" onclick="deleteAffiliateOffer(\'' + esc(o.id) + '\')">Delete</button>' +
+          '</div>' +
+        '</td>' +
+      '</tr>';
+    }).join('') +
+    '</tbody></table>';
+}
+
+window.filterAffiliates = (facet, val) => {
+  if (facet === 'type') {
+    affiliateTypeFilter = val;
+    document.querySelectorAll('#affiliate-type-filters .filter-pill').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.toLowerCase().includes(val) || (val === 'all' && btn.textContent.includes('All')));
+    });
+  } else if (facet === 'dest') {
+    affiliateDestFilter = val;
+  }
+  loadAffiliates();
+};
+
+window.handleAffiliateSearch = () => {
+  affiliateSearchQuery = document.querySelector('#affiliate-search-input')?.value || '';
+  loadAffiliates();
+};
+
+window.handleQuickAddAffiliate = async (e) => {
+  e.preventDefault();
+  const urlInput = document.querySelector('#quick-add-url');
+  const typeSelect = document.querySelector('#quick-add-type');
+  const feedback = document.querySelector('#quick-add-feedback');
+  const btn = document.querySelector('#btn-quick-add');
+
+  const rawUrl = urlInput.value.trim();
+  if (!rawUrl) return;
+
+  btn.disabled = true;
+  feedback.style.color = 'var(--muted)';
+  feedback.textContent = 'Processing link and creating record…';
+
+  try {
+    const res = await api('/api/affiliates/quick-add', {
+      method: 'POST',
+      body: JSON.stringify({ affiliateUrl: rawUrl, offerType: typeSelect.value }),
+    });
+
+    feedback.style.color = 'var(--success)';
+    feedback.textContent = (res.isExisting ? '✓ Existing offer found in catalog: ' : '✓ Created new draft offer: ') + (res.offer.title || res.offer.name || res.offer.id);
+    urlInput.value = '';
+    await loadAffiliates();
+  } catch (err) {
+    feedback.style.color = 'var(--danger)';
+    feedback.textContent = 'Failed: ' + err.message;
+  } finally {
+    btn.disabled = false;
+  }
+};
+
+window.openAffiliateEditModal = async (offerId) => {
+  const modal = document.querySelector('#affiliate-modal');
+  const titleEl = document.querySelector('#affiliate-modal-title');
+  const feedback = document.querySelector('#modal-aff-feedback');
+  feedback.textContent = '';
+
+  let offer = null;
+  if (offerId) {
+    titleEl.textContent = 'Edit Affiliate Offer (' + offerId + ')';
+    offer = currentAffiliates.find(o => o.id === offerId) || await api('/api/affiliates/' + encodeURIComponent(offerId));
+  } else {
+    titleEl.textContent = 'Create New Custom Affiliate Offer';
+    offer = {
+      id: '',
+      title: '',
+      affiliateUrl: '',
+      brand: '',
+      merchant: '',
+      offerType: 'physical',
+      status: 'DRAFT',
+      priceRange: '',
+      badge: '',
+      defaultCtaText: 'View recommendation',
+      asin: '',
+      eligibleForStore: false,
+      eligibleForPicks: true,
+      eligibleForGuides: true,
+      description: '',
+      editorialNote: '',
+      images: [],
+    };
+  }
+
+  document.querySelector('#modal-aff-id').value = offer.id || '';
+  document.querySelector('#modal-aff-title').value = offer.title || offer.name || '';
+  document.querySelector('#modal-aff-url').value = offer.affiliateUrl || '';
+  document.querySelector('#modal-aff-brand').value = offer.brand || '';
+  document.querySelector('#modal-aff-merchant').value = offer.merchant || '';
+  document.querySelector('#modal-aff-type').value = offer.offerType || 'physical';
+  document.querySelector('#modal-aff-status').value = offer.status || (offer.state === 'ACTIVE' ? 'ACTIVE' : (offer.state === 'INACTIVE' ? 'ARCHIVED' : 'DRAFT'));
+  document.querySelector('#modal-aff-price').value = offer.priceRange || '';
+  document.querySelector('#modal-aff-badge').value = offer.badge || '';
+  document.querySelector('#modal-aff-cta').value = offer.defaultCtaText || 'View recommendation';
+  document.querySelector('#modal-aff-asin').value = offer.asin || '';
+  document.querySelector('#modal-aff-elig-store').checked = Boolean(offer.eligibleForStore);
+  document.querySelector('#modal-aff-elig-picks').checked = Boolean(offer.eligibleForPicks);
+  document.querySelector('#modal-aff-elig-guides').checked = Boolean(offer.eligibleForGuides);
+  document.querySelector('#modal-aff-desc').value = offer.description || '';
+  document.querySelector('#modal-aff-note').value = offer.editorialNote || '';
+
+  currentEditImages = Array.isArray(offer.images) && offer.images.length
+    ? JSON.parse(JSON.stringify(offer.images))
+    : (offer.imageUrl ? [{ url: offer.imageUrl, alt: offer.imageAlt || '', isPrimary: true, displayOrder: 0 }] : []);
+
+  renderModalImagesList();
+  modal.classList.add('open');
+};
+
+window.closeAffiliateModal = () => {
+  document.querySelector('#affiliate-modal')?.classList.remove('open');
+  currentEditImages = [];
+};
+
+function renderModalImagesList() {
+  const container = document.querySelector('#modal-aff-images-list');
+  if (!container) return;
+  if (!currentEditImages.length) {
+    container.innerHTML = '<span style="font-size:.8rem;color:var(--muted);padding:.35rem 0">No images added yet. Click "+ Add Image URL" or "📷 Upload to R2".</span>';
+    return;
+  }
+
+  container.innerHTML = currentEditImages.map((img, idx) => {
+    return '<div class="aff-img-row" style="display:flex;align-items:center;gap:.5rem;background:#fff;border:1px solid var(--border);border-radius:4px;padding:.35rem .5rem">' +
+      '<img src="' + esc(img.url) + '" style="width:40px;height:32px;object-fit:cover;border-radius:3px;border:1px solid #cbd5e1" onerror="this.src=\'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2232%22><rect width=%22100%%22 height=%22100%%22 fill=%22%23e2e8f0%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2210%22>IMG</text></svg>\'">' +
+      '<input type="url" class="aff-img-url" value="' + esc(img.url) + '" placeholder="https://..." onchange="updateEditImage(' + idx + ', \'url\', this.value)" style="flex:2;padding:.3rem .5rem;font-size:.8rem;font-family:monospace">' +
+      '<input type="text" class="aff-img-alt" value="' + esc(img.alt || '') + '" placeholder="Alt text" onchange="updateEditImage(' + idx + ', \'alt\', this.value)" style="flex:1;padding:.3rem .5rem;font-size:.8rem">' +
+      '<label style="display:flex;align-items:center;gap:.25rem;font-size:.75rem;cursor:pointer">' +
+        '<input type="radio" name="aff-primary-img" class="aff-img-primary" ' + (img.isPrimary ? 'checked' : '') + ' onchange="setPrimaryEditImage(' + idx + ')"> Primary' +
+      '</label>' +
+      '<button type="button" class="btn btn-secondary btn-sm" onclick="removeEditImage(' + idx + ')" style="padding:.2rem .4rem;font-size:.75rem">&times;</button>' +
+    '</div>';
+  }).join('');
+}
+
+window.addModalImageRow = (url = '', alt = '') => {
+  currentEditImages.push({
+    url,
+    alt,
+    isPrimary: currentEditImages.length === 0,
+    displayOrder: currentEditImages.length,
+  });
+  renderModalImagesList();
+};
+
+window.updateEditImage = (idx, field, val) => {
+  if (currentEditImages[idx]) {
+    currentEditImages[idx][field] = val;
+  }
+};
+
+window.setPrimaryEditImage = (idx) => {
+  currentEditImages.forEach((img, i) => {
+    img.isPrimary = (i === idx);
+  });
+  renderModalImagesList();
+};
+
+window.removeEditImage = (idx) => {
+  currentEditImages.splice(idx, 1);
+  if (currentEditImages.length > 0 && !currentEditImages.some(img => img.isPrimary)) {
+    currentEditImages[0].isPrimary = true;
+  }
+  renderModalImagesList();
+};
+
+document.querySelector('#modal-aff-file-input')?.addEventListener('change', async (e) => {
+  const file = e.target.files?.[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = async () => {
+    try {
+      const res = await api('/api/media/upload', {
+        method: 'POST',
+        body: JSON.stringify({
+          fileName: file.name,
+          mimeType: file.type || 'image/jpeg',
+          base64Data: reader.result,
+        }),
+      });
+      addModalImageRow(res.url, file.name.replace(/\.[^.]+$/, ''));
+    } catch (err) {
+      alert('Upload failed: ' + err.message);
+    }
+  };
+  reader.readAsDataURL(file);
+});
+
+window.handleSaveAffiliateModal = async (e) => {
+  e.preventDefault();
+  const feedback = document.querySelector('#modal-aff-feedback');
+  const btn = document.querySelector('#btn-modal-aff-save');
+
+  const id = document.querySelector('#modal-aff-id').value.trim();
+  const title = document.querySelector('#modal-aff-title').value.trim();
+  const affiliateUrl = document.querySelector('#modal-aff-url').value.trim();
+  const brand = document.querySelector('#modal-aff-brand').value.trim();
+  const merchant = document.querySelector('#modal-aff-merchant').value.trim();
+  const offerType = document.querySelector('#modal-aff-type').value;
+  const status = document.querySelector('#modal-aff-status').value;
+  const priceRange = document.querySelector('#modal-aff-price').value.trim();
+  const badge = document.querySelector('#modal-aff-badge').value.trim();
+  const defaultCtaText = document.querySelector('#modal-aff-cta').value.trim();
+  const asin = document.querySelector('#modal-aff-asin').value.trim();
+  const eligibleForStore = document.querySelector('#modal-aff-elig-store').checked;
+  const eligibleForPicks = document.querySelector('#modal-aff-elig-picks').checked;
+  const eligibleForGuides = document.querySelector('#modal-aff-elig-guides').checked;
+  const description = document.querySelector('#modal-aff-desc').value.trim();
+  const editorialNote = document.querySelector('#modal-aff-note').value.trim();
+
+  const validImages = currentEditImages.filter(img => img && img.url && img.url.trim());
+
+  const offerPayload = {
+    id: id || undefined,
+    title,
+    name: title,
+    affiliateUrl, // byte-for-byte exact
+    brand: brand || undefined,
+    merchant: merchant || undefined,
+    offerType,
+    status,
+    state: status === 'ACTIVE' ? 'ACTIVE' : (status === 'ARCHIVED' ? 'INACTIVE' : 'DRAFT'),
+    priceRange,
+    badge,
+    defaultCtaText: defaultCtaText || 'View recommendation',
+    asin: asin || undefined,
+    eligibleForStore,
+    eligibleForPicks,
+    eligibleForGuides,
+    description,
+    editorialNote,
+    images: validImages.length ? validImages : undefined,
+  };
+
+  btn.disabled = true;
+  feedback.className = 'status-msg info';
+  feedback.textContent = 'Saving offer…';
+
+  try {
+    await api('/api/affiliates', {
+      method: 'POST',
+      body: JSON.stringify({ offer: offerPayload }),
+    });
+    feedback.className = 'status-msg success';
+    feedback.textContent = '✓ Saved successfully!';
+    setTimeout(() => {
+      closeAffiliateModal();
+      loadAffiliates();
+    }, 400);
+  } catch (err) {
+    feedback.className = 'status-msg error';
+    feedback.textContent = 'Save failed: ' + err.message;
+  } finally {
+    btn.disabled = false;
+  }
+};
+
+window.deleteAffiliateOffer = async (id) => {
+  if (!confirm('Are you sure you want to remove this offer from the central catalog?')) return;
+  try {
+    await api('/api/affiliates/' + encodeURIComponent(id), { method: 'DELETE' });
+    loadAffiliates();
+  } catch (err) {
+    alert('Delete failed: ' + err.message);
+  }
+};
+
+// -------------------------------------------------------------
+// 9. Guide Editor Affiliate Inspector Modal
+// -------------------------------------------------------------
+window.openAffiliateSelectorModal = async () => {
+  const modal = document.querySelector('#affiliate-selector-modal');
+  modal.classList.add('open');
+  if (!currentAffiliates.length) {
+    currentAffiliates = await api('/api/affiliates');
+  }
+  renderAffiliateSelectorList();
+};
+
+window.closeAffiliateSelectorModal = () => {
+  document.querySelector('#affiliate-selector-modal')?.classList.remove('open');
+};
+
+window.renderAffiliateSelectorList = () => {
+  const container = document.querySelector('#selector-affiliate-results');
+  const query = (document.querySelector('#selector-affiliate-search')?.value || '').trim().toLowerCase();
+
+  let filtered = currentAffiliates.filter(o => o.eligibleForGuides === true && (o.status === 'ACTIVE' || o.state === 'ACTIVE'));
+  if (query) {
+    filtered = filtered.filter(o =>
+      (o.title || '').toLowerCase().includes(query) ||
+      (o.name || '').toLowerCase().includes(query) ||
+      (o.brand || '').toLowerCase().includes(query) ||
+      (o.merchant || '').toLowerCase().includes(query) ||
+      (o.id || '').toLowerCase().includes(query)
+    );
+  }
+
+  if (!filtered.length) {
+    container.innerHTML = '<p class="muted" style="padding:.5rem 0">No active Guide recommendations match your search.</p>';
+    return;
+  }
+
+  container.innerHTML = filtered.map(o => {
+    const imgUrl = (o.images && o.images[0] && o.images[0].url) || o.imageUrl || '';
+    const thumb = imgUrl
+      ? '<img src="' + esc(imgUrl) + '" style="width:48px;height:40px;object-fit:cover;border-radius:4px">'
+      : '<div style="width:48px;height:40px;background:#e2e8f0;border-radius:4px;display:flex;align-items:center;justify-content:center">🛍️</div>';
+
+    return '<div style="display:flex;align-items:center;justify-content:space-between;padding:.5rem;border:1px solid var(--border);border-radius:6px;gap:.75rem">' +
+      '<div style="display:flex;align-items:center;gap:.6rem">' +
+        thumb +
+        '<div>' +
+          '<strong>' + esc(o.title || o.name) + '</strong>' +
+          '<div style="font-size:.75rem;color:var(--muted)">' + esc(o.merchant || 'Merchant') + (o.priceRange ? ' • ' + esc(o.priceRange) : '') + (o.badge ? ' • <span class="badge-pill">' + esc(o.badge) + '</span>' : '') + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div style="display:flex;gap:.35rem;flex-shrink:0;flex-wrap:wrap">' +
+        '<button type="button" class="btn btn-secondary btn-sm" onclick="copyAffiliateBox(\'' + esc(o.id) + '\')">Copy Box</button>' +
+        '<button type="button" class="btn btn-secondary btn-sm" onclick="copyContextualAffiliateLink(\'' + esc(o.id) + '\', \'' + esc(o.title || o.name) + '\')">Copy Link</button>' +
+        '<button type="button" class="btn btn-secondary btn-sm" onclick="copyAffiliateId(\'' + esc(o.id) + '\')">Copy ID</button>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+};
+
+window.copyAffiliateBox = (id) => {
+  const code = '::product-box{id="' + id + '"}';
+  navigator.clipboard.writeText(code).catch(() => {});
+  alert('Copied product box shortcode to clipboard:\n' + code);
+};
+
+window.copyContextualAffiliateLink = (id, title) => {
+  const md = '[' + (title || 'Recommendation') + '](aff:' + id + ')';
+  navigator.clipboard.writeText(md).catch(() => {});
+  alert('Copied contextual affiliate link to clipboard:\n' + md);
+};
+
+window.copyAffiliateLink = (url, title) => {
+  const md = '[' + title + '](' + url + ')';
+  navigator.clipboard.writeText(md).catch(() => {});
+  alert('Copied Markdown affiliate link to clipboard:\n' + md);
+};
+
+window.copyAffiliateId = (id) => {
+  navigator.clipboard.writeText(id).catch(() => {});
+  alert('Copied product ID to clipboard:\n' + id);
 };
 
 // Initial load
@@ -1760,6 +2685,45 @@ const server = createServer(async (request, response) => {
       return;
     }
 
+    // Static assets from public/ (images, icons)
+    if (request.method === 'GET' && (url.pathname.startsWith('/images/') || url.pathname === '/favicon.ico')) {
+      const decodedPath = decodeURIComponent(url.pathname).replace(/\\/g, '/');
+      const safeRel = join('.', decodedPath).replace(/^(\.\.[\/\\])+/, '');
+      const publicDir = resolve(process.cwd(), 'public');
+      const filePath = resolve(publicDir, safeRel.replace(/^[/\\]+/, ''));
+      const relToPublic = relative(publicDir, filePath);
+      const isInsidePublic = !relToPublic.startsWith('..') && !isAbsolute(relToPublic);
+      if (isInsidePublic) {
+        try {
+          const fileStat = await stat(filePath);
+          if (fileStat.isFile()) {
+            const ext = extname(filePath).toLowerCase();
+            const mimeTypes: Record<string, string> = {
+              '.png': 'image/png',
+              '.jpg': 'image/jpeg',
+              '.jpeg': 'image/jpeg',
+              '.webp': 'image/webp',
+              '.svg': 'image/svg+xml',
+              '.gif': 'image/gif',
+              '.ico': 'image/x-icon',
+              '.avif': 'image/avif',
+            };
+            const contentType = mimeTypes[ext] || 'application/octet-stream';
+            const fileBuffer = await readFile(filePath);
+            response.writeHead(200, {
+              'Content-Type': contentType,
+              'Content-Length': fileBuffer.length,
+              'Cache-Control': 'no-cache',
+            });
+            response.end(fileBuffer);
+            return;
+          }
+        } catch {
+          // Fall through to 404
+        }
+      }
+    }
+
     // Require Bearer token for all /api endpoints
     if (url.pathname.startsWith('/api/')) {
       if (!isAuthorized(request)) {
@@ -1776,6 +2740,7 @@ const server = createServer(async (request, response) => {
       const checklists = await listPublishedChecklists();
       const lifeHacks = await listPublishedLifeHacks();
       const media = await listMediaAssets();
+      const affiliates = await listCmsAffiliateOffers();
       const r2 = new CloudflareR2SocialAssetStorageProvider();
 
       sendJson(response, 200, {
@@ -1786,6 +2751,7 @@ const server = createServer(async (request, response) => {
         lifeHacksCount: lifeHacks.length,
         draftsCount: drafts.length,
         mediaCount: media.length,
+        affiliatesCount: affiliates.length,
         storageConfigured: r2.isConfigured(),
       });
       return;
@@ -1821,6 +2787,14 @@ const server = createServer(async (request, response) => {
       const id = decodeURIComponent(url.pathname.replace('/api/drafts/', ''));
       const deleted = await deleteDraft(id);
       sendJson(response, 200, { ok: deleted, success: deleted });
+      return;
+    }
+
+    // Process Guide Article (Title parsing, slug, SEO metadata generation with AI/fallback)
+    if (url.pathname === '/api/guides/process' && request.method === 'POST') {
+      const body = await readJson(request);
+      const result = await processArticleMetadata(body.markdown || '', body.category);
+      sendJson(response, 200, result);
       return;
     }
 
@@ -1910,6 +2884,55 @@ const server = createServer(async (request, response) => {
       return;
     }
 
+    // 7b. Unified Affiliate Offers Catalog Endpoints
+    if (url.pathname === '/api/affiliates' && request.method === 'GET') {
+      const query = url.searchParams.get('q') || url.searchParams.get('query') || undefined;
+      const offerType = url.searchParams.get('type') || undefined;
+      const status = url.searchParams.get('status') || undefined;
+      const destination = (url.searchParams.get('destination') as any) || undefined;
+
+      const offers = await listCmsAffiliateOffers({ query, offerType, status, destination });
+      sendJson(response, 200, offers);
+      return;
+    }
+
+    if (url.pathname === '/api/affiliates/quick-add' && request.method === 'POST') {
+      const body = await readJson(request);
+      const rawUrl = body.affiliateUrl || body.url;
+      const result = await quickAddAffiliateOffer(rawUrl, {
+        offerType: body.offerType,
+        title: body.title,
+      });
+      sendJson(response, 200, result);
+      return;
+    }
+
+    if (url.pathname === '/api/affiliates' && request.method === 'POST') {
+      const body = await readJson(request);
+      const offerData = body.offer || body;
+      const saved = await saveCmsAffiliateOffer(offerData);
+      sendJson(response, 200, { success: true, offer: saved });
+      return;
+    }
+
+    if (url.pathname.startsWith('/api/affiliates/') && request.method === 'GET' && !url.pathname.endsWith('/quick-add')) {
+      const id = decodeURIComponent(url.pathname.replace('/api/affiliates/', ''));
+      const offer = await getCmsAffiliateOffer(id);
+      if (!offer) {
+        sendJson(response, 404, { error: 'Affiliate offer not found.' });
+        return;
+      }
+      sendJson(response, 200, offer);
+      return;
+    }
+
+    if (url.pathname.startsWith('/api/affiliates/') && request.method === 'DELETE') {
+      const id = decodeURIComponent(url.pathname.replace('/api/affiliates/', ''));
+      await deleteCmsAffiliateOffer(id);
+      sendJson(response, 200, { success: true, ok: true });
+      return;
+    }
+
     // 8. Live Markdown Preview
     if (url.pathname === '/api/preview' && request.method === 'POST') {
       const body = await readJson(request);
@@ -1963,7 +2986,17 @@ const server = createServer(async (request, response) => {
 
 server.listen(port, host, async () => {
   const url = `http://${host}:${port}/?token=${token}`;
-  await writeFile(urlFile, url + '\n', 'utf8');
+  try {
+    await mkdir(dirname(urlFile), { recursive: true });
+    await writeFile(urlFile, url + '\n', 'utf8');
+  } catch (err) {
+    console.error(`Failed to write urlFile to ${urlFile}:`, err);
+  }
+  try {
+    const tempUrlFile = join(tmpdir(), 'lifemode-editorial-approval.url');
+    await writeFile(tempUrlFile, url + '\n', 'utf8');
+  } catch {}
+
   console.log(`LifeMode Editorial Operations dashboard: ${url}`);
   console.log(`Startup URL saved to ${urlFile}`);
   console.log('Bound to loopback only. Press Ctrl+C to stop.');

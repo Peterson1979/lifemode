@@ -159,14 +159,22 @@ export const articleSchema = z.object({
   // Monetization & Sponsored Content Readiness
   affiliateProducts: z
     .array(
-      z.object({
-        name: z.string(),
-        url: z.string(),
-        merchant: z.string().optional(),
-        badge: z.string().optional(),
-        price: z.string().optional(),
-        researchedHighlights: z.array(z.string()).optional(),
-      })
+      z.union([
+        z.string(),
+        z.object({
+          id: z.string(),
+          note: z.string().optional(),
+          ctaText: z.string().optional(),
+        }),
+        z.object({
+          name: z.string(),
+          url: z.string(),
+          merchant: z.string().optional(),
+          badge: z.string().optional(),
+          price: z.string().optional(),
+          researchedHighlights: z.array(z.string()).optional(),
+        }),
+      ])
     )
     .optional(),
   affiliateDisclosure: z.string().optional(),

@@ -1,0 +1,306 @@
+---
+import { listOfferRecords } from '../../lib/commerce/offer-store';
+import { getPrimaryProductImage, type CanonicalAffiliateOffer } from '../../lib/commerce/types';
+
+export interface Props {
+  offerId?: string;
+  id?: string;
+  contextNote?: string;
+  ctaText?: string;
+  class?: string;
+}
+
+const {
+  offerId,
+  id,
+  contextNote,
+  ctaText,
+  class: className = '',
+} = Astro.props;
+
+const targetId = (offerId || id || '').trim();
+
+if (!targetId) {
+  return null;
+}
+
+const allOffers = await listOfferRecords().catch(() => []);
+const offer = allOffers.find((o) => o.id === targetId);
+
+// Only ACTIVE offers with eligibleForGuides === true may be rendered publicly
+const isActive = offer && (offer.status === 'ACTIVE' || offer.state === 'ACTIVE');
+const isEligible = offer && offer.eligibleForGuides === true;
+
+if (!offer || !isActive || !isEligible) {
+  // Fail gracefully without breaking article rendering
+  return null;
+}
+
+const primaryImage = getPrimaryProductImage(offer);
+const displayTitle = offer.title || offer.name || 'Recommended Product';
+const brandOrMerchant = offer.brand || offer.merchant || '';
+const note = contextNote || offer.editorialNote || '';
+const buttonText = ctaText || offer.defaultCtaText || 'View recommendation';
+---
+
+<aside class={`affiliate-product-box ${className}`} data-offer-id={offer.id}>
+  <div class="box-badge-row">
+    <span class="box-kicker">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+        <path d="M3 6h18"/>
+        <path d="M16 10a4 4 0 0 1-8 0"/>
+      </svg>
+      Editor's Pick
+    </span>
+    {offer.badge && <span class="box-badge">{offer.badge}</span>}
+    {brandOrMerchant && <span class="box-brand">{brandOrMerchant}</span>}
+  </div>
+
+  <div class="box-body">
+    {primaryImage ? (
+      <div class="box-image-wrapper">
+        <img
+          src={primaryImage.url}
+          alt={primaryImage.alt || displayTitle}
+          class="box-image"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    ) : (
+      <div class="box-image-wrapper box-image-fallback" aria-hidden="true">
+        <span class="box-fallback-icon">🛍️</span>
+      </div>
+    )}
+
+    <div class="box-info">
+      <h4 class="box-title">{displayTitle}</h4>
+      {offer.description && <p class="box-description">{offer.description}</p>}
+
+      {note && (
+        <div class="box-editorial-note">
+          <span class="note-label">Why Editors Recommend It:</span>
+          <p class="note-text">{note}</p>
+        </div>
+      )}
+
+      <div class="box-action-row">
+        {offer.priceRange && <span class="box-price">{offer.priceRange}</span>}
+        <a
+          href={offer.affiliateUrl}
+          target="_blank"
+          rel="nofollow noopener sponsored"
+          class="btn-box-cta"
+          aria-label={`${buttonText}: ${displayTitle} (opens in new tab)`}
+        >
+          <span>{buttonText}</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </a>
+      </div>
+      <span class="box-disclosure-tag">Sponsored recommendation • Editors maintain full independent discretion</span>
+    </div>
+  </div>
+</aside>
+
+<style>
+  .affiliate-product-box {
+    background-color: var(--color-surface, #ffffff);
+    border: 1px solid var(--color-border, #e2e8f0);
+    border-radius: var(--radius-lg, 12px);
+    padding: var(--space-5, 1.25rem);
+    margin: var(--space-8, 2rem) 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .affiliate-product-box:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: #cbd5e1;
+  }
+
+  .box-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: var(--space-4, 1rem);
+    flex-wrap: wrap;
+  }
+
+  .box-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.725rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #0f766e;
+    background-color: #ccfbf1;
+    padding: 0.2rem 0.55rem;
+    border-radius: 9999px;
+  }
+
+  .box-badge {
+    font-size: 0.725rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #b45309;
+    background-color: #fef3c7;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+  }
+
+  .box-brand {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-muted, #64748b);
+  }
+
+  .box-body {
+    display: flex;
+    gap: var(--space-5, 1.25rem);
+    align-items: flex-start;
+  }
+
+  @media (max-width: 680px) {
+    .box-body {
+      flex-direction: column;
+    }
+  }
+
+  .box-image-wrapper {
+    width: 170px;
+    height: 140px;
+    min-width: 170px;
+    border-radius: var(--radius-md, 8px);
+    overflow: hidden;
+    background-color: var(--color-surface-subtle, #f8fafc);
+    border: 1px solid var(--color-border-subtle, #f1f5f9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 680px) {
+    .box-image-wrapper {
+      width: 100%;
+      height: 180px;
+      min-width: 100%;
+    }
+  }
+
+  .box-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.2s ease;
+  }
+
+  .affiliate-product-box:hover .box-image {
+    transform: scale(1.03);
+  }
+
+  .box-image-fallback {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  }
+
+  .box-fallback-icon {
+    font-size: 2.2rem;
+    opacity: 0.6;
+  }
+
+  .box-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .box-title {
+    font-family: var(--font-display, inherit);
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0 0 0.4rem 0;
+    color: var(--color-text-primary, #0f172a);
+  }
+
+  .box-description {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary, #475569);
+    line-height: 1.55;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .box-editorial-note {
+    background-color: var(--color-surface-subtle, #f8fafc);
+    border-left: 3px solid #0f766e;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 0.85rem;
+  }
+
+  .note-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #0f766e;
+    margin-bottom: 0.2rem;
+  }
+
+  .note-text {
+    font-size: 0.825rem;
+    color: var(--color-text-secondary, #334155);
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .box-action-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.4rem;
+  }
+
+  .box-price {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text-primary, #0f172a);
+  }
+
+  .btn-box-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: #0f766e;
+    color: #ffffff !important;
+    padding: 0.45rem 0.95rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .btn-box-cta:hover {
+    background-color: #115e59;
+    transform: translateY(-1px);
+    color: #ffffff !important;
+  }
+
+  .box-disclosure-tag {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--color-text-muted, #94a3b8);
+    margin-top: 0.35rem;
+  }
+</style>
+

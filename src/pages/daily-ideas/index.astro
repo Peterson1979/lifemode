@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { listPublicOffers } from '../../lib/commerce/offer-store';
+import { getPrimaryProductImage } from '../../lib/commerce/types';
 import { generateBreadcrumbSchema } from '../../utils/seo';
 
 const allProducts = await listPublicOffers();
@@ -44,54 +45,61 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   <section class="section" style="padding-top: var(--space-4);">
     <div class="container">
       <div class="store-grid">
-        {allProducts.map((product) => (
-          <article class="store-item-card" id={`product-${product.id}`}>
-            <div class="item-header">
-              {product.badge && <span class="item-badge">{product.badge}</span>}
-              {product.brand && <span class="item-brand">{product.brand}</span>}
-            </div>
-
-            {product.imageUrl && (
-              <div class="item-image-wrapper">
-                <img
-                  src={product.imageUrl}
-                  alt={product.name}
-                  class="item-image"
-                  loading="lazy"
-                  decoding="async"
-                />
+        {allProducts.map((product) => {
+          const primaryImage = getPrimaryProductImage(product);
+          return (
+            <article class="store-item-card" id={`product-${product.id}`}>
+              <div class="item-header">
+                {product.badge && <span class="item-badge">{product.badge}</span>}
+                {product.brand && <span class="item-brand">{product.brand}</span>}
               </div>
-            )}
 
-            <h2 class="item-title">{product.name}</h2>
-            <p class="item-description">{product.description}</p>
+              {primaryImage ? (
+                <div class="item-image-wrapper">
+                  <img
+                    src={primaryImage.url}
+                    alt={primaryImage.alt}
+                    class="item-image"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              ) : (
+                <div class="item-image-wrapper item-image-fallback" aria-hidden="true">
+                  <span class="item-fallback-icon">✨</span>
+                </div>
+              )}
 
-            {product.editorialNote && (
-              <div class="item-note">
-                <span class="note-label">Why it's worth it:</span>
-                <p class="note-text">{product.editorialNote}</p>
+              <h2 class="item-title">{product.name}</h2>
+              <p class="item-description">{product.description}</p>
+
+              {product.editorialNote && (
+                <div class="item-note">
+                  <span class="note-label">Why it's worth it:</span>
+                  <p class="note-text">{product.editorialNote}</p>
+                </div>
+              )}
+
+              <div class="item-footer">
+                <span class="item-price">{product.priceRange || 'Curated Find'}</span>
+                <a
+                  href={product.affiliateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer sponsored"
+                  class="btn-store-cta"
+                  aria-label={`View ${product.name} (opens in new tab)`}
+                >
+                  <span>View recommendation</span>
+                  <svg class="external-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
               </div>
-            )}
-
-            <div class="item-footer">
-              <span class="item-price">{product.priceRange || 'Curated Find'}</span>
-              <a
-                href={product.affiliateUrl}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-                class="btn-store-cta"
-                aria-label={`View ${product.name} (opens in new tab)`}
-              >
-                <span>View recommendation</span>
-                <svg class="external-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                  <polyline points="15 3 21 3 21 9" />
-                  <line x1="10" y1="14" x2="21" y2="3" />
-                </svg>
-              </a>
-            </div>
-          </article>
-        ))}
+            </article>
+          );
+        })}
       </div>
     </div>
   </section>
@@ -205,6 +213,18 @@ const breadcrumbSchema = generateBreadcrumbSchema([
     display: block;
     object-fit: cover;
     transition: transform var(--transition-base);
+  }
+
+  .item-image-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-surface-subtle) 0%, rgba(0, 0, 0, 0.04) 100%);
+  }
+
+  .item-fallback-icon {
+    font-size: 2.2rem;
+    opacity: 0.6;
   }
 
   .store-item-card:hover .item-image {

@@ -161,6 +161,16 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
             <span>Daily Ideas Store</span>
           </a>
         </li>
+
+        <!-- 6. LifeMode Picks (Directly visible) -->
+        <li class="nav-item">
+          <a
+            href="/picks/"
+            class={`nav-link ${currentPath.startsWith('/picks') ? 'active' : ''}`}
+          >
+            <span>LifeMode Picks</span>
+          </a>
+        </li>
       </ul>
     </nav>
 
@@ -272,6 +282,13 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
                 <li>
                   <a href="/daily-ideas/" class={`mobile-nav-link ${currentPath.startsWith('/daily-ideas') ? 'active' : ''}`}>
                     <span>Daily Ideas Store</span>
+                  </a>
+                </li>
+
+                <!-- LifeMode Picks -->
+                <li>
+                  <a href="/picks/" class={`mobile-nav-link ${currentPath.startsWith('/picks') ? 'active' : ''}`}>
+                    <span>LifeMode Picks</span>
                   </a>
                 </li>
               </ul>

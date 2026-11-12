@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { GitCli } from '../editorial/git-publisher/git-cli.ts';
 
@@ -15,7 +16,6 @@ export interface PublishOptions {
   targetFile?: string;
 }
 
-const DEFAULT_TARGET_FILE = 'data/commerce/offers.json';
 const DEFAULT_REMOTE = 'origin';
 const DEFAULT_BRANCH = 'master';
 
@@ -33,7 +33,10 @@ export async function publishOffers(options: PublishOptions = {}): Promise<Publi
   const git = options.gitCli || new GitCli();
   const remote = options.remote || DEFAULT_REMOTE;
   const branch = options.branch || DEFAULT_BRANCH;
-  const targetFile = git.normalizeGitPath(options.targetFile || DEFAULT_TARGET_FILE);
+  const defaultTarget = existsSync(resolve(repoRoot, 'data/commerce/products.json'))
+    ? 'data/commerce/products.json'
+    : 'data/commerce/offers.json';
+  const targetFile = git.normalizeGitPath(options.targetFile || defaultTarget);
 
   const isAvailable = await git.isGitAvailable();
   if (!isAvailable) {

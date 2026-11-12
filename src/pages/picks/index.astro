@@ -1,0 +1,615 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { listPublicPicksOffers } from '../../lib/commerce/offer-store';
+import { getPrimaryProductImage, getOfferCtaLabel, type CanonicalAffiliateOffer } from '../../lib/commerce/types';
+import { generateBreadcrumbSchema, getCanonicalUrl } from '../../utils/seo';
+
+const allPicks = await listPublicPicksOffers();
+const hasAmazonRecommendations = allPicks.some((pick) => /amazon(?:\.|\/)/i.test(pick.affiliateUrl));
+
+const canonicalUrl = getCanonicalUrl('/picks');
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'LifeMode Picks', url: '/picks' },
+]);
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'LifeMode Picks — Editorially Vetted Recommendations',
+  description: 'Editorially curated recommendations across practical gear, software, courses, travel, and modern living essentials.',
+  itemListElement: allPicks.slice(0, 30).map((pick, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: pick.title || pick.name,
+    url: `${canonicalUrl}#pick-${pick.id}`,
+  })),
+};
+
+const typeCounts = {
+  all: allPicks.length,
+  physical: allPicks.filter((p) => !p.offerType || p.offerType === 'physical').length,
+  software: allPicks.filter((p) => p.offerType === 'software').length,
+  course: allPicks.filter((p) => p.offerType === 'course').length,
+  digital: allPicks.filter((p) => p.offerType === 'digital').length,
+  services: allPicks.filter((p) => p.offerType === 'service' || p.offerType === 'travel' || p.offerType === 'other').length,
+};
+
+function getFallbackIcon(type?: string): string {
+  switch (type) {
+    case 'course': return '🎓';
+    case 'software': return '💻';
+    case 'digital': return '📄';
+    case 'travel': return '✈️';
+    case 'service': return '⚡';
+    default: return '🛍️';
+  }
+}
+
+function getTypeBadge(type?: string): string {
+  switch (type) {
+    case 'course': return 'Course';
+    case 'software': return 'Software';
+    case 'digital': return 'Digital';
+    case 'travel': return 'Travel';
+    case 'service': return 'Service';
+    default: return 'Gear';
+  }
+}
+---
+
+<BaseLayout
+  title="LifeMode Picks — Editorially Vetted Tools, Gear & Resources | LifeMode"
+  description="Editorially curated recommendations across practical gear, software, courses, travel, and modern living essentials vetted for real-world utility."
+  canonicalUrl={canonicalUrl}
+  jsonLd={[breadcrumbSchema, itemListSchema]}
+>
+  <!-- Breadcrumbs -->
+  <div class="container" style="padding-top: var(--space-6);">
+    <nav aria-label="Breadcrumbs" class="breadcrumb-nav">
+      <ol class="breadcrumb-list">
+        <li><a href="/">Home</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">&rsaquo;</li>
+        <li class="breadcrumb-current" aria-current="page">LifeMode Picks</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Editorial Hero Section -->
+  <section class="picks-hero-section">
+    <div class="container">
+      <div class="picks-kicker">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        <span>Curated Recommendations</span>
+      </div>
+      <h1 class="picks-title">LifeMode Picks</h1>
+      <p class="picks-lead">
+        Hand-selected gear, tools, software, courses, and resources tested or rigorously evaluated by LifeMode editors. Every recommendation is chosen for real utility, durability, and practical everyday value.
+      </p>
+
+      <!-- Category / Type Filters -->
+      <nav class="picks-filter-bar" aria-label="Filter recommendations by type">
+        <button type="button" class="filter-pill active" data-filter="all">
+          All Picks <span class="pill-count">({typeCounts.all})</span>
+        </button>
+        {typeCounts.physical > 0 && (
+          <button type="button" class="filter-pill" data-filter="physical">
+            Gear & Physical <span class="pill-count">({typeCounts.physical})</span>
+          </button>
+        )}
+        {typeCounts.software > 0 && (
+          <button type="button" class="filter-pill" data-filter="software">
+            Software & Apps <span class="pill-count">({typeCounts.software})</span>
+          </button>
+        )}
+        {typeCounts.course > 0 && (
+          <button type="button" class="filter-pill" data-filter="course">
+            Courses & Learning <span class="pill-count">({typeCounts.course})</span>
+          </button>
+        )}
+        {typeCounts.digital > 0 && (
+          <button type="button" class="filter-pill" data-filter="digital">
+            Digital & Guides <span class="pill-count">({typeCounts.digital})</span>
+          </button>
+        )}
+        {typeCounts.services > 0 && (
+          <button type="button" class="filter-pill" data-filter="services">
+            Travel & Services <span class="pill-count">({typeCounts.services})</span>
+          </button>
+        )}
+      </nav>
+    </div>
+  </section>
+
+  <!-- Product Catalog Grid -->
+  <section class="section" style="padding-top: var(--space-4); padding-bottom: var(--space-16);">
+    <div class="container">
+      {allPicks.length === 0 ? (
+        <div class="picks-empty-state">
+          <h3>No active recommendations</h3>
+          <p>Our editorial team is currently vetting items for this section. Check back soon for updated recommendations.</p>
+        </div>
+      ) : (
+        <div class="picks-grid" id="picks-catalog-grid">
+          {allPicks.map((pick) => {
+            const primaryImage = getPrimaryProductImage(pick);
+            const offerType = pick.offerType || 'physical';
+            const filterGroup = (offerType === 'service' || offerType === 'travel' || offerType === 'other') ? 'services' : offerType;
+            const ctaText = getOfferCtaLabel(pick);
+            const fallbackIcon = getFallbackIcon(offerType);
+            const typeBadge = getTypeBadge(offerType);
+
+            return (
+              <article
+                class="pick-item-card"
+                id={`pick-${pick.id}`}
+                data-type={offerType}
+                data-group={filterGroup}
+                data-category={pick.category || 'general'}
+              >
+                <div class="card-top-row">
+                  <div class="badge-group">
+                    <span class={`type-pill type-pill-${offerType}`}>{typeBadge}</span>
+                    {pick.badge && <span class="custom-badge">{pick.badge}</span>}
+                  </div>
+                  {pick.brand && <span class="card-brand">{pick.brand}</span>}
+                </div>
+
+                {primaryImage ? (
+                  <div class="card-image-box">
+                    <img
+                      src={primaryImage.url}
+                      alt={primaryImage.alt}
+                      class="card-img"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                ) : (
+                  <div class="card-image-box card-image-fallback" aria-hidden="true">
+                    <span class="card-fallback-icon">{fallbackIcon}</span>
+                  </div>
+                )}
+
+                <div class="card-body">
+                  <h2 class="card-title">{pick.title || pick.name}</h2>
+                  {pick.description && <p class="card-description">{pick.description}</p>}
+
+                  {pick.editorialNote && (
+                    <div class="card-editorial-note">
+                      <span class="note-label">Editor's Take:</span>
+                      <p class="note-content">{pick.editorialNote}</p>
+                    </div>
+                  )}
+                </div>
+
+                <div class="card-footer">
+                  <div class="price-merchant-col">
+                    {pick.priceRange ? (
+                      <span class="card-price">{pick.priceRange}</span>
+                    ) : (
+                      <span class="card-merchant">{pick.merchant || 'Curated Partner'}</span>
+                    )}
+                  </div>
+                  <a
+                    href={pick.affiliateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer sponsored"
+                    class="btn-pick-cta"
+                    aria-label={`${ctaText}: ${pick.title || pick.name} (opens in new tab)`}
+                  >
+                    <span>{ctaText}</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                      <polyline points="15 3 21 3 21 9" />
+                      <line x1="10" y1="14" x2="21" y2="3" />
+                    </svg>
+                  </a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      )}
+
+      <div id="no-filtered-results" class="picks-empty-state" style="display:none; margin-top: var(--space-8);">
+        <h3>No recommendations in this view</h3>
+        <p>There are currently no active recommendations under this specific filter. Switch to "All Picks" to browse all curated finds.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial & Affiliate Disclosures -->
+  <footer class="picks-disclosure-container" role="note">
+    <div class="container">
+      <div class="disclosure-card">
+        <h4 class="disclosure-heading">Editorial Standards & Affiliate Disclosure</h4>
+        <p class="disclosure-text">
+          LifeMode Picks is an editorially independent recommendation directory. When you purchase or subscribe through links on this page, we may earn an affiliate commission at no extra cost to you. Our editors select and review all items independently based on utility, performance, and craftsmanship.
+        </p>
+        {hasAmazonRecommendations && (
+          <p class="disclosure-text amazon-clause">
+            <strong>Amazon Associate Notice:</strong> As an Amazon Associate, LifeMode earns from qualifying purchases made through Amazon links on this page.
+          </p>
+        )}
+      </div>
+    </div>
+  </footer>
+</BaseLayout>
+
+<script>
+  // Client-side quick filter
+  const filterButtons = document.querySelectorAll<HTMLButtonElement>('.picks-filter-bar .filter-pill');
+  const cards = document.querySelectorAll<HTMLElement>('#picks-catalog-grid .pick-item-card');
+  const emptyState = document.getElementById('no-filtered-results');
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter || 'all';
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const group = card.dataset.group || card.dataset.type || 'physical';
+        if (filter === 'all' || group === filter) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (emptyState) {
+        emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
+    });
+  });
+</script>
+
+<style>
+  .picks-hero-section {
+    padding-top: var(--space-8, 2rem);
+    padding-bottom: var(--space-6, 1.5rem);
+    border-bottom: 1px solid var(--color-border-subtle, #f1f5f9);
+    margin-bottom: var(--space-6, 1.5rem);
+  }
+
+  .picks-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #0f766e;
+    background-color: #ccfbf1;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    margin-bottom: var(--space-3, 0.75rem);
+  }
+
+  .picks-title {
+    font-family: var(--font-display, inherit);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--color-text-primary, #0f172a);
+    margin: 0 0 var(--space-3, 0.75rem) 0;
+  }
+
+  .picks-lead {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary, #475569);
+    max-width: 760px;
+    line-height: 1.6;
+    margin: 0 0 var(--space-6, 1.5rem) 0;
+  }
+
+  .picks-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2, 0.5rem);
+    margin-top: var(--space-4, 1rem);
+  }
+
+  .filter-pill {
+    appearance: none;
+    background-color: var(--color-surface, #ffffff);
+    color: var(--color-text-secondary, #475569);
+    border: 1px solid var(--color-border, #cbd5e1);
+    border-radius: 9999px;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.825rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .filter-pill:hover {
+    border-color: #0f766e;
+    color: #0f766e;
+  }
+
+  .filter-pill.active {
+    background-color: #0f766e;
+    color: #ffffff;
+    border-color: #0f766e;
+  }
+
+  .pill-count {
+    font-size: 0.75rem;
+    opacity: 0.8;
+  }
+
+  .picks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-6, 1.5rem);
+  }
+
+  @media (min-width: 1024px) {
+    .picks-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .pick-item-card {
+    background-color: var(--color-surface, #ffffff);
+    border: 1px solid var(--color-border, #e2e8f0);
+    border-radius: var(--radius-lg, 12px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+
+  .pick-item-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border-color: #cbd5e1;
+  }
+
+  .card-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--color-border-subtle, #f1f5f9);
+    gap: 0.5rem;
+  }
+
+  .badge-group {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .type-pill {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    background-color: var(--color-surface-subtle, #f1f5f9);
+    color: var(--color-text-secondary, #475569);
+  }
+
+  .type-pill-software { background-color: #eff6ff; color: #1d4ed8; }
+  .type-pill-course { background-color: #fdf2f8; color: #be185d; }
+  .type-pill-digital { background-color: #f5f3ff; color: #6d28d9; }
+  .type-pill-travel { background-color: #ecfeff; color: #0e7490; }
+  .type-pill-service { background-color: #fefce8; color: #a16207; }
+
+  .custom-badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+
+  .card-brand {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-muted, #64748b);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card-image-box {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background-color: var(--color-surface-subtle, #f8fafc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--color-border-subtle, #f1f5f9);
+  }
+
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.25s ease;
+  }
+
+  .pick-item-card:hover .card-img {
+    transform: scale(1.04);
+  }
+
+  .card-image-fallback {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  }
+
+  .card-fallback-icon {
+    font-size: 2.5rem;
+    opacity: 0.65;
+  }
+
+  .card-body {
+    padding: 1.1rem 1.1rem 0.5rem 1.1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-title {
+    font-family: var(--font-display, inherit);
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0 0 0.5rem 0;
+    color: var(--color-text-primary, #0f172a);
+  }
+
+  .card-description {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary, #475569);
+    line-height: 1.5;
+    margin: 0 0 0.85rem 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-editorial-note {
+    background-color: var(--color-surface-subtle, #f8fafc);
+    border-left: 3px solid #0f766e;
+    padding: 0.45rem 0.65rem;
+    border-radius: 0 6px 6px 0;
+    margin-top: auto;
+    margin-bottom: 0.5rem;
+  }
+
+  .note-label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #0f766e;
+    margin-bottom: 0.15rem;
+  }
+
+  .note-content {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary, #334155);
+    margin: 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.1rem 1.1rem 1.1rem;
+    border-top: 1px solid var(--color-border-subtle, #f1f5f9);
+    gap: 0.75rem;
+  }
+
+  .card-price {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text-primary, #0f172a);
+  }
+
+  .card-merchant {
+    font-size: 0.78rem;
+    color: var(--color-text-muted, #64748b);
+    font-weight: 500;
+  }
+
+  .btn-pick-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background-color: #0f766e;
+    color: #ffffff !important;
+    font-size: 0.825rem;
+    font-weight: 600;
+    padding: 0.5rem 0.95rem;
+    border-radius: var(--radius-md, 8px);
+    text-decoration: none !important;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .btn-pick-cta:hover {
+    background-color: #0d9488;
+    transform: translateY(-1px);
+  }
+
+  .picks-empty-state {
+    text-align: center;
+    padding: var(--space-12, 3rem) var(--space-4, 1rem);
+    background-color: var(--color-surface, #ffffff);
+    border: 1px dashed var(--color-border, #cbd5e1);
+    border-radius: var(--radius-lg, 12px);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .picks-empty-state h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-primary, #0f172a);
+    margin-bottom: 0.5rem;
+  }
+
+  .picks-empty-state p {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary, #64748b);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .picks-disclosure-container {
+    background-color: var(--color-surface-subtle, #f8fafc);
+    border-top: 1px solid var(--color-border-subtle, #e2e8f0);
+    padding: var(--space-8, 2rem) 0;
+  }
+
+  .disclosure-card {
+    max-width: 820px;
+  }
+
+  .disclosure-heading {
+    font-size: 0.825rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted, #64748b);
+    margin: 0 0 0.5rem 0;
+  }
+
+  .disclosure-text {
+    font-size: 0.825rem;
+    color: var(--color-text-muted, #64748b);
+    line-height: 1.55;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .disclosure-text.amazon-clause {
+    margin-top: 0.25rem;
+  }
+</style>
+

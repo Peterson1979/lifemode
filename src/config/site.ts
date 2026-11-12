@@ -296,6 +296,7 @@ export const FUNCTIONAL_NAV_LINKS = [
   { name: 'Checklists', href: '/checklists/', slug: 'checklists' },
   { name: 'Life Hacks', href: '/life-hacks/', slug: 'life-hacks' },
   { name: 'Daily Ideas Store', href: '/daily-ideas/', slug: 'daily-ideas' },
+  { name: 'LifeMode Picks', href: '/picks/', slug: 'picks' },
 ] as const;
 
 export const SITE_CONFIG = {
@@ -323,6 +324,7 @@ export const SITE_CONFIG = {
     { name: 'Printable Checklists', href: '/checklists' },
     { name: 'Video Life Hacks', href: '/life-hacks' },
     { name: 'Daily Ideas Store', href: '/daily-ideas' },
+    { name: 'LifeMode Picks', href: '/picks' },
     { name: 'Contact', href: '/contact' },
     { name: 'Privacy Policy', href: '/privacy' },
     { name: 'Cookie Policy', href: '/cookies' },

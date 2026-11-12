@@ -79,16 +79,33 @@ const hasResources = sortedGuides.length > 0 || allTools.length > 0 || allCheckl
             const slug = guideSlug(guide.id);
             return (
               <a href={`/guides/${slug}/`} class="guide-card" style={`--accent-color: ${category.badgeColor};`}>
-                {guide.data.readingTime && (
-                  <div class="card-meta-top">
-                    <span class="reading-time">⏱️ {guide.data.readingTime}</span>
+                {guide.data.image ? (
+                  <div class="guide-card-image-wrapper">
+                    <img
+                      src={guide.data.image}
+                      alt={guide.data.imageAlt || guide.data.title}
+                      class="guide-card-image"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                ) : (
+                  <div class="guide-card-fallback-wrapper" aria-hidden="true">
+                    <span class="guide-card-fallback-icon">{category.icon || '📖'}</span>
                   </div>
                 )}
-                <h3>{guide.data.title}</h3>
-                <p>{guide.data.description || guide.data.quickSummary}</p>
-                <div class="guide-card-footer">
-                  <span class="card-author">By {guide.data.author}</span>
-                  <span class="read-link">Read Guide &rarr;</span>
+                <div class="guide-card-content">
+                  {guide.data.readingTime && (
+                    <div class="card-meta-top">
+                      <span class="reading-time">⏱️ {guide.data.readingTime}</span>
+                    </div>
+                  )}
+                  <h3>{guide.data.title}</h3>
+                  <p>{guide.data.description || guide.data.quickSummary}</p>
+                  <div class="guide-card-footer">
+                    <span class="card-author">By {guide.data.author}</span>
+                    <span class="read-link">Read Guide &rarr;</span>
+                  </div>
                 </div>
               </a>
             );
@@ -321,6 +338,7 @@ const hasResources = sortedGuides.length > 0 || allTools.length > 0 || allCheckl
     flex-direction: column;
     box-shadow: var(--shadow-sm);
     transition: all var(--transition-base);
+    overflow: hidden;
   }
 
   .guide-card:hover {
@@ -328,6 +346,46 @@ const hasResources = sortedGuides.length > 0 || allTools.length > 0 || allCheckl
     box-shadow: var(--shadow-card);
     border-color: var(--color-border-hover);
     text-decoration: none;
+  }
+
+  .guide-card-image-wrapper {
+    margin: calc(var(--space-6) * -1) calc(var(--space-6) * -1) var(--space-4);
+    height: 180px;
+    overflow: hidden;
+    background-color: var(--color-surface-subtle);
+  }
+
+  .guide-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-base);
+  }
+
+  .guide-card:hover .guide-card-image {
+    transform: scale(1.03);
+  }
+
+  .guide-card-fallback-wrapper {
+    margin: calc(var(--space-6) * -1) calc(var(--space-6) * -1) var(--space-4);
+    height: 140px;
+    background: linear-gradient(135deg, var(--color-surface-subtle) 0%, rgba(0, 0, 0, 0.04) 100%);
+    border-bottom: 1px solid var(--color-border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .guide-card-fallback-icon {
+    font-size: 2.5rem;
+    opacity: 0.7;
+  }
+
+  .guide-card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
   }
 
   .card-meta-top {

@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import RelatedCluster from '../../components/RelatedCluster.astro';
+import AffiliateProductBox from '../../components/commerce/AffiliateProductBox.astro';
 import {
   getCanonicalUrl,
   generateArticleSchema,
@@ -97,6 +98,23 @@ const breadcrumbs = [
     <div class="guide-article-body prose">
       <Content />
     </div>
+
+    {guide.data.affiliateProducts && guide.data.affiliateProducts.length > 0 && (
+      <section class="guide-recommended-products" aria-label="Recommended Products">
+        <h3 class="guide-recommended-heading">Recommended Gear & Tools</h3>
+        <div class="guide-product-boxes-list">
+          {guide.data.affiliateProducts.map((p) => {
+            const offerId = typeof p === 'string' ? p : ('id' in p ? p.id : undefined);
+            if (offerId) {
+              const note = typeof p === 'object' && 'note' in p ? p.note : undefined;
+              const cta = typeof p === 'object' && 'ctaText' in p ? p.ctaText : undefined;
+              return <AffiliateProductBox offerId={offerId} contextNote={note} ctaText={cta} />;
+            }
+            return null;
+          })}
+        </div>
+      </section>
+    )}
 
     <!-- Related Resources & Connected Knowledge -->
     <RelatedCluster
@@ -303,6 +321,41 @@ const breadcrumbs = [
     font-size: 0.8rem;
     color: var(--color-text-muted, #64748b);
     margin: 0;
+  }
+
+  .guide-recommended-products {
+    margin-top: var(--space-10, 2.5rem);
+    margin-bottom: var(--space-8, 2rem);
+    padding-top: var(--space-6, 1.5rem);
+    border-top: 1px solid var(--color-border-subtle, #e2e8f0);
+  }
+
+  .guide-recommended-heading {
+    font-family: var(--font-display, inherit);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-primary, #0f172a);
+    margin-bottom: var(--space-4, 1rem);
+  }
+
+  .guide-product-boxes-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6, 1.5rem);
+  }
+
+  :global(.affiliate-contextual-link) {
+    color: var(--color-primary, #0f766e);
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+
+  :global(.affiliate-contextual-link:hover) {
+    color: #0d9488;
+    text-decoration-thickness: 2px;
   }
 
   @media (max-width: 640px) {

@@ -4,6 +4,8 @@
  * Preserves all valid UTF-8 characters natively without lossy conversion.
  */
 
+import { renderAffiliateProductBoxHtml, resolveContextualAffiliateOffer } from '../lib/commerce/affiliate-renderer.ts';
+
 export function cleanUtf8Characters(str: string): string {
   if (!str) return '';
   return str;
@@ -126,6 +128,30 @@ export function renderMarkdownToHtml(markdown: string): string {
     // Empty lines
     if (!trimmed) {
       flushAll();
+      continue;
+    }
+
+    // Standalone affiliate product box directive: [product-box:id] or ::product-box{id="..."}
+    const directiveMatch = trimmed.match(/^::product-box\{id=["']?([a-z0-9-]+)["']?(?:\s+note=["']([^"']*)["'])?(?:\s+cta=["']([^"']*)["'])?\}$/i);
+    if (directiveMatch) {
+      flushAll();
+      const boxHtml = renderAffiliateProductBoxHtml(directiveMatch[1], {
+        contextNote: directiveMatch[2],
+        ctaText: directiveMatch[3],
+      });
+      if (boxHtml) {
+        htmlParts.push(boxHtml);
+      }
+      continue;
+    }
+
+    const shortcodeMatch = trimmed.match(/^\[product-box:([a-z0-9-]+)\]$/i);
+    if (shortcodeMatch) {
+      flushAll();
+      const boxHtml = renderAffiliateProductBoxHtml(shortcodeMatch[1]);
+      if (boxHtml) {
+        htmlParts.push(boxHtml);
+      }
       continue;
     }
 
@@ -286,6 +312,15 @@ function formatInlineMarkdown(text: string): string {
 
   // Images: ![alt](url)
   res = res.replace(/!\[([^\]]*)\]\((https?:\/\/[^\s\)]+|\/[^\s\)]+)\)/g, '<img src="$2" alt="$1" class="article-body-img" style="max-width:100%;border-radius:8px;margin:1rem 0;" />');
+
+  // Contextual affiliate links: [Label](aff:offer-id) or [Label](product:offer-id)
+  res = res.replace(/(?<!!)(?:\[([^\]]+)\])\((?:aff|product):([a-z0-9-]+)\)/gi, (_match, label, id) => {
+    const resolved = resolveContextualAffiliateOffer(`aff:${id}`);
+    if (resolved) {
+      return `<a href="${escapeHtml(resolved.url)}" rel="${resolved.rel}" target="_blank" class="affiliate-contextual-link">${label}</a>`;
+    }
+    return label;
+  });
 
   // Links
   res = res.replace(/(?<!!)(?:\[([^\]]+)\])\((https?:\/\/[^\s\)]+|\/[^\s\)]+)\)/g, '<a href="$2" rel="noopener noreferrer" target="_blank">$1</a>');
