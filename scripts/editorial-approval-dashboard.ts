@@ -9,7 +9,9 @@ import { listPublishedTools, getPublishedTool } from '../src/lib/editorial/cms/t
 import { listPublishedChecklists, getPublishedChecklist, renderChecklistStructuredPreview } from '../src/lib/editorial/cms/checklists.ts';
 import { listPublishedLifeHacks, getPublishedLifeHack, renderLifeHackPreview } from '../src/lib/editorial/cms/life-hacks.ts';
 import { listMediaAssets, uploadMediaAsset } from '../src/lib/editorial/cms/media.ts';
-import { publishGuide, publishTool, publishChecklist, publishLifeHack } from '../src/lib/editorial/cms/publisher.ts';
+import { publishGuide, publishTool, publishChecklist, publishLifeHack, publishPicksArticle } from '../src/lib/editorial/cms/publisher.ts';
+import { listPublishedPicksArticles, getPublishedPicksArticle, writePicksArticleFile } from '../src/lib/editorial/cms/picks.ts';
+import { getAllPicksCategories, PICKS_CATEGORIES } from '../src/utils/picks-categories.ts';
 import {
   VALID_GUIDE_CATEGORIES,
   VALID_TOOL_CATEGORIES,
@@ -21,6 +23,7 @@ import {
   type ChecklistCategory,
   type LifeHackVideo,
   type CmsDraftItem,
+  type PicksArticleData,
 } from '../src/lib/editorial/cms/types.ts';
 import { renderMarkdownToHtml } from '../src/utils/markdown-renderer.ts';
 import { CloudflareR2SocialAssetStorageProvider } from '../src/lib/social/images/storage/r2.ts';
@@ -184,6 +187,7 @@ header h1{margin:0;font-size:1.5rem;font-weight:700;color:var(--text)}
   <button type="button" class="tab-btn" data-tab="tools-editor">⚙️ Tools Editor</button>
   <button type="button" class="tab-btn" data-tab="checklists-editor">📋 Checklists Editor</button>
   <button type="button" class="tab-btn" data-tab="lifehacks-editor">🎬 Life Hacks Editor</button>
+  <button type="button" class="tab-btn" data-tab="picks-editor">⭐ Picks Articles (<span id="picks-articles-count">0</span>)</button>
   <button type="button" class="tab-btn" data-tab="drafts">📝 Drafts (<span id="drafts-count">0</span>)</button>
   <button type="button" class="tab-btn" data-tab="history">📚 Publication History (<span id="history-count">0</span>)</button>
   <button type="button" class="tab-btn" data-tab="media">🖼️ Media Library (<span id="media-count">0</span>)</button>
@@ -993,6 +997,143 @@ Include your practical instructions, bullet lists, comparison tables, and any af
   </div>
 </section>
 
+<!-- Tab: Picks Articles Editor -->
+<section id="tab-picks-editor" class="tab-pane">
+  <div class="card" style="margin-bottom:1rem;padding:.75rem 1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem">
+    <div><strong>Create &amp; Edit LifeMode Picks Article</strong> — <span style="font-size:.85rem;color:var(--muted)">Curated Buying Guides &amp; Product Roundups</span></div>
+    <div style="display:flex;align-items:center;gap:.5rem">
+      <label for="select-load-picks" style="font-size:.8rem;color:var(--muted)">Load Published Picks Article:</label>
+      <select id="select-load-picks" style="font-size:.85rem;padding:.3rem .5rem"><option value="">-- Choose Article --</option></select>
+    </div>
+  </div>
+
+  <form id="picks-form" class="card">
+    <input type="hidden" name="id" id="field-picks-id">
+
+    <!-- Row 1: Title & Slug -->
+    <div class="form-row" style="margin-bottom:1rem">
+      <div class="form-group" style="flex:2">
+        <label for="field-picks-title" style="font-weight:700">Article Title *</label>
+        <input id="field-picks-title" name="title" required placeholder="e.g. 10 Best Chef Knives for Home Cooks (2026 Tested)" style="font-size:.95rem;padding:.6rem .75rem">
+      </div>
+      <div class="form-group" style="flex:1">
+        <label for="field-picks-slug" style="font-weight:700">URL Slug * <small>(/picks/articles/slug/)</small></label>
+        <input id="field-picks-slug" name="slug" required placeholder="best-chef-knives" style="font-size:.95rem;padding:.6rem .75rem">
+      </div>
+    </div>
+
+    <!-- Excerpt / Intro -->
+    <div class="form-group" style="margin-bottom:1.25rem">
+      <label for="field-picks-description" style="font-weight:700">Excerpt / Introduction *</label>
+      <textarea id="field-picks-description" name="description" rows="2" required placeholder="Brief introductory summary of the roundup or gift guide..." style="font-size:.9rem;padding:.6rem .75rem"></textarea>
+      <small style="color:var(--muted)">Displays on index cards, hero sections, and search engine snippets.</small>
+    </div>
+
+    <!-- Row 2: Categories Multi-select Checkboxes & Featured Image -->
+    <div class="form-row" style="margin-bottom:1.25rem">
+      <div class="form-group" style="flex:1.2;margin-bottom:0">
+        <label style="font-weight:700">Picks Categories * <small>(Select one or more topics)</small></label>
+        <div id="picks-categories-checkboxes" style="display:grid;grid-template-columns:repeat(auto-fill, minmax(180px, 1fr));gap:.4rem;background:#f8fafc;padding:.75rem;border-radius:6px;border:1px solid var(--border);max-height:190px;overflow-y:auto">
+          <!-- Populated by JS from PICKS_CATEGORIES -->
+        </div>
+        <small style="color:var(--muted);margin-top:.25rem">Articles can belong to multiple Picks categories (e.g. Kitchen &amp; Cooking + Gifts &amp; Occasions).</small>
+      </div>
+
+      <div class="form-group" style="flex:1;margin-bottom:0">
+        <label style="font-weight:700">Featured Image</label>
+        <input type="text" id="field-picks-image" name="image" placeholder="/images/guides/... or https://..." style="font-size:.85rem;padding:.4rem .6rem;margin-bottom:.5rem">
+        <input type="text" id="field-picks-image-alt" name="imageAlt" placeholder="Image alt text" style="font-size:.85rem;padding:.4rem .6rem;margin-bottom:.5rem">
+        <input type="file" id="picks-direct-file-input" accept="image/jpeg,image/png,image/webp" style="display:none">
+        <div style="display:flex;gap:.5rem;margin-bottom:.5rem">
+          <button type="button" class="btn btn-secondary btn-sm" id="btn-upload-picks-image">📷 Upload Image</button>
+          <button type="button" class="btn btn-secondary btn-sm" id="btn-pick-picks-image">🖼️ Select from Media</button>
+        </div>
+        <div id="picks-image-preview-container" class="featured-image-widget">
+          <div class="featured-image-placeholder">No image selected</div>
+          <div style="flex:1;font-size:.8rem;color:var(--muted)">Assigned primary image for article card and header.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 3: SEO Fields & Disclosure -->
+    <div class="form-row" style="margin-bottom:1.25rem">
+      <div class="form-group">
+        <label for="field-picks-seo-title" style="font-weight:600">SEO Title (Optional)</label>
+        <input id="field-picks-seo-title" name="seoTitle" placeholder="Custom page title tag">
+      </div>
+      <div class="form-group">
+        <label for="field-picks-seo-description" style="font-weight:600">SEO Meta Description (Optional)</label>
+        <input id="field-picks-seo-description" name="seoDescription" placeholder="Custom meta description">
+      </div>
+      <div class="form-group">
+        <label for="field-picks-author" style="font-weight:600">Author</label>
+        <input id="field-picks-author" name="author" value="LifeMode Editorial">
+      </div>
+    </div>
+
+    <!-- Article Editor & Live Formatted Preview -->
+    <div class="split-view">
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.35rem">
+          <label style="font-size:.85rem;font-weight:700;color:#334155">Article Content (Markdown) *</label>
+          <span style="font-size:.75rem;color:var(--muted)">Supports product boxes, lists, bold, italics, tables</span>
+        </div>
+        <div class="editor-toolbar">
+          <button type="button" onclick="insertMd('picks', '**', '**', 'bold text')"><strong>B</strong></button>
+          <button type="button" onclick="insertMd('picks', '*', '*', 'italic text')"><em>I</em></button>
+          <button type="button" onclick="insertMd('picks', '## ', '', 'Section Heading')">H2</button>
+          <button type="button" onclick="insertMd('picks', '### ', '', 'Subsection Heading')">H3</button>
+          <button type="button" onclick="insertMd('picks', '- ', '', 'List item')">• List</button>
+          <button type="button" onclick="insertMd('picks', '1. ', '', 'Item')">1. Num</button>
+          <button type="button" onclick="insertMd('picks', '[', '](https://example.com)', 'Link text')">Link</button>
+          <button type="button" onclick="insertTable('picks')">Table</button>
+          <button type="button" onclick="openAffiliateSelectorModal('picks')" style="margin-left:auto;background:#fef3c7;border-color:#fde68a;color:#92400e;font-weight:700" title="Select product from unified catalog to embed">🛍️ Insert Product Box / Link</button>
+        </div>
+        <textarea id="picks-article-content" class="editor-textarea" style="min-height:440px" required placeholder="# Article Title
+
+Write your recommendations, breakdown of each item, why it was chosen, and key specs.
+
+Use '🛍️ Insert Product Box / Link' above to embed interactive product boxes:
+::product-box{id=&quot;product-id&quot;}
+
+Or contextual affiliate links:
+Check out the [Product Name](aff:product-id)."></textarea>
+
+        <div style="margin-top:.75rem;display:flex;align-items:center;gap:.75rem;flex-wrap:wrap">
+          <button type="button" class="btn btn-secondary btn-sm" id="btn-clear-picks-editor">Clear Form</button>
+        </div>
+      </div>
+
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.35rem">
+          <label style="font-size:.85rem;font-weight:700;color:#334155">Live Formatted Preview</label>
+          <span id="preview-picks-reading-time" style="font-size:.75rem;color:var(--muted)"></span>
+        </div>
+        <div id="preview-picks-output" class="preview-pane" style="min-height:480px">
+          <p class="muted">Live preview with rendered product boxes will appear here…</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Publishing Actions Bar -->
+    <div style="margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
+      <div style="display:flex;gap:.5rem;align-items:center">
+        <button type="button" class="btn btn-secondary" id="btn-save-picks-draft">💾 Save Draft</button>
+        <span id="picks-draft-status" style="font-size:.85rem;color:var(--muted)"></span>
+      </div>
+      <div style="display:flex;gap:.75rem;align-items:center">
+        <label style="display:inline-flex;align-items:center;gap:.35rem;font-size:.85rem;cursor:pointer">
+          <input type="checkbox" id="picks-dry-run" checked> Dry Run (Validate without Git commit)
+        </label>
+        <button type="button" class="btn btn-primary" id="btn-publish-picks" style="background:#10b981;font-weight:700;font-size:1rem;padding:.65rem 1.4rem">
+          🚀 Publish Picks Article
+        </button>
+      </div>
+    </div>
+    <div id="picks-editor-status" style="margin-top:.5rem"></div>
+  </form>
+</section>
+
 <!-- Media Picker Modal -->
 <div id="media-modal" class="modal">
   <div class="modal-content">
@@ -1126,6 +1267,7 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     if (target === 'history') loadHistory();
     if (target === 'media') loadMedia();
     if (target === 'affiliates') loadAffiliates();
+    if (target === 'picks-editor') loadPicksArticlesEditor();
   });
 });
 
@@ -1138,6 +1280,9 @@ async function refreshCounts() {
     document.querySelector('#drafts-count').textContent = data.draftsCount || 0;
     document.querySelector('#history-count').textContent = data.publishedCount || 0;
     document.querySelector('#media-count').textContent = data.mediaCount || 0;
+    if (document.querySelector('#picks-articles-count')) {
+      document.querySelector('#picks-articles-count').textContent = data.picksArticlesCount || 0;
+    }
     if (document.querySelector('#affiliates-count')) {
       document.querySelector('#affiliates-count').textContent = data.affiliatesCount || 0;
     }
@@ -1694,10 +1839,10 @@ function renderSectionsBuilder() {
   container.innerHTML = checklistSections.map((sec, sIdx) => {
     const itemsHtml = (sec.items || []).map((it, iIdx) =>
       '<div class="item-builder-row">' +
-        '<input type="text" placeholder="ID (e.g. k-1)" value="' + esc(it.id) + '" onchange="updateChecklistItem(' + sIdx + ', ' + iIdx + ', \\'id\\', this.value)" style="font-family:monospace;font-size:.8rem" />' +
-        '<input type="text" placeholder="Actionable task text *" value="' + esc(it.text) + '" onchange="updateChecklistItem(' + sIdx + ', ' + iIdx + ', \\'text\\', this.value)" required />' +
-        '<input type="text" placeholder="Note / Pro-Tip (optional)" value="' + esc(it.note || '') + '" onchange="updateChecklistItem(' + sIdx + ', ' + iIdx + ', \\'note\\', this.value)" />' +
-        '<input type="text" placeholder="Frequency" value="' + esc(it.frequency || '') + '" onchange="updateChecklistItem(' + sIdx + ', ' + iIdx + ', \\'frequency\\', this.value)" />' +
+        '<input type="text" placeholder="ID (e.g. k-1)" value="' + esc(it.id) + '" onchange="updateChecklistItem(' + sIdx + ', ' + iIdx + ', &quot;id&quot;, this.value)" style="font-family:monospace;font-size:.8rem" />' +
+        '<input type="text" placeholder="Actionable task text *" value="' + esc(it.text) + '" onchange="updateChecklistItem(' + sIdx + ', ' + iIdx + ', &quot;text&quot;, this.value)" required />' +
+        '<input type="text" placeholder="Note / Pro-Tip (optional)" value="' + esc(it.note || '') + '" onchange="updateChecklistItem(' + sIdx + ', ' + iIdx + ', &quot;note&quot;, this.value)" />' +
+        '<input type="text" placeholder="Frequency" value="' + esc(it.frequency || '') + '" onchange="updateChecklistItem(' + sIdx + ', ' + iIdx + ', &quot;frequency&quot;, this.value)" />' +
         '<button type="button" class="btn btn-secondary btn-sm" onclick="removeChecklistItem(' + sIdx + ', ' + iIdx + ')" title="Delete task" style="color:var(--danger)">&times;</button>' +
       '</div>'
     ).join('');
@@ -2061,8 +2206,9 @@ function renderDraftsTable() {
       if (type === 'tool') typePill = '<span class="badge-pill blue">⚙️ Tool</span>';
       else if (type === 'checklist') typePill = '<span class="badge-pill green">📋 Checklist</span>';
       else if (type === 'life-hack') typePill = '<span class="badge-pill cyan">🎬 Life Hack</span>';
+      else if (type === 'picks') typePill = '<span class="badge-pill amber">⭐ Picks</span>';
 
-      return '<tr><td>' + typePill + '</td><td><strong>' + esc(d.title) + '</strong></td><td><span class="badge-pill">' + esc(d.category || 'General') + '</span></td><td><code>' + esc(d.slug || d.id) + '</code></td><td>' + esc((d.updatedAt || d.createdAt || '').slice(0, 10)) + '</td><td><button class="btn btn-primary btn-sm" onclick="openDraft(\\'' + esc(d.id) + '\\')">Edit</button> <button class="btn btn-danger btn-sm" onclick="removeDraft(\\'' + esc(d.id) + '\\')">Delete</button></td></tr>';
+      return '<tr><td>' + typePill + '</td><td><strong>' + esc(d.title) + '</strong></td><td><span class="badge-pill">' + esc(d.category || (Array.isArray(d.categories) ? d.categories.join(', ') : 'General')) + '</span></td><td><code>' + esc(d.slug || d.id) + '</code></td><td>' + esc((d.updatedAt || d.createdAt || '').slice(0, 10)) + '</td><td><button class="btn btn-primary btn-sm" onclick="openDraft(\\'' + esc(d.id) + '\\')">Edit</button> <button class="btn btn-danger btn-sm" onclick="removeDraft(\\'' + esc(d.id) + '\\')">Delete</button></td></tr>';
     }).join('') +
     '</tbody></table>';
 }
@@ -2071,10 +2217,22 @@ window.openDraft = (id) => {
   const d = currentDrafts.find(item => item.id === id);
   if (!d) return;
   const type = d.contentType || 'guide';
-  if (type === 'tool') loadToolIntoEditor(d);
-  else if (type === 'checklist') loadChecklistIntoEditor(d);
-  else if (type === 'life-hack') loadLifeHackIntoEditor(d);
-  else loadGuideIntoEditor(d);
+  if (type === 'tool') {
+    document.querySelector('.tab-btn[data-tab="tools-editor"]')?.click();
+    loadToolIntoEditor(d);
+  } else if (type === 'checklist') {
+    document.querySelector('.tab-btn[data-tab="checklists-editor"]')?.click();
+    loadChecklistIntoEditor(d);
+  } else if (type === 'life-hack') {
+    document.querySelector('.tab-btn[data-tab="lifehacks-editor"]')?.click();
+    loadLifeHackIntoEditor(d);
+  } else if (type === 'picks') {
+    document.querySelector('.tab-btn[data-tab="picks-editor"]')?.click();
+    loadPicksArticleIntoEditor(d);
+  } else {
+    document.querySelector('.tab-btn[data-tab="editor"]')?.click();
+    loadGuideIntoEditor(d);
+  }
 };
 
 window.removeDraft = async (id) => {
@@ -2094,13 +2252,14 @@ window.removeDraft = async (id) => {
 async function loadHistory() {
   const container = document.querySelector('#history-table-container');
   try {
-    const [guides, tools, checklists, lifeHacks] = await Promise.all([
+    const [guides, tools, checklists, lifeHacks, picks] = await Promise.all([
       api('/api/guides'),
       api('/api/tools'),
       api('/api/checklists'),
       api('/api/life-hacks'),
+      api('/api/picks/articles'),
     ]);
-    currentPublished = { guides, tools, checklists, lifeHacks };
+    currentPublished = { guides, tools, checklists, lifeHacks, picks: picks || [] };
     populateLoadSelectors();
     renderHistoryTable();
     refreshCounts();
@@ -2149,6 +2308,18 @@ function populateLoadSelectors() {
     const full = await api('/api/life-hacks/' + encodeURIComponent(selLH.value));
     loadLifeHackIntoEditor(full);
   };
+
+  // Picks
+  const selP = document.querySelector('#select-load-picks');
+  if (selP) {
+    selP.innerHTML = '<option value="">-- Choose Article (' + (currentPublished.picks || []).length + ' published) --</option>' +
+      (currentPublished.picks || []).map(p => '<option value="' + esc(p.slug) + '">' + esc(p.title) + '</option>').join('');
+    selP.onchange = async () => {
+      if (!selP.value) return;
+      const full = await api('/api/picks/articles/' + encodeURIComponent(selP.value));
+      loadPicksArticleIntoEditor(full);
+    };
+  }
 }
 
 window.filterHistory = (type) => {
@@ -2175,6 +2346,9 @@ function renderHistoryTable() {
   if (historyFilter === 'all' || historyFilter === 'life-hack') {
     items.push(...currentPublished.lifeHacks.map(v => ({ ...v, type: 'life-hack', slug: v.id })));
   }
+  if (historyFilter === 'all' || historyFilter === 'picks') {
+    items.push(...(currentPublished.picks || []).map(p => ({ ...p, type: 'picks', category: Array.isArray(p.categories) ? p.categories.join(', ') : p.category })));
+  }
 
   if (!items.length) {
     container.innerHTML = '<p class="muted">No published content found.</p>';
@@ -2194,6 +2368,9 @@ function renderHistoryTable() {
       } else if (item.type === 'life-hack') {
         typePill = '<span class="badge-pill cyan">🎬 Life Hack</span>';
         livePath = '/life-hacks/#video-' + item.id;
+      } else if (item.type === 'picks') {
+        typePill = '<span class="badge-pill amber">⭐ Picks</span>';
+        livePath = '/picks/articles/' + item.slug + '/';
       }
 
       return '<tr><td>' + typePill + '</td><td><strong>' + esc(item.title) + '</strong></td><td><span class="badge-pill">' + esc(item.category || 'General') + '</span></td><td><code>' + esc(item.slug || item.id) + '</code></td><td><button class="btn btn-secondary btn-sm" onclick="loadPublishedItem(\\'' + item.type + '\\', \\'' + esc(item.slug || item.id) + '\\')">Load in Editor</button> <a href="' + livePath + '" target="_blank" class="btn btn-secondary btn-sm" style="text-decoration:none">View</a></td></tr>';
@@ -2203,15 +2380,23 @@ function renderHistoryTable() {
 
 window.loadPublishedItem = async (type, idOrSlug) => {
   if (type === 'tool') {
+    document.querySelector('.tab-btn[data-tab="tools-editor"]')?.click();
     const full = await api('/api/tools/' + encodeURIComponent(idOrSlug));
     loadToolIntoEditor(full);
   } else if (type === 'checklist') {
+    document.querySelector('.tab-btn[data-tab="checklists-editor"]')?.click();
     const full = await api('/api/checklists/' + encodeURIComponent(idOrSlug));
     loadChecklistIntoEditor(full);
   } else if (type === 'life-hack') {
+    document.querySelector('.tab-btn[data-tab="lifehacks-editor"]')?.click();
     const full = await api('/api/life-hacks/' + encodeURIComponent(idOrSlug));
     loadLifeHackIntoEditor(full);
+  } else if (type === 'picks') {
+    document.querySelector('.tab-btn[data-tab="picks-editor"]')?.click();
+    const full = await api('/api/picks/articles/' + encodeURIComponent(idOrSlug));
+    loadPicksArticleIntoEditor(full);
   } else {
+    document.querySelector('.tab-btn[data-tab="editor"]')?.click();
     const full = await api('/api/guides/' + encodeURIComponent(idOrSlug));
     loadGuideIntoEditor(full);
   }
@@ -2338,6 +2523,11 @@ window.selectMediaAsset = (url, fileName, isPdf) => {
   } else if (mediaPickerTarget === 'manage-aff-image' || mediaPickerTarget === 'modal-aff-image') {
     addManageImageRow(url, fileName.replace(/\.[^.]+$/, ''));
     if (typeof addModalImageRow === 'function') addModalImageRow(url, fileName.replace(/\.[^.]+$/, ''));
+  } else if (mediaPickerTarget === 'picks-featured-direct') {
+    document.querySelector('#field-picks-image').value = url;
+    document.querySelector('#field-picks-image-alt').value = fileName.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
+    updatePicksFeaturedImageDisplay();
+    updatePicksPreview();
   }
   closeMediaModal();
 };
@@ -2353,6 +2543,7 @@ window.insertMd = (target, prefix, suffix, sample) => {
   let ta;
   if (target === 'tool') ta = toolContentEl;
   else if (target === 'checklist') ta = checkContentEl;
+  else if (target === 'picks') ta = document.querySelector('#picks-article-content');
   else ta = guideContentEl;
 
   const start = ta.selectionStart;
@@ -2366,6 +2557,7 @@ window.insertMd = (target, prefix, suffix, sample) => {
 
   if (target === 'tool') updateToolPreview();
   else if (target === 'checklist') updateChecklistPreview();
+  else if (target === 'picks') updatePicksPreview();
   else updateGuidePreview();
 };
 
@@ -3115,10 +3307,17 @@ window.importAllSelectedGuideOffers = async () => {
 };
 
 // -------------------------------------------------------------
-// 9. Guide Editor Affiliate Inspector Modal & Direct Insertion
+// 9. Guide & Picks Affiliate Inspector Modal & Direct Insertion
 // -------------------------------------------------------------
-window.openAffiliateSelectorModal = async () => {
-  saveGuideCursorPos();
+let currentAffiliateModalTarget = 'guide';
+
+window.openAffiliateSelectorModal = async (target) => {
+  currentAffiliateModalTarget = target || 'guide';
+  if (currentAffiliateModalTarget === 'picks') {
+    savePicksCursorPos();
+  } else {
+    saveGuideCursorPos();
+  }
   const modal = document.querySelector('#affiliate-selector-modal');
   modal.classList.add('open');
   if (!currentAffiliates.length) {
@@ -3146,7 +3345,13 @@ window.renderAffiliateSelectorList = () => {
   const container = document.querySelector('#selector-affiliate-results');
   const query = (document.querySelector('#selector-affiliate-search')?.value || '').trim().toLowerCase();
 
-  let filtered = currentAffiliates.filter(o => o.eligibleForGuides === true && (o.status === 'ACTIVE' || o.state === 'ACTIVE'));
+  let filtered = currentAffiliates.filter(o => (o.status === 'ACTIVE' || o.state === 'ACTIVE'));
+  if (currentAffiliateModalTarget === 'guide') {
+    filtered = filtered.filter(o => o.eligibleForGuides === true);
+  } else if (currentAffiliateModalTarget === 'picks') {
+    filtered = filtered.filter(o => o.eligibleForPicks !== false);
+  }
+
   if (query) {
     filtered = filtered.filter(o =>
       (o.title || '').toLowerCase().includes(query) ||
@@ -3158,7 +3363,7 @@ window.renderAffiliateSelectorList = () => {
   }
 
   if (!filtered.length) {
-    container.innerHTML = '<p class="muted" style="padding:.5rem 0">No active Guide recommendations match your search.</p>';
+    container.innerHTML = '<p class="muted" style="padding:.5rem 0">No active catalog recommendations match your search.</p>';
     return;
   }
 
@@ -3188,30 +3393,32 @@ window.renderAffiliateSelectorList = () => {
 };
 
 window.insertAffiliateBoxIntoArticle = (id, title) => {
-  if (!guideContentEl) return;
-  const currentText = guideContentEl.value;
+  const isPicks = currentAffiliateModalTarget === 'picks';
+  const targetTextarea = isPicks ? document.querySelector('#picks-article-content') : guideContentEl;
+  if (!targetTextarea) return;
+  const currentText = targetTextarea.value;
 
-  // Accidental duplicate insertion prevention check
+  // Accidental duplicate insertion check
   const isDuplicate = currentText.indexOf('id="' + id + '"') !== -1 ||
                       currentText.indexOf("id='" + id + "'") !== -1 ||
                       currentText.indexOf('aff:' + id) !== -1;
   if (isDuplicate) {
     const confirmDup = confirm(
-      'Notice: The affiliate offer "' + (title || id) + '" is already present in this guide.\\n\\nDo you want to insert an additional product box for this offer?'
+      'Notice: The affiliate offer "' + (title || id) + '" is already present in this article.\\n\\nDo you want to insert an additional product box for this offer?'
     );
     if (!confirmDup) {
       return;
     }
   }
 
-  let start = lastGuideCursorPos.start;
-  let end = lastGuideCursorPos.end;
+  const cursorPos = isPicks ? lastPicksCursorPos : lastGuideCursorPos;
+  let start = cursorPos.start;
+  let end = cursorPos.end;
   if (start < 0 || start === undefined || isNaN(start)) {
     start = currentText.length;
     end = currentText.length;
   }
 
-  // Ensure clean double newline padding around the product box shortcode
   let prefix = '\\n\\n';
   let suffix = '\\n\\n';
   if (start === 0 || currentText.slice(0, start).endsWith('\\n\\n')) {
@@ -3223,29 +3430,30 @@ window.insertAffiliateBoxIntoArticle = (id, title) => {
   const snippet = prefix + '::product-box{id="' + id + '"}' + suffix;
   const before = currentText.slice(0, start);
   const after = currentText.slice(end);
-  guideContentEl.value = before + snippet + after;
+  targetTextarea.value = before + snippet + after;
 
   const newPos = start + snippet.length;
-  guideContentEl.focus();
-  guideContentEl.setSelectionRange(newPos, newPos);
-  lastGuideCursorPos = { start: newPos, end: newPos };
-
-  updateGuidePreview();
-  closeAffiliateSelectorModal();
-
-  const st = document.querySelector('#editor-status');
-  if (st) {
-    st.className = 'status-msg success';
-    st.textContent = '✓ Inserted affiliate product box for "' + (title || id) + '".';
+  targetTextarea.focus();
+  targetTextarea.setSelectionRange(newPos, newPos);
+  if (isPicks) {
+    lastPicksCursorPos = { start: newPos, end: newPos };
+    updatePicksPreview();
+  } else {
+    lastGuideCursorPos = { start: newPos, end: newPos };
+    updateGuidePreview();
   }
+  closeAffiliateSelectorModal();
 };
 
 window.insertContextualAffiliateLinkIntoArticle = (id, title) => {
-  if (!guideContentEl) return;
-  const currentText = guideContentEl.value;
+  const isPicks = currentAffiliateModalTarget === 'picks';
+  const targetTextarea = isPicks ? document.querySelector('#picks-article-content') : guideContentEl;
+  if (!targetTextarea) return;
+  const currentText = targetTextarea.value;
 
-  let start = lastGuideCursorPos.start;
-  let end = lastGuideCursorPos.end;
+  const cursorPos = isPicks ? lastPicksCursorPos : lastGuideCursorPos;
+  let start = cursorPos.start;
+  let end = cursorPos.end;
   if (start < 0 || start === undefined || isNaN(start)) {
     start = currentText.length;
     end = currentText.length;
@@ -3257,21 +3465,19 @@ window.insertContextualAffiliateLinkIntoArticle = (id, title) => {
 
   const before = currentText.slice(0, start);
   const after = currentText.slice(end);
-  guideContentEl.value = before + snippet + after;
+  targetTextarea.value = before + snippet + after;
 
   const newPos = start + snippet.length;
-  guideContentEl.focus();
-  guideContentEl.setSelectionRange(newPos, newPos);
-  lastGuideCursorPos = { start: newPos, end: newPos };
-
-  updateGuidePreview();
-  closeAffiliateSelectorModal();
-
-  const st = document.querySelector('#editor-status');
-  if (st) {
-    st.className = 'status-msg success';
-    st.textContent = '✓ Inserted contextual link for "' + (title || id) + '".';
+  targetTextarea.focus();
+  targetTextarea.setSelectionRange(newPos, newPos);
+  if (isPicks) {
+    lastPicksCursorPos = { start: newPos, end: newPos };
+    updatePicksPreview();
+  } else {
+    lastGuideCursorPos = { start: newPos, end: newPos };
+    updateGuidePreview();
   }
+  closeAffiliateSelectorModal();
 };
 
 window.copyAffiliateBox = (id) => {
@@ -3296,6 +3502,295 @@ window.copyAffiliateId = (id) => {
   navigator.clipboard.writeText(id).catch(() => {});
   alert('Copied product ID to clipboard:\\n' + id);
 };
+
+// -------------------------------------------------------------
+// 10. Picks Articles Editor Logic
+// -------------------------------------------------------------
+let picksCategoriesLoaded = false;
+let lastPicksCursorPos = { start: -1, end: -1 };
+let picksPreviewDebounce = null;
+
+const picksTitleEl = document.querySelector('#field-picks-title');
+const picksSlugEl = document.querySelector('#field-picks-slug');
+const picksContentEl = document.querySelector('#picks-article-content');
+
+function savePicksCursorPos() {
+  if (picksContentEl) {
+    lastPicksCursorPos = {
+      start: picksContentEl.selectionStart,
+      end: picksContentEl.selectionEnd,
+    };
+  }
+}
+picksContentEl?.addEventListener('keyup', savePicksCursorPos);
+picksContentEl?.addEventListener('click', savePicksCursorPos);
+picksContentEl?.addEventListener('select', savePicksCursorPos);
+picksContentEl?.addEventListener('blur', savePicksCursorPos);
+
+picksTitleEl?.addEventListener('input', () => {
+  if (!picksSlugEl.dataset.manual) {
+    picksSlugEl.value = slugify(picksTitleEl.value);
+  }
+});
+picksSlugEl?.addEventListener('input', () => {
+  picksSlugEl.dataset.manual = 'true';
+});
+
+picksContentEl?.addEventListener('input', () => {
+  clearTimeout(picksPreviewDebounce);
+  picksPreviewDebounce = setTimeout(updatePicksPreview, 250);
+});
+
+async function loadPicksArticlesEditor() {
+  await populatePicksCategories();
+  await loadPublishedPicksDropdown();
+  updatePicksFeaturedImageDisplay();
+  updatePicksPreview();
+}
+
+async function populatePicksCategories() {
+  const container = document.querySelector('#picks-categories-checkboxes');
+  if (!container) return;
+  if (picksCategoriesLoaded && container.children.length > 0) return;
+  try {
+    const categories = await api('/api/picks/categories');
+    container.innerHTML = categories.map(cat => {
+      return '<label style="display:flex;align-items:center;gap:.4rem;font-size:.85rem;cursor:pointer;background:#fff;padding:.3rem .5rem;border-radius:4px;border:1px solid #e2e8f0">' +
+        '<input type="checkbox" name="picks-categories" value="' + esc(cat.slug) + '" class="picks-cat-checkbox">' +
+        '<span>' + esc(cat.icon) + ' ' + esc(cat.shortTitle) + '</span>' +
+      '</label>';
+    }).join('');
+    picksCategoriesLoaded = true;
+  } catch (err) {
+    console.error('Failed to load picks categories:', err);
+  }
+}
+
+async function loadPublishedPicksDropdown() {
+  const select = document.querySelector('#select-load-picks');
+  if (!select) return;
+  try {
+    const list = await api('/api/picks/articles');
+    select.innerHTML = '<option value="">-- Choose Article (' + list.length + ' published) --</option>' +
+      list.map(a => '<option value="' + esc(a.slug) + '">' + esc(a.title) + '</option>').join('');
+  } catch (err) {
+    console.error('Failed to load picks articles list:', err);
+  }
+}
+
+document.querySelector('#select-load-picks')?.addEventListener('change', async (e) => {
+  const slug = e.target.value;
+  if (!slug) return;
+  try {
+    const article = await api('/api/picks/articles/' + encodeURIComponent(slug));
+    loadPicksArticleIntoEditor(article);
+  } catch (err) {
+    alert('Failed to load picks article: ' + err.message);
+  }
+});
+
+function loadPicksArticleIntoEditor(article) {
+  document.querySelector('#field-picks-id').value = article.id || '';
+  document.querySelector('#field-picks-title').value = article.title || '';
+  document.querySelector('#field-picks-slug').value = article.slug || '';
+  document.querySelector('#field-picks-description').value = article.description || '';
+  document.querySelector('#field-picks-image').value = article.image || '';
+  document.querySelector('#field-picks-image-alt').value = article.imageAlt || '';
+  document.querySelector('#field-picks-seo-title').value = article.seoTitle || '';
+  document.querySelector('#field-picks-seo-description').value = article.seoDescription || '';
+  document.querySelector('#field-picks-author').value = article.author || 'LifeMode Editorial';
+  document.querySelector('#picks-article-content').value = article.content || '';
+
+  const cats = article.categories || (article.category ? [article.category] : []);
+  document.querySelectorAll('input[name="picks-categories"]').forEach(cb => {
+    cb.checked = cats.includes(cb.value);
+  });
+
+  updatePicksFeaturedImageDisplay();
+  updatePicksPreview();
+}
+
+function getFormPicksArticleData() {
+  const selectedCats = Array.from(document.querySelectorAll('input[name="picks-categories"]:checked')).map(cb => cb.value);
+  return {
+    id: document.querySelector('#field-picks-id').value || undefined,
+    contentType: 'picks',
+    title: document.querySelector('#field-picks-title').value.trim(),
+    slug: document.querySelector('#field-picks-slug').value.trim(),
+    description: document.querySelector('#field-picks-description').value.trim(),
+    categories: selectedCats.length > 0 ? selectedCats : ['home-living'],
+    category: selectedCats[0] || 'home-living',
+    image: document.querySelector('#field-picks-image').value.trim() || undefined,
+    imageAlt: document.querySelector('#field-picks-image-alt').value.trim() || undefined,
+    seoTitle: document.querySelector('#field-picks-seo-title').value.trim() || undefined,
+    seoDescription: document.querySelector('#field-picks-seo-description').value.trim() || undefined,
+    author: document.querySelector('#field-picks-author').value.trim() || 'LifeMode Editorial',
+    content: document.querySelector('#picks-article-content').value.trim(),
+  };
+}
+
+async function updatePicksPreview() {
+  const md = picksContentEl?.value || '';
+  try {
+    const res = await api('/api/preview', { method: 'POST', body: JSON.stringify({ markdown: md }) });
+    const outputEl = document.querySelector('#preview-picks-output');
+    if (outputEl) {
+      outputEl.innerHTML = res.html || '<p class="muted">Live preview with rendered product boxes will appear here…</p>';
+    }
+  } catch {}
+}
+
+function updatePicksFeaturedImageDisplay() {
+  const url = document.querySelector('#field-picks-image').value.trim();
+  const container = document.querySelector('#picks-image-preview-container');
+  if (!container) return;
+  if (url) {
+    const filename = url.split('/').pop() || 'image';
+    container.innerHTML = '<div style="position:relative;width:140px;height:95px;min-width:140px;min-height:95px;flex-shrink:0">' +
+      '<img class="featured-image-thumb" src="' + esc(url) + '" alt="' + esc(filename) + '">' +
+      '</div>' +
+      '<div style="flex:1"><strong style="font-size:.85rem;word-break:break-all">' + esc(filename) + '</strong><br>' +
+      '<button type="button" class="btn btn-danger btn-sm" onclick="removePicksFeaturedImage()" style="margin-top:.35rem">Remove Image</button></div>';
+  } else {
+    container.innerHTML = '<div class="featured-image-placeholder">No image selected</div><div style="flex:1;font-size:.8rem;color:var(--muted)">Assigned primary image for article card and header.</div>';
+  }
+}
+window.removePicksFeaturedImage = () => {
+  document.querySelector('#field-picks-image').value = '';
+  document.querySelector('#field-picks-image-alt').value = '';
+  updatePicksFeaturedImageDisplay();
+};
+
+document.querySelector('#field-picks-image')?.addEventListener('input', updatePicksFeaturedImageDisplay);
+
+document.querySelector('#btn-upload-picks-image')?.addEventListener('click', () => {
+  const fileInput = document.querySelector('#picks-direct-file-input');
+  if (fileInput) fileInput.value = '';
+  fileInput?.click();
+});
+document.querySelector('#btn-pick-picks-image')?.addEventListener('click', () => {
+  openMediaPickerForEditor('picks-featured-direct');
+});
+document.querySelector('#picks-direct-file-input')?.addEventListener('change', async (e) => {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+  try {
+    const reader = new FileReader();
+    reader.onload = async () => {
+      const res = await api('/api/media/upload', {
+        method: 'POST',
+        body: JSON.stringify({
+          fileName: file.name,
+          mimeType: file.type || 'image/jpeg',
+          base64Data: reader.result,
+        })
+      });
+      document.querySelector('#field-picks-image').value = res.url;
+      updatePicksFeaturedImageDisplay();
+    };
+    reader.readAsDataURL(file);
+  } catch (err) {
+    alert('Upload failed: ' + err.message);
+  }
+});
+
+document.querySelector('#btn-save-picks-draft')?.addEventListener('click', async () => {
+  const article = getFormPicksArticleData();
+  const statusEl = document.querySelector('#picks-draft-status');
+  if (statusEl) {
+    statusEl.className = 'status-msg info';
+    statusEl.textContent = 'Saving draft…';
+  }
+  try {
+    const saved = await api('/api/drafts', {
+      method: 'POST',
+      body: JSON.stringify({
+        ...article,
+        contentType: 'picks',
+      })
+    });
+    if (statusEl) {
+      statusEl.className = 'status-msg success';
+      statusEl.textContent = '✓ Saved draft: ' + saved.title;
+    }
+    document.querySelector('#field-picks-id').value = saved.id;
+    refreshCounts();
+  } catch (err) {
+    if (statusEl) {
+      statusEl.className = 'status-msg error';
+      statusEl.textContent = 'Failed to save draft: ' + err.message;
+    }
+  }
+});
+
+document.querySelector('#btn-publish-picks')?.addEventListener('click', async () => {
+  const article = getFormPicksArticleData();
+  const dryRun = document.querySelector('#picks-dry-run')?.checked !== false;
+  const statusEl = document.querySelector('#picks-editor-status');
+
+  if (!article.title) {
+    alert('Please enter an Article Title.');
+    return;
+  }
+  if (!article.slug) {
+    alert('Please enter a URL Slug.');
+    return;
+  }
+  if (!article.content) {
+    alert('Please write article content.');
+    return;
+  }
+
+  const promptMsg = dryRun
+    ? 'Validate and preview publish for Picks article "' + article.title + '" (Dry Run)?'
+    : 'Publish Picks article "' + article.title + '" to the website?\\n\\nThis will write to src/content/picks/' + article.slug + '.md.';
+  if (!confirm(promptMsg)) return;
+
+  if (statusEl) {
+    statusEl.className = 'status-msg info';
+    statusEl.textContent = 'Publishing picks article…';
+  }
+
+  try {
+    const res = await api('/api/publish', {
+      method: 'POST',
+      body: JSON.stringify({
+        contentType: 'picks',
+        picksArticle: article,
+        dryRun: dryRun,
+      })
+    });
+
+    if (res.status === 'validation-failed') {
+      if (statusEl) {
+        statusEl.className = 'status-msg error';
+        statusEl.textContent = 'Validation error: ' + (res.errors ? res.errors.join(', ') : res.message);
+      }
+    } else {
+      if (statusEl) {
+        statusEl.className = 'status-msg success';
+        statusEl.textContent = '✓ ' + res.message;
+      }
+      refreshCounts();
+      loadPublishedPicksDropdown();
+    }
+  } catch (err) {
+    if (statusEl) {
+      statusEl.className = 'status-msg error';
+      statusEl.textContent = 'Publish error: ' + err.message;
+    }
+  }
+});
+
+document.querySelector('#btn-clear-picks-editor')?.addEventListener('click', () => {
+  if (!confirm('Clear all fields in Picks Articles editor?')) return;
+  document.querySelector('#picks-form')?.reset();
+  document.querySelector('#field-picks-id').value = '';
+  document.querySelector('#field-picks-image').value = '';
+  document.querySelector('#field-picks-image-alt').value = '';
+  updatePicksFeaturedImageDisplay();
+  updatePicksPreview();
+});
 
 // Initial load
 refreshCounts();
@@ -3379,17 +3874,19 @@ const server = createServer(async (request, response) => {
       const tools = await listPublishedTools();
       const checklists = await listPublishedChecklists();
       const lifeHacks = await listPublishedLifeHacks();
+      const picksArticles = await listPublishedPicksArticles();
       const media = await listMediaAssets();
       const affiliates = await listCmsAffiliateOffers();
       const scan = await scanGuideAffiliateProducts();
       const r2 = new CloudflareR2SocialAssetStorageProvider();
 
       sendJson(response, 200, {
-        publishedCount: guides.length + tools.length + checklists.length + lifeHacks.length,
+        publishedCount: guides.length + tools.length + checklists.length + lifeHacks.length + picksArticles.length,
         guidesCount: guides.length,
         toolsCount: tools.length,
         checklistsCount: checklists.length,
         lifeHacksCount: lifeHacks.length,
+        picksArticlesCount: picksArticles.length,
         draftsCount: drafts.length,
         mediaCount: media.length,
         affiliatesCount: affiliates.length,
@@ -3612,10 +4109,34 @@ const server = createServer(async (request, response) => {
       return;
     }
 
-    // 11. Publishing Action (Guides, Tools, Checklists, Life Hacks)
+    // Picks Articles API
+    if (url.pathname === '/api/picks/articles' && request.method === 'GET') {
+      const articles = await listPublishedPicksArticles();
+      sendJson(response, 200, articles);
+      return;
+    }
+
+    if (url.pathname.startsWith('/api/picks/articles/') && request.method === 'GET') {
+      const slug = decodeURIComponent(url.pathname.replace('/api/picks/articles/', ''));
+      const article = await getPublishedPicksArticle(slug);
+      if (!article) {
+        sendJson(response, 404, { error: 'Picks article not found.' });
+        return;
+      }
+      sendJson(response, 200, article);
+      return;
+    }
+
+    if (url.pathname === '/api/picks/categories' && request.method === 'GET') {
+      const categories = getAllPicksCategories();
+      sendJson(response, 200, categories);
+      return;
+    }
+
+    // 11. Publishing Action (Guides, Tools, Checklists, Life Hacks, Picks)
     if (url.pathname === '/api/publish' && request.method === 'POST') {
       const body = await readJson(request);
-      const contentType = body.contentType || (body.tool ? 'tool' : body.checklist ? 'checklist' : body.lifeHack ? 'life-hack' : 'guide');
+      const contentType = body.contentType || (body.tool ? 'tool' : body.checklist ? 'checklist' : body.lifeHack ? 'life-hack' : body.picksArticle ? 'picks' : 'guide');
       const dryRun = Boolean(body.dryRun);
 
       let result;
@@ -3625,6 +4146,8 @@ const server = createServer(async (request, response) => {
         result = await publishChecklist(body.checklist || body.item || body.data, { dryRun });
       } else if (contentType === 'life-hack') {
         result = await publishLifeHack(body.lifeHack || body.item || body.data, { dryRun });
+      } else if (contentType === 'picks') {
+        result = await publishPicksArticle(body.picksArticle || body.item || body.data, { dryRun });
       } else {
         result = await publishGuide(body.guide || body.item || body.data, { dryRun });
       }

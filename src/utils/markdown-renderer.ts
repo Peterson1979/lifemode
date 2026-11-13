@@ -11,7 +11,10 @@ export function cleanUtf8Characters(str: string): string {
   return str;
 }
 
-export function renderMarkdownToHtml(markdown: string): string {
+export function renderMarkdownToHtml(
+  markdown: string,
+  options: { context?: 'guide' | 'picks' } = {}
+): string {
   if (!markdown) return '';
 
   const cleanMarkdown = cleanUtf8Characters(markdown);
@@ -34,7 +37,7 @@ export function renderMarkdownToHtml(markdown: string): string {
     if (paragraphLines.length > 0) {
       const text = paragraphLines.join(' ').trim();
       if (text) {
-        htmlParts.push(`<p>${formatInlineMarkdown(text)}</p>`);
+        htmlParts.push(`<p>${formatInlineMarkdown(text, options)}</p>`);
       }
       paragraphLines = [];
     }
@@ -51,7 +54,7 @@ export function renderMarkdownToHtml(markdown: string): string {
     if (inBlockquote) {
       const quoteText = blockquoteLines.join(' ').trim();
       if (quoteText) {
-        htmlParts.push(`<blockquote><p>${formatInlineMarkdown(quoteText)}</p></blockquote>`);
+        htmlParts.push(`<blockquote><p>${formatInlineMarkdown(quoteText, options)}</p></blockquote>`);
       }
       inBlockquote = false;
       blockquoteLines = [];
@@ -74,7 +77,7 @@ export function renderMarkdownToHtml(markdown: string): string {
       if (tableHeaders.length > 0) {
         tableHtml += '<thead><tr>';
         for (const th of tableHeaders) {
-          tableHtml += `<th>${formatInlineMarkdown(th.trim())}</th>`;
+          tableHtml += `<th>${formatInlineMarkdown(th.trim(), options)}</th>`;
         }
         tableHtml += '</tr></thead>';
       }
@@ -83,7 +86,7 @@ export function renderMarkdownToHtml(markdown: string): string {
         for (const row of tableRows) {
           tableHtml += '<tr>';
           for (const cell of row) {
-            tableHtml += `<td>${formatInlineMarkdown(cell.trim())}</td>`;
+            tableHtml += `<td>${formatInlineMarkdown(cell.trim(), options)}</td>`;
           }
           tableHtml += '</tr>';
         }
@@ -138,6 +141,7 @@ export function renderMarkdownToHtml(markdown: string): string {
       const boxHtml = renderAffiliateProductBoxHtml(directiveMatch[1], {
         contextNote: directiveMatch[2],
         ctaText: directiveMatch[3],
+        context: options.context,
       });
       if (boxHtml) {
         htmlParts.push(boxHtml);
@@ -148,7 +152,9 @@ export function renderMarkdownToHtml(markdown: string): string {
     const shortcodeMatch = trimmed.match(/^\[product-box:([a-z0-9-]+)\]$/i);
     if (shortcodeMatch) {
       flushAll();
-      const boxHtml = renderAffiliateProductBoxHtml(shortcodeMatch[1]);
+      const boxHtml = renderAffiliateProductBoxHtml(shortcodeMatch[1], {
+        context: options.context,
+      });
       if (boxHtml) {
         htmlParts.push(boxHtml);
       }
@@ -188,28 +194,28 @@ export function renderMarkdownToHtml(markdown: string): string {
     const h4Match = line.match(/^####\s+(.+)$/);
     if (h4Match) {
       flushAll();
-      htmlParts.push(`<h4>${formatInlineMarkdown(h4Match[1])}</h4>`);
+      htmlParts.push(`<h4>${formatInlineMarkdown(h4Match[1], options)}</h4>`);
       continue;
     }
 
     const h3Match = line.match(/^###\s+(.+)$/);
     if (h3Match) {
       flushAll();
-      htmlParts.push(`<h3>${formatInlineMarkdown(h3Match[1])}</h3>`);
+      htmlParts.push(`<h3>${formatInlineMarkdown(h3Match[1], options)}</h3>`);
       continue;
     }
 
     const h2Match = line.match(/^##\s+(.+)$/);
     if (h2Match) {
       flushAll();
-      htmlParts.push(`<h2>${formatInlineMarkdown(h2Match[1])}</h2>`);
+      htmlParts.push(`<h2>${formatInlineMarkdown(h2Match[1], options)}</h2>`);
       continue;
     }
 
     const h1Match = line.match(/^#\s+(.+)$/);
     if (h1Match) {
       flushAll();
-      htmlParts.push(`<h1>${formatInlineMarkdown(h1Match[1])}</h1>`);
+      htmlParts.push(`<h1>${formatInlineMarkdown(h1Match[1], options)}</h1>`);
       continue;
     }
 
@@ -244,7 +250,7 @@ export function renderMarkdownToHtml(markdown: string): string {
         inList = true;
         listType = 'ul';
       }
-      htmlParts.push(`<li>${formatInlineMarkdown(ulMatch[1])}</li>`);
+      htmlParts.push(`<li>${formatInlineMarkdown(ulMatch[1], options)}</li>`);
       continue;
     }
 
@@ -260,7 +266,7 @@ export function renderMarkdownToHtml(markdown: string): string {
         inList = true;
         listType = 'ol';
       }
-      htmlParts.push(`<li>${formatInlineMarkdown(olMatch[1])}</li>`);
+      htmlParts.push(`<li>${formatInlineMarkdown(olMatch[1], options)}</li>`);
       continue;
     }
 
@@ -287,7 +293,10 @@ function escapeHtml(str: string): string {
     .replace(/'/g, '&#039;');
 }
 
-function formatInlineMarkdown(text: string): string {
+function formatInlineMarkdown(
+  text: string,
+  options: { context?: 'guide' | 'picks' } = {}
+): string {
   if (!text) return '';
 
   let res = escapeHtml(text);
@@ -315,7 +324,7 @@ function formatInlineMarkdown(text: string): string {
 
   // Contextual affiliate links: [Label](aff:offer-id) or [Label](product:offer-id)
   res = res.replace(/(?<!!)(?:\[([^\]]+)\])\((?:aff|product):([a-z0-9-]+)\)/gi, (_match, label, id) => {
-    const resolved = resolveContextualAffiliateOffer(`aff:${id}`);
+    const resolved = resolveContextualAffiliateOffer(`aff:${id}`, { context: options.context });
     if (resolved) {
       return `<a href="${escapeHtml(resolved.url)}" rel="${resolved.rel}" target="_blank" class="affiliate-contextual-link">${label}</a>`;
     }

@@ -291,12 +291,12 @@ export const APPROVED_EDITORIAL_CATEGORIES = [
 ] as const;
 
 export const FUNCTIONAL_NAV_LINKS = [
-  { name: 'Guides', href: '/guides/', slug: 'guides' },
   { name: 'Tools', href: '/tools/', slug: 'tools' },
   { name: 'Checklists', href: '/checklists/', slug: 'checklists' },
   { name: 'Life Hacks', href: '/life-hacks/', slug: 'life-hacks' },
-  { name: 'Daily Ideas Store', href: '/daily-ideas/', slug: 'daily-ideas' },
+  { name: 'Guides', href: '/guides/', slug: 'guides' },
   { name: 'LifeMode Picks', href: '/picks/', slug: 'picks' },
+  { name: 'Daily Ideas Store', href: '/daily-ideas/', slug: 'daily-ideas' },
 ] as const;
 
 export const SITE_CONFIG = {

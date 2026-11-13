@@ -26,11 +26,12 @@ export interface ProductBoxRenderOptions {
   contextNote?: string;
   ctaText?: string;
   className?: string;
+  context?: 'guide' | 'picks';
 }
 
 /**
  * Renders a full HTML string for an affiliate product box from central catalog data.
- * Returns empty string if offer is not found, inactive, or not eligible for guides.
+ * Returns empty string if offer is not found, inactive, or not eligible.
  */
 export function renderAffiliateProductBoxHtml(
   offerId: string,
@@ -43,7 +44,9 @@ export function renderAffiliateProductBoxHtml(
   const offer = catalog.find((o) => o.id === targetId);
 
   const isActive = offer && (offer.status === 'ACTIVE' || offer.state === 'ACTIVE');
-  const isEligible = offer && offer.eligibleForGuides === true;
+  const isEligible = options.context === 'picks'
+    ? offer && (offer.eligibleForPicks === true || offer.eligibleForGuides === true)
+    : offer && offer.eligibleForGuides === true;
 
   if (!offer || !isActive || !isEligible) {
     return '';
@@ -101,7 +104,8 @@ export function renderAffiliateProductBoxHtml(
  * Returns exact destination affiliateUrl with rel="nofollow noopener sponsored", or null if inactive/ineligible.
  */
 export function resolveContextualAffiliateOffer(
-  rawTarget: string
+  rawTarget: string,
+  options: { context?: 'guide' | 'picks' } = {}
 ): { url: string; title: string; rel: string } | null {
   if (!rawTarget) return null;
   const match = rawTarget.match(/^(?:aff|product):([a-z0-9-]+)$/i);
@@ -112,7 +116,9 @@ export function resolveContextualAffiliateOffer(
   const offer = catalog.find((o) => o.id === offerId);
 
   const isActive = offer && (offer.status === 'ACTIVE' || offer.state === 'ACTIVE');
-  const isEligible = offer && offer.eligibleForGuides === true;
+  const isEligible = options.context === 'picks'
+    ? offer && (offer.eligibleForPicks === true || offer.eligibleForGuides === true)
+    : offer && offer.eligibleForGuides === true;
 
   if (!offer || !isActive || !isEligible) {
     return null;
@@ -132,7 +138,10 @@ export function resolveContextualAffiliateOffer(
  * - Directives: `::product-box{id="offer-id"}` or `[product-box:offer-id]`
  * - Contextual links: `[Anchor Text](aff:offer-id)` or `[Anchor Text](product:offer-id)`
  */
-export function processAffiliateContent(content: string): string {
+export function processAffiliateContent(
+  content: string,
+  options: { context?: 'guide' | 'picks' } = {}
+): string {
   if (!content) return '';
 
   let result = content;
@@ -140,20 +149,20 @@ export function processAffiliateContent(content: string): string {
   // 1. Resolve product box shortcodes:
   // Match `::product-box{id="slug"}` or `::product-box{id="slug" note="..."}`
   result = result.replace(/::product-box\{id=["']?([a-z0-9-]+)["']?(?:\s+note=["']([^"']*)["'])?(?:\s+cta=["']([^"']*)["'])?\}/gi, (match, id, note, cta) => {
-    const boxHtml = renderAffiliateProductBoxHtml(id, { contextNote: note, ctaText: cta });
+    const boxHtml = renderAffiliateProductBoxHtml(id, { contextNote: note, ctaText: cta, context: options.context });
     return boxHtml || '';
   });
 
   // Match `[product-box:slug]`
   result = result.replace(/\[product-box:([a-z0-9-]+)\]/gi, (match, id) => {
-    const boxHtml = renderAffiliateProductBoxHtml(id);
+    const boxHtml = renderAffiliateProductBoxHtml(id, { context: options.context });
     return boxHtml || '';
   });
 
   // 2. Resolve contextual affiliate links:
   // Match `[Label](aff:slug)` or `[Label](product:slug)`
   result = result.replace(/\[([^\]]+)\]\((?:aff|product):([a-z0-9-]+)\)/gi, (match, label, id) => {
-    const resolved = resolveContextualAffiliateOffer(`aff:${id}`);
+    const resolved = resolveContextualAffiliateOffer(`aff:${id}`, { context: options.context });
     if (resolved) {
       return `<a href="${escapeHtml(resolved.url)}" target="_blank" rel="${resolved.rel}" class="affiliate-contextual-link">${label}</a>`;
     }

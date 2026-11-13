@@ -1,0 +1,335 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AffiliateProductBox from '../../../components/commerce/AffiliateProductBox.astro';
+import {
+  getCanonicalUrl,
+  generateArticleSchema,
+  generateBreadcrumbSchema,
+} from '../../../utils/seo';
+import { isPubliclyVisiblePicksArticle, picksArticleSlug, getPicksArticleCategories } from '../../../utils/picks';
+import { renderMarkdownToHtml } from '../../../utils/markdown-renderer';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('picks', isPubliclyVisiblePicksArticle);
+  return articles.map((article) => ({
+    params: { slug: picksArticleSlug(article.id) },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+const slug = picksArticleSlug(article.id);
+const categories = getPicksArticleCategories(article);
+const renderedBodyHtml = article.body ? renderMarkdownToHtml(article.body, { context: 'picks' }) : '';
+
+const canonicalUrl = getCanonicalUrl(`/picks/articles/${slug}`);
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  timeZone: 'UTC',
+});
+const pubDateFormatted = dateFormatter.format(article.data.pubDate);
+
+const articleSchema = generateArticleSchema({
+  title: article.data.seoTitle || article.data.title,
+  description: article.data.seoDescription || article.data.description,
+  url: canonicalUrl,
+  pubDate: article.data.pubDate,
+  updatedDate: article.data.updatedDate,
+  authorName: article.data.author,
+  image: article.data.image,
+  pillarName: 'LifeMode Picks',
+});
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'LifeMode Picks', url: '/picks/' },
+  { label: 'Articles', url: '/picks/articles/' },
+  { label: article.data.title, url: `/picks/articles/${slug}/` },
+];
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'LifeMode Picks', url: '/picks' },
+  { name: 'Picks Articles', url: '/picks/articles' },
+  { name: article.data.title, url: `/picks/articles/${slug}/` },
+]);
+---
+
+<BaseLayout
+  title={`${article.data.seoTitle || article.data.title} — LifeMode Picks`}
+  description={article.data.seoDescription || article.data.description}
+  canonicalUrl={canonicalUrl}
+  image={article.data.image}
+  type="article"
+  pubDate={article.data.pubDate}
+  updatedDate={article.data.updatedDate}
+  author={article.data.author}
+  jsonLd={[articleSchema, breadcrumbSchema]}
+>
+  <article class="container picks-article-wrapper">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <header class="picks-article-header">
+      {categories.length > 0 && (
+        <div class="picks-article-categories">
+          {categories.map((cat) => (
+            <a
+              href={`/picks/category/${cat.slug}/`}
+              class="category-badge"
+              style={`border-color: ${cat.borderColor}; background-color: ${cat.lightBg}; color: ${cat.badgeColor};`}
+            >
+              <span>{cat.icon}</span>
+              <span>{cat.title}</span>
+            </a>
+          ))}
+        </div>
+      )}
+
+      <h1 class="picks-article-title">{article.data.title}</h1>
+      <p class="picks-article-description">{article.data.description}</p>
+
+      <div class="picks-article-meta">
+        <span class="meta-item">By {article.data.author}</span>
+        <span class="meta-separator">&bull;</span>
+        <span class="meta-item">Published {pubDateFormatted}</span>
+        {article.data.readingTime && (
+          <>
+            <span class="meta-separator">&bull;</span>
+            <span class="meta-item">⏱️ {article.data.readingTime}</span>
+          </>
+        )}
+      </div>
+
+      <!-- Affiliate Transparency Note -->
+      <div class="affiliate-disclosure-note" role="note">
+        <span class="disclosure-icon">💡</span>
+        <span>
+          {article.data.affiliateDisclosure ||
+            'Editorial Integrity: LifeMode independently tests and selects all recommendations. When you buy through our links, we may earn an affiliate commission at no extra cost to you.'}
+        </span>
+      </div>
+    </header>
+
+    {article.data.image && (
+      <figure class="picks-featured-image-wrapper">
+        <img
+          src={article.data.image}
+          alt={article.data.imageAlt || article.data.title}
+          class="picks-featured-image"
+          loading="eager"
+          decoding="async"
+        />
+      </figure>
+    )}
+
+    <!-- Main Markdown Content -->
+    <div class="picks-article-body prose">
+      {renderedBodyHtml ? (
+        <Fragment set:html={renderedBodyHtml} />
+      ) : (
+        <Content />
+      )}
+    </div>
+
+    <!-- Product Summary List if affiliateProducts are configured -->
+    {article.data.affiliateProducts && article.data.affiliateProducts.length > 0 && (
+      <section class="picks-recommended-products" aria-label="Featured Picks in This Article">
+        <div class="section-heading-wrapper">
+          <span class="section-kicker">Quick Overview</span>
+          <h2 class="section-title">Featured Picks In This Guide</h2>
+        </div>
+        <div class="picks-product-boxes-list">
+          {article.data.affiliateProducts.map((p) => {
+            const offerId = typeof p === 'string' ? p : ('id' in p ? p.id : undefined);
+            if (offerId) {
+              const note = typeof p === 'object' && 'note' in p ? p.note : undefined;
+              const cta = typeof p === 'object' && 'ctaText' in p ? p.ctaText : undefined;
+              return <AffiliateProductBox offerId={offerId} contextNote={note} ctaText={cta} />;
+            }
+            return null;
+          })}
+        </div>
+      </section>
+    )}
+
+    <footer class="picks-article-footer">
+      <div class="footer-navigation">
+        <a href="/picks/articles/" class="btn btn-outline">&larr; All Picks Articles</a>
+        <a href="/picks/" class="btn btn-outline">Explore Product Picks &rarr;</a>
+      </div>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .picks-article-wrapper {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-20);
+    max-width: 820px;
+  }
+
+  .picks-article-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .picks-article-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .category-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    border: 1px solid;
+    text-decoration: none;
+  }
+
+  .picks-article-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .picks-article-description {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-4);
+  }
+
+  .picks-article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted, #6b7280);
+    margin-bottom: var(--space-5);
+  }
+
+  .meta-separator {
+    opacity: 0.6;
+  }
+
+  .affiliate-disclosure-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background-color: var(--color-surface-subtle, #f9fafb);
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: var(--radius-md, 8px);
+    font-size: 0.825rem;
+    color: var(--color-text-secondary, #4b5563);
+    line-height: 1.5;
+  }
+
+  .disclosure-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .picks-featured-image-wrapper {
+    margin: 0 0 var(--space-8) 0;
+    border-radius: var(--radius-lg, 12px);
+    overflow: hidden;
+    background-color: var(--color-surface-subtle, #f3f4f6);
+  }
+
+  .picks-featured-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 480px;
+    object-fit: cover;
+  }
+
+  .picks-article-body {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: var(--color-text-primary);
+  }
+
+  .picks-recommended-products {
+    margin-top: var(--space-12);
+    padding-top: var(--space-8);
+    border-top: 2px solid var(--color-border, #e5e7eb);
+  }
+
+  .section-heading-wrapper {
+    margin-bottom: var(--space-6);
+  }
+
+  .section-kicker {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary-accent, #6366f1);
+    margin-bottom: 0.25rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .picks-product-boxes-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .picks-article-footer {
+    margin-top: var(--space-12);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-border, #e5e7eb);
+  }
+
+  .footer-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md, 8px);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .btn-outline {
+    border: 1px solid var(--color-border, #d1d5db);
+    color: var(--color-text-primary);
+    background: transparent;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--color-text-secondary);
+    background: var(--color-surface-subtle, #f3f4f6);
+  }
+</style>

@@ -6,6 +6,8 @@ import { writeGuideFile, computeReadingTime } from './guides.ts';
 import { writeToolFile } from './tools.ts';
 import { writeChecklistFile } from './checklists.ts';
 import { saveLifeHack, extractYouTubeVideoId, getYouTubeThumbnailUrl } from './life-hacks.ts';
+import { writePicksArticleFile } from './picks.ts';
+import { normalizePicksCategories } from '../../../utils/picks-categories.ts';
 import {
   VALID_GUIDE_CATEGORIES,
   VALID_TOOL_CATEGORIES,
@@ -15,6 +17,7 @@ import {
   type ToolData,
   type ChecklistData,
   type LifeHackVideo,
+  type PicksArticleData,
 } from './types.ts';
 
 // -------------------------------------------------------------
@@ -619,6 +622,106 @@ export async function publishLifeHack(
     filePath: absoluteFilePath,
     route,
     message: `Published life hack to ${remote}/${branch}. Deployment initiated for https://lifemode.site${route}`,
+  };
+}
+
+// -------------------------------------------------------------
+// 5. Picks Articles Schema & Validation
+// -------------------------------------------------------------
+
+export function validatePicksArticleData(article: PicksArticleData): { isValid: boolean; errors: string[] } {
+  const errors: string[] = [];
+
+  if (!article.title || article.title.trim().length < 5) {
+    errors.push('Title must be at least 5 characters.');
+  }
+
+  if (!article.slug || !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(article.slug.trim())) {
+    errors.push('Slug must be a valid kebab-case string (e.g. "best-chef-knives").');
+  }
+
+  const rawCats = article.categories || (article.category ? [article.category] : []);
+  const cats = normalizePicksCategories(rawCats);
+  if (cats.length === 0) {
+    errors.push('At least one valid Picks category must be selected.');
+  }
+
+  if (!article.description || article.description.trim().length < 10) {
+    errors.push('Description / excerpt must be at least 10 characters.');
+  }
+
+  if (!article.content || article.content.trim().length < 20) {
+    errors.push('Article markdown body must be at least 20 characters.');
+  }
+
+  return { isValid: errors.length === 0, errors };
+}
+
+export async function publishPicksArticle(
+  article: PicksArticleData,
+  options: PublishOptions = {}
+): Promise<PublishResult> {
+  const validation = validatePicksArticleData(article);
+  if (!validation.isValid) {
+    return {
+      status: 'validation-failed',
+      filePath: '',
+      route: '',
+      errors: validation.errors,
+      message: `Validation failed: ${validation.errors.join(' | ')}`,
+    };
+  }
+
+  const slug = article.slug.trim();
+  const route = `/picks/articles/${slug}/`;
+  const repoRoot = resolve(options.repoRoot || process.cwd());
+  const git = options.gitCli || new GitCli();
+  const remote = options.remote || 'origin';
+  const branch = options.branch || 'master';
+
+  const absoluteFilePath = await writePicksArticleFile(slug, article, 'PUBLISHED');
+  const relativeTarget = git.normalizeGitPath(relative(repoRoot, absoluteFilePath));
+  const targetsToStage: string[] = [relativeTarget];
+
+  const imgCandidate = article.image;
+  if (imgCandidate && (imgCandidate.startsWith('/images/') || imgCandidate.startsWith('images/'))) {
+    const cleanImgRel = imgCandidate.replace(/^\/+/, '');
+    const localImgRelPath = git.normalizeGitPath(join('public', cleanImgRel.replace(/^public[/\\]/, '')));
+    const localImgAbsPath = resolve(repoRoot, localImgRelPath);
+    try {
+      const imgStat = await stat(localImgAbsPath);
+      if (imgStat.isFile()) {
+        targetsToStage.push(localImgRelPath);
+      }
+    } catch {
+      // Local image not found on disk
+    }
+  }
+
+  if (options.dryRun) {
+    return {
+      status: 'success',
+      filePath: absoluteFilePath,
+      route,
+      message: `[DRY RUN] Picks article "${article.title}" successfully formatted and written to ${relativeTarget}. No Git changes pushed.`,
+    };
+  }
+
+  const commitHash = await safeStageAndCommit(
+    git,
+    repoRoot,
+    targetsToStage,
+    `feat(picks): publish article "${article.title.replace(/[\r\n"]+/g, ' ').slice(0, 100)}"`,
+    remote,
+    branch
+  );
+
+  return {
+    status: 'success',
+    filePath: absoluteFilePath,
+    route,
+    commitHash,
+    message: `Pushed commit ${commitHash.slice(0, 7)} to ${remote}/${branch}. Deployment status: Unverified (check Cloudflare Pages dashboard for build progress).`,
   };
 }
 

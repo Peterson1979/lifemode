@@ -1,0 +1,564 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { listPublicPicksOffers } from '../../../lib/commerce/offer-store';
+import { getPrimaryProductImage, getOfferCtaLabel } from '../../../lib/commerce/types';
+import { getCanonicalUrl, generateBreadcrumbSchema } from '../../../utils/seo';
+import { isPubliclyVisiblePicksArticle, picksArticleSlug, getPicksArticleCategories } from '../../../utils/picks';
+import { getAllPicksCategories, getPicksCategory, type PicksCategoryMeta } from '../../../utils/picks-categories';
+
+export async function getStaticPaths() {
+  const categories = getAllPicksCategories();
+  return categories.map((cat) => ({
+    params: { category: cat.slug },
+    props: { categoryMeta: cat },
+  }));
+}
+
+interface Props {
+  categoryMeta: PicksCategoryMeta;
+}
+
+const { categoryMeta } = Astro.props;
+
+// Fetch all public picks articles belonging to this category
+const allArticles = await getCollection('picks', isPubliclyVisiblePicksArticle);
+const categoryArticles = allArticles.filter((article) => {
+  const cats = article.data.categories || [];
+  return cats.some((c) => {
+    const meta = getPicksCategory(c);
+    return meta?.slug === categoryMeta.slug;
+  });
+}).sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+// Fetch all public picks offers
+const allPicksOffers = await listPublicPicksOffers();
+// Filter offers matching category by offerType, title, description, or editorialNote
+const categoryOffers = allPicksOffers.filter((offer) => {
+  const text = `${offer.name} ${offer.title || ''} ${offer.description || ''} ${offer.editorialNote || ''} ${offer.badge || ''}`.toLowerCase();
+  // Check if category slug or topics match text
+  if (categoryMeta.slug === 'kitchen-cooking' && /kitchen|cook|chef|scale|blender|pan|skillet|coffee|knife|baking/i.test(text)) return true;
+  if (categoryMeta.slug === 'tech-smart-home' && /tech|smart|plug|charge|cable|audio|phone|monitor|desk|wifi/i.test(text)) return true;
+  if (categoryMeta.slug === 'home-living' && /home|decor|bed|lamp|light|chair|cushion|blanket|room|living/i.test(text)) return true;
+  if (categoryMeta.slug === 'beauty-personal-care' && /skin|groom|beauty|shave|hygiene|care|soap|cream/i.test(text)) return true;
+  if (categoryMeta.slug === 'fashion-accessories' && /wallet|bag|pack|leather|watch|wear|jacket|shoe/i.test(text)) return true;
+  if (categoryMeta.slug === 'health-fitness' && /fitness|workout|gym|muscle|health|recovery|water|bottle/i.test(text)) return true;
+  if (categoryMeta.slug === 'pets' && /pet|dog|cat|feeder|toy|collar|leash/i.test(text)) return true;
+  if (categoryMeta.slug === 'travel-experiences' && /travel|luggage|suitcase|pack|cube|adapter|trip/i.test(text)) return true;
+  if (categoryMeta.slug === 'digital-tools-software' && (offer.offerType === 'software' || offer.offerType === 'digital' || /software|app|tool|cloud|backup/i.test(text))) return true;
+  if (categoryMeta.slug === 'learning-education' && (offer.offerType === 'course' || /book|learn|course|read|guide/i.test(text))) return true;
+  if (categoryMeta.slug === 'gifts-occasions' && /gift|holiday|present|box|special/i.test(text)) return true;
+  if (categoryMeta.slug === 'outdoor-garden' && /garden|outdoor|plant|patio|yard|lawn|grill/i.test(text)) return true;
+  return false;
+});
+
+const canonicalUrl = getCanonicalUrl(`/picks/category/${categoryMeta.slug}`);
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'LifeMode Picks', url: '/picks/' },
+  { label: categoryMeta.title, url: `/picks/category/${categoryMeta.slug}/` },
+];
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'LifeMode Picks', url: '/picks' },
+  { name: categoryMeta.title, url: `/picks/category/${categoryMeta.slug}` },
+]);
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+  timeZone: 'UTC',
+});
+---
+
+<BaseLayout
+  title={`${categoryMeta.title} Picks & Recommendations — LifeMode`}
+  description={categoryMeta.metaDescription}
+  canonicalUrl={canonicalUrl}
+  jsonLd={breadcrumbSchema}
+>
+  <div class="container category-picks-wrapper">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <!-- Category Header -->
+    <header class="category-header" style={`border-color: ${categoryMeta.borderColor}; background: linear-gradient(135deg, ${categoryMeta.lightBg} 0%, #ffffff 100%);`}>
+      <div class="category-icon-wrapper" style={`background-color: ${categoryMeta.lightBg}; border-color: ${categoryMeta.borderColor};`}>
+        <span class="category-icon">{categoryMeta.icon}</span>
+      </div>
+      <div class="category-header-text">
+        <div class="category-badge" style={`color: ${categoryMeta.badgeColor}; background: ${categoryMeta.lightBg}; border-color: ${categoryMeta.borderColor};`}>
+          Picks Category
+        </div>
+        <h1 class="category-title">{categoryMeta.title}</h1>
+        <p class="category-desc">{categoryMeta.description}</p>
+        {categoryMeta.popularTopics && categoryMeta.popularTopics.length > 0 && (
+          <div class="popular-topics">
+            <span class="topics-label">Topics:</span>
+            {categoryMeta.popularTopics.map((topic) => (
+              <span class="topic-chip">{topic}</span>
+            ))}
+          </div>
+        )}
+      </div>
+    </header>
+
+    <!-- Sub-navigation between categories -->
+    <nav class="categories-nav" aria-label="Other Picks Categories">
+      <a href="/picks/articles/" class="cat-nav-pill">
+        <span>⭐</span> All Articles
+      </a>
+      <a href="/picks/" class="cat-nav-pill">
+        <span>🛍️</span> All Product Picks
+      </a>
+      {getAllPicksCategories().map((cat) => (
+        <a
+          href={`/picks/category/${cat.slug}/`}
+          class={`cat-nav-pill ${cat.slug === categoryMeta.slug ? 'active' : ''}`}
+        >
+          <span>{cat.icon}</span>
+          <span>{cat.shortTitle}</span>
+        </a>
+      ))}
+    </nav>
+
+    <!-- Section 1: In-depth Articles & Roundups in this category -->
+    <section class="category-section">
+      <div class="section-title-bar">
+        <h2>{categoryMeta.title} Editorial Roundups ({categoryArticles.length})</h2>
+      </div>
+
+      {categoryArticles.length === 0 ? (
+        <div class="empty-notice">
+          <p>We are currently preparing full-length buying guides and roundups for {categoryMeta.title}. Check back soon or browse our recommended items below!</p>
+        </div>
+      ) : (
+        <div class="articles-grid">
+          {categoryArticles.map((article) => {
+            const slug = picksArticleSlug(article.id);
+            return (
+              <article class="article-card">
+                {article.data.image && (
+                  <div class="article-image-box">
+                    <a href={`/picks/articles/${slug}/`} tabindex="-1" aria-hidden="true">
+                      <img
+                        src={article.data.image}
+                        alt={article.data.imageAlt || article.data.title}
+                        class="article-img"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </a>
+                  </div>
+                )}
+                <div class="article-content">
+                  <h3 class="article-title">
+                    <a href={`/picks/articles/${slug}/`}>{article.data.title}</a>
+                  </h3>
+                  <p class="article-summary">{article.data.description}</p>
+                  <div class="article-meta">
+                    <time datetime={article.data.pubDate.toISOString()}>
+                      {dateFormatter.format(article.data.pubDate)}
+                    </time>
+                    <span class="meta-dot">&bull;</span>
+                    <a href={`/picks/articles/${slug}/`} class="read-link">Read Guide &rarr;</a>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      )}
+    </section>
+
+    <!-- Section 2: Vetted Catalog Products in this category -->
+    {categoryOffers.length > 0 && (
+      <section class="category-section" style="margin-top: var(--space-12);">
+        <div class="section-title-bar">
+          <h2>Recommended Gear & Items in {categoryMeta.title} ({categoryOffers.length})</h2>
+        </div>
+        <div class="offers-grid">
+          {categoryOffers.map((offer) => {
+            const primaryImage = getPrimaryProductImage(offer);
+            const ctaText = getOfferCtaLabel(offer);
+            return (
+              <div class="offer-card" id={`offer-${offer.id}`}>
+                {primaryImage ? (
+                  <div class="offer-image-wrap">
+                    <img
+                      src={primaryImage.url}
+                      alt={primaryImage.alt || offer.title || offer.name}
+                      class="offer-img"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                ) : (
+                  <div class="offer-image-placeholder">
+                    <span>{categoryMeta.icon}</span>
+                  </div>
+                )}
+                <div class="offer-info">
+                  {offer.badge && <span class="offer-badge">{offer.badge}</span>}
+                  <h3 class="offer-title">{offer.title || offer.name}</h3>
+                  {offer.editorialNote && (
+                    <p class="offer-editorial-note">&ldquo;{offer.editorialNote}&rdquo;</p>
+                  )}
+                  <p class="offer-desc">{offer.description}</p>
+                  <div class="offer-footer">
+                    {offer.priceRange && <span class="offer-price">{offer.priceRange}</span>}
+                    <a
+                      href={offer.affiliateUrl}
+                      target="_blank"
+                      rel="nofollow noopener sponsored"
+                      class="offer-cta"
+                    >
+                      {ctaText} &rarr;
+                    </a>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .category-picks-wrapper {
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-20);
+    max-width: 1100px;
+  }
+
+  .category-header {
+    display: flex;
+    gap: var(--space-6);
+    align-items: flex-start;
+    padding: var(--space-8);
+    border-radius: var(--radius-xl, 16px);
+    border: 1px solid;
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+
+  .category-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-lg, 12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    flex-shrink: 0;
+    border: 1px solid;
+  }
+
+  .category-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm, 6px);
+    border: 1px solid;
+    margin-bottom: var(--space-2);
+  }
+
+  .category-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1.2;
+    margin-bottom: var(--space-2);
+  }
+
+  .category-desc {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    margin-bottom: var(--space-3);
+  }
+
+  .popular-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    align-items: center;
+  }
+
+  .topics-label {
+    font-size: 0.775rem;
+    font-weight: 600;
+    color: var(--color-text-muted, #6b7280);
+    text-transform: uppercase;
+    margin-right: 0.25rem;
+  }
+
+  .topic-chip {
+    font-size: 0.75rem;
+    background: rgba(0, 0, 0, 0.04);
+    color: var(--color-text-secondary);
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--radius-full);
+  }
+
+  .categories-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: var(--space-10);
+  }
+
+  .cat-nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.825rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    background: var(--color-surface, #ffffff);
+    border: 1px solid var(--color-border, #e5e7eb);
+    padding: 0.3rem 0.7rem;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .cat-nav-pill:hover {
+    color: var(--color-text-primary);
+    border-color: var(--color-text-secondary);
+  }
+
+  .cat-nav-pill.active {
+    background-color: var(--color-text-primary, #111827);
+    color: #ffffff;
+    border-color: var(--color-text-primary, #111827);
+  }
+
+  .section-title-bar {
+    margin-bottom: var(--space-6);
+  }
+
+  .section-title-bar h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .empty-notice {
+    padding: var(--space-8);
+    background-color: var(--color-surface, #ffffff);
+    border: 1px dashed var(--color-border, #e5e7eb);
+    border-radius: var(--radius-lg, 12px);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .article-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-surface, #ffffff);
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: var(--radius-lg, 12px);
+    overflow: hidden;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .article-card:hover {
+    box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .article-image-box {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background-color: var(--color-surface-subtle, #f3f4f6);
+  }
+
+  .article-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .article-content {
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .article-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+    color: var(--color-text-primary);
+  }
+
+  .article-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .article-title a:hover {
+    color: var(--color-primary-accent, #6366f1);
+  }
+
+  .article-summary {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin-bottom: var(--space-4);
+    flex-grow: 1;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #6b7280);
+  }
+
+  .meta-dot {
+    opacity: 0.6;
+  }
+
+  .read-link {
+    font-weight: 600;
+    color: var(--color-primary-accent, #6366f1);
+    text-decoration: none;
+    margin-left: auto;
+  }
+
+  .offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .offer-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface, #ffffff);
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: var(--radius-lg, 12px);
+    overflow: hidden;
+    padding: var(--space-4);
+  }
+
+  .offer-image-wrap {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    margin-bottom: var(--space-3);
+  }
+
+  .offer-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .offer-image-placeholder {
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    background: var(--color-surface-subtle, #f3f4f6);
+    border-radius: var(--radius-md, 8px);
+    margin-bottom: var(--space-3);
+  }
+
+  .offer-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .offer-badge {
+    align-self: flex-start;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 0.15rem 0.45rem;
+    border-radius: var(--radius-sm, 4px);
+    margin-bottom: 0.35rem;
+  }
+
+  .offer-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    line-height: 1.35;
+    margin-bottom: 0.35rem;
+  }
+
+  .offer-editorial-note {
+    font-size: 0.825rem;
+    font-style: italic;
+    color: var(--color-primary-accent, #6366f1);
+    margin-bottom: 0.35rem;
+  }
+
+  .offer-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.45;
+    margin-bottom: var(--space-3);
+    flex-grow: 1;
+  }
+
+  .offer-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border-subtle, #f3f4f6);
+  }
+
+  .offer-price {
+    font-weight: 700;
+    color: var(--color-text-primary);
+    font-size: 0.95rem;
+  }
+
+  .offer-cta {
+    font-size: 0.825rem;
+    font-weight: 600;
+    background-color: var(--color-primary-accent, #6366f1);
+    color: #ffffff;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-md, 6px);
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+  }
+
+  .offer-cta:hover {
+    opacity: 0.9;
+  }
+</style>
+

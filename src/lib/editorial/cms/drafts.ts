@@ -19,6 +19,7 @@ export function slugify(text: string): string {
 async function readDraftsFile(): Promise<CmsDraftItem[]> {
   try {
     const raw = await fs.readFile(DRAFTS_FILE, 'utf8');
+    if (!raw.trim()) return [];
     const parsed = JSON.parse(raw);
     if (!Array.isArray(parsed)) return [];
     return parsed.map((item) => ({
@@ -94,7 +95,7 @@ export async function saveDraft(input: Partial<CmsDraftItem>): Promise<CmsDraftI
   // Guide-specific fields
   if (contentType === 'guide') {
     draft.primaryKeyword = (input.primaryKeyword || existing?.primaryKeyword || '').trim();
-    draft.image = input.image ?? existing?.image;
+    draft.image = 'image' in input ? (input.image?.trim() ? input.image.trim() : undefined) : existing?.image;
     draft.imageAlt = input.imageAlt ?? existing?.imageAlt;
     draft.tags = Array.isArray(input.tags) ? input.tags : existing?.tags || [];
   }
@@ -129,6 +130,16 @@ export async function saveDraft(input: Partial<CmsDraftItem>): Promise<CmsDraftI
     draft.relatedGuide = input.relatedGuide ?? existing?.relatedGuide;
     draft.relatedTool = input.relatedTool ?? existing?.relatedTool;
     draft.orderIndex = input.orderIndex !== undefined ? input.orderIndex : existing?.orderIndex;
+  }
+
+  // Picks-specific fields
+  if (contentType === 'picks') {
+    draft.categories = Array.isArray(input.categories) ? input.categories : existing?.categories || ['home-living'];
+    draft.image = 'image' in input ? (input.image?.trim() ? input.image.trim() : undefined) : existing?.image;
+    draft.imageAlt = input.imageAlt ?? existing?.imageAlt;
+    draft.tags = Array.isArray(input.tags) ? input.tags : existing?.tags || [];
+    draft.affiliateProducts = Array.isArray(input.affiliateProducts) ? input.affiliateProducts : existing?.affiliateProducts || [];
+    draft.affiliateDisclosure = input.affiliateDisclosure ?? existing?.affiliateDisclosure;
   }
 
   if (existingIndex >= 0) {

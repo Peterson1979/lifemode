@@ -385,8 +385,59 @@ const guides = defineCollection({
   schema: articleSchema,
 });
 
+export const picksArticleSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  seoTitle: z.string().optional(),
+  seoDescription: z.string().optional(),
+  pubDate: z.coerce.date(),
+  updatedDate: z.coerce.date().optional(),
+  author: z.string().default('LifeMode Editorial'),
+  categories: z.array(z.string()).default([]),
+  featured: z.boolean().default(false),
+  draft: z.boolean().default(false),
+  image: z.string().optional(),
+  imageAlt: z.string().optional(),
+  imagePrompt: z.string().optional(),
+  readingTime: z.string().optional(),
+  tags: z.array(z.string()).default([]),
+  badge: z.string().optional(),
+  affiliateProducts: z
+    .array(
+      z.union([
+        z.string(),
+        z.object({
+          id: z.string(),
+          note: z.string().optional(),
+          ctaText: z.string().optional(),
+        }),
+        z.object({
+          name: z.string(),
+          url: z.string(),
+          merchant: z.string().optional(),
+          badge: z.string().optional(),
+          price: z.string().optional(),
+          researchedHighlights: z.array(z.string()).optional(),
+        }),
+      ])
+    )
+    .optional(),
+  affiliateDisclosure: z.string().optional(),
+  isSponsored: z.boolean().default(false),
+  sponsorName: z.string().optional(),
+  sponsoredDisclosure: z.string().optional(),
+});
+
+export type PicksArticleFrontmatter = z.infer<typeof picksArticleSchema>;
+
+const picks = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/picks' }),
+  schema: picksArticleSchema,
+});
+
 export const collections = {
   tools,
   checklists,
   guides,
+  picks,
 };

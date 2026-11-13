@@ -35,6 +35,7 @@ export interface GuideData {
   quickSummary?: string;
   createdAt?: string;
   updatedAt?: string;
+  [key: string]: any;
 }
 
 export type ToolCategory =
@@ -96,6 +97,7 @@ export interface ToolData {
   content: string; // Markdown body
   createdAt?: string;
   updatedAt?: string;
+  [key: string]: any;
 }
 
 export type ChecklistCategory =
@@ -148,6 +150,7 @@ export interface ChecklistData {
   content: string; // Markdown guidelines / body
   createdAt?: string;
   updatedAt?: string;
+  [key: string]: any;
 }
 
 export interface CompanionResource {
@@ -172,7 +175,32 @@ export interface LifeHackVideo {
 
 export type LifeHackData = LifeHackVideo;
 
-export type CmsContentType = 'guide' | 'tool' | 'checklist' | 'life-hack';
+export type CmsContentType = 'guide' | 'tool' | 'checklist' | 'life-hack' | 'picks';
+
+export interface PicksArticleData {
+  id?: string;
+  slug: string;
+  title: string;
+  categories: string[];
+  description: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  image?: string;
+  imageAlt?: string;
+  content: string; // Markdown body
+  tags?: string[];
+  pubDate?: string;
+  updatedDate?: string;
+  author?: string;
+  readingTime?: string;
+  affiliateProducts?: any[];
+  affiliateDisclosure?: string;
+  draft?: boolean;
+  featured?: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+  [key: string]: any;
+}
 
 export interface CmsDraftItem {
   id: string;
@@ -180,16 +208,19 @@ export interface CmsDraftItem {
   slug: string;
   title: string;
   category?: string;
+  categories?: string[];
   description?: string;
   summary?: string;
   content?: string;
-  // Guide fields
+  // Guide & Picks fields
   image?: string;
   imageAlt?: string;
   primaryKeyword?: string;
   tags?: string[];
   readingTime?: string;
   quickSummary?: string;
+  affiliateProducts?: any[];
+  affiliateDisclosure?: string;
   // Tool fields
   toolType?: ToolType;
   badge?: string;

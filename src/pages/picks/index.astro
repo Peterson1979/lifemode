@@ -1,11 +1,19 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { listPublicPicksOffers } from '../../lib/commerce/offer-store';
 import { getPrimaryProductImage, getOfferCtaLabel, type CanonicalAffiliateOffer } from '../../lib/commerce/types';
 import { generateBreadcrumbSchema, getCanonicalUrl } from '../../utils/seo';
+import { isPubliclyVisiblePicksArticle, picksArticleSlug, getPicksArticleCategories } from '../../utils/picks';
+import { getAllPicksCategories } from '../../utils/picks-categories';
 
 const allPicks = await listPublicPicksOffers();
 const hasAmazonRecommendations = allPicks.some((pick) => /amazon(?:\.|\/)/i.test(pick.affiliateUrl));
+
+const picksArticles = (await getCollection('picks', isPubliclyVisiblePicksArticle)).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+const allCategories = getAllPicksCategories();
 
 const canonicalUrl = getCanonicalUrl('/picks');
 
@@ -90,6 +98,19 @@ function getTypeBadge(type?: string): string {
         Hand-selected gear, tools, software, courses, and resources tested or rigorously evaluated by LifeMode editors. Every recommendation is chosen for real utility, durability, and practical everyday value.
       </p>
 
+      <!-- Lifestyle Topics Bar -->
+      <div class="picks-topics-bar">
+        <span class="topics-bar-label">Explore by Lifestyle Topic:</span>
+        <div class="topics-chips-list">
+          {allCategories.map((cat) => (
+            <a href={`/picks/category/${cat.slug}/`} class="topic-chip-link">
+              <span>{cat.icon}</span>
+              <span>{cat.shortTitle}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
       <!-- Category / Type Filters -->
       <nav class="picks-filter-bar" aria-label="Filter recommendations by type">
         <button type="button" class="filter-pill active" data-filter="all">
@@ -123,6 +144,70 @@ function getTypeBadge(type?: string): string {
       </nav>
     </div>
   </section>
+
+  <!-- Featured Picks Articles Section -->
+  {picksArticles.length > 0 && (
+    <section class="picks-featured-articles-section">
+      <div class="container">
+        <div class="editorial-section-header">
+          <div>
+            <div class="editorial-kicker">
+              <span>⭐ Tested & Vetted</span>
+            </div>
+            <h2 class="editorial-section-title">LifeMode Picks Articles & Roundups</h2>
+            <p class="editorial-section-lead">In-depth buying guides, gift roundups, and vetted gear lists.</p>
+          </div>
+          <a href="/picks/articles/" class="view-all-articles-link">
+            All Articles ({picksArticles.length}) &rarr;
+          </a>
+        </div>
+        <div class="editorial-articles-grid">
+          {picksArticles.slice(0, 3).map((article) => {
+            const slug = picksArticleSlug(article.id);
+            const cats = getPicksArticleCategories(article);
+            return (
+              <article class="picks-feature-card">
+                {article.data.image && (
+                  <div class="feature-card-img-wrap">
+                    <a href={`/picks/articles/${slug}/`} tabindex="-1" aria-hidden="true">
+                      <img
+                        src={article.data.image}
+                        alt={article.data.imageAlt || article.data.title}
+                        class="feature-card-img"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </a>
+                  </div>
+                )}
+                <div class="feature-card-content">
+                  {cats.length > 0 && (
+                    <div class="feature-card-tags">
+                      {cats.slice(0, 2).map((cat) => (
+                        <a href={`/picks/category/${cat.slug}/`} class="category-tag" style={`border-color: ${cat.borderColor}; background-color: ${cat.lightBg}; color: ${cat.badgeColor};`}>
+                          <span>{cat.icon}</span>
+                          <span>{cat.shortTitle}</span>
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                  <h3 class="feature-card-title">
+                    <a href={`/picks/articles/${slug}/`}>{article.data.title}</a>
+                  </h3>
+                  <p class="feature-card-desc">{article.data.description}</p>
+                  <div class="feature-card-footer">
+                    <a href={`/picks/articles/${slug}/`} class="feature-read-link">
+                      Read Roundup &rarr;
+                    </a>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Product Catalog Grid -->
   <section class="section" style="padding-top: var(--space-4); padding-bottom: var(--space-16);">
@@ -606,6 +691,203 @@ function getTypeBadge(type?: string): string {
     color: var(--color-text-muted, #64748b);
     line-height: 1.55;
     margin: 0 0 0.5rem 0;
+  }
+
+  .picks-topics-bar {
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .topics-bar-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-muted, #6b7280);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .topics-chips-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .topic-chip-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-text-secondary, #475569);
+    background-color: var(--color-surface, #ffffff);
+    border: 1px solid var(--color-border, #e2e8f0);
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full, 9999px);
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .topic-chip-link:hover {
+    color: var(--color-primary-accent, #6366f1);
+    border-color: var(--color-primary-accent, #6366f1);
+    transform: translateY(-1px);
+  }
+
+  .picks-featured-articles-section {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+    background-color: var(--color-surface-subtle, #f8fafc);
+    border-top: 1px solid var(--color-border, #e2e8f0);
+    border-bottom: 1px solid var(--color-border, #e2e8f0);
+    margin-bottom: var(--space-8);
+  }
+
+  .editorial-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: var(--space-6);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .editorial-kicker {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary-accent, #6366f1);
+    margin-bottom: 0.25rem;
+  }
+
+  .editorial-section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .editorial-section-lead {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+  }
+
+  .view-all-articles-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary-accent, #6366f1);
+    text-decoration: none;
+  }
+
+  .view-all-articles-link:hover {
+    text-decoration: underline;
+  }
+
+  .editorial-articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .picks-feature-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-surface, #ffffff);
+    border: 1px solid var(--color-border, #e2e8f0);
+    border-radius: var(--radius-lg, 12px);
+    overflow: hidden;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .picks-feature-card:hover {
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .feature-card-img-wrap {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background-color: var(--color-surface-subtle, #f1f5f9);
+  }
+
+  .feature-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .feature-card-content {
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .feature-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .category-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.725rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--radius-sm, 6px);
+    border: 1px solid;
+    text-decoration: none;
+  }
+
+  .feature-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: var(--space-2);
+  }
+
+  .feature-card-title a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+  }
+
+  .feature-card-title a:hover {
+    color: var(--color-primary-accent, #6366f1);
+  }
+
+  .feature-card-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin-bottom: var(--space-4);
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .feature-card-footer {
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border-subtle, #f1f5f9);
+  }
+
+  .feature-read-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-primary-accent, #6366f1);
+    text-decoration: none;
+  }
+
+  .feature-read-link:hover {
+    text-decoration: underline;
   }
 
   .disclosure-text.amazon-clause {
