@@ -65,20 +65,20 @@ describe('Phase 6: LifeMode Picks Editorial Article System', () => {
     test('functional navigation matches the required order', () => {
       const slugs = FUNCTIONAL_NAV_LINKS.map((link) => link.slug);
       assert.deepEqual(slugs, [
+        'guides',
         'tools',
         'checklists',
         'life-hacks',
-        'guides',
         'picks',
         'daily-ideas',
       ], 'Desktop & header nav order must strictly match requested sequence');
 
       const names = FUNCTIONAL_NAV_LINKS.map((link) => link.name);
       assert.deepEqual(names, [
+        'Guides',
         'Tools',
         'Checklists',
         'Life Hacks',
-        'Guides',
         'LifeMode Picks',
         'Daily Ideas Store',
       ]);

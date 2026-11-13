@@ -64,37 +64,7 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
     <!-- Desktop Primary Navigation -->
     <nav class="nav-desktop" aria-label="Primary Navigation">
       <ul class="nav-list">
-        <!-- 1. Tools -->
-        <li class="nav-item">
-          <a
-            href="/tools/"
-            class={`nav-link ${currentPath.startsWith('/tools') ? 'active' : ''}`}
-          >
-            <span>Tools</span>
-          </a>
-        </li>
-
-        <!-- 2. Checklists -->
-        <li class="nav-item">
-          <a
-            href="/checklists/"
-            class={`nav-link ${currentPath.startsWith('/checklists') ? 'active' : ''}`}
-          >
-            <span>Checklists</span>
-          </a>
-        </li>
-
-        <!-- 3. Life Hacks -->
-        <li class="nav-item">
-          <a
-            href="/life-hacks/"
-            class={`nav-link ${currentPath.startsWith('/life-hacks') ? 'active' : ''}`}
-          >
-            <span>Life Hacks</span>
-          </a>
-        </li>
-
-        <!-- 4. Guides with Category Dropdown -->
+        <!-- 1. Guides with Category Dropdown -->
         <li class="nav-item nav-item-has-dropdown" id="nav-item-guides">
           <div class={`nav-item-group ${isGuidesSectionActive ? 'active' : ''}`}>
             <a
@@ -152,6 +122,36 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
           </div>
         </li>
 
+        <!-- 2. Tools -->
+        <li class="nav-item">
+          <a
+            href="/tools/"
+            class={`nav-link ${currentPath.startsWith('/tools') ? 'active' : ''}`}
+          >
+            <span>Tools</span>
+          </a>
+        </li>
+
+        <!-- 3. Checklists -->
+        <li class="nav-item">
+          <a
+            href="/checklists/"
+            class={`nav-link ${currentPath.startsWith('/checklists') ? 'active' : ''}`}
+          >
+            <span>Checklists</span>
+          </a>
+        </li>
+
+        <!-- 4. Life Hacks -->
+        <li class="nav-item">
+          <a
+            href="/life-hacks/"
+            class={`nav-link ${currentPath.startsWith('/life-hacks') ? 'active' : ''}`}
+          >
+            <span>Life Hacks</span>
+          </a>
+        </li>
+
         <!-- 5. LifeMode Picks (Directly visible) -->
         <li class="nav-item">
           <a
@@ -206,28 +206,7 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
                   </a>
                 </li>
 
-                <!-- 1. Tools -->
-                <li>
-                  <a href="/tools/" class={`mobile-nav-link ${currentPath.startsWith('/tools') ? 'active' : ''}`}>
-                    <span>Tools</span>
-                  </a>
-                </li>
-
-                <!-- 2. Checklists -->
-                <li>
-                  <a href="/checklists/" class={`mobile-nav-link ${currentPath.startsWith('/checklists') ? 'active' : ''}`}>
-                    <span>Checklists</span>
-                  </a>
-                </li>
-
-                <!-- 3. Life Hacks -->
-                <li>
-                  <a href="/life-hacks/" class={`mobile-nav-link ${currentPath.startsWith('/life-hacks') ? 'active' : ''}`}>
-                    <span>Life Hacks</span>
-                  </a>
-                </li>
-
-                <!-- 4. Guides (Expandable on tap) -->
+                <!-- 1. Guides (Expandable on tap) -->
                 <li class="mobile-nav-item-with-submenu">
                   <div class="mobile-nav-row">
                     <a
@@ -276,6 +255,27 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
                       );
                     })}
                   </ul>
+                </li>
+
+                <!-- 2. Tools -->
+                <li>
+                  <a href="/tools/" class={`mobile-nav-link ${currentPath.startsWith('/tools') ? 'active' : ''}`}>
+                    <span>Tools</span>
+                  </a>
+                </li>
+
+                <!-- 3. Checklists -->
+                <li>
+                  <a href="/checklists/" class={`mobile-nav-link ${currentPath.startsWith('/checklists') ? 'active' : ''}`}>
+                    <span>Checklists</span>
+                  </a>
+                </li>
+
+                <!-- 4. Life Hacks -->
+                <li>
+                  <a href="/life-hacks/" class={`mobile-nav-link ${currentPath.startsWith('/life-hacks') ? 'active' : ''}`}>
+                    <span>Life Hacks</span>
+                  </a>
                 </li>
 
                 <!-- 5. LifeMode Picks -->
