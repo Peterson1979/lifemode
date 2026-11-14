@@ -17,7 +17,7 @@ tags:
 draft: false
 readingTime: 4 min read
 contentType: picks
-image: /images/guides/71z-TnF7-yL-_AC_SL1500_-1d6402ec704b.jpg
+image: /images/guides/pexels-sora-shimazaki-5938601-bd2e3b0b6732.jpg
 imageAlt: 'At-Home Facial Care: Two Practical Tools for a Simpler Skincare Routine (2026)'
 ---
 
