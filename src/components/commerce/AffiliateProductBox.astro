@@ -27,9 +27,9 @@ if (!targetId) {
 const allOffers = await listOfferRecords().catch(() => []);
 const offer = allOffers.find((o) => o.id === targetId);
 
-// Only ACTIVE offers with eligibleForGuides === true may be rendered publicly
+// Only ACTIVE offers with eligibleForGuides === true or eligibleForPicks === true may be rendered publicly
 const isActive = offer && (offer.status === 'ACTIVE' || offer.state === 'ACTIVE');
-const isEligible = offer && offer.eligibleForGuides === true;
+const isEligible = offer && (offer.eligibleForGuides === true || offer.eligibleForPicks === true);
 
 if (!offer || !isActive || !isEligible) {
   // Fail gracefully without breaking article rendering

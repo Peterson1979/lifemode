@@ -10,6 +10,7 @@ import {
 } from '../../../utils/seo';
 import { isPubliclyVisiblePicksArticle, picksArticleSlug, getPicksArticleCategories } from '../../../utils/picks';
 import { renderMarkdownToHtml } from '../../../utils/markdown-renderer';
+import { getPublishedPicksArticle } from '../../../lib/editorial/cms/picks';
 
 export async function getStaticPaths() {
   const articles = await getCollection('picks', isPubliclyVisiblePicksArticle);
@@ -23,7 +24,8 @@ const { article } = Astro.props;
 const { Content } = await render(article);
 const slug = picksArticleSlug(article.id);
 const categories = getPicksArticleCategories(article);
-const renderedBodyHtml = article.body ? renderMarkdownToHtml(article.body, { context: 'picks' }) : '';
+const rawBody = article.body || (await getPublishedPicksArticle(slug))?.content || '';
+const renderedBodyHtml = rawBody ? renderMarkdownToHtml(rawBody, { context: 'picks' }) : '';
 
 const canonicalUrl = getCanonicalUrl(`/picks/articles/${slug}`);
 

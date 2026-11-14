@@ -1160,5 +1160,79 @@
         "displayOrder": 0
       }
     ]
+  },
+  {
+    "id": "buffway-slim-rfid-wallet",
+    "title": "Buffway Slim Minimalist Front Pocket RFID Wallet",
+    "name": "Buffway Slim Minimalist Front Pocket RFID Wallet",
+    "brand": "Buffway",
+    "category": "fashion-accessories",
+    "description": "Slim minimalist front-pocket RFID-blocking wallet designed for everyday carry.",
+    "editorialNote": "",
+    "affiliateUrl": "https://link.amazon/B09tqx9GM",
+    "asin": "B07SVPD6PX",
+    "priceRange": "",
+    "defaultCtaText": "View recommendation",
+    "merchant": "Direct recommendation",
+    "program": "Editorial recommendation",
+    "topic": "fashion-accessories",
+    "subtopic": "Everyday Carry",
+    "currency": "USD",
+    "offerType": "physical",
+    "status": "ACTIVE",
+    "state": "ACTIVE",
+    "eligibleForStore": false,
+    "eligibleForPicks": true,
+    "eligibleForGuides": false,
+    "createdAt": "2026-11-14T16:20:00.000Z",
+    "updatedAt": "2026-11-14T16:25:48.280Z",
+    "badge": "",
+    "imageUrl": "/images/guides/71u23ZUFX6L-_AC_SL1500_-eb927fff848f.jpg",
+    "imageAlt": "71u23ZUFX6L._AC_SL1500_",
+    "images": [
+      {
+        "url": "/images/guides/71u23ZUFX6L-_AC_SL1500_-eb927fff848f.jpg",
+        "alt": "71u23ZUFX6L._AC_SL1500_",
+        "isPrimary": true,
+        "displayOrder": 0
+      }
+    ]
+  },
+  {
+    "id": "matein-travel-laptop-backpack",
+    "title": "MATEIN Travel Laptop Backpack 15.6 Inch",
+    "name": "MATEIN Travel Laptop Backpack 15.6 Inch",
+    "brand": "MATEIN",
+    "category": "fashion-accessories",
+    "description": "Practical travel and commuting laptop backpack with dedicated compartments and water-resistant exterior.",
+    "editorialNote": "",
+    "affiliateUrl": "https://link.amazon/B0hotlxHT",
+    "asin": "B06XZTZ7GB",
+    "priceRange": "",
+    "defaultCtaText": "View recommendation",
+    "merchant": "Direct recommendation",
+    "program": "Editorial recommendation",
+    "topic": "fashion-accessories",
+    "subtopic": "Everyday Carry",
+    "currency": "USD",
+    "offerType": "physical",
+    "status": "ACTIVE",
+    "state": "ACTIVE",
+    "eligibleForStore": false,
+    "eligibleForPicks": true,
+    "eligibleForGuides": false,
+    "createdAt": "2026-11-14T16:20:00.000Z",
+    "updatedAt": "2026-11-14T16:26:15.985Z",
+    "badge": "",
+    "imageUrl": "/images/guides/81I2GsVdSPL-_AC_SL1500_-6a666c13c849.jpg",
+    "imageAlt": "81I2GsVdSPL._AC_SL1500_",
+    "images": [
+      {
+        "url": "/images/guides/81I2GsVdSPL-_AC_SL1500_-6a666c13c849.jpg",
+        "alt": "81I2GsVdSPL._AC_SL1500_",
+        "isPrimary": true,
+        "displayOrder": 0
+      }
+    ]
   }
 ]

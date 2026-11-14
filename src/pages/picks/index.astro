@@ -162,7 +162,7 @@ function getTypeBadge(type?: string): string {
           </a>
         </div>
         <div class="editorial-articles-grid">
-          {picksArticles.slice(0, 3).map((article) => {
+          {picksArticles.map((article) => {
             const slug = picksArticleSlug(article.id);
             const cats = getPicksArticleCategories(article);
             return (
