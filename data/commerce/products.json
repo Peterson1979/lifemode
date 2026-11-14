@@ -1086,5 +1086,79 @@
         "displayOrder": 0
       }
     ]
+  },
+  {
+    "id": "tp-link-deco-be63",
+    "title": "TP-Link Deco BE63",
+    "name": "TP-Link Deco BE63",
+    "brand": "TP-Link",
+    "category": "tech-smart-home",
+    "description": "",
+    "editorialNote": "",
+    "affiliateUrl": "https://link.amazon/B08WMvF9r",
+    "asin": "B0CN8WBXY2",
+    "priceRange": "",
+    "defaultCtaText": "View recommendation",
+    "merchant": "Direct recommendation",
+    "program": "Editorial recommendation",
+    "topic": "tech-smart-home",
+    "subtopic": "Smart Home",
+    "currency": "USD",
+    "offerType": "physical",
+    "status": "ACTIVE",
+    "state": "ACTIVE",
+    "eligibleForStore": false,
+    "eligibleForPicks": true,
+    "eligibleForGuides": false,
+    "createdAt": "2026-11-13T14:35:00.000Z",
+    "updatedAt": "2026-11-13T15:00:14.852Z",
+    "badge": "",
+    "imageUrl": "/images/guides/616e4K1pOnL-_AC_AIweblab139291-e9ab303eb025.jpg",
+    "imageAlt": "616e4K1pOnL._AC_AIweblab1392912,T4_SF1358,1358_PQ60_",
+    "images": [
+      {
+        "url": "/images/guides/616e4K1pOnL-_AC_AIweblab139291-e9ab303eb025.jpg",
+        "alt": "616e4K1pOnL._AC_AIweblab1392912,T4_SF1358,1358_PQ60_",
+        "isPrimary": true,
+        "displayOrder": 0
+      }
+    ]
+  },
+  {
+    "id": "tp-link-tapo-p110m",
+    "title": "TP-Link Tapo P110M",
+    "name": "TP-Link Tapo P110M",
+    "brand": "TP-Link",
+    "category": "tech-smart-home",
+    "description": "",
+    "editorialNote": "",
+    "affiliateUrl": "https://link.amazon/B0j65Ncoh",
+    "asin": "B0DKGBP38V",
+    "priceRange": "",
+    "defaultCtaText": "View recommendation",
+    "merchant": "Direct recommendation",
+    "program": "Editorial recommendation",
+    "topic": "tech-smart-home",
+    "subtopic": "Smart Home",
+    "currency": "USD",
+    "offerType": "physical",
+    "status": "ACTIVE",
+    "state": "ACTIVE",
+    "eligibleForStore": false,
+    "eligibleForPicks": true,
+    "eligibleForGuides": false,
+    "createdAt": "2026-11-13T14:35:00.000Z",
+    "updatedAt": "2026-11-13T15:00:45.305Z",
+    "badge": "",
+    "imageUrl": "/images/guides/71da1LYGkuL-_AC_SL1500_-50a56c3ae1ef.jpg",
+    "imageAlt": "71da1LYGkuL._AC_SL1500_",
+    "images": [
+      {
+        "url": "/images/guides/71da1LYGkuL-_AC_SL1500_-50a56c3ae1ef.jpg",
+        "alt": "71da1LYGkuL._AC_SL1500_",
+        "isPrimary": true,
+        "displayOrder": 0
+      }
+    ]
   }
 ]

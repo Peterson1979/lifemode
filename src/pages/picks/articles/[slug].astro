@@ -137,26 +137,36 @@ const breadcrumbSchema = generateBreadcrumbSchema([
       )}
     </div>
 
-    <!-- Product Summary List if affiliateProducts are configured -->
-    {article.data.affiliateProducts && article.data.affiliateProducts.length > 0 && (
-      <section class="picks-recommended-products" aria-label="Featured Picks in This Article">
-        <div class="section-heading-wrapper">
-          <span class="section-kicker">Quick Overview</span>
-          <h2 class="section-title">Featured Picks In This Guide</h2>
-        </div>
-        <div class="picks-product-boxes-list">
-          {article.data.affiliateProducts.map((p) => {
-            const offerId = typeof p === 'string' ? p : ('id' in p ? p.id : undefined);
-            if (offerId) {
-              const note = typeof p === 'object' && 'note' in p ? p.note : undefined;
-              const cta = typeof p === 'object' && 'ctaText' in p ? p.ctaText : undefined;
-              return <AffiliateProductBox offerId={offerId} contextNote={note} ctaText={cta} />;
-            }
-            return null;
-          })}
-        </div>
-      </section>
-    )}
+    <!-- Product Summary List if affiliateProducts are configured (skipping offers already embedded inline in body) -->
+    {(() => {
+      const inlineBoxIds = new Set(
+        Array.from((article.body || '').matchAll(/::product-box\{id=["']?([a-z0-9-]+)["']?/gi)).map((m) => m[1])
+      );
+      const remainingProducts = (article.data.affiliateProducts || []).filter((p) => {
+        const offerId = typeof p === 'string' ? p : ('id' in p ? p.id : undefined);
+        return offerId && !inlineBoxIds.has(offerId);
+      });
+      if (remainingProducts.length === 0) return null;
+      return (
+        <section class="picks-recommended-products" aria-label="Featured Picks in This Article">
+          <div class="section-heading-wrapper">
+            <span class="section-kicker">Quick Overview</span>
+            <h2 class="section-title">Featured Picks In This Guide</h2>
+          </div>
+          <div class="picks-product-boxes-list">
+            {remainingProducts.map((p) => {
+              const offerId = typeof p === 'string' ? p : ('id' in p ? p.id : undefined);
+              if (offerId) {
+                const note = typeof p === 'object' && 'note' in p ? p.note : undefined;
+                const cta = typeof p === 'object' && 'ctaText' in p ? p.ctaText : undefined;
+                return <AffiliateProductBox offerId={offerId} contextNote={note} ctaText={cta} />;
+              }
+              return null;
+            })}
+          </div>
+        </section>
+      );
+    })()}
 
     <footer class="picks-article-footer">
       <div class="footer-navigation">

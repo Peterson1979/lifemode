@@ -26,6 +26,7 @@ import {
   type PicksArticleData,
 } from '../src/lib/editorial/cms/types.ts';
 import { renderMarkdownToHtml } from '../src/utils/markdown-renderer.ts';
+import { escapeHtml } from '../src/lib/commerce/affiliate-renderer.ts';
 import { CloudflareR2SocialAssetStorageProvider } from '../src/lib/social/images/storage/r2.ts';
 import {
   listCmsAffiliateOffers,
@@ -169,6 +170,54 @@ header h1{margin:0;font-size:1.5rem;font-weight:700;color:var(--text)}
 .featured-image-thumb{width:140px;height:95px;min-width:140px;min-height:95px;object-fit:cover;border-radius:6px;border:1px solid var(--border);display:block;flex-shrink:0;background:#f1f5f9}
 .featured-image-placeholder{width:140px;height:95px;min-width:140px;min-height:95px;background:#e2e8f0;border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.75rem;text-align:center;padding:.25rem;flex-shrink:0}
 .metadata-review-card{background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:1.25rem;margin-top:1.25rem}
+
+/* Affiliate Product Boxes & Contextual Links */
+.affiliate-product-box { background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+.box-badge-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.box-kicker { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.725rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #0f766e; background-color: #ccfbf1; padding: 0.2rem 0.55rem; border-radius: 9999px; }
+.box-badge { font-size: 0.725rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #b45309; background-color: #fef3c7; padding: 0.2rem 0.55rem; border-radius: 4px; }
+.box-brand { font-size: 0.8rem; font-weight: 600; color: #64748b; }
+.box-body { display: flex; gap: 1.25rem; align-items: flex-start; }
+@media(max-width:680px){.box-body{flex-direction:column;}}
+.box-image-wrapper { width: 170px; height: 140px; min-width: 170px; border-radius: 8px; overflow: hidden; background-color: #f8fafc; border: 1px solid #f1f5f9; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+@media(max-width:680px){.box-image-wrapper{width:100%;height:180px;min-width:100%;}}
+.box-image { width: 100%; height: 100%; object-fit: cover; display: block; }
+.box-image-fallback { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); }
+.box-fallback-icon { font-size: 2.2rem; opacity: 0.6; }
+.box-info { flex: 1; min-width: 0; }
+.box-title { font-size: 1.15rem; font-weight: 700; line-height: 1.35; margin: 0 0 0.4rem 0; color: #0f172a; }
+.box-description { font-size: 0.875rem; color: #475569; line-height: 1.55; margin: 0 0 0.75rem 0; }
+.box-editorial-note { background-color: #f8fafc; border-left: 3px solid #0f766e; padding: 0.5rem 0.75rem; border-radius: 0 6px 6px 0; margin-bottom: 0.85rem; }
+.note-label { display: block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #0f766e; margin-bottom: 0.2rem; }
+.note-text { font-size: 0.825rem; color: #334155; margin: 0; }
+.box-action-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 0.85rem; flex-wrap: wrap; }
+.box-price { font-size: 0.95rem; font-weight: 700; color: #0f172a; }
+.btn-box-cta { display: inline-flex; align-items: center; gap: 0.45rem; background-color: #0f766e; color: #ffffff !important; padding: 0.45rem 0.9rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: background-color 0.15s ease; margin-left: auto; }
+.btn-box-cta:hover { background-color: #115e59; }
+.box-disclosure-tag { display: block; font-size: 0.7rem; color: #94a3b8; margin-top: 0.6rem; }
+.affiliate-contextual-link { color: #0f766e; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.affiliate-contextual-link:hover { color: #115e59; }
+
+/* Picks Article Preview Modal Layout */
+.picks-article-wrapper { max-width: 820px; margin: 0 auto; padding: 1rem 0; font-family: system-ui, -apple-system, sans-serif; color: #1e293b; }
+.picks-article-header { margin-bottom: 2rem; }
+.picks-article-categories { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; }
+.category-badge { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.8rem; font-weight: 600; padding: 0.25rem 0.65rem; border-radius: 9999px; border: 1px solid; text-decoration: none; }
+.picks-article-title { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700; line-height: 1.25; color: #0f172a; margin: 0.5rem 0 0.75rem 0; }
+.picks-article-description { font-size: 1.15rem; color: #475569; line-height: 1.6; margin-bottom: 1rem; }
+.picks-article-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: #64748b; margin-bottom: 1.25rem; }
+.meta-separator { opacity: 0.6; }
+.affiliate-disclosure-note { display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.75rem 1rem; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.825rem; color: #475569; line-height: 1.5; margin-top: 1rem; }
+.picks-featured-image-wrapper { margin: 0 0 2rem 0; border-radius: 12px; overflow: hidden; background-color: #f1f5f9; }
+.picks-featured-image { width: 100%; height: auto; max-height: 480px; object-fit: cover; display: block; }
+.picks-article-body { font-size: 1.05rem; line-height: 1.75; color: #1e293b; }
+.picks-article-body h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin: 2rem 0 1rem 0; }
+.picks-article-body h2 { font-size: 1.6rem; font-weight: 700; color: #0f172a; margin: 2rem 0 1rem 0; }
+.picks-article-body h3 { font-size: 1.25rem; font-weight: 600; color: #0f172a; margin: 1.5rem 0 0.75rem 0; }
+.picks-article-body p { margin-bottom: 1.25rem; }
+.picks-article-body ul, .picks-article-body ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+.picks-article-body li { margin-bottom: 0.35rem; }
+.picks-article-body blockquote { border-left: 3px solid #0f766e; background: #f8fafc; padding: 0.75rem 1rem; margin: 1.25rem 0; border-radius: 0 6px 6px 0; }
 </style>
 </head>
 <body>
@@ -713,6 +762,7 @@ Include your practical instructions, bullet lists, comparison tables, and any af
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
       <div class="filter-pills">
         <button type="button" class="filter-pill active" onclick="filterDrafts('all')">All Drafts</button>
+        <button type="button" class="filter-pill" onclick="filterDrafts('picks')">Picks</button>
         <button type="button" class="filter-pill" onclick="filterDrafts('guide')">Guides</button>
         <button type="button" class="filter-pill" onclick="filterDrafts('tool')">Tools</button>
         <button type="button" class="filter-pill" onclick="filterDrafts('checklist')">Checklists</button>
@@ -1001,9 +1051,15 @@ Include your practical instructions, bullet lists, comparison tables, and any af
 <section id="tab-picks-editor" class="tab-pane">
   <div class="card" style="margin-bottom:1rem;padding:.75rem 1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem">
     <div><strong>Create &amp; Edit LifeMode Picks Article</strong> — <span style="font-size:.85rem;color:var(--muted)">Curated Buying Guides &amp; Product Roundups</span></div>
-    <div style="display:flex;align-items:center;gap:.5rem">
-      <label for="select-load-picks" style="font-size:.8rem;color:var(--muted)">Load Published Picks Article:</label>
-      <select id="select-load-picks" style="font-size:.85rem;padding:.3rem .5rem"><option value="">-- Choose Article --</option></select>
+    <div style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:.35rem">
+        <label for="select-load-picks-draft" style="font-size:.8rem;color:var(--muted)">Load Draft:</label>
+        <select id="select-load-picks-draft" style="font-size:.85rem;padding:.3rem .5rem"><option value="">-- Choose Draft --</option></select>
+      </div>
+      <div style="display:flex;align-items:center;gap:.35rem">
+        <label for="select-load-picks" style="font-size:.8rem;color:var(--muted)">Load Published:</label>
+        <select id="select-load-picks" style="font-size:.85rem;padding:.3rem .5rem"><option value="">-- Choose Article --</option></select>
+      </div>
     </div>
   </div>
 
@@ -1121,7 +1177,10 @@ Check out the [Product Name](aff:product-id)."></textarea>
         <button type="button" class="btn btn-secondary" id="btn-save-picks-draft">💾 Save Draft</button>
         <span id="picks-draft-status" style="font-size:.85rem;color:var(--muted)"></span>
       </div>
-      <div style="display:flex;gap:.75rem;align-items:center">
+      <div style="display:flex;gap:.75rem;align-items:center;flex-wrap:wrap">
+        <button type="button" class="btn btn-secondary" id="btn-preview-picks-article" style="font-weight:700;border-color:#0284c7;color:#0369a1;background:#f0f9ff;padding:.6rem 1.2rem" title="Open full-fidelity preview of the complete article layout">
+          👁️ Preview Article
+        </button>
         <label style="display:inline-flex;align-items:center;gap:.35rem;font-size:.85rem;cursor:pointer">
           <input type="checkbox" id="picks-dry-run" checked> Dry Run (Validate without Git commit)
         </label>
@@ -1201,6 +1260,26 @@ Check out the [Product Name](aff:product-id)."></textarea>
       <input type="text" id="selector-affiliate-search" placeholder="Search by product name, brand, or merchant…" oninput="renderAffiliateSelectorList()" style="width:100%;padding:.55rem .75rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem">
     </div>
     <div id="selector-affiliate-results" style="max-height:420px;overflow-y:auto;display:flex;flex-direction:column;gap:.6rem">Loading offers…</div>
+  </div>
+</div>
+
+<!-- Picks Article Full Preview Modal -->
+<div id="picks-article-preview-modal" class="modal">
+  <div class="modal-content" style="max-width:880px;width:95%;max-height:90vh;padding:1.75rem;overflow-y:auto">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;border-bottom:1px solid var(--border);padding-bottom:.75rem;flex-wrap:wrap;gap:.5rem">
+      <div style="display:flex;align-items:center;gap:.5rem">
+        <span style="font-size:1.2rem">👁️</span>
+        <strong style="font-size:1.05rem">LifeMode Picks — Article Preview</strong>
+        <span class="badge-pill blue">Production Fidelity</span>
+      </div>
+      <div style="display:flex;gap:.5rem;align-items:center">
+        <button type="button" class="btn btn-secondary btn-sm" id="btn-picks-preview-new-tab">🔗 Open in New Tab</button>
+        <button type="button" class="btn btn-secondary btn-sm" onclick="closePicksArticlePreviewModal()">&times; Close Preview</button>
+      </div>
+    </div>
+    <div id="picks-article-preview-render">
+      <!-- Injected by JS -->
+    </div>
   </div>
 </div>
 
@@ -3320,8 +3399,10 @@ window.openAffiliateSelectorModal = async (target) => {
   }
   const modal = document.querySelector('#affiliate-selector-modal');
   modal.classList.add('open');
-  if (!currentAffiliates.length) {
+  try {
     currentAffiliates = await api('/api/affiliates');
+  } catch (e) {
+    console.error('Error fetching catalog offers:', e);
   }
   // Check uncataloged guide recommendations to inform operator
   api('/api/affiliates/scan-guides').then(scan => {
@@ -3331,7 +3412,7 @@ window.openAffiliateSelectorModal = async (target) => {
     const bannerCount = document.querySelector('#selector-guide-uncataloged-count');
     if (banner && bannerCount) {
       bannerCount.textContent = uncat.length;
-      banner.style.display = uncat.length > 0 ? 'flex' : 'none';
+      banner.style.display = (uncat.length > 0 && currentAffiliateModalTarget === 'guide') ? 'flex' : 'none';
     }
   }).catch(() => {});
   renderAffiliateSelectorList();
@@ -3412,8 +3493,8 @@ window.insertAffiliateBoxIntoArticle = (id, title) => {
   }
 
   const cursorPos = isPicks ? lastPicksCursorPos : lastGuideCursorPos;
-  let start = cursorPos.start;
-  let end = cursorPos.end;
+  let start = (cursorPos && cursorPos.start >= 0) ? cursorPos.start : targetTextarea.selectionStart;
+  let end = (cursorPos && cursorPos.end >= 0) ? cursorPos.end : targetTextarea.selectionEnd;
   if (start < 0 || start === undefined || isNaN(start)) {
     start = currentText.length;
     end = currentText.length;
@@ -3435,6 +3516,16 @@ window.insertAffiliateBoxIntoArticle = (id, title) => {
   const newPos = start + snippet.length;
   targetTextarea.focus();
   targetTextarea.setSelectionRange(newPos, newPos);
+
+  try {
+    const textBefore = targetTextarea.value.substring(0, newPos);
+    const lineCount = textBefore.split('\\n').length;
+    const totalLines = targetTextarea.value.split('\\n').length;
+    targetTextarea.scrollTop = (lineCount / Math.max(totalLines, 1)) * targetTextarea.scrollHeight - (targetTextarea.clientHeight / 2);
+  } catch {}
+
+  targetTextarea.dispatchEvent(new Event('input', { bubbles: true }));
+
   if (isPicks) {
     lastPicksCursorPos = { start: newPos, end: newPos };
     updatePicksPreview();
@@ -3452,8 +3543,8 @@ window.insertContextualAffiliateLinkIntoArticle = (id, title) => {
   const currentText = targetTextarea.value;
 
   const cursorPos = isPicks ? lastPicksCursorPos : lastGuideCursorPos;
-  let start = cursorPos.start;
-  let end = cursorPos.end;
+  let start = (cursorPos && cursorPos.start >= 0) ? cursorPos.start : targetTextarea.selectionStart;
+  let end = (cursorPos && cursorPos.end >= 0) ? cursorPos.end : targetTextarea.selectionEnd;
   if (start < 0 || start === undefined || isNaN(start)) {
     start = currentText.length;
     end = currentText.length;
@@ -3470,6 +3561,16 @@ window.insertContextualAffiliateLinkIntoArticle = (id, title) => {
   const newPos = start + snippet.length;
   targetTextarea.focus();
   targetTextarea.setSelectionRange(newPos, newPos);
+
+  try {
+    const textBefore = targetTextarea.value.substring(0, newPos);
+    const lineCount = textBefore.split('\\n').length;
+    const totalLines = targetTextarea.value.split('\\n').length;
+    targetTextarea.scrollTop = (lineCount / Math.max(totalLines, 1)) * targetTextarea.scrollHeight - (targetTextarea.clientHeight / 2);
+  } catch {}
+
+  targetTextarea.dispatchEvent(new Event('input', { bubbles: true }));
+
   if (isPicks) {
     lastPicksCursorPos = { start: newPos, end: newPos };
     updatePicksPreview();
@@ -3544,9 +3645,36 @@ picksContentEl?.addEventListener('input', () => {
 async function loadPicksArticlesEditor() {
   await populatePicksCategories();
   await loadPublishedPicksDropdown();
+  await loadPicksDraftsDropdown();
   updatePicksFeaturedImageDisplay();
   updatePicksPreview();
 }
+
+async function loadPicksDraftsDropdown() {
+  const select = document.querySelector('#select-load-picks-draft');
+  if (!select) return;
+  try {
+    const allDrafts = await api('/api/drafts');
+    const picksDrafts = allDrafts.filter(d => (d.contentType || 'guide') === 'picks');
+    select.innerHTML = '<option value="">-- Choose Draft (' + picksDrafts.length + ' saved) --</option>' +
+      picksDrafts.map(d => '<option value="' + esc(d.id) + '">' + esc(d.title || d.slug || 'Untitled Draft') + ' (' + new Date(d.updatedAt || d.createdAt).toLocaleDateString() + ')</option>').join('');
+  } catch (err) {
+    console.error('Failed to load picks drafts list:', err);
+  }
+}
+
+document.querySelector('#select-load-picks-draft')?.addEventListener('change', async (e) => {
+  const id = e.target.value;
+  if (!id) return;
+  try {
+    const draft = await api('/api/drafts/' + encodeURIComponent(id));
+    if (draft) {
+      loadPicksArticleIntoEditor(draft);
+    }
+  } catch (err) {
+    alert('Failed to load picks draft: ' + err.message);
+  }
+});
 
 async function populatePicksCategories() {
   const container = document.querySelector('#picks-categories-checkboxes');
@@ -3631,14 +3759,73 @@ function getFormPicksArticleData() {
 
 async function updatePicksPreview() {
   const md = picksContentEl?.value || '';
+  const words = md.trim().split(/\s+/).filter(Boolean).length;
+  const minutes = Math.max(1, Math.ceil(words / 200));
+  const readingTimeEl = document.querySelector('#preview-picks-reading-time');
+  if (readingTimeEl) {
+    readingTimeEl.textContent = md.trim() ? '⏱️ ' + minutes + ' min read (' + words + ' words)' : '';
+  }
+
   try {
-    const res = await api('/api/preview', { method: 'POST', body: JSON.stringify({ markdown: md }) });
+    const res = await api('/api/preview', {
+      method: 'POST',
+      body: JSON.stringify({ markdown: md, context: 'picks' })
+    });
     const outputEl = document.querySelector('#preview-picks-output');
     if (outputEl) {
       outputEl.innerHTML = res.html || '<p class="muted">Live preview with rendered product boxes will appear here…</p>';
     }
   } catch {}
 }
+
+window.closePicksArticlePreviewModal = () => {
+  document.querySelector('#picks-article-preview-modal')?.classList.remove('open');
+};
+
+let latestPicksArticlePreviewHtml = '';
+
+document.querySelector('#btn-preview-picks-article')?.addEventListener('click', async () => {
+  const article = getFormPicksArticleData();
+  const modal = document.querySelector('#picks-article-preview-modal');
+  const container = document.querySelector('#picks-article-preview-render');
+  if (!modal || !container) return;
+
+  container.innerHTML = '<div style="text-align:center;padding:2rem;color:var(--muted)">Generating full article preview…</div>';
+  modal.classList.add('open');
+
+  try {
+    const res = await api('/api/picks/preview-article', {
+      method: 'POST',
+      body: JSON.stringify(article)
+    });
+    latestPicksArticlePreviewHtml = res.html || '<p class="error">Failed to generate article preview.</p>';
+    container.innerHTML = latestPicksArticlePreviewHtml;
+  } catch (err) {
+    container.innerHTML = '<p class="error">Preview generation failed: ' + esc(err.message) + '</p>';
+  }
+});
+
+document.querySelector('#btn-picks-preview-new-tab')?.addEventListener('click', () => {
+  if (!latestPicksArticlePreviewHtml) return;
+  const newWin = window.open('', '_blank');
+  if (!newWin) {
+    alert('Pop-up was blocked. Please allow pop-ups for this site.');
+    return;
+  }
+  const article = getFormPicksArticleData();
+  const pageTitle = (article.title || 'Picks Article') + ' — LifeMode Picks Preview';
+  newWin.document.open();
+  newWin.document.write('<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>' + esc(pageTitle) + '</title>' +
+    document.querySelector('head').innerHTML +
+    '<style>body{background:#f8fafc;padding:2rem 1rem}.picks-article-wrapper{background:#ffffff;padding:2.5rem;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,0.05);}</style></head><body>' +
+    '<div style="max-width:880px;margin:0 auto 1.5rem auto;display:flex;justify-content:space-between;align-items:center;background:#f0f9ff;border:1px solid #bae6fd;padding:.65rem 1rem;border-radius:8px">' +
+      '<span style="font-size:.85rem;color:#0369a1;font-weight:600">👁️ LifeMode Picks Article Preview (Standalone Window)</span>' +
+      '<button onclick="window.close()" class="btn btn-secondary btn-sm">Close Window</button>' +
+    '</div>' +
+    latestPicksArticlePreviewHtml +
+    '</body></html>');
+  newWin.document.close();
+});
 
 function updatePicksFeaturedImageDisplay() {
   const url = document.querySelector('#field-picks-image').value.trim();
@@ -3798,6 +3985,86 @@ loadHistory();
 </script>
 </body>
 </html>`;
+}
+
+function renderPicksArticlePreviewHtml(article: Partial<PicksArticleData>): string {
+  let title = (article.title || '').trim();
+  const description = (article.description || '').trim();
+  const author = (article.author || '').trim() || 'LifeMode Editorial';
+  const pubDateFormatted = new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+  }).format(new Date());
+
+  // If title is missing or generic, detect from leading H1 in content
+  let rawContent = (article.content || '').trim();
+  const leadingH1Match = rawContent.match(/^#\s+([^\r\n]+)/);
+  if ((!title || title === 'Untitled Draft' || title === 'Untitled Picks Article') && leadingH1Match) {
+    title = leadingH1Match[1].trim();
+  }
+  if (!title) title = 'Untitled Picks Article';
+
+  // Strip leading duplicate H1 from body so title is rendered cleanly once in the article header
+  const cleanTitleForRegex = title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const specificH1Regex = new RegExp(`^#\\s+${cleanTitleForRegex}\\s*\\r?\\n+`, 'i');
+  if (specificH1Regex.test(rawContent)) {
+    rawContent = rawContent.replace(specificH1Regex, '').trim();
+  } else if (/^#\s+[^\r\n]+\r?\n+/.test(rawContent)) {
+    rawContent = rawContent.replace(/^#\s+[^\r\n]+\r?\n+/, '').trim();
+  }
+
+  const categories = (article.categories || (article.category ? [article.category] : ['home-living'])).map(slug => {
+    const meta = PICKS_CATEGORIES[slug];
+    return meta || { slug, title: slug, icon: '📌', lightBg: '#f1f5f9', badgeColor: '#334155', borderColor: '#cbd5e1' };
+  });
+
+  const bodyHtml = renderMarkdownToHtml(rawContent, { context: 'picks' });
+  const words = rawContent.split(/\s+/).filter(Boolean).length;
+  const readingTime = `${Math.max(1, Math.ceil(words / 200))} min read`;
+
+  const categoriesHtml = categories.map(cat => {
+    return `<span class="category-badge" style="border-color:${cat.borderColor};background-color:${cat.lightBg};color:${cat.badgeColor};"><span>${cat.icon}</span> <span>${cat.title}</span></span>`;
+  }).join(' ');
+
+  const imageHtml = article.image ? `
+    <figure class="picks-featured-image-wrapper">
+      <img src="${escapeHtml(article.image)}" alt="${escapeHtml(article.imageAlt || title)}" class="picks-featured-image" loading="eager" decoding="async" />
+    </figure>
+  ` : '';
+
+  return `
+    <article class="picks-article-wrapper">
+      <div class="breadcrumbs" style="font-size:0.85rem;color:var(--muted);margin-bottom:1rem;">
+        Home &gt; LifeMode Picks &gt; Articles &gt; <span style="color:#0f172a;font-weight:600;">${escapeHtml(title)}</span>
+      </div>
+      <header class="picks-article-header">
+        <div class="picks-article-categories">${categoriesHtml}</div>
+        <h1 class="picks-article-title">${escapeHtml(title)}</h1>
+        ${description ? `<p class="picks-article-description">${escapeHtml(description)}</p>` : ''}
+        <div class="picks-article-meta">
+          <span class="meta-item">By ${escapeHtml(author)}</span>
+          <span class="meta-separator">&bull;</span>
+          <span class="meta-item">Published ${pubDateFormatted}</span>
+          <span class="meta-separator">&bull;</span>
+          <span class="meta-item">⏱️ ${readingTime}</span>
+        </div>
+        <div class="affiliate-disclosure-note" role="note">
+          <span class="disclosure-icon">💡</span>
+          <span>Editorial Integrity: LifeMode independently tests and selects all recommendations. When you buy through our links, we may earn an affiliate commission at no extra cost to you.</span>
+        </div>
+      </header>
+      ${imageHtml}
+      <div class="picks-article-body prose">
+        ${bodyHtml || '<p class="muted">No content provided yet.</p>'}
+      </div>
+      <footer class="picks-article-footer" style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid #e2e8f0;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+        <span class="btn btn-secondary" style="pointer-events:none;opacity:0.8;">&larr; All Picks Articles</span>
+        <span class="btn btn-secondary" style="pointer-events:none;opacity:0.8;">Explore Product Picks &rarr;</span>
+      </footer>
+    </article>
+  `.trim();
 }
 
 const server = createServer(async (request, response) => {
@@ -4088,7 +4355,8 @@ const server = createServer(async (request, response) => {
     // 8. Live Markdown Preview
     if (url.pathname === '/api/preview' && request.method === 'POST') {
       const body = await readJson(request);
-      const html = renderMarkdownToHtml(body.markdown || '');
+      const context = body.context === 'picks' ? 'picks' : 'guide';
+      const html = renderMarkdownToHtml(body.markdown || '', { context });
       sendJson(response, 200, { html });
       return;
     }
@@ -4130,6 +4398,13 @@ const server = createServer(async (request, response) => {
     if (url.pathname === '/api/picks/categories' && request.method === 'GET') {
       const categories = getAllPicksCategories();
       sendJson(response, 200, categories);
+      return;
+    }
+
+    if (url.pathname === '/api/picks/preview-article' && request.method === 'POST') {
+      const body = await readJson(request);
+      const html = renderPicksArticlePreviewHtml(body);
+      sendJson(response, 200, { html });
       return;
     }
 
