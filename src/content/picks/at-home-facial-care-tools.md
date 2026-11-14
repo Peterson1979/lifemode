@@ -104,7 +104,3 @@ Choose the tool that addresses your most immediate routine hurdle, or pair them 
 ---
 
 *Affiliate Disclosure: This article contains affiliate links. LifeMode independently reviews and recommends practical products for everyday life. When you purchase through our links, we may earn an affiliate commission at no extra cost to you.*
-
-::product-box{id="ezbasics-facial-steamer"}
-
-::product-box{id="pritech-facial-cleansing-brush"}
