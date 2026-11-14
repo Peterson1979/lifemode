@@ -17,6 +17,8 @@ tags:
 draft: false
 readingTime: 4 min read
 contentType: picks
+image: /images/guides/71z-TnF7-yL-_AC_SL1500_-1d6402ec704b.jpg
+imageAlt: 'At-Home Facial Care: Two Practical Tools for a Simpler Skincare Routine (2026)'
 ---
 
 A good skincare routine does not require a bathroom counter full of complicated devices or dozens of daily steps. In fact, keeping things manageable and consistent is often the most effective approach for healthier, calmer skin.
