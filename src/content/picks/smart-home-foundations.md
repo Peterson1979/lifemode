@@ -15,7 +15,7 @@ tags:
   - Networking
 draft: false
 readingTime: 6 min read
-image: /images/guides/616e4K1pOnL-_AC_AIweblab139291-e9ab303eb025.jpg
+image: /images/guides/pexels-jakubzerdzicki-16423103-298680b2dc9f.jpg
 imageAlt: TP-Link Deco BE63 Whole-Home Mesh Wi-Fi 7 System
 contentType: picks
 summary: 'A dependable smart home starts with two fundamentals: a dependable mesh Wi-Fi network and Matter-compatible devices that work across your ecosystem.'
