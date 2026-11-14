@@ -1382,5 +1382,81 @@
         "displayOrder": 0
       }
     ]
+  },
+  {
+    "id": "renpho-eyeris-1-eye-massager",
+    "title": "RENPHO Eyeris 1 Eye Massager with Heat",
+    "name": "RENPHO Eyeris 1 Eye Massager with Heat",
+    "brand": "RENPHO",
+    "category": "health-fitness",
+    "description": "Heated eye massager with gentle heat and compression massage functions for evening relaxation routines.",
+    "editorialNote": "",
+    "affiliateUrl": "https://link.amazon/B00T7Hnu8",
+    "asin": "B07SM61FCT",
+    "priceRange": "",
+    "defaultCtaText": "View recommendation",
+    "merchant": "Direct recommendation",
+    "program": "Editorial recommendation",
+    "topic": "health-fitness",
+    "subtopic": "Recovery Tools",
+    "currency": "USD",
+    "offerType": "physical",
+    "type": "physical",
+    "status": "ACTIVE",
+    "state": "ACTIVE",
+    "eligibleForStore": false,
+    "eligibleForPicks": true,
+    "eligibleForGuides": false,
+    "createdAt": "2026-11-14T19:00:00.000Z",
+    "updatedAt": "2026-11-14T19:24:17.124Z",
+    "badge": "",
+    "imageUrl": "/images/guides/61jxyTwnvvL-_AC_SL1500_-406fa8d1a44e.jpg",
+    "imageAlt": "61jxyTwnvvL._AC_SL1500_",
+    "images": [
+      {
+        "url": "/images/guides/61jxyTwnvvL-_AC_SL1500_-406fa8d1a44e.jpg",
+        "alt": "61jxyTwnvvL._AC_SL1500_",
+        "isPrimary": true,
+        "displayOrder": 0
+      }
+    ]
+  },
+  {
+    "id": "triggerpoint-grid-foam-roller",
+    "title": "TriggerPoint GRID 1.0 Foam Roller - 13 inch",
+    "name": "TriggerPoint GRID 1.0 Foam Roller - 13 inch",
+    "brand": "TriggerPoint",
+    "category": "health-fitness",
+    "description": "Compact multi-density foam roller with rigid hollow core designed for targeted muscle massage and recovery.",
+    "editorialNote": "",
+    "affiliateUrl": "https://link.amazon/B07aJhxDS",
+    "asin": "B0040EGNIU",
+    "priceRange": "",
+    "defaultCtaText": "View recommendation",
+    "merchant": "Direct recommendation",
+    "program": "Editorial recommendation",
+    "topic": "health-fitness",
+    "subtopic": "Muscle Care",
+    "currency": "USD",
+    "offerType": "physical",
+    "type": "physical",
+    "status": "ACTIVE",
+    "state": "ACTIVE",
+    "eligibleForStore": false,
+    "eligibleForPicks": true,
+    "eligibleForGuides": false,
+    "createdAt": "2026-11-14T19:00:00.000Z",
+    "updatedAt": "2026-11-14T19:24:35.223Z",
+    "badge": "",
+    "imageUrl": "/images/guides/71-MhWa5jWL-_AC_SL1500_-6cbaa1219e73.jpg",
+    "imageAlt": "71-MhWa5jWL._AC_SL1500_",
+    "images": [
+      {
+        "url": "/images/guides/71-MhWa5jWL-_AC_SL1500_-6cbaa1219e73.jpg",
+        "alt": "71-MhWa5jWL._AC_SL1500_",
+        "isPrimary": true,
+        "displayOrder": 0
+      }
+    ]
   }
 ]
