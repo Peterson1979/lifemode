@@ -1458,5 +1458,107 @@
         "displayOrder": 0
       }
     ]
+  },
+  {
+    "id": "black-decker-dustbuster-advancedclean-handheld-vacuum-cordless",
+    "brand": "BLACK+DECKER",
+    "name": "BLACK+DECKER dustbuster AdvancedClean Handheld Vacuum Cordless, ",
+    "description": "Compact Home and Car Vacuum with Crevice Tool, Rotating Nozzle and Charging Station, Large Dust Bowl",
+    "editorialNote": "1 brand in hand vacs\nCordless convenience - portable, rechargeable, lightweight for use around your home and in your vehicle\nMulti-surface use removes hair, dirt, debris, and pet hair as stair vacuum for carpet, portable car vacuum, couch vacuum, furniture, and high-traffic areas\nCompact design - easy to hold when in use and easy to store until you're ready to use again\nRotating slim nozzle - rotates to help you clean tight, hard to reach spaces\n",
+    "affiliateUrl": "https://link.amazon/B06Sgg8H0",
+    "priceRange": "",
+    "state": "ACTIVE",
+    "imageUrl": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/commerce/new/2d4eb9aece8c856b.jpg",
+    "title": "BLACK+DECKER dustbuster AdvancedClean Handheld Vacuum Cordless, ",
+    "category": "home",
+    "merchant": "link.amazon",
+    "program": "Editorial recommendation",
+    "topic": "home",
+    "subtopic": "Storage & Organization",
+    "currency": "USD",
+    "offerType": "physical",
+    "status": "ACTIVE",
+    "eligibleForStore": true,
+    "eligibleForPicks": true,
+    "eligibleForGuides": true,
+    "images": [
+      {
+        "url": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/commerce/new/2d4eb9aece8c856b.jpg",
+        "alt": "BLACK+DECKER dustbuster AdvancedClean Handheld Vacuum Cordless, ",
+        "isPrimary": true,
+        "displayOrder": 0
+      }
+    ],
+    "defaultCtaText": "View recommendation",
+    "createdAt": "2026-11-17T13:26:24.818Z",
+    "updatedAt": "2026-11-17T13:26:24.818Z"
+  },
+  {
+    "id": "botanicals-orchid-artificial",
+    "brand": "LEGO ",
+    "name": "Botanicals Orchid - Artificial",
+    "description": "Fake Indoor Flowers Building Set for Home, Kitchen, Desk Decoration, Adults Ages 18+ - Gift for Birthdays - 10311",
+    "editorialNote": "Build your own orchid – Enjoy a rewarding building project as you create a plant display to enhance your home or office decor with this LEGO Orchid 10311 building kit",
+    "affiliateUrl": "https://link.amazon/B07D65eLR",
+    "priceRange": "",
+    "state": "ACTIVE",
+    "imageUrl": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/commerce/new/2a73baec8f7d04c5.jpg",
+    "title": "Botanicals Orchid - Artificial",
+    "category": "home",
+    "merchant": "link.amazon",
+    "program": "Editorial recommendation",
+    "topic": "home",
+    "subtopic": "Storage & Organization",
+    "currency": "USD",
+    "offerType": "physical",
+    "status": "ACTIVE",
+    "eligibleForStore": true,
+    "eligibleForPicks": true,
+    "eligibleForGuides": true,
+    "images": [
+      {
+        "url": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/commerce/new/2a73baec8f7d04c5.jpg",
+        "alt": "Botanicals Orchid - Artificial",
+        "isPrimary": true,
+        "displayOrder": 0
+      }
+    ],
+    "defaultCtaText": "View recommendation",
+    "createdAt": "2026-11-17T13:28:47.829Z",
+    "updatedAt": "2026-11-17T13:28:47.829Z"
+  },
+  {
+    "id": "govee-lantern-floor-lamp",
+    "brand": "Govee ",
+    "name": "Govee Lantern Floor Lamp",
+    "description": "Halo Gradient RGBIC Smart Corner Lamp for Bedroom LuminBlend+, 1000K-10000K, Matter Compatible, 100+ Scene Modes, Music Sync, 1400lm, Modern Floor Lamps for Living Room",
+    "editorialNote": "Unique Halo Gradient Lighting: Powered by LuminBlend+, Govee Floor Lamp delivers precise color. A 4-layer strip with 3 IC beads casts soft multi-ring glow through silicone shade—perfect for playful Dopamine style in living room, kids' room, or as LED lights for bedroom.",
+    "affiliateUrl": "https://link.amazon/B06mHNX9O",
+    "priceRange": "",
+    "state": "ACTIVE",
+    "imageUrl": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/commerce/new/d92e7a69619ce76b.jpg",
+    "title": "Govee Lantern Floor Lamp",
+    "category": "home",
+    "merchant": "link.amazon",
+    "program": "Editorial recommendation",
+    "topic": "home",
+    "subtopic": "Storage & Organization",
+    "currency": "USD",
+    "offerType": "physical",
+    "status": "ACTIVE",
+    "eligibleForStore": true,
+    "eligibleForPicks": true,
+    "eligibleForGuides": true,
+    "images": [
+      {
+        "url": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/commerce/new/d92e7a69619ce76b.jpg",
+        "alt": "Govee Lantern Floor Lamp",
+        "isPrimary": true,
+        "displayOrder": 0
+      }
+    ],
+    "defaultCtaText": "View recommendation",
+    "createdAt": "2026-11-17T13:32:17.624Z",
+    "updatedAt": "2026-11-17T13:32:17.624Z"
   }
 ]
