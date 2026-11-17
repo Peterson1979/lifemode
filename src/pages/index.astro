@@ -49,7 +49,8 @@ const resourceCards = [
     href: '/tools/',
     icon: '🛠️',
     badge: 'Interactive Decision Helpers',
-    image: null,
+    image: '/images/home/smart-tools-card.jpg',
+    imageAlt: 'LifeMode Smart Tools and Interactive Decision Helpers',
   },
   {
     title: 'Printable Checklists',
@@ -57,7 +58,8 @@ const resourceCards = [
     href: '/checklists/',
     icon: '📋',
     badge: 'Print-Friendly Routines',
-    image: null,
+    image: '/images/home/printable-checklist-card.jpg',
+    imageAlt: 'LifeMode Printable Checklists and Home Maintenance Routines',
   },
   {
     title: 'Life Hacks',
@@ -66,6 +68,7 @@ const resourceCards = [
     icon: '🎬',
     badge: 'Video Solutions',
     image: featuredLifeHack?.thumbnail || null,
+    imageAlt: 'LifeMode Life Hacks Video Solutions',
   },
 ];
 
@@ -247,7 +250,7 @@ const featuredStoreProducts = storeOffers.slice(0, 3);
           <a href={res.href} class="resource-card">
             {res.image ? (
               <div class="resource-img-wrap">
-                <img src={res.image} alt={res.title} class="resource-card-img" loading="lazy" decoding="async" />
+                <img src={res.image} alt={res.imageAlt || res.title} class="resource-card-img" loading="lazy" decoding="async" />
                 <span class="resource-img-badge">{res.badge}</span>
               </div>
             ) : (
