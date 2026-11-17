@@ -204,14 +204,19 @@ const breadcrumbSchema = generateBreadcrumbSchema([
     background-color: var(--color-surface-subtle);
     margin-bottom: var(--space-4);
     border: 1px solid var(--color-border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .item-image {
     width: 100%;
     height: 100%;
     max-width: 100%;
+    max-height: 100%;
     display: block;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
     transition: transform var(--transition-base);
   }
 

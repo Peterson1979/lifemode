@@ -30,6 +30,6 @@ test('Daily Ideas disclosure is consolidated below the product grid and cards co
   assert.equal((source.match(/class="affiliate-disclosure"/g) || []).length, 2);
   assert.match(source, /As an Amazon Associate I earn from qualifying purchases\./);
   assert.match(source, /aspect-ratio: 16 \/ 10/);
-  assert.match(source, /object-fit: cover/);
+  assert.match(source, /object-fit: contain/);
   assert.match(source, /minmax\(min\(100%, 320px\), 1fr\)/);
 });

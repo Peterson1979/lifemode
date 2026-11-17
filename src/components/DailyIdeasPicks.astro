@@ -264,12 +264,19 @@ if (!products || products.length === 0) {
     background-color: var(--color-surface-subtle);
     margin-bottom: var(--space-3);
     border: 1px solid var(--color-border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .item-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: center;
     transition: transform var(--transition-fast);
   }
 
