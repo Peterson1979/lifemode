@@ -168,18 +168,22 @@ function getTypeBadge(type?: string): string {
             return (
               <article class="picks-feature-card">
                 {article.data.image ? (
-                  <a href={`/picks/articles/${slug}/`} class="feature-card-img-wrap" tabindex="-1" aria-hidden="true">
-                    <img
-                      src={article.data.image}
-                      alt={article.data.imageAlt || article.data.title}
-                      class="feature-card-img"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </a>
+                  <div class="feature-card-img-wrap">
+                    <a href={`/picks/articles/${slug}/`} tabindex="-1" aria-hidden="true">
+                      <img
+                        src={article.data.image}
+                        alt={article.data.imageAlt || article.data.title}
+                        class="feature-card-img"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </a>
+                  </div>
                 ) : (
                   <div class="feature-card-img-wrap feature-card-img-fallback" aria-hidden="true">
-                    <span class="feature-card-fallback-icon">📖</span>
+                    <a href={`/picks/articles/${slug}/`} tabindex="-1" aria-hidden="true">
+                      <span class="feature-card-fallback-icon">📖</span>
+                    </a>
                   </div>
                 )}
                 <div class="feature-card-content">
