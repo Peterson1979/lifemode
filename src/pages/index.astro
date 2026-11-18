@@ -41,9 +41,9 @@ const categoryCards = guideCategories.map((cat) => {
 });
 
 // 3. Practical Resources: Tools, Checklists, Life Hacks
-// Card image assignments:
-// - Smart Tools: /images/home/smart-tools-card.jpg
-// - Printable Checklists: /images/home/printable-checklist-card.jpg
+// Card image assignments (versioned for reliable cache-busting):
+// - Smart Tools: /images/home/smart-tools-card-v2.jpg
+// - Printable Checklists: /images/home/printable-checklist-card-v2.jpg
 const featuredLifeHack = LIFE_HACK_VIDEOS.find((v) => !v.hidden && v.thumbnail);
 const resourceCards = [
   {
@@ -52,7 +52,7 @@ const resourceCards = [
     href: '/tools/',
     icon: '🛠️',
     badge: 'Interactive Decision Helpers',
-    image: '/images/home/smart-tools-card.jpg',
+    image: '/images/home/smart-tools-card-v2.jpg',
     imageAlt: 'LifeMode Smart Tools and Interactive Decision Helpers',
   },
   {
@@ -61,7 +61,7 @@ const resourceCards = [
     href: '/checklists/',
     icon: '📋',
     badge: 'Print-Friendly Routines',
-    image: '/images/home/printable-checklist-card.jpg',
+    image: '/images/home/printable-checklist-card-v2.jpg',
     imageAlt: 'LifeMode Printable Checklists and Home Maintenance Routines',
   },
   {
