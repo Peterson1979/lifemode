@@ -1746,5 +1746,39 @@
     "defaultCtaText": "View recommendation",
     "createdAt": "2026-11-18T11:20:14.299Z",
     "updatedAt": "2026-11-18T11:20:14.299Z"
+  },
+  {
+    "id": "needoh-nice-cube",
+    "brand": "Schylling ",
+    "name": "NeeDoh Nice Cube ",
+    "description": "Schylling NeeDoh Nice Cube - Sensory Squeeze Toy with Super Solid Squish - 2.25\" Cube - Color May Vary ",
+    "editorialNote": "Bring chill vibes with you everywhere with a squeeze of the Nice Cube!\nThis squish sensation feels soft when slow squished and firm when fast squished\nSqueeze, stretch, squish, and watch it return to its original shape!\nColor may vary (blue, pink, purple); 1 Nice Cube per order\nMeasures 2.25\" cube. Ages 3+",
+    "affiliateUrl": "https://link.amazon/B0eESOF8y",
+    "priceRange": "",
+    "state": "ACTIVE",
+    "imageUrl": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/commerce/new/c6e541d28fdb8cc5.jpg",
+    "title": "NeeDoh Nice Cube ",
+    "category": "home",
+    "merchant": "link.amazon",
+    "program": "Editorial recommendation",
+    "topic": "home",
+    "subtopic": "Storage & Organization",
+    "currency": "USD",
+    "offerType": "physical",
+    "status": "ACTIVE",
+    "eligibleForStore": true,
+    "eligibleForPicks": true,
+    "eligibleForGuides": true,
+    "images": [
+      {
+        "url": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/commerce/new/c6e541d28fdb8cc5.jpg",
+        "alt": "NeeDoh Nice Cube ",
+        "isPrimary": true,
+        "displayOrder": 0
+      }
+    ],
+    "defaultCtaText": "View recommendation",
+    "createdAt": "2026-11-18T14:22:14.299Z",
+    "updatedAt": "2026-11-18T14:22:14.299Z"
   }
 ]
