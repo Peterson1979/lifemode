@@ -35,9 +35,30 @@ const breadcrumbSchema = generateBreadcrumbSchema([
       <h1 class="hero-heading" style="margin-bottom: var(--space-3);">
         Daily Ideas Store
       </h1>
-      <p class="hero-lead" style="max-width: 760px; margin-bottom: var(--space-6);">
-        Curated home, kitchen, storage, style, and living essentials vetted for real-world utility, durability, and value. No sponsored clutter—only items we genuinely recommend.
+      <p class="hero-lead" style="max-width: 760px; margin-bottom: var(--space-4);">
+        Curated home, kitchen, storage, style, and living essentials vetted for real-world utility, durability, and value. No sponsored clutter—only items we genuinely recommend. You can also browse our full collection of recommendations directly on our Amazon Storefront.
       </p>
+      <div class="storefront-action-wrap">
+        <a
+          href="https://a.co/d/09mO6Rcc"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-amazon-storefront"
+          aria-label="Explore Our Amazon Storefront (opens in new tab)"
+        >
+          <svg class="amazon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span>Explore Our Amazon Storefront</span>
+          <svg class="external-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
+          </svg>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -313,5 +334,44 @@ const breadcrumbSchema = generateBreadcrumbSchema([
     background-color: var(--color-primary-accent-hover, #1d4ed8);
     transform: translateY(-1px);
     box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+  }
+
+  .storefront-action-wrap {
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-2);
+  }
+
+  .btn-amazon-storefront {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1.4rem;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border: 1px solid #334155;
+    border-radius: var(--radius-lg, 10px);
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+    transition: all var(--transition-fast, 0.2s ease);
+  }
+
+  .btn-amazon-storefront:hover {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.22);
+  }
+
+  .btn-amazon-storefront .amazon-icon {
+    flex-shrink: 0;
+    color: #f59e0b;
+  }
+
+  .btn-amazon-storefront .external-icon {
+    flex-shrink: 0;
+    opacity: 0.85;
   }
 </style>
