@@ -9,6 +9,9 @@ publishedDate: "2026-11-20"
 updatedDate: "2026-11-20"
 author: "LifeMode Editorial"
 tags: ["food kitchen", "christmas", "holiday cooking", "meal planning"]
+affiliateProducts:
+  - id: "cuisinart-large-stainless-steel-roasting-pan-with-rack"
+  - id: "meat-thermometer-digital"
 draft: false
 lifecycleStatus: "PUBLISHED"
 format: "practical-guide"
