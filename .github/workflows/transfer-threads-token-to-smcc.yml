@@ -1,0 +1,194 @@
+name: Transfer Threads Token to SMCC Vault (One-Time)
+
+on:
+  workflow_dispatch:
+    inputs:
+      endpoint_url:
+        description: 'Target SMCC HTTPS transfer endpoint URL (must end with /api/vault/transfer-threads-token)'
+        required: true
+        type: string
+      ticket_id:
+        description: 'Single-use SMCC transfer ticket ID (UUID from SMCC CLI)'
+        required: true
+        type: string
+
+permissions: {}
+
+concurrency:
+  group: transfer-threads-token-to-smcc
+  cancel-in-progress: false
+
+jobs:
+  transfer-token:
+    name: Transfer Token to SMCC CredentialVault
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Validate Inputs and Secrets
+        shell: bash
+        env:
+          ENDPOINT_URL: ${{ inputs.endpoint_url }}
+          TICKET_ID: ${{ inputs.ticket_id }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          TRANSFER_SECRET: ${{ secrets.TRANSFER_SECRET }}
+        run: |
+          set +x
+          set +v
+
+          # Immediately mask all secrets in the runner
+          echo "::add-mask::$THREADS_ACCESS_TOKEN"
+          echo "::add-mask::$TRANSFER_SECRET"
+
+          # 1. Verify required secrets exist
+          if [ -z "$THREADS_ACCESS_TOKEN" ]; then
+            echo "::error::Required secret THREADS_ACCESS_TOKEN is missing or empty in LifeMode repository secrets."
+            exit 1
+          fi
+
+          if [ -z "$TRANSFER_SECRET" ]; then
+            echo "::error::Required secret TRANSFER_SECRET is missing or empty. Generate it in SMCC via 'npm run vault:transfer-ticket' and configure in LifeMode secrets."
+            exit 1
+          fi
+
+          # 2. Validate ticket ID format (must not be empty)
+          if [ -z "$TICKET_ID" ]; then
+            echo "::error::Input ticket_id is required."
+            exit 1
+          fi
+
+          # 3. Strict URL validation
+          # Enforce HTTPS scheme
+          if [[ ! "$ENDPOINT_URL" =~ ^https:// ]]; then
+            echo "::error::Security violation: endpoint_url must use HTTPS."
+            exit 1
+          fi
+
+          # Disallow user credentials embedded in URL (e.g., https://user:pass@host)
+          if [[ "$ENDPOINT_URL" =~ @ ]]; then
+            echo "::error::Security violation: endpoint_url must not contain embedded user credentials."
+            exit 1
+          fi
+
+          # Disallow query parameters (?key=val)
+          if [[ "$ENDPOINT_URL" =~ \? ]]; then
+            echo "::error::Security violation: endpoint_url must not contain query parameters."
+            exit 1
+          fi
+
+          # Disallow fragment identifiers (#hash)
+          if [[ "$ENDPOINT_URL" =~ \# ]]; then
+            echo "::error::Security violation: endpoint_url must not contain URL fragments."
+            exit 1
+          fi
+
+          # Must match the exact SMCC transfer route path
+          if [[ ! "$ENDPOINT_URL" =~ /api/vault/transfer-threads-token$ ]]; then
+            echo "::error::Security violation: endpoint_url must end with exact path '/api/vault/transfer-threads-token'."
+            exit 1
+          fi
+
+          # Regex check for entire URL structure: https://<hostname>[:<port>]/api/vault/transfer-threads-token
+          if [[ ! "$ENDPOINT_URL" =~ ^https://[a-zA-Z0-9.-]+(:[0-9]+)?/api/vault/transfer-threads-token$ ]]; then
+            echo "::error::Security violation: endpoint_url hostname contains invalid characters."
+            exit 1
+          fi
+
+          echo "Pre-flight validation passed."
+          echo "Target endpoint: $ENDPOINT_URL"
+          echo "Target ticket ID: $TICKET_ID"
+
+      - name: Dispatch Token to SMCC Endpoint
+        shell: bash
+        env:
+          ENDPOINT_URL: ${{ inputs.endpoint_url }}
+          TICKET_ID: ${{ inputs.ticket_id }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          TRANSFER_SECRET: ${{ secrets.TRANSFER_SECRET }}
+          CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+        run: |
+          set +x
+          set +v
+
+          # Re-apply masking in runner environment
+          echo "::add-mask::$THREADS_ACCESS_TOKEN"
+          echo "::add-mask::$TRANSFER_SECRET"
+          if [ -n "$CF_ACCESS_CLIENT_SECRET" ]; then
+            echo "::add-mask::$CF_ACCESS_CLIENT_SECRET"
+          fi
+
+          # Create isolated temporary directory with restricted permissions (0700)
+          PAYLOAD_DIR=$(mktemp -d)
+          chmod 700 "$PAYLOAD_DIR"
+          PAYLOAD_FILE="$PAYLOAD_DIR/payload.json"
+          RESPONSE_FILE="$PAYLOAD_DIR/response.json"
+
+          # Assemble payload using Python from environment variable (never via CLI argument)
+          python3 -c '
+          import os, json
+          data = {
+              "targetAccountId": "sa-threads-lifemodehq",
+              "token": os.environ["THREADS_ACCESS_TOKEN"]
+          }
+          with open("'"$PAYLOAD_FILE"'", "w") as f:
+              json.dump(data, f)
+          '
+          chmod 600 "$PAYLOAD_FILE"
+
+          # Prepare optional Cloudflare Access headers if Service Token is configured
+          CF_HEADER_ARGS=()
+          if [ -n "$CF_ACCESS_CLIENT_ID" ] && [ -n "$CF_ACCESS_CLIENT_SECRET" ]; then
+            CF_HEADER_ARGS=(-H "CF-Access-Client-Id: $CF_ACCESS_CLIENT_ID" -H "CF-Access-Client-Secret: $CF_ACCESS_CLIENT_SECRET")
+          fi
+
+          echo "Sending one-time transfer request to SMCC endpoint..."
+
+          # Single execution (NO automatic retries because the ticket is single-use)
+          HTTP_STATUS=$(curl -s -S -o "$RESPONSE_FILE" -w "%{http_code}" \
+            -X POST "$ENDPOINT_URL" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer $TRANSFER_SECRET" \
+            -H "X-Transfer-Ticket-Id: $TICKET_ID" \
+            "${CF_HEADER_ARGS[@]}" \
+            --data-binary "@$PAYLOAD_FILE" \
+            --max-time 30)
+
+          # Immediate secure erasure of payload file and directory
+          if command -v shred >/dev/null 2>&1; then
+            shred -u "$PAYLOAD_FILE" 2>/dev/null || rm -f "$PAYLOAD_FILE"
+            shred -u "$RESPONSE_FILE" 2>/dev/null || rm -f "$RESPONSE_FILE"
+          else
+            rm -f "$PAYLOAD_FILE" "$RESPONSE_FILE"
+          fi
+          rm -rf "$PAYLOAD_DIR"
+
+          echo "Endpoint response HTTP status: $HTTP_STATUS"
+
+          # Handle outcome based strictly on HTTP status code (never print response bodies)
+          if [ "$HTTP_STATUS" -eq 200 ]; then
+            echo "================================================================================"
+            echo "SUCCESS: LifeMode Threads token transferred and encrypted into SMCC CredentialVault."
+            echo "Ticket has been consumed and invalidated."
+            echo "Action required: Remove the temporary TRANSFER_SECRET from LifeMode secrets."
+            echo "================================================================================"
+            exit 0
+          elif [ "$HTTP_STATUS" -eq 409 ]; then
+            echo "::error::Transfer failed (HTTP 409 Conflict): The transfer ticket was already consumed (replay prevention)."
+            exit 1
+          elif [ "$HTTP_STATUS" -eq 401 ]; then
+            echo "::error::Transfer failed (HTTP 401 Unauthorized): Invalid transfer secret, expired ticket, or unrecognized ticket ID."
+            exit 1
+          elif [ "$HTTP_STATUS" -eq 403 ]; then
+            echo "::error::Transfer failed (HTTP 403 Forbidden): Target account restricted or Cloudflare Access authorization failed."
+            exit 1
+          elif [ "$HTTP_STATUS" -eq 404 ]; then
+            echo "::error::Transfer failed (HTTP 404 Not Found): SMCC transfer endpoint is disabled (set SMCC_ENABLE_TOKEN_TRANSFER=true in SMCC)."
+            exit 1
+          elif [ "$HTTP_STATUS" -eq 413 ]; then
+            echo "::error::Transfer failed (HTTP 413 Payload Too Large): Request payload exceeded 4KB limit."
+            exit 1
+          else
+            echo "::error::Transfer failed with unexpected HTTP status $HTTP_STATUS."
+            exit 1
+          fi
