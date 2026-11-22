@@ -1,0 +1,146 @@
+name: Export Encrypted Threads Token (One-Time)
+
+# Strictly manually triggered one-time artifact export for SMCC CredentialVault import.
+# Cannot run automatically (no schedule, no push, no pull_request triggers).
+
+on:
+  workflow_dispatch:
+    inputs:
+      public_key:
+        description: 'Temporary SMCC Public Key (single-line Base64 or PEM)'
+        required: true
+        type: string
+
+permissions: {}
+
+concurrency:
+  group: export-threads-token-artifact
+  cancel-in-progress: false
+
+jobs:
+  export-token:
+    name: Encrypt and Upload Threads Token
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Encrypt Threads Token with Temporary Public Key
+        shell: bash
+        env:
+          PUBLIC_KEY_INPUT: ${{ inputs.public_key }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          TARGET_ACCOUNT_ID: 'sa-threads-lifemodehq'
+          TARGET_EXTERNAL_USER_ID: '28272717349017680'
+        run: |
+          set +x
+          set +v
+
+          # Immediately mask the token in GitHub Actions runner logs
+          echo "::add-mask::$THREADS_ACCESS_TOKEN"
+
+          # 1. Preflight checks
+          if [ -z "$THREADS_ACCESS_TOKEN" ]; then
+            echo "::error::THREADS_ACCESS_TOKEN secret is missing or empty in LifeMode repository secrets."
+            exit 1
+          fi
+
+          if [ -z "$PUBLIC_KEY_INPUT" ]; then
+            echo "::error::public_key input is required."
+            exit 1
+          fi
+
+          # 2. Run inline node script to perform hybrid encryption in-memory
+          node -e '
+          const crypto = require("node:crypto");
+          const fs = require("node:fs");
+
+          let rawKey = (process.env.PUBLIC_KEY_INPUT || "").trim();
+          const token = (process.env.THREADS_ACCESS_TOKEN || "").trim();
+          const targetAccountId = process.env.TARGET_ACCOUNT_ID;
+          const targetExternalUserId = process.env.TARGET_EXTERNAL_USER_ID;
+
+          // Resolve PEM public key (support standard PEM, escaped newlines, or Base64)
+          if (rawKey.includes("\\n")) {
+            rawKey = rawKey.replace(/\\n/g, "\n");
+          }
+
+          let publicKeyPem = rawKey;
+          if (!publicKeyPem.includes("BEGIN PUBLIC KEY")) {
+            try {
+              const decoded = Buffer.from(rawKey, "base64").toString("utf8");
+              if (decoded.includes("BEGIN PUBLIC KEY")) {
+                publicKeyPem = decoded;
+              }
+            } catch (err) {}
+          }
+
+          if (!publicKeyPem.includes("BEGIN PUBLIC KEY")) {
+            console.error("::error::Invalid public key format. Must be PEM format or Base64-encoded PEM.");
+            process.exit(1);
+          }
+
+          // Validate public key and compute SHA-256 fingerprint
+          let pubKeyObj;
+          try {
+            pubKeyObj = crypto.createPublicKey(publicKeyPem);
+          } catch (err) {
+            console.error("::error::Failed to parse public key: " + err.message);
+            process.exit(1);
+          }
+
+          const spkiDer = pubKeyObj.export({ type: "spki", format: "der" });
+          const fingerprint = crypto.createHash("sha256").update(spkiDer).digest("hex");
+
+          // Generate one-time symmetric AES-256 key and 12-byte IV
+          const aesKey = crypto.randomBytes(32);
+          const iv = crypto.randomBytes(12);
+
+          // Construct payload and encrypt with AES-256-GCM
+          const payload = JSON.stringify({
+            token,
+            targetAccountId,
+            targetExternalUserId,
+            timestamp: new Date().toISOString(),
+          });
+
+          const cipher = crypto.createCipheriv("aes-256-gcm", aesKey, iv);
+          const ciphertext = Buffer.concat([cipher.update(payload, "utf8"), cipher.final()]);
+          const tag = cipher.getAuthTag();
+
+          // Encrypt AES key using RSA-OAEP with SHA-256
+          const encryptedKey = crypto.publicEncrypt(
+            {
+              key: publicKeyPem,
+              padding: crypto.constants.RSA_PKCS1_OAEP_PADDING,
+              oaepHash: "sha256",
+            },
+            aesKey
+          );
+
+          // Build envelope JSON
+          const envelope = {
+            version: "1.0",
+            algorithm: "RSA-OAEP-4096+AES-256-GCM",
+            targetAccountId,
+            targetExternalUserId,
+            fingerprint,
+            encryptedKey: encryptedKey.toString("base64"),
+            iv: iv.toString("base64"),
+            tag: tag.toString("base64"),
+            ciphertext: ciphertext.toString("base64"),
+            createdAt: new Date().toISOString(),
+          };
+
+          fs.writeFileSync("encrypted-threads-token.json", JSON.stringify(envelope, null, 2), "utf8");
+          console.log("Token successfully encrypted for account: " + targetAccountId);
+          console.log("Target external user ID: " + targetExternalUserId);
+          console.log("Public key fingerprint (SHA-256): " + fingerprint.slice(0, 16) + "...");
+          '
+
+      - name: Upload Encrypted Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: encrypted-threads-token
+          path: encrypted-threads-token.json
+          retention-days: 1
+          if-no-files-found: error
