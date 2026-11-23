@@ -140,7 +140,7 @@ You do not necessarily need several applications. Start with the task that takes
 
 ## Explore Wondershare Software
 
-![Software tools and digital workspace for development and productivity](/images/guides/software%20development%20workspace.jpg)
+![Software tools and digital workspace for development and productivity](/images/guides/software%20development%20workspace.jpg?v=495ab8e)
 
 Wondershare offers software for video editing, document management, media processing, data recovery and visual planning.
 
