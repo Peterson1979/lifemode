@@ -23,10 +23,10 @@ seoDescription: 'Discover 7 simple home decor ideas to make your space feel more
 canonicalUrl: 'https://lifemode.site/guides/simple-ways-to-make-home-feel-put-together/'
 image: /images/guides/simple-ways-to-make-home-feel-put-together-hero.jpg
 imageAlt: 'Warm, thoughtfully styled living room with neutral furniture, natural textures, and layered lighting.'
-affiliateDisclosure: 'This article contains affiliate links. If you make a purchase through these links, LifeMode may earn a commission at no additional cost to you. We only include links that are relevant to the topic of the article.'
+affiliateDisclosure: 'Affiliate Disclosure: This article contains affiliate links. LifeMode may earn a commission if you make a purchase through them, at no additional cost to you.'
 ---
 
-*This article contains affiliate links. If you make a purchase through these links, LifeMode may earn a commission at no additional cost to you. We only include links that are relevant to the topic of the article.*
+*Affiliate Disclosure: This article contains affiliate links. LifeMode may earn a commission if you make a purchase through them, at no additional cost to you.*
 
 A home doesn't need expensive furniture, a complete renovation, or a perfectly coordinated interior to feel beautiful.
 
@@ -164,9 +164,3 @@ When you're ready to add something new, choose pieces that serve a purpose and f
 For furniture, home decor, lighting, and everyday home essentials, [explore Crate & Barrel](https://mavely.app.link/O4sS7mYZi8b) and look for items that work with your existing style.
 
 A few thoughtful changes can make an everyday space feel significantly more inviting.
-
-<hr style="margin: 2.5rem 0 1.5rem;" />
-
-### Affiliate Disclosure
-
-This article contains affiliate links. If you make a purchase through these links, LifeMode may earn a commission at no additional cost to you. We only include links that are relevant to the topic of the article.
