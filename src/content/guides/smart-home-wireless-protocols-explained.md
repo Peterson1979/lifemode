@@ -5,7 +5,7 @@ pubDate: '2026-11-09'
 draft: false
 lifecycleStatus: PUBLISHED
 format: practical-guide
-category: smart-home
+category: home-garden
 primaryIntent: informational
 contentType: explainer
 difficulty: Easy
@@ -230,4 +230,4 @@ Wi-Fi provides familiar network connectivity. Zigbee and Thread offer low-power 
 
 For a new installation, Matter and Thread support can provide useful flexibility. For an existing system, Zigbee may remain the most practical option.
 
-The best approach is not necessarily to choose one protocol for everything. It is to select devices and hubs that work together reliably and support the features you actually need. Explore our [Smart Home Hub](/smart-home/) for more practical guides and setup tips.
+The best approach is not necessarily to choose one protocol for everything. It is to select devices and hubs that work together reliably and support the features you actually need. Explore our [Home & Garden hub](/home-garden/) for more practical guides and setup tips.

@@ -2,7 +2,7 @@
 title: "Laundry Care & Fabric Sorting Cheat Sheet"
 seoTitle: "Laundry Care Cheat Sheet: Temperature, Sorting & Care Symbol Guide"
 seoDescription: "Printable laundry care cheat sheet. Master fabric sorting, detergent dosage, washing machine temperatures, and care label symbols."
-category: "cleaning-laundry"
+category: "home-garden"
 summary: "Quick-reference sorting rules, wash temperatures, cycle selections, and detergent dosage guidelines to prevent shrinking and color bleeding."
 estimatedTime: "5 mins per load"
 printSubtitle: "Laundry Sorting & Temperature Cheat Sheet"

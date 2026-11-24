@@ -101,7 +101,7 @@ test('publishGuide dryRun mode validates and prepares markdown without git commi
   const guide: GuideData = {
     title: 'Complete Winterization Checklist and Guide',
     slug: 'test-dry-run-winterization-guide',
-    category: 'home-maintenance',
+    category: 'home-garden',
     description: 'A comprehensive step-by-step framework to prepare household plumbing and insulation for winter.',
     content: '## Insulation & Pipes\nInsulate all exterior bibs and unheated basements before freezing temperatures arrive.\n\n## Windows\nCheck weatherstripping on all double-hung windows.',
   };

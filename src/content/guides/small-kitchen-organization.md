@@ -6,7 +6,7 @@ author: LifeMode Editorial
 tags: []
 draft: false
 format: practical-guide
-category: home-organization
+category: home-garden
 primaryIntent: informational
 primaryKeyword: small kitchen organization
 readingTime: 19 min read

@@ -321,10 +321,6 @@ const tools = defineCollection({
     seoDescription: z.string().optional(),
     category: z.enum([
       'food-kitchen',
-      'home-maintenance',
-      'cleaning-laundry',
-      'home-organization',
-      'smart-home',
       'home-garden',
       'storage-organization',
       'everyday-how-to',
@@ -356,10 +352,6 @@ const checklists = defineCollection({
     seoDescription: z.string().optional(),
     category: z.enum([
       'food-kitchen',
-      'home-maintenance',
-      'cleaning-laundry',
-      'home-organization',
-      'smart-home',
       'home-garden',
       'storage-organization',
       'everyday-how-to',

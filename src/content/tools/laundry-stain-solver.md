@@ -2,7 +2,7 @@
 title: "Laundry Stain Solver & Fabric Care Finder"
 seoTitle: "Laundry Stain Solver: Evidence-Based Fabric Stain Removal Tool"
 seoDescription: "Free interactive stain solver. Select your stain type and fabric to get the exact water temperature, chemical agents, and step-by-step removal protocols."
-category: "cleaning-laundry"
+category: "home-garden"
 toolType: "stain-solver"
 summary: "Instant, evidence-based chemistry protocols to remove coffee, wine, oil, blood, ink, and protein stains from delicate and everyday fabrics."
 instructions: "Select the stain substance, your garment's fabric type, and the stain's age. Follow the step-by-step protocol before applying any machine heat."

@@ -5,7 +5,7 @@ pubDate: '2026-11-18'
 draft: false
 lifecycleStatus: PUBLISHED
 format: practical-guide
-category: smart-home
+category: home-garden
 primaryIntent: informational
 contentType: explainer
 difficulty: Easy

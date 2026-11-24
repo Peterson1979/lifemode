@@ -122,7 +122,7 @@ test('Checklists CMS: loads checklist detail with sections & tasks and validates
   const checklist = await getPublishedChecklist('kitchen-deep-clean-checklist');
   assert.ok(checklist, 'Kitchen checklist must be loaded');
   assert.equal(checklist.slug, 'kitchen-deep-clean-checklist');
-  assert.equal(checklist.category, 'cleaning-laundry');
+  assert.equal(checklist.category, 'home-garden');
   assert.ok(checklist.sections.length >= 3, 'Must have at least 3 sections');
 
   const firstSec = checklist.sections[0];
@@ -139,7 +139,7 @@ test('Checklists CMS: formats markdown with nested sections and dry-run publish 
   const sampleChecklist: ChecklistData = {
     title: 'Spring Deep Cleaning Protocol Checklist',
     slug: 'spring-deep-cleaning-protocol-checklist',
-    category: 'cleaning-laundry',
+    category: 'home-garden',
     summary: 'Comprehensive seasonal spring cleaning protocol covering windows, carpets, upholstery, and air handling filters.',
     estimatedTime: '4 hours',
     printSubtitle: 'Printable Spring Cleaning Framework',
@@ -174,7 +174,7 @@ test('Checklists CMS: structured preview generator mirrors interactive component
   const sampleChecklist: ChecklistData = {
     title: 'Preview Verification Checklist',
     slug: 'preview-verify',
-    category: 'home-maintenance',
+    category: 'home-garden',
     summary: 'A short summary for testing preview markup generation.',
     estimatedTime: '45 mins',
     sections: [

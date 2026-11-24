@@ -2,7 +2,7 @@
 title: "Master Kitchen Deep Clean & Sanitation Checklist"
 seoTitle: "Kitchen Deep Clean Checklist: Printable Step-by-Step Sanitation Guide"
 seoDescription: "Comprehensive, printable kitchen deep clean checklist covering ovens, range hoods, refrigerator coils, dishwasher filters, and cutting boards."
-category: "cleaning-laundry"
+category: "home-garden"
 summary: "A systematic top-to-bottom kitchen sanitation framework with appliance maintenance checks, biofilm removal, and food contact safety."
 estimatedTime: "2.5 to 3 hours"
 printSubtitle: "Complete Kitchen Deep Sanitation Protocol"

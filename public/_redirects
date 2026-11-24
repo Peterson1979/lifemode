@@ -1,0 +1,15 @@
+# Permanent redirects for consolidated home categories (Cloudflare Pages compatible)
+/home-maintenance    /home-garden/    301
+/home-maintenance/   /home-garden/    301
+/cleaning-laundry    /home-garden/    301
+/cleaning-laundry/   /home-garden/    301
+/home-organization   /home-garden/    301
+/home-organization/  /home-garden/    301
+/smart-home          /home-garden/    301
+/smart-home/         /home-garden/    301
+
+# Legacy category aliases
+/storage-organization   /home-garden/   301
+/storage-organization/  /home-garden/   301
+/everyday-how-to        /home-garden/   301
+/everyday-how-to/       /home-garden/   301

@@ -9,8 +9,14 @@ export default defineConfig({
   integrations: [mdx(), sitemap()],
   output: 'static',
   redirects: {
-    '/storage-organization': '/home-organization',
-    '/everyday-how-to': '/home-maintenance',
+    // Consolidated home categories (permanent redirects to Home & Garden)
+    '/home-maintenance': '/home-garden',
+    '/cleaning-laundry': '/home-garden',
+    '/home-organization': '/home-garden',
+    '/smart-home': '/home-garden',
+    // Legacy category aliases
+    '/storage-organization': '/home-garden',
+    '/everyday-how-to': '/home-garden',
   },
   markdown: {
     shikiConfig: {

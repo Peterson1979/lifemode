@@ -1,19 +1,11 @@
 export type GuideCategory =
   | 'food-kitchen'
-  | 'home-maintenance'
-  | 'cleaning-laundry'
-  | 'home-organization'
-  | 'smart-home'
   | 'home-garden'
   | 'health-wellness'
   | 'fitness-active-living';
 
 export const VALID_GUIDE_CATEGORIES: GuideCategory[] = [
   'food-kitchen',
-  'home-maintenance',
-  'cleaning-laundry',
-  'home-organization',
-  'smart-home',
   'home-garden',
   'health-wellness',
   'fitness-active-living',
@@ -44,20 +36,12 @@ export interface GuideData {
 
 export type ToolCategory =
   | 'food-kitchen'
-  | 'home-maintenance'
-  | 'cleaning-laundry'
-  | 'home-organization'
-  | 'smart-home'
   | 'home-garden'
   | 'storage-organization'
   | 'everyday-how-to';
 
 export const VALID_TOOL_CATEGORIES: ToolCategory[] = [
   'food-kitchen',
-  'home-maintenance',
-  'cleaning-laundry',
-  'home-organization',
-  'smart-home',
   'home-garden',
   'storage-organization',
   'everyday-how-to',
@@ -106,20 +90,12 @@ export interface ToolData {
 
 export type ChecklistCategory =
   | 'food-kitchen'
-  | 'home-maintenance'
-  | 'cleaning-laundry'
-  | 'home-organization'
-  | 'smart-home'
   | 'home-garden'
   | 'storage-organization'
   | 'everyday-how-to';
 
 export const VALID_CHECKLIST_CATEGORIES: ChecklistCategory[] = [
   'food-kitchen',
-  'home-maintenance',
-  'cleaning-laundry',
-  'home-organization',
-  'smart-home',
   'home-garden',
   'storage-organization',
   'everyday-how-to',

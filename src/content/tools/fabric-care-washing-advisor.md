@@ -2,7 +2,7 @@
 title: "Fabric Care & Washing Temperature Advisor"
 seoTitle: "Fabric Care & Washing Temperature Advisor: Textile Preservation Tool | LifeMode"
 seoDescription: "Match textile compositions like Merino wool, linen, silk, Supima cotton, and athletic synthetics with optimal wash cycles, temperatures, and detergent chemistry."
-category: "cleaning-laundry"
+category: "home-garden"
 toolType: "fabric-care-advisor"
 summary: "Match natural and synthetic fabrics with scientifically optimal water temperatures, spin agitation speeds, detergent chemistry, and drying protocols."
 instructions: "Select your garment's primary fabric material, clothing type, and cleaning need to view the optimal washing and drying protocol."

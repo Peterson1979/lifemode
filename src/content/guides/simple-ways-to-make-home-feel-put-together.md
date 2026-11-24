@@ -6,7 +6,7 @@ publishedDate: '2026-11-23'
 draft: false
 lifecycleStatus: PUBLISHED
 format: practical-guide
-category: home-organization
+category: home-garden
 primaryIntent: informational
 contentType: explainer
 readingTime: 6 min read

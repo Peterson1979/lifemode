@@ -2,7 +2,7 @@
 title: "Seasonal Home Maintenance Schedule Planner"
 seoTitle: "Seasonal Home Maintenance Planner — Free Custom Task Generator"
 seoDescription: "Generate a custom, printable seasonal preventative maintenance schedule for your home, HVAC, gutters, and appliances."
-category: "home-maintenance"
+category: "home-garden"
 toolType: "maintenance-planner"
 summary: "Customizable preventative upkeep schedules tailored to dwelling type and season. Prevent structural moisture damage and appliance failure."
 instructions: "Select your home type and desired seasonal schedule to generate a prioritized preventative action list with safety rationales and print options."

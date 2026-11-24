@@ -101,8 +101,7 @@ export const PILLARS: Record<string, PillarConfig> = {
     color: '#ea580c', // Terracotta Paprika
     bgLight: 'rgba(234, 88, 12, 0.08)',
     subtopics: [
-      { name: 'Cleaning & Laundry', icon: '✨', description: 'Stain solver chemistry, fabric care protocols & appliance sanitization', slug: 'cleaning-laundry', href: '/cleaning-laundry/' },
-      { name: 'Storage & Organization', icon: '📦', description: 'Small-space systems, modular closet frameworks & spatial decluttering', slug: 'storage-organization', href: '/storage-organization/' },
+      { name: 'Home & Garden', icon: '🌿', description: 'Home maintenance, cleaning, organization, smart home setups & plant care', slug: 'home-garden', href: '/home-garden/' },
     ],
   },
   life: {
@@ -163,38 +162,11 @@ export const PILLARS: Record<string, PillarConfig> = {
     bgLight: 'rgba(234, 88, 12, 0.08)',
     icon: '🍳',
   },
-  'home-maintenance': {
-    name: 'Home Maintenance',
-    slug: 'home-maintenance' as any,
-    tagline: 'Preventive Care, Plumbing & Upkeep Schedules',
-    description: 'Practical DIY repairs, seasonal home inspection schedules, plumbing troubleshooting, and appliance care.',
-    color: '#0284c7',
-    bgLight: 'rgba(2, 132, 199, 0.08)',
-    icon: '🔧',
-  },
-  'home-organization': {
-    name: 'Home Organization',
-    slug: 'home-organization' as any,
-    tagline: 'Small Space Systems & Storage Planning',
-    description: 'Practical spatial organization, modular storage frameworks, closet systems, and pantry organization cheat sheets.',
-    color: '#7c3aed',
-    bgLight: 'rgba(124, 58, 237, 0.08)',
-    icon: '📦',
-  },
-  'smart-home': {
-    name: 'Smart Home',
-    slug: 'smart-home' as any,
-    tagline: 'Everyday Automation, Energy & Connected Living',
-    description: 'Practical home automation, energy-efficient living setups, and smart home reliability guides.',
-    color: '#059669',
-    bgLight: 'rgba(5, 150, 105, 0.08)',
-    icon: '💡',
-  },
   'home-garden': {
     name: 'Home & Garden',
     slug: 'home-garden' as any,
-    tagline: 'Indoor Plants, Outdoor Spaces & Seasonal Living',
-    description: 'Indoor plant care protocols, balcony and garden upkeep, soil health, and outdoor living maintenance.',
+    tagline: 'Home Care, Plants & Seasonal Living',
+    description: 'Home maintenance, cleaning and laundry, organization, smart home setups, indoor plant care, and seasonal outdoor upkeep.',
     color: '#16a34a',
     bgLight: 'rgba(22, 163, 74, 0.08)',
     icon: '🌱',
@@ -214,14 +186,6 @@ export const PILLARS: Record<string, PillarConfig> = {
     description: 'Practical video-first hacks, clever household shortcuts, and smart visual solutions for everyday life.',
     color: '#06b6d4', // Vibrant Cyan / Electric Teal
     bgLight: 'rgba(6, 182, 212, 0.08)',
-  },
-  'cleaning-laundry': {
-    name: 'Cleaning & Laundry',
-    slug: 'cleaning-laundry' as any,
-    tagline: 'Stain Solver & Fabric Science',
-    description: 'Evidence-based stain removal, fabric care, appliance cleaning routines, and non-toxic household cleaning methods.',
-    color: '#2563eb', // Slate Blue
-    bgLight: 'rgba(37, 99, 235, 0.08)',
   },
   'storage-organization': {
     name: 'Storage & Org',
@@ -283,10 +247,6 @@ export const PILLARS: Record<string, PillarConfig> = {
 
 export const APPROVED_EDITORIAL_CATEGORIES = [
   { name: 'Food & Kitchen', href: '/food-kitchen/', slug: 'food-kitchen', color: '#ea580c' },
-  { name: 'Home Maintenance', href: '/home-maintenance/', slug: 'home-maintenance', color: '#0284c7' },
-  { name: 'Cleaning & Laundry', href: '/cleaning-laundry/', slug: 'cleaning-laundry', color: '#2563eb' },
-  { name: 'Home Organization', href: '/home-organization/', slug: 'home-organization', color: '#7c3aed' },
-  { name: 'Smart Home', href: '/smart-home/', slug: 'smart-home', color: '#059669' },
   { name: 'Home & Garden', href: '/home-garden/', slug: 'home-garden', color: '#16a34a' },
   { name: 'Health & Wellness', href: '/health-wellness/', slug: 'health-wellness', color: '#0d9488' },
   { name: 'Fitness & Active Living', href: '/fitness-active-living/', slug: 'fitness-active-living', color: '#dc2626' },

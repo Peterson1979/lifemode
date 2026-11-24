@@ -5,7 +5,7 @@ pubDate: '2026-11-09'
 draft: false
 lifecycleStatus: PUBLISHED
 format: practical-guide
-category: smart-home
+category: home-garden
 primaryIntent: informational
 contentType: protocol
 difficulty: Moderate
@@ -206,4 +206,4 @@ Replacing a traditional thermostat with a Wi-Fi model can improve convenience an
 
 Check the wiring, identify the C-wire, follow the manufacturer's instructions, and use a professional installer if you are not comfortable working with HVAC wiring.
 
-A properly installed smart thermostat should make everyday temperature control simpler without introducing unnecessary complexity. Explore our [Smart Home Hub](/smart-home/) for more practical guides on modern connected home devices.
+A properly installed smart thermostat should make everyday temperature control simpler without introducing unnecessary complexity. Explore our [Home & Garden hub](/home-garden/) for more practical guides on modern connected home devices.

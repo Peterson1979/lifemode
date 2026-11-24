@@ -6,7 +6,7 @@ author: LifeMode Editorial
 tags: []
 draft: false
 format: practical-guide
-category: cleaning-laundry
+category: home-garden
 primaryIntent: informational
 contentType: reference
 difficulty: Easy

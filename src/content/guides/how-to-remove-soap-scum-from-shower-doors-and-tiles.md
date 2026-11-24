@@ -5,7 +5,7 @@ pubDate: '2026-10-29'
 draft: false
 lifecycleStatus: PUBLISHED
 format: practical-guide
-category: cleaning-laundry
+category: home-garden
 primaryIntent: informational
 contentType: reference
 difficulty: Easy

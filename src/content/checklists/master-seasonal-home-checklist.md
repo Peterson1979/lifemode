@@ -2,7 +2,7 @@
 title: "Master Seasonal Home Preventative Checklist"
 seoTitle: "Seasonal Home Maintenance Checklist: Printable 4-Season Guide"
 seoDescription: "The ultimate 4-season home maintenance checklist. Prevent costly repairs with structured tasks for spring, summer, fall, and winter."
-category: "home-maintenance"
+category: "home-garden"
 summary: "An essential seasonal checklist to prevent foundation moisture leaks, HVAC failures, frozen pipes, and hazardous dryer lint fires."
 estimatedTime: "2 hours per season"
 printSubtitle: "Complete 4-Season Home Preservation Checklist"

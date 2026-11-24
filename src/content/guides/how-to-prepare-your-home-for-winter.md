@@ -5,7 +5,7 @@ pubDate: '2026-11-09'
 draft: false
 lifecycleStatus: PUBLISHED
 format: practical-guide
-category: home-maintenance
+category: home-garden
 primaryIntent: informational
 contentType: protocol
 difficulty: Easy
