@@ -289,6 +289,7 @@ export const APPROVED_EDITORIAL_CATEGORIES = [
   { name: 'Smart Home', href: '/smart-home/', slug: 'smart-home', color: '#059669' },
   { name: 'Home & Garden', href: '/home-garden/', slug: 'home-garden', color: '#16a34a' },
   { name: 'Health & Wellness', href: '/health-wellness/', slug: 'health-wellness', color: '#0d9488' },
+  { name: 'Fitness & Active Living', href: '/fitness-active-living/', slug: 'fitness-active-living', color: '#dc2626' },
 ] as const;
 
 export const FUNCTIONAL_NAV_LINKS = [

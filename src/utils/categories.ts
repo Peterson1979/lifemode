@@ -104,6 +104,19 @@ export const CATEGORIES: Record<string, CategoryMeta> = {
     borderColor: '#99f6e4',
     popularTopics: ['Everyday Movement', 'Sleep & Recovery', 'Balanced Eating', 'Stress Management', 'Habit Building'],
   },
+  'fitness-active-living': {
+    id: 'fitness-active-living',
+    slug: 'fitness-active-living',
+    title: 'Fitness & Active Living',
+    shortTitle: 'Fitness & Active Living',
+    description: 'Practical, beginner-friendly fitness guidance for home workouts, strength training, mobility, and building an active routine that fits real life.',
+    metaDescription: 'Beginner-friendly fitness guides for home workouts, bodyweight strength exercises, resistance bands, adjustable dumbbells, and sustainable weekly routines.',
+    icon: '🏋️',
+    badgeColor: '#dc2626', // Active Red
+    lightBg: '#fef2f2',
+    borderColor: '#fecaca',
+    popularTopics: ['Home Workouts', 'Beginner Strength', 'Bodyweight Exercise', 'Mobility & Recovery', 'Active Routines'],
+  },
 };
 
 export const CATEGORY_KEYS = Object.keys(CATEGORIES) as (keyof typeof CATEGORIES)[];
