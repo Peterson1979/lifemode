@@ -1815,5 +1815,141 @@
     "createdAt": "2026-11-19T10:24:25.882Z",
     "updatedAt": "2026-11-19T10:37:00.480Z",
     "imageAlt": "Rechargeable Automatic Stirring Coffee Mug"
+  },
+  {
+    "id": "cuisinart-large-stainless-steel-roasting-pan-with-rack",
+    "brand": "Cuisinart",
+    "name": "Cuisinart Large Stainless Steel Roasting Pan with Rack",
+    "description": "Single-ply roaster pan with rack for turkey, chicken, veggies, prime rib, PFAS free, oven safe 500F, induction\n",
+    "editorialNote": "MADE FOR FAMILY ROASTS — The 16 in. stainless steel roasting pan and removable rack handle holiday birds, large roasts and everyday oven meals. The rack elevates food while the pan collects drippings for gravy or sauces. Backed by a lifetime warranty.",
+    "affiliateUrl": "https://link.amazon/B03L7EgUH",
+    "priceRange": "",
+    "state": "ACTIVE",
+    "imageUrl": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/commerce/new/1ef4a621ab279af4.jpg",
+    "title": "Cuisinart Large Stainless Steel Roasting Pan with Rack",
+    "category": "home",
+    "merchant": "link.amazon",
+    "program": "Editorial recommendation",
+    "topic": "home",
+    "subtopic": "Storage & Organization",
+    "currency": "USD",
+    "offerType": "physical",
+    "status": "ACTIVE",
+    "eligibleForStore": true,
+    "eligibleForPicks": true,
+    "eligibleForGuides": true,
+    "images": [
+      {
+        "url": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/commerce/new/1ef4a621ab279af4.jpg",
+        "alt": "Cuisinart Large Stainless Steel Roasting Pan with Rack",
+        "isPrimary": true,
+        "displayOrder": 0
+      }
+    ],
+    "defaultCtaText": "View recommendation",
+    "createdAt": "2026-11-20T15:32:36.337Z",
+    "updatedAt": "2026-11-20T15:32:36.337Z"
+  },
+  {
+    "id": "meat-thermometer-digital",
+    "brand": "Alpha Grillers ",
+    "name": "Meat Thermometer Digital",
+    "description": "1-2 Second Ultra-Fast Response Time, Bright Backlit Display, Waterproof (IP67), Pre-Calibrated & Ready to Use",
+    "editorialNote": "Instant Read Meat Thermometer | Our instant read thermometer features a temperature probe and advanced, highly accurate technology with a 1-2 second response time. Our instant read food thermometer comes pre-calibrated with instructions and a meat temperature chart, plus a recalibration feature if needed.",
+    "affiliateUrl": "https://link.amazon/B0aG8zKkS",
+    "priceRange": "",
+    "state": "ACTIVE",
+    "imageUrl": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/commerce/new/c47d36d2f63199e0.jpg",
+    "title": "Meat Thermometer Digital",
+    "category": "home",
+    "merchant": "link.amazon",
+    "program": "Editorial recommendation",
+    "topic": "home",
+    "subtopic": "Storage & Organization",
+    "currency": "USD",
+    "offerType": "physical",
+    "status": "ACTIVE",
+    "eligibleForStore": true,
+    "eligibleForPicks": true,
+    "eligibleForGuides": true,
+    "images": [
+      {
+        "url": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/commerce/new/c47d36d2f63199e0.jpg",
+        "alt": "Meat Thermometer Digital",
+        "isPrimary": true,
+        "displayOrder": 0
+      }
+    ],
+    "defaultCtaText": "View recommendation",
+    "createdAt": "2026-11-20T15:38:29.638Z",
+    "updatedAt": "2026-11-20T15:38:29.638Z"
+  },
+  {
+    "id": "stanley",
+    "brand": "STANLEY",
+    "name": "STANLEY",
+    "description": "Removable Top for Adding Ice | Leakproof Water Bottle| Slim Design for Travel & Gym | Insulated Stainless Steel | BPA-Free\n",
+    "editorialNote": "SLIM DESIGN CONVENIENCE: Effortlessly slip this slim travel water bottle into your bag or backpack, making hydration on-the-go a breeze without the added bulk of traditional water bottles. Its sleek and compact profile ensures it fits perfectly in most cup holders, making it ideal for daily commutes or outdoor adventures. Whether you're headed to work, the gym, or a hike, this bottle is designed for convenience",
+    "affiliateUrl": "https://link.amazon/B0hsdcVQr",
+    "priceRange": "",
+    "state": "ACTIVE",
+    "imageUrl": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/commerce/new/a904cf7f39c6258c.jpg",
+    "title": "STANLEY",
+    "category": "home",
+    "merchant": "link.amazon",
+    "program": "Editorial recommendation",
+    "topic": "home",
+    "subtopic": "Storage & Organization",
+    "currency": "USD",
+    "offerType": "physical",
+    "status": "ACTIVE",
+    "eligibleForStore": true,
+    "eligibleForPicks": true,
+    "eligibleForGuides": true,
+    "images": [
+      {
+        "url": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/commerce/new/a904cf7f39c6258c.jpg",
+        "alt": "STANLEY",
+        "isPrimary": true,
+        "displayOrder": 0
+      }
+    ],
+    "defaultCtaText": "View recommendation",
+    "createdAt": "2026-11-24T13:06:34.454Z",
+    "updatedAt": "2026-11-24T13:06:34.454Z"
+  },
+  {
+    "id": "gaiam-premium-yoga-mat",
+    "brand": "Gaiam",
+    "name": "Gaiam Premium Yoga Mat",
+    "description": "Gaiam Premium Yoga Mat, 6mm Thick Print Mat\nPremium 6mm thick cushioning for joint support. Non-slip print design for yoga, Pilates & floor workouts.",
+    "editorialNote": "6mm Thick Print Mat\nPremium 6mm thick cushioning for joint support. Non-slip print design for yoga, Pilates & floor workouts.",
+    "affiliateUrl": "https://link.amazon/B094ORhNJ",
+    "priceRange": "",
+    "state": "ACTIVE",
+    "imageUrl": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/commerce/new/b4addfcd056a6206.jpg",
+    "title": "Gaiam Premium Yoga Mat",
+    "category": "home",
+    "merchant": "link.amazon",
+    "program": "Editorial recommendation",
+    "topic": "home",
+    "subtopic": "Storage & Organization",
+    "currency": "USD",
+    "offerType": "physical",
+    "status": "ACTIVE",
+    "eligibleForStore": true,
+    "eligibleForPicks": true,
+    "eligibleForGuides": true,
+    "images": [
+      {
+        "url": "https://pub-8fcd679c40fd4aaa851f6ee7cdd4d083.r2.dev/commerce/new/b4addfcd056a6206.jpg",
+        "alt": "Gaiam Premium Yoga Mat",
+        "isPrimary": true,
+        "displayOrder": 0
+      }
+    ],
+    "defaultCtaText": "View recommendation",
+    "createdAt": "2026-11-24T13:15:26.321Z",
+    "updatedAt": "2026-11-24T13:15:26.321Z"
   }
 ]
