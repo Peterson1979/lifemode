@@ -91,6 +91,19 @@ export const CATEGORIES: Record<string, CategoryMeta> = {
     borderColor: '#bbf7d0',
     popularTopics: ['Indoor Houseplant Care', 'Container Gardening', 'Patio & Deck Maintenance', 'Seasonal Lawn Care', 'Outdoor Living'],
   },
+  'health-wellness': {
+    id: 'health-wellness',
+    slug: 'health-wellness',
+    title: 'Health & Wellness',
+    shortTitle: 'Health & Wellness',
+    description: 'Practical, evidence-informed guidance for everyday movement, sleep, balanced eating, stress management, and sustainable self-care routines.',
+    metaDescription: 'Practical wellness guides for everyday movement, sleep, balanced meals, hydration, stress management, and building healthier daily routines.',
+    icon: '💚',
+    badgeColor: '#0d9488', // Teal
+    lightBg: '#f0fdfa',
+    borderColor: '#99f6e4',
+    popularTopics: ['Everyday Movement', 'Sleep & Recovery', 'Balanced Eating', 'Stress Management', 'Habit Building'],
+  },
 };
 
 export const CATEGORY_KEYS = Object.keys(CATEGORIES) as (keyof typeof CATEGORIES)[];

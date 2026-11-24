@@ -4,7 +4,8 @@ export type GuideCategory =
   | 'cleaning-laundry'
   | 'home-organization'
   | 'smart-home'
-  | 'home-garden';
+  | 'home-garden'
+  | 'health-wellness';
 
 export const VALID_GUIDE_CATEGORIES: GuideCategory[] = [
   'food-kitchen',
@@ -13,6 +14,7 @@ export const VALID_GUIDE_CATEGORIES: GuideCategory[] = [
   'home-organization',
   'smart-home',
   'home-garden',
+  'health-wellness',
 ];
 
 export interface GuideData {

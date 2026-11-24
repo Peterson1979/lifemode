@@ -288,6 +288,7 @@ export const APPROVED_EDITORIAL_CATEGORIES = [
   { name: 'Home Organization', href: '/home-organization/', slug: 'home-organization', color: '#7c3aed' },
   { name: 'Smart Home', href: '/smart-home/', slug: 'smart-home', color: '#059669' },
   { name: 'Home & Garden', href: '/home-garden/', slug: 'home-garden', color: '#16a34a' },
+  { name: 'Health & Wellness', href: '/health-wellness/', slug: 'health-wellness', color: '#0d9488' },
 ] as const;
 
 export const FUNCTIONAL_NAV_LINKS = [
