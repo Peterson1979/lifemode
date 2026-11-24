@@ -138,6 +138,16 @@ Bands are widely available as sets with several resistance levels. If you are st
     <span class="product-asin">ASIN: B01AVDVHTI</span>
   </div>
   <div class="product-callout-body">
+    <div class="product-image-container">
+      <a href="https://link.amazon/B0eYg7kHV" target="_blank" rel="nofollow noopener sponsored" class="product-image-link" aria-label="View Fit Simplify Resistance Loop Exercise Bands – Set of 5 on Amazon">
+        <img
+          src="/images/products/fit-simplify-resistance-loop-bands.jpg"
+          alt="Fit Simplify Resistance Loop Exercise Bands set of five in assorted colors with a carry bag"
+          class="product-callout-img"
+          loading="lazy"
+        />
+      </a>
+    </div>
     <div class="product-info-container">
       <h4 class="product-title">Fit Simplify Resistance Loop Exercise Bands – Set of 5</h4>
       <p class="product-description">A set of five resistance loop bands with multiple resistance levels, suitable for beginner strength exercises, stretching, and compact home workouts.</p>
@@ -172,6 +182,16 @@ The <a href="https://link.amazon/B08j0igIJ" target="_blank" rel="nofollow noopen
     <span class="product-asin">ASIN: B0FRNG2N5H</span>
   </div>
   <div class="product-callout-body">
+    <div class="product-image-container">
+      <a href="https://link.amazon/B08j0igIJ" target="_blank" rel="nofollow noopener sponsored" class="product-image-link" aria-label="View Bowflex SelectTech Adjustable Dumbbells on Amazon">
+        <img
+          src="/images/products/bowflex-selecttech-adjustable-dumbbells.jpg"
+          alt="Bowflex SelectTech adjustable dumbbells pair resting in their storage trays"
+          class="product-callout-img"
+          loading="lazy"
+        />
+      </a>
+    </div>
     <div class="product-info-container">
       <h4 class="product-title">Bowflex SelectTech Adjustable Dumbbells</h4>
       <p class="product-description">An adjustable dumbbell system designed to let you change resistance between exercises and gradually progress at home without a full set of fixed weights.</p>
