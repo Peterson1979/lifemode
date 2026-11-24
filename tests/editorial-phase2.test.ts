@@ -79,7 +79,7 @@ test('Tools CMS: draft lifecycle (save, reopen, edit, delete)', async () => {
   const draft = await saveDraft({
     contentType: 'tool',
     title: 'Temporary Tool Draft Test',
-    category: 'smart-home',
+    category: 'home-garden',
     toolType: 'maintenance-planner',
     summary: 'A temporary tool draft created during Phase 2 automated test.',
     content: '## Draft Content\nTesting tool draft storage.',
@@ -88,6 +88,13 @@ test('Tools CMS: draft lifecycle (save, reopen, edit, delete)', async () => {
   assert.ok(draft.id);
   assert.equal(draft.contentType, 'tool');
   assert.equal(draft.slug, 'temporary-tool-draft-test');
+
+  // Verify legacy home category normalization to home-garden
+  const { normalizePillar } = await import('../src/lib/editorial/normalization.ts');
+  assert.equal(normalizePillar('home-maintenance'), 'home');
+  assert.equal(normalizePillar('cleaning-laundry'), 'home');
+  assert.equal(normalizePillar('home-organization'), 'home');
+  assert.equal(normalizePillar('smart-home'), 'home');
 
   const fetched = await getDraft(draft.id);
   assert.ok(fetched);

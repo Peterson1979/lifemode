@@ -72,8 +72,8 @@ export async function saveDraft(input: Partial<CmsDraftItem>): Promise<CmsDraftI
     contentType === 'tool'
       ? 'food-kitchen'
       : contentType === 'checklist'
-      ? 'cleaning-laundry'
-      : 'home-maintenance';
+      ? 'home-garden'
+      : 'home-garden';
 
   const draft: CmsDraftItem = {
     ...(existing || {}),

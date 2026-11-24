@@ -31,6 +31,7 @@ export const LEGACY_PILLAR_MAP: Record<string, ActivePillarSlug> = {
   'home-maintenance': 'home',
   'storage-organization': 'home',
   'everyday-how-to': 'life',
+  'home-garden': 'home',
 };
 
 /**
@@ -316,7 +317,7 @@ export interface GuideRouting {
  * Public sections for guides on LifeMode.
  * Supported public sections include '/food-kitchen', '/guides', and '/home-maintenance'.
  */
-export const GUIDE_PUBLIC_SECTIONS = ['food-kitchen', 'guides', 'home-maintenance'] as const;
+export const GUIDE_PUBLIC_SECTIONS = ['everyday-how-to', 'food-kitchen', 'cleaning-laundry', 'home-maintenance', 'storage-organization', 'home-garden', 'guides'] as const;
 export type GuidePublicSection = (typeof GUIDE_PUBLIC_SECTIONS)[number];
 
 /**
@@ -331,16 +332,12 @@ export function resolveGuideRouting(
 ): GuideRouting {
   const normCategory = (category || '').toLowerCase().trim();
 
-  // 1. Resolve public section / route
-  let publicSection: GuidePublicSection = 'guides';
-  if (normCategory === 'food-kitchen') {
-    publicSection = 'food-kitchen';
-  } else if (normCategory === 'home-maintenance') {
-    publicSection = 'home-maintenance';
-  } else {
-    // everyday-how-to and general guides route under /guides
-    publicSection = 'guides';
+  // 1. Resolve the public route explicitly; unknown categories fail closed.
+  const supportedSections: readonly string[] = GUIDE_PUBLIC_SECTIONS;
+  if (!supportedSections.includes(normCategory)) {
+    throw new Error(`Unsupported Guide category: ${normCategory || '(empty)'}`);
   }
+  const publicSection = normCategory as GuidePublicSection;
 
   // 2. Resolve operational pillar
   let pillar: ActivePillarSlug;

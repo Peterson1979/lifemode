@@ -1,12 +1,12 @@
 import { resolve, relative, join } from 'node:path';
-import { stat } from 'node:fs/promises';
+import { stat, readFile } from 'node:fs/promises';
 import { z } from 'zod';
 import { GitCli } from '../git-publisher/git-cli.ts';
 import { writeGuideFile, computeReadingTime } from './guides.ts';
 import { writeToolFile } from './tools.ts';
 import { writeChecklistFile } from './checklists.ts';
 import { saveLifeHack, extractYouTubeVideoId, getYouTubeThumbnailUrl } from './life-hacks.ts';
-import { writePicksArticleFile } from './picks.ts';
+import { writePicksArticleFile, parseMarkdownFile } from './picks.ts';
 import { normalizePicksCategories } from '../../../utils/picks-categories.ts';
 import {
   VALID_GUIDE_CATEGORIES,
@@ -35,10 +35,6 @@ export const guideValidationSchema = z.object({
   draft: z.boolean().default(false),
   category: z.enum([
     'food-kitchen',
-    'home-maintenance',
-    'cleaning-laundry',
-    'home-organization',
-    'smart-home',
     'home-garden',
   ]),
   format: z.string().default('practical-guide'),
@@ -114,10 +110,14 @@ export const toolValidationSchema = z.object({
   seoDescription: z.string().optional(),
   category: z.enum([
     'food-kitchen',
-    'home-maintenance',
-    'cleaning-laundry',
-    'home-organization',
-    'smart-home',
+    'home-garden',
+  ]),
+  format: z.string().default('practical-guide'),
+  primaryIntent: z.string().default('informational'),
+  contentType: z.string().default('protocol'),
+  lifecycleStatus: z.enum(['DRAFT', 'REVIEWED', 'APPROVED', 'STORED', 'PUBLISHED', 'ARCHIVED']).default('PUBLISHED'),
+  image: z.string().optional(),
+
     'home-garden',
     'storage-organization',
     'everyday-how-to',
@@ -200,10 +200,14 @@ export const checklistValidationSchema = z.object({
   seoDescription: z.string().optional(),
   category: z.enum([
     'food-kitchen',
-    'home-maintenance',
-    'cleaning-laundry',
-    'home-organization',
-    'smart-home',
+    'home-garden',
+  ]),
+  format: z.string().default('practical-guide'),
+  primaryIntent: z.string().default('informational'),
+  contentType: z.string().default('protocol'),
+  lifecycleStatus: z.enum(['DRAFT', 'REVIEWED', 'APPROVED', 'STORED', 'PUBLISHED', 'ARCHIVED']).default('PUBLISHED'),
+  image: z.string().optional(),
+
     'home-garden',
     'storage-organization',
     'everyday-how-to',
@@ -683,7 +687,15 @@ export async function publishPicksArticle(
   const relativeTarget = git.normalizeGitPath(relative(repoRoot, absoluteFilePath));
   const targetsToStage: string[] = [relativeTarget];
 
-  const imgCandidate = article.image;
+  let imgCandidate = article.image;
+  if (!imgCandidate) {
+    try {
+      const writtenRaw = await readFile(absoluteFilePath, 'utf8');
+      const { frontmatter } = parseMarkdownFile(writtenRaw);
+      imgCandidate = frontmatter.image;
+    } catch { }
+  }
+
   if (imgCandidate && (imgCandidate.startsWith('/images/') || imgCandidate.startsWith('images/'))) {
     const cleanImgRel = imgCandidate.replace(/^\/+/, '');
     const localImgRelPath = git.normalizeGitPath(join('public', cleanImgRel.replace(/^public[/\\]/, '')));
@@ -703,7 +715,8 @@ export async function publishPicksArticle(
       status: 'success',
       filePath: absoluteFilePath,
       route,
-      message: `[DRY RUN] Picks article "${article.title}" successfully formatted and written to ${relativeTarget}. No Git changes pushed.`,
+      targets: targetsToStage,
+      message: `[DRY RUN] Picks article "${article.title}" successfully formatted and written to ${relativeTarget}. Targets to stage: [${targetsToStage.join(', ')}]. No Git changes pushed.`,
     };
   }
 
@@ -763,16 +776,36 @@ async function safeStageAndCommit(
     .map((f) => git.normalizeGitPath(f.trim()))
     .filter((f) => f && f !== '.');
 
-  const hasUnexpected = stagedFiles.some((f) => !targetSet.has(f));
-  if (hasUnexpected || stagedFiles.length !== targets.length) {
+  const unexpectedStaged = stagedFiles.filter((f) => !targetSet.has(f));
+  if (unexpectedStaged.length > 0) {
     try {
       for (const target of targets) {
         await git.runGit(['reset', 'HEAD', '--', target], repoRoot);
       }
-    } catch {}
+    } catch { }
+    throw new Error(
+      `Safety check failed: Unexpected files staged: [${unexpectedStaged.join(', ')}]. Expected strictly within allowlist [${targets.join(', ')}]`
+    );
+  }
+
+  // Verify that all targets are tracked/staged in the Git index
+  try {
+    await git.runGit(['ls-files', '--error-unmatch', '--', ...targets], repoRoot);
+  } catch (err: any) {
+    try {
+      for (const target of targets) {
+        await git.runGit(['reset', 'HEAD', '--', target], repoRoot);
+      }
+    } catch { }
     throw new Error(
       `Safety check failed: Expected strictly [${targets.join(', ')}] to be staged, but found: [${stagedFiles.join(', ')}]`
     );
+  }
+
+  // If no target files have diffs against HEAD (already up to date)
+  if (stagedFiles.length === 0) {
+    const { stdout: headHash } = await git.runGit(['rev-parse', 'HEAD'], repoRoot);
+    return headHash.trim();
   }
 
   // 4. Create commit

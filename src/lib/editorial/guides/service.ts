@@ -6,7 +6,7 @@ export interface GuideFrontmatter {
   title: string;
   seoTitle?: string;
   seoDescription?: string;
-  category: 'food-kitchen' | 'cleaning-laundry' | 'home-maintenance' | 'storage-organization' | 'everyday-how-to';
+  category: 'food-kitchen' | 'home-garden' | 'storage-organization' | 'everyday-how-to';
   contentType?: 'reference' | 'decision';
   publishedDate: string;
   updatedDate: string;

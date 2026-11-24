@@ -70,12 +70,12 @@ export function formatGuideMarkdown(guide: GuideData, lifecycleStatus: 'PUBLISHE
     seoTitle: guide.seoTitle || baseFrontmatter.seoTitle || guide.title || 'Untitled Guide',
     description: guide.description || baseFrontmatter.description || '',
     seoDescription: guide.seoDescription || baseFrontmatter.seoDescription || guide.description || '',
-    category: guide.category || baseFrontmatter.category || 'home-maintenance',
+    category: guide.category || baseFrontmatter.category || 'home-garden',
     pubDate: dateStr,
     publishedDate: dateStr,
     updatedDate: updatedStr,
     author: guide.author || baseFrontmatter.author || 'LifeMode Editorial',
-    tags: guide.tags || baseFrontmatter.tags || [(guide.category || 'home-maintenance').replace(/-/g, ' ')],
+    tags: guide.tags || baseFrontmatter.tags || [(guide.category || 'home-garden').replace(/-/g, ' ')],
     draft: lifecycleStatus === 'DRAFT',
     lifecycleStatus: lifecycleStatus,
     format: baseFrontmatter.format || 'practical-guide',
@@ -198,7 +198,7 @@ export function parseArticleTitleAndBody(raw: string): { title: string; body: st
   return { title, body };
 }
 
-export function generateDeterministicMetadata(title: string, body: string, category: GuideCategory = 'home-maintenance'): {
+export function generateDeterministicMetadata(title: string, body: string, category: GuideCategory = 'home-garden'): {
   slug: string;
   seoTitle: string;
   primaryKeyword: string;
@@ -257,7 +257,7 @@ export function generateDeterministicMetadata(title: string, body: string, categ
   };
 }
 
-export async function processArticleMetadata(rawContent: string, category: GuideCategory = 'home-maintenance'): Promise<{
+export async function processArticleMetadata(rawContent: string, category: GuideCategory = 'home-garden'): Promise<{
   title: string;
   slug: string;
   seoTitle: string;
@@ -345,7 +345,7 @@ export async function listPublishedGuides(): Promise<Array<{
         results.push({
           slug,
           title: frontmatter.title || slug,
-          category: (frontmatter.category || 'home-maintenance') as GuideCategory,
+          category: (frontmatter.category || 'home-garden') as GuideCategory,
           pubDate: frontmatter.pubDate || frontmatter.publishedDate || '',
           description: frontmatter.description || '',
           filePath,
@@ -372,7 +372,7 @@ export async function getPublishedGuide(slug: string): Promise<GuideData | null>
       ...frontmatter,
       slug,
       title: frontmatter.title || slug,
-      category: (frontmatter.category || 'home-maintenance') as GuideCategory,
+      category: (frontmatter.category || 'home-garden') as GuideCategory,
       description: frontmatter.description || '',
       seoTitle: frontmatter.seoTitle || '',
       seoDescription: frontmatter.seoDescription || '',

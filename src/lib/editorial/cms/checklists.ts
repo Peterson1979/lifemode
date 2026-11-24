@@ -96,7 +96,7 @@ export async function listPublishedChecklists(): Promise<Array<{
         results.push({
           slug,
           title: frontmatter.title || slug,
-          category: (frontmatter.category || 'cleaning-laundry') as ChecklistCategory,
+          category: (frontmatter.category || 'home-garden') as ChecklistCategory,
           summary: frontmatter.summary || '',
           estimatedTime: frontmatter.estimatedTime,
           totalTasksCount,

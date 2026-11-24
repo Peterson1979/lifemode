@@ -96,8 +96,7 @@ export function resolveDestinationUrl(
     const allowedSections = new Set([
       'everyday-how-to',
       'food-kitchen',
-      'cleaning-laundry',
-      'home-maintenance',
+      'home-garden',
       'storage-organization',
       'guides',
     ]);
