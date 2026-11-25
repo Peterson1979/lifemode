@@ -65,6 +65,19 @@ export const CATEGORIES: Record<string, CategoryMeta> = {
     borderColor: '#fecaca',
     popularTopics: ['Home Workouts', 'Beginner Strength', 'Bodyweight Exercise', 'Mobility & Recovery', 'Active Routines'],
   },
+  'beauty-personal-care': {
+    id: 'beauty-personal-care',
+    slug: 'beauty-personal-care',
+    title: 'Beauty & Personal Care',
+    shortTitle: 'Beauty & Personal Care',
+    description: 'Practical guides for skincare routines, beauty tools, personal care devices, and grooming essentials.',
+    metaDescription: 'Practical guides for skincare routines, beauty tools, personal care devices, and grooming essentials.',
+    icon: '🧴',
+    badgeColor: '#d946ef', // Beauty Pink
+    lightBg: '#f5f3ff',
+    borderColor: '#e9d8f5',
+    popularTopics: ['Skincare Routines', 'Beauty Tools', 'Grooming', 'Personal Care'],
+  },
 };
 
 export const CATEGORY_KEYS = Object.keys(CATEGORIES) as (keyof typeof CATEGORIES)[];

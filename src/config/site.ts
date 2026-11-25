@@ -250,6 +250,7 @@ export const APPROVED_EDITORIAL_CATEGORIES = [
   { name: 'Home & Garden', href: '/home-garden/', slug: 'home-garden', color: '#16a34a' },
   { name: 'Health & Wellness', href: '/health-wellness/', slug: 'health-wellness', color: '#0d9488' },
   { name: 'Fitness & Active Living', href: '/fitness-active-living/', slug: 'fitness-active-living', color: '#dc2626' },
+  { name: 'Beauty & Personal Care', href: '/beauty-personal-care/', slug: 'beauty-personal-care', color: '#d946ef' },
 ] as const;
 
 export const FUNCTIONAL_NAV_LINKS = [
