@@ -78,9 +78,21 @@ export const CATEGORIES: Record<string, CategoryMeta> = {
     borderColor: '#e9d8f5',
     popularTopics: ['Skincare Routines', 'Beauty Tools', 'Grooming', 'Personal Care'],
   },
+  'travel': {
+    id: 'travel',
+    slug: 'travel',
+    title: 'Travel',
+    shortTitle: 'Travel',
+    description: 'Guides for trip planning, hotel selection, vacation rentals and local experiences.',
+    metaDescription: 'Practical travel guides covering how to plan better trips, choose hotels, and compare vacation rentals.',
+    icon: '✈️',
+    badgeColor: '#0284c7',
+    lightBg: '#eff6ff',
+    borderColor: '#bfdbfe',
+    popularTopics: ['Trip Planning', 'Hotel Guides', 'Vacation Rentals', 'Local Experiences', 'Travel Tips'],
+  },
 };
 
-export const CATEGORY_KEYS = Object.keys(CATEGORIES) as (keyof typeof CATEGORIES)[];
 
 export function getCategory(slug: string): CategoryMeta | undefined {
   // Legacy category aliases now resolve to the consolidated Home & Garden category.
@@ -88,3 +100,6 @@ export function getCategory(slug: string): CategoryMeta | undefined {
   if (slug === 'everyday-how-to') return CATEGORIES['home-garden'];
   return CATEGORIES[slug];
 }
+
+
+export const CATEGORY_KEYS = Object.keys(CATEGORIES) as (keyof typeof CATEGORIES)[];

@@ -1,0 +1,96 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getCanonicalUrl, generateBreadcrumbSchema } from '../../utils/seo';
+
+const guides = (await getCollection('guides', (entry) =>
+  entry.data.draft !== true && entry.data.lifecycleStatus === 'PUBLISHED' && entry.data.category === 'travel'
+)).sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Guides', url: '/guides/' },
+  { label: 'Travel', url: '/travel/' },
+];
+
+const canonicalUrl = getCanonicalUrl('/travel/');
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Guides', url: '/guides' },
+  { name: 'Travel', url: '/travel' },
+]);
+---
+
+<BaseLayout title="Travel Guides — LifeMode" canonicalUrl={canonicalUrl} jsonLd={breadcrumbSchema}>
+  <div class="container category-page-wrapper">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <!-- Category Header Hero -->
+    <header class="category-header-card" style="border-top: 4px solid #0284c4">
+      <div class="cat-icon-lg">🏙️</div>
+      <div class="cat-header-text">
+        <h1 class="cat-title">Travel</h1>
+        <p class="cat-description">Planning guides for trips, hotels, vacation rentals and local experiences.</p>
+      </div>
+    </header>
+
+    <!-- Guides Section -->
+    {guides.length > 0 && (
+      <section class="cat-section">
+        <div class="cat-section-header">
+          <h2 class="section-title">
+            <span>📖</span> Travel Guides
+          </h2>
+          <p class="section-subtitle">Comprehensive, evidence-based planning guides from initial assessment to actionable project plans.</p>
+        </div>
+        <div class="guide-grid">
+          {guides.map((guide) => {
+            const slug = guide.id.replace(/\.[^/.]+$/, '');
+            return (
+              <a href={`/guides/${slug}/`} class="guide-card" style="--accent-color: #0284c4">
+                {guide.data.image ? (
+                  <div class="guide-card-image-wrapper">
+                    <img
+                      src={guide.data.image}
+                      alt={guide.data.imageAlt || guide.data.title}
+                      class="guide-card-image"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                ) : (
+                  <div class="guide-card-fallback-wrapper" aria-hidden="true">
+                    <span class="guide-card-fallback-icon">🏙️</span>
+                  </div>
+                )}
+                <div class="guide-card-content">
+                  {guide.data.readingTime && (
+                    <div class="card-meta-top">
+                      <span class="reading-time">⏱️ {guide.data.readingTime}</span>
+                    </div>
+                  )}
+                  <h3>{guide.data.title}</h3>
+                  <p>{guide.data.description || ''}</p>
+                  <div class="guide-card-footer">
+                    <span class="card-author">By {guide.data.author}</span>
+                    <span class="read-link">Read Guide &rarr;</span>
+                  </div>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    )}
+
+    {guides.length === 0 && (
+      <section class="category-empty-state">
+        <div class="empty-icon-large">🏙️</div>
+        <h2 class="empty-title">No Travel guides yet</h2>
+        <p class="empty-lead">Travel guides are in preparation. In the meantime, explore our <a href="/guides/">other guides</a>.</p>
+      </section>
+    )}
+  </div>
+</BaseLayout>

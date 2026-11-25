@@ -115,7 +115,7 @@ export const PILLARS: Record<string, PillarConfig> = {
     subtopics: [
       { name: 'Style & Beauty', icon: '👔', description: 'Capsule wardrobes, tailoring preservation, grooming tools & minimal silhouettes', slug: 'style-beauty', href: '/life/permanent-capsule-wardrobe-architecture' },
       { name: 'Productivity & Daily Life', icon: '⏱️', description: 'Habit stacking, morning focus architecture & low-distraction environments', slug: 'productivity-daily', href: '/life/focus-architecture-low-friction-routines' },
-      { name: 'Travel & Experiences', icon: '✈️', description: 'Local market cultures, regional culinary heritage & mindful field journeys', slug: 'travel-experiences', href: '/life/mindful-field-journey-regional-transit' },
+      { name: 'Travel', icon: '✈️', description: 'Local market cultures, regional culinary heritage & mindful field journeys', slug: 'travel-experiences', href: '/life/mindful-field-journey-regional-transit' },
     ],
   },
   'tech-ai': {
@@ -212,7 +212,7 @@ export const PILLARS: Record<string, PillarConfig> = {
     bgLight: 'rgba(225, 29, 72, 0.08)',
   },
   travel: {
-    name: 'Travel & Experiences',
+    name: 'Travel',
     slug: 'travel',
     tagline: 'Destinations & Experiential Living',
     description: 'Travel weather, destination intelligence, itineraries, and journeys.',
@@ -251,6 +251,7 @@ export const APPROVED_EDITORIAL_CATEGORIES = [
   { name: 'Health & Wellness', href: '/health-wellness/', slug: 'health-wellness', color: '#0d9488' },
   { name: 'Fitness & Active Living', href: '/fitness-active-living/', slug: 'fitness-active-living', color: '#dc2626' },
   { name: 'Beauty & Personal Care', href: '/beauty-personal-care/', slug: 'beauty-personal-care', color: '#d946ef' },
+  { name: 'Travel', href: '/travel/', slug: 'travel', color: '#0284c4' },
 ] as const;
 
 export const FUNCTIONAL_NAV_LINKS = [
