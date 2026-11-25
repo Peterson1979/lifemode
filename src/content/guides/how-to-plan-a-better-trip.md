@@ -19,7 +19,7 @@ riskLevel: "low"
 primaryKeyword: "how to plan a better trip reviews attractions hotels local experiences"
 secondaryKeywords: ["trip planning", "travel reviews", "hotel selection", "local attractions", "travel guides"]
 canonicalUrl: "https://lifemode.site/guides/how-to-plan-a-better-trip/"
-image: "/images/guides/european city travel sightseeing sunny architecture.jpg"
+image: "/images/guides/european-city-travel-sightseeing-sunny-architecture.jpg"
 imageAlt: "European city travel with sightseeing and sunny architecture"
 affiliateDisclosure: "Affiliate Disclosure: This article contains affiliate links. If you make a purchase or booking through these links, LifeMode may earn a commission at no additional cost to you."
 relatedGuides: []
@@ -147,7 +147,7 @@ Planning a great trip is about more than just picking a destination and booking 
     <div class="product-image-container">
       <a href="https://mavely.app.link/e/IJ6tnHOX8Qb" target="_blank" rel="nofollow noopener sponsored" class="product-image-link">
         <img
-          src="/images/guides/european city travel sightseeing sunny architecture.jpg"
+          src="/images/guides/european-city-travel-sightseeing-sunny-architecture.jpg"
           alt="European city travel with sightseeing and sunny architecture"
           class="product-callout-img"
           loading="lazy"

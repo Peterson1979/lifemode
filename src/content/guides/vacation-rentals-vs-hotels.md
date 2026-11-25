@@ -19,7 +19,7 @@ riskLevel: "low"
 primaryKeyword: "vacation rentals vs hotels comparison best stay"
 secondaryKeywords: ["accommodation comparison", "travel planning", "vacation rentals", "hotel selection", "travel guides"]
 canonicalUrl: "https://lifemode.site/guides/vacation-rentals-vs-hotels/"
-image: "/images/guides/luxury vacation rental house terrace scenic view.jpg"
+image: "/images/guides/luxury-vacation-rental-house-terrace-scenic-view.jpg"
 imageAlt: "Luxury vacation rental house with terrace and scenic view"
 affiliateDisclosure: "Affiliate Disclosure: This article contains affiliate links. If you make a purchase or booking through these links, LifeMode may earn a commission at no additional cost to you."
 relatedGuides: []
@@ -182,7 +182,7 @@ Whether you choose a hotel or vacation rental depends on your trip duration, gro
     <div class="product-image-container">
       <a href="https://mavely.app.link/e/kh4q35bJ8Qb" target="_blank" rel="nofollow noopener sponsored" class="product-image-link">
         <img
-          src="/images/guides/luxury vacation rental house terrace scenic view.jpg"
+          src="/images/guides/luxury-vacation-rental-house-terrace-scenic-view.jpg"
           alt="Luxury vacation rental house with terrace and scenic view"
           class="product-callout-img"
           loading="lazy"

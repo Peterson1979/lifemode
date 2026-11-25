@@ -19,7 +19,7 @@ riskLevel: "low"
 primaryKeyword: "how to choose the right hotel comfortable stays location amenities"
 secondaryKeywords: ["hotel selection", "travel accommodations", "trip planning", "hotel amenities", "travel guides"]
 canonicalUrl: "https://lifemode.site/guides/how-to-choose-the-right-hotel/"
-image: "/images/guides/luxury modern hotel room large windows natural light.jpg"
+image: "/images/guides/luxury-modern-hotel-room-large-windows-natural-light.jpg"
 imageAlt: "Luxury modern hotel room with large windows and natural light"
 affiliateDisclosure: "Affiliate Disclosure: This article contains affiliate links. If you make a purchase or booking through these links, LifeMode may earn a commission at no additional cost to you."
 relatedGuides: []
@@ -147,7 +147,7 @@ Choosing the right hotel is about balancing your priorities: location, comfort, 
     <div class="product-image-container">
       <a href="https://mavely.app.link/LT948gFPl8b" target="_blank" rel="nofollow noopener sponsored" class="product-image-link">
         <img
-          src="/images/guides/luxury modern hotel room large windows natural light.jpg"
+          src="/images/guides/luxury-modern-hotel-room-large-windows-natural-light.jpg"
           alt="Luxury modern hotel room with large windows and natural light"
           class="product-callout-img"
           loading="lazy"
