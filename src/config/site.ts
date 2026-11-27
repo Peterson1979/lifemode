@@ -254,6 +254,14 @@ export const APPROVED_EDITORIAL_CATEGORIES = [
   { name: 'Travel', href: '/travel/', slug: 'travel', color: '#0284c4' },
 ] as const;
 
+export const SOCIAL_LINKS = [
+  { name: 'YouTube', href: 'https://www.youtube.com/@lifemodehq', label: 'LifeMode on YouTube' },
+  { name: 'Instagram', href: 'https://www.instagram.com/lifemodehq/', label: 'LifeMode on Instagram' },
+  { name: 'Threads', href: 'https://www.threads.com/@lifemodehq', label: 'LifeMode on Threads' },
+  { name: 'Facebook', href: 'https://www.facebook.com/LifeModeHQ/', label: 'LifeMode on Facebook' },
+  { name: 'TikTok', href: 'https://www.tiktok.com/@lifemodehq', label: 'LifeMode on TikTok' },
+] as const;
+
 export const FUNCTIONAL_NAV_LINKS = [
   { name: 'Guides', href: '/guides/', slug: 'guides' },
   { name: 'Tools', href: '/tools/', slug: 'tools' },

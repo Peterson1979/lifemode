@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { CATEGORIES } from '../utils/categories';
-import { isPubliclyVisibleGuide } from '../utils/guides';
+import { CATEGORIES, getCategory } from '../utils/categories';
+import { isPubliclyVisibleGuide, guideSlug } from '../utils/guides';
 import { isPubliclyVisiblePicksArticle, picksArticleSlug, getPicksArticleCategories } from '../utils/picks';
 import { getAllPicksCategories } from '../utils/picks-categories';
 import { listPublicOffers } from '../lib/commerce/offer-store';
@@ -21,6 +21,11 @@ const allPicksCategories = getAllPicksCategories();
 // 2. Guide Categories with assigned images
 const allGuides = await getCollection('guides', isPubliclyVisibleGuide);
 const guideCategories = Object.values(CATEGORIES);
+
+// Latest published guides for the homepage discovery subsection
+const latestGuides = [...allGuides]
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 3);
 
 const defaultCategoryImages: Record<string, string> = {
   'food-kitchen': '/images/guides/pexels-kampus-8629103-52777aa1c3ba.jpg',
@@ -106,7 +111,94 @@ const featuredStoreProducts = storeOffers.slice(0, 3);
     </div>
   </section>
 
-  <!-- 2. Prominent LifeMode Picks Section -->
+  <!-- 2. Practical Guides Section -->
+  <section class="guides-homepage-section">
+    <div class="container">
+      <div class="section-top-row">
+        <div class="section-titles">
+          <span class="section-kicker">In-Depth Walkthroughs</span>
+          <h2 class="section-title">Practical Guides for Everyday Life</h2>
+          <p class="section-desc">Clear, actionable guides across food, home, wellness, fitness, beauty, and travel—helping you solve everyday problems, make informed decisions, and build routines that work.</p>
+        </div>
+        <a href="/guides/" class="section-more-link">
+          <span>All Practical Guides</span>
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+
+      <div class="guide-categories-grid">
+        {categoryCards.map((category) => (
+          <a href={`/${category.slug}/`} class="guide-cat-card" style={`--cat-accent: ${category.badgeColor};`}>
+            {category.image && (
+              <div class="guide-cat-img-wrapper">
+                <img
+                  src={category.image}
+                  alt={`${category.title} Guides`}
+                  class="guide-cat-img"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            )}
+            <div class="guide-cat-body">
+              <div class="guide-cat-badge-row">
+                <span class="guide-cat-icon">{category.icon}</span>
+                <span class="guide-cat-name">{category.title}</span>
+              </div>
+              <p class="guide-cat-desc">{category.description}</p>
+              <span class="guide-cat-action">Explore {category.shortTitle} &rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Latest Practical Guides (up to 3 newest published guides) -->
+      {latestGuides.length > 0 && (
+        <div class="latest-guides-block">
+          <div class="latest-guides-header">
+            <h3 class="latest-guides-title">Latest Practical Guides</h3>
+            <a href="/guides/" class="latest-guides-all">
+              <span>Browse All Guides</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+          <div class="latest-guides-grid">
+            {latestGuides.map((guide) => {
+              const slug = guideSlug(guide.id);
+              const category = guide.data.category ? getCategory(guide.data.category) : undefined;
+              return (
+                <a
+                  href={`/guides/${slug}/`}
+                  class="latest-guide-card"
+                  style={category ? `--guide-cat-color: ${category.badgeColor};` : undefined}
+                >
+                  {guide.data.image && (
+                    <div class="latest-guide-thumb">
+                      <img
+                        src={guide.data.image}
+                        alt={guide.data.imageAlt || guide.data.title}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  )}
+                  <div class="latest-guide-body">
+                    {category && (
+                      <span class="latest-guide-cat">{category.title}</span>
+                    )}
+                    <h4 class="latest-guide-title">{guide.data.title}</h4>
+                    <p class="latest-guide-desc">{guide.data.description}</p>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- 3. Prominent LifeMode Picks Section -->
   <section id="picks" class="picks-homepage-section">
     <div class="container">
       <div class="section-top-row">
@@ -114,6 +206,10 @@ const featuredStoreProducts = storeOffers.slice(0, 3);
           <span class="section-kicker">Curated Recommendations</span>
           <h2 class="section-title">Discover LifeMode Picks</h2>
           <p class="section-desc">Thoughtful recommendations, useful products, and curated ideas for everyday life.</p>
+          <a href="/editorial-standards/" class="section-editorial-link">
+            <span>How We Choose Recommendations</span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
         </div>
         <a href="/picks/" class="section-more-link">
           <span>Explore All Picks</span>
@@ -188,49 +284,6 @@ const featuredStoreProducts = storeOffers.slice(0, 3);
             </a>
           ))}
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. Guides Section -->
-  <section class="guides-homepage-section">
-    <div class="container">
-      <div class="section-top-row">
-        <div class="section-titles">
-          <span class="section-kicker">In-Depth Walkthroughs</span>
-          <h2 class="section-title">Practical Guides for Everyday Challenges</h2>
-          <p class="section-desc">Evidence-based planning guides and step-by-step protocols across essential household domains.</p>
-        </div>
-        <a href="/guides/" class="section-more-link">
-          <span>All Practical Guides</span>
-          <span aria-hidden="true">&rarr;</span>
-        </a>
-      </div>
-
-      <div class="guide-categories-grid">
-        {categoryCards.map((category) => (
-          <a href={`/${category.slug}/`} class="guide-cat-card" style={`--cat-accent: ${category.badgeColor};`}>
-            {category.image && (
-              <div class="guide-cat-img-wrapper">
-                <img
-                  src={category.image}
-                  alt={`${category.title} Guides`}
-                  class="guide-cat-img"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            )}
-            <div class="guide-cat-body">
-              <div class="guide-cat-badge-row">
-                <span class="guide-cat-icon">{category.icon}</span>
-                <span class="guide-cat-name">{category.title}</span>
-              </div>
-              <p class="guide-cat-desc">{category.description}</p>
-              <span class="guide-cat-action">Explore {category.shortTitle} &rarr;</span>
-            </div>
-          </a>
-        ))}
       </div>
     </div>
   </section>
@@ -424,6 +477,25 @@ const featuredStoreProducts = storeOffers.slice(0, 3);
     line-height: 1.55;
   }
 
+  .section-editorial-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--slate-500);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--slate-300);
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .section-editorial-link:hover {
+    color: var(--slate-800);
+    border-bottom-color: var(--slate-500);
+    text-decoration: none;
+  }
+
   .section-more-link {
     font-size: 0.9rem;
     font-weight: 700;
@@ -442,7 +514,7 @@ const featuredStoreProducts = storeOffers.slice(0, 3);
     text-decoration: none;
   }
 
-  /* 2. Prominent LifeMode Picks Section */
+  /* Prominent LifeMode Picks Section */
   .picks-homepage-section {
     padding: 4.5rem 0 3.75rem;
     background-color: var(--slate-50, #f8fafc);
@@ -634,7 +706,7 @@ const featuredStoreProducts = storeOffers.slice(0, 3);
     color: var(--slate-800);
   }
 
-  /* 3. Guides Section */
+  /* Practical Guides Section */
   .guides-homepage-section {
     padding: 4.5rem 0;
     background-color: #ffffff;
@@ -722,6 +794,125 @@ const featuredStoreProducts = storeOffers.slice(0, 3);
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
+  }
+
+  /* Latest Practical Guides Subsection */
+  .latest-guides-block {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    background-color: var(--slate-50, #f8fafc);
+    border: 1px solid var(--color-border, #e2e8f0);
+    border-radius: var(--radius-lg, 12px);
+  }
+
+  .latest-guides-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .latest-guides-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--slate-950);
+    margin: 0;
+  }
+
+  .latest-guides-all {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-primary-accent, #6366f1);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    white-space: nowrap;
+  }
+
+  .latest-guides-all:hover {
+    text-decoration: underline;
+  }
+
+  .latest-guides-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .latest-guide-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: 0.85rem;
+    background-color: var(--color-surface, #ffffff);
+    border: 1px solid var(--color-border, #e2e8f0);
+    border-radius: var(--radius-md, 8px);
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .latest-guide-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -12px rgba(0, 0, 0, 0.12);
+    border-color: var(--guide-cat-color, var(--color-primary-accent, #6366f1));
+    text-decoration: none;
+  }
+
+  .latest-guide-thumb {
+    flex: 0 0 76px;
+    width: 76px;
+    height: 76px;
+    border-radius: var(--radius-sm, 4px);
+    overflow: hidden;
+    background-color: var(--slate-100, #f1f5f9);
+  }
+
+  .latest-guide-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .latest-guide-body {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .latest-guide-cat {
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--guide-cat-color, var(--color-primary-accent, #6366f1));
+  }
+
+  .latest-guide-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--slate-950);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .latest-guide-desc {
+    font-size: 0.8rem;
+    line-height: 1.45;
+    color: var(--slate-600);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   /* 4. Practical Resources Section */
@@ -1002,6 +1193,9 @@ const featuredStoreProducts = storeOffers.slice(0, 3);
     .picks-articles-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+    .latest-guides-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
     .guide-categories-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -1034,8 +1228,12 @@ const featuredStoreProducts = storeOffers.slice(0, 3);
     }
     .picks-articles-grid,
     .guide-categories-grid,
-    .resources-grid {
+    .resources-grid,
+    .latest-guides-grid {
       grid-template-columns: 1fr;
+    }
+    .latest-guides-block {
+      padding: 1.1rem;
     }
     .store-preview-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));

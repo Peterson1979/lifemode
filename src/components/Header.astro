@@ -1,5 +1,6 @@
 ---
 import { SITE_CONFIG, APPROVED_EDITORIAL_CATEGORIES } from '../config/site';
+import SocialLinks from './SocialLinks.astro';
 
 const currentPath = Astro.url.pathname;
 
@@ -34,10 +35,15 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
       <span class="site-topbar-pulse" aria-hidden="true"></span>
       <span>{todayFormatted}</span>
     </div>
-    <nav class="topbar-meta-nav" aria-label="Editorial Links">
-      <a href="/about/" class={currentPath === '/about/' ? 'active' : ''}>About</a>
-      <a href="/editorial-standards/" class={currentPath === '/editorial-standards/' ? 'active' : ''}>Editorial Standards</a>
-    </nav>
+    <div class="topbar-right">
+      <nav class="topbar-meta-nav" aria-label="Editorial Links">
+        <a href="/about/" class={currentPath === '/about/' ? 'active' : ''}>About</a>
+        <a href="/editorial-standards/" class={currentPath === '/editorial-standards/' ? 'active' : ''}>Editorial Standards</a>
+      </nav>
+      <div class="topbar-social">
+        <SocialLinks tone="on-dark" size="sm" />
+      </div>
+    </div>
   </div>
 </div>
 
@@ -310,6 +316,10 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
                 </li>
               </ul>
             </nav>
+            <div class="mobile-drawer-social">
+              <span class="mobile-drawer-social-label">Follow LifeMode</span>
+              <SocialLinks tone="on-light" size="md" />
+            </div>
           </div>
         </div>
       </details>
@@ -391,6 +401,20 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
 
 <style>
   /* Topbar Meta Navigation */
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1.15rem;
+    min-width: 0;
+  }
+
+  .topbar-social {
+    display: flex;
+    align-items: center;
+    padding-left: 1.15rem;
+    border-left: 1px solid #1e293b;
+  }
+
   .topbar-meta-nav {
     display: flex;
     align-items: center;
@@ -856,6 +880,24 @@ const todayFormatted = new Intl.DateTimeFormat('en-US', {
     margin-top: 1rem;
     padding-top: 0.75rem;
     border-top: 1px solid var(--color-border-subtle);
+  }
+
+  .mobile-drawer-social {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-top: 0.85rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  .mobile-drawer-social-label {
+    font-size: 0.725rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
   }
 
   /* Responsive Breakpoints */
