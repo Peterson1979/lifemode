@@ -10,6 +10,7 @@ import {
   generateBreadcrumbSchema,
 } from '../../utils/seo';
 import { isPubliclyVisibleGuide, guideSlug } from '../../utils/guides';
+import { renderMarkdownToHtml } from '../../utils/markdown-renderer';
 
 export async function getStaticPaths() {
   // Only publicly published guides become routes; DRAFT/REVIEWED/APPROVED/STORED
@@ -24,6 +25,14 @@ export async function getStaticPaths() {
 const { guide } = Astro.props;
 const { Content } = await render(guide);
 const slug = guideSlug(guide.id);
+// Guides that embed affiliate product-box directives are rendered through the
+// shared markdown renderer so the boxes resolve inline at their source positions
+// instead of being appended after the article. Other guides keep Astro's renderer.
+const rawBody = guide.body || '';
+const hasProductBoxDirective = /::product-box\{|\[product-box:/.test(rawBody);
+const renderedBodyHtml = hasProductBoxDirective
+  ? renderMarkdownToHtml(rawBody, { context: 'guide' })
+  : '';
 
 const canonicalUrl = getCanonicalUrl(`/guides/${slug}`);
 
@@ -96,7 +105,7 @@ const breadcrumbs = [
     )}
 
     <div class="guide-article-body prose">
-      <Content />
+      {renderedBodyHtml ? <Fragment set:html={renderedBodyHtml} /> : <Content />}
     </div>
 
     {guide.data.affiliateProducts && guide.data.affiliateProducts.length > 0 && (

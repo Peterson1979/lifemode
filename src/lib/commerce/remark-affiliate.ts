@@ -45,7 +45,7 @@ export function remarkAffiliate() {
         const text = child.value.trim();
 
         // Check for ::product-box{id="slug"}
-        const directiveMatch = text.match(/^::product-box\{id=["']?([a-z0-9-]+)["']?(?:\s+note=["']([^"']*)["'])?(?:\s+cta=["']([^"']*)["'])?\}$/i);
+        const directiveMatch = text.match(/^::product-box\{id=["'\u201c\u201d\u2018\u2019]?([a-z0-9-]+)["'\u201c\u201d\u2018\u2019]?(?:\s+note=["'\u201c\u201d\u2018\u2019]([^"'\u201c\u201d\u2018\u2019]*)["'\u201c\u201d\u2018\u2019])?(?:\s+cta=["'\u201c\u201d\u2018\u2019]([^"'\u201c\u201d\u2018\u2019]*)["'\u201c\u201d\u2018\u2019])?\}$/i);
         if (directiveMatch) {
           const offerId = directiveMatch[1];
           const note = directiveMatch[2];
