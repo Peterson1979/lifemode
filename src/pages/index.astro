@@ -32,6 +32,9 @@ const defaultCategoryImages: Record<string, string> = {
   'home-garden': '/images/guides/Houseplant-Dying-ffef8ef3d3b3.jpg',
   'health-wellness': '/images/guides/healthy morning routine natural light.jpg',
   'fitness-active-living': '/images/guides/beginner home workout natural light.jpg',
+  'beauty-personal-care': '/images/guides/at-home-skincare-led-mask-facial-towels.jpg',
+  'everyday-essentials': '/images/guides/everyday-essentials-household-items-organized-on-table.jpg',
+  'travel': '/images/guides/european-city-travel-sightseeing-sunny-architecture.jpg',
 };
 
 const categoryCards = guideCategories.map((cat) => {
@@ -100,8 +103,15 @@ const featuredStoreProducts = storeOffers.slice(0, 3);
       </p>
 
       <div class="hero-cta-wrapper">
-        <a href="#picks" class="hero-cta-btn">
-          <span>Explore LifeMode</span>
+        <a href="#guides" class="hero-cta-btn hero-cta-primary">
+          <span>Explore Guides</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 5v14"/>
+            <path d="m19 12-7 7-7-7"/>
+          </svg>
+        </a>
+        <a href="#picks" class="hero-cta-btn hero-cta-secondary">
+          <span>Explore LifeMode Picks</span>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M12 5v14"/>
             <path d="m19 12-7 7-7-7"/>
@@ -118,7 +128,7 @@ const featuredStoreProducts = storeOffers.slice(0, 3);
         <div class="section-titles">
           <span class="section-kicker">In-Depth Walkthroughs</span>
           <h2 class="section-title">Practical Guides for Everyday Life</h2>
-          <p class="section-desc">Clear, actionable guides across food, home, wellness, fitness, beauty, and travel—helping you solve everyday problems, make informed decisions, and build routines that work.</p>
+          <p class="section-desc">Clear, actionable guides across food, home, wellness, fitness, beauty, travel, and everyday essentials—helping you solve everyday problems, make informed decisions, and build routines that work.</p>
         </div>
         <a href="/guides/" class="section-more-link">
           <span>All Practical Guides</span>
@@ -126,37 +136,14 @@ const featuredStoreProducts = storeOffers.slice(0, 3);
         </a>
       </div>
 
-      <div class="guide-categories-grid">
-        {categoryCards.map((category) => (
-          <a href={`/${category.slug}/`} class="guide-cat-card" style={`--cat-accent: ${category.badgeColor};`}>
-            {category.image && (
-              <div class="guide-cat-img-wrapper">
-                <img
-                  src={category.image}
-                  alt={`${category.title} Guides`}
-                  class="guide-cat-img"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            )}
-            <div class="guide-cat-body">
-              <div class="guide-cat-badge-row">
-                <span class="guide-cat-icon">{category.icon}</span>
-                <span class="guide-cat-name">{category.title}</span>
-              </div>
-              <p class="guide-cat-desc">{category.description}</p>
-              <span class="guide-cat-action">Explore {category.shortTitle} &rarr;</span>
-            </div>
-          </a>
-        ))}
-      </div>
-
-      <!-- Latest Practical Guides (up to 3 newest published guides) -->
+      <!-- Latest Practical Guides (up to 3 newest published guides, displayed above category boxes) -->
       {latestGuides.length > 0 && (
         <div class="latest-guides-block">
           <div class="latest-guides-header">
-            <h3 class="latest-guides-title">Latest Practical Guides</h3>
+            <div>
+              <span class="latest-guides-kicker">Fresh Off The Press</span>
+              <h3 class="latest-guides-title">Latest Practical Guides</h3>
+            </div>
             <a href="/guides/" class="latest-guides-all">
               <span>Browse All Guides</span>
               <span aria-hidden="true">&rarr;</span>
@@ -195,6 +182,42 @@ const featuredStoreProducts = storeOffers.slice(0, 3);
           </div>
         </div>
       )}
+
+      <!-- Guides category boxes (anchor target #guides) -->
+      <div id="guides" class="guide-categories-section">
+        <div class="guide-categories-header">
+          <div class="guide-categories-titles">
+            <span class="guide-categories-kicker">Topic Directories</span>
+            <h3 class="guide-categories-title">Explore Guides by Category</h3>
+            <p class="guide-categories-desc">Find tested routines, buying guidance, and practical solutions organized by area of daily life.</p>
+          </div>
+        </div>
+        <div class="guide-categories-grid">
+          {categoryCards.map((category) => (
+            <a href={`/${category.slug}/`} class="guide-cat-card" style={`--cat-accent: ${category.badgeColor};`}>
+              {category.image && (
+                <div class="guide-cat-img-wrapper">
+                  <img
+                    src={category.image}
+                    alt={`${category.title} Guides`}
+                    class="guide-cat-img"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              )}
+              <div class="guide-cat-body">
+                <div class="guide-cat-badge-row">
+                  <span class="guide-cat-icon">{category.icon}</span>
+                  <span class="guide-cat-name">{category.title}</span>
+                </div>
+                <p class="guide-cat-desc">{category.description}</p>
+                <span class="guide-cat-action">Explore {category.shortTitle} &rarr;</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
 
@@ -413,29 +436,52 @@ const featuredStoreProducts = storeOffers.slice(0, 3);
   .hero-cta-wrapper {
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
   }
 
   .hero-cta-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.75rem;
+    padding: 0.8rem 1.85rem;
     font-size: 0.95rem;
     font-weight: 700;
-    color: #ffffff;
-    background-color: var(--color-primary-accent, #6366f1);
     border-radius: var(--radius-full, 9999px);
     text-decoration: none;
-    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
-    transition: all 0.2s ease;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .hero-cta-btn:hover {
-    background-color: var(--color-primary-accent-hover, #4f46e5);
+  .hero-cta-primary {
+    background: linear-gradient(135deg, var(--color-primary-accent, #6366f1) 0%, #4f46e5 100%);
+    color: #ffffff;
+    border: 1px solid transparent;
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+  }
+
+  .hero-cta-primary:hover {
+    background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.45);
     text-decoration: none;
     color: #ffffff;
+  }
+
+  .hero-cta-secondary {
+    background: #ffffff;
+    color: var(--slate-800, #1e293b);
+    border: 1.5px solid var(--slate-300, #cbd5e1);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+  }
+
+  .hero-cta-secondary:hover {
+    background: var(--slate-50, #f8fafc);
+    color: var(--color-primary-accent, #6366f1);
+    border-color: var(--color-primary-accent, #6366f1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(99, 102, 241, 0.15);
+    text-decoration: none;
   }
 
   /* Shared Section Headers */
@@ -708,9 +754,183 @@ const featuredStoreProducts = storeOffers.slice(0, 3);
 
   /* Practical Guides Section */
   .guides-homepage-section {
-    padding: 4.5rem 0;
+    padding: 4.5rem 0 4rem;
     background-color: #ffffff;
     border-bottom: 1px solid var(--color-border, #e2e8f0);
+    position: relative;
+  }
+
+  /* Latest Practical Guides Subsection (prominently featured above category boxes) */
+  .latest-guides-block {
+    margin-top: 2rem;
+    padding: 1.75rem;
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    border: 1px solid var(--slate-200, #e2e8f0);
+    border-radius: var(--radius-xl, 16px);
+    box-shadow: 0 4px 20px -6px rgba(15, 23, 42, 0.05);
+  }
+
+  .latest-guides-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .latest-guides-kicker {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-primary-accent, #6366f1);
+    margin-bottom: 0.2rem;
+  }
+
+  .latest-guides-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--slate-950);
+    margin: 0;
+  }
+
+  .latest-guides-all {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-primary-accent, #6366f1);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    white-space: nowrap;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm, 4px);
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .latest-guides-all:hover {
+    background-color: rgba(99, 102, 241, 0.08);
+    text-decoration: none;
+  }
+
+  .latest-guides-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.15rem;
+  }
+
+  .latest-guide-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.95rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    border: 1px solid var(--slate-200, #e2e8f0);
+    border-radius: var(--radius-lg, 12px);
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .latest-guide-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px -8px rgba(15, 23, 42, 0.12);
+    border-color: var(--guide-cat-color, var(--color-primary-accent, #6366f1));
+    text-decoration: none;
+  }
+
+  .latest-guide-thumb {
+    flex: 0 0 76px;
+    width: 76px;
+    height: 76px;
+    border-radius: var(--radius-sm, 4px);
+    overflow: hidden;
+    background-color: var(--slate-100, #f1f5f9);
+  }
+
+  .latest-guide-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .latest-guide-body {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .latest-guide-cat {
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--guide-cat-color, var(--color-primary-accent, #6366f1));
+  }
+
+  .latest-guide-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--slate-950);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .latest-guide-desc {
+    font-size: 0.8rem;
+    line-height: 1.45;
+    color: var(--slate-600);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Guides Category Boxes Subsection (Anchor target #guides) */
+  .guide-categories-section {
+    margin-top: 3.5rem;
+    padding-top: 2.75rem;
+    border-top: 1px solid var(--slate-200, #e2e8f0);
+    scroll-margin-top: 2rem;
+  }
+
+  .guide-categories-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .guide-categories-kicker {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--slate-500, #64748b);
+    margin-bottom: 0.25rem;
+  }
+
+  .guide-categories-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--slate-950);
+    margin: 0 0 0.35rem;
+    letter-spacing: -0.02em;
+  }
+
+  .guide-categories-desc {
+    font-size: 0.92rem;
+    color: var(--slate-600);
+    margin: 0;
+    max-width: 650px;
+    line-height: 1.5;
   }
 
   .guide-categories-grid {
@@ -794,125 +1014,6 @@ const featuredStoreProducts = storeOffers.slice(0, 3);
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-  }
-
-  /* Latest Practical Guides Subsection */
-  .latest-guides-block {
-    margin-top: 2.5rem;
-    padding: 1.5rem;
-    background-color: var(--slate-50, #f8fafc);
-    border: 1px solid var(--color-border, #e2e8f0);
-    border-radius: var(--radius-lg, 12px);
-  }
-
-  .latest-guides-header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-bottom: 1.1rem;
-  }
-
-  .latest-guides-title {
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: var(--slate-950);
-    margin: 0;
-  }
-
-  .latest-guides-all {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--color-primary-accent, #6366f1);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-    white-space: nowrap;
-  }
-
-  .latest-guides-all:hover {
-    text-decoration: underline;
-  }
-
-  .latest-guides-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .latest-guide-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.85rem;
-    padding: 0.85rem;
-    background-color: var(--color-surface, #ffffff);
-    border: 1px solid var(--color-border, #e2e8f0);
-    border-radius: var(--radius-md, 8px);
-    text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  }
-
-  .latest-guide-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px -12px rgba(0, 0, 0, 0.12);
-    border-color: var(--guide-cat-color, var(--color-primary-accent, #6366f1));
-    text-decoration: none;
-  }
-
-  .latest-guide-thumb {
-    flex: 0 0 76px;
-    width: 76px;
-    height: 76px;
-    border-radius: var(--radius-sm, 4px);
-    overflow: hidden;
-    background-color: var(--slate-100, #f1f5f9);
-  }
-
-  .latest-guide-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .latest-guide-body {
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-  }
-
-  .latest-guide-cat {
-    font-size: 0.65rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--guide-cat-color, var(--color-primary-accent, #6366f1));
-  }
-
-  .latest-guide-title {
-    font-size: 0.95rem;
-    font-weight: 700;
-    line-height: 1.35;
-    color: var(--slate-950);
-    margin: 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .latest-guide-desc {
-    font-size: 0.8rem;
-    line-height: 1.45;
-    color: var(--slate-600);
-    margin: 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
   }
 
   /* 4. Practical Resources Section */
@@ -1220,6 +1321,17 @@ const featuredStoreProducts = storeOffers.slice(0, 3);
     .hero-section {
       padding: 3rem 0 2.5rem;
     }
+    .hero-cta-wrapper {
+      flex-direction: column;
+      width: 100%;
+      max-width: 320px;
+      margin-inline: auto;
+      gap: 0.75rem;
+    }
+    .hero-cta-btn {
+      width: 100%;
+      justify-content: center;
+    }
     .picks-homepage-section,
     .guides-homepage-section,
     .resources-homepage-section,
@@ -1234,6 +1346,10 @@ const featuredStoreProducts = storeOffers.slice(0, 3);
     }
     .latest-guides-block {
       padding: 1.1rem;
+    }
+    .guide-categories-section {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
     }
     .store-preview-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));

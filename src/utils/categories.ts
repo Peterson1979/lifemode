@@ -78,6 +78,19 @@ export const CATEGORIES: Record<string, CategoryMeta> = {
     borderColor: '#e9d8f5',
     popularTopics: ['Skincare Routines', 'Beauty Tools', 'Grooming', 'Personal Care'],
   },
+  'everyday-essentials': {
+    id: 'everyday-essentials',
+    slug: 'everyday-essentials',
+    title: 'Everyday Essentials',
+    shortTitle: 'Everyday Essentials',
+    description: 'Practical household essentials, Amazon product guides, and everyday tools for a well-organized home.',
+    metaDescription: 'Practical guides covering everyday household essentials and Amazon product recommendations for a well-organized home.',
+    icon: '🏠',
+    badgeColor: '#6b46c1', // Deep Purple
+    lightBg: '#f5f3ff',
+    borderColor: '#e9d8f5',
+    popularTopics: ['Household Organization', 'Amazon Product Guides', 'Everyday Tools', 'Home Organization Essentials', 'Affiliate Selections'],
+  },
   'travel': {
     id: 'travel',
     slug: 'travel',
@@ -103,3 +116,5 @@ export function getCategory(slug: string): CategoryMeta | undefined {
 
 
 export const CATEGORY_KEYS = Object.keys(CATEGORIES) as (keyof typeof CATEGORIES)[];
+
+export const EVERYDAY_ESSENTIALS_KEY = 'everyday-essentials';

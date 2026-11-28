@@ -252,6 +252,7 @@ export const APPROVED_EDITORIAL_CATEGORIES = [
   { name: 'Fitness & Active Living', href: '/fitness-active-living/', slug: 'fitness-active-living', color: '#dc2626' },
   { name: 'Beauty & Personal Care', href: '/beauty-personal-care/', slug: 'beauty-personal-care', color: '#d946ef' },
   { name: 'Travel', href: '/travel/', slug: 'travel', color: '#0284c4' },
+  { name: 'Everyday Essentials', href: '/everyday-essentials/', slug: 'everyday-essentials', color: '#6b46c1' },
 ] as const;
 
 export const SOCIAL_LINKS = [
